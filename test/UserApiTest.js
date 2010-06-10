@@ -1,6 +1,15 @@
+/**
+ * Copyright 2010 Ajax.org B.V.
+ *
+ * This product includes software developed by
+ * Ajax.org B.V. (http://www.ajax.org/).
+ *
+ * Author: Fabian Jaokbs <fabian@ajax.org>
+ */
+
 var sys = require("sys");
 var GitHubApi = require("../lib/github").GitHubApi;
-var async_testing = require('../../vendor/node-async-testing/async_testing');
+var async_testing = require('../vendor/node-async-testing/async_testing');
 
 var suite = exports.suite = new async_testing.TestSuite();
 
