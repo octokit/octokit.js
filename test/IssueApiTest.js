@@ -13,8 +13,8 @@ var async_testing = require('../vendor/node-async-testing/async_testing');
 
 var suite = exports.suite = new async_testing.TestSuite();
 
-username = 'ornicar';
-repo     = 'php-github-api';
+var username = 'ornicar';
+var repo     = 'php-github-api';
 
 suite.setup(function() {
     this.github = new GitHubApi(true);

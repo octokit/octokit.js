@@ -13,9 +13,9 @@ var async_testing = require('../vendor/node-async-testing/async_testing');
 
 var suite = exports.suite = new async_testing.TestSuite();
 
-var username = "fjakobs";
+var username = "ornicar";
 var branch = "master";
-var repo = "qxoo";
+var repo = "php-github-api";
 
 suite.setup(function() {
     this.github = new GitHubApi(true);
@@ -29,18 +29,17 @@ suite.addTests({
             assert.ok(commits[0].message !== undefined);
             finished();
         });
+    },
+
+    "test: get file commits" : function(assert, finisched, test) {
+        test.commitApi.getFileCommits(username, repo, branch, "README", function(err, commits) {
+            assert.ok(commits.length > 0);
+            assert.equal(commits[0].message, "first commit");
+            finished();
+        });
     }
 });
 
 if (module === require.main) {
     async_testing.runSuites({CommitApi: suite});
 }
-
-
-//$commits = $api->getCommitApi()->getFileCommits($username, $repo, $branch, 'README');
-//
-//$t->is_deeply($api->listFileCommits($username, $repo, $branch, 'README'), $commits, 'Both new and BC syntax work');
-//
-//$firstCommit = array_pop($commits);
-//
-//$t->is($firstCommit['message'], 'first commit', 'Found master README commits');
