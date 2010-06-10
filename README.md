@@ -49,6 +49,17 @@ The test classes can also be run separately. This will e.g. run the UserApi test
     
 Note that a connection to the internet is required to run the tests.
 
+## TODO
+
+* Port missing methods from the Issues API
+* Implement the Gist AIP
+* port to CommonJS (this should be easy because only the 'doSend' method is node specific)
+* Integrate with node package managers
+* API docs
+  * fix and polish (there might still be some PHP-isms)
+  * generate API documentation
+* Documentation
+
 ## LICENSE
 
 This code is licensed under a MIT license. See the LICENSE file for details.
