@@ -31,10 +31,10 @@ suite.addTests({
         });
     },
 
-    "test: get file commits" : function(assert, finisched, test) {
+    "test: get file commits" : function(assert, finished, test) {
         test.commitApi.getFileCommits(username, repo, branch, "README", function(err, commits) {
             assert.ok(commits.length > 0);
-            assert.equal(commits[0].message, "first commit");
+            assert.equal(commits.pop().message, "first commit");
             finished();
         });
     }

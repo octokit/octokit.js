@@ -25,7 +25,7 @@ suite.setup(function() {
 suite.addTests({
     "test: show tree" : function(assert, finished, test) {
         this.objectApi.showTree(username, repo, treeSha, function(err, tree) {
-            assert.equal(tree[0].sha, "5ac35496a1cbb2a914ff4325e7d6e8cae61f90b9");
+            assert.equal(tree.pop().sha, "5ac35496a1cbb2a914ff4325e7d6e8cae61f90b9");
             finished();
         });
     },
@@ -39,8 +39,8 @@ suite.addTests({
 
     "test: list blobs" : function(assert, finished, test) {
         this.objectApi.listBlobs(username, repo, treeSha, function(err, blobs) {
-            assert.ok(blobls.length > 0);
-            fnished();
+            assert.equal(blobs["README.markdown"], "d15692fb3adcbb752064c6be20361cf86914d736");
+            finished();
         });
     },
 
@@ -54,9 +54,9 @@ suite.addTests({
             "created README.markdown",
             ""
         ].join("\n");
-        this.assertApi.getRawData(username, repo, "bd25d1e4ea7eab84b856131e470edbc21b6cd66b", function(err, data) {
+        this.objectApi.getRawData(username, repo, "bd25d1e4ea7eab84b856131e470edbc21b6cd66b", function(err, data) {
             assert.equal(data, expected);
-            fnished();
+            finished();
         });
     }
 });
