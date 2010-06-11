@@ -33,6 +33,16 @@ This example shows how to authenticate and then change _location_ field of the a
 
 Note that the _authenticate_ method is synchronous because it only stores the credentials for the next request.
 
+## Implemented GitHub APIs
+
+* User API: 100%
+* Commit API: 100%
+* Object API: 100%
+* Repository API: almost complete. Only _create_ and _delete_ repository is missing
+* Issues API: only _getList_ is implemented
+* Gist API: still missing 
+* Network API: still missing
+
 ## Running the Tests
 
 The unit tests are based on the [node-async-test](http://github.com/bentomas/node-async-testing) module, which is provided as a git submodule. This has to be initialized once using:
@@ -51,8 +61,6 @@ Note that a connection to the internet is required to run the tests.
 
 ## TODO
 
-* Port missing methods from the Issues API
-* Implement the Gist AIP
 * port to CommonJS (this should be easy because only the 'doSend' method is node specific)
 * Integrate with node package managers
 * API docs
