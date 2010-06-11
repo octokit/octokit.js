@@ -70,7 +70,7 @@ Note that a connection to the internet is required to run the tests.
 
 ## LICENSE
 
-This code is licensed under a MIT license. See the LICENSE file for details.
+MIT license. See the LICENSE file for details.
 
 ## Credits
 
