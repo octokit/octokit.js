@@ -74,4 +74,4 @@ MIT license. See the LICENSE file for details.
 
 ## Credits
 
-Thanks to Thibault Duplessis for the excellent php-github-api library, which is the blueprint of this library. Especially the unit tests prooved to be very helpful.
+Thanks to Thibault Duplessis for the excellent php-github-api library, which is the blueprint of this library. Especially the unit tests proved to be very helpful.
