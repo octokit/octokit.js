@@ -2,6 +2,19 @@
 
 A node.js module, which provides an object oriented wrapper for the GitHub API. This library is a direct port of [php-github-api](http://github.com/ornicar/php-github-api) by Thibault Duplessis to JavaScript. The only major difference is that the JavaScript code is fully asynchronous.
 
+## Installation
+
+  Install the [Kiwi package manager for nodejs](http://github.com/visionmedia/kiwi)
+  and run:
+  
+      $ kiwi install node-github
+
+or
+
+  Install via git clone:
+  
+      $ git clone https://ajaxorg@github.com/ajaxorg/node-github.git && cd node-github && git submodule update --init
+
 ## Example
 
 Print all followers of the user "fjakobs" to the console.
