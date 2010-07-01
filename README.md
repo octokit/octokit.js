@@ -13,7 +13,7 @@ or
 
   Install via git clone:
   
-      $ git clone https://ajaxorg@github.com/ajaxorg/node-github.git && cd node-github && git submodule update --init
+      $ git clone git://github.com/ajaxorg/node-github.git && cd node-github && git submodule update --init
 
 ## Example
 
