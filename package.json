@@ -1,0 +1,13 @@
+{
+    "name" : "github",
+    "version" : "0.0.1",
+    "descrption" : "Wrapper for the GitHub API",
+    "modules" : {
+        "index" : "./lib/github",
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/ajaxorg/node-github.git"
+    },
+    "engine" : ["node >=0.1.100"]
+}
