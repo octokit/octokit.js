@@ -75,7 +75,6 @@ Note that a connection to the internet is required to run the tests.
 ## TODO
 
 * port to CommonJS (this should be easy because only the 'doSend' method is node specific)
-* Integrate with node package managers
 * API docs
   * fix and polish (there might still be some PHP-isms)
   * generate API documentation
