@@ -49,6 +49,13 @@ suite.addTests({
         });
     },
 
+    "test: get repo languages" : function(assert, finished, test) {
+        test.repoApi.getRepoLanguages("fjakobs", "node", function(err, languages) {
+            assert.ok(languages['C++'] != undefined);
+            finished();
+        });
+    },
+
     "test: get repo branches" : function(assert, finished, test) {
         test.repoApi.getRepoBranches("fjakobs", "node", function(err, branches) {
             assert.ok(branches["master"] !== undefined);
