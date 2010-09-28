@@ -4,10 +4,9 @@ A node.js module, which provides an object oriented wrapper for the GitHub API. 
 
 ## Installation
 
-  Install the [Kiwi package manager for nodejs](http://github.com/visionmedia/kiwi)
-  and run:
+  Install with the node package manager [npm](http://npm.mape.me/):
   
-      $ kiwi install node-github
+      $ npm install github
 
 or
 
