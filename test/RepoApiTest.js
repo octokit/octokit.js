@@ -19,6 +19,7 @@ suite.setup(function() {
 });
 
 suite.addTests({
+
     "test: search repos" : function(assert, finished, test) {
         test.repoApi.search("php github api", function(err, repos) {
             assert.ok(repos.length > 0);
@@ -61,7 +62,32 @@ suite.addTests({
             assert.ok(branches["master"] !== undefined);
             finished();
         });
+    },
+
+    "test: get repo collaborators" : function(assert, finished, test) {
+        test.repoApi.getRepoCollaborators("fjakobs", "node", function(err, collaborators) {
+            assert.ok(collaborators.length > 0);
+            assert.ok(!!~collaborators.toString().split(",").indexOf("fjakobs"));
+            finished();
+        });
+    },
+
+    "test: get repo contributors" : function(assert, finished, test) {
+        test.repoApi.getRepoContributors("fjakobs", "node", function(err, contributors) {
+            assert.ok(contributors.length > 0);
+            assert.ok(contributors[0].login == "ry");
+            finished();
+        });
+    },
+
+    "test: get repo watchers" : function(assert, finished, test) {
+        test.repoApi.getRepoWatchers("fjakobs", "node", function(err, watchers) {
+            assert.ok(watchers.length > 0);
+            assert.ok(!!~watchers.toString().split(",").indexOf("fjakobs"));
+            finished();
+        });
     }
+
 });
 
 if (module === require.main) {
