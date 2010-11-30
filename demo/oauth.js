@@ -27,7 +27,8 @@ http.createServer(function(req, res) {
         if (!accessToken) {
             res.writeHead(303, {
                 Location: oauth.getAuthorizeUrl({ 
-                  redirect_uri: 'http://localhost:7878/github-callback' 
+                  redirect_uri: 'http://localhost:7878/github-callback',
+                  scope: "user,repo"
                 })
             });
             res.end();
@@ -35,7 +36,12 @@ http.createServer(function(req, res) {
         }
                 
         // use github API            
-        user.show("fjakobstest", function(err, user) {
+        user.show(function(err, user) {
+		    if (err) {
+		        res.writeHead(err.status);
+		        res.end(JSON.stringify(err));
+		        return;
+		    }
 		    res.writeHead(200);
 		    res.end(JSON.stringify(user))
         });
