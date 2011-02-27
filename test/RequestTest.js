@@ -23,7 +23,7 @@ suite.addTests({
         request.get('user/search/diem-project', null, null, function(err, response) {
             var sys = require("sys");
             assert.equal(response.users.length, 1, "Found one user");
-            assert.equal(response.users[0].name, "diem-project", "Found one user");
+            assert.equal(response.users[0].login, "diem-project", "Found one user");
             finished();
         });
     }

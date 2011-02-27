@@ -21,7 +21,7 @@ http.createServer(function(req, res) {
     var path = url.pathname;
     var query = querystring.parse(url.query);
     
-    if (path == "/" || path.match(/^\/user\/?$/)) {
+    if (path == "/" || path.match(/^\/user\/?$/)) {
         
         // redirect to github if there is no access token        
         if (!accessToken) {
@@ -37,13 +37,13 @@ http.createServer(function(req, res) {
                 
         // use github API            
         user.show(function(err, user) {
-		    if (err) {
-		        res.writeHead(err.status);
-		        res.end(JSON.stringify(err));
-		        return;
-		    }
-		    res.writeHead(200);
-		    res.end(JSON.stringify(user))
+            if (err) {
+                res.writeHead(err.status);
+                res.end(JSON.stringify(err));
+                return;
+            }
+            res.writeHead(200);
+            res.end(JSON.stringify(user));
         });
         return;
     } 
@@ -51,17 +51,24 @@ http.createServer(function(req, res) {
     else if (path.match(/^\/github-callback\/?$/)) {
         // upgrade the code to an access token
         oauth.getOAuthAccessToken(query.code, {}, function (err, access_token, refresh_token) {
-	        accessToken = access_token;
-	        
-	        // authenticate github API
-	        github.authenticateOAuth(accessToken);
-	          
-	        //redirect back
-	        res.writeHead(303, {
-	            Location: "/"
-	        });
-	        res.end();
-        })
+            if (err) {
+                console.log(err);
+                res.writeHead(500);
+                res.end(err + "");
+                return;
+            }
+            
+            accessToken = access_token;
+            
+            // authenticate github API
+            github.authenticateOAuth(accessToken);
+              
+            //redirect back
+            res.writeHead(303, {
+                Location: "/"
+            });
+            res.end();
+        });
         return;
     }
         

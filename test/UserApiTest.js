@@ -25,8 +25,8 @@ suite.addTests({
    "test: search users" : function(assert, finished) {
         this.userApi.search(username, function(err, users) {
             assert.equal(err, null);
-            assert.equal(users.length, 1);
-            assert.equal(users[0].name, username);
+            assert.equal(users.length, 1);            
+            assert.equal(users[0].login, username);
             finished();
         });
     },
