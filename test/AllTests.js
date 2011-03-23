@@ -12,6 +12,7 @@ var async_testing = require('../vendor/node-async-testing/async_testing');
 var suites = {
     ObjectApi: require("./ObjectApiTest").suite,
     IssueApi: require("./IssueApiTest").suite,
+    PullApi: require("./PullApiTest").suite,
     CommitApi: require("./CommitApiTest").suite,
     RepoApi: require("./RepoApiTest").suite,
     UserApi: require("./UserApiTest").suite,
