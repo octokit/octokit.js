@@ -80,6 +80,14 @@ suite.addTests({
         });
     },
 
+    "test: get repo non-github contributors" : function(assert, finished, test) {
+        test.repoApi.getRepoContributors("fjakobs", "node", true, function(err, contributors) {
+            assert.ok(contributors.length > 0);
+            assert.ok(contributors[0].login == "ry");
+            finished();
+        });
+    },
+
     "test: get repo watchers" : function(assert, finished, test) {
         test.repoApi.getRepoWatchers("fjakobs", "node", function(err, watchers) {
             assert.ok(watchers.length > 0);
