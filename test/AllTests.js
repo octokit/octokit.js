@@ -18,7 +18,7 @@ var suites = {
     UserApi: require("./UserApiTest").suite,
     GitHubApi: require("./GitHubApiTest").suite,
     Request: require("./RequestTest").suite,
-    Authentification: require("./AuthentificationTest").suite
+    Authentication: require("./AuthenticationTest").suite
 };
 
 if (module === require.main) {
