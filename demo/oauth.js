@@ -7,9 +7,10 @@ var OAuth2 = require("../vendor/node-oauth/lib/oauth2").OAuth2;
 
 var github = new GitHubApi(true);
 var user = github.getUserApi();
+var repo = github.getRepoApi();
 
-var clientId = "3e5a546357431172f24d";
-var secret = "da60ce7426edfbd3d5253b096a2728e81d3bc9c5";
+var clientId = "e8c434a1c92e9de7ff8d";
+var secret = "1d0fcbb060e1dd86a0aa3d12265419c9bb19a333";
 var oauth = new OAuth2(clientId, secret, 'https://github.com/', 'login/oauth/authorize', 'login/oauth/access_token');
 
 // for demo purposes use one global access token
@@ -28,7 +29,7 @@ http.createServer(function(req, res) {
             res.writeHead(303, {
                 Location: oauth.getAuthorizeUrl({ 
                   redirect_uri: 'http://localhost:7878/github-callback',
-                  scope: "user,repo"
+                  scope: "user,repo,gist"
                 })
             });
             res.end();
