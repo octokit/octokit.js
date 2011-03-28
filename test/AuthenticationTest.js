@@ -23,7 +23,6 @@ suite.setup(function() {
 });
 
 suite.addTests({
-/*
     "test: show user without authentification should have no 'plan'" : function(assert, finished, test) {
         test.userApi.show(username, function(err, user) {
             assert.equal(user.plan, undefined);
@@ -38,10 +37,10 @@ suite.addTests({
             finished();
         });
     },
-*/
+/*
     // test disabled because I don't want to see my password on github :-)
     "test: authenticate using username and password" : function(assert, finished, test) {
-        test.github.authenticatePassword("fjakobs", "open1234");
+        test.github.authenticatePassword("fjakobs", "xxxx");
         test.userApi.show("fjakobs", function(err, user) {
             assert.ok(user.plan !== undefined);
             console.log(user)
@@ -52,7 +51,7 @@ suite.addTests({
             
         });
     },
-/*
+*/
     "test: authenticate using username and wrong password" : function(assert, finished, test) {
         test.github.authenticatePassword(username, "1234");
         test.userApi.show(username, function(err, user) {
@@ -67,7 +66,7 @@ suite.addTests({
             assert.ok(err !== undefined);
             finished();
         });
-    }*/
+    }
 });
 
 if (module === require.main) {
