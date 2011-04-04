@@ -1,9 +1,11 @@
+require("../support/paths");
+
 var http = require("http");
 var Url = require("url");
 var querystring = require("querystring");
 
-var GitHubApi = require("../lib/github").GitHubApi;
-var OAuth2 = require("../vendor/node-oauth/lib/oauth2").OAuth2;
+var GitHubApi = require("github").GitHubApi;
+var OAuth2 = require("oauth2").OAuth2;
 
 var github = new GitHubApi(true);
 var user = github.getUserApi();
