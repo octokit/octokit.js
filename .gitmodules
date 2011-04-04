@@ -1,6 +1,6 @@
-[submodule "vendor/node-async-testing"]
-	path = vendor/node-async-testing
-	url = git://github.com/bentomas/node-async-testing.git
-[submodule "vendor/node-oauth"]
-	path = vendor/node-oauth
+[submodule "support/async"]
+	path = support/async
+	url = git@github.com:fjakobs/async.js.git
+[submodule "support/oauth"]
+	path = support/oauth
 	url = git://github.com/ciaranj/node-oauth.git

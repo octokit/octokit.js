@@ -1,6 +1,6 @@
 {
     "name" : "github",
-    "version" : "0.0.5",
+    "version" : "0.0.6",
     "description" : "Wrapper for the GitHub API",
     "author": "Fabian Jakobs <fabian.jakobs@web.de>",
     "homepage": "http://github.com/ajaxorg/node-github.git",
@@ -10,6 +10,10 @@
         "url" : "http://github.com/ajaxorg/node-github.git"
     },
     "engine" : ["node >=0.4.0"],
+    "dependencies": {
+        "asyncjs": ">=0.0.3",
+        "oauth": ">=0.8.4"
+    },
     "licenses": [{
         "type": "The MIT License",
         "url": "http://www.opensource.org/licenses/mit-license.php"}
