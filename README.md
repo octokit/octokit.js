@@ -30,11 +30,11 @@ First the _GitHubApi_ class is imported from the _github_ module. This class pro
 
 Like in node.js callbacks are always the last argument. If the functions fails an error object is passed as first argument to the callback.
 
-## Authentification
+## Authentication
 
-Most GitHub API calls don't require authentification. As a rule of thumb: If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API. Of course calls, which change data or read sensitive information have to be authenticated.
+Most GitHub API calls don't require authentication. As a rule of thumb: If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API. Of course calls, which change data or read sensitive information have to be authenticated.
 
-You need the GitHub user name and the API key for authentification. The API key can be found in the user's _Account Settings_ page.
+You need the GitHub user name and the API key for authentication. The API key can be found in the user's _Account Settings_ page.
 
 This example shows how to authenticate and then change _location_ field of the account settings to _Argentinia_:
 
@@ -64,11 +64,11 @@ The unit tests are based on the [node-async-test](http://github.com/bentomas/nod
     
 Running all unit tests:
 
-    node test/AllTests.js
+    node lib/github_all_tests.js 
     
 The test classes can also be run separately. This will e.g. run the UserApi test:
 
-    node test/UserApiTest.js
+    node lib/github_test.js
     
 Note that a connection to the internet is required to run the tests.
 
