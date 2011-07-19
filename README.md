@@ -53,7 +53,7 @@ Note that the _authenticate_ method is synchronous because it only stores the cr
 * Repository API: almost complete. Only _create_ and _delete_ repository is missing
 * Issues API: only _getList_ is implemented
 * Pulls API: only _getList_ is implemented
-* Gist API: all of v1 Gist API implemented. Missing v3 API and any tests
+* Gist API: 100% v1 Gist API implemented. 0% v3 API
 * Network API: still missing
 
 ## Running the Tests
