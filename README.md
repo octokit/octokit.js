@@ -36,10 +36,10 @@ Most GitHub API calls don't require authentication. As a rule of thumb: If you c
 
 You need the GitHub user name and the API key for authentication. The API key can be found in the user's _Account Settings_ page.
 
-This example shows how to authenticate and then change _location_ field of the account settings to _Argentinia_:
+This example shows how to authenticate and then change _location_ field of the account settings to _Argentina_:
 
     github.authenticate(username, token);
-    github.getUserApi().update(username, {location: "Argentinia"}, function(err) {
+    github.getUserApi().update(username, {location: "Argentina"}, function(err) {
         console.log("done!");
     });
 
