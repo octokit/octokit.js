@@ -1,10 +1,10 @@
 # JavaScript GitHub API for node.js
 
-A node.js module, which provides an object oriented wrapper for the GitHub API. This library is a direct port of [php-github-api](http://github.com/ornicar/php-github-api) by Thibault Duplessis to JavaScript. The only major difference is that the JavaScript code is fully asynchronous.
+A node.js module, which provides an object oriented wrapper for the GitHub v2 API. This library is a direct port of [php-github-api](http://github.com/ornicar/php-github-api) by Thibault Duplessis to JavaScript. The only major difference is that the JavaScript code is fully asynchronous.
 
 ## Installation
 
-  Install with the node package manager [npm](http://npm.mape.me/):
+  Install with the node package manager [npm](http://npmjs.org/):
   
       $ npm install github
 
@@ -12,7 +12,9 @@ or
 
   Install via git clone:
   
-      $ git clone git://github.com/ajaxorg/node-github.git && cd node-github && git submodule update --init
+      $ git clone git://github.com/ajaxorg/node-github.git
+      $ cd node-github
+      $ npm install
 
 ## Example
 
@@ -58,11 +60,13 @@ Note that the _authenticate_ method is synchronous because it only stores the cr
 
 ## Running the Tests
 
-The unit tests are based on the [node-async-test](http://github.com/bentomas/node-async-testing) module, which is provided as a git submodule. This has to be initialized once using:
-
-    git submodule update --init
+The unit tests are based on the [node-async-test](http://github.com/bentomas/node-async-testing) module, which is provided as a git submodule. To run the tests make sure that the npm dependencies are installed by running `npm install` from the project directory.
     
 Running all unit tests:
+
+    npm test
+    
+or
 
     node lib/github_all_tests.js 
     
@@ -74,7 +78,6 @@ Note that a connection to the internet is required to run the tests.
 
 ## TODO
 
-* port to CommonJS (this should be easy because only the 'doSend' method is node specific)
 * API docs
   * fix and polish (there might still be some PHP-isms)
   * generate API documentation
