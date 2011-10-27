@@ -1,6 +1,0 @@
-[submodule "support/async"]
-	path = support/async
-	url = git@github.com:fjakobs/async.js.git
-[submodule "support/oauth"]
-	path = support/oauth
-	url = git://github.com/ciaranj/node-oauth.git
