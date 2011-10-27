@@ -1,18 +1,23 @@
 {
     "name" : "github",
-    "version" : "0.0.6",
+    "version" : "0.0.7",
     "description" : "Wrapper for the GitHub API",
     "author": "Fabian Jakobs <fabian.jakobs@web.de>",
-    "homepage": "http://github.com/ajaxorg/node-github.git",
-    "main" : "./lib/github",
+    "homepage": "http://github.com/ajaxorg/node-github",
     "repository" : {
         "type" : "git",
         "url" : "http://github.com/ajaxorg/node-github.git"
     },
-    "engine" : ["node >=0.4.0"],
-    "dependencies": {
-        "asyncjs": ">=0.0.3",
-        "oauth": ">=0.8.4"
+    "engine" : {
+        "node": "0.4.x"
+    },
+    "devDependencies": {
+        "asyncjs": ">=0.0.x",
+        "oauth": ">=0.8.x"
+    },
+    "main" : "./lib/github",
+    "scripts": {
+        "test": "node ./lib/github/github_all_tests.js"  
     },
     "licenses": [{
         "type": "The MIT License",
