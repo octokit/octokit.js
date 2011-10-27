@@ -17,7 +17,7 @@
     },
     "main" : "./lib/github",
     "scripts": {
-        "test": "node ./lib/github/github_all_tests.js"  
+        "test": "node ./lib/github_all_tests.js"  
     },
     "licenses": [{
         "type": "The MIT License",
