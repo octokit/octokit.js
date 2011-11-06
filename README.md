@@ -5,13 +5,13 @@ A node.js module, which provides an object oriented wrapper for the GitHub v2 AP
 ## Installation
 
   Install with the node package manager [npm](http://npmjs.org/):
-  
+
       $ npm install github
 
 or
 
   Install via git clone:
-  
+
       $ git clone git://github.com/ajaxorg/node-github.git
       $ cd node-github
       $ npm install
@@ -20,7 +20,6 @@ or
 
 Print all followers of the user "fjakobs" to the console.
 
-    var sys = require("sys");
     var GitHubApi = require("github").GitHubApi;
 
     var github = new GitHubApi(true);
@@ -61,19 +60,19 @@ Note that the _authenticate_ method is synchronous because it only stores the cr
 ## Running the Tests
 
 The unit tests are based on the [node-async-test](http://github.com/bentomas/node-async-testing) module, which is provided as a git submodule. To run the tests make sure that the npm dependencies are installed by running `npm install` from the project directory.
-    
+
 Running all unit tests:
 
     npm test
-    
+
 or
 
-    node lib/github_all_tests.js 
-    
+    node lib/github_all_tests.js
+
 The test classes can also be run separately. This will e.g. run the UserApi test:
 
     node lib/github_test.js
-    
+
 Note that a connection to the internet is required to run the tests.
 
 ## TODO
