@@ -9,7 +9,7 @@
         "url" : "http://github.com/ajaxorg/node-github.git"
     },
     "engine" : {
-        "node": "0.4.x"
+        "node": ">=0.4.0"
     },
     "devDependencies": {
         "asyncjs": ">=0.0.x",
