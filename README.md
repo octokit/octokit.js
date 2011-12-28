@@ -52,7 +52,7 @@ Note that the _authenticate_ method is synchronous because it only stores the cr
 * Commit API: 100%
 * Object API: 100%
 * Repository API: almost complete. Only _create_ and _delete_ repository is missing
-* Issues API: only _getList_ is implemented
+* Issues API: 100%
 * Pulls API: only _getList_ is implemented
 * Gist API: 100% v1 Gist API implemented. 0% v3 API
 * Network API: still missing
