@@ -74,6 +74,20 @@ account settings to _Argentina_:
 Note that the _authenticate_ method is synchronous because it only stores the 
 credentials for the next request.
 
+Other examples for the various authentication methods:
+
+    // OAuth2
+    github.authenticate({
+        type: "oauth",
+        token: token
+    });
+    
+    // Deprecated Gihub API token (seems not to be working with the v3 API)
+    github.authenticate({
+        type: "token",
+        token: token
+    });
+
 ## Implemented GitHub APIs
 
 * Gists: 100%
