@@ -2,7 +2,11 @@
     "name" : "github",
     "version" : "0.1.0",
     "description" : "NodeJS wrapper for the GitHub API",
-    "author": "Mike de Boer <mike@c9.io>",
+    "author": "ajax.org B.V. <info@ajax.org>",
+    "contributors": [
+        { "name": "Mike de Boer", "email": "mike@c9.io>" },
+        { "name": "Fabian Jakobs", "email": "fabian@c9.io" }
+    ],
     "homepage": "http://github.com/ajaxorg/node-github",
     "repository" : {
         "type" : "git",
@@ -12,8 +16,8 @@
         "node": ">=0.4.0"
     },
     "devDependencies": {
-        "asyncjs": ">=0.0.x",
-        "oauth": ">=0.8.x"
+        "asyncjs": "~0.0.4",
+        "oauth": "~0.8.0"
     },
     "main" : ".",
     "scripts": {
