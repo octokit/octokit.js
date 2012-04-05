@@ -6,19 +6,19 @@ A Node.JS module, which provides an object oriented wrapper for the GitHub v3 AP
 
   Install with the Node.JS package manager [npm](http://npmjs.org/):
 
-      $ npm install node-github
+      $ npm install github
 
 or
 
   Install via git clone:
 
-      $ git clone git://github.com/c9/node-github3.git
-      $ cd node-github3
+      $ git clone git://github.com/ajaxorg/node-github.git
+      $ cd node-github
       $ npm install
 
 ## Documentation
 
-You can find the docs for the API of this client at [http://c9.github.com/node-github3/](http://c9.github.com/node-github3/)
+You can find the docs for the API of this client at [http://ajaxorg.github.com/node-github/](http://ajaxorg.github.com/node-github/)
 
 Additionally, the [official Github documentation](http://developer.github.com/) 
 is a very useful resource.
@@ -27,7 +27,7 @@ is a very useful resource.
 
 Print all followers of the user "mikedeboer" to the console.
 
-    var GitHubApi = require("node-github");
+    var GitHubApi = require("github");
 
     var github = new GitHubApi({
         version: "3.0.0"

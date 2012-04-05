@@ -1,5 +1,5 @@
 ---
   name: node-github
-  description: node wrapper for the GitHub API
+  description: NodeJS wrapper for the GitHub API
   tags: git github web
-  version: 0.0.8
+  version: 0.1.0

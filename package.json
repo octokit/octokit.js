@@ -1,12 +1,12 @@
 {
-    "name" : "node-github",
-    "version" : "0.0.3",
-    "description" : "Wrapper for the GitHub API",
+    "name" : "github",
+    "version" : "0.1.0",
+    "description" : "NodeJS wrapper for the GitHub API",
     "author": "Mike de Boer <mike@c9.io>",
-    "homepage": "http://github.com/c9/node-github3",
+    "homepage": "http://github.com/ajaxorg/node-github",
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/c9/node-github3.git"
+        "url" : "http://github.com/ajaxorg/node-github.git"
     },
     "engine" : {
         "node": ">=0.4.0"
