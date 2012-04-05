@@ -1,12 +1,12 @@
 {
-    "name" : "github",
-    "version" : "0.0.8",
+    "name" : "node-github",
+    "version" : "0.0.3",
     "description" : "Wrapper for the GitHub API",
-    "author": "Fabian Jakobs <fabian.jakobs@web.de>",
-    "homepage": "http://github.com/ajaxorg/node-github",
+    "author": "Mike de Boer <mike@c9.io>",
+    "homepage": "http://github.com/c9/node-github3",
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/ajaxorg/node-github.git"
+        "url" : "http://github.com/c9/node-github3.git"
     },
     "engine" : {
         "node": ">=0.4.0"
@@ -15,9 +15,9 @@
         "asyncjs": ">=0.0.x",
         "oauth": ">=0.8.x"
     },
-    "main" : "./lib/github",
+    "main" : ".",
     "scripts": {
-        "test": "node ./lib/github_all_tests.js"  
+        "test": "node ./test/all.js"  
     },
     "licenses": [{
         "type": "The MIT License",
