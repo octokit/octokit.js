@@ -1,6 +1,6 @@
 {
     "name" : "github",
-    "version" : "0.0.7",
+    "version" : "0.0.8",
     "description" : "Wrapper for the GitHub API",
     "author": "Fabian Jakobs <fabian.jakobs@web.de>",
     "homepage": "http://github.com/ajaxorg/node-github",
