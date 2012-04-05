@@ -1,11 +1,13 @@
-/**
- * Copyright 2012 Cloud9 IDE, Inc.
+/** section: github
+ * class HttpError
+ * 
+ *  Copyright 2012 Cloud9 IDE, Inc.
  *
- * This product includes software developed by
- * Cloud9 IDE, Inc (http://c9.io).
+ *  This product includes software developed by
+ *  Cloud9 IDE, Inc (http://c9.io).
  *
- * Author: Mike de Boer <mike@c9.io>
- */
+ *  Author: Mike de Boer <mike@c9.io>
+ **/
 
 var Util = require("util");
 
@@ -18,11 +20,20 @@ exports.HttpError = function(message, code) {
 Util.inherits(exports.HttpError, Error);
 
 (function() {
-    
+    /**
+     *  HttpError#toString() -> String
+     * 
+     *  Returns the stringified version of the error (i.e. the message).
+     **/
     this.toString = function() {
         return this.message;
     };
     
+    /**
+     *  HttpError#toJSON() -> Object
+     * 
+     *  Returns a JSON object representation of the error.
+     **/
     this.toJSON = function() {
         return {
             code: this.code,

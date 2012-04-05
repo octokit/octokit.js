@@ -19,7 +19,7 @@ var events = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  events#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -59,7 +59,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromRepo(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -101,7 +101,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromRepoIssues(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -143,7 +143,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromRepoNetwork(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -185,7 +185,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromOrg(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -226,7 +226,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getReceived(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -267,7 +267,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getReceivedPublic(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -308,7 +308,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -349,7 +349,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromUserPublic(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -390,7 +390,7 @@ var events = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  events#getFromUserOrg(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.

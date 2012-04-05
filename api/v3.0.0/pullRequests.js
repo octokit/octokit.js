@@ -19,7 +19,7 @@ var pullRequests = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  pullRequests#getAll(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -62,7 +62,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -103,7 +103,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#create(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -147,7 +147,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#createFromIssue(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -190,7 +190,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#update(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -234,7 +234,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#getCommits(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -277,7 +277,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#getFiles(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -320,7 +320,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#getMerged(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -363,7 +363,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#merge(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -405,7 +405,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#getComments(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -448,7 +448,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#getComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -489,7 +489,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#createComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -534,7 +534,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#createCommentReply(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -577,7 +577,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#updateComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -619,7 +619,7 @@ var pullRequests = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  pullRequests#deleteComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.

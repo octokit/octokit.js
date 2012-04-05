@@ -19,7 +19,7 @@ var user = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  user#getFrom(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -58,7 +58,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -97,7 +97,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#update(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -142,7 +142,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getEmails(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -182,7 +182,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#addEmails(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -221,7 +221,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#deleteEmails(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -260,7 +260,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getFollowers(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -301,7 +301,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getFollowingFromUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -342,7 +342,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getFollowing(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -382,7 +382,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getFollowUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -423,7 +423,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#followUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -462,7 +462,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#unFollowUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -501,7 +501,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getKeys(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -541,7 +541,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#getKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -580,7 +580,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#createKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -620,7 +620,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#updateKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -661,7 +661,7 @@ var user = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  user#deleteKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.

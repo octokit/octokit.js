@@ -19,7 +19,7 @@ var orgs = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  orgs#getFromUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -60,7 +60,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -101,7 +101,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#update(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -145,7 +145,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getMembers(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -186,7 +186,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getMember(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -226,7 +226,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#removeMember(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -266,7 +266,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getPublicMembers(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -305,7 +305,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getPublicMember(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -345,7 +345,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#publicizeMembership(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -385,7 +385,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#concealMembership(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -425,7 +425,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getTeams(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -464,7 +464,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getTeam(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -503,7 +503,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#createTeam(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -545,7 +545,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#updateTeam(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -586,7 +586,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#deleteTeam(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -625,7 +625,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getTeamMembers(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -666,7 +666,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getTeamMember(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -706,7 +706,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#addTeamMember(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -746,7 +746,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#deleteTeamMember(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -786,7 +786,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getTeamRepos(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -827,7 +827,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#getTeamRepo(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -868,7 +868,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#addTeamRepo(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -909,7 +909,7 @@ var orgs = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  orgs#deleteTeamRepo(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.

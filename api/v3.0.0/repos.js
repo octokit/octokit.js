@@ -19,7 +19,7 @@ var repos = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  repos#getAll(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -60,7 +60,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getFromUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -102,7 +102,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getFromOrg(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -144,7 +144,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#create(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -189,7 +189,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#createFromOrg(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -236,7 +236,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -276,7 +276,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#update(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -323,7 +323,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getContributors(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -366,7 +366,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getLanguages(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -408,7 +408,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getTeams(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -450,7 +450,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getTags(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -492,7 +492,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getBranches(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -534,7 +534,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getCollaborators(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -576,7 +576,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getCollaborator(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -617,7 +617,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#addCollaborator(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -658,7 +658,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#removeCollaborator(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -699,7 +699,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getCommits(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -743,7 +743,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getCommit(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -784,7 +784,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getAllCommitComments(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -826,7 +826,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getCommitComments(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -869,7 +869,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#createCommitComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -915,7 +915,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getCommitComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -956,7 +956,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#updateCommitComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -998,7 +998,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#compareCommits(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1040,7 +1040,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#deleteCommitComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1081,7 +1081,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getDownloads(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1123,7 +1123,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getDownload(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1164,7 +1164,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#deleteDownload(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1205,7 +1205,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getForks(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1248,7 +1248,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#fork(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1289,7 +1289,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getKeys(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1331,7 +1331,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1372,7 +1372,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#createKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1414,7 +1414,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#updateKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1457,7 +1457,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#deleteKey(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1498,7 +1498,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getWatchers(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1540,7 +1540,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getWatched(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1580,7 +1580,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getWatchedFromUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1621,7 +1621,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getWatching(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1663,7 +1663,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#watch(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1703,7 +1703,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#unWatch(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1743,7 +1743,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getHooks(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1785,7 +1785,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#getHook(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1826,7 +1826,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#createHook(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1870,7 +1870,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#updateHook(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1917,7 +1917,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#testHook(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -1958,7 +1958,7 @@ var repos = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  repos#deleteHook(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.

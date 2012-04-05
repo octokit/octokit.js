@@ -1,11 +1,13 @@
-/**
- * Copyright 2012 Cloud9 IDE, Inc.
+/** section: github, internal
+ * class ApiGenerator
+ * 
+ *  Copyright 2012 Cloud9 IDE, Inc.
  *
- * This product includes software developed by
- * Cloud9 IDE, Inc (http://c9.io).
+ *  This product includes software developed by
+ *  Cloud9 IDE, Inc (http://c9.io).
  *
- * Author: Mike de Boer <mike@c9.io>
- */
+ *  Author: Mike de Boer <mike@c9.io>
+ **/
 
 "use strict";
 
@@ -14,12 +16,12 @@ var Path = require("path");
 
 var Util = require("./util");
 
-var IndexTpl = Fs.readFileSync(__dirname + "/templates/index.js", "utf8");
-var SectionTpl = Fs.readFileSync(__dirname + "/templates/section.js", "utf8");
-var HandlerTpl = Fs.readFileSync(__dirname + "/templates/handler.js", "utf8");
-var AfterRequestTpl = Fs.readFileSync(__dirname + "/templates/after_request.js", "utf8");
-var TestSectionTpl = Fs.readFileSync(__dirname + "/templates/test_section.js", "utf8");
-var TestHandlerTpl = Fs.readFileSync(__dirname + "/templates/test_handler.js", "utf8");
+var IndexTpl = Fs.readFileSync(__dirname + "/templates/index.js.tpl", "utf8");
+var SectionTpl = Fs.readFileSync(__dirname + "/templates/section.js.tpl", "utf8");
+var HandlerTpl = Fs.readFileSync(__dirname + "/templates/handler.js.tpl", "utf8");
+var AfterRequestTpl = Fs.readFileSync(__dirname + "/templates/after_request.js.tpl", "utf8");
+var TestSectionTpl = Fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
+var TestHandlerTpl = Fs.readFileSync(__dirname + "/templates/test_handler.js.tpl", "utf8");
 
 var main = module.exports = function(versions) {
     Util.log("Generating for versions", versions);
@@ -39,7 +41,7 @@ var main = module.exports = function(versions) {
         function createComment(paramsStruct, section, funcName, indent) {
             var params = Object.keys(paramsStruct);
             var comment = [
-                indent + "/**",
+                indent + "/** section: github",
                 indent + " *  " + section + "#" + funcName + "(msg, callback) -> null",
                 indent + " *      - msg (Object): Object that contains the parameters and their values to be sent to the server.",
                 indent + " *      - callback (Function): function to call when the request is finished " +

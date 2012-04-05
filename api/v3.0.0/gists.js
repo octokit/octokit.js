@@ -19,7 +19,7 @@ var gists = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  gists#getAll(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -59,7 +59,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#getFromUser(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -100,7 +100,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#create(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -141,7 +141,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#edit(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -182,7 +182,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#public(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -221,7 +221,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#starred(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -260,7 +260,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -299,7 +299,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#star(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -338,7 +338,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#deleteStar(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -377,7 +377,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#checkStar(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -416,7 +416,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#fork(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -455,7 +455,7 @@ var gists = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  gists#delete(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.

@@ -1,13 +1,3 @@
-/**
- * Copyright 2012 Cloud9 IDE, Inc.
- *
- * This product includes software developed by
- * Cloud9 IDE, Inc (http://c9.io).
- *
- * Author: Mike de Boer <mike@c9.io>
- */
-
-
 "use strict";
 
 var error = require("./error");
@@ -16,9 +6,16 @@ var Util = require("./util");
 /** section: github
  * class Client
  * 
+ *  Copyright 2012 Cloud9 IDE, Inc.
+ *
+ *  This product includes software developed by
+ *  Cloud9 IDE, Inc (http://c9.io).
+ *
+ *  Author: Mike de Boer <mike@c9.io>
+ * 
  *  [[Client]] can load any version of the [[github]] client API, with the
  *  requirement that a valid routes.json definition file is present in the
- *  `api/[VERSION]/client` directory and that the routes found in this file are
+ *  `api/[VERSION]` directory and that the routes found in this file are
  *  implemented as well.
  *  
  *  Upon instantiation of the [[Client]] class, the routes.json file is loaded
@@ -38,139 +35,141 @@ var Util = require("./util");
  *  First, we look at a listing of a sample routes.json routes definition file:
  * 
  *      {
- *          "incoming": {
- *              "room": {
- *                  "addmember": {
- *                      "url": "/api/room/addmember",
- *                      "method": "POST",
- *                      "params": {
- *                          "roomid": {
- *                              "type": "String",
- *                              "required": true,
- *                              "validation": "^[0-9a-z]{1}[0-9a-z-_\\|\\/]{1,61}$",
- *                              "invalidmsg": "Room name invalid. Please only use letters, numbers, underscores (_), dashes (-), pipes (|), slashes (/) and more than one character",
- *                              "description": "Name of the chat room"
- *                          },
- *                          "uid": {
- *                              "type": "Number",
- *                              "required": true,
- *                              "validation": "^[0-9]+$",
- *                              "invalidmsg": "Invalid User ID encountered",
- *                              "description": "A uid is a numeric User ID, with which the user can be retrieved from the database"
- *                          },
- *                          "workspaceId": {
- *                              "type": "String",
- *                              "required": true,
- *                              "validation": "",
- *                              "invalidmessage": "workspaceId is a required field",
- *                              "description": "Identifier of the active workspace. Example: 'user/bob/node_chat'"
- *                          }
- *                      }
+ *          "defines": {
+ *              "constants": {
+ *                  "name": "Github",
+ *                  "description": "A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.",
+ *                  "protocol": "https",
+ *                  "host": "api.github.com",
+ *                  "port": 443,
+ *                  "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
+ *                  "requestFormat": "json"
+ *              },
+ *              "response-headers": [
+ *                  "X-RateLimit-Limit",
+ *                  "X-RateLimit-Remaining",
+ *                  "Link"
+ *              ],
+ *              "params": {
+ *                  "files": {
+ *                      "type": "Json",
+ *                      "required": true,
+ *                      "validation": "",
+ *                      "invalidmsg": "",
+ *                      "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
+ *                  },
+ *                  "user": {
+ *                      "type": "String",
+ *                      "required": true,
+ *                      "validation": "",
+ *                      "invalidmsg": "",
+ *                      "description": ""
+ *                  },
+ *                  "description": {
+ *                      "type": "String",
+ *                      "required": false,
+ *                      "validation": "",
+ *                      "invalidmsg": "",
+ *                      "description": ""
+ *                  },
+ *                  "page": {
+ *                      "type": "Number",
+ *                      "required": false,
+ *                      "validation": "^[0-9]+$",
+ *                      "invalidmsg": "",
+ *                      "description": "Page number of the results to fetch."
+ *                  },
+ *                  "per_page": {
+ *                      "type": "Number",
+ *                      "required": false,
+ *                      "validation": "^[0-9]+$",
+ *                      "invalidmsg": "",
+ *                      "description": "A custom page size up to 100. Default is 30."
  *                  }
+ *              }
  *          },
  *          
- *          "outgoing": {
- *              "room": {
- *                  "addmessage": {
- *                      "url": "/api/room/addmessage",
- *                      "params": {
- *                          "roomid": {
- *                              "type": "String",
- *                              "required": true,
- *                              "validation": "^[0-9a-z]{1}[0-9a-z-_\\|\\/]{1,61}$",
- *                              "invalidmsg": "Room name invalid. Please only use letters, numbers, underscores (_), dashes (-), pipes (|), slashes (/) and more than one character",
- *                              "description": "Name of the chat room"
- *                          },
- *                          "from": {
- *                              "type": "Number",
- *                              "required": true,
- *                              "validation": "^[0-9]+$",
- *                              "invalidmsg": "Invalid User ID encountered",
- *                              "description": "from is numeric User ID, with which the user can be retrieved from the database"
- *                          },
- *                          "content": {
- *                              "type": "String",
- *                              "required": true,
- *                              "validation": "",
- *                              "invalidmsg": "No or empty message, which is not allowed",
- *                              "description": "Content of the message sent"
- *                          }
- *                      }
+ *          "gists": {
+ *              "get-from-user": {
+ *                  "url": ":user/gists",
+ *                  "method": "GET",
+ *                  "params": {
+ *                      "$user": null,
+ *                      "$page": null,
+ *                      "$per_page": null
+ *                  }
+ *              },
+ *              
+ *              "create": {
+ *                  "url": "/gists",
+ *                  "method": "POST",
+ *                  "params": {
+ *                      "$description": null,
+ *                      "public": {
+ *                          "type": "Boolean",
+ *                          "required": true,
+ *                          "validation": "",
+ *                          "invalidmsg": "",
+ *                          "description": ""
+ *                      },
+ *                      "$files": null
  *                  }
  *              }
  *          }
- *      }
+ *       }
  * 
  *  You probably noticed that the definition is quite verbose and the decision
- *  for its design was made to be verbose rather than allowing for variables and
- *  reuse, as is possible with Javascript, but not with JSON definitions.
+ *  for its design was made to be verbose whilst still allowing for basic variable
+ *  definitions and substitions for request parameters.
  * 
- *  There are two sections; 'incoming' and 'outgoing'.
- *  NOTE: if it is deemed more practical or common sense, the terms 'incoming' and
- *  'outgoing' may be swapped. This is up for discussion.
+ *  There are two sections; 'defines' and 'gists' in this example.
  * 
- *  The `incoming` section defines the endpoints for calls to the [[CollabServer]]. 
+ *  The `defines` section contains a list of `constants` that will be used by the
+ *  [[Client]] to make requests to the right URL that hosts the API.
+ *  The `gists` section defines the endpoints for calls to the API server, for 
+ *  gists specifically in this example, but the other API sections are defined in
+ *  the exact same way. 
  *  These definitions are parsed and methods are created that the client can call
  *  to make an HTTP request to the server.
- *  In this example, there is one endpoint defined: `incoming/room/addmember`.
- *  This endpoint will be exposed as a member on the [[Client]] object and may
- *  be invoked with 
+ *  there is one endpoint defined: .
+ *  In this example, the endpoint `gists/get-from-user` will be exposed as a member 
+ *  on the [[Client]] object and may be invoked with 
  * 
- *      client["incoming/room/addmember"]({
- *          "roomid": "ry/node_chat",
- *          "uid": "1234",
- *          "workspaceId": "user/bob/node_chat"
+ *      client.getFromUser({
+ *          "user": "bob"
  *      }, function(err, ret) {
  *          // do something with the result here.
  *      });
  * 
- *  The callback is optional. In the case of an error or when the `ret` argument
- *  holds a value, it will also be broadcasted to all the connected Socket.IO clients
- *  that are connected to the workspace called `user/bob/node_chat`.
+ *      // or to fetch a specfic page:
+ *      client.getFromUser({
+ *          "user": "bob",
+ *          "page": 2,
+ *          "per_page": 100
+ *      }, function(err, ret) {
+ *          // do something with the result here.
+ *      });
+ * 
  *  All the parameters as specified in the Object that is passed to the function 
  *  as first argument, will be validated according to the rules in the `params`
  *  block of the route definition.
- *  Thus, in the case of the `roomid` parameter, according to the definition in
- *  the `params` block, it is a required parameter (needs to hold a value) and its
- *  value validated with the RegExp `^[0-9a-z]{1}[0-9a-z-_\|\/]{1,61}$`. In other
+ *  Thus, in the case of the `user` parameter, according to the definition in
+ *  the `params` block, it's a variable that first needs to be looked up in the 
+ *  `params` block of the `defines` section (at the top of the JSON file). Params
+ *  that start with a `$` sign will be substituted with the param with the same 
+ *  name from the `defines/params` section.
+ *  There we see that it is a required parameter (needs to hold a value). In other
  *  words, if the validation requirements are not met, an HTTP error is passed as
  *  first argument of the callback.
  * 
  *  Implementation Notes: the `method` is NOT case sensitive, whereas `url` is. 
  *  The `url` parameter also supports denoting parameters inside it as follows:
  * 
- *      "addmember": {
- *          "url": "/api/room/:roomid/addmember",
- *          "method": "POST",
+ *      "get-from-user": {
+ *          "url": ":user/gists",
+ *          "method": "GET"
  *          ...
  *      }
- *  
- *  The `outgoing` section defines the endpoints for events that come in through
- *  [Redis pubsub](http://redis.io/topics/pubsub).
- *  Each time that the [[CollabServer]] makes a change in the Redis database, this 
- *  may trigger an event to be published to a Redis pubsub channel. [[Client]]
- *  has subscribed to quite bunch of channels; room, workspace, project and user.
- *  Whenever a message comes in from one of these channels, [[Client]] first 
- *  checks if an endpoint is registered for that outgoing message.
- *  In this example, there is one endpoint defined: `outgoing/room/addmessage`.
- *  This is enpoint will be exposed as a member on the [[Client]] object and may
- *  be invoked with
- * 
- *      client["outgoing/room/addmessage"]({
- *          "roomid": "ry/node_chat",
- *          "from": "1234",
- *          "content": "my first message!"
- *      });
- * 
- *  This means that when a message from Redis pubsub channel `room/addmessage`
- *  arrives, this method is invoked with the JSON passed directly as first argument.
- *  Important to point out here is that this message is only broadcasted from the
- *  server when a message was added to a room object in the Redis database; everything
- *  is persisted in the database, which allows both the server and client
- *  to operate without keeping any state in memory.
- *  The endpoint handler in this example then, upon invocation, retrieves all the
- *  active workspaces that are connected with the room `ry/node_chat` and broadcasts
- *  the message as-is to all Socket.IO clients that are connected to each workspace.
  **/
 var Client = module.exports = function(config) {
     this.config = config;

@@ -19,7 +19,7 @@ var issues = module.exports = {
 };
 
 (function() {
-    /**
+    /** section: github
      *  issues#getAll(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -65,7 +65,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#repoIssues(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -115,7 +115,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getRepoIssue(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -156,7 +156,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#create(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -201,7 +201,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#edit(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -247,7 +247,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getComments(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -290,7 +290,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -331,7 +331,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#createComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -373,7 +373,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#editComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -415,7 +415,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#deleteComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -456,7 +456,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getEvents(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -499,7 +499,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getRepoEvents(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -541,7 +541,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getEvent(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -582,7 +582,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getLabels(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -622,7 +622,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getLabel(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -663,7 +663,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#createLabel(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -705,7 +705,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#updateLabel(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -747,7 +747,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getAllMilestones(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -791,7 +791,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#getMilestone(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -832,7 +832,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#createMilestone(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -876,7 +876,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#updateMilestone(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
@@ -921,7 +921,7 @@ var issues = module.exports = {
         });
     };
 
-    /**
+    /** section: github
      *  issues#deleteMilestone(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
