@@ -638,7 +638,7 @@
                 "$repo": null,
                 "milestone": {
                     "type": "String",
-                    "required": true,
+                    "required": false,
                     "validation": "^([0-9]+|none|\\*)$",
                     "invalidmsg": "",
                     "description": ""
@@ -646,7 +646,7 @@
                 "$state": null,
                 "assignee": {
                     "type": "String",
-                    "required": true,
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User.",
                     "description": "String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User."
