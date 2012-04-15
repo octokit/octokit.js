@@ -1,6 +1,6 @@
 {
     "name" : "github",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "description" : "NodeJS wrapper for the GitHub API",
     "author": "ajax.org B.V. <info@ajax.org>",
     "contributors": [
@@ -21,10 +21,10 @@
     },
     "main" : ".",
     "scripts": {
-        "test": "node ./test/all.js"  
+        "test": "node ./test/all.js"
     },
     "licenses": [{
         "type": "The MIT License",
         "url": "http://www.opensource.org/licenses/mit-license.php"}
-    ]    
+    ]
 }
