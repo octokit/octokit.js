@@ -5,35 +5,35 @@ var Util = require("./util");
 
 /** section: github
  * class Client
- * 
+ *
  *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
  *  Cloud9 IDE, Inc (http://c9.io).
  *
  *  Author: Mike de Boer <mike@c9.io>
- * 
+ *
  *  [[Client]] can load any version of the [[github]] client API, with the
  *  requirement that a valid routes.json definition file is present in the
  *  `api/[VERSION]` directory and that the routes found in this file are
  *  implemented as well.
- *  
+ *
  *  Upon instantiation of the [[Client]] class, the routes.json file is loaded
- *  from the API version specified in the configuration and, parsed and from it 
- *  the routes for HTTP requests are extracted. For each HTTP endpoint to the 
- *  HTTP server, a method is generated which accepts a Javascript Object 
- *  with parameters and an optional callback to be invoked when the API request 
+ *  from the API version specified in the configuration and, parsed and from it
+ *  the routes for HTTP requests are extracted. For each HTTP endpoint to the
+ *  HTTP server, a method is generated which accepts a Javascript Object
+ *  with parameters and an optional callback to be invoked when the API request
  *  returns from the server or when the parameters could not be validated.
- *  
- *  When an HTTP endpoint is processed and a method is generated as described 
+ *
+ *  When an HTTP endpoint is processed and a method is generated as described
  *  above, [[Client]] also sets up parameter validation with the rules as
  *  defined in the routes.json. A full example that illustrates how this works
  *  is shown below:
- * 
+ *
  *  ##### Example
- * 
+ *
  *  First, we look at a listing of a sample routes.json routes definition file:
- * 
+ *
  *      {
  *          "defines": {
  *              "constants": {
@@ -88,7 +88,7 @@ var Util = require("./util");
  *                  }
  *              }
  *          },
- *          
+ *
  *          "gists": {
  *              "get-from-user": {
  *                  "url": ":user/gists",
@@ -99,7 +99,7 @@ var Util = require("./util");
  *                      "$per_page": null
  *                  }
  *              },
- *              
+ *
  *              "create": {
  *                  "url": "/gists",
  *                  "method": "POST",
@@ -117,30 +117,30 @@ var Util = require("./util");
  *              }
  *          }
  *       }
- * 
+ *
  *  You probably noticed that the definition is quite verbose and the decision
  *  for its design was made to be verbose whilst still allowing for basic variable
  *  definitions and substitions for request parameters.
- * 
+ *
  *  There are two sections; 'defines' and 'gists' in this example.
- * 
+ *
  *  The `defines` section contains a list of `constants` that will be used by the
  *  [[Client]] to make requests to the right URL that hosts the API.
- *  The `gists` section defines the endpoints for calls to the API server, for 
+ *  The `gists` section defines the endpoints for calls to the API server, for
  *  gists specifically in this example, but the other API sections are defined in
- *  the exact same way. 
+ *  the exact same way.
  *  These definitions are parsed and methods are created that the client can call
  *  to make an HTTP request to the server.
  *  there is one endpoint defined: .
- *  In this example, the endpoint `gists/get-from-user` will be exposed as a member 
- *  on the [[Client]] object and may be invoked with 
- * 
+ *  In this example, the endpoint `gists/get-from-user` will be exposed as a member
+ *  on the [[Client]] object and may be invoked with
+ *
  *      client.getFromUser({
  *          "user": "bob"
  *      }, function(err, ret) {
  *          // do something with the result here.
  *      });
- * 
+ *
  *      // or to fetch a specfic page:
  *      client.getFromUser({
  *          "user": "bob",
@@ -149,22 +149,22 @@ var Util = require("./util");
  *      }, function(err, ret) {
  *          // do something with the result here.
  *      });
- * 
- *  All the parameters as specified in the Object that is passed to the function 
+ *
+ *  All the parameters as specified in the Object that is passed to the function
  *  as first argument, will be validated according to the rules in the `params`
  *  block of the route definition.
  *  Thus, in the case of the `user` parameter, according to the definition in
- *  the `params` block, it's a variable that first needs to be looked up in the 
+ *  the `params` block, it's a variable that first needs to be looked up in the
  *  `params` block of the `defines` section (at the top of the JSON file). Params
- *  that start with a `$` sign will be substituted with the param with the same 
+ *  that start with a `$` sign will be substituted with the param with the same
  *  name from the `defines/params` section.
  *  There we see that it is a required parameter (needs to hold a value). In other
  *  words, if the validation requirements are not met, an HTTP error is passed as
  *  first argument of the callback.
- * 
- *  Implementation Notes: the `method` is NOT case sensitive, whereas `url` is. 
+ *
+ *  Implementation Notes: the `method` is NOT case sensitive, whereas `url` is.
  *  The `url` parameter also supports denoting parameters inside it as follows:
- * 
+ *
  *      "get-from-user": {
  *          "url": ":user/gists",
  *          "method": "GET"
@@ -185,13 +185,13 @@ var Client = module.exports = function(config) {
 (function() {
     /**
      *  Client#setupRoutes() -> null
-     * 
+     *
      *  Configures the routes as defined in a routes.json file of an API version
-     * 
+     *
      *  [[Client#setupRoutes]] is invoked by the constructor, takes the
-     *  contents of the JSON document that contains the definitions of all the 
+     *  contents of the JSON document that contains the definitions of all the
      *  available API routes and iterates over them.
-     * 
+     *
      *  It first recurses through each definition block until it reaches an API
      *  endpoint. It knows that an endpoint is found when the `url` and `param`
      *  definitions are found as a direct member of a definition block.
@@ -202,11 +202,11 @@ var Client = module.exports = function(config) {
      *  and becomes available for use. Inside this method, the parameter validation
      *  and typecasting is done, according to the definition of the parameters in
      *  the `params` block, upon invocation.
-     * 
+     *
      *  This mechanism ensures that the handlers ALWAYS receive normalized data
      *  that is of the correct format and type. JSON parameters are parsed, Strings
      *  are trimmed, Numbers and Floats are casted and checked for NaN after that.
-     * 
+     *
      *  Note: Query escaping for usage with SQL products is something that can be
      *  implemented additionally by adding an additional parameter type.
      **/
@@ -311,16 +311,16 @@ var Client = module.exports = function(config) {
                     var funcName = Util.toCamelCase(parts.join("-"));
 
                     if (!api[section]) {
-                        throw new Error("Unsupported route section, not implemented in version " + 
-                            self.version + " for route '" + endPoint + "' and block: " + 
+                        throw new Error("Unsupported route section, not implemented in version " +
+                            self.version + " for route '" + endPoint + "' and block: " +
                             JSON.stringify(block));
                     }
 
                     if (!api[section][funcName]) {
                         if (self.debug)
                             Util.log("Tried to call " + funcName);
-                        throw new Error("Unsupported route, not implemented in version " + 
-                            self.version + " for route '" + endPoint + "' and block: " + 
+                        throw new Error("Unsupported route, not implemented in version " +
+                            self.version + " for route '" + endPoint + "' and block: " +
                             JSON.stringify(block));
                     }
 
@@ -376,11 +376,14 @@ var Client = module.exports = function(config) {
 
         this.auth = options;
     };
-    
-    function getQuery(msg, def, format) {
-        var query = format == "json" ? {} : [];
+
+    function getQueryAndUrl(msg, def, format) {
+        var ret = {
+            url: def.url,
+            query: format == "json" ? {} : []
+        };
         if (!def || !def.params)
-            return query;
+            return ret;
         var url = def.url;
         Object.keys(def.params).forEach(function(paramName) {
             paramName = paramName.replace(/^[$]+/, "");
@@ -396,26 +399,27 @@ var Client = module.exports = function(config) {
                     val = encodeURIComponent(msg[paramName]);
                 }
                 catch (ex) {
-                    return Util.log("httpSend: Error while converting object to JSON: " 
+                    return Util.log("httpSend: Error while converting object to JSON: "
                         + (ex.message || ex), "error");
                 }
             }
             else
                 val = valFormat == "json" ? msg[paramName] : encodeURIComponent(msg[paramName]);
-                
-            if (isUrlParam)
+
+            if (isUrlParam) {
                 url = url.replace(":" + paramName, val);
+            }
             else {
                 if (format == "json")
-                    query[paramName] = val;
+                    ret.query[paramName] = val;
                 else
-                    query.push(paramName + "=" + val);
+                    ret.query.push(paramName + "=" + val);
             }
         });
-        def.url = url;
-        return query;
+        ret.url = url;
+        return ret;
     }
-    
+
     /**
      *  Client#httpSend(msg, block, callback) -> null
      *      - msg (Object): parameters to send as the request body
@@ -424,20 +428,22 @@ var Client = module.exports = function(config) {
      *      - callback (Function): function to be called when the request returns.
      *          If the the request returns with an error, the error is passed to
      *          the callback as its first argument (NodeJS-style).
-     * 
+     *
      *  Send an HTTP request to the server and pass the result to a callback.
      **/
     this.httpSend = function(msg, block, callback) {
         var method = block.method.toLowerCase();
         var hasBody = ("head|get|delete".indexOf(method) === -1);
-        var format = hasBody && this.constants.requestFormat 
+        var format = hasBody && this.constants.requestFormat
             ? this.constants.requestFormat
             : "query";
-        var query = getQuery(msg, block, format);
+        var obj = getQueryAndUrl(msg, block, format);
+        var query = obj.query;
+        var url = obj.url;
 
         var path = (!hasBody && query.length)
-            ? block.url + "?" + query.join("&")
-            : block.url;
+            ? url + "?" + query.join("&")
+            : url;
         var protocol = this.constants.protocol || "http";
         var host = this.constants.host;
         var port = this.constants.port || (protocol == "https" ? 443 : 80);
@@ -465,7 +471,7 @@ var Client = module.exports = function(config) {
             var basic;
             switch (this.auth.type) {
                 case "oauth":
-                    path += (path.indexOf("?") === -1 ? "?" : "&") + 
+                    path += (path.indexOf("?") === -1 ? "?" : "&") +
                         "access_token=" + encodeURIComponent(this.auth.token);
                     break;
                 case "token":
