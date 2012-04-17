@@ -23,7 +23,7 @@ var github = new Client({
 github.authenticate({
     type: "basic",
     username: "mikedeboer",
-    password: "mike1324"
+    password: "mysecretpass"
 });
 
 github.user.get({}, function(err, res) {
