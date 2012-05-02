@@ -1,5 +1,5 @@
 {
-    "name" : "github",
+    "name" : "node-github",
     "version" : "0.1.1",
     "description" : "NodeJS wrapper for the GitHub API",
     "author": "ajax.org B.V. <info@ajax.org>",
