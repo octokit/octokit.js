@@ -439,14 +439,14 @@ var Client = module.exports = function(config) {
             : "query";
         var obj = getQueryAndUrl(msg, block, format);
         var query = obj.query;
-        var url = obj.url;
+        var url = this.config.url ? this.config.url + obj.url : obj.url;
 
         var path = (!hasBody && query.length)
             ? url + "?" + query.join("&")
             : url;
-        var protocol = this.constants.protocol || "http";
-        var host = this.constants.host;
-        var port = this.constants.port || (protocol == "https" ? 443 : 80);
+        var protocol = this.config.protocol || this.constants.protocol || "http";
+        var host = this.config.host || this.constants.host;
+        var port = this.config.port || this.constants.port || (protocol == "https" ? 443 : 80);
         if (this.config.proxy) {
             host = this.config.proxy.host;
             port = this.config.proxy.port || 3128;
