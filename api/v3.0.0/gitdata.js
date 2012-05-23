@@ -199,7 +199,7 @@ var gitdata = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - ref (String): Required. String of the name of the fully qualified reference (ie: refs/heads/master). If it doesn’t start with ‘refs’ and have at least two slashes, it will be rejected. 
+     *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
      **/
     this.getReference = function(msg, block, callback) {
         var self = this;

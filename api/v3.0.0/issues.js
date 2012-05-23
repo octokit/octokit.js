@@ -74,9 +74,9 @@ var issues = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - milestone (String): Required. Validation rule: ` ^([0-9]+|none|\*)$ `.
+     *  - milestone (String): Optional. Validation rule: ` ^([0-9]+|none|\*)$ `.
      *  - state (String): Optional. Validation rule: ` ^(open|closed)$ `.
-     *  - assignee (String): Required. String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User. 
+     *  - assignee (String): Optional. String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User. 
      *  - mentioned (String): Optional. String User login. 
      *  - labels (String): Optional. String list of comma separated Label names. Example: bug,ui,@high 
      *  - sort (String): Optional. Validation rule: ` ^(created|updated|comments)$ `.
