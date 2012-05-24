@@ -182,8 +182,29 @@ var test = module.exports = {
             {
                 user: "String",
                 repo: "String",
+                ref: "String",
                 sha: "String",
                 force: "Boolean"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
+    "test: DELETE /repos/:user/:repo/git/refs/:ref (deleteReference)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.gitdata.deleteReference(
+            {
+                user: "String",
+                repo: "String",
+                ref: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

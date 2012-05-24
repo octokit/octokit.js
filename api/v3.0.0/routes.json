@@ -241,7 +241,7 @@
             }
         }
     },
-    
+
     "gists": {
         "get-all": {
             "url": "/gists",
@@ -251,7 +251,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-user": {
             "url": ":user/gists",
             "method": "GET",
@@ -261,7 +261,7 @@
                 "$per_page": null
             }
         },
-        
+
         "create": {
             "url": "/gists",
             "method": "POST",
@@ -277,7 +277,7 @@
                 "$files": null
             }
         },
-        
+
         "edit": {
             "url": "/gists/:id",
             "method": "PATCH",
@@ -287,19 +287,19 @@
                 "$files": null
             }
         },
-        
+
         "public": {
             "url": "/gists/public",
             "method": "GET",
             "params": {}
         },
-        
+
         "starred": {
             "url": "/gists/starred",
             "method": "GET",
             "params": {}
         },
-        
+
         "get": {
             "url": "/gists/get/:id",
             "method": "GET",
@@ -307,7 +307,7 @@
                 "$id": null
             }
         },
-        
+
         "star": {
             "url": "/gists/:id/star",
             "method": "PUT",
@@ -315,7 +315,7 @@
                 "$id": null
             }
         },
-        
+
         "delete-star": {
             "url": "/gists/:id/star",
             "method": "DELETE",
@@ -323,7 +323,7 @@
                 "$id": null
             }
         },
-        
+
         "check-star": {
             "url": "/gists/:id/star",
             "method": "GET",
@@ -331,7 +331,7 @@
                 "$id": null
             }
         },
-        
+
         "fork": {
             "url": "/gists/:id/fork",
             "method": "POST",
@@ -339,7 +339,7 @@
                 "$id": null
             }
         },
-        
+
         "delete": {
             "url": "/gists/:id",
             "method": "DELETE",
@@ -348,7 +348,7 @@
             }
         }
     },
-    
+
     "gitdata": {
         "get-blob": {
             "url": "/repos/:user/:repo/git/blobs/:sha",
@@ -361,7 +361,7 @@
                 "$per_page": null
             }
         },
-        
+
         "create-blob": {
             "url": "repos/:user/:repo/git/blobs",
             "method": "POST",
@@ -384,7 +384,7 @@
                 }
             }
         },
-        
+
         "get-commit": {
             "url": "/repos/:user/:repo/git/commits/:sha",
             "method": "GET",
@@ -394,7 +394,7 @@
                 "$sha": null
             }
         },
-        
+
         "create-commit": {
             "url": "/repos/:user/:repo/git/commits",
             "method": "POST",
@@ -438,7 +438,7 @@
                 }
             }
         },
-        
+
         "get-reference": {
             "url": "/repos/:user/:repo/git/refs/:ref",
             "method": "GET",
@@ -448,7 +448,7 @@
                 "$ref": null
             }
         },
-        
+
         "get-all-references": {
             "url": "/repos/:user/:repo/git/refs",
             "method": "GET",
@@ -459,7 +459,7 @@
                 "$per_page": null
             }
         },
-        
+
         "create-reference": {
             "url": "/repos/:user/:repo/git/refs",
             "method": "POST",
@@ -476,13 +476,14 @@
                 "$sha": null
             }
         },
-        
+
         "update-reference": {
             "url": "/repos/:user/:repo/git/refs/:ref",
             "method": "PATCH",
             "params": {
                 "$user": null,
                 "$repo": null,
+                "$ref": null,
                 "$sha": null,
                 "force": {
                     "type": "Boolean",
@@ -493,7 +494,17 @@
                 }
             }
         },
-        
+
+        "delete-reference": {
+            "url": "/repos/:user/:repo/git/refs/:ref",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$ref": null
+            }
+        },
+
         "get-tag": {
             "url": "/repos/:user/:repo/git/tags/:sha",
             "method": "GET",
@@ -503,7 +514,7 @@
                 "$sha": null
             }
         },
-        
+
         "create-tag": {
             "url": "/repos/:user/:repo/git/tags",
             "method": "POST",
@@ -561,7 +572,7 @@
                 }
             }
         },
-        
+
         "get-tree": {
             "url": "/repos/:user/:repo/git/trees/:sha",
             "method": "GET",
@@ -578,7 +589,7 @@
                 }
             }
         },
-        
+
         "create-tree": {
             "url": "/repos/:user/:repo/git/trees",
             "method": "POST",
@@ -595,7 +606,7 @@
             }
         }
     },
-    
+
     "issues": {
         "get-all": {
             "url": "/issues",
@@ -629,7 +640,7 @@
                 "$per_page": null
             }
         },
-        
+
         "repo-issues": {
             "url": "/repos/:user/:repo/issues",
             "method": "GET",
@@ -678,7 +689,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-repo-issue": {
             "url": "/repos/:user/:repo/issues/:number",
             "method": "GET",
@@ -688,7 +699,7 @@
                 "$number": null
             }
         },
-        
+
         "create": {
             "url": "/repos/:user/:repo/issues",
             "method": "POST",
@@ -732,7 +743,7 @@
                 }
             }
         },
-        
+
         "edit": {
             "url": "/repos/:user/:repo/issues/:number",
             "method": "PATCH",
@@ -777,7 +788,7 @@
                 }
             }
         },
-        
+
         "get-comments": {
             "url": "/repos/:user/:repo/issues/:number/comments",
             "method": "GET",
@@ -789,7 +800,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-comment": {
             "url": "/repos/:user/:repo/issues/comments/:id",
             "method": "GET",
@@ -799,7 +810,7 @@
                 "$id": null
             }
         },
-        
+
         "create-comment": {
             "url": "/repos/:user/:repo/issues/:number/comments",
             "method": "POST",
@@ -816,7 +827,7 @@
                 }
             }
         },
-        
+
         "edit-comment": {
             "url": "/repos/:user/:repo/issues/comments/:id",
             "method": "PATCH",
@@ -833,7 +844,7 @@
                 }
             }
         },
-        
+
         "delete-comment": {
             "url": "/repos/:user/:repo/issues/comments/:id",
             "method": "DELETE",
@@ -843,7 +854,7 @@
                 "$id": null
             }
         },
-        
+
         "get-events": {
             "url": "/repos/:user/:repo/issues/:number/events",
             "method": "GET",
@@ -855,7 +866,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-repo-events": {
             "url": "/repos/:user/:repo/issues/events",
             "method": "GET",
@@ -866,7 +877,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-event": {
             "url": "/repos/:user/:repo/issues/events/:id",
             "method": "GET",
@@ -876,7 +887,7 @@
                 "$id": null
             }
         },
-        
+
         "get-labels": {
             "url": "/repos/:user/:repo/labels",
             "method": "GET",
@@ -885,7 +896,7 @@
                 "$repo": null
             }
         },
-        
+
         "get-label": {
             "url": "/repos/:user/:repo/labels/:name",
             "method": "GET",
@@ -895,7 +906,7 @@
                 "$name": null
             }
         },
-        
+
         "create-label": {
             "url": "/repos/:user/:repo/labels",
             "method": "POST",
@@ -906,7 +917,7 @@
                 "$color": null
             }
         },
-        
+
         "update-label": {
             "url": "/repos/:user/:repo/labels/:name",
             "method": "POST",
@@ -917,7 +928,7 @@
                 "$color": null
             }
         },
-        
+
         "get-all-milestones": {
             "url": "/repos/:user/:repo/milestones",
             "method": "GET",
@@ -936,7 +947,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-milestone": {
             "url": "/repos/:user/:repo/milestones/:number",
             "method": "GET",
@@ -946,7 +957,7 @@
                 "$number": null
             }
         },
-        
+
         "create-milestone": {
             "url": "/repos/:user/:repo/milestones",
             "method": "POST",
@@ -971,7 +982,7 @@
                 }
             }
         },
-        
+
         "update-milestone": {
             "url": "/repos/:user/:repo/milestones/:number",
             "method": "PATCH",
@@ -997,7 +1008,7 @@
                 }
             }
         },
-        
+
         "delete-milestone": {
             "url": "/repos/:user/:repo/milestones/:number",
             "method": "DELETE",
@@ -1008,7 +1019,7 @@
             }
         }
     },
-    
+
     "orgs": {
         "get-from-user": {
             "url": "/users/:user/orgs",
@@ -1019,7 +1030,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get": {
             "url": "/orgs/:org",
             "method": "GET",
@@ -1029,7 +1040,7 @@
                 "$per_page": null
             }
         },
-        
+
         "update": {
             "url": "/orgs/:org",
             "method": "PATCH",
@@ -1072,7 +1083,7 @@
                 }
             }
         },
-        
+
         "get-members": {
             "url": "/orgs/:org/members",
             "method": "GET",
@@ -1082,7 +1093,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-member": {
             "url": "/orgs/:org/members/:user",
             "method": "GET",
@@ -1091,7 +1102,7 @@
                 "$user": null
             }
         },
-        
+
         "remove-member": {
             "url": "/orgs/:org/members/:user",
             "method": "DELETE",
@@ -1100,7 +1111,7 @@
                 "$user": null
             }
         },
-        
+
         "get-public-members": {
             "url": "/orgs/:org/public_members",
             "method": "GET",
@@ -1108,7 +1119,7 @@
                 "$org": null
             }
         },
-        
+
         "get-public-member": {
             "url": "/orgs/:org/public_members/:user",
             "method": "GET",
@@ -1117,7 +1128,7 @@
                 "$user": null
             }
         },
-        
+
         "publicize-membership": {
             "url": "/orgs/:org/public_members/:user",
             "method": "PUT",
@@ -1126,7 +1137,7 @@
                 "$user": null
             }
         },
-        
+
         "conceal-membership": {
             "url": "/orgs/:org/public_members/:user",
             "method": "DELETE",
@@ -1135,7 +1146,7 @@
                 "$user": null
             }
         },
-        
+
         "get-teams": {
             "url": "/orgs/:org/teams",
             "method": "GET",
@@ -1143,7 +1154,7 @@
                 "$org": null
             }
         },
-        
+
         "get-team": {
             "url": "/teams/:id",
             "method": "GET",
@@ -1168,7 +1179,7 @@
                 "$permission": null
             }
         },
-        
+
         "update-team": {
             "url": "/teams/:id",
             "method": "PATCH",
@@ -1178,7 +1189,7 @@
                 "$permission": null
             }
         },
-        
+
         "delete-team": {
             "url": "/teams/:id",
             "method": "DELETE",
@@ -1186,7 +1197,7 @@
                 "$id": null
             }
         },
-        
+
         "get-team-members": {
             "url": "/teams/:id/members",
             "method": "GET",
@@ -1196,7 +1207,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-team-member": {
             "url": "/teams/:id/members/:user",
             "method": "GET",
@@ -1205,7 +1216,7 @@
                 "$user": null
             }
         },
-        
+
         "add-team-member": {
             "url": "/teams/:id/members/:user",
             "method": "PUT",
@@ -1214,7 +1225,7 @@
                 "$user": null
             }
         },
-        
+
         "delete-team-member": {
             "url": "/teams/:id/members/:user",
             "method": "DELETE",
@@ -1223,7 +1234,7 @@
                 "$user": null
             }
         },
-        
+
         "get-team-repos": {
             "url": "/teams/:id/repos",
             "method": "GET",
@@ -1233,7 +1244,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-team-repo": {
             "url": "/teams/:id/repos/:user/:repo",
             "method": "GET",
@@ -1243,7 +1254,7 @@
                 "$repo": null
             }
         },
-        
+
         "add-team-repo": {
             "url": "/teams/:id/repos/:user/:repo",
             "method": "PUT",
@@ -1253,7 +1264,7 @@
                 "$repo": null
             }
         },
-        
+
         "delete-team-repo": {
             "url": "/teams/:id/repos/:user/:repo",
             "method": "DELETE",
@@ -1264,7 +1275,7 @@
             }
         }
     },
-    
+
     "pull-requests": {
         "get-all": {
             "url": "/repos/:user/:repo/pulls",
@@ -1277,7 +1288,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get": {
             "url": "/repos/:user/:repo/pulls/:number",
             "method": "GET",
@@ -1287,7 +1298,7 @@
                 "$number": null
             }
         },
-        
+
         "create": {
             "url": "/repos/:user/:repo/pulls",
             "method": "POST",
@@ -1312,7 +1323,7 @@
                 "$head": null
             }
         },
-        
+
         "create-from-issue": {
             "url": "/repos/:user/:repo/pulls",
             "method": "POST",
@@ -1330,7 +1341,7 @@
                 "$head": null
             }
         },
-        
+
         "update": {
             "url": "/repos/:user/:repo/pulls/:number",
             "method": "PATCH",
@@ -1355,7 +1366,7 @@
                 }
             }
         },
-        
+
         "get-commits": {
             "url": "/repos/:user/:repo/pulls/:number/commits",
             "method": "GET",
@@ -1367,7 +1378,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-files": {
             "url": "/repos/:user/:repo/pulls/:number/files",
             "method": "GET",
@@ -1379,7 +1390,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-merged": {
             "url": "/repos/:user/:repo/pulls/:number/merge",
             "method": "GET",
@@ -1391,7 +1402,7 @@
                 "$per_page": null
             }
         },
-        
+
         "merge": {
             "url": "/repos/:user/:repo/pulls/:number/merge",
             "method": "PUT",
@@ -1408,7 +1419,7 @@
                 }
             }
         },
-        
+
         "get-comments": {
             "url": "/repos/:user/:repo/pulls/:number/comments",
             "method": "GET",
@@ -1420,7 +1431,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-comment": {
             "url": "/repos/:user/:repo/pulls/comments/:number",
             "method": "GET",
@@ -1430,7 +1441,7 @@
                 "$number": null
             }
         },
-        
+
         "create-comment": {
             "url": "/repos/:user/:repo/pulls/:number/comments",
             "method": "POST",
@@ -1444,7 +1455,7 @@
                 "$position": null
             }
         },
-        
+
         "create-comment-reply": {
             "url": "/repos/:user/:repo/pulls/:number/comments",
             "method": "POST",
@@ -1462,7 +1473,7 @@
                 }
             }
         },
-        
+
         "update-comment": {
             "url": "/repos/:user/:repo/pulls/comments/:number",
             "method": "PATCH",
@@ -1473,7 +1484,7 @@
                 "$body": null
             }
         },
-        
+
         "delete-comment": {
             "url": "/repos/:user/:repo/pulls/comments/:number",
             "method": "DELETE",
@@ -1484,7 +1495,7 @@
             }
         }
     },
-    
+
     "repos": {
         "get-all": {
             "url": "/user/repos",
@@ -1501,7 +1512,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-user": {
             "url": "/users/:user/repos",
             "method": "GET",
@@ -1518,7 +1529,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-org": {
             "url": "/orgs/:org/repos",
             "method": "GET",
@@ -1535,7 +1546,7 @@
                 "$per_page": null
             }
         },
-        
+
         "create": {
             "url": "/user/repos",
             "method": "POST",
@@ -1549,7 +1560,7 @@
                 "$has_downloads": null
             }
         },
-        
+
         "create-from-org": {
             "url": "/orgs/:org/repos",
             "method": "POST",
@@ -1571,7 +1582,7 @@
                 }
             }
         },
-        
+
         "get": {
             "url": "/repos/:user/:repo",
             "method": "GET",
@@ -1580,7 +1591,7 @@
                 "$repo": null
             }
         },
-        
+
         "update": {
             "url": "/repos/:user/:repo",
             "method": "PATCH",
@@ -1596,7 +1607,7 @@
                 "$has_downloads": null
             }
         },
-        
+
         "get-contributors": {
             "url": "/repos/:user/:repo/contributors",
             "method": "GET",
@@ -1614,7 +1625,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-languages": {
             "url": "/repos/:user/:repo/languages",
             "method": "GET",
@@ -1625,7 +1636,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-teams": {
             "url": "/repos/:user/:repo/teams",
             "method": "GET",
@@ -1636,7 +1647,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-tags": {
             "url": "/repos/:user/:repo/tags",
             "method": "GET",
@@ -1647,7 +1658,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-branches": {
             "url": "/repos/:user/:repo/branches",
             "method": "GET",
@@ -1658,7 +1669,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-collaborators": {
             "url": "/repos/:user/:repo/collaborators",
             "method": "GET",
@@ -1669,7 +1680,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-collaborator": {
             "url": "/repos/:user/:repo/collaborators/:collabuser",
             "method": "GET",
@@ -1679,7 +1690,7 @@
                 "$collabuser": null
             }
         },
-        
+
         "add-collaborator": {
             "url": "/repos/:user/:repo/collaborators/:collabuser",
             "method": "PUT",
@@ -1689,7 +1700,7 @@
                 "$collabuser": null
             }
         },
-        
+
         "remove-collaborator": {
             "url": "/repos/:user/:repo/collaborators/:collabuser",
             "method": "DELETE",
@@ -1699,7 +1710,7 @@
                 "$collabuser": null
             }
         },
-        
+
         "get-commits": {
             "url": "/repos/:user/:repo/commits",
             "method": "GET",
@@ -1724,7 +1735,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-commit": {
             "url": "/repos/:user/:repo/commits/:sha",
             "method": "GET",
@@ -1734,7 +1745,7 @@
                 "$sha": null
             }
         },
-        
+
         "get-all-commit-comments": {
             "url": "/repos/:user/:repo/comments",
             "method": "GET",
@@ -1745,7 +1756,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-commit-comments": {
             "url": "/repos/:user/:repo/commits/:sha/comments",
             "method": "GET",
@@ -1757,7 +1768,7 @@
                 "$per_page": null
             }
         },
-        
+
         "create-commit-comment": {
             "url": "/repos/:user/:repo/commits/:sha/comments",
             "method": "POST",
@@ -1772,7 +1783,7 @@
                 "$position": null
             }
         },
-        
+
         "get-commit-comment": {
             "url": "/repos/:user/:repo/comments/:id",
             "method": "GET",
@@ -1782,7 +1793,7 @@
                 "$id": null
             }
         },
-        
+
         "update-commit-comment": {
             "url": "/repos/:user/:repo/comments/:id",
             "method": "PATCH",
@@ -1793,7 +1804,7 @@
                 "$body": null
             }
         },
-        
+
         "compare-commits": {
             "url": "/repos/:user/:repo/compare/:base...:head",
             "method": "GET",
@@ -1804,7 +1815,7 @@
                 "$head": null
             }
         },
-        
+
         "delete-commit-comment": {
             "url": "/repos/:user/:repo/comments/:id",
             "method": "DELETE",
@@ -1814,7 +1825,7 @@
                 "$id": null
             }
         },
-        
+
         "get-downloads": {
             "url": "/repos/:user/:repo/downloads",
             "method": "GET",
@@ -1825,7 +1836,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-download": {
             "url": "/repos/:user/:repo/downloads/:id",
             "method": "GET",
@@ -1835,7 +1846,7 @@
                 "$id": null
             }
         },
-        
+
         "delete-download": {
             "url": "/repos/:user/:repo/downloads/:id",
             "method": "DELETE",
@@ -1845,7 +1856,7 @@
                 "$id": null
             }
         },
-        
+
         "get-forks": {
             "url": "/repos/:user/:repo/forks",
             "method": "GET",
@@ -1863,7 +1874,7 @@
                 "$per_page": null
             }
         },
-        
+
         "fork": {
             "url": "/repos/:user/:repo/forks",
             "method": "POST",
@@ -1879,7 +1890,7 @@
                 }
             }
         },
-        
+
         "get-keys": {
             "url": "/repos/:user/:repo/keys",
             "method": "GET",
@@ -1890,7 +1901,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-key": {
             "url": "/repos/:user/:repo/keys/:id",
             "method": "GET",
@@ -1900,7 +1911,7 @@
                 "$id": null
             }
         },
-        
+
         "create-key": {
             "url": "/repos/:user/:repo/keys",
             "method": "POST",
@@ -1911,7 +1922,7 @@
                 "$key": null
             }
         },
-        
+
         "update-key": {
             "url": "/repos/:user/:repo/keys/:id",
             "method": "PUT",
@@ -1923,7 +1934,7 @@
                 "$key": null
             }
         },
-        
+
         "delete-key": {
             "url": "/repos/:user/:repo/keys/:id",
             "method": "DELETE",
@@ -1933,7 +1944,7 @@
                 "$id": null
             }
         },
-        
+
         "get-watchers": {
             "url": "/repos/:user/:repo/watchers",
             "method": "GET",
@@ -1944,7 +1955,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-watched": {
             "url": "/user/watched",
             "method": "GET",
@@ -1953,7 +1964,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-watched-from-user": {
             "url": "/users/:user/watched",
             "method": "GET",
@@ -1963,7 +1974,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-watching": {
             "url": "/user/watched/:user/:repo",
             "method": "GET",
@@ -1974,7 +1985,7 @@
                 "$per_page": null
             }
         },
-        
+
         "watch": {
             "url": "/user/watched/:user/:repo",
             "method": "PUT",
@@ -1983,7 +1994,7 @@
                 "$repo": null
             }
         },
-        
+
         "un-watch": {
             "url": "/user/watched/:user/:repo",
             "method": "DELETE",
@@ -1992,7 +2003,7 @@
                 "$repo": null
             }
         },
-        
+
         "get-hooks": {
             "url": "/repos/:user/:repo/hooks",
             "method": "GET",
@@ -2003,7 +2014,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-hook": {
             "url": "/repos/:user/:repo/hooks/:id",
             "method": "GET",
@@ -2013,7 +2024,7 @@
                 "$id": null
             }
         },
-        
+
         "create-hook": {
             "url": "/repos/:user/:repo/hooks",
             "method": "POST",
@@ -2044,7 +2055,7 @@
                 }
             }
         },
-        
+
         "update-hook": {
             "url": "/repos/:user/:repo/hooks/:id",
             "method": "PATCH",
@@ -2090,7 +2101,7 @@
                 }
             }
         },
-        
+
         "test-hook": {
             "url": "/repos/:user/:repo/hooks/:id/test",
             "method": "POST",
@@ -2100,7 +2111,7 @@
                 "$id": null
             }
         },
-        
+
         "delete-hook": {
             "url": "/repos/:user/:repo/hooks/:id",
             "method": "DELETE",
@@ -2111,7 +2122,7 @@
             }
         }
     },
-    
+
     "user": {
         "get-from": {
             "url": "/users/:user",
@@ -2120,13 +2131,13 @@
                 "$user": null
             }
         },
-        
+
         "get": {
             "url": "/user",
             "method": "GET",
             "params": {}
         },
-        
+
         "update": {
             "url": "/user",
             "method": "PATCH",
@@ -2182,7 +2193,7 @@
                 }
             }
         },
-        
+
         "get-emails": {
             "url": "/user/emails",
             "method": "GET",
@@ -2191,19 +2202,19 @@
                 "$per_page": null
             }
         },
-        
+
         "add-emails": {
             "url": "/user/emails",
             "method": "POST",
             "params": {}
         },
-        
+
         "delete-emails": {
             "url": "/user/emails",
             "method": "DELETE",
             "params": {}
         },
-        
+
         "get-followers": {
             "url": "/users/:user/followers",
             "method": "GET",
@@ -2213,7 +2224,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-following-from-user": {
             "url": "/users/:user/following",
             "method": "GET",
@@ -2223,7 +2234,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-following": {
             "url": "/user/following",
             "method": "GET",
@@ -2232,7 +2243,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-follow-user": {
             "url": "/user/following/:user",
             "method": "GET",
@@ -2242,7 +2253,7 @@
                 "$per_page": null
             }
         },
-        
+
         "follow-user": {
             "url": "/user/following/:user",
             "method": "PUT",
@@ -2250,7 +2261,7 @@
                 "$user": null
             }
         },
-        
+
         "un-follow-user": {
             "url": "/user/following/:user",
             "method": "DELETE",
@@ -2258,7 +2269,7 @@
                 "$user": null
             }
         },
-        
+
         "get-keys": {
             "url": "/user/keys",
             "method": "GET",
@@ -2267,7 +2278,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-key": {
             "url": "/user/keys/:id",
             "method": "GET",
@@ -2275,7 +2286,7 @@
                 "$id": null
             }
         },
-        
+
         "create-key": {
             "url": "/user/keys",
             "method": "POST",
@@ -2284,7 +2295,7 @@
                 "$key": null
             }
         },
-        
+
         "update-key": {
             "url": "/user/keys/:id",
             "method": "PATCH",
@@ -2294,7 +2305,7 @@
                 "$key": null
             }
         },
-        
+
         "delete-key": {
             "url": "/user/keys/:id",
             "method": "DELETE",
@@ -2303,7 +2314,7 @@
             }
         }
     },
-    
+
     "events": {
         "get": {
             "url": "/events",
@@ -2313,7 +2324,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-repo": {
             "url": "/repos/:user/:repo/events",
             "method": "GET",
@@ -2324,7 +2335,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-repo-issues": {
             "url": "/repos/:user/:repo/issues/events",
             "method": "GET",
@@ -2335,7 +2346,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-repo-network": {
             "url": "/networks/:user/:repo/events",
             "method": "GET",
@@ -2346,7 +2357,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-org": {
             "url": "/orgs/:org/events",
             "method": "GET",
@@ -2356,7 +2367,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-received": {
             "url": "/users/:user/received_events",
             "method": "GET",
@@ -2366,7 +2377,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-received-public": {
             "url": "/users/:user/received_events/public",
             "method": "GET",
@@ -2376,7 +2387,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-user": {
             "url": "/users/:user/events",
             "method": "GET",
@@ -2386,7 +2397,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-user-public": {
             "url": "/users/:user/events/public",
             "method": "GET",
@@ -2396,7 +2407,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-from-user-org": {
             "url": "/users/:user/events/orgs/:org",
             "method": "GET",
