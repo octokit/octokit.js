@@ -192,6 +192,26 @@ var test = module.exports = {
         );
     },
 
+    "test: DELETE /repos/:user/:repo/git/refs/:ref (deleteReference)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.gitdata.deleteReference(
+            {
+                user: "String",
+                repo: "String",
+                ref: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
     "test: GET /repos/:user/:repo/git/tags/:sha (getTag)":  function(next) {
         var self = this;
         this.client.authenticate({
