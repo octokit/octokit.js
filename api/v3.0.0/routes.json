@@ -363,7 +363,7 @@
         },
 
         "create-blob": {
-            "url": "repos/:user/:repo/git/blobs",
+            "url": "/repos/:user/:repo/git/blobs",
             "method": "POST",
             "params": {
                 "$user": null,
@@ -601,7 +601,14 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "Array of Hash objects (of path, mode, type and sha) specifying a tree structure"
+                },
+                "base_tree": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "String of the SHA1 of the tree you want to update with new data"
                 }
             }
         }
