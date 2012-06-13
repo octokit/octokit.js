@@ -372,7 +372,7 @@ var Client = module.exports = function(config) {
         if (options.type == "basic" && (!options.username || !options.password))
             throw new Error("Basic authentication requires both a username and password to be set");
         if (options.type == "oauth" && !options.token)
-            throw new Error("OAuth2 authentication requires both a token to be set");
+            throw new Error("OAuth2 authentication requires a token to be set");
 
         this.auth = options;
     };
