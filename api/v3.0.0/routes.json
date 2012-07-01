@@ -2201,6 +2201,15 @@
             }
         },
 
+        "get-orgs": {
+            "url": "/user/orgs",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
         "get-emails": {
             "url": "/user/emails",
             "method": "GET",

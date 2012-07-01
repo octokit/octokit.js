@@ -80,6 +80,25 @@ var test = module.exports = {
         );
     },
 
+    "test: GET /user/orgs (getOrgs)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.user.getOrgs(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
     "test: GET /user/emails (getEmails)":  function(next) {
         var self = this;
         this.client.authenticate({

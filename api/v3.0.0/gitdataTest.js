@@ -44,7 +44,7 @@ var test = module.exports = {
         );
     },
 
-    "test: POST repos/:user/:repo/git/blobs (createBlob)":  function(next) {
+    "test: POST /repos/:user/:repo/git/blobs (createBlob)":  function(next) {
         var self = this;
         this.client.authenticate({
             type: "token",
@@ -291,7 +291,8 @@ var test = module.exports = {
             {
                 user: "String",
                 repo: "String",
-                tree: "Json"
+                tree: "Json",
+                base_tree: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

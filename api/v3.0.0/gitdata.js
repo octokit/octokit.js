@@ -40,7 +40,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -82,7 +82,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -123,7 +123,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -168,7 +168,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -209,7 +209,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -251,7 +251,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -293,7 +293,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -336,7 +336,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -377,7 +377,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -418,7 +418,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -465,7 +465,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -507,7 +507,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
@@ -538,7 +538,8 @@ var gitdata = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - tree (Json): Required. 
+     *  - tree (Json): Required. Array of Hash objects (of path, mode, type and sha) specifying a tree structure 
+     *  - base_tree (String): Optional. String of the SHA1 of the tree you want to update with new data 
      **/
     this.createTree = function(msg, block, callback) {
         var self = this;
@@ -548,7 +549,7 @@ var gitdata = module.exports = {
 
             var ret;
             try {
-                ret = JSON.parse(res.data);
+                ret = res.data && JSON.parse(res.data);
             }
             catch (ex) {
                 if (callback)
