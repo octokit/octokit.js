@@ -242,7 +242,7 @@ var Client = module.exports = function(config) {
                     def = paramsStruct[paramName];
 
                 value = trim(msg[paramName]);
-                if (!value) {
+                if (typeof value !== 'boolean' && !value) {
                     // we don't need to validation for undefined parameter values
                     // that are not required.
                     if (!def.required)
