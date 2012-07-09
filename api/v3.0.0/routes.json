@@ -238,6 +238,27 @@
                 "validation": "^[0-9]+$",
                 "invalidmsg": "",
                 "description": "A custom page size up to 100. Default is 30."
+            },
+            "scopes": {
+                "type": "Array",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Optional array - A list of scopes that this authorization is in."
+            },
+            "note": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Optional string - A note to remind you what the OAuth token is for."
+            },
+            "note_url": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Optional string - A URL to remind you what app the OAuth token is for."
             }
         }
     },
@@ -1024,6 +1045,18 @@
                 "$repo": null,
                 "$number": null
             }
+        }
+    },
+
+    "oauth": {
+        "create-authorization": {
+            "url": "/authorizations",
+            "method": "POST",
+            "params": {
+                "$scopes": null,
+                "$note": null,
+                "$note_url": null
+          }
         }
     },
 
