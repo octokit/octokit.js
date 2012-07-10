@@ -4,3 +4,4 @@ node_modules
 .settings.xml
 .settings
 .c9revisions
+/nbproject/private/

@@ -253,7 +253,7 @@
         },
 
         "get-from-user": {
-            "url": ":user/gists",
+            "url": "/users/:user/gists",
             "method": "GET",
             "params": {
                 "$user": null,
