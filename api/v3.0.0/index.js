@@ -32,7 +32,7 @@ var proto = {
     }
 };
 
-["gists", "gitdata", "issues", "orgs", "pullRequests", "repos", "user", "events"].forEach(function(api) {
+["gists", "gitdata", "issues", "oauth", "orgs", "pullRequests", "repos", "user", "events"].forEach(function(api) {
     Util.extend(proto, require("./" + api));
 });
 
