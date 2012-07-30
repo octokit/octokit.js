@@ -527,8 +527,12 @@ var Client = module.exports = function(config) {
         });
 
         // write data to request body
-        if (hasBody && query.length)
+        if (hasBody && query.length) {
+            if (this.debug) {
+                console.log("BODY: ", query);
+            }
             req.write(query + "\n");
+        }
         req.end();
     };
 }).call(Client.prototype);
