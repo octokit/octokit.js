@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/ajaxorg/node-github.png)](http://travis-ci.org/ajaxorg/node-github)
 # JavaScript GitHub API for Node.JS
 
 A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API. 
