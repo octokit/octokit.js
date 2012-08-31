@@ -1648,6 +1648,24 @@
             }
         },
 
+        "merge": {
+            "url": "/repos/:user/:repo/merges",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$base": null,
+                "$head": null,
+                "commit_message": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional string - Commit message to use for the merge commit. If omitted, a default message will be used."
+                }
+            }
+        },
+
         "get-contributors": {
             "url": "/repos/:user/:repo/contributors",
             "method": "GET",
