@@ -1316,6 +1316,49 @@
         }
     },
 
+    "statuses": {
+        "get": {
+            "url": "/repos/:user/:repo/statuses/:sha",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$sha": null
+            }
+        },
+
+        "create": {
+            "url": "/repos/:user/:repo/statuses/:sha",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$sha": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(pending|success|error|failure)$",
+                    "invalidmsg": "",
+                    "description": "State of the status - can be one of pending, success, error, or failure."
+                },
+                "target_url": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Short description of the status."
+                }
+            }
+        }
+    },
+
     "pull-requests": {
         "get-all": {
             "url": "/repos/:user/:repo/pulls",
