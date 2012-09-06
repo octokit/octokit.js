@@ -133,7 +133,7 @@ var test = module.exports = {
         );
     },
 
-    "test: GET /gists/get/:id (get)":  function(next) {
+    "test: GET /gists/:id (get)":  function(next) {
         var self = this;
         this.client.authenticate({
             type: "token",
