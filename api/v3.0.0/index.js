@@ -1,8 +1,8 @@
 /**
  *  class Github
- * 
+ *
  *  A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.
- * 
+ *
  *  Copyright 2012 Ajax.org Services B.V.
  *
  *  This product includes software developed by
@@ -32,7 +32,7 @@ var proto = {
     }
 };
 
-["gists", "gitdata", "issues", "oauth", "orgs", "pullRequests", "repos", "user", "events"].forEach(function(api) {
+["gists", "gitdata", "issues", "oauth", "orgs", "pullRequests", "repos", "user", "events", "statuses"].forEach(function(api) {
     Util.extend(proto, require("./" + api));
 });
 
