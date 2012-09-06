@@ -179,6 +179,28 @@ var test = module.exports = {
         );
     },
 
+    "test: POST /repos/:user/:repo/merges (merge)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.repos.merge(
+            {
+                user: "String",
+                repo: "String",
+                base: "String",
+                head: "String",
+                commit_message: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
     "test: GET /repos/:user/:repo/contributors (getContributors)":  function(next) {
         var self = this;
         this.client.authenticate({
