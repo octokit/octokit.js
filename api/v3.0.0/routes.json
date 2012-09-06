@@ -322,7 +322,7 @@
         },
 
         "get": {
-            "url": "/gists/get/:id",
+            "url": "/gists/:id",
             "method": "GET",
             "params": {
                 "$id": null
