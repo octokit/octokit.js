@@ -22,41 +22,18 @@ var test = module.exports = {
         });
     },
     
-    "test: GET /repos/:user/:repo/statuses/:sha (get)":  function(next) {
+    "test: POST /authorizations (createAuthorization)":  function(next) {
         var self = this;
         this.client.authenticate({
             type: "token",
             username: username,
             token: token
         });
-        this.client.statuses.get(
+        this.client.oauth.createAuthorization(
             {
-                user: "String",
-                repo: "String",
-                sha: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-            }
-        );
-    },
-
-    "test: POST /repos/:user/:repo/statuses/:sha (create)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.statuses.create(
-            {
-                user: "String",
-                repo: "String",
-                sha: "String",
-                state: "String",
-                target_url: "String",
-                description: "String"
+                scopes: "Array",
+                note: "String",
+                note_url: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

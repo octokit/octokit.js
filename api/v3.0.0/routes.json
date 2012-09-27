@@ -1926,6 +1926,61 @@
                 "$id": null
             }
         },
+        
+        "get-readme": {
+            "url": "/repos/:user/:repo/readme",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "ref": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The String name of the Commit/Branch/Tag. Defaults to master."
+                }
+            }
+        },
+        
+        "get-content": {
+            "url": "/repos/:user/:repo/contents/:path",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "path": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The content path."
+                },
+                "ref": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The String name of the Commit/Branch/Tag. Defaults to master."
+                }
+            }
+        },
+        
+        "get-archive-link": {
+            "url": "/repos/:user/:repo/:archive_format/:ref",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "archive_format": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(tarball|zipball)$",
+                    "invalidmsg": "Either tarball or zipball",
+                    "description": "Either tarball or zipball"
+                }
+            }
+        },
 
         "get-downloads": {
             "url": "/repos/:user/:repo/downloads",

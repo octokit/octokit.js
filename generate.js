@@ -92,8 +92,8 @@ var main = module.exports = function(versions) {
                 if (paramName.charAt(0) == "$") {
                     paramName = paramName.substr(1);
                     if (!defines.params[paramName]) {
-                        Util.log("Invalid variable parameter name substitution; param '" + paramName
-                            + "' not found in defines block", "fatal");
+                        Util.log("Invalid variable parameter name substitution; param '" + 
+                            paramName + "' not found in defines block", "fatal");
                         process.exit(1);
                     }
                     else
@@ -183,13 +183,23 @@ var main = module.exports = function(versions) {
                 "utf8"
             );
 
-            Util.log("Writing test file for " + section + ", version " + version);
             def = testSections[section];
-            Fs.writeFileSync(dir + "/" + section + "Test.js", TestSectionTpl
+            // test if previous tests already contained implementations by checking
+            // if the difference in character count between the current test file 
+            // and the newly generated one is more than twenty characters.
+            var body = TestSectionTpl
                 .replace("<%version%>", version.replace("v", ""))
-                .replace("<%testBody%>", def.join(",\n\n")),
-                "utf8"
-            );
+                .replace("<%testBody%>", def.join(",\n\n"));
+            var path = dir + "/" + section + "Test.js";
+            if (Path.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
+                Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
+                    "that were already implemented. \nPlease be sure te check this file " +
+                    "and move all implemented tests back into the newly generated test!", "error");
+                Fs.renameSync(path, path + ".bak");
+            }
+            
+            Util.log("Writing test file for " + section + ", version " + version);
+            Fs.writeFileSync(path, body, "utf8");
         });
     });
 };

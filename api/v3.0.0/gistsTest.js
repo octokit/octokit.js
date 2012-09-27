@@ -41,7 +41,7 @@ var test = module.exports = {
         );
     },
 
-    "test: GET :user/gists (getFromUser)":  function(next) {
+    "test: GET /users/:user/gists (getFromUser)":  function(next) {
         var self = this;
         this.client.authenticate({
             type: "token",

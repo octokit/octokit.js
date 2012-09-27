@@ -1,6 +1,6 @@
-/**
+/** 
  *  mixin statuses
- *
+ * 
  *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
@@ -23,12 +23,12 @@ var statuses = module.exports = {
      *  statuses#get(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     *
+     * 
      *  ##### Params on the `msg` object:
-     *
-     *  - user (String): Required.
-     *  - repo (String): Required.
-     *  - sha (String): Request.
+     * 
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - sha (String): Required. 
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -45,7 +45,7 @@ var statuses = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-
+            
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -54,7 +54,7 @@ var statuses = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-
+            
             if (callback)
                 callback(null, ret);
         });
@@ -64,15 +64,15 @@ var statuses = module.exports = {
      *  statuses#create(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     *
+     * 
      *  ##### Params on the `msg` object:
-     *
-     *  - user (String): Required.
-     *  - repo (String): Required.
-     *  - sha (String): Required.
-     *  - state (String): Required. Required string -  State of the status - can be one of pending, success, error, or failure.
-     *  - target_url (String): Optional. Optional string - Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
-     *  - description (String): Optional. Optional string - Short description of the status.
+     * 
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - sha (String): Required. 
+     *  - state (String): Required. State of the status - can be one of pending, success, error, or failure. Validation rule: ` ^(pending|success|error|failure)$ `.
+     *  - target_url (String): Optional. Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status. 
+     *  - description (String): Optional. Short description of the status. 
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -89,7 +89,7 @@ var statuses = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-
+            
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -98,9 +98,10 @@ var statuses = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-
+            
             if (callback)
                 callback(null, ret);
         });
     };
+
 }).call(statuses.statuses);

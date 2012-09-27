@@ -581,6 +581,67 @@ var test = module.exports = {
         );
     },
 
+    "test: GET /repos/:user/:repo/readme (getReadme)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.repos.getReadme(
+            {
+                user: "String",
+                repo: "String",
+                ref: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
+    "test: GET /repos/:user/:repo/contents/:path (getContent)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.repos.getContent(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                ref: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
+    "test: GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)":  function(next) {
+        var self = this;
+        this.client.authenticate({
+            type: "token",
+            username: username,
+            token: token
+        });
+        this.client.repos.getArchiveLink(
+            {
+                user: "String",
+                repo: "String",
+                archive_format: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+            }
+        );
+    },
+
     "test: GET /repos/:user/:repo/downloads (getDownloads)":  function(next) {
         var self = this;
         this.client.authenticate({
