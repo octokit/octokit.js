@@ -27,6 +27,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      * 
      *  - type (String): Optional. Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`. Validation rule: ` ^(all|owner|public|private|member)$ `.
+     *  - sort (String): Optional. Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`. Validation rule: ` ^(created|updated|pushed|full_name)$ `.
+     *  - direction (String): Optional. Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -69,6 +71,8 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - type (String): Optional. Possible values: `all`, `owner`, `member`. Default: `public`. Validation rule: ` ^(all|owner|member)$ `.
+     *  - sort (String): Optional. Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`. Validation rule: ` ^(created|updated|pushed|full_name)$ `.
+     *  - direction (String): Optional. Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
