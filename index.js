@@ -387,7 +387,7 @@ var Client = module.exports = function(config) {
         var url = def.url;
         Object.keys(def.params).forEach(function(paramName) {
             paramName = paramName.replace(/^[$]+/, "");
-            if (!msg[paramName])
+            if (!(paramName in msg))
                 return;
 
             var isUrlParam = url.indexOf(":" + paramName) !== -1;
