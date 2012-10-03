@@ -1591,6 +1591,14 @@
                     "invalidmsg": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
                     "description": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`."
                 },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated|pushed|full_name)$",
+                    "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
+                    "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`."
+                },
+                "$direction": null,
                 "$page": null,
                 "$per_page": null
             }
@@ -1608,6 +1616,14 @@
                     "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `public`.",
                     "description": "Possible values: `all`, `owner`, `member`. Default: `public`."
                 },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated|pushed|full_name)$",
+                    "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
+                    "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`."
+                },
+                "$direction": null,
                 "$page": null,
                 "$per_page": null
             }

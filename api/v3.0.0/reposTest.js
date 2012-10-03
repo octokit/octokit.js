@@ -33,6 +33,8 @@ var test = module.exports = {
             {
                 type: "String",
                 page: "Number",
+                sort: "String",
+                direction: "String",
                 per_page: "Number"
             },
             function(err, res) {
@@ -53,6 +55,8 @@ var test = module.exports = {
             {
                 user: "String",
                 type: "String",
+                sort: "String",
+                direction: "String",
                 page: "Number",
                 per_page: "Number"
             },
