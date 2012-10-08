@@ -501,13 +501,7 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "refs": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "String of the name of the fully qualified reference (ie: refs/heads/master). If it doesn’t start with ‘refs’ and have at least two slashes, it will be rejected."
-                },
+                "$ref": null,
                 "$sha": null
             }
         },
@@ -584,26 +578,12 @@
                     "invalidmsg": "",
                     "description": "String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob."
                 },
-                "tagger.name": {
-                    "type": "String",
+                "tagger": {
+                    "type": "Json",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "String of the name of the author of the tag"
-                },
-                "tagger.email": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "String of the email of the author of the tag"
-                },
-                "tagger.date": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Timestamp of when this object was tagged"
+                    "description": "JSON object that contains the following keys: `name` - String of the name of the author of the tag, `email` - String of the email of the author of the tag, `date` - Timestamp of when this object was tagged"
                 }
             }
         },

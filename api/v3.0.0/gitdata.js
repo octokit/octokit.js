@@ -282,7 +282,7 @@ var gitdata = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - refs (String): Required. String of the name of the fully qualified reference (ie: refs/heads/master). If it doesn’t start with ‘refs’ and have at least two slashes, it will be rejected. 
+     *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
      *  - sha (String): Required. 
      **/
     this.createReference = function(msg, block, callback) {
@@ -453,9 +453,7 @@ var gitdata = module.exports = {
      *  - message (String): Required. String of the tag message 
      *  - object (String): Required. String of the SHA of the git object this is tagging 
      *  - type (String): Required. String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob. 
-     *  - tagger.name (String): Required. String of the name of the author of the tag 
-     *  - tagger.email (String): Required. String of the email of the author of the tag 
-     *  - tagger.date (String): Required. Timestamp of when this object was tagged 
+     *  - tagger (Json): Required. JSON object that contains the following keys: `name` - String of the name of the author of the tag, `email` - String of the email of the author of the tag, `date` - Timestamp of when this object was tagged 
      **/
     this.createTag = function(msg, block, callback) {
         var self = this;
