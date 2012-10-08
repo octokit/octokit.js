@@ -389,32 +389,92 @@ DISABLED temporarily due to Internal Server Error from Github!
     it("should successfully execute GET /repos/:user/:repo/git/trees/:sha (getTree)",  function(next) {
         client.gitdata.getTree(
             {
-                user: "String",
-                repo: "String",
-                sha: "String",
-                recursive: "Boolean"
+                user: "mikedeboertest",
+                repo: "node_chat",
+                sha: "8ce4393a319b60bc6179509e0c46dee83c179f9f",
+                recursive: false
             },
             function(err, res) {
                 Assert.equal(err, null);
-                // other assertions go here
-                next();
+                Assert.equal(res.tree[0].type, "blob");
+                Assert.equal(res.tree[0].path, "LICENSE-MIT");
+                Assert.equal(res.tree[0].sha, "f30a31de94635399f42fd05f91f6ed3ff2f013d6");
+                Assert.equal(res.tree[0].mode, "100644");
+                Assert.equal(res.tree[0].size, 1075);
+
+                client.gitdata.getTree(
+                    {
+                        user: "mikedeboertest",
+                        repo: "node_chat",
+                        sha: "8ce4393a319b60bc6179509e0c46dee83c179f9f",
+                        recursive: true
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        Assert.equal(res.tree[0].type, "blob");
+                        Assert.equal(res.tree[0].path, "LICENSE-MIT");
+                        Assert.equal(res.tree[0].sha, "f30a31de94635399f42fd05f91f6ed3ff2f013d6");
+                        Assert.equal(res.tree[0].mode, "100644");
+                        Assert.equal(res.tree[0].size, 1075);
+
+                        next();
+                    }
+                );
             }
         );
     });
-/*
+
     it("should successfully execute POST /repos/:user/:repo/git/trees (createTree)",  function(next) {
-        client.gitdata.createTree(
+        client.gitdata.getTree(
             {
-                user: "String",
-                repo: "String",
-                tree: "Json",
-                base_tree: "String"
+                user: "mikedeboertest",
+                repo: "node_chat",
+                sha: "8ce4393a319b60bc6179509e0c46dee83c179f9f",
+                recursive: false
             },
             function(err, res) {
                 Assert.equal(err, null);
-                // other assertions go here
-                next();
+                var file = res.tree[0];
+
+                client.gitdata.createTree(
+                    {
+                        base_tree: "8ce4393a319b60bc6179509e0c46dee83c179f9f",
+                        user: "mikedeboertest",
+                        repo: "node_chat",
+                        tree: [
+                            {
+                                path: file.path,
+                                mode: "100755",
+                                type: file.type,
+                                sha: file.sha
+                            }
+                        ]
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        var sha = res.sha;
+
+                        client.gitdata.getTree(
+                            {
+                                user: "mikedeboertest",
+                                repo: "node_chat",
+                                sha: sha,
+                                recursive: true
+                            },
+                            function(err, res) {
+                                Assert.equal(err, null);
+                                Assert.equal(res.tree[0].type, "blob");
+                                Assert.equal(res.tree[0].path, "LICENSE-MIT");
+                                Assert.equal(res.tree[0].sha, "f30a31de94635399f42fd05f91f6ed3ff2f013d6");
+                                Assert.equal(res.tree[0].mode, "100755");
+                                Assert.equal(res.tree[0].size, 1075);
+
+                                next();
+                            }
+                        );
+                    }
+                );
             }
         );
-    });*/
+    });
 });
