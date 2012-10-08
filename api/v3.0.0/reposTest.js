@@ -86,7 +86,9 @@ describe("[repos]", function() {
                 private: "Boolean",
                 has_issues: "Boolean",
                 has_wiki: "Boolean",
-                has_downloads: "Boolean"
+                has_downloads: "Boolean",
+                auto_init: "Boolean",
+                gitignore_template: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -107,7 +109,9 @@ describe("[repos]", function() {
                 has_issues: "Boolean",
                 has_wiki: "Boolean",
                 has_downloads: "Boolean",
-                team_id: "Boolean"
+                auto_init: "Boolean",
+                gitignore_template: "String",
+                team_id: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

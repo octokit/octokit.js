@@ -162,6 +162,8 @@ var repos = module.exports = {
      *  - has_issues (Boolean): Optional. Optional boolean - true to enable issues for this repository, false to disable them. Default is true. 
      *  - has_wiki (Boolean): Optional. Optional boolean - true to enable the wiki for this repository, false to disable it. Default is true. 
      *  - has_downloads (Boolean): Optional. Optional boolean - true to enable downloads for this repository, false to disable them. Default is true. 
+     *  - auto_init (Boolean): Optional. Optional boolean - true to create an initial commit with empty README. Default is false 
+     *  - gitignore_template (String): Optional. Optional string - Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided. 
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -208,7 +210,9 @@ var repos = module.exports = {
      *  - has_issues (Boolean): Optional. Optional boolean - true to enable issues for this repository, false to disable them. Default is true. 
      *  - has_wiki (Boolean): Optional. Optional boolean - true to enable the wiki for this repository, false to disable it. Default is true. 
      *  - has_downloads (Boolean): Optional. Optional boolean - true to enable downloads for this repository, false to disable them. Default is true. 
-     *  - team_id (Boolean): Optional. Optional number - The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization. 
+     *  - auto_init (Boolean): Optional. Optional boolean - true to create an initial commit with empty README. Default is false 
+     *  - gitignore_template (String): Optional. Optional string - Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided. 
+     *  - team_id (Number): Optional. Optional number - The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization. Validation rule: ` ^[0-9]$ `.
      **/
     this.createFromOrg = function(msg, block, callback) {
         var self = this;

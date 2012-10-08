@@ -259,6 +259,20 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "Optional string - A URL to remind you what app the OAuth token is for."
+            },
+            "auto_init": {
+                "type": "Boolean",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Optional boolean - true to create an initial commit with empty README. Default is false"
+            },
+            "gitignore_template": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Optional string - Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
             }
         }
     },
@@ -1702,7 +1716,9 @@
                 "$private": null,
                 "$has_issues": null,
                 "$has_wiki": null,
-                "$has_downloads": null
+                "$has_downloads": null,
+                "$auto_init": null,
+                "$gitignore_template": null
             }
         },
 
@@ -1718,10 +1734,12 @@
                 "$has_issues": null,
                 "$has_wiki": null,
                 "$has_downloads": null,
+                "$auto_init": null,
+                "$gitignore_template": null,
                 "team_id": {
-                    "type": "Boolean",
+                    "type": "Number",
                     "required": false,
-                    "validation": "",
+                    "validation": "^[0-9]$",
                     "invalidmsg": "",
                     "description": "Optional number - The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization."
                 }
