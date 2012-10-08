@@ -471,7 +471,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getTeam = function(msg, block, callback) {
         var self = this;
@@ -552,7 +552,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - name (String): Required. 
      *  - permission (String): Optional. `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories. Validation rule: ` ^(pull|push|admin)$ `.
      **/
@@ -593,7 +593,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteTeam = function(msg, block, callback) {
         var self = this;
@@ -632,7 +632,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -673,7 +673,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - user (String): Required. 
      **/
     this.getTeamMember = function(msg, block, callback) {
@@ -713,7 +713,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - user (String): Required. 
      **/
     this.addTeamMember = function(msg, block, callback) {
@@ -753,7 +753,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - user (String): Required. 
      **/
     this.deleteTeamMember = function(msg, block, callback) {
@@ -793,7 +793,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -834,7 +834,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
@@ -875,7 +875,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
@@ -916,7 +916,7 @@ var orgs = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/

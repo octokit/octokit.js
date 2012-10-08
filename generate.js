@@ -1,6 +1,6 @@
 /** section: github, internal
  * class ApiGenerator
- * 
+ *
  *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
@@ -92,7 +92,7 @@ var main = module.exports = function(versions) {
                 if (paramName.charAt(0) == "$") {
                     paramName = paramName.substr(1);
                     if (!defines.params[paramName]) {
-                        Util.log("Invalid variable parameter name substitution; param '" + 
+                        Util.log("Invalid variable parameter name substitution; param '" +
                             paramName + "' not found in defines block", "fatal");
                         process.exit(1);
                     }
@@ -185,11 +185,12 @@ var main = module.exports = function(versions) {
 
             def = testSections[section];
             // test if previous tests already contained implementations by checking
-            // if the difference in character count between the current test file 
+            // if the difference in character count between the current test file
             // and the newly generated one is more than twenty characters.
             var body = TestSectionTpl
                 .replace("<%version%>", version.replace("v", ""))
-                .replace("<%testBody%>", def.join(",\n\n"));
+                .replace(/<%sectionName%>/g, section)
+                .replace("<%testBody%>", def.join("\n\n"));
             var path = dir + "/" + section + "Test.js";
             if (Path.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
                 Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
@@ -197,7 +198,7 @@ var main = module.exports = function(versions) {
                     "and move all implemented tests back into the newly generated test!", "error");
                 Fs.renameSync(path, path + ".bak");
             }
-            
+
             Util.log("Writing test file for " + section + ", version " + version);
             Fs.writeFileSync(path, body, "utf8");
         });

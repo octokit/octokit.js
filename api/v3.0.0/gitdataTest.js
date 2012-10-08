@@ -12,24 +12,22 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[gitdata]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "3.0.0"
         });
-    },
-    
-    "test: GET /repos/:user/:repo/git/blobs/:sha (getBlob)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
+        client.authenticate({
+            type: "oauth",
             token: token
         });
-        this.client.gitdata.getBlob(
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/git/blobs/:sha (getBlob)",  function(next) {
+        client.gitdata.getBlob(
             {
                 user: "String",
                 repo: "String",
@@ -40,18 +38,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/git/blobs (createBlob)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.createBlob(
+    it("should successfully execute POST /repos/:user/:repo/git/blobs (createBlob)",  function(next) {
+        client.gitdata.createBlob(
             {
                 user: "String",
                 repo: "String",
@@ -61,18 +54,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/git/commits/:sha (getCommit)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.getCommit(
+    it("should successfully execute GET /repos/:user/:repo/git/commits/:sha (getCommit)",  function(next) {
+        client.gitdata.getCommit(
             {
                 user: "String",
                 repo: "String",
@@ -81,18 +69,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/git/commits (createCommit)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.createCommit(
+    it("should successfully execute POST /repos/:user/:repo/git/commits (createCommit)",  function(next) {
+        client.gitdata.createCommit(
             {
                 user: "String",
                 repo: "String",
@@ -105,18 +88,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/git/refs/:ref (getReference)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.getReference(
+    it("should successfully execute GET /repos/:user/:repo/git/refs/:ref (getReference)",  function(next) {
+        client.gitdata.getReference(
             {
                 user: "String",
                 repo: "String",
@@ -125,18 +103,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/git/refs (getAllReferences)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.getAllReferences(
+    it("should successfully execute GET /repos/:user/:repo/git/refs (getAllReferences)",  function(next) {
+        client.gitdata.getAllReferences(
             {
                 user: "String",
                 repo: "String",
@@ -146,18 +119,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/git/refs (createReference)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.createReference(
+    it("should successfully execute POST /repos/:user/:repo/git/refs (createReference)",  function(next) {
+        client.gitdata.createReference(
             {
                 user: "String",
                 repo: "String",
@@ -167,18 +135,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/git/refs/:ref (updateReference)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.updateReference(
+    it("should successfully execute PATCH /repos/:user/:repo/git/refs/:ref (updateReference)",  function(next) {
+        client.gitdata.updateReference(
             {
                 user: "String",
                 repo: "String",
@@ -189,18 +152,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/git/refs/:ref (deleteReference)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.deleteReference(
+    it("should successfully execute DELETE /repos/:user/:repo/git/refs/:ref (deleteReference)",  function(next) {
+        client.gitdata.deleteReference(
             {
                 user: "String",
                 repo: "String",
@@ -209,18 +167,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/git/tags/:sha (getTag)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.getTag(
+    it("should successfully execute GET /repos/:user/:repo/git/tags/:sha (getTag)",  function(next) {
+        client.gitdata.getTag(
             {
                 user: "String",
                 repo: "String",
@@ -229,18 +182,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/git/tags (createTag)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.createTag(
+    it("should successfully execute POST /repos/:user/:repo/git/tags (createTag)",  function(next) {
+        client.gitdata.createTag(
             {
                 user: "String",
                 repo: "String",
@@ -255,18 +203,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/git/trees/:sha (getTree)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.getTree(
+    it("should successfully execute GET /repos/:user/:repo/git/trees/:sha (getTree)",  function(next) {
+        client.gitdata.getTree(
             {
                 user: "String",
                 repo: "String",
@@ -276,18 +219,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/git/trees (createTree)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.gitdata.createTree(
+    it("should successfully execute POST /repos/:user/:repo/git/trees (createTree)",  function(next) {
+        client.gitdata.createTree(
             {
                 user: "String",
                 repo: "String",
@@ -297,9 +235,8 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    }
-};
-
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+    });
+});

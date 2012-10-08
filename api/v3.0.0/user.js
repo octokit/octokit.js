@@ -588,7 +588,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getKey = function(msg, block, callback) {
         var self = this;
@@ -667,7 +667,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - title (String): Required. 
      *  - key (String): Required. 
      **/
@@ -708,7 +708,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteKey = function(msg, block, callback) {
         var self = this;

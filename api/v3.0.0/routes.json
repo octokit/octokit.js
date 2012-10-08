@@ -58,9 +58,9 @@
                 "description": ""
             },
             "id": {
-                "type": "Number",
+                "type": "String",
                 "required": true,
-                "validation": "^[0-9]+$",
+                "validation": "",
                 "invalidmsg": "",
                 "description": ""
             },
@@ -1048,15 +1048,61 @@
         }
     },
 
-    "oauth": {
-        "create-authorization": {
+    "authorization": {
+        "get-all": {
+            "url": "/authorizations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            }
+        },
+        "get": {
+            "url": "/authorizations/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            }
+        },
+        "create": {
             "url": "/authorizations",
             "method": "POST",
             "params": {
                 "$scopes": null,
                 "$note": null,
                 "$note_url": null
-          }
+            }
+        },
+        "update": {
+            "url": "/authorizations/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "$scopes": null,
+                "add_scopes": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional array - A list of scopes to add to this authorization."
+                },
+                "remove_scopes": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional array - A list of scopes to remove from this authorization."
+                },
+                "$note": null,
+                "$note_url": null
+            }
+        },
+        "delete": {
+            "url": "/authorizations/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            }
         }
     },
 
@@ -1942,7 +1988,7 @@
                 "$id": null
             }
         },
-        
+
         "get-readme": {
             "url": "/repos/:user/:repo/readme",
             "method": "GET",
@@ -1958,7 +2004,7 @@
                 }
             }
         },
-        
+
         "get-content": {
             "url": "/repos/:user/:repo/contents/:path",
             "method": "GET",
@@ -1981,7 +2027,7 @@
                 }
             }
         },
-        
+
         "get-archive-link": {
             "url": "/repos/:user/:repo/:archive_format/:ref",
             "method": "GET",

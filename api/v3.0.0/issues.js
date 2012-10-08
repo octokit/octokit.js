@@ -299,7 +299,7 @@ var issues = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getComment = function(msg, block, callback) {
         var self = this;
@@ -382,7 +382,7 @@ var issues = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - body (String): Required. 
      **/
     this.editComment = function(msg, block, callback) {
@@ -424,7 +424,7 @@ var issues = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteComment = function(msg, block, callback) {
         var self = this;
@@ -550,7 +550,7 @@ var issues = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getEvent = function(msg, block, callback) {
         var self = this;

@@ -12,17 +12,19 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[<%sectionName%>]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "<%version%>"
         });
-    },
-    
-<%testBody%>
-};
+        client.authenticate({
+            type: "oauth",
+            token: token
+        });
+    });
 
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+<%testBody%>
+});

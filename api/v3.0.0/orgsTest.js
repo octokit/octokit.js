@@ -12,24 +12,22 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[orgs]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "3.0.0"
         });
-    },
-    
-    "test: GET /users/:user/orgs (getFromUser)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
+        client.authenticate({
+            type: "oauth",
             token: token
         });
-        this.client.orgs.getFromUser(
+    });
+
+    it("should successfully execute GET /users/:user/orgs (getFromUser)",  function(next) {
+        client.orgs.getFromUser(
             {
                 user: "String",
                 page: "Number",
@@ -38,18 +36,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org (get)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.get(
+    it("should successfully execute GET /orgs/:org (get)",  function(next) {
+        client.orgs.get(
             {
                 org: "String",
                 page: "Number",
@@ -58,18 +51,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /orgs/:org (update)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.update(
+    it("should successfully execute PATCH /orgs/:org (update)",  function(next) {
+        client.orgs.update(
             {
                 org: "String",
                 billing_email: "String",
@@ -81,18 +69,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org/members (getMembers)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getMembers(
+    it("should successfully execute GET /orgs/:org/members (getMembers)",  function(next) {
+        client.orgs.getMembers(
             {
                 org: "String",
                 page: "Number",
@@ -101,18 +84,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org/members/:user (getMember)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getMember(
+    it("should successfully execute GET /orgs/:org/members/:user (getMember)",  function(next) {
+        client.orgs.getMember(
             {
                 org: "String",
                 user: "String"
@@ -120,18 +98,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /orgs/:org/members/:user (removeMember)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.removeMember(
+    it("should successfully execute DELETE /orgs/:org/members/:user (removeMember)",  function(next) {
+        client.orgs.removeMember(
             {
                 org: "String",
                 user: "String"
@@ -139,36 +112,26 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org/public_members (getPublicMembers)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getPublicMembers(
+    it("should successfully execute GET /orgs/:org/public_members (getPublicMembers)",  function(next) {
+        client.orgs.getPublicMembers(
             {
                 org: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org/public_members/:user (getPublicMember)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getPublicMember(
+    it("should successfully execute GET /orgs/:org/public_members/:user (getPublicMember)",  function(next) {
+        client.orgs.getPublicMember(
             {
                 org: "String",
                 user: "String"
@@ -176,18 +139,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /orgs/:org/public_members/:user (publicizeMembership)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.publicizeMembership(
+    it("should successfully execute PUT /orgs/:org/public_members/:user (publicizeMembership)",  function(next) {
+        client.orgs.publicizeMembership(
             {
                 org: "String",
                 user: "String"
@@ -195,18 +153,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /orgs/:org/public_members/:user (concealMembership)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.concealMembership(
+    it("should successfully execute DELETE /orgs/:org/public_members/:user (concealMembership)",  function(next) {
+        client.orgs.concealMembership(
             {
                 org: "String",
                 user: "String"
@@ -214,54 +167,39 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org/teams (getTeams)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getTeams(
+    it("should successfully execute GET /orgs/:org/teams (getTeams)",  function(next) {
+        client.orgs.getTeams(
             {
                 org: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /teams/:id (getTeam)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getTeam(
+    it("should successfully execute GET /teams/:id (getTeam)",  function(next) {
+        client.orgs.getTeam(
             {
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /orgs/:org/teams (createTeam)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.createTeam(
+    it("should successfully execute POST /orgs/:org/teams (createTeam)",  function(next) {
+        client.orgs.createTeam(
             {
                 org: "String",
                 name: "String",
@@ -271,204 +209,153 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /teams/:id (updateTeam)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.updateTeam(
+    it("should successfully execute PATCH /teams/:id (updateTeam)",  function(next) {
+        client.orgs.updateTeam(
             {
-                id: "Number",
+                id: "String",
                 name: "String",
                 permission: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /teams/:id (deleteTeam)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.deleteTeam(
+    it("should successfully execute DELETE /teams/:id (deleteTeam)",  function(next) {
+        client.orgs.deleteTeam(
             {
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /teams/:id/members (getTeamMembers)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getTeamMembers(
+    it("should successfully execute GET /teams/:id/members (getTeamMembers)",  function(next) {
+        client.orgs.getTeamMembers(
             {
-                id: "Number",
+                id: "String",
                 page: "Number",
                 per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /teams/:id/members/:user (getTeamMember)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getTeamMember(
+    it("should successfully execute GET /teams/:id/members/:user (getTeamMember)",  function(next) {
+        client.orgs.getTeamMember(
             {
-                id: "Number",
+                id: "String",
                 user: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /teams/:id/members/:user (addTeamMember)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.addTeamMember(
+    it("should successfully execute PUT /teams/:id/members/:user (addTeamMember)",  function(next) {
+        client.orgs.addTeamMember(
             {
-                id: "Number",
+                id: "String",
                 user: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /teams/:id/members/:user (deleteTeamMember)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.deleteTeamMember(
+    it("should successfully execute DELETE /teams/:id/members/:user (deleteTeamMember)",  function(next) {
+        client.orgs.deleteTeamMember(
             {
-                id: "Number",
+                id: "String",
                 user: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /teams/:id/repos (getTeamRepos)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getTeamRepos(
+    it("should successfully execute GET /teams/:id/repos (getTeamRepos)",  function(next) {
+        client.orgs.getTeamRepos(
             {
-                id: "Number",
+                id: "String",
                 page: "Number",
                 per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /teams/:id/repos/:user/:repo (getTeamRepo)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.getTeamRepo(
+    it("should successfully execute GET /teams/:id/repos/:user/:repo (getTeamRepo)",  function(next) {
+        client.orgs.getTeamRepo(
             {
-                id: "Number",
+                id: "String",
                 user: "String",
                 repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /teams/:id/repos/:user/:repo (addTeamRepo)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.addTeamRepo(
+    it("should successfully execute PUT /teams/:id/repos/:user/:repo (addTeamRepo)",  function(next) {
+        client.orgs.addTeamRepo(
             {
-                id: "Number",
+                id: "String",
                 user: "String",
                 repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /teams/:id/repos/:user/:repo (deleteTeamRepo)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.orgs.deleteTeamRepo(
+    it("should successfully execute DELETE /teams/:id/repos/:user/:repo (deleteTeamRepo)",  function(next) {
+        client.orgs.deleteTeamRepo(
             {
-                id: "Number",
+                id: "String",
                 user: "String",
                 repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    }
-};
-
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+    });
+});

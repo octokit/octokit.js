@@ -12,24 +12,22 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[statuses]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "3.0.0"
         });
-    },
-    
-    "test: GET /repos/:user/:repo/statuses/:sha (get)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
+        client.authenticate({
+            type: "oauth",
             token: token
         });
-        this.client.statuses.get(
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/statuses/:sha (get)",  function(next) {
+        client.statuses.get(
             {
                 user: "String",
                 repo: "String",
@@ -38,18 +36,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/statuses/:sha (create)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.statuses.create(
+    it("should successfully execute POST /repos/:user/:repo/statuses/:sha (create)",  function(next) {
+        client.statuses.create(
             {
                 user: "String",
                 repo: "String",
@@ -61,9 +54,8 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    }
-};
-
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+    });
+});

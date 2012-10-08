@@ -971,7 +971,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getCommitComment = function(msg, block, callback) {
         var self = this;
@@ -1012,7 +1012,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - body (String): Required. 
      **/
     this.updateCommitComment = function(msg, block, callback) {
@@ -1096,7 +1096,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteCommitComment = function(msg, block, callback) {
         var self = this;
@@ -1303,7 +1303,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getDownload = function(msg, block, callback) {
         var self = this;
@@ -1344,7 +1344,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteDownload = function(msg, block, callback) {
         var self = this;
@@ -1511,7 +1511,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getKey = function(msg, block, callback) {
         var self = this;
@@ -1594,7 +1594,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - title (String): Required. 
      *  - key (String): Required. 
      **/
@@ -1637,7 +1637,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteKey = function(msg, block, callback) {
         var self = this;
@@ -1965,7 +1965,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.getHook = function(msg, block, callback) {
         var self = this;
@@ -2050,7 +2050,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - name (String): Required. 
      *  - config (Json): Required. Required hash - A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically. 
      *  - events (Array): Optional. Optional array - Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`. 
@@ -2097,7 +2097,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.testHook = function(msg, block, callback) {
         var self = this;
@@ -2138,7 +2138,7 @@ var repos = module.exports = {
      * 
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteHook = function(msg, block, callback) {
         var self = this;

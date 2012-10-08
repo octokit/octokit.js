@@ -12,46 +12,39 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[repos]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "3.0.0"
         });
-    },
-    
-    "test: GET /user/repos (getAll)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
+        client.authenticate({
+            type: "oauth",
             token: token
         });
-        this.client.repos.getAll(
+    });
+
+    it("should successfully execute GET /user/repos (getAll)",  function(next) {
+        client.repos.getAll(
             {
                 type: "String",
-                page: "Number",
                 sort: "String",
                 direction: "String",
+                page: "Number",
                 per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /users/:user/repos (getFromUser)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getFromUser(
+    it("should successfully execute GET /users/:user/repos (getFromUser)",  function(next) {
+        client.repos.getFromUser(
             {
                 user: "String",
                 type: "String",
@@ -63,18 +56,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /orgs/:org/repos (getFromOrg)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getFromOrg(
+    it("should successfully execute GET /orgs/:org/repos (getFromOrg)",  function(next) {
+        client.repos.getFromOrg(
             {
                 org: "String",
                 type: "String",
@@ -84,18 +72,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /user/repos (create)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.create(
+    it("should successfully execute POST /user/repos (create)",  function(next) {
+        client.repos.create(
             {
                 name: "String",
                 description: "String",
@@ -108,18 +91,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /orgs/:org/repos (createFromOrg)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.createFromOrg(
+    it("should successfully execute POST /orgs/:org/repos (createFromOrg)",  function(next) {
+        client.repos.createFromOrg(
             {
                 org: "String",
                 name: "String",
@@ -134,18 +112,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo (get)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.get(
+    it("should successfully execute GET /repos/:user/:repo (get)",  function(next) {
+        client.repos.get(
             {
                 user: "String",
                 repo: "String"
@@ -153,18 +126,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo (update)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.update(
+    it("should successfully execute PATCH /repos/:user/:repo (update)",  function(next) {
+        client.repos.update(
             {
                 user: "String",
                 repo: "String",
@@ -179,18 +147,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/merges (merge)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.merge(
+    it("should successfully execute POST /repos/:user/:repo/merges (merge)",  function(next) {
+        client.repos.merge(
             {
                 user: "String",
                 repo: "String",
@@ -201,18 +164,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/contributors (getContributors)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getContributors(
+    it("should successfully execute GET /repos/:user/:repo/contributors (getContributors)",  function(next) {
+        client.repos.getContributors(
             {
                 user: "String",
                 repo: "String",
@@ -223,18 +181,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/languages (getLanguages)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getLanguages(
+    it("should successfully execute GET /repos/:user/:repo/languages (getLanguages)",  function(next) {
+        client.repos.getLanguages(
             {
                 user: "String",
                 repo: "String",
@@ -244,18 +197,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/teams (getTeams)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getTeams(
+    it("should successfully execute GET /repos/:user/:repo/teams (getTeams)",  function(next) {
+        client.repos.getTeams(
             {
                 user: "String",
                 repo: "String",
@@ -265,18 +213,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/tags (getTags)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getTags(
+    it("should successfully execute GET /repos/:user/:repo/tags (getTags)",  function(next) {
+        client.repos.getTags(
             {
                 user: "String",
                 repo: "String",
@@ -286,18 +229,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/branches (getBranches)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getBranches(
+    it("should successfully execute GET /repos/:user/:repo/branches (getBranches)",  function(next) {
+        client.repos.getBranches(
             {
                 user: "String",
                 repo: "String",
@@ -307,18 +245,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/collaborators (getCollaborators)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getCollaborators(
+    it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
+        client.repos.getCollaborators(
             {
                 user: "String",
                 repo: "String",
@@ -328,18 +261,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/collaborators/:collabuser (getCollaborator)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getCollaborator(
+    it("should successfully execute GET /repos/:user/:repo/collaborators/:collabuser (getCollaborator)",  function(next) {
+        client.repos.getCollaborator(
             {
                 user: "String",
                 repo: "String",
@@ -348,18 +276,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /repos/:user/:repo/collaborators/:collabuser (addCollaborator)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.addCollaborator(
+    it("should successfully execute PUT /repos/:user/:repo/collaborators/:collabuser (addCollaborator)",  function(next) {
+        client.repos.addCollaborator(
             {
                 user: "String",
                 repo: "String",
@@ -368,18 +291,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/collaborators/:collabuser (removeCollaborator)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.removeCollaborator(
+    it("should successfully execute DELETE /repos/:user/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
+        client.repos.removeCollaborator(
             {
                 user: "String",
                 repo: "String",
@@ -388,18 +306,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/commits (getCommits)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getCommits(
+    it("should successfully execute GET /repos/:user/:repo/commits (getCommits)",  function(next) {
+        client.repos.getCommits(
             {
                 user: "String",
                 repo: "String",
@@ -411,18 +324,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/commits/:sha (getCommit)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getCommit(
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha (getCommit)",  function(next) {
+        client.repos.getCommit(
             {
                 user: "String",
                 repo: "String",
@@ -431,18 +339,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/comments (getAllCommitComments)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getAllCommitComments(
+    it("should successfully execute GET /repos/:user/:repo/comments (getAllCommitComments)",  function(next) {
+        client.repos.getAllCommitComments(
             {
                 user: "String",
                 repo: "String",
@@ -452,18 +355,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/commits/:sha/comments (getCommitComments)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getCommitComments(
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
+        client.repos.getCommitComments(
             {
                 user: "String",
                 repo: "String",
@@ -474,18 +372,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/commits/:sha/comments (createCommitComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.createCommitComment(
+    it("should successfully execute POST /repos/:user/:repo/commits/:sha/comments (createCommitComment)",  function(next) {
+        client.repos.createCommitComment(
             {
                 user: "String",
                 repo: "String",
@@ -499,59 +392,44 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/comments/:id (getCommitComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getCommitComment(
+    it("should successfully execute GET /repos/:user/:repo/comments/:id (getCommitComment)",  function(next) {
+        client.repos.getCommitComment(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/comments/:id (updateCommitComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.updateCommitComment(
+    it("should successfully execute PATCH /repos/:user/:repo/comments/:id (updateCommitComment)",  function(next) {
+        client.repos.updateCommitComment(
             {
                 user: "String",
                 repo: "String",
-                id: "Number",
+                id: "String",
                 body: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/compare/:base...:head (compareCommits)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.compareCommits(
+    it("should successfully execute GET /repos/:user/:repo/compare/:base...:head (compareCommits)",  function(next) {
+        client.repos.compareCommits(
             {
                 user: "String",
                 repo: "String",
@@ -561,38 +439,28 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/comments/:id (deleteCommitComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.deleteCommitComment(
+    it("should successfully execute DELETE /repos/:user/:repo/comments/:id (deleteCommitComment)",  function(next) {
+        client.repos.deleteCommitComment(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/readme (getReadme)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getReadme(
+    it("should successfully execute GET /repos/:user/:repo/readme (getReadme)",  function(next) {
+        client.repos.getReadme(
             {
                 user: "String",
                 repo: "String",
@@ -601,18 +469,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/contents/:path (getContent)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getContent(
+    it("should successfully execute GET /repos/:user/:repo/contents/:path (getContent)",  function(next) {
+        client.repos.getContent(
             {
                 user: "String",
                 repo: "String",
@@ -622,18 +485,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getArchiveLink(
+    it("should successfully execute GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
+        client.repos.getArchiveLink(
             {
                 user: "String",
                 repo: "String",
@@ -642,18 +500,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/downloads (getDownloads)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getDownloads(
+    it("should successfully execute GET /repos/:user/:repo/downloads (getDownloads)",  function(next) {
+        client.repos.getDownloads(
             {
                 user: "String",
                 repo: "String",
@@ -663,58 +516,43 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/downloads/:id (getDownload)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getDownload(
+    it("should successfully execute GET /repos/:user/:repo/downloads/:id (getDownload)",  function(next) {
+        client.repos.getDownload(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/downloads/:id (deleteDownload)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.deleteDownload(
+    it("should successfully execute DELETE /repos/:user/:repo/downloads/:id (deleteDownload)",  function(next) {
+        client.repos.deleteDownload(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/forks (getForks)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getForks(
+    it("should successfully execute GET /repos/:user/:repo/forks (getForks)",  function(next) {
+        client.repos.getForks(
             {
                 user: "String",
                 repo: "String",
@@ -725,18 +563,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/forks (fork)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.fork(
+    it("should successfully execute POST /repos/:user/:repo/forks (fork)",  function(next) {
+        client.repos.fork(
             {
                 user: "String",
                 repo: "String",
@@ -745,18 +578,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/keys (getKeys)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getKeys(
+    it("should successfully execute GET /repos/:user/:repo/keys (getKeys)",  function(next) {
+        client.repos.getKeys(
             {
                 user: "String",
                 repo: "String",
@@ -766,38 +594,28 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/keys/:id (getKey)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getKey(
+    it("should successfully execute GET /repos/:user/:repo/keys/:id (getKey)",  function(next) {
+        client.repos.getKey(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/keys (createKey)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.createKey(
+    it("should successfully execute POST /repos/:user/:repo/keys (createKey)",  function(next) {
+        client.repos.createKey(
             {
                 user: "String",
                 repo: "String",
@@ -807,60 +625,45 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /repos/:user/:repo/keys/:id (updateKey)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.updateKey(
+    it("should successfully execute PUT /repos/:user/:repo/keys/:id (updateKey)",  function(next) {
+        client.repos.updateKey(
             {
                 user: "String",
                 repo: "String",
-                id: "Number",
+                id: "String",
                 title: "String",
                 key: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/keys/:id (deleteKey)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.deleteKey(
+    it("should successfully execute DELETE /repos/:user/:repo/keys/:id (deleteKey)",  function(next) {
+        client.repos.deleteKey(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/watchers (getWatchers)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getWatchers(
+    it("should successfully execute GET /repos/:user/:repo/watchers (getWatchers)",  function(next) {
+        client.repos.getWatchers(
             {
                 user: "String",
                 repo: "String",
@@ -870,18 +673,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /user/watched (getWatched)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getWatched(
+    it("should successfully execute GET /user/watched (getWatched)",  function(next) {
+        client.repos.getWatched(
             {
                 page: "Number",
                 per_page: "Number"
@@ -889,18 +687,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /users/:user/watched (getWatchedFromUser)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getWatchedFromUser(
+    it("should successfully execute GET /users/:user/watched (getWatchedFromUser)",  function(next) {
+        client.repos.getWatchedFromUser(
             {
                 user: "String",
                 page: "Number",
@@ -909,18 +702,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /user/watched/:user/:repo (getWatching)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getWatching(
+    it("should successfully execute GET /user/watched/:user/:repo (getWatching)",  function(next) {
+        client.repos.getWatching(
             {
                 user: "String",
                 repo: "String",
@@ -930,18 +718,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /user/watched/:user/:repo (watch)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.watch(
+    it("should successfully execute PUT /user/watched/:user/:repo (watch)",  function(next) {
+        client.repos.watch(
             {
                 user: "String",
                 repo: "String"
@@ -949,18 +732,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /user/watched/:user/:repo (unWatch)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.unWatch(
+    it("should successfully execute DELETE /user/watched/:user/:repo (unWatch)",  function(next) {
+        client.repos.unWatch(
             {
                 user: "String",
                 repo: "String"
@@ -968,18 +746,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/hooks (getHooks)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getHooks(
+    it("should successfully execute GET /repos/:user/:repo/hooks (getHooks)",  function(next) {
+        client.repos.getHooks(
             {
                 user: "String",
                 repo: "String",
@@ -989,38 +762,28 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/hooks/:id (getHook)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.getHook(
+    it("should successfully execute GET /repos/:user/:repo/hooks/:id (getHook)",  function(next) {
+        client.repos.getHook(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/hooks (createHook)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.createHook(
+    it("should successfully execute POST /repos/:user/:repo/hooks (createHook)",  function(next) {
+        client.repos.createHook(
             {
                 user: "String",
                 repo: "String",
@@ -1032,22 +795,17 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/hooks/:id (updateHook)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.updateHook(
+    it("should successfully execute PATCH /repos/:user/:repo/hooks/:id (updateHook)",  function(next) {
+        client.repos.updateHook(
             {
                 user: "String",
                 repo: "String",
-                id: "Number",
+                id: "String",
                 name: "String",
                 config: "Json",
                 events: "Array",
@@ -1058,49 +816,38 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/hooks/:id/test (testHook)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.testHook(
+    it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
+        client.repos.testHook(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/hooks/:id (deleteHook)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.repos.deleteHook(
+    it("should successfully execute DELETE /repos/:user/:repo/hooks/:id (deleteHook)",  function(next) {
+        client.repos.deleteHook(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    }
-};
-
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+    });
+});

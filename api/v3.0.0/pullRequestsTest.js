@@ -12,24 +12,22 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[pullRequests]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "3.0.0"
         });
-    },
-    
-    "test: GET /repos/:user/:repo/pulls (getAll)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
+        client.authenticate({
+            type: "oauth",
             token: token
         });
-        this.client.pullRequests.getAll(
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/pulls (getAll)",  function(next) {
+        client.pullRequests.getAll(
             {
                 user: "String",
                 repo: "String",
@@ -40,18 +38,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/pulls/:number (get)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.get(
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number (get)",  function(next) {
+        client.pullRequests.get(
             {
                 user: "String",
                 repo: "String",
@@ -60,18 +53,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/pulls (create)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.create(
+    it("should successfully execute POST /repos/:user/:repo/pulls (create)",  function(next) {
+        client.pullRequests.create(
             {
                 user: "String",
                 repo: "String",
@@ -83,18 +71,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/pulls (createFromIssue)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.createFromIssue(
+    it("should successfully execute POST /repos/:user/:repo/pulls (createFromIssue)",  function(next) {
+        client.pullRequests.createFromIssue(
             {
                 user: "String",
                 repo: "String",
@@ -105,18 +88,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/pulls/:number (update)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.update(
+    it("should successfully execute PATCH /repos/:user/:repo/pulls/:number (update)",  function(next) {
+        client.pullRequests.update(
             {
                 user: "String",
                 repo: "String",
@@ -128,18 +106,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/pulls/:number/commits (getCommits)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.getCommits(
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number/commits (getCommits)",  function(next) {
+        client.pullRequests.getCommits(
             {
                 user: "String",
                 repo: "String",
@@ -150,18 +123,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/pulls/:number/files (getFiles)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.getFiles(
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number/files (getFiles)",  function(next) {
+        client.pullRequests.getFiles(
             {
                 user: "String",
                 repo: "String",
@@ -172,18 +140,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/pulls/:number/merge (getMerged)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.getMerged(
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number/merge (getMerged)",  function(next) {
+        client.pullRequests.getMerged(
             {
                 user: "String",
                 repo: "String",
@@ -194,18 +157,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PUT /repos/:user/:repo/pulls/:number/merge (merge)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.merge(
+    it("should successfully execute PUT /repos/:user/:repo/pulls/:number/merge (merge)",  function(next) {
+        client.pullRequests.merge(
             {
                 user: "String",
                 repo: "String",
@@ -215,18 +173,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/pulls/:number/comments (getComments)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.getComments(
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number/comments (getComments)",  function(next) {
+        client.pullRequests.getComments(
             {
                 user: "String",
                 repo: "String",
@@ -237,18 +190,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/pulls/comments/:number (getComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.getComment(
+    it("should successfully execute GET /repos/:user/:repo/pulls/comments/:number (getComment)",  function(next) {
+        client.pullRequests.getComment(
             {
                 user: "String",
                 repo: "String",
@@ -257,18 +205,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/pulls/:number/comments (createComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.createComment(
+    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createComment)",  function(next) {
+        client.pullRequests.createComment(
             {
                 user: "String",
                 repo: "String",
@@ -281,18 +224,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/pulls/:number/comments (createCommentReply)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.createCommentReply(
+    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createCommentReply)",  function(next) {
+        client.pullRequests.createCommentReply(
             {
                 user: "String",
                 repo: "String",
@@ -303,18 +241,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/pulls/comments/:number (updateComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.updateComment(
+    it("should successfully execute PATCH /repos/:user/:repo/pulls/comments/:number (updateComment)",  function(next) {
+        client.pullRequests.updateComment(
             {
                 user: "String",
                 repo: "String",
@@ -324,18 +257,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/pulls/comments/:number (deleteComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.pullRequests.deleteComment(
+    it("should successfully execute DELETE /repos/:user/:repo/pulls/comments/:number (deleteComment)",  function(next) {
+        client.pullRequests.deleteComment(
             {
                 user: "String",
                 repo: "String",
@@ -344,9 +272,8 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    }
-};
-
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+    });
+});

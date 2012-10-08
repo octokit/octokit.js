@@ -148,7 +148,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      *  - description (String): Optional. 
      *  - files (Json): Required. Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content' 
      **/
@@ -267,7 +267,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -306,7 +306,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.star = function(msg, block, callback) {
         var self = this;
@@ -345,7 +345,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.deleteStar = function(msg, block, callback) {
         var self = this;
@@ -384,7 +384,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.checkStar = function(msg, block, callback) {
         var self = this;
@@ -423,7 +423,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.fork = function(msg, block, callback) {
         var self = this;
@@ -462,7 +462,7 @@ var gists = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - id (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - id (String): Required. 
      **/
     this.delete = function(msg, block, callback) {
         var self = this;

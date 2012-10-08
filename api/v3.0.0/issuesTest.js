@@ -12,24 +12,22 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-var username = "fjakobstest";
-var token = "b98166e45acf66df70a992e2de56b92a";
+describe("[issues]", function() {
+    var client;
+    var token = "e5a4a27487c26e571892846366de023349321a73";
 
-var test = module.exports = {
-    setUp: function() {
-        this.client = new Client({
+    beforeEach(function() {
+        client = new Client({
             version: "3.0.0"
         });
-    },
-    
-    "test: GET /issues (getAll)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
+        client.authenticate({
+            type: "oauth",
             token: token
         });
-        this.client.issues.getAll(
+    });
+
+    it("should successfully execute GET /issues (getAll)",  function(next) {
+        client.issues.getAll(
             {
                 filter: "String",
                 state: "String",
@@ -43,18 +41,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues (repoIssues)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.repoIssues(
+    it("should successfully execute GET /repos/:user/:repo/issues (repoIssues)",  function(next) {
+        client.issues.repoIssues(
             {
                 user: "String",
                 repo: "String",
@@ -72,18 +65,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues/:number (getRepoIssue)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getRepoIssue(
+    it("should successfully execute GET /repos/:user/:repo/issues/:number (getRepoIssue)",  function(next) {
+        client.issues.getRepoIssue(
             {
                 user: "String",
                 repo: "String",
@@ -92,18 +80,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/issues (create)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.create(
+    it("should successfully execute POST /repos/:user/:repo/issues (create)",  function(next) {
+        client.issues.create(
             {
                 user: "String",
                 repo: "String",
@@ -116,18 +99,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/issues/:number (edit)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.edit(
+    it("should successfully execute PATCH /repos/:user/:repo/issues/:number (edit)",  function(next) {
+        client.issues.edit(
             {
                 user: "String",
                 repo: "String",
@@ -141,18 +119,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues/:number/comments (getComments)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getComments(
+    it("should successfully execute GET /repos/:user/:repo/issues/:number/comments (getComments)",  function(next) {
+        client.issues.getComments(
             {
                 user: "String",
                 repo: "String",
@@ -163,38 +136,28 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues/comments/:id (getComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getComment(
+    it("should successfully execute GET /repos/:user/:repo/issues/comments/:id (getComment)",  function(next) {
+        client.issues.getComment(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/issues/:number/comments (createComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.createComment(
+    it("should successfully execute POST /repos/:user/:repo/issues/:number/comments (createComment)",  function(next) {
+        client.issues.createComment(
             {
                 user: "String",
                 repo: "String",
@@ -204,59 +167,44 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/issues/comments/:id (editComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.editComment(
+    it("should successfully execute PATCH /repos/:user/:repo/issues/comments/:id (editComment)",  function(next) {
+        client.issues.editComment(
             {
                 user: "String",
                 repo: "String",
-                id: "Number",
+                id: "String",
                 body: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/issues/comments/:id (deleteComment)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.deleteComment(
+    it("should successfully execute DELETE /repos/:user/:repo/issues/comments/:id (deleteComment)",  function(next) {
+        client.issues.deleteComment(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues/:number/events (getEvents)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getEvents(
+    it("should successfully execute GET /repos/:user/:repo/issues/:number/events (getEvents)",  function(next) {
+        client.issues.getEvents(
             {
                 user: "String",
                 repo: "String",
@@ -267,18 +215,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues/events (getRepoEvents)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getRepoEvents(
+    it("should successfully execute GET /repos/:user/:repo/issues/events (getRepoEvents)",  function(next) {
+        client.issues.getRepoEvents(
             {
                 user: "String",
                 repo: "String",
@@ -288,38 +231,28 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/issues/events/:id (getEvent)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getEvent(
+    it("should successfully execute GET /repos/:user/:repo/issues/events/:id (getEvent)",  function(next) {
+        client.issues.getEvent(
             {
                 user: "String",
                 repo: "String",
-                id: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/labels (getLabels)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getLabels(
+    it("should successfully execute GET /repos/:user/:repo/labels (getLabels)",  function(next) {
+        client.issues.getLabels(
             {
                 user: "String",
                 repo: "String"
@@ -327,18 +260,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/labels/:name (getLabel)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getLabel(
+    it("should successfully execute GET /repos/:user/:repo/labels/:name (getLabel)",  function(next) {
+        client.issues.getLabel(
             {
                 user: "String",
                 repo: "String",
@@ -347,18 +275,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/labels (createLabel)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.createLabel(
+    it("should successfully execute POST /repos/:user/:repo/labels (createLabel)",  function(next) {
+        client.issues.createLabel(
             {
                 user: "String",
                 repo: "String",
@@ -368,18 +291,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/labels/:name (updateLabel)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.updateLabel(
+    it("should successfully execute POST /repos/:user/:repo/labels/:name (updateLabel)",  function(next) {
+        client.issues.updateLabel(
             {
                 user: "String",
                 repo: "String",
@@ -389,18 +307,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/milestones (getAllMilestones)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getAllMilestones(
+    it("should successfully execute GET /repos/:user/:repo/milestones (getAllMilestones)",  function(next) {
+        client.issues.getAllMilestones(
             {
                 user: "String",
                 repo: "String",
@@ -412,18 +325,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: GET /repos/:user/:repo/milestones/:number (getMilestone)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.getMilestone(
+    it("should successfully execute GET /repos/:user/:repo/milestones/:number (getMilestone)",  function(next) {
+        client.issues.getMilestone(
             {
                 user: "String",
                 repo: "String",
@@ -432,18 +340,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: POST /repos/:user/:repo/milestones (createMilestone)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.createMilestone(
+    it("should successfully execute POST /repos/:user/:repo/milestones (createMilestone)",  function(next) {
+        client.issues.createMilestone(
             {
                 user: "String",
                 repo: "String",
@@ -455,18 +358,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: PATCH /repos/:user/:repo/milestones/:number (updateMilestone)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.updateMilestone(
+    it("should successfully execute PATCH /repos/:user/:repo/milestones/:number (updateMilestone)",  function(next) {
+        client.issues.updateMilestone(
             {
                 user: "String",
                 repo: "String",
@@ -479,18 +377,13 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    },
+    });
 
-    "test: DELETE /repos/:user/:repo/milestones/:number (deleteMilestone)":  function(next) {
-        var self = this;
-        this.client.authenticate({
-            type: "token",
-            username: username,
-            token: token
-        });
-        this.client.issues.deleteMilestone(
+    it("should successfully execute DELETE /repos/:user/:repo/milestones/:number (deleteMilestone)",  function(next) {
+        client.issues.deleteMilestone(
             {
                 user: "String",
                 repo: "String",
@@ -499,9 +392,8 @@ var test = module.exports = {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
+                next();
             }
         );
-    }
-};
-
-!module.parent && require("asyncjs").test.testcase(module.exports).exec();
+    });
+});
