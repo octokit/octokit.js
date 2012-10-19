@@ -1939,9 +1939,27 @@
                 "$sha": null,
                 "$body": null,
                 "$commit_id": null,
-                "$line": null,
-                "$path": null,
-                "$position": null
+                "path": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional string - Relative path of the file to comment on."
+                },
+                "position": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional number - Line index in the diff to comment on."
+                },
+                "line": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional number - Line number in the file to comment on. Defaults to 1."
+                }
             }
         },
 
