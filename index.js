@@ -2,6 +2,7 @@
 
 var error = require("./error");
 var Util = require("./util");
+var Url = require("url");
 
 /** section: github
  * class Client
@@ -360,21 +361,184 @@ var Client = module.exports = function(config) {
         prepareApi(routes);
     };
 
+    /**
+     *  Client#authenticate(options) -> null
+     *      - options (Object): Object containing the authentication type and credentials
+     *          - type (String): One of the following: `basic` or `oauth`
+     *          - username (String): Github username
+     *          - password (String): Password to your account
+     *          - token (String): OAuth2 token
+     *
+     *  Set an authentication method to have access to protected resources.
+     *
+     *  ##### Example
+     *
+     *      // basic
+     *      github.authenticate({
+     *          type: "basic",
+     *          username: "mikedeboertest",
+     *          password: "test1324"
+     *      });
+     *
+     *      // or oauth
+     *      github.authenticate({
+     *          type: "oauth",
+     *          token: "e5a4a27487c26e571892846366de023349321a73"
+     *      });
+     **/
     this.authenticate = function(options) {
         if (!options) {
             this.auth = false;
             return;
         }
-        if (!options.type || "token|basic|oauth".indexOf(options.type) === -1)
-            throw new Error("Invalid authentication type, must be 'token', 'basic' or 'oauth'");
-        if (options.type == "token" && (!options.username || !options.token))
-            throw new Error("Token based authentication requires both a username and token to be set");
+        if (!options.type || "basic|oauth".indexOf(options.type) === -1)
+            throw new Error("Invalid authentication type, must be 'basic' or 'oauth'");
         if (options.type == "basic" && (!options.username || !options.password))
             throw new Error("Basic authentication requires both a username and password to be set");
         if (options.type == "oauth" && !options.token)
             throw new Error("OAuth2 authentication requires a token to be set");
 
         this.auth = options;
+    };
+
+    function getPageLinks(link) {
+        if (typeof link == "object" && (link.link || link.meta.link))
+            link = link.link || link.meta.link;
+
+        var links = {};
+        if (typeof link != "string")
+            return links;
+
+        // link format:
+        // '<https://api.github.com/users/aseemk/followers?page=2>; rel="next", <https://api.github.com/users/aseemk/followers?page=2>; rel="last"'
+        link.replace(/<([^>]*)>;\s*rel="([\w]*)\"/g, function(m, uri, type) {
+            links[type] = uri;
+        });
+        return links;
+    }
+
+    /**
+     *  Client#hasNextPage(link) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *
+     *  Check if a request result contains a link to the next page
+     **/
+    this.hasNextPage = function(link) {
+        return getPageLinks(link).next;
+    };
+
+    /**
+     *  Client#hasPreviousPage(link) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *
+     *  Check if a request result contains a link to the previous page
+     **/
+    this.hasPreviousPage = function(link) {
+        return getPageLinks(link).prev;
+    };
+
+    /**
+     *  Client#hasLastPage(link) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *
+     *  Check if a request result contains a link to the last page
+     **/
+    this.hasLastPage = function(link) {
+        return getPageLinks(link).last;
+    };
+
+    /**
+     *  Client#hasFirstPage(link) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *
+     *  Check if a request result contains a link to the first page
+     **/
+    this.hasFirstPage = function(link) {
+        return getPageLinks(link).first;
+    };
+
+    function getPage(link, which, callback) {
+        var url = getPageLinks(link)[which];
+        if (!url)
+            return callback(new error.NotFound("No " + which + " page found"));
+
+        var api = this[this.version];
+        var parsedUrl = Url.parse(url, true);
+        var block = {
+            url: parsedUrl.pathname,
+            method: "GET",
+            params: parsedUrl.query
+        };
+        this.httpSend(parsedUrl.query, block, function(err, res) {
+            if (err)
+                return api.sendError(err, null, parsedUrl.query, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "link"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    }
+
+    /**
+     *  Client#getNextPage(link, callback) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  Get the next page, based on the contents of the `Link` header
+     **/
+    this.getNextPage = function(link, callback) {
+        getPage.call(this, link, "next", callback);
+    };
+
+    /**
+     *  Client#getPreviousPage(link, callback) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  Get the previous page, based on the contents of the `Link` header
+     **/
+    this.getPreviousPage = function(link, callback) {
+        getPage.call(this, link, "prev", callback);
+    };
+
+    /**
+     *  Client#getLastPage(link, callback) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  Get the last page, based on the contents of the `Link` header
+     **/
+    this.getLastPage = function(link, callback) {
+        getPage.call(this, link, "last", callback);
+    };
+
+    /**
+     *  Client#getFirstPage(link, callback) -> null
+     *      - link (mixed): response of a request or the contents of the Link header
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  Get the first page, based on the contents of the `Link` header
+     **/
+    this.getFirstPage = function(link, callback) {
+        getPage.call(this, link, "first", callback);
     };
 
     function getQueryAndUrl(msg, def, format) {
