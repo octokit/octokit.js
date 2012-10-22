@@ -16,7 +16,6 @@
         "node": ">=0.4.0"
     },
     "devDependencies": {
-        "asyncjs": "~0.0.4",
         "oauth": "0.9.7"
     },
     "main" : ".",
