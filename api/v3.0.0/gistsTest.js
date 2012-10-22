@@ -14,7 +14,7 @@ var Client = require("./../../index");
 
 describe("[gists]", function() {
     var client;
-    var token = "e5a4a27487c26e571892846366de023349321a73";
+    var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
     timeout(5000);
 
     beforeEach(function() {

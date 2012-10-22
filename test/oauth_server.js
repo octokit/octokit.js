@@ -6,11 +6,14 @@ var github = new GitHubApi({
     version: "3.0.0"
 });
 
+/*
+!!!UNCOMMENT THE FOLLOWING TO MAKE THIS SCRIPT WORK, BUT CHANGE THE CREDENTIALS TO YOUR OWN!!!
 github.authenticate({
     type: "basic",
     username: "mikedeboertest",
     password: "test1324"
 });
+*/
 
 github.authorization.getAll({}, function(err, res) {
     if (err)
