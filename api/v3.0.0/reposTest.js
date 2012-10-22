@@ -389,9 +389,9 @@ describe("[repos]", function() {
                 sha: "String",
                 body: "String",
                 commit_id: "String",
-                line: "Number",
                 path: "String",
-                position: "Number"
+                position: "Number",
+                line: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -932,9 +932,9 @@ var repos = module.exports = {
      *  - sha (String): Required. 
      *  - body (String): Required. 
      *  - commit_id (String): Required. Required string - Sha of the commit to comment on. 
-     *  - line (Number): Required. Required number - Line index in the diff to comment on. 
-     *  - path (String): Required. Required string - Relative path of the file to comment on. 
-     *  - position (Number): Required. Required number - Column index in the diff to comment on. 
+     *  - path (String): Optional. Optional string - Relative path of the file to comment on. 
+     *  - position (Number): Optional. Optional number - Line index in the diff to comment on. 
+     *  - line (Number): Optional. Optional number - Line number in the file to comment on. Defaults to 1. 
      **/
     this.createCommitComment = function(msg, block, callback) {
         var self = this;

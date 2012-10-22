@@ -2661,5 +2661,115 @@
                 "$per_page": null
             }
         }
+    },
+    "search": {
+        "issues": {
+            "url": "/legacy/issues/search/:user/:repo/:state/:keyword",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(open|closed)$",
+                    "invalidmsg": "open, closed, default: open",
+                    "description": "open or closed"
+                },
+                "keyword": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Search term"
+                }
+            }
+        },
+
+        "repos": {
+            "url": "/legacy/repos/search/:keyword",
+            "method": "GET",
+            "params": {
+                "keyword": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Search term"
+                },
+                "language": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Filter results by language, see https://github.com/languages"
+                },
+                "start_page": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "^[0-9]+$",
+                    "invalidmsg": "",
+                    "description": "Page number to fetch"
+                }
+            }
+        },
+
+        "users": {
+            "url": "/legacy/user/search/:keyword",
+            "method": "GET",
+            "params": {
+                "keyword": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Keyword search parameters"
+                }
+            }
+        },
+
+        "email": {
+            "url": "/legacy/user/email/:email",
+            "method": "GET",
+            "params": {
+                "email": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Email address"
+                }
+            }
+        }
+    },
+
+    "markdown": {
+        "render": {
+            "url": "/markdown",
+            "method": "POST",
+            "params": {
+                "text": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The Markdown text to render"
+                },
+                "mode": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(markdown|gfm)$",
+                    "invalidmsg": "",
+                    "description": "The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly."
+                },
+                "context": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The repository context, only taken into account when rendering as `gfm`"
+                }
+            }
+        }
     }
 }
