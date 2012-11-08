@@ -16,7 +16,9 @@
         "node": ">=0.4.0"
     },
     "devDependencies": {
-        "oauth": "0.9.7"
+        "oauth": "0.9.7",
+        "http-post": "0.1.1",
+        "xml2js": "0.2.0"
     },
     "main" : ".",
     "scripts": {

@@ -540,6 +540,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:user/:repo/downloads (createDownload)",  function(next) {
+        client.repos.createDownload(
+            {
+                user: "String",
+                repo: "String",
+                file: "String",
+                name: "String",
+                desc: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:user/:repo/downloads/:id (deleteDownload)",  function(next) {
         client.repos.deleteDownload(
             {

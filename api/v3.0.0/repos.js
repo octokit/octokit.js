@@ -1299,6 +1299,60 @@ var repos = module.exports = {
     };
 
     /** section: github
+     *  repos#createDownload(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     * 
+     *  ##### Params on the `msg` object:
+     * 
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - file (String): Required. Path to the file to create the GitHub download from.
+     *  - name (String): Optional. Name of the GitHub download. Basename will be used by default.
+     *  - desc (String): Optional. GitHub download description.
+     **/
+    this.createDownload = function(msg, block, callback) {
+        var self = this;
+        var fs = require("fs");
+        var path = require("path");
+        
+        if (!msg.file || !fs.existsSync(msg.file)) {
+            if (callback)
+                return callback(new error.NotFound("File does not exist: "+msg.file));
+        }
+        
+        if (!msg.name)
+            msg.name = path.basename(msg.file);
+        
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+            
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "link"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+            
+            ret.file = msg.file;
+            self.client.s3Send(ret, callback);
+        });
+    };
+
+    /** section: github
      *  repos#getDownload(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
