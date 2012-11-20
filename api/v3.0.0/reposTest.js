@@ -254,6 +254,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch (getBranch)",  function(next) {
+        client.repos.getBranches(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
         client.repos.getCollaborators(
             {

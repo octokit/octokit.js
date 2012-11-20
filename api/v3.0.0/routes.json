@@ -43,6 +43,13 @@
                 "invalidmsg": "",
                 "description": ""
             },
+            "branch": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
             "sha": {
                 "type": "String",
                 "required": true,
@@ -1826,6 +1833,18 @@
             "params": {
                 "$user": null,
                 "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-branch": {
+            "url": "/repos/:user/:repo/branches/:branch",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
                 "$page": null,
                 "$per_page": null
             }
