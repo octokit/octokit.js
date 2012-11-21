@@ -683,7 +683,13 @@
                     "invalidmsg": "",
                     "description": ""
                 },
-                "$state": null,
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed)$",
+                    "invalidmsg": "open, closed, default: open",
+                    "description": "open or closed"
+                },
                 "assignee": {
                     "type": "String",
                     "required": false,
@@ -814,6 +820,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Optional array of strings - Labels to associate with this issue."
+                },
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed)$",
+                    "invalidmsg": "open, closed, default: open",
+                    "description": "open or closed"
                 }
             }
         },
