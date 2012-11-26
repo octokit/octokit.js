@@ -971,6 +971,16 @@
             }
         },
 
+        "delete-label": {
+            "url": "/repos/:user/:repo/labels/:name",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$name": null
+            }
+        },
+
         "get-all-milestones": {
             "url": "/repos/:user/:repo/milestones",
             "method": "GET",
