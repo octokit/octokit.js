@@ -321,6 +321,21 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:user/:repo/labels/:name (deleteLabel)",  function(next) {
+        client.issues.deleteLabel(
+            {
+                user: "String",
+                repo: "String",
+                name: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/milestones (getAllMilestones)",  function(next) {
         client.issues.getAllMilestones(
             {
