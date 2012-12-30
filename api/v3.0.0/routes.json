@@ -1749,7 +1749,7 @@
                 "team_id": {
                     "type": "Number",
                     "required": false,
-                    "validation": "^[0-9]$",
+                    "validation": "^[0-9]*$",
                     "invalidmsg": "",
                     "description": "Optional number - The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization."
                 }
