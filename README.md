@@ -12,13 +12,13 @@ or
 
   Install via git clone:
 
-      $ git clone git://github.com/ajaxorg/node-github.git
+      $ git clone git://github.com/mikedeboer/node-github.git
       $ cd node-github
       $ npm install
 
 ## Documentation
 
-You can find the docs for the API of this client at [http://ajaxorg.github.com/node-github/](http://ajaxorg.github.com/node-github/)
+You can find the docs for the API of this client at [http://mikedeboer.github.com/node-github/](http://mikedeboer.github.com/node-github/)
 
 Additionally, the [official Github documentation](http://developer.github.com/)
 is a very useful resource.

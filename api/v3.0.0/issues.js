@@ -1,12 +1,12 @@
-/** 
+/**
  *  mixin issues
- * 
+ *
  *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
  *  Cloud9 IDE, Inc (http://c9.io).
  *
- *  Author: Mike de Boer <mike@c9.io>
+ *  Author: Mike de Boer <info@mikedeboer.nl>
  **/
 
 "use strict";
@@ -26,7 +26,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - filter (String): Optional. Validation rule: ` ^(assigned|created|mentioned||subscribed)$ `.
+     *  - filter (String): Optional. Validation rule: ` ^(assigned|created|mentioned|subscribed)$ `.
      *  - state (String): Optional. Validation rule: ` ^(open|closed)$ `.
      *  - labels (String): Optional. String list of comma separated Label names. Example: bug,ui,@high 
      *  - sort (String): Optional. Validation rule: ` ^(created|updated|comments)$ `.
