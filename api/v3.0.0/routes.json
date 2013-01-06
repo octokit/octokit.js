@@ -645,7 +645,7 @@
                 "filter": {
                     "type": "String",
                     "required": false,
-                    "validation": "^(assigned|created|mentioned||subscribed)$",
+                    "validation": "^(assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
                     "description": ""
                 },
