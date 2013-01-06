@@ -1,16 +1,16 @@
 {
     "name" : "github",
-    "version" : "0.1.7",
+    "version" : "0.1.8",
     "description" : "NodeJS wrapper for the GitHub API",
     "author": "ajax.org B.V. <info@ajax.org>",
     "contributors": [
-        { "name": "Mike de Boer", "email": "mike@c9.io>" },
+        { "name": "Mike de Boer", "email": "info@mikedeboer.nl>" },
         { "name": "Fabian Jakobs", "email": "fabian@c9.io" }
     ],
-    "homepage": "http://github.com/ajaxorg/node-github",
+    "homepage": "http://github.com/mikedeboer/node-github",
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/ajaxorg/node-github.git"
+        "url" : "http://github.com/mikedeboer/node-github.git"
     },
     "engine" : {
         "node": ">=0.4.0"
