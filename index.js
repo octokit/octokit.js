@@ -684,6 +684,10 @@ var Client = module.exports = function(config) {
             });
         });
 
+        if (this.config.timeout) {
+            req.setTimeout(this.config.timeout);
+        }
+
         req.on("error", function(e) {
             if (self.debug)
                 console.log("problem with request: " + e.message);
