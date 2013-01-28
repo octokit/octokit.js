@@ -2777,6 +2777,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Keyword search parameters"
+                },
+                "start_page": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "^[0-9]+$",
+                    "invalidmsg": "",
+                    "description": "Page number to fetch"
                 }
             }
         },
