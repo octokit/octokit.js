@@ -789,7 +789,7 @@
                 "$number": null,
                 "title": {
                     "type": "String",
-                    "required": true,
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
@@ -817,7 +817,7 @@
                 },
                 "labels": {
                     "type": "Json",
-                    "required": true,
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Optional array of strings - Labels to associate with this issue."
