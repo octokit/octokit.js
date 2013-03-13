@@ -2232,6 +2232,65 @@
             }
         },
 
+        "get-stargazers": {
+            "url": "/repos/:user/:repo/stargazers",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-starred": { 
+            "url": "/user/starred",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-starred-from-user": {
+            "url": "/users/:user/starred",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-starring": {
+            "url": "/user/starred/:user/:repo",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "star": {
+            "url": "/user/starred/:user/:repo",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "un-star": {
+            "url": "/user/starred/:user/:repo",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
         "get-watchers": {
             "url": "/repos/:user/:repo/watchers",
             "method": "GET",
@@ -2261,6 +2320,7 @@
                 "$per_page": null
             }
         },
+
 
         "get-watching": {
             "url": "/user/watched/:user/:repo",
