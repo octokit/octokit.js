@@ -13,7 +13,10 @@
             "X-RateLimit-Limit",
             "X-RateLimit-Remaining",
             "X-Oauth-Scopes",
-            "Link"
+            "Link",
+            "Last-Modified",
+            "ETag",
+            "Status"
         ],
         "params": {
             "files": {

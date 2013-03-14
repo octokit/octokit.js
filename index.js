@@ -334,7 +334,7 @@ var Client = module.exports = function(config) {
                         };
                     }
 
-                    self[section][funcName] = function(msg, callback) {
+                    self[section][funcName] = function(msg, callback, headers) {
                         try {
                             parseParams(msg, block.params);
                         }
@@ -348,7 +348,7 @@ var Client = module.exports = function(config) {
                             return;
                         }
 
-                        api[section][funcName].call(api, msg, block, callback);
+                        api[section][funcName].call(api, msg, block, callback, headers);
                     };
                 }
                 else {
@@ -595,7 +595,7 @@ var Client = module.exports = function(config) {
      *
      *  Send an HTTP request to the server and pass the result to a callback.
      **/
-    this.httpSend = function(msg, block, callback) {
+    this.httpSend = function(msg, block, callback, headers) {
         var method = block.method.toLowerCase();
         var hasBody = ("head|get|delete".indexOf(method) === -1);
         var format = hasBody && this.constants.requestFormat
@@ -616,11 +616,12 @@ var Client = module.exports = function(config) {
             port = this.config.proxy.port || 3128;
         }
 
-        var headers = {
+        headers = headers || {}
+        headers = Util.extend({
             "host": host,
             "user-agent": "NodeJS HTTP Client",
             "content-length": "0"
-        };
+        }, headers);
         if (hasBody) {
             if (format == "json")
                 query = JSON.stringify(query);
