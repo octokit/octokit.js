@@ -291,7 +291,8 @@
             "method": "GET",
             "params": {
                 "$page": null,
-                "$per_page": null
+                "$per_page": null,
+                "$since": null
             }
         },
 
@@ -301,7 +302,8 @@
             "params": {
                 "$user": null,
                 "$page": null,
-                "$per_page": null
+                "$per_page": null,
+                "$since": null
             }
         },
 
@@ -334,13 +336,17 @@
         "public": {
             "url": "/gists/public",
             "method": "GET",
-            "params": {}
+            "params": {
+                "$since": null
+            }
         },
 
         "starred": {
             "url": "/gists/starred",
             "method": "GET",
-            "params": {}
+            "params": {
+                "$since": null
+            }
         },
 
         "get": {
