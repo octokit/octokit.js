@@ -504,7 +504,7 @@
         },
 
         "create-reference": {
-            "url": "/repos/:user/:repo/git/refs",
+            "url": "/repos/:user/:repo/git/refs/:ref",
             "method": "POST",
             "params": {
                 "$user": null,
