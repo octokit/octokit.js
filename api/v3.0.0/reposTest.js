@@ -698,7 +698,7 @@ describe("[repos]", function() {
     });
 
     it("should successfully execute GET /repos/:user/:repo/stargazers (getStargazers)",  function(next) {
-        client.repos.getWatchers(
+        client.repos.getStargazers(
             {
                 user: "String",
                 repo: "String",
