@@ -1962,6 +1962,7 @@ var repos = module.exports = {
         });
     };
 
+
     /** section: github
      *  repos#unStar(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
