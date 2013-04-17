@@ -2321,7 +2321,6 @@
             }
         },
 
-
         "get-watching": {
             "url": "/user/watched/:user/:repo",
             "method": "GET",
