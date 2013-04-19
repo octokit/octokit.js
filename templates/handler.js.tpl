@@ -1,5 +1,5 @@
 <%comment%>
-    this.<%funcName%> = function(msg, block, callback) {
+    this.<%funcName%> = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -17,5 +17,5 @@
 <%afterRequest%>
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };

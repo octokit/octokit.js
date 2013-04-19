@@ -30,7 +30,7 @@ var orgs = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
-    this.getFromUser = function(msg, block, callback) {
+    this.getFromUser = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -50,14 +50,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -71,7 +71,7 @@ var orgs = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
-    this.get = function(msg, block, callback) {
+    this.get = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -91,14 +91,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -115,7 +115,7 @@ var orgs = module.exports = {
      *  - location (String): Optional. 
      *  - name (String): Optional. 
      **/
-    this.update = function(msg, block, callback) {
+    this.update = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -135,14 +135,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -156,7 +156,7 @@ var orgs = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
-    this.getMembers = function(msg, block, callback) {
+    this.getMembers = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -176,14 +176,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -196,7 +196,7 @@ var orgs = module.exports = {
      *  - org (String): Required. 
      *  - user (String): Required. 
      **/
-    this.getMember = function(msg, block, callback) {
+    this.getMember = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -216,14 +216,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -236,7 +236,7 @@ var orgs = module.exports = {
      *  - org (String): Required. 
      *  - user (String): Required. 
      **/
-    this.removeMember = function(msg, block, callback) {
+    this.removeMember = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -256,14 +256,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -275,7 +275,7 @@ var orgs = module.exports = {
      * 
      *  - org (String): Required. 
      **/
-    this.getPublicMembers = function(msg, block, callback) {
+    this.getPublicMembers = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -295,14 +295,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -315,7 +315,7 @@ var orgs = module.exports = {
      *  - org (String): Required. 
      *  - user (String): Required. 
      **/
-    this.getPublicMember = function(msg, block, callback) {
+    this.getPublicMember = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -335,14 +335,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -355,7 +355,7 @@ var orgs = module.exports = {
      *  - org (String): Required. 
      *  - user (String): Required. 
      **/
-    this.publicizeMembership = function(msg, block, callback) {
+    this.publicizeMembership = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -375,14 +375,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -395,7 +395,7 @@ var orgs = module.exports = {
      *  - org (String): Required. 
      *  - user (String): Required. 
      **/
-    this.concealMembership = function(msg, block, callback) {
+    this.concealMembership = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -415,14 +415,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -434,7 +434,7 @@ var orgs = module.exports = {
      * 
      *  - org (String): Required. 
      **/
-    this.getTeams = function(msg, block, callback) {
+    this.getTeams = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -454,14 +454,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -473,7 +473,7 @@ var orgs = module.exports = {
      * 
      *  - id (String): Required. 
      **/
-    this.getTeam = function(msg, block, callback) {
+    this.getTeam = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -493,14 +493,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -515,7 +515,7 @@ var orgs = module.exports = {
      *  - repo_names (Array): Optional. Optional array of strings 
      *  - permission (String): Optional. `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories. Validation rule: ` ^(pull|push|admin)$ `.
      **/
-    this.createTeam = function(msg, block, callback) {
+    this.createTeam = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -535,14 +535,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -556,7 +556,7 @@ var orgs = module.exports = {
      *  - name (String): Required. 
      *  - permission (String): Optional. `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories. Validation rule: ` ^(pull|push|admin)$ `.
      **/
-    this.updateTeam = function(msg, block, callback) {
+    this.updateTeam = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -576,14 +576,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -595,7 +595,7 @@ var orgs = module.exports = {
      * 
      *  - id (String): Required. 
      **/
-    this.deleteTeam = function(msg, block, callback) {
+    this.deleteTeam = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -615,14 +615,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -636,7 +636,7 @@ var orgs = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
-    this.getTeamMembers = function(msg, block, callback) {
+    this.getTeamMembers = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -656,14 +656,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -676,7 +676,7 @@ var orgs = module.exports = {
      *  - id (String): Required. 
      *  - user (String): Required. 
      **/
-    this.getTeamMember = function(msg, block, callback) {
+    this.getTeamMember = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -696,14 +696,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -716,7 +716,7 @@ var orgs = module.exports = {
      *  - id (String): Required. 
      *  - user (String): Required. 
      **/
-    this.addTeamMember = function(msg, block, callback) {
+    this.addTeamMember = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -736,14 +736,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -756,7 +756,7 @@ var orgs = module.exports = {
      *  - id (String): Required. 
      *  - user (String): Required. 
      **/
-    this.deleteTeamMember = function(msg, block, callback) {
+    this.deleteTeamMember = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -776,14 +776,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -797,7 +797,7 @@ var orgs = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
-    this.getTeamRepos = function(msg, block, callback) {
+    this.getTeamRepos = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -817,14 +817,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -838,7 +838,7 @@ var orgs = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
-    this.getTeamRepo = function(msg, block, callback) {
+    this.getTeamRepo = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -858,14 +858,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -879,7 +879,7 @@ var orgs = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
-    this.addTeamRepo = function(msg, block, callback) {
+    this.addTeamRepo = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -899,14 +899,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -920,7 +920,7 @@ var orgs = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
-    this.deleteTeamRepo = function(msg, block, callback) {
+    this.deleteTeamRepo = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -940,14 +940,14 @@ var orgs = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
 }).call(orgs.orgs);

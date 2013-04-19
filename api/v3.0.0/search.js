@@ -31,7 +31,7 @@ var search = module.exports = {
      *  - state (String): Required. open or closed Validation rule: ` ^(open|closed)$ `.
      *  - keyword (String): Required. Search term 
      **/
-    this.issues = function(msg, block, callback) {
+    this.issues = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -51,14 +51,14 @@ var search = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -72,7 +72,7 @@ var search = module.exports = {
      *  - language (String): Optional. Filter results by language, see https://github.com/languages 
      *  - start_page (Number): Optional. Page number to fetch Validation rule: ` ^[0-9]+$ `.
      **/
-    this.repos = function(msg, block, callback) {
+    this.repos = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -92,14 +92,14 @@ var search = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -110,8 +110,9 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      * 
      *  - keyword (String): Required. Keyword search parameters 
+     *  - start_page (Number): Optional. Page number to fetch Validation rule: ` ^[0-9]+$ `.
      **/
-    this.users = function(msg, block, callback) {
+    this.users = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -131,14 +132,14 @@ var search = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
     /** section: github
@@ -150,7 +151,7 @@ var search = module.exports = {
      * 
      *  - email (String): Required. Email address 
      **/
-    this.email = function(msg, block, callback) {
+    this.email = function(msg, block, callback, headers) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -170,14 +171,14 @@ var search = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
             
             if (callback)
                 callback(null, ret);
-        });
+        }, headers);
     };
 
 }).call(search.search);
