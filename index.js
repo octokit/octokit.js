@@ -663,6 +663,8 @@ var Client = module.exports = function(config) {
             console.log("REQUEST: ", options);
 
         var self = this;
+        var callbackCalled = false
+
         var req = require(protocol).request(options, function(res) {
             if (self.debug) {
                 console.log("STATUS: " + res.statusCode);
@@ -674,11 +676,13 @@ var Client = module.exports = function(config) {
                 data += chunk;
             });
             res.on("end", function() {
-                if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
-                    callback(new error.HttpError(data, res.statusCode));
+                if (callbackCalled == false && res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
+                    callbackCalled = true;
+                    callback(new error.HttpError(data, res.statusCode))
                 }
-                else {
+                else if (callbackCalled == false) {
                     res.data = data;
+                    callbackCalled = true;
                     callback(null, res);
                 }
             });
@@ -691,7 +695,10 @@ var Client = module.exports = function(config) {
         req.on("error", function(e) {
             if (self.debug)
                 console.log("problem with request: " + e.message);
-            callback(e.message);
+            if (callbackCalled == false) {
+                callbackCalled = true;
+                callback(e.message);
+            }
         });
 
         // write data to request body
