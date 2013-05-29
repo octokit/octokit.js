@@ -676,11 +676,11 @@ var Client = module.exports = function(config) {
                 data += chunk;
             });
             res.on("end", function() {
-                if (callbackCalled == false && res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
+                if (!callbackCalled && res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
                     callbackCalled = true;
                     callback(new error.HttpError(data, res.statusCode))
                 }
-                else if (callbackCalled == false) {
+                else if (!callbackCalled) {
                     res.data = data;
                     callbackCalled = true;
                     callback(null, res);
@@ -695,7 +695,7 @@ var Client = module.exports = function(config) {
         req.on("error", function(e) {
             if (self.debug)
                 console.log("problem with request: " + e.message);
-            if (callbackCalled == false) {
+            if (!callbackCalled) {
                 callbackCalled = true;
                 callback(e.message);
             }
