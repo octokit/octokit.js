@@ -3,10 +3,10 @@
  *
  *  A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.
  *
- *  Copyright 2012 Ajax.org Services B.V.
+ *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
- *  Ajax.org Services B.V. (http://www.ajax.org/).
+ *  Cloud9 IDE, Inc (http://c9.io).
  *
  *  Author: Mike de Boer <info@mikedeboer.nl>
  **/
