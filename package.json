@@ -2,9 +2,9 @@
     "name" : "github",
     "version" : "0.1.9",
     "description" : "NodeJS wrapper for the GitHub API",
-    "author": "ajax.org B.V. <info@ajax.org>",
+    "author": "Mike de Boer <info@mikedeboer.nl>",
     "contributors": [
-        { "name": "Mike de Boer", "email": "info@mikedeboer.nl>" },
+        { "name": "Mike de Boer", "email": "info@mikedeboer.nl" },
         { "name": "Fabian Jakobs", "email": "fabian@c9.io" }
     ],
     "homepage": "http://github.com/mikedeboer/node-github",
