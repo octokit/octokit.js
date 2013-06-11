@@ -2109,6 +2109,7 @@
             "params": {
                 "$user": null,
                 "$repo": null,
+                "$ref": null,
                 "archive_format": {
                     "type": "String",
                     "required": true,
