@@ -13,7 +13,8 @@
             "X-RateLimit-Limit",
             "X-RateLimit-Remaining",
             "X-Oauth-Scopes",
-            "Link"
+            "Link",
+            "Location"
         ],
         "params": {
             "files": {
@@ -2109,6 +2110,7 @@
             "params": {
                 "$user": null,
                 "$repo": null,
+                "$ref": null,
                 "archive_format": {
                     "type": "String",
                     "required": true,
