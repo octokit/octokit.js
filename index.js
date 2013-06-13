@@ -626,10 +626,10 @@ var Client = module.exports = function(config) {
                 query = JSON.stringify(query);
             else
                 query = query.join("&");
-            headers["content-length"] = query.length;
+            headers["content-length"] = Buffer.byteLength(query, 'utf8');
             headers["content-type"] = format == "json"
-                ? "application/json"
-                : "application/x-www-form-urlencoded";
+                ? "application/json; charset=utf-8"
+                : "application/x-www-form-urlencoded; charset=utf-8";
         }
         if (this.auth) {
             var basic;
