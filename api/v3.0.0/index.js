@@ -24,7 +24,8 @@ var GithubHandler = module.exports = function(client) {
 
 var proto = {
     sendError: function(err, block, msg, callback) {
-        Util.log(err, block, msg.user, "error");
+        if (this.client.debug)
+            Util.log(err, block, msg.user, "error");
         if (typeof err == "string")
             err = new error.InternalServerError(err);
         if (callback)
