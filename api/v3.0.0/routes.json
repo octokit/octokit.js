@@ -839,6 +839,26 @@
             }
         },
 
+        "repo-comments": {
+            "url": "/repos/:user/:repo/issues/comments",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated)$",
+                    "invalidmsg": "created, updated, default: created.",
+                    "description": ""
+                },
+                "$direction": null,
+                "$since": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
         "get-comments": {
             "url": "/repos/:user/:repo/issues/:number/comments",
             "method": "GET",
