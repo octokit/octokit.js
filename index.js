@@ -706,7 +706,7 @@ var Client = module.exports = function(config) {
                 console.log("problem with request: timed out");
             if (!callbackCalled) {
                 callbackCalled = true;
-                callback(new error.HttpError("timeout", 504));
+                callback(new error.GatewayTimeout());
             }
         });
 
