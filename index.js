@@ -675,6 +675,12 @@ var Client = module.exports = function(config) {
             res.on("data", function(chunk) {
                 data += chunk;
             });
+            res.on("error", function(err) {
+                if (!callbackCalled) {
+                   callbackCalled = true;   
+                   callback(err); 
+                }
+            });
             res.on("end", function() {
                 if (!callbackCalled && res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
                     callbackCalled = true;
