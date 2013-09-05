@@ -615,10 +615,11 @@ var Client = module.exports = function(config) {
             host = this.config.proxy.host;
             port = this.config.proxy.port || 3128;
         }
+        var userAgent = this.config.userAgent || this.constants.userAgent;
 
         var headers = {
             "host": host,
-            "user-agent": "NodeJS HTTP Client",
+            "user-agent": userAgent,
             "content-length": "0"
         };
         if (hasBody) {
