@@ -724,4 +724,44 @@ var Client = module.exports = function(config) {
         }
         req.end();
     };
+
+    /**
+     *  Client#s3Send(msg, block, callback) -> null
+     *      - msg (Object): parameters to send as the request body
+     *      - callback (Function): function to be called when the request returns.
+     *          If the the request returns with an error, the error is passed to
+     *          the callback as its first argument (NodeJS-style).
+     *
+     *  Upload a file to S3 GitHub bucket and pass the result to a callback.
+     **/
+    this.s3Send = function(msg, callback) {
+        var post   = require("http-post");
+        var xml2js = require("xml2js");
+        var parser = new xml2js.Parser();
+        
+        post({
+            "host"                  : "github.s3.amazonaws.com"
+        }, {
+            "key"                   : msg.path,
+            "acl"                   : msg.acl,
+            "success_action_status" : 201,
+            "Filename"              : msg.name,
+            "AWSAccessKeyId"        : msg.accesskeyid,
+            "Policy"                : msg.policy,
+            "Signature"             : msg.signature,
+            "Content-Type"          : msg.mime_type
+        }, [
+            {
+                "param"             : "file",
+                "path"              : msg.file
+            }
+        ], function(response) {
+            response.on("data", function(responseData) {
+                parser.parseString(responseData.toString(), function(err, data) {
+                    if (callback)
+                        callback(err, data.PostResponse);
+                });
+            });
+        });
+    };
 }).call(Client.prototype);

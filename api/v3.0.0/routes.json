@@ -2161,6 +2161,30 @@
                 "$id": null
             }
         },
+        
+        "create-download": {
+            "url": "/repos/:user/:repo/downloads",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "file": {
+                    "type": "String",
+                    "required": true,
+                    "description": "Path to the file to create the GitHub download from."
+                },
+                "name": {
+                    "type": "String",
+                    "required": false,
+                    "description": "Name of the GitHub download. Basename will be used by default."
+                },
+                "desc": {
+                    "type": "String",
+                    "required": false,
+                    "description": "GitHub download description."
+                }
+            }
+        },
 
         "delete-download": {
             "url": "/repos/:user/:repo/downloads/:id",
