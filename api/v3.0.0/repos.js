@@ -1330,6 +1330,144 @@ var repos = module.exports = {
     };
 
     /** section: github
+     *  repos#createFile(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     * 
+     *  ##### Params on the `msg` object:
+     * 
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - path (String): Required. The content path. 
+     *  - message (String): Required. The commit message.
+     *  - content (String): Required. The new file content, Base64 encoded.
+     *  - branch (String): Optional. The branch name. If not provided, uses the repository’s default branch (usually master).
+     *  - author (Json): Optional. The author of the commit. An object with name and email properties. The author section is optional and is filled in with the committer information if omitted. If the committer information is omitted, the authenticated user’s information is used.
+     *  - committer (Json): Optional. The committer of the commit. An object with name and email properties. You must provide values for both name and email, whether you choose to use author or committer. Otherwise, you’ll receive a 500 status code.
+     **/
+    this.createFile = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+            
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+            
+            if (callback)
+                callback(null, ret);
+        });
+    }
+
+    /** section: github
+     *  repos#updateFile(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     * 
+     *  ##### Params on the `msg` object:
+     * 
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - path (String): Required. The content path. 
+     *  - message (String): Required. The commit message.
+     *  - content (String): Required. The updated file content, Base64 encoded.
+     *  - sha (String): Required. The blob SHA of the file being replaced.
+     *  - branch (String): Optional. The branch name. If not provided, uses the repository’s default branch (usually master).
+     *  - author (Json): Optional. The author of the commit. An object with name and email properties. The author section is optional and is filled in with the committer information if omitted. If the committer information is omitted, the authenticated user’s information is used.
+     *  - committer (Json): Optional. The committer of the commit. An object with name and email properties. You must provide values for both name and email, whether you choose to use author or committer. Otherwise, you’ll receive a 500 status code.
+     **/
+    this.updateFile = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+            
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+            
+            if (callback)
+                callback(null, ret);
+        });
+    }
+
+    /** section: github
+     *  repos#deleteFile(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     * 
+     *  ##### Params on the `msg` object:
+     * 
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - path (String): Required. The content path. 
+     *  - message (String): Required. The commit message.
+     *  - sha (String): Required. The blob SHA of the file being removed.
+     *  - branch (String): Optional. The branch name. If not provided, uses the repository’s default branch (usually master).
+     *  - author (Json): Optional. The author of the commit. An object with name and email properties. The author section is optional and is filled in with the committer information if omitted. If the committer information is omitted, the authenticated user’s information is used.
+     *  - committer (Json): Optional. The committer of the commit. An object with name and email properties. You must provide values for both name and email, whether you choose to use author or committer. Otherwise, you’ll receive a 500 status code.
+     **/
+    this.deleteFile = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+            
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+            
+            if (callback)
+                callback(null, ret);
+        });
+    }
+    /** section: github
      *  repos#getArchiveLink(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
