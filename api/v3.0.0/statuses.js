@@ -26,6 +26,7 @@ var statuses = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -67,6 +68,7 @@ var statuses = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 

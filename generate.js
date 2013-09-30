@@ -14,6 +14,7 @@
 var Fs = require("fs");
 var Path = require("path");
 
+var Optimist = require("optimist");
 var Util = require("./util");
 
 var IndexTpl = Fs.readFileSync(__dirname + "/templates/index.js.tpl", "utf8");
@@ -23,12 +24,30 @@ var AfterRequestTpl = Fs.readFileSync(__dirname + "/templates/after_request.js.t
 var TestSectionTpl = Fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
 var TestHandlerTpl = Fs.readFileSync(__dirname + "/templates/test_handler.js.tpl", "utf8");
 
-var main = module.exports = function(versions) {
-    Util.log("Generating for versions", versions);
+var main = module.exports = function(versions, restore) {
+    Util.log("Generating for versions", Object.keys(versions));
 
-    versions.forEach(function(version) {
-        var dir = __dirname + "/api/" + version;
-        var routes = JSON.parse(Fs.readFileSync(dir + "/routes.json", "utf8"));
+    Object.keys(versions).forEach(function(version) {
+        var dir = Path.join(__dirname, "api", version);
+
+        // If we're in restore mode, move .bak file back to their original position
+        // and short-circuit.
+        if (restore) {
+            var bakRE = /\.bak$/;
+            var files = Fs.readdirSync(dir).filter(function(file) {
+                return bakRE.test(file);
+            }).forEach(function(file) {
+                var from = Path.join(dir, file);
+                var to = Path.join(dir, file.replace(/\.bak$/, ""));
+                Fs.renameSync(from, to);
+                Util.log("Restored '" + file + "' (" + version + ")");
+            });
+
+            return;
+        }
+
+
+        var routes = versions[version];
         var defines = routes.defines;
         delete routes.defines;
         var headers = defines["response-headers"];
@@ -50,8 +69,11 @@ var main = module.exports = function(versions) {
                 indent + " *  ##### Params on the `msg` object:",
                 indent + " * "
             ];
+            comment.push(indent + " *  - headers (Object): Optional. Key/ value pair "
+                + "of request headers to pass along with the HTTP request. Valid headers are: "
+                + "'" + defines["request-headers"].join("', '") + "'.");
             if (!params.length)
-                comment.push(indent + " *  No params, simply pass an empty Object literal `{}`");
+                comment.push(indent + " *  No other params, simply pass an empty Object literal `{}`");
             var paramName, def, line;
             for (var i = 0, l = params.length; i < l; ++i) {
                 paramName = params[i];
@@ -167,7 +189,7 @@ var main = module.exports = function(versions) {
         var sectionNames = Object.keys(sections);
 
         Util.log("Writing index.js file for version " + version);
-        Fs.writeFileSync(dir + "/index.js",
+        Fs.writeFileSync(Path.join(dir, "index.js"),
             IndexTpl
                 .replace("<%name%>", defines.constants.name)
                 .replace("<%description%>", defines.constants.description)
@@ -177,7 +199,7 @@ var main = module.exports = function(versions) {
         Object.keys(sections).forEach(function(section) {
             var def = sections[section];
             Util.log("Writing '" + section + ".js' file for version " + version);
-            Fs.writeFileSync(dir + "/" + section + ".js", SectionTpl
+            Fs.writeFileSync(Path.join(dir, section + ".js"), SectionTpl
                 .replace(/<%sectionName%>/g, section)
                 .replace("<%sectionBody%>", def.join("\n")),
                 "utf8"
@@ -191,8 +213,8 @@ var main = module.exports = function(versions) {
                 .replace("<%version%>", version.replace("v", ""))
                 .replace(/<%sectionName%>/g, section)
                 .replace("<%testBody%>", def.join("\n\n"));
-            var path = dir + "/" + section + "Test.js";
-            if (Path.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
+            var path = Path.join(dir, section + "Test.js");
+            if (Fs.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
                 Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
                     "that were already implemented. \nPlease be sure te check this file " +
                     "and move all implemented tests back into the newly generated test!", "error");
@@ -206,33 +228,61 @@ var main = module.exports = function(versions) {
 };
 
 if (!module.parent) {
-    Util.log("Starting up...");
-    var availVersions = Fs.readdirSync(__dirname + "/api");
-    if (!availVersions.length) {
+    var argv = Optimist
+      .wrap(80)
+      .usage("Generate the implementation of the node-github module, including "
+           + "unit-test scaffolds.\nUsage: $0 [-r] [-v VERSION]")
+      .alias("r", "restore")
+      .default("r", false)
+      .describe("r", "Restore .bak files, generated by a previous run, to the original")
+      .alias("v", "version")
+      .describe("v", "Semantic version number of the API to generate. Example: '3.0.0'")
+      .alias("h", "help")
+      .describe("h", "Display this usage information")
+      .argv;
+
+    if (argv.help) {
+        Util.log(Optimist.help());
+        process.exit();
+    }
+
+    var baseDir = Path.join(__dirname, "api");
+    var availVersions = {};
+    Fs.readdirSync(baseDir).forEach(function(version) {
+        var path = Path.join(baseDir, version, "routes.json");
+        if (!Fs.existsSync(path))
+            return;
+        var routes;
+        try {
+            routes = JSON.parse(Fs.readFileSync(path, "utf8"));
+        }
+        catch (ex) {
+            return;
+        }
+        if (!routes.defines)
+            return;
+        availVersions[version] = routes;
+    });
+
+    if (!Object.keys(availVersions).length) {
         Util.log("No versions available to generate.", "fatal");
         process.exit(1);
     }
-    var versions = [];
-    var arg, val;
-    for (var i = 0, l = process.argv.length; i < l; i += 2) {
-        arg = process.argv[i];
-        val = process.argv[i + 1];
-        if ((arg == "-v" || arg == "--version") && val) {
-            if (val.charAt(0) !== "v")
-                val = "v" + val;
-            if (availVersions.indexOf(val) !== -1) {
-                versions.push(val);
-            }
-            else {
-                Util.log("Version '" + val + "' is not available", "fatal");
-                process.exit(1);
-            }
+    var versions = {};
+    if (argv.version) {
+        if (argv.version.charAt(0) != "v")
+            argv.version = argv.v = "v" + argv.version;
+        if (!availVersions[argv.version]) {
+            Util.log("Version '" + argv.version + "' is not available", "fatal");
+            process.exit(1);
         }
+        versions[argv.version] = availVersions[argv.version];
     }
-    if (!versions.length) {
+    if (!Object.keys(versions).length) {
         Util.log("No versions specified via the command line, generating for all available versions.");
         versions = availVersions;
     }
 
-    main(versions);
+    Util.log("Starting up...");
+    main(versions, argv.restore);
 }

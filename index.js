@@ -217,6 +217,9 @@ var Client = module.exports = function(config) {
         var routes = api.routes;
         var defines = routes.defines;
         this.constants = defines.constants;
+        this.requestHeaders = defines["request-headers"].map(function(header) {
+            return header.toLowerCase();
+        });
         delete routes.defines;
 
         function trim(s) {
@@ -618,7 +621,6 @@ var Client = module.exports = function(config) {
 
         var headers = {
             "host": host,
-            "user-agent": "NodeJS HTTP Client",
             "content-length": "0"
         };
         if (hasBody) {
@@ -650,6 +652,13 @@ var Client = module.exports = function(config) {
                     break;
             }
         }
+
+        this.requestHeaders.forEach(function(header) {
+            if (msg[header])
+                headers[header] = msg[header];
+        });
+        if (!headers["user-agent"])
+            headers["user-agent"] = "NodeJS HTTP Client";
 
         var options = {
             host: host,

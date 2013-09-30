@@ -26,6 +26,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -69,6 +70,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - content (String): Required. 
@@ -111,6 +113,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -152,6 +155,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - message (String): Required. String of the commit message 
@@ -197,6 +201,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
@@ -238,6 +243,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
@@ -280,6 +286,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
@@ -322,6 +329,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
@@ -365,6 +373,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
@@ -406,6 +415,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -447,6 +457,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - tag (String): Required. String of the tag 
@@ -492,6 +503,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -534,6 +546,7 @@ var gitdata = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - tree (Json): Required. Array of Hash objects (of path, mode, type and sha) specifying a tree structure 

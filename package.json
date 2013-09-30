@@ -1,6 +1,6 @@
 {
     "name" : "github",
-    "version" : "0.1.10",
+    "version" : "0.1.11",
     "description" : "NodeJS wrapper for the GitHub API",
     "author": "Mike de Boer <info@mikedeboer.nl>",
     "contributors": [
@@ -16,7 +16,9 @@
         "node": ">=0.4.0"
     },
     "devDependencies": {
-        "oauth": "0.9.7"
+        "oauth": "~0.9.7",
+        "optimist": "~0.6.0",
+        "mocha": "~1.13.0"
     },
     "main" : ".",
     "scripts": {
@@ -24,6 +26,6 @@
     },
     "licenses": [{
         "type": "The MIT License",
-        "url": "http://www.opensource.org/licenses/mit-license.php"}
-    ]
+        "url": "http://www.opensource.org/licenses/mit-license.php"
+    }]
 }

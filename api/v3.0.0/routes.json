@@ -16,6 +16,13 @@
             "Link",
             "Location"
         ],
+        "request-headers": [
+            "Last-Modified",
+            "Etag",
+            "Status",
+            "Cookie",
+            "User-Agent"
+        ],
         "params": {
             "files": {
                 "type": "Json",
