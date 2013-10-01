@@ -26,7 +26,7 @@ var authorization = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -50,7 +50,7 @@ var authorization = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -67,7 +67,7 @@ var authorization = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - id (String): Required. 
      **/
     this.get = function(msg, block, callback) {
@@ -90,7 +90,7 @@ var authorization = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -107,7 +107,7 @@ var authorization = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - scopes (Array): Optional. Optional array - A list of scopes that this authorization is in. 
      *  - note (String): Optional. Optional string - A note to remind you what the OAuth token is for. 
      *  - note_url (String): Optional. Optional string - A URL to remind you what app the OAuth token is for. 
@@ -132,7 +132,7 @@ var authorization = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -149,7 +149,7 @@ var authorization = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - id (String): Required. 
      *  - scopes (Array): Optional. Optional array - A list of scopes that this authorization is in. 
      *  - add_scopes (Array): Optional. Optional array - A list of scopes to add to this authorization. 
@@ -177,7 +177,7 @@ var authorization = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -194,7 +194,7 @@ var authorization = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - id (String): Required. 
      **/
     this.delete = function(msg, block, callback) {
@@ -217,7 +217,7 @@ var authorization = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });

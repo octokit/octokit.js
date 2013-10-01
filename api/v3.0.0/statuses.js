@@ -26,7 +26,7 @@ var statuses = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -51,7 +51,7 @@ var statuses = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -68,7 +68,7 @@ var statuses = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sha (String): Required. 
@@ -96,7 +96,7 @@ var statuses = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });

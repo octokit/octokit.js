@@ -599,6 +599,7 @@ var Client = module.exports = function(config) {
      *  Send an HTTP request to the server and pass the result to a callback.
      **/
     this.httpSend = function(msg, block, callback) {
+        var self = this;
         var method = block.method.toLowerCase();
         var hasBody = ("head|get|delete".indexOf(method) === -1);
         var format = hasBody && this.constants.requestFormat
@@ -653,9 +654,13 @@ var Client = module.exports = function(config) {
             }
         }
 
-        this.requestHeaders.forEach(function(header) {
-            if (msg[header])
-                headers[header] = msg[header];
+        if (!msg.headers)
+            msg.headers = {};
+        Object.keys(msg.headers).forEach(function(header) {
+            var headerLC = header.toLowerCase();
+            if (self.requestHeaders.indexOf(headerLC) == -1)
+                return;
+            headers[headerLC] = msg.headers[header];
         });
         if (!headers["user-agent"])
             headers["user-agent"] = "NodeJS HTTP Client";
@@ -671,7 +676,6 @@ var Client = module.exports = function(config) {
         if (this.debug)
             console.log("REQUEST: ", options);
 
-        var self = this;
         var callbackCalled = false
 
         var req = require(protocol).request(options, function(res) {

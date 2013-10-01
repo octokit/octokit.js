@@ -14,12 +14,14 @@
             "X-RateLimit-Remaining",
             "X-Oauth-Scopes",
             "Link",
-            "Location"
-        ],
-        "request-headers": [
+            "Location",
             "Last-Modified",
             "Etag",
-            "Status",
+            "Status"
+        ],
+        "request-headers": [
+            "If-Modified-Since",
+            "If-None-Match",
             "Cookie",
             "User-Agent"
         ],

@@ -26,7 +26,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      **/
     this.getFrom = function(msg, block, callback) {
@@ -49,7 +49,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -66,7 +66,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  No other params, simply pass an empty Object literal `{}`
      **/
     this.get = function(msg, block, callback) {
@@ -89,7 +89,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -106,7 +106,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - name (String): Optional. 
      *  - email (String): Optional. 
      *  - blog (String): Optional. 
@@ -135,7 +135,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -152,7 +152,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -176,7 +176,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -193,7 +193,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -217,7 +217,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -234,7 +234,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  No other params, simply pass an empty Object literal `{}`
      **/
     this.addEmails = function(msg, block, callback) {
@@ -257,7 +257,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -274,7 +274,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  No other params, simply pass an empty Object literal `{}`
      **/
     this.deleteEmails = function(msg, block, callback) {
@@ -297,7 +297,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -314,7 +314,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
@@ -339,7 +339,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -356,7 +356,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
@@ -381,7 +381,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -398,7 +398,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -422,7 +422,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -439,7 +439,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
@@ -464,7 +464,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -481,7 +481,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      **/
     this.followUser = function(msg, block, callback) {
@@ -504,7 +504,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -521,7 +521,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - user (String): Required. 
      **/
     this.unFollowUser = function(msg, block, callback) {
@@ -544,7 +544,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -561,7 +561,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -585,7 +585,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -602,7 +602,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - id (String): Required. 
      **/
     this.getKey = function(msg, block, callback) {
@@ -625,7 +625,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -642,7 +642,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - title (String): Required. 
      *  - key (String): Required. 
      **/
@@ -666,7 +666,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -683,7 +683,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - id (String): Required. 
      *  - title (String): Required. 
      *  - key (String): Required. 
@@ -708,7 +708,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -725,7 +725,7 @@ var user = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'Last-Modified', 'Etag', 'Status', 'Cookie'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
      *  - id (String): Required. 
      **/
     this.deleteKey = function(msg, block, callback) {
@@ -748,7 +748,7 @@ var user = module.exports = {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location"].forEach(function(header) {
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
