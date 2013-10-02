@@ -524,6 +524,23 @@ describe("[repos]", function() {
             }
         );
     });
+    it("should successfully execute GET /repos/:user/:repo/contents/:path (createContent)",  function(next) {
+        client.repos.getContent(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                ref: "String",
+                content:"String",
+                message:"String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
 
     it("should successfully execute GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
         client.repos.getArchiveLink(

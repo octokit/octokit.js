@@ -291,6 +291,20 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "Optional string - Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
+            },
+            "content": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "message": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
             }
         }
     },
@@ -2116,6 +2130,30 @@
             "params": {
                 "$user": null,
                 "$repo": null,
+                "path": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The content path."
+                },
+                "ref": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The String name of the Commit/Branch/Tag. Defaults to master."
+                }
+            }
+        },
+        "create-content": {
+            "url": "/repos/:user/:repo/contents/:path",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$content":null,
+                "$message":null,
                 "path": {
                     "type": "String",
                     "required": false,
