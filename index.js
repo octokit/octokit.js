@@ -629,7 +629,7 @@ var Client = module.exports = function(config) {
             });
 
             if (!/^(http|https):\/\//.test(proxyUrl))
-                proxyUrl = 'http://' + proxyUrl;
+                proxyUrl = 'https://' + proxyUrl;
 
             var parsedUrl = Url.parse(proxyUrl);
             protocol = parsedUrl.protocol.replace(':', '');
