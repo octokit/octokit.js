@@ -627,11 +627,14 @@ var Client = module.exports = function(config) {
                 port: port,
                 pathname: path
             });
-            
+
+            if (!/^(http|https):\/\//.test(proxyUrl))
+                proxyUrl = 'http://' + proxyUrl;
+
             var parsedUrl = Url.parse(proxyUrl);
-            host = parsedUrl.hostname;
-            port = parsedUrl.port;
             protocol = parsedUrl.protocol.replace(':', '');
+            host = parsedUrl.hostname;
+            port = parsedUrl.port || (protocol == "https" ? 443 : 80);
         }
         if (!hasBody && query.length)
             path += "?" + query.join("&");
