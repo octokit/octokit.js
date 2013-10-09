@@ -609,16 +609,31 @@ var Client = module.exports = function(config) {
         var query = obj.query;
         var url = this.config.url ? this.config.url + obj.url : obj.url;
 
-        var path = (!hasBody && query.length)
-            ? url + "?" + query.join("&")
-            : url;
+        var path = url;
         var protocol = this.config.protocol || this.constants.protocol || "http";
         var host = this.config.host || this.constants.host;
         var port = this.config.port || this.constants.port || (protocol == "https" ? 443 : 80);
-        if (this.config.proxy) {
-            host = this.config.proxy.host;
-            port = this.config.proxy.port || 3128;
+        
+        var proxyUrl;
+        if (this.config.proxy !== undefined) {
+            proxyUrl = this.config.proxy;
+        } else {
+            proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
         }
+        if (proxyUrl) {
+            path = Url.format({
+                protocol: protocol,
+                host: host,
+                pathname: path
+            });
+            
+            var parsedUrl = Url.parse(proxyUrl);
+            host = parsedUrl.hostname;
+            port = parsedUrl.port;
+            protocol = parsedUrl.protocol.replace(':', '');
+        }
+        if (!hasBody && query.length)
+            path += "?" + query.join("&");
 
         var headers = {
             "host": host,
