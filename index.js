@@ -623,7 +623,8 @@ var Client = module.exports = function(config) {
         if (proxyUrl) {
             path = Url.format({
                 protocol: protocol,
-                host: host,
+                hostname: host,
+                port: port,
                 pathname: path
             });
             
