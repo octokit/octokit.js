@@ -629,10 +629,10 @@ var Client = module.exports = function(config) {
             });
 
             if (!/^(http|https):\/\//.test(proxyUrl))
-                proxyUrl = 'https://' + proxyUrl;
+                proxyUrl = "https://" + proxyUrl;
 
             var parsedUrl = Url.parse(proxyUrl);
-            protocol = parsedUrl.protocol.replace(':', '');
+            protocol = parsedUrl.protocol.replace(":", "");
             host = parsedUrl.hostname;
             port = parsedUrl.port || (protocol == "https" ? 443 : 80);
         }
