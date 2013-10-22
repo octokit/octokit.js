@@ -36,6 +36,7 @@ var github = new GitHubApi({
     debug: true,
     protocol: "https",
     host: "github.my-GHE-enabled-company.com",
+    pathPrefix: "/api/v3", // for some GHEs
     timeout: 5000
 });
 github.user.getFollowingFromUser({
