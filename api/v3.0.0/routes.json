@@ -23,7 +23,8 @@
             "If-Modified-Since",
             "If-None-Match",
             "Cookie",
-            "User-Agent"
+            "User-Agent",
+            "Accept"
         ],
         "params": {
             "files": {
