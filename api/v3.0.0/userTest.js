@@ -218,6 +218,21 @@ describe("[user]", function() {
         );
     });
 
+    it("should successfully execute GET /user/:user/keys (getKeys)",  function(next) {
+        client.user.getKeys(
+            {
+                user: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/keys/:id (getKey)",  function(next) {
         client.user.getKey(
             {
