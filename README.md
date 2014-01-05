@@ -100,6 +100,29 @@ github.authenticate({
 });
 ```
 
+### Two-factor authentication
+The simplest way to work with GitHub's new [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) is like this:
+```javascript
+github.authenticate({
+    type: "basic",
+    username: username,
+    password: password
+});
+
+github.authorization.create({
+    scopes: ["user", "public_repo", "repo", "repo:status", "gist"],
+    note: "what this auth is for",
+    note_url: "http://url-to-this-auth-app",
+    headers: {
+        "X-GitHub-OTP": "two-factor-code"
+    }
+}, function(err, res) {
+    if (res.token) {
+        //save and use res.token as in the Oauth process above from now on
+    }
+});
+```
+
 ## Implemented GitHub APIs
 
 * Gists: 100%
