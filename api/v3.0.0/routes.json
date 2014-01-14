@@ -24,7 +24,8 @@
             "If-None-Match",
             "Cookie",
             "User-Agent",
-            "Accept"
+            "Accept",
+            "X-GitHub-OTP"
         ],
         "params": {
             "files": {

@@ -100,6 +100,29 @@ github.authenticate({
 });
 ```
 
+### Creating tokens for your application
+[Create a new authorization](http://developer.github.com/v3/oauth/#create-a-new-authorization) for your application giving it access to the wanted scopes you need instead of relying on username / password and is the way to go if you have [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) on.
+
+For example:
+
+1. Use github.authenticate() to auth with GitHub using your username / password
+2. Create an application token programmatically with the scopes you need and, if you use two-factor authentication send the `X-GitHub-OTP` header with the one-time-password you get on your token device.
+
+```javascript
+github.authorization.create({
+    scopes: ["user", "public_repo", "repo", "repo:status", "gist"],
+    note: "what this auth is for",
+    note_url: "http://url-to-this-auth-app",
+    headers: {
+        "X-GitHub-OTP": "two-factor-code"
+    }
+}, function(err, res) {
+    if (res.token) {
+        //save and use res.token as in the Oauth process above from now on
+    }
+});
+```
+
 ## Implemented GitHub APIs
 
 * Gists: 100%
