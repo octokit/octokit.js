@@ -1,3 +1,6 @@
 .settings.xml
 .settings
 .c9revisions
+/test/
+/doc/
+seed.yml
