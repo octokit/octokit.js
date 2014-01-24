@@ -1,5 +1,6 @@
 "use strict";
 
+var Fs = require("fs");
 var error = require("./error");
 var Util = require("./util");
 var Url = require("url");
@@ -177,8 +178,7 @@ var Client = module.exports = function(config) {
     this.debug = Util.isTrue(config.debug);
 
     this.version = config.version;
-    var cls = require("./api/v" + this.version);
-    this[this.version] = new cls(this);
+    this[this.version] = JSON.parse(Fs.readFileSync(__dirname + "/api/v" + this.version + "/routes.json", "utf8"));
 
     this.setupRoutes();
 };
@@ -213,11 +213,13 @@ var Client = module.exports = function(config) {
      **/
     this.setupRoutes = function() {
         var self = this;
-        var api = this[this.version];
-        var routes = api.routes;
+        var routes = this[this.version];
         var defines = routes.defines;
         this.constants = defines.constants;
         this.requestHeaders = defines["request-headers"].map(function(header) {
+            return header.toLowerCase();
+        });
+        this.responseHeaders = defines["response-headers"].map(function(header) {
             return header.toLowerCase();
         });
         delete routes.defines;
@@ -245,7 +247,7 @@ var Client = module.exports = function(config) {
                 else
                     def = paramsStruct[paramName];
 
-                value = trim(msg[paramName]);
+                value = (def.type && def.type.toLowerCase() == "binary") ? msg[paramName] : trim(msg[paramName]);
                 if (typeof value != "boolean" && !value) {
                     // we don't need to validation for undefined parameter values
                     // that are not required.
@@ -310,23 +312,9 @@ var Client = module.exports = function(config) {
                     // we ended up at an API definition part!
                     var endPoint = messageType.replace(/^[\/]+/g, "");
                     var parts = messageType.split("/");
-                    var section = Util.toCamelCase(parts[1].toLowerCase());
+                    var section = Util.toCamelCase(parts[1]);
                     parts.splice(0, 2);
                     var funcName = Util.toCamelCase(parts.join("-"));
-
-                    if (!api[section]) {
-                        throw new Error("Unsupported route section, not implemented in version " +
-                            self.version + " for route '" + endPoint + "' and block: " +
-                            JSON.stringify(block));
-                    }
-
-                    if (!api[section][funcName]) {
-                        if (self.debug)
-                            Util.log("Tried to call " + funcName);
-                        throw new Error("Unsupported route, not implemented in version " +
-                            self.version + " for route '" + endPoint + "' and block: " +
-                            JSON.stringify(block));
-                    }
 
                     if (!self[section]) {
                         self[section] = {};
@@ -344,14 +332,13 @@ var Client = module.exports = function(config) {
                         catch (ex) {
                             // when the message was sent to the client, we can
                             // reply with the error directly.
-                            api.sendError(ex, block, msg, callback);
+                            self.sendError(ex, block, msg, callback);
                             if (self.debug)
                                 Util.log(ex.message, "fatal");
                             // on error, there's no need to continue.
                             return;
                         }
-
-                        api[section][funcName].call(api, msg, block, callback);
+                        self.handler(msg, block, callback);
                     };
                 }
                 else {
@@ -388,18 +375,32 @@ var Client = module.exports = function(config) {
      *          type: "oauth",
      *          token: "e5a4a27487c26e571892846366de023349321a73"
      *      });
+     *
+     *      // or client
+     *      github.authenticate({
+     *          type: "client",
+     *          username: "client_id",
+     *          password: "client_secret"
+     *      });
+     *
      **/
     this.authenticate = function(options) {
         if (!options) {
             this.auth = false;
             return;
         }
-        if (!options.type || "basic|oauth".indexOf(options.type) === -1)
+        if (!options.type || "basic|oauth|client".indexOf(options.type) === -1)
             throw new Error("Invalid authentication type, must be 'basic' or 'oauth'");
-        if (options.type == "basic" && (!options.username || !options.password))
-            throw new Error("Basic authentication requires both a username and password to be set");
-        if (options.type == "oauth" && !options.token)
-            throw new Error("OAuth2 authentication requires a token to be set");
+        if (options.type == "basic") {
+            if (!options.username || !options.password)
+                throw new Error("Basic authentication requires both a username and password to be set");
+        } else if (options.type == "oauth") {
+            if (!options.token)
+                throw new Error("OAuth2 authentication requires a token to be set");
+        } else if (options.type == "client") {
+            if (!options.username || !options.password)
+                throw new Error("Client authentication requires both a username and password to be set");
+        }
 
         this.auth = options;
     };
@@ -472,6 +473,7 @@ var Client = module.exports = function(config) {
             method: "GET",
             params: parsedUrl.query
         };
+        var self = this;
         this.httpSend(parsedUrl.query, block, function(err, res) {
             if (err)
                 return api.sendError(err, null, parsedUrl.query, callback);
@@ -490,7 +492,7 @@ var Client = module.exports = function(config) {
                 ret = {};
             if (!ret.meta)
                 ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "link"].forEach(function(header) {
+            self.responseHeaders.forEach(function(header) {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
@@ -558,20 +560,23 @@ var Client = module.exports = function(config) {
                 return;
 
             var isUrlParam = url.indexOf(":" + paramName) !== -1;
-            var valFormat = isUrlParam || format != "json" ? "query" : format;
             var val;
-            if (valFormat != "json" && typeof msg[paramName] == "object") {
-                try {
-                    msg[paramName] = JSON.stringify(msg[paramName]);
-                    val = encodeURIComponent(msg[paramName]);
+
+            if (format == "json" || (format == "binary" && (paramName == "content" || paramName == "content_type"))) {
+                val = msg[paramName];
+            } else {
+                if (typeof msg[paramName] == "object") {
+                    try {
+                        msg[paramName] = JSON.stringify(msg[paramName]);
+                    }
+                    catch (ex) {
+                        return Util.log("httpSend: Error while converting object to JSON: "
+                            + (ex.message || ex), "error");
+                    }
                 }
-                catch (ex) {
-                    return Util.log("httpSend: Error while converting object to JSON: "
-                        + (ex.message || ex), "error");
-                }
+
+                val = encodeURIComponent(msg[paramName]);
             }
-            else
-                val = valFormat == "json" ? msg[paramName] : encodeURIComponent(msg[paramName]);
 
             if (isUrlParam) {
                 url = url.replace(":" + paramName, val);
@@ -579,6 +584,14 @@ var Client = module.exports = function(config) {
             else {
                 if (format == "json")
                     ret.query[paramName] = val;
+                else if (format == "binary") {
+                    if (paramName == "content_type")
+                        ret.query.content_type = val;
+                    else if (paramName == "content")
+                        ret.query.content = val;
+                    else
+                        ret.query.push(paramName + "=" + val);
+                }
                 else
                     ret.query.push(paramName + "=" + val);
             }
@@ -599,19 +612,22 @@ var Client = module.exports = function(config) {
      *  Send an HTTP request to the server and pass the result to a callback.
      **/
     this.httpSend = function(msg, block, callback) {
-        var self = this;
         var method = block.method.toLowerCase();
         var hasBody = ("head|get|delete".indexOf(method) === -1);
-        var format = hasBody && this.constants.requestFormat
+        var format = block.format || (hasBody && this.constants.requestFormat
             ? this.constants.requestFormat
-            : "query";
+            : "query");
         var obj = getQueryAndUrl(msg, block, format);
         var query = obj.query;
         var url = this.config.url ? this.config.url + obj.url : obj.url;
 
-        var path = url;
+        var path = ((format == "binary" || !hasBody) && query.length)
+            ? url + "?" + query.join("&")
+            : url;
         var protocol = this.config.protocol || this.constants.protocol || "http";
-        var host = this.config.host || this.constants.host;
+        var host = block.use_upload
+            ? (this.config.uploadHost || this.constants.uploadHost)
+            : (this.config.host || this.constants.host);
         var port = this.config.port || this.constants.port || (protocol == "https" ? 443 : 80);
         
         var proxyUrl;
@@ -644,14 +660,22 @@ var Client = module.exports = function(config) {
             "content-length": "0"
         };
         if (hasBody) {
-            if (format == "json")
+            var contentLength;
+            var contentType;
+            if (format == "json") {
                 query = JSON.stringify(query);
-            else
+                contentLength = Buffer.byteLength(query, "utf8");
+                contentType = "application/json; charset=utf-8";
+            } else if (format == "binary") {
+                contentLength = query.content.length;
+                contentType = query.content_type;
+            } else {
                 query = query.join("&");
-            headers["content-length"] = Buffer.byteLength(query, "utf8");
-            headers["content-type"] = format == "json"
-                ? "application/json; charset=utf-8"
-                : "application/x-www-form-urlencoded; charset=utf-8";
+                contentLength = Buffer.byteLength(query, "utf8");
+                contentType = "application/x-www-form-urlencoded; charset=utf-8"
+            }
+            headers["content-length"] = contentLength;
+            headers["content-type"] = contentType;
         }
         if (this.auth) {
             var basic;
@@ -660,13 +684,14 @@ var Client = module.exports = function(config) {
                     path += (path.indexOf("?") === -1 ? "?" : "&") +
                         "access_token=" + encodeURIComponent(this.auth.token);
                     break;
-                case "token":
-                    basic = new Buffer(this.auth.username + "/token:" + this.auth.token, "ascii").toString("base64");
-                    headers.authorization = "Basic " + basic;
-                    break;
                 case "basic":
                     basic = new Buffer(this.auth.username + ":" + this.auth.password, "ascii").toString("base64");
                     headers.authorization = "Basic " + basic;
+                    break;
+                case "client":
+                    path += (path.indexOf("?") === -1 ? "?" : "&") +
+                        "client_id=" + encodeURIComponent(this.auth.username) +
+                        "&client_secret=" + encodeURIComponent(this.auth.password);
                     break;
                 default:
                     break;
@@ -689,7 +714,8 @@ var Client = module.exports = function(config) {
             port: port,
             path: path,
             method: method,
-            headers: headers
+            headers: headers,
+            rejectUnauthorized: this.config.rejectUnauthorized
         };
 
         if (this.debug)
@@ -697,6 +723,7 @@ var Client = module.exports = function(config) {
 
         var callbackCalled = false
 
+        var self = this;
         var req = require(protocol).request(options, function(res) {
             if (self.debug) {
                 console.log("STATUS: " + res.statusCode);
@@ -714,14 +741,15 @@ var Client = module.exports = function(config) {
                 }
             });
             res.on("end", function() {
-                if (!callbackCalled && res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
+                if (!callbackCalled) {
                     callbackCalled = true;
-                    callback(new error.HttpError(data, res.statusCode))
-                }
-                else if (!callbackCalled) {
-                    res.data = data;
-                    callbackCalled = true;
-                    callback(null, res);
+                    if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
+                        callback(new error.HttpError(data, res.statusCode));
+                    }
+                    else {
+                        res.data = data;
+                        callback(null, res);
+                    }
                 }
             });
         });
@@ -749,11 +777,55 @@ var Client = module.exports = function(config) {
         });
 
         // write data to request body
-        if (hasBody && query.length) {
+        if (format == "binary") {
+            if (query.content.length) {
+                req.write(query.content);
+            }
+        } else if (hasBody && query.length) {
             if (self.debug)
                 console.log("REQUEST BODY: " + query + "\n");
             req.write(query + "\n");
         }
         req.end();
     };
+
+    this.sendError = function(err, block, msg, callback) {
+        if (this.debug)
+            Util.log(err, block, msg.user, "error");
+        if (typeof err == "string")
+            err = new error.InternalServerError(err);
+        if (callback)
+            callback(err);
+    };
+
+    this.handler = function(msg, block, callback) {
+        var self = this;
+        this.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, msg, null, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret) {
+                ret = {};
+            }
+            ret.meta = {};
+            self.responseHeaders.forEach(function(header) {
+                if (res.headers[header]) {
+                    ret.meta[header] = res.headers[header];
+                }
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    }
 }).call(Client.prototype);

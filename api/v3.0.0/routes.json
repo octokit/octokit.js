@@ -5,6 +5,7 @@
             "description": "A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.",
             "protocol": "https",
             "host": "api.github.com",
+            "uploadHost": "uploads.github.com",
             "port": 443,
             "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
             "requestFormat": "json"
@@ -542,7 +543,7 @@
                 "$sha": null,
                 "force": {
                     "type": "Boolean",
-                    "required": true,
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work."
@@ -2141,7 +2142,13 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "$ref": null,
+                "$ref": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Valid Git reference, Default: repository's default branch (usually master)"
+                },
                 "archive_format": {
                     "type": "String",
                     "required": true,
@@ -2505,12 +2512,219 @@
                 "$repo": null,
                 "$id": null
             }
+        },
+
+        "get-all-releases": {
+            "url": "/repos/:user/:repo/releases",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-release": {
+            "url": "/repos/:user/:repo/releases/:id",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            }
+        },
+
+        "create-release": {
+            "url": "/repos/:user/:repo/releases",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "tag_name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "target_commitish": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$name": null,
+                "$body": null,
+                "draft": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "prerelease": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            }
+        },
+
+        "edit-release": {
+            "url": "/repos/:user/:repo/releases/:id",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "tag_name": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "target_commitish": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "name": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "draft": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "prerelease": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            }
+        },
+
+        "delete-release": {
+            "url": "/repos/:user/:repo/releases/:id",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            }
+        },
+
+        "list-release-assets": {
+            "url": "/repos/:user/:repo/releases/:id/assets",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "upload-release-asset": {
+            "use_upload": true,
+            "url": "/repos/:user/:repo/releases/:id/assets",
+            "method": "POST",
+            "format": "binary",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content_type": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$name": null,
+                "content": {
+                    "type": "Buffer",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            }
+        },
+
+        "get-release-asset": {
+            "url": "/repos/:user/:repo/releases/assets/:id",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            }
+        },
+
+        "edit-release-asset": {
+            "url": "/repos/:user/:repo/releases/assets/:id",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "$name": null,
+                "label": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            }
+        },
+
+        "delete-release-asset": {
+            "url": "/repos/:user/:repo/releases/assets/:id",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            }
         }
     },
 
     "user": {
         "get-from": {
             "url": "/users/:user",
+            "method": "GET",
+            "params": {
+                "$user": null
+            }
+        },
+
+        "get-keys-from": {
+            "url": "/users/:user/keys",
             "method": "GET",
             "params": {
                 "$user": null
