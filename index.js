@@ -552,15 +552,18 @@ var Client = module.exports = function(config) {
     };
 
     function getQueryAndUrl(msg, def, format, config) {
+        var url = def.url;
+        if (config.pathPrefix) {
+            url = config.pathPrefix + def.url;
+        }
         var ret = {
-            url: def.url,
             query: format == "json" ? {} : []
         };
-        if (config.pathPrefix)
-            ret.url = config.pathPrefix + ret.url;
-        if (!def || !def.params)
+        if (!def || !def.params) {
+            ret.url = url;
             return ret;
-        var url = def.url;
+        }
+
         Object.keys(def.params).forEach(function(paramName) {
             paramName = paramName.replace(/^[$]+/, "");
             if (!(paramName in msg))
