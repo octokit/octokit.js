@@ -741,13 +741,14 @@ var Client = module.exports = function(config) {
                 }
             });
             res.on("end", function() {
-                if (!callbackCalled && res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
-                    callbackCalled = true;
-                    callback(new error.HttpError(data, res.statusCode))
-                }
-                else if (!callbackCalled) {
+                if (callbackCalled)
+                    return;
+
+                callbackCalled = true;
+                if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
+                    callback(new error.HttpError(data, res.statusCode));
+                } else {
                     res.data = data;
-                    callbackCalled = true;
                     callback(null, res);
                 }
             });
