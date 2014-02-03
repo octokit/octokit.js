@@ -1,4 +1,4 @@
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -7,4 +7,3 @@
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            

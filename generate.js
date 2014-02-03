@@ -66,9 +66,9 @@ var main = module.exports = function(versions, tests, restore) {
                 indent + " *      - msg (Object): Object that contains the parameters and their values to be sent to the server.",
                 indent + " *      - callback (Function): function to call when the request is finished " +
                     "with an error as first argument and result data as second argument.",
-                indent + " * ",
+                indent + " *",
                 indent + " *  ##### Params on the `msg` object:",
-                indent + " * "
+                indent + " *"
             ];
             comment.push(indent + " *  - headers (Object): Optional. Key/ value pair "
                 + "of request headers to pass along with the HTTP request. Valid headers are: "
