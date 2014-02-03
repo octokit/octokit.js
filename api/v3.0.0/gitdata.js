@@ -23,9 +23,9 @@ var gitdata = module.exports = {
      *  gitdata#getBlob(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -48,7 +48,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -57,7 +57,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -67,9 +67,9 @@ var gitdata = module.exports = {
      *  gitdata#createBlob(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -91,7 +91,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -100,7 +100,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -110,9 +110,9 @@ var gitdata = module.exports = {
      *  gitdata#getCommit(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -133,7 +133,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -142,7 +142,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -152,9 +152,9 @@ var gitdata = module.exports = {
      *  gitdata#createCommit(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -179,7 +179,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -188,7 +188,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -198,9 +198,9 @@ var gitdata = module.exports = {
      *  gitdata#getReference(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -221,7 +221,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -230,7 +230,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -240,9 +240,9 @@ var gitdata = module.exports = {
      *  gitdata#getAllReferences(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -264,7 +264,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -273,7 +273,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -283,9 +283,9 @@ var gitdata = module.exports = {
      *  gitdata#createReference(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -307,7 +307,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -316,7 +316,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -326,9 +326,9 @@ var gitdata = module.exports = {
      *  gitdata#updateReference(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -351,7 +351,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -360,7 +360,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -370,9 +370,9 @@ var gitdata = module.exports = {
      *  gitdata#deleteReference(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -393,7 +393,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -402,7 +402,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -412,9 +412,9 @@ var gitdata = module.exports = {
      *  gitdata#getTag(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -435,7 +435,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -444,7 +444,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -454,9 +454,9 @@ var gitdata = module.exports = {
      *  gitdata#createTag(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -481,7 +481,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -490,7 +490,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -500,9 +500,9 @@ var gitdata = module.exports = {
      *  gitdata#getTree(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -524,7 +524,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -533,7 +533,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
@@ -543,9 +543,9 @@ var gitdata = module.exports = {
      *  gitdata#createTree(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
-     * 
+     *
      *  ##### Params on the `msg` object:
-     * 
+     *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
@@ -567,7 +567,7 @@ var gitdata = module.exports = {
                     callback(new error.InternalServerError(ex.message), res);
                 return;
             }
-            
+
             if (!ret)
                 ret = {};
             if (!ret.meta)
@@ -576,7 +576,7 @@ var gitdata = module.exports = {
                 if (res.headers[header])
                     ret.meta[header] = res.headers[header];
             });
-            
+
             if (callback)
                 callback(null, ret);
         });
