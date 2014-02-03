@@ -180,6 +180,13 @@ var Client = module.exports = function(config) {
     var cls = require("./api/v" + this.version);
     this[this.version] = new cls(this);
 
+    var pathPrefix = "";
+    // Check if a prefix is passed in the config and strip any leading or trailing slashes from it.
+    if (typeof config.pathPrefix == "string") {
+        pathPrefix = "/" + config.pathPrefix.replace(/(^[\/]+|[\/]+$)/g, "");
+        this.config.pathPrefix = pathPrefix;
+    }
+
     this.setupRoutes();
 };
 
@@ -544,14 +551,19 @@ var Client = module.exports = function(config) {
         getPage.call(this, link, "first", callback);
     };
 
-    function getQueryAndUrl(msg, def, format) {
+    function getQueryAndUrl(msg, def, format, config) {
+        var url = def.url;
+        if (config.pathPrefix) {
+            url = config.pathPrefix + def.url;
+        }
         var ret = {
-            url: def.url,
             query: format == "json" ? {} : []
         };
-        if (!def || !def.params)
+        if (!def || !def.params) {
+            ret.url = url;
             return ret;
-        var url = def.url;
+        }
+
         Object.keys(def.params).forEach(function(paramName) {
             paramName = paramName.replace(/^[$]+/, "");
             if (!(paramName in msg))
@@ -605,7 +617,7 @@ var Client = module.exports = function(config) {
         var format = hasBody && this.constants.requestFormat
             ? this.constants.requestFormat
             : "query";
-        var obj = getQueryAndUrl(msg, block, format);
+        var obj = getQueryAndUrl(msg, block, format, self.config);
         var query = obj.query;
         var url = this.config.url ? this.config.url + obj.url : obj.url;
 
