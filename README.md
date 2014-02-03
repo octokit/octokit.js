@@ -34,6 +34,8 @@ var github = new GitHubApi({
     version: "3.0.0",
     // optional
     debug: true,
+    // optional
+    cache: true,
     protocol: "https",
     host: "github.my-GHE-enabled-company.com",
     timeout: 5000

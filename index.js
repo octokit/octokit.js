@@ -2,6 +2,10 @@
 
 var error = require("./error");
 var Util = require("./util");
+var Crypto = require("crypto");
+var Fs = require("fs");
+var Osenv = require("osenv");
+var Path = require("path");
 var Url = require("url");
 
 /** section: github
@@ -684,6 +688,14 @@ var Client = module.exports = function(config) {
         if (!headers["user-agent"])
             headers["user-agent"] = "NodeJS HTTP Client";
 
+        if (this.config.cache) {
+            var etag = readCacheFile(path + "ETAG");
+
+            if (etag) {
+                headers["If-None-Match"] = etag;
+            }
+        }
+
         var options = {
             host: host,
             port: port,
@@ -719,6 +731,15 @@ var Client = module.exports = function(config) {
                     callback(new error.HttpError(data, res.statusCode))
                 }
                 else if (!callbackCalled) {
+                    if (self.config.cache) {
+                        if (res.statusCode === 304) {
+                            data = readCacheFile(options.path);
+                        }
+                        else {
+                            writeCacheFile(options.path, data);
+                            writeCacheFile(options.path + "ETAG", res.headers.etag);
+                        }
+                    }
                     res.data = data;
                     callbackCalled = true;
                     callback(null, res);
@@ -756,4 +777,22 @@ var Client = module.exports = function(config) {
         }
         req.end();
     };
+
+    function getCacheFilePath(path) {
+        var hash = Crypto.createHash("md5").update(path).digest("hex");
+
+        return Path.join(Osenv.tmpdir(), hash);
+    }
+
+    function writeCacheFile(path, body) {
+        Fs.writeFile(getCacheFilePath(path), body);
+    }
+
+    function readCacheFile(path) {
+        var tmp = getCacheFilePath(path);
+
+        if (Fs.existsSync(tmp)) {
+            return Fs.readFileSync(tmp).toString();
+        }
+    }
 }).call(Client.prototype);
