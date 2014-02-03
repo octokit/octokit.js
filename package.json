@@ -1,6 +1,6 @@
 {
     "name" : "github",
-    "version" : "0.1.12",
+    "version" : "0.1.13",
     "description" : "NodeJS wrapper for the GitHub API",
     "author": "Mike de Boer <info@mikedeboer.nl>",
     "contributors": [
