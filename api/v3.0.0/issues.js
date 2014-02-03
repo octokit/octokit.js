@@ -26,7 +26,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - filter (String): Optional. Validation rule: ` ^(all|assigned|created|mentioned|subscribed)$ `.
      *  - state (String): Optional. Validation rule: ` ^(open|closed)$ `.
      *  - labels (String): Optional. String list of comma separated Label names. Example: bug,ui,@high 
@@ -73,7 +73,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - milestone (String): Optional. Validation rule: ` ^([0-9]+|none|\*)$ `.
@@ -124,7 +124,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -166,7 +166,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - title (String): Required. 
@@ -212,7 +212,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -260,7 +260,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - sort (String): Optional. Validation rule: ` ^(created|updated)$ `.
@@ -306,7 +306,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -350,7 +350,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - id (String): Required. 
@@ -392,7 +392,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -435,7 +435,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - id (String): Required. 
@@ -478,7 +478,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - id (String): Required. 
@@ -520,7 +520,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -564,7 +564,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
@@ -607,7 +607,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - id (String): Required. 
@@ -649,7 +649,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
@@ -690,7 +690,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - name (String): Required. 
@@ -732,7 +732,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - name (String): Required. 
@@ -775,7 +775,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - name (String): Required. 
@@ -818,7 +818,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - name (String): Required. 
@@ -860,7 +860,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - state (String): Optional. Validation rule: ` ^(open|closed)$ `.
@@ -905,7 +905,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -947,7 +947,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - title (String): Required. 
@@ -992,7 +992,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
@@ -1038,7 +1038,7 @@ var issues = module.exports = {
      * 
      *  ##### Params on the `msg` object:
      * 
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'X-GitHub-OTP'.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
