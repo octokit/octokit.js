@@ -2825,9 +2825,10 @@
         },
 
         "get-keys": {
-            "url": "/user/keys",
+            "url": "/users/:user/keys",
             "method": "GET",
             "params": {
+                "$user": null,
                 "$page": null,
                 "$per_page": null
             }
