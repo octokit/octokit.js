@@ -2833,6 +2833,16 @@
             }
         },
 
+        "get-keys-from-user": {
+            "url": "/user/:user/keys",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
         "get-key": {
             "url": "/user/keys/:id",
             "method": "GET",
