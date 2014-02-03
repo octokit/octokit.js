@@ -334,7 +334,7 @@ var gitdata = module.exports = {
      *  - repo (String): Required. 
      *  - ref (String): Required. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected. 
      *  - sha (String): Required. 
-     *  - force (Boolean): Required. Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work. 
+     *  - force (Boolean): Optional. Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work. 
      **/
     this.updateReference = function(msg, block, callback) {
         var self = this;
