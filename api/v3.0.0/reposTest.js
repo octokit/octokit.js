@@ -525,6 +525,67 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createFile)",  function(next) {
+        client.repos.createFile(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                message: "String",
+                content: "String",
+                branch: "String",
+                author: "Json",
+                committer: "Json"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/contents/:path (updateFile)",  function(next) {
+        client.repos.updateFile(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                message: "String",
+                content: "String",
+                sha: "String",
+                branch: "String",
+                author: "Json",
+                committer: "Json"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/contents/:path (deleteFile)",  function(next) {
+        client.repos.deleteFile(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                message: "String",
+                sha: "String",
+                branch: "String",
+                author: "Json",
+                committer: "Json"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
         client.repos.getArchiveLink(
             {
