@@ -2991,25 +2991,31 @@
     },
     "search": {
         "issues": {
-            "url": "/legacy/issues/search/:user/:repo/:state/:keyword",
+            "url": "/search/issues",
             "method": "GET",
             "params": {
-                "$user": null,
-                "$repo": null,
-                "state": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "^(open|closed)$",
-                    "invalidmsg": "open, closed, default: open",
-                    "description": "open or closed"
-                },
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search term"
+                    "description": "Search Term"
+                },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(comments|created|updated)$",
+                    "invalidmsg": "comments, created, or updated",
+                    "description": "comments, created, or updated"
+                },
+                "order": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(asc|desc)$",
+                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+                    "description": "asc or desc"
                 }
+
             }
         },
 
