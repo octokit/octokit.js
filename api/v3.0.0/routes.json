@@ -89,7 +89,7 @@
                 "required": true,
                 "validation": "",
                 "invalidmsg": "",
-                "description": ""
+                "description": "Id (SHA1 hash) of the gist."
             },
             "ref": {
                 "type": "String",
@@ -314,6 +314,13 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": ""
+            },
+            "order": {
+                "type": "String",
+                "required": false,
+                "validation": "^(asc|desc)$",
+                "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+                "description": "asc or desc"
             }
         }
     },
@@ -3098,13 +3105,7 @@
                     "invalidmsg": "comments, created, or updated",
                     "description": "comments, created, or updated"
                 },
-                "order": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(asc|desc)$",
-                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
-                    "description": "asc or desc"
-                }
+                "$order": null
             }
         },
 
@@ -3126,13 +3127,7 @@
                     "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
                     "description": "stars, forks, or updated"
                 },
-                "order": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(asc|desc)$",
-                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
-                    "description": "asc or desc"
-                }
+                "$order": null
             }
         },
 
@@ -3154,13 +3149,7 @@
                     "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
                     "description": "followers, repositories, or joined"
                 },
-                "order": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(asc|desc)$",
-                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
-                    "description": "asc or desc"
-                }
+                "$order": null
             }
         },
 

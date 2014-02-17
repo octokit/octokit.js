@@ -27,10 +27,9 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - state (String): Required. open or closed Validation rule: ` ^(open|closed)$ `.
-     *  - keyword (String): Required. Search term 
+     *  - q (String): Required. Search Term 
+     *  - sort (String): Optional. comments, created, or updated Validation rule: ` ^(comments|created|updated)$ `.
+     *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      **/
     this.issues = function(msg, block, callback) {
         var self = this;
@@ -70,9 +69,9 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - keyword (String): Required. Search term 
-     *  - language (String): Optional. Filter results by language, see https://github.com/languages 
-     *  - start_page (Number): Optional. Page number to fetch Validation rule: ` ^[0-9]+$ `.
+     *  - q (String): Required. Search Term 
+     *  - sort (String): Optional. stars, forks, or updated Validation rule: ` ^(stars|forks|updated)$ `.
+     *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      **/
     this.repos = function(msg, block, callback) {
         var self = this;
@@ -112,8 +111,9 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - keyword (String): Required. Keyword search parameters 
-     *  - start_page (Number): Optional. Page number to fetch Validation rule: ` ^[0-9]+$ `.
+     *  - q (String): Required. Search Term 
+     *  - sort (String): Optional. followers, repositories, or joined Validation rule: ` ^(followers|repositories|joined)$ `.
+     *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      **/
     this.users = function(msg, block, callback) {
         var self = this;

@@ -516,7 +516,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - gist_id (String): Required. Id of the gist to get comments for.
+     *  - gist_id (String): Required. Id (SHA1 hash) of the gist. 
      **/
     this.getComments = function(msg, block, callback) {
         var self = this;
@@ -555,9 +555,9 @@ var gists = module.exports = {
      *
      *  ##### Params on the `msg` object:
      *
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
-     *  - gist_id (String): Required. Id of the gist to get comments for.
-     *  - id (String): Required. Id of the comment to get.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - gist_id (String): Required. Id (SHA1 hash) of the gist. 
+     *  - id (String): Required. 
      **/
     this.getComment = function(msg, block, callback) {
         var self = this;
@@ -589,7 +589,6 @@ var gists = module.exports = {
         });
     };
 
-
     /** section: github
      *  gists#createComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
@@ -597,9 +596,9 @@ var gists = module.exports = {
      *
      *  ##### Params on the `msg` object:
      *
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
-     *  - gist_id (String): Required. Id of the gist to get the comment for.
-     *  - body (String): Required. The comment text.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - gist_id (String): Required. Id (SHA1 hash) of the gist. 
+     *  - body (String): Required. 
      **/
     this.createComment = function(msg, block, callback) {
         var self = this;
@@ -638,10 +637,10 @@ var gists = module.exports = {
      *
      *  ##### Params on the `msg` object:
      *
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
-     *  - gist_id (String): Required. Id of the gist to get comments for.
-     *  - id (String): Required. Id of the comment to get.
-     *  - body (String): Required. The comment text.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - gist_id (String): Required. Id (SHA1 hash) of the gist. 
+     *  - id (String): Required. 
+     *  - body (String): Required. 
      **/
     this.editComment = function(msg, block, callback) {
         var self = this;
@@ -673,7 +672,6 @@ var gists = module.exports = {
         });
     };
 
-
     /** section: github
      *  gists#deleteComment(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
@@ -681,9 +679,9 @@ var gists = module.exports = {
      *
      *  ##### Params on the `msg` object:
      *
-     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent'.
-     *  - gist_id (String): Required. Id of the gist to delete the comment for.
-     *  - id (String): Required. Id of the comment to delete.
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - gist_id (String): Required. Id (SHA1 hash) of the gist. 
+     *  - id (String): Required. 
      **/
     this.deleteComment = function(msg, block, callback) {
         var self = this;
