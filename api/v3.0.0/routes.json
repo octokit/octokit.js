@@ -84,6 +84,13 @@
                 "invalidmsg": "",
                 "description": ""
             },
+            "gist_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
             "ref": {
                 "type": "String",
                 "required": true,
@@ -405,6 +412,51 @@
             "url": "/gists/:id",
             "method": "DELETE",
             "params": {
+                "$id": null
+            }
+        },
+
+        "get-comments": {
+            "url": "/gists/:gist_id/comments",
+            "method": "GET",
+            "params": {
+                "$gist_id": null
+            }
+        },
+
+        "get-comment": {
+            "url": "/gists/:gist_id/comments/:id",
+            "method": "GET",
+            "params": {
+                "$gist_id": null,
+                "$id": null
+            }
+        },
+
+        "create-comment": {
+            "url": "/gists/:gist_id/comments",
+            "method": "POST",
+            "params": {
+                "$gist_id": null,
+                "$body": null
+            }
+        },
+
+        "edit-comment": {
+            "url": "/gists/:gist_id/comments/:id",
+            "method": "PATCH",
+            "params": {
+                "$gist_id": null,
+                "$id": null,
+                "$body": null
+            }
+        },
+
+        "delete-comment": {
+            "url": "/gists/:gist_id/comments/:id",
+            "method": "DELETE",
+            "params": {
+                "$gist_id": null,
                 "$id": null
             }
         }

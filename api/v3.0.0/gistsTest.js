@@ -419,4 +419,187 @@ describe("[gists]", function() {
             }
         );
     });
+
+    it("should successfully execute GET /gists/:gist_id/comments/:id (getComments)",  function(next) {
+        client.gists.createComment(
+            {
+                gist_id: "3047099",
+                body: "This is a test comment.",
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                var id = res.id;
+
+                client.gists.getComments(
+                    {
+                        gist_id: "3047099"
+                    },
+                    function(err, res) {
+                        var comment = res.pop();
+                        Assert.equal(err, null);
+                        Assert.equal(comment.user.login, "mikedeboertest");
+                        Assert.equal(comment.id, id);
+                        Assert.equal(comment.body, "This is a test comment.");
+
+                        client.gists["deleteComment"](
+                            {
+                                gist_id: "3047099",
+                                id: id
+                            },
+                            function(err, res) {
+                                Assert.equal(err, null);
+                                next();
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    });
+
+    it("should successfully execute GET /gists/:gist_id/comments/:id (getComment)",  function(next) {
+        client.gists.createComment(
+            {
+                gist_id: "3047099",
+                body: "This is a test comment.",
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                var id = res.id;
+
+                client.gists.getComment(
+                    {
+                        gist_id: "3047099",
+                        id: id
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        Assert.equal(res.user.login, "mikedeboertest");
+                        Assert.equal(res.id, id);
+                        Assert.equal(res.body, "This is a test comment.");
+
+                        client.gists["deleteComment"](
+                            {
+                                gist_id: "3047099",
+                                id: id
+                            },
+                            function(err, res) {
+                                Assert.equal(err, null);
+                                next();
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    });
+
+    it("should successfully execute POST /gists/:gist_id/comments (createComment)",  function(next) {
+        client.gists.createComment(
+            {
+                gist_id: "3047099",
+                body: "This is a test comment.",
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                var id = res.id;
+
+                client.gists.getComment(
+                    {
+                        gist_id: "3047099",
+                        id: id
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        Assert.equal(res.user.login, "mikedeboertest");
+                        Assert.equal(res.id, id);
+                        Assert.equal(res.body, "This is a test comment.");
+
+                        client.gists["deleteComment"](
+                            {
+                                gist_id: "3047099",
+                                id: id
+                            },
+                            function(err, res) {
+                                Assert.equal(err, null);
+                                next();
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /gists/:gist_id/comments/:id (editComment)",  function(next) {
+        client.gists.createComment(
+            {
+                gist_id: "3047099",
+                body: "This is a test comment.",
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                var id = res.id;
+
+                client.gists.editComment(
+                    {
+                        gist_id: "3047099",
+                        id: id,
+                        body: "This comment has been edited."
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        var id = res.id;
+                        client.gists.getComment(
+                            {
+                                gist_id: "3047099",
+                                id: id
+                            },
+                            function(err, res) {
+                                Assert.equal(err, null);
+                                Assert.equal(res.user.login, "mikedeboertest");
+                                Assert.equal(res.id, id);
+                                Assert.equal(res.body, "This comment has been edited.");
+
+                                client.gists["deleteComment"](
+                                    {
+                                        gist_id: "3047099",
+                                        id: id
+                                    },
+                                    function(err, res) {
+                                        Assert.equal(err, null);
+                                        next();
+                                    }
+                                );
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /gists/:gist_id/comments/:id (deleteComment)",  function(next) {
+        client.gists.createComment(
+            {
+                gist_id: "3047099",
+                body: "This is a test comment.",
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                var id = res.id;
+
+                client.gists["deleteComment"](
+                    {
+                        gist_id: "3047099",
+                        id: id
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        next();
+                    }
+                );
+            }
+        );
+    });
 });
