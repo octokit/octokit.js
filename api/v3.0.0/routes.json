@@ -3043,73 +3043,85 @@
     },
     "search": {
         "issues": {
-            "url": "/legacy/issues/search/:user/:repo/:state/:keyword",
+            "url": "/search/issues",
             "method": "GET",
             "params": {
-                "$user": null,
-                "$repo": null,
-                "state": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "^(open|closed)$",
-                    "invalidmsg": "open, closed, default: open",
-                    "description": "open or closed"
-                },
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search term"
+                    "description": "Search Term"
+                },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(comments|created|updated)$",
+                    "invalidmsg": "comments, created, or updated",
+                    "description": "comments, created, or updated"
+                },
+                "order": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(asc|desc)$",
+                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+                    "description": "asc or desc"
                 }
             }
         },
 
         "repos": {
-            "url": "/legacy/repos/search/:keyword",
+            "url": "/search/repositories",
             "method": "GET",
             "params": {
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search term"
+                    "description": "Search Term"
                 },
-                "language": {
+                "sort": {
                     "type": "String",
                     "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Filter results by language, see https://github.com/languages"
+                    "validation": "^(stars|forks|updated)$",
+                    "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
+                    "description": "stars, forks, or updated"
                 },
-                "start_page": {
-                    "type": "Number",
+                "order": {
+                    "type": "String",
                     "required": false,
-                    "validation": "^[0-9]+$",
-                    "invalidmsg": "",
-                    "description": "Page number to fetch"
+                    "validation": "^(asc|desc)$",
+                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+                    "description": "asc or desc"
                 }
             }
         },
 
         "users": {
-            "url": "/legacy/user/search/:keyword",
+            "url": "/search/users",
             "method": "GET",
             "params": {
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Keyword search parameters"
+                    "description": "Search Term"
                 },
-                "start_page": {
-                    "type": "Number",
+                "sort": {
+                    "type": "String",
                     "required": false,
-                    "validation": "^[0-9]+$",
-                    "invalidmsg": "",
-                    "description": "Page number to fetch"
+                    "validation": "^(followers|repositories|joined)$",
+                    "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
+                    "description": "followers, repositories, or joined"
+                },
+                "order": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(asc|desc)$",
+                    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+                    "description": "asc or desc"
                 }
             }
         },
