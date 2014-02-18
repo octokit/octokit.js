@@ -468,7 +468,6 @@ var Client = module.exports = function(config) {
         if (!url)
             return callback(new error.NotFound("No " + which + " page found"));
 
-        var api = this[this.version];
         var parsedUrl = Url.parse(url, true);
         var block = {
             url: parsedUrl.pathname,
@@ -478,7 +477,7 @@ var Client = module.exports = function(config) {
         var self = this;
         this.httpSend(parsedUrl.query, block, function(err, res) {
             if (err)
-                return api.sendError(err, null, parsedUrl.query, callback);
+                return self.sendError(err, null, parsedUrl.query, callback);
 
             var ret;
             try {
