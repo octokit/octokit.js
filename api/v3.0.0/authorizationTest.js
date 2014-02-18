@@ -16,6 +16,8 @@ describe("[authorization]", function() {
     var client;
     var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
 
+    this.timeout(10000);
+
     beforeEach(function() {
         client = new Client({
             version: "3.0.0"
@@ -45,7 +47,7 @@ describe("[authorization]", function() {
                     },
                     function(err, res) {
                         Assert.equal(err, null);
-                        Assert.equal(res.length, 2);
+                        Assert.equal(res.length, 1);
 
                         client.authorization["delete"](
                             {
@@ -61,7 +63,7 @@ describe("[authorization]", function() {
                                     },
                                     function(err, res) {
                                         Assert.equal(err, null);
-                                        Assert.equal(res.length, 1);
+                                        Assert.equal(res.length, 0);
 
                                         next();
                                     }

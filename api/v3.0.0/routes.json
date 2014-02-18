@@ -84,6 +84,13 @@
                 "invalidmsg": "",
                 "description": ""
             },
+            "gist_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Id (SHA1 hash) of the gist."
+            },
             "ref": {
                 "type": "String",
                 "required": true,
@@ -293,6 +300,27 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "Optional string - Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
+            },
+            "content": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "message": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "order": {
+                "type": "String",
+                "required": false,
+                "validation": "^(asc|desc)$",
+                "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+                "description": "asc or desc"
             }
         }
     },
@@ -405,6 +433,51 @@
             "url": "/gists/:id",
             "method": "DELETE",
             "params": {
+                "$id": null
+            }
+        },
+
+        "get-comments": {
+            "url": "/gists/:gist_id/comments",
+            "method": "GET",
+            "params": {
+                "$gist_id": null
+            }
+        },
+
+        "get-comment": {
+            "url": "/gists/:gist_id/comments/:id",
+            "method": "GET",
+            "params": {
+                "$gist_id": null,
+                "$id": null
+            }
+        },
+
+        "create-comment": {
+            "url": "/gists/:gist_id/comments",
+            "method": "POST",
+            "params": {
+                "$gist_id": null,
+                "$body": null
+            }
+        },
+
+        "edit-comment": {
+            "url": "/gists/:gist_id/comments/:id",
+            "method": "PATCH",
+            "params": {
+                "$gist_id": null,
+                "$id": null,
+                "$body": null
+            }
+        },
+
+        "delete-comment": {
+            "url": "/gists/:gist_id/comments/:id",
+            "method": "DELETE",
+            "params": {
+                "$gist_id": null,
                 "$id": null
             }
         }
@@ -2134,6 +2207,30 @@
                 }
             }
         },
+        "create-content": {
+            "url": "/repos/:user/:repo/contents/:path",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$content":null,
+                "$message":null,
+                "path": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The content path."
+                },
+                "ref": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The String name of the Commit/Branch/Tag. Defaults to master."
+                }
+            }
+        },
 
         "create-file": {
             "url": "/repos/:user/:repo/contents/:path",
@@ -2991,74 +3088,68 @@
     },
     "search": {
         "issues": {
-            "url": "/legacy/issues/search/:user/:repo/:state/:keyword",
+            "url": "/search/issues",
             "method": "GET",
             "params": {
-                "$user": null,
-                "$repo": null,
-                "state": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "^(open|closed)$",
-                    "invalidmsg": "open, closed, default: open",
-                    "description": "open or closed"
-                },
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search term"
-                }
+                    "description": "Search Term"
+                },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(comments|created|updated)$",
+                    "invalidmsg": "comments, created, or updated",
+                    "description": "comments, created, or updated"
+                },
+                "$order": null
             }
         },
 
         "repos": {
-            "url": "/legacy/repos/search/:keyword",
+            "url": "/search/repositories",
             "method": "GET",
             "params": {
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search term"
+                    "description": "Search Term"
                 },
-                "language": {
+                "sort": {
                     "type": "String",
                     "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Filter results by language, see https://github.com/languages"
+                    "validation": "^(stars|forks|updated)$",
+                    "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
+                    "description": "stars, forks, or updated"
                 },
-                "start_page": {
-                    "type": "Number",
-                    "required": false,
-                    "validation": "^[0-9]+$",
-                    "invalidmsg": "",
-                    "description": "Page number to fetch"
-                }
+                "$order": null
             }
         },
 
         "users": {
-            "url": "/legacy/user/search/:keyword",
+            "url": "/search/users",
             "method": "GET",
             "params": {
-                "keyword": {
+                "q": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Keyword search parameters"
+                    "description": "Search Term"
                 },
-                "start_page": {
-                    "type": "Number",
+                "sort": {
+                    "type": "String",
                     "required": false,
-                    "validation": "^[0-9]+$",
-                    "invalidmsg": "",
-                    "description": "Page number to fetch"
-                }
+                    "validation": "^(followers|repositories|joined)$",
+                    "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
+                    "description": "followers, repositories, or joined"
+                },
+                "$order": null
             }
         },
 
