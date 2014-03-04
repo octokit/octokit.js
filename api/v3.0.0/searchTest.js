@@ -29,17 +29,13 @@ describe("[search]", function() {
     it("should successfully execute GET /legacy/issues/search/:user/:repo/:state/:keyword (issues)",  function(next) {
         client.search.issues(
             {
-                user: "mikedeboertest",
-                repo: "node_chat",
-                state: "open",
-                keyword: "macaroni"
+                q: ['macaroni', 'repo:mikedeboertest/node_chat', 'state:open'].join('+')
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.issues.length, 1);
-                var issue = res.issues[0];
+                Assert.equal(res.items.length, 1);
+                var issue = res.items[0];
                 Assert.equal(issue.title, "My First Issue");
-                Assert.equal(issue.position, 1);
                 Assert.equal(issue.state, "open");
 
                 next();
@@ -50,13 +46,12 @@ describe("[search]", function() {
     it("should successfully execute GET /legacy/repos/search/:keyword (repos)",  function(next) {
         client.search.repos(
             {
-                keyword: "pasta",
-                language: "JavaScript"
+                q: ['pasta', 'language:JavaScript'].join('+')
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.repositories.length > 0);
-                Assert.equal(res.repositories[0].language, "JavaScript");
+                Assert.ok(res.items.length > 0);
+                Assert.equal(res.items[0].language, "JavaScript");
 
                 next();
             }
@@ -66,14 +61,13 @@ describe("[search]", function() {
     it("should successfully execute GET /legacy/user/search/:keyword (users)",  function(next) {
         client.search.users(
             {
-                keyword: "mikedeboer"
+                q: "mikedeboer"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.users.length, 2);
-                var user = res.users[0];
-                Assert.equal(user.name, "Mike de Boer");
-                Assert.ok(user.username.indexOf("mikedeboer") === 0);
+                Assert.equal(res.items.length, 2);
+                var user = res.items[0];
+                Assert.equal(user.login, "mikedeboer");
 
                 next();
             }
