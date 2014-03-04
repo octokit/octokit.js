@@ -592,7 +592,7 @@ var Client = module.exports = function(config) {
                 }
             }
             else
-                val = valFormat == "json" ? msg[paramName] : encodeURIComponent(msg[paramName]);
+                val = valFormat == "json" || def.params[paramName].encode === false ? msg[paramName] : encodeURIComponent(msg[paramName]);
 
             if (isUrlParam) {
                 url = url.replace(":" + paramName, val);
