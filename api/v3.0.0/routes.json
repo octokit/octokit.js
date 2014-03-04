@@ -2768,7 +2768,53 @@
                 "$repo": null,
                 "$id": null
             }
+        },
+
+        "get-stats-contributors": {
+            "url": "/repos/:user/:repo/stats/contributors",
+            "method": "GET",
+            "params": {
+                "$user":null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-commit_activity": {
+            "url": "/repos/:user/:repo/stats/commit_activity",
+            "method": "GET",
+            "params": {
+                "$user":null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-code_frequency": {
+            "url": "/repos/:user/:repo/stats/code_frequency",
+            "method": "GET",
+            "params": {
+                "$user":null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-participation": {
+            "url": "/repos/:user/:repo/stats/participation",
+            "method": "GET",
+            "params": {
+                "$user":null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-punch_card": {
+            "url": "/repos/:user/:repo/stats/punch_card",
+            "method": "GET",
+            "params": {
+                "$user":null,
+                "$repo": null
+            }
         }
+
     },
 
     "user": {
