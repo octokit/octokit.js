@@ -218,7 +218,7 @@ describe("[user]", function() {
         );
     });
 
-    it("should successfully execute GET /user/:user/keys (getKeysFromUser)",  function(next) {
+    it("should successfully execute GET /users/:user/keys (getKeysFromUser)",  function(next) {
         client.user.getKeysFromUser(
             {
                 user: "String",

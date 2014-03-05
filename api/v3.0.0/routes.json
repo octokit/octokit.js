@@ -2937,7 +2937,7 @@
         },
 
         "get-keys-from-user": {
-            "url": "/user/:user/keys",
+            "url": "/users/:user/keys",
             "method": "GET",
             "params": {
                 "$user": null,
