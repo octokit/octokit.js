@@ -686,7 +686,7 @@ describe("[repos]", function() {
             {
                 user: "String",
                 repo: "String",
-                org: "String"
+                organization: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -1740,7 +1740,7 @@ var repos = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - org (String): Optional. Optional String - Organization login. The repository will be forked into this organization. 
+     *  - organization (String): Optional. Optional String - Organization login. The repository will be forked into this organization. 
      **/
     this.fork = function(msg, block, callback) {
         var self = this;

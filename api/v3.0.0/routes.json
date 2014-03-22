@@ -2470,7 +2470,7 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "org": {
+                "organization": {
                     "type": "String",
                     "required": false,
                     "validation": "",
@@ -2545,7 +2545,7 @@
             }
         },
 
-        "get-starred": { 
+        "get-starred": {
             "url": "/user/starred",
             "method": "GET",
             "params": {
