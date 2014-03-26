@@ -1557,6 +1557,8 @@
                     "validation": "^(created|updated|popularity|long-running)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
                     "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`"
+                },
+                "$direction": null
             }
         },
 
