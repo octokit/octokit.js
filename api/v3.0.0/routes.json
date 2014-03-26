@@ -1550,7 +1550,15 @@
                 "$repo": null,
                 "$state": null,
                 "$page": null,
-                "$per_page": null
+                "$per_page": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated|popularity|long-running)$",
+                    "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
+                    "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`"
+                },
+                "$direction": null
             }
         },
 
