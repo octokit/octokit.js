@@ -2063,6 +2063,13 @@
                     "invalidmsg": "",
                     "description": "Optional string - Only commits containing this file path will be returned."
                 },
+                "author": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional string - GitHub login or email address by which to filter by commit author."
+                },
                 "$page": null,
                 "$per_page": null,
                 "$since": null

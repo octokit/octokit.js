@@ -354,7 +354,8 @@ describe("[repos]", function() {
                 sha: "String",
                 path: "String",
                 page: "Number",
-                per_page: "Number"
+                per_page: "Number",
+                author: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
