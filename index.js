@@ -711,6 +711,9 @@ var Client = module.exports = function(config) {
         if (!headers["user-agent"])
             headers["user-agent"] = "NodeJS HTTP Client";
 
+        if (!headers["accept"])
+            headers["accept"] = this.config.requestMedia || this.constants.requestMedia;
+
         var options = {
             host: host,
             port: port,
