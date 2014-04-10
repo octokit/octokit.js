@@ -83,6 +83,20 @@ describe("[user]", function() {
         );
     });
 
+    it("should successfully execute GET /user/teams (getTeams)",  function(next) {
+        client.user.getTeams(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/emails (getEmails)",  function(next) {
         client.user.getEmails(
             {
