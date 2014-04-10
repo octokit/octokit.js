@@ -3105,7 +3105,8 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search Term"
+                    "description": "Search Term",
+                    "encode": false
                 },
                 "sort": {
                     "type": "String",
@@ -3127,7 +3128,8 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search Term"
+                    "description": "Search Term",
+                    "encode": false
                 },
                 "sort": {
                     "type": "String",
@@ -3149,7 +3151,8 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Search Term"
+                    "description": "Search Term",
+                    "encode": false
                 },
                 "sort": {
                     "type": "String",

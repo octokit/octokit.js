@@ -580,6 +580,7 @@ var Client = module.exports = function(config) {
 
             var isUrlParam = url.indexOf(":" + paramName) !== -1;
             var valFormat = isUrlParam || format != "json" ? "query" : format;
+            var skipEncoding = def.params[paramName] && def.params[paramName].encode === false;
             var val;
             if (valFormat != "json" && typeof msg[paramName] == "object") {
                 try {
@@ -592,7 +593,7 @@ var Client = module.exports = function(config) {
                 }
             }
             else
-                val = valFormat == "json" ? msg[paramName] : encodeURIComponent(msg[paramName]);
+                val = valFormat == "json" || skipEncoding ? msg[paramName] : encodeURIComponent(msg[paramName]);
 
             if (isUrlParam) {
                 url = url.replace(":" + paramName, val);
@@ -634,7 +635,7 @@ var Client = module.exports = function(config) {
         var protocol = this.config.protocol || this.constants.protocol || "http";
         var host = this.config.host || this.constants.host;
         var port = this.config.port || this.constants.port || (protocol == "https" ? 443 : 80);
-        
+
         var proxyUrl;
         if (this.config.proxy !== undefined) {
             proxyUrl = this.config.proxy;
@@ -739,8 +740,8 @@ var Client = module.exports = function(config) {
             });
             res.on("error", function(err) {
                 if (!callbackCalled) {
-                   callbackCalled = true;   
-                   callback(err); 
+                   callbackCalled = true;
+                   callback(err);
                 }
             });
             res.on("end", function() {
