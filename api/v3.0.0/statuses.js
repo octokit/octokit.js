@@ -73,8 +73,8 @@ var statuses = module.exports = {
      *  - repo (String): Required. 
      *  - sha (String): Required. 
      *  - state (String): Required. State of the status - can be one of pending, success, error, or failure. Validation rule: ` ^(pending|success|error|failure)$ `.
-     *  - target_url (String): Optional. Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status. 
-     *  - description (String): Optional. Short description of the status. 
+     *  - target_url (String): Optional. Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
+     *  - description (String): Optional. Short description of the status.
      **/
     this.create = function(msg, block, callback) {
         var self = this;

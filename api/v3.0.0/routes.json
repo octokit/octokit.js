@@ -125,7 +125,7 @@
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+                "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
             },
             "state": {
                 "type": "String",
@@ -138,8 +138,8 @@
                 "type": "String",
                 "required": true,
                 "validation": "",
-                "invalidmsg": "Required string - 6 character hex code, without a leading #.",
-                "description": "Required string - 6 character hex code, without a leading #."
+                "invalidmsg": "6 character hex code, without a leading #.",
+                "description": "6 character hex code, without a leading #."
             },
             "permission": {
                 "type": "String",
@@ -153,42 +153,42 @@
                 "required": true,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Required string - The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+                "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
             },
             "head": {
                 "type": "String",
                 "required": true,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Required string - The branch (or git ref) where your changes are implemented."
+                "description": "The branch (or git ref) where your changes are implemented."
             },
             "commit_id": {
                 "type": "String",
                 "required": true,
                 "validation": "",
-                "invalidmsg": "Required string - Sha of the commit to comment on.",
-                "description": "Required string - Sha of the commit to comment on."
+                "invalidmsg": "Sha of the commit to comment on.",
+                "description": "Sha of the commit to comment on."
             },
             "line": {
                 "type": "Number",
                 "required": true,
                 "validation": "",
-                "invalidmsg": "Required number - Line index in the diff to comment on.",
-                "description": "Required number - Line index in the diff to comment on."
+                "invalidmsg": "Line index in the diff to comment on.",
+                "description": "Line index in the diff to comment on."
             },
             "path": {
                 "type": "String",
                 "required": true,
                 "validation": "",
-                "invalidmsg": "Required string - Relative path of the file to comment on.",
-                "description": "Required string - Relative path of the file to comment on."
+                "invalidmsg": "Relative path of the file to comment on.",
+                "description": "Relative path of the file to comment on."
             },
             "position": {
                 "type": "Number",
                 "required": true,
                 "validation": "",
-                "invalidmsg": "Required number - Column index in the diff to comment on.",
-                "description": "Required number - Column index in the diff to comment on."
+                "invalidmsg": "Column index in the diff to comment on.",
+                "description": "Column index in the diff to comment on."
             },
             "body": {
                 "type": "String",
@@ -209,28 +209,28 @@
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional boolean - true to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false."
+                "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false."
             },
             "has_issues": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional boolean - true to enable issues for this repository, false to disable them. Default is true."
+                "description": "True to enable issues for this repository, false to disable them. Default is true."
             },
             "has_wiki": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional boolean - true to enable the wiki for this repository, false to disable it. Default is true."
+                "description": "True to enable the wiki for this repository, false to disable it. Default is true."
             },
             "has_downloads": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional boolean - true to enable downloads for this repository, false to disable them. Default is true."
+                "description": "True to enable downloads for this repository, false to disable them. Default is true."
             },
             "collabuser": {
                 "type": "String",
@@ -272,35 +272,35 @@
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional array - A list of scopes that this authorization is in."
+                "description": "A list of scopes that this authorization is in."
             },
             "note": {
                 "type": "String",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional string - A note to remind you what the OAuth token is for."
+                "description": "A note to remind you what the OAuth token is for."
             },
             "note_url": {
                 "type": "String",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional string - A URL to remind you what app the OAuth token is for."
+                "description": "A URL to remind you what app the OAuth token is for."
             },
             "auto_init": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional boolean - true to create an initial commit with empty README. Default is false"
+                "description": "True to create an initial commit with empty README. Default is false"
             },
             "gitignore_template": {
                 "type": "String",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "Optional string - Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
+                "description": "Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
             },
             "content": {
                 "type": "String",
@@ -853,21 +853,21 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Login for the user that this issue should be assigned to."
+                    "description": "Login for the user that this issue should be assigned to."
                 },
                 "milestone": {
                     "type": "Number",
                     "required": false,
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
-                    "description": "Optional number - Milestone to associate this issue with."
+                    "description": "Milestone to associate this issue with."
                 },
                 "labels": {
                     "type": "Json",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array of strings - Labels to associate with this issue."
+                    "description": "Array of strings - Labels to associate with this issue."
                 }
             }
         },
@@ -898,21 +898,21 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Login for the user that this issue should be assigned to."
+                    "description": "Login for the user that this issue should be assigned to."
                 },
                 "milestone": {
                     "type": "Number",
                     "required": false,
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
-                    "description": "Optional number - Milestone to associate this issue with."
+                    "description": "Milestone to associate this issue with."
                 },
                 "labels": {
                     "type": "Json",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array of strings - Labels to associate with this issue."
+                    "description": "Array of strings - Labels to associate with this issue."
                 },
                 "state": {
                     "type": "String",
@@ -1142,8 +1142,8 @@
                     "type": "Date",
                     "required": false,
                     "validation": "",
-                    "invalidmsg": "Optional string - ISO 8601 time.",
-                    "description": "Optional string - ISO 8601 time."
+                    "invalidmsg": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
+                    "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
                 }
             }
         },
@@ -1168,8 +1168,8 @@
                     "type": "Date",
                     "required": false,
                     "validation": "",
-                    "invalidmsg": "Optional string - ISO 8601 time.",
-                    "description": "Optional string - ISO 8601 time."
+                    "invalidmsg": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
+                    "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
                 }
             }
         },
@@ -1221,14 +1221,14 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array - A list of scopes to add to this authorization."
+                    "description": "A list of scopes to add to this authorization."
                 },
                 "remove_scopes": {
                     "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array - A list of scopes to remove from this authorization."
+                    "description": "A list of scopes to remove from this authorization."
                 },
                 "$note": null,
                 "$note_url": null
@@ -1274,7 +1274,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Billing email address. This address is not publicized."
+                    "description": "Billing email address. This address is not publicized."
                 },
                 "company": {
                     "type": "String",
@@ -1288,7 +1288,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Publicly visible email address."
+                    "description": "Publicly visible email address."
                 },
                 "location": {
                     "type": "String",
@@ -1397,7 +1397,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array of strings"
+                    "description": "Array of strings"
                 },
                 "$permission": null
             }
@@ -1689,7 +1689,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - The message that will be used for the merge commit"
+                    "description": "The message that will be used for the merge commit"
                 }
             }
         },
@@ -1872,7 +1872,7 @@
                     "required": false,
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
-                    "description": "Optional number - The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization."
+                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization."
                 }
             }
         },
@@ -1924,7 +1924,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Commit message to use for the merge commit. If omitted, a default message will be used."
+                    "description": "Commit message to use for the merge commit. If omitted, a default message will be used."
                 }
             }
         },
@@ -1940,7 +1940,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional flag. Set to 1 or true to include anonymous contributors in results."
+                    "description": "Set to 1 or true to include anonymous contributors in results."
                 },
                 "$page": null,
                 "$per_page": null
@@ -2055,21 +2055,21 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Sha or branch to start listing commits from."
+                    "description": "Sha or branch to start listing commits from."
                 },
                 "path": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Only commits containing this file path will be returned."
+                    "description": "Only commits containing this file path will be returned."
                 },
                 "author": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - GitHub login or email address by which to filter by commit author."
+                    "description": "GitHub login or email address by which to filter by commit author."
                 },
                 "$page": null,
                 "$per_page": null,
@@ -2124,21 +2124,21 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional string - Relative path of the file to comment on."
+                    "description": "Relative path of the file to comment on."
                 },
                 "position": {
                     "type": "Number",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional number - Line index in the diff to comment on."
+                    "description": "Line index in the diff to comment on."
                 },
                 "line": {
                     "type": "Number",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional number - Line number in the file to comment on. Defaults to 1."
+                    "description": "Line number in the file to comment on. Defaults to 1."
                 }
             }
         },
@@ -2491,7 +2491,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional String - Organization login. The repository will be forked into this organization."
+                    "description": "Organization login. The repository will be forked into this organization."
                 }
             }
         },
@@ -2701,21 +2701,21 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Required hash - A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
+                    "description": "A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
                 },
                 "events": {
                     "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array - Determines what events the hook is triggered for. Default: `['push']`."
+                    "description": "Determines what events the hook is triggered for. Default: `['push']`."
                 },
                 "active": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional boolean - Determines whether the hook is actually triggered on pushes."
+                    "description": "Determines whether the hook is actually triggered on pushes."
                 }
             }
         },
@@ -2733,35 +2733,35 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Required hash - A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
+                    "description": "A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
                 },
                 "events": {
                     "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array - Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`."
+                    "description": "Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`."
                 },
                 "add_events": {
                     "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array - Determines a list of events to be added to the list of events that the Hook triggers for."
+                    "description": "Determines a list of events to be added to the list of events that the Hook triggers for."
                 },
                 "remove_events": {
                     "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional array - Determines a list of events to be removed from the list of events that the Hook triggers for."
+                    "description": "Determines a list of events to be removed from the list of events that the Hook triggers for."
                 },
                 "active": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional boolean - Determines whether the hook is actually triggered on pushes."
+                    "description": "Determines whether the hook is actually triggered on pushes."
                 }
             }
         },

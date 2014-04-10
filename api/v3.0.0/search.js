@@ -27,7 +27,7 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term 
+     *  - q (String): Required. Search Term
      *  - sort (String): Optional. comments, created, or updated Validation rule: ` ^(comments|created|updated)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      **/
@@ -69,7 +69,7 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term 
+     *  - q (String): Required. Search Term
      *  - sort (String): Optional. stars, forks, or updated Validation rule: ` ^(stars|forks|updated)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      **/
@@ -111,7 +111,7 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term 
+     *  - q (String): Required. Search Term
      *  - sort (String): Optional. followers, repositories, or joined Validation rule: ` ^(followers|repositories|joined)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      **/
@@ -153,7 +153,7 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - email (String): Required. Email address 
+     *  - email (String): Required. Email address
      **/
     this.email = function(msg, block, callback) {
         var self = this;

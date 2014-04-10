@@ -94,9 +94,9 @@ var main = module.exports = function(versions, tests, restore) {
                 line = indent + " *  - " + paramName + " (" + (def.type || "mixed") + "): " +
                     (def.required ? "Required. " : "Optional. ");
                 if (def.description)
-                    line += def.description + " ";
+                    line += def.description;
                 if (def.validation)
-                    line += "Validation rule: ` " + def.validation + " `.";
+                    line += " Validation rule: ` " + def.validation + " `.";
 
                 comment.push(line);
             }

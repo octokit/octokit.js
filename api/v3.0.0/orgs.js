@@ -112,9 +112,9 @@ var orgs = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - org (String): Required. 
-     *  - billing_email (String): Optional. Optional string - Billing email address. This address is not publicized. 
+     *  - billing_email (String): Optional. Billing email address. This address is not publicized.
      *  - company (String): Optional. 
-     *  - email (String): Optional. Optional string - Publicly visible email address. 
+     *  - email (String): Optional. Publicly visible email address.
      *  - location (String): Optional. 
      *  - name (String): Optional. 
      **/
@@ -525,7 +525,7 @@ var orgs = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - org (String): Required. 
      *  - name (String): Required. 
-     *  - repo_names (Array): Optional. Optional array of strings 
+     *  - repo_names (Array): Optional. Array of strings
      *  - permission (String): Optional. `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories. Validation rule: ` ^(pull|push|admin)$ `.
      **/
     this.createTeam = function(msg, block, callback) {
