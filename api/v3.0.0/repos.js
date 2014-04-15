@@ -2792,7 +2792,7 @@ var repos = module.exports = {
     };
 
     /** section: github
-     *  repos#getStatsCommit_activity(msg, callback) -> null
+     *  repos#getStatsCommitActivity(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
@@ -2802,7 +2802,7 @@ var repos = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
-    this.getStatsCommit_activity = function(msg, block, callback) {
+    this.getStatsCommitActivity = function(msg, block, callback) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -2915,7 +2915,7 @@ var repos = module.exports = {
     };
 
     /** section: github
-     *  repos#getStatsPunch_card(msg, callback) -> null
+     *  repos#getStatsPunchCard(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
@@ -2925,7 +2925,7 @@ var repos = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      **/
-    this.getStatsPunch_card = function(msg, block, callback) {
+    this.getStatsPunchCard = function(msg, block, callback) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)

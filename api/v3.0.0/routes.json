@@ -2779,7 +2779,7 @@
             }
         },
 
-        "get-stats-commit_activity": {
+        "get-stats-commit-activity": {
             "url": "/repos/:user/:repo/stats/commit_activity",
             "method": "GET",
             "params": {
@@ -2806,7 +2806,7 @@
             }
         },
 
-        "get-stats-punch_card": {
+        "get-stats-punch-card": {
             "url": "/repos/:user/:repo/stats/punch_card",
             "method": "GET",
             "params": {
