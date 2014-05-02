@@ -307,6 +307,7 @@ var repos = module.exports = {
      *  - has_issues (Boolean): Optional. True to enable issues for this repository, false to disable them. Default is true.
      *  - has_wiki (Boolean): Optional. True to enable the wiki for this repository, false to disable it. Default is true.
      *  - has_downloads (Boolean): Optional. True to enable downloads for this repository, false to disable them. Default is true.
+     *  - default_branch (String): Optional. Updates the default branch for this repository.
      **/
     this.update = function(msg, block, callback) {
         var self = this;
