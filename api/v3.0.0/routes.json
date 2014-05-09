@@ -1374,7 +1374,9 @@
             "url": "/orgs/:org/teams",
             "method": "GET",
             "params": {
-                "$org": null
+                "$org": null,
+                "$page": null,
+                "$per_page": null
             }
         },
 
@@ -2875,7 +2877,7 @@
                 "$per_page": null
             }
         },
-        
+
         "get-emails": {
             "url": "/user/emails",
             "method": "GET",
