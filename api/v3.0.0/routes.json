@@ -232,6 +232,13 @@
                 "invalidmsg": "",
                 "description": "True to enable downloads for this repository, false to disable them. Default is true."
             },
+            "default_branch": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Updates the default branch for this repository."
+            },
             "collabuser": {
                 "type": "String",
                 "required": true,
@@ -1900,7 +1907,8 @@
                 "$private": null,
                 "$has_issues": null,
                 "$has_wiki": null,
-                "$has_downloads": null
+                "$has_downloads": null,
+                "$default_branch": null
             }
         },
 
