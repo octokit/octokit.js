@@ -14,7 +14,7 @@
             "X-RateLimit-Limit",
             "X-RateLimit-Remaining",
             "X-Oauth-Scopes",
-            "Link",l
+            "Link",
             "Location",
             "Last-Modified",
             "Etag",
