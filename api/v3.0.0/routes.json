@@ -1055,7 +1055,9 @@
             "method": "GET",
             "params": {
                 "$user": null,
-                "$repo": null
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
             }
         },
 
