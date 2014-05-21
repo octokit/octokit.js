@@ -14,7 +14,7 @@
             "X-RateLimit-Limit",
             "X-RateLimit-Remaining",
             "X-Oauth-Scopes",
-            "Link",
+            "Link",l
             "Location",
             "Last-Modified",
             "Etag",
@@ -1048,7 +1048,9 @@
             "method": "GET",
             "params": {
                 "$user": null,
-                "$repo": null
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
             }
         },
 
