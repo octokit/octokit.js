@@ -143,6 +143,7 @@ github.authorization.create({
 * Events: 100%
 * Search: 100%
 * Markdown: 100%
+* Releases: 0%
 
 ## Running the Tests
 
