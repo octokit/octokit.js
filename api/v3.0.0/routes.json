@@ -748,7 +748,13 @@
                     "invalidmsg": "",
                     "description": ""
                 },
-                "$state": null,
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed|all)$",
+                    "invalidmsg": "open, closed, all, default: open",
+                    "description": "open, closed, or all"
+                },
                 "labels": {
                     "type": "String",
                     "required": false,
