@@ -127,6 +127,13 @@
                 "invalidmsg": "",
                 "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
             },
+            "until": {
+                "type": "Date",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+            },
             "state": {
                 "type": "String",
                 "required": false,
@@ -2091,7 +2098,8 @@
                 },
                 "$page": null,
                 "$per_page": null,
-                "$since": null
+                "$since": null,
+                "$until": null
             }
         },
 
