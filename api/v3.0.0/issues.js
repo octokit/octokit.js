@@ -28,7 +28,7 @@ var issues = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - filter (String): Optional.  Validation rule: ` ^(all|assigned|created|mentioned|subscribed)$ `.
-     *  - state (String): Optional.  Validation rule: ` ^(open|closed)$ `.
+     *  - state (String): Optional. open, closed, or all Validation rule: ` ^(open|closed|all)$ `.
      *  - labels (String): Optional. String list of comma separated Label names. Example: bug,ui,@high
      *  - sort (String): Optional.  Validation rule: ` ^(created|updated|comments)$ `.
      *  - direction (String): Optional.  Validation rule: ` ^(asc|desc)$ `.
@@ -77,7 +77,7 @@ var issues = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - milestone (String): Optional.  Validation rule: ` ^([0-9]+|none|\*)$ `.
-     *  - state (String): Optional. open or closed Validation rule: ` ^(open|closed)$ `.
+     *  - state (String): Optional. open, closed, or all Validation rule: ` ^(open|closed|all)$ `.
      *  - assignee (String): Optional. String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User.
      *  - mentioned (String): Optional. String User login.
      *  - labels (String): Optional. String list of comma separated Label names. Example: bug,ui,@high
@@ -652,6 +652,8 @@ var issues = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
+     *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
+     *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
     this.getLabels = function(msg, block, callback) {
         var self = this;

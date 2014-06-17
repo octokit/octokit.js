@@ -869,6 +869,7 @@ var repos = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+     *  - until (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
      **/
     this.getCommits = function(msg, block, callback) {
         var self = this;
