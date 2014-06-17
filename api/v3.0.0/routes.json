@@ -1573,7 +1573,13 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "$state": null,
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed|all)$",
+                    "invalidmsg": "open, closed, all, default: open",
+                    "description": "open, closed, or all"
+                },
                 "$page": null,
                 "$per_page": null,
                 "sort": {
