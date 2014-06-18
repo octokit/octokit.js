@@ -26,7 +26,7 @@ describe("[search]", function() {
         });*/
     });
 
-    it("should successfully execute GET /legacy/issues/search/:user/:repo/:state/:keyword (issues)",  function(next) {
+    it("should successfully execute GET /search/issues/:q (issues)",  function(next) {
         client.search.issues(
             {
                 q: ['macaroni', 'repo:mikedeboertest/node_chat', 'state:open'].join('+')
@@ -43,7 +43,7 @@ describe("[search]", function() {
         );
     });
 
-    it("should successfully execute GET /legacy/repos/search/:keyword (repos)",  function(next) {
+    it("should successfully execute GET /search/repositories/:q (repos)",  function(next) {
         client.search.repos(
             {
                 q: ['pasta', 'language:JavaScript'].join('+')
@@ -58,7 +58,7 @@ describe("[search]", function() {
         );
     });
 
-    it("should successfully execute GET /legacy/user/search/:keyword (users)",  function(next) {
+    it("should successfully execute GET /search/users/:q (users)",  function(next) {
         client.search.users(
             {
                 q: "mikedeboer"
@@ -69,12 +69,26 @@ describe("[search]", function() {
                 var user = res.items[0];
                 Assert.equal(user.login, "mikedeboer");
 
-                next();
+                client.search.users(
+                    {
+                        q: "location:Jyväskylä"
+                    },
+                    function(err, res) {
+                        Assert.equal(err, null);
+                        //XXX: this is likely to change often. I added this for
+                        //     issue #159.
+                        Assert.equal(res.items.length, 30);
+                        var user = res.items[0];
+                        Assert.equal(user.login, "bebraw");
+
+                        next();
+                    }
+                );
             }
         );
     });
 
-    /*it("should successfully execute GET /legacy/user/email/:email (email)",  function(next) {
+    /*it("should successfully execute GET /search/user/email/:email (email)",  function(next) {
         client.search.email(
             {
                 email: "String"

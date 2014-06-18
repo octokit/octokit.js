@@ -336,6 +336,14 @@
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
                 "description": "asc or desc"
+            },
+            "q": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Search Term",
+                "combined": true
             }
         }
     },
@@ -3148,14 +3156,7 @@
             "url": "/search/issues",
             "method": "GET",
             "params": {
-                "q": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Search Term",
-                    "encode": false
-                },
+                "$q": null,
                 "sort": {
                     "type": "String",
                     "required": false,
@@ -3171,14 +3172,7 @@
             "url": "/search/repositories",
             "method": "GET",
             "params": {
-                "q": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Search Term",
-                    "encode": false
-                },
+                "$q": null,
                 "sort": {
                     "type": "String",
                     "required": false,
@@ -3194,14 +3188,7 @@
             "url": "/search/users",
             "method": "GET",
             "params": {
-                "q": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Search Term",
-                    "encode": false
-                },
+                "$q": null,
                 "sort": {
                     "type": "String",
                     "required": false,

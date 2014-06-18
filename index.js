@@ -246,8 +246,10 @@ var Client = module.exports = function(config) {
                         throw new error.BadRequest("Invalid variable parameter name substitution; param '" +
                             paramName + "' not found in defines block", "fatal");
                     }
-                    else
-                        def = defines.params[paramName];
+                    else {
+                        def = paramsStruct[paramName] = defines.params[paramName];
+                        delete paramsStruct["$" + paramName];
+                    }
                 }
                 else
                     def = paramsStruct[paramName];
@@ -580,20 +582,31 @@ var Client = module.exports = function(config) {
 
             var isUrlParam = url.indexOf(":" + paramName) !== -1;
             var valFormat = isUrlParam || format != "json" ? "query" : format;
-            var skipEncoding = def.params[paramName] && def.params[paramName].encode === false;
             var val;
-            if (valFormat != "json" && typeof msg[paramName] == "object") {
-                try {
-                    msg[paramName] = JSON.stringify(msg[paramName]);
+            if (valFormat != "json") {
+                if (typeof msg[paramName] == "object") {
+                    try {
+                        msg[paramName] = JSON.stringify(msg[paramName]);
+                        val = encodeURIComponent(msg[paramName]);
+                    }
+                    catch (ex) {
+                        return Util.log("httpSend: Error while converting object to JSON: "
+                            + (ex.message || ex), "error");
+                    }
+                }
+                else if (def.params[paramName] && def.params[paramName].combined) {
+                    // Check if this is a combined (search) string.
+                    val = msg[paramName].split(/[\s\t\r\n]*\+[\s\t\r\n]*/)
+                                        .map(function(part) {
+                                            return encodeURIComponent(part);
+                                        })
+                                        .join("+");
+                }
+                else
                     val = encodeURIComponent(msg[paramName]);
-                }
-                catch (ex) {
-                    return Util.log("httpSend: Error while converting object to JSON: "
-                        + (ex.message || ex), "error");
-                }
             }
             else
-                val = valFormat == "json" || skipEncoding ? msg[paramName] : encodeURIComponent(msg[paramName]);
+                val = msg[paramName];
 
             if (isUrlParam) {
                 url = url.replace(":" + paramName, val);
