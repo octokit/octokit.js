@@ -3539,6 +3539,11 @@
     },
 
     "misc": {
+        "meta": {
+            "url": "/meta",
+            "method": "GET",
+            "params": { }
+        },
         "rate-limit": {
             "url": "/rate_limit",
             "method": "GET",

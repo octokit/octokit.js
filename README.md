@@ -146,6 +146,7 @@ github.authorization.create({
 * Rate Limit: 100%
 * Releases: 90%
 * Gitignore: 100%
+* Meta: 100%
 
 ## Running the Tests
 
