@@ -3539,6 +3539,11 @@
     },
 
     "misc": {
+        "emojis": {
+            "url": "/emojis",
+            "method": "GET",
+            "params": { }
+        },
         "meta": {
             "url": "/meta",
             "method": "GET",
