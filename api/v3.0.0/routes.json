@@ -13,6 +13,7 @@
         "response-headers": [
             "X-RateLimit-Limit",
             "X-RateLimit-Remaining",
+            "X-RateLimit-Reset",
             "X-Oauth-Scopes",
             "Link",
             "Location",
@@ -3242,6 +3243,14 @@
                     "description": "The repository context, only taken into account when rendering as `gfm`"
                 }
             }
+        }
+    },
+
+    "misc": {
+        "rate-limit": {
+            "url": "/rate_limit",
+            "method": "GET",
+            "params": { }
         }
     }
 }
