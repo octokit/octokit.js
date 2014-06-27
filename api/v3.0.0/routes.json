@@ -3244,5 +3244,13 @@
                 }
             }
         }
+    },
+
+    "misc": {
+        "rate-limit": {
+            "url": "/rate_limit",
+            "method": "GET",
+            "params": { }
+        }
     }
 }
