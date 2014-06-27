@@ -144,6 +144,7 @@ github.authorization.create({
 * Search: 100%
 * Markdown: 100%
 * Rate Limit: 100%
+* Releases: 90%
 
 ## Running the Tests
 
