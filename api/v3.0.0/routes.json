@@ -3152,6 +3152,277 @@
             }
         }
     },
+
+    "releases": {
+        "list-releases": {
+            "url": "/repos/:owner/:repo/releases",
+            "method": "GET",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+        "get-release": {
+            "url": "/repos/:owner/:repo/releases/:id",
+            "method": "GET",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        },
+        "create-release": {
+            "url": "/repos/:owner/:repo/releases",
+            "method": "POST",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null,
+                "tag_name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "String of the tag"
+                },
+                "target_commitish": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
+                },
+                "name": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "draft": {
+                    "type": "Boolean",
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "true to create a draft (unpublished) release, false to create a published one. Default: false"
+                },
+                "prerelease": {
+                    "type": "Boolean",
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false"
+                }
+            }
+        },
+        "edit-release": {
+            "url": "/repos/:owner/:repo/releases/:id",
+            "method": "PATCH",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null,
+                "tag_name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "String of the tag"
+                },
+                "target_commitish": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository’s default branch (usually master)."
+                },
+                "name": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "draft": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "true to create a draft (unpublished) release, false to create a published one. Default: false"
+                },
+                "prerelease": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false"
+                }
+            }
+        },
+        "delete-release": {
+            "url": "/repos/:owner/:repo/releases/:id",
+            "method": "DELETE",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        },
+        "list-assets": {
+            "url": "/repos/:owner/:repo/releases/:id/assets",
+            "method": "GET",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        },
+        "get-asset": {
+            "url": "/repos/:owner/:repo/releases/assets/:id",
+            "method": "GET",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        },
+        "edit-asset": {
+            "url": "/repos/:owner/:repo/releases/assets/:id",
+            "method": "PATCH",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null,
+                "$name": null,
+                "label": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An alternate short description of the asset. Used in place of the filename."
+                }
+            }
+        },
+        "delete-asset": {
+            "url": "/repos/:owner/:repo/releases/assets/:id",
+            "method": "DELETE",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        }
+    },
+
     "search": {
         "issues": {
             "url": "/search/issues",
