@@ -13,6 +13,7 @@
         "response-headers": [
             "X-RateLimit-Limit",
             "X-RateLimit-Remaining",
+            "X-RateLimit-Reset",
             "X-Oauth-Scopes",
             "Link",
             "Location",
