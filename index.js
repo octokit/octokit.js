@@ -1,6 +1,8 @@
 "use strict";
 
 var error = require("./error");
+var fs = require("fs");
+var mime = require("mime");
 var Util = require("./util");
 var Url = require("url");
 
@@ -645,7 +647,8 @@ var Client = module.exports = function(config) {
     this.httpSend = function(msg, block, callback) {
         var self = this;
         var method = block.method.toLowerCase();
-        var hasBody = ("head|get|delete".indexOf(method) === -1);
+        var hasFileBody = block.hasFileBody;
+        var hasBody = !hasFileBody && ("head|get|delete".indexOf(method) === -1);
         var format = hasBody && this.constants.requestFormat
             ? this.constants.requestFormat
             : "query";
@@ -655,9 +658,8 @@ var Client = module.exports = function(config) {
 
         var path = url;
         var protocol = this.config.protocol || this.constants.protocol || "http";
-        var host = this.config.host || this.constants.host;
+        var host = block.host || this.config.host || this.constants.host;
         var port = this.config.port || this.constants.port || (protocol == "https" ? 443 : 80);
-
         var proxyUrl;
         if (this.config.proxy !== undefined) {
             proxyUrl = this.config.proxy;
@@ -722,6 +724,14 @@ var Client = module.exports = function(config) {
             }
         }
 
+        function callCallback(err, result) {
+            if (callback) {
+                var cb = callback;
+                callback = undefined;
+                cb(err, result);
+            }
+        }
+
         function addCustomHeaders(customHeaders) {
             Object.keys(customHeaders).forEach(function(header) {
                 var headerLC = header.toLowerCase();
@@ -752,66 +762,74 @@ var Client = module.exports = function(config) {
         if (this.debug)
             console.log("REQUEST: ", options);
 
-        var callbackCalled = false
-
-        var req = require(protocol).request(options, function(res) {
-            if (self.debug) {
-                console.log("STATUS: " + res.statusCode);
-                console.log("HEADERS: " + JSON.stringify(res.headers));
-            }
-            res.setEncoding("utf8");
-            var data = "";
-            res.on("data", function(chunk) {
-                data += chunk;
-            });
-            res.on("error", function(err) {
-                if (!callbackCalled) {
-                   callbackCalled = true;
-                   callback(err);
+        function httpSendRequest() {
+            var req = require(protocol).request(options, function(res) {
+                if (self.debug) {
+                    console.log("STATUS: " + res.statusCode);
+                    console.log("HEADERS: " + JSON.stringify(res.headers));
                 }
+                res.setEncoding("utf8");
+                var data = "";
+                res.on("data", function(chunk) {
+                    data += chunk;
+                });
+                res.on("error", function(err) {
+                    callCallback(err);
+                });
+                res.on("end", function() {
+                    if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
+                        callCallback(new error.HttpError(data, res.statusCode));
+                    } else {
+                        res.data = data;
+                        callCallback(null, res);
+                    }
+                });
             });
-            res.on("end", function() {
-                if (callbackCalled)
-                    return;
 
-                callbackCalled = true;
-                if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
-                    callback(new error.HttpError(data, res.statusCode));
+            var timeout = (block.timeout !== undefined) ? block.timeout : self.config.timeout;
+            if (timeout) {
+                req.setTimeout(timeout);
+            }
+
+            req.on("error", function(e) {
+                if (self.debug)
+                    console.log("problem with request: " + e.message);
+                callCallback(e.message);
+            });
+
+            req.on("timeout", function() {
+                if (self.debug)
+                    console.log("problem with request: timed out");
+                callCallback(new error.GatewayTimeout());
+            });
+
+            // write data to request body
+            if (hasBody && query.length) {
+                if (self.debug)
+                    console.log("REQUEST BODY: " + query + "\n");
+                req.write(query + "\n");
+            }
+
+            if (block.hasFileBody) {
+              var stream = fs.createReadStream(msg.filePath);
+              stream.pipe(req);
+            } else {
+              req.end();
+            }
+        };
+
+        if (hasFileBody) {
+            fs.stat(msg.filePath, function(err, stat) {
+                if (err) {
+                    callCallback(err);
                 } else {
-                    res.data = data;
-                    callback(null, res);
+                    headers["content-length"] = stat.size;
+                    headers["content-type"] = mime.lookup(msg.name);
+                    httpSendRequest();
                 }
             });
-        });
-
-        if (this.config.timeout) {
-            req.setTimeout(this.config.timeout);
+        } else {
+            httpSendRequest();
         }
-
-        req.on("error", function(e) {
-            if (self.debug)
-                console.log("problem with request: " + e.message);
-            if (!callbackCalled) {
-                callbackCalled = true;
-                callback(e.message);
-            }
-        });
-
-        req.on("timeout", function() {
-            if (self.debug)
-                console.log("problem with request: timed out");
-            if (!callbackCalled) {
-                callbackCalled = true;
-                callback(new error.GatewayTimeout());
-            }
-        });
-
-        // write data to request body
-        if (hasBody && query.length) {
-            if (self.debug)
-                console.log("REQUEST BODY: " + query + "\n");
-            req.write(query + "\n");
-        }
-        req.end();
     };
 }).call(Client.prototype);

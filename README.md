@@ -147,7 +147,7 @@ github.authorization.create({
 * Search: 100%
 * Markdown: 100%
 * Rate Limit: 100%
-* Releases: 90%
+* Releases: 100%
 * Gitignore: 100%
 * Meta: 100%
 * Emojis: 100%
