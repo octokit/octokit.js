@@ -21,6 +21,33 @@ describe("[misc]", function() {
         });
     });
 
+    it("should successfully execute GET /emojis (emojis)",  function(next) {
+        client.misc.emojis(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                Assert.ifError(err);
+                // A common emoji on github
+                Assert('shipit' in res);
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /meta (meta)",  function(next) {
+        client.misc.meta(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                Assert('hooks' in res);
+                Assert('git' in res);
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /rate_limit (rateLimit)",  function(next) {
         client.misc.rateLimit(
             {},

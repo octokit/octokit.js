@@ -3517,7 +3517,38 @@
         }
     },
 
+    "gitignore": {
+        "templates": {
+            "url": "/gitignore/templates",
+            "method": "GET",
+            "params": { }
+        },
+        "template": {
+            "url": "/gitignore/templates/:name",
+            "method": "GET",
+            "params": {
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the .gitignore template to get"
+                }
+            }
+        }
+    },
+
     "misc": {
+        "emojis": {
+            "url": "/emojis",
+            "method": "GET",
+            "params": { }
+        },
+        "meta": {
+            "url": "/meta",
+            "method": "GET",
+            "params": { }
+        },
         "rate-limit": {
             "url": "/rate_limit",
             "method": "GET",
