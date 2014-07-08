@@ -173,6 +173,7 @@ var Url = require("url");
  *      }
  **/
 var Client = module.exports = function(config) {
+    config.headers = config.headers || {};
     this.config = config;
     this.debug = Util.isTrue(config.debug);
 
@@ -714,13 +715,13 @@ var Client = module.exports = function(config) {
             }
         }
 
-        if (!msg.headers)
-            msg.headers = {};
-        Object.keys(msg.headers).forEach(function(header) {
-            var headerLC = header.toLowerCase();
-            if (self.requestHeaders.indexOf(headerLC) == -1)
-                return;
-            headers[headerLC] = msg.headers[header];
+        [msg.headers || {}, this.config.headers].forEach(function(newHeaders) {
+          Object.keys(newHeaders).forEach(function(header) {
+              var headerLC = header.toLowerCase();
+              if (self.requestHeaders.indexOf(headerLC) == -1)
+                  return;
+              headers[headerLC] = newHeaders[header];
+          });
         });
         if (!headers["user-agent"])
             headers["user-agent"] = "NodeJS HTTP Client";
