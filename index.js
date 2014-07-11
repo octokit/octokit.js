@@ -736,6 +736,9 @@ var Client = module.exports = function(config) {
             headers: headers
         };
 
+        if (this.config.rejectUnauthorized !== undefined)
+            options.rejectUnauthorized = this.config.rejectUnauthorized;
+
         if (this.debug)
             console.log("REQUEST: ", options);
 
