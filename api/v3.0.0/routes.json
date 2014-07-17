@@ -3276,7 +3276,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repositoryÕs default branch (usually master)."
+                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repositoryï¿½s default branch (usually master)."
                 },
                 "name": {
                     "type": "String",
@@ -3468,7 +3468,9 @@
                     "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
                     "description": "followers, repositories, or joined"
                 },
-                "$order": null
+                "$order": null,
+                "$per_page": null,
+                "$page": null
             }
         },
 
