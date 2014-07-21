@@ -1053,4 +1053,18 @@ describe("[repos]", function() {
             }
         );
     });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsForContributors)",  function(next) {
+        client.repos.getStatsForContributors(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
 });
