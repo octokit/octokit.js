@@ -2861,6 +2861,15 @@
                 "$user": null,
                 "$repo": null
             }
+        },
+
+        "get-punchcard-stats": {
+            "url": "/repos/:owner/:repo/stats/punch_card",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
         }
     },
 

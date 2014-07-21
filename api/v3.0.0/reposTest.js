@@ -1109,4 +1109,18 @@ describe("[repos]", function() {
             }
         );
     });
+
+    it("should successfully execute GET /repos/:owner/:repo/stats/punch_card (getPunchcardStats)",  function(next) {
+        client.repos.getPunchcardStats(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
 });
