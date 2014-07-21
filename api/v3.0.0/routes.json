@@ -2827,8 +2827,35 @@
             }
         },
 
-        "get-stats-for-contributors": {
+        "get-contributor-stats": {
             "url": "/repos/:user/:repo/stats/contributors",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-commit-activity-stats": {
+            "url": "/repos/:user/:repo/stats/commit_activity",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        }
+
+        "get-code-frequency-stats": {
+            "url": "/repos/:owner/:repo/stats/code_frequency",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-participation-stats": {
+            "url": "/repos/:owner/:repo/stats/participation",
             "method": "GET",
             "params": {
                 "$user": null,

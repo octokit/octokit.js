@@ -1054,8 +1054,50 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsForContributors)",  function(next) {
-        client.repos.getStatsForContributors(
+    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getContributorStats)",  function(next) {
+        client.repos.getContributorStats(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getCommitActivityStats)",  function(next) {
+        client.repos.getCommitActivityStats(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/stats/code_frequency (getCodeFrequencyStats)",  function(next) {
+        client.repos.getCodeFrequencyStats(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/stats/participation (getParticipationStats)",  function(next) {
+        client.repos.getParticipationStats(
             {
                 user: "String",
                 repo: "String"
