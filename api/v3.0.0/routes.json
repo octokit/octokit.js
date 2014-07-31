@@ -528,7 +528,7 @@
                 "$repo": null,
                 "content": {
                     "type": "String",
-                    "required": true,
+                    "required": false ,
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
@@ -3276,7 +3276,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository’s default branch (usually master)."
+                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
                 },
                 "name": {
                     "type": "String",
