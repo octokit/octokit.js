@@ -2827,47 +2827,47 @@
             }
         },
 
-        "get-contributor-stats": {
+        "get-stats-contributors": {
             "url": "/repos/:user/:repo/stats/contributors",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$user":null,
                 "$repo": null
             }
         },
 
-        "get-commit-activity-stats": {
+        "get-stats-commit-activity": {
             "url": "/repos/:user/:repo/stats/commit_activity",
             "method": "GET",
             "params": {
-                "$user": null,
-                "$repo": null
-            }
-        }
-
-        "get-code-frequency-stats": {
-            "url": "/repos/:owner/:repo/stats/code_frequency",
-            "method": "GET",
-            "params": {
-                "$user": null,
+                "$user":null,
                 "$repo": null
             }
         },
 
-        "get-participation-stats": {
-            "url": "/repos/:owner/:repo/stats/participation",
+        "get-stats-code-frequency": {
+            "url": "/repos/:user/:repo/stats/code_frequency",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$user":null,
                 "$repo": null
             }
         },
 
-        "get-punchcard-stats": {
-            "url": "/repos/:owner/:repo/stats/punch_card",
+        "get-stats-participation": {
+            "url": "/repos/:user/:repo/stats/participation",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$user":null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-punch-card": {
+            "url": "/repos/:user/:repo/stats/punch_card",
+            "method": "GET",
+            "params": {
+                "$user":null,
                 "$repo": null
             }
         }

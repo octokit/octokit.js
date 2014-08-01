@@ -1054,8 +1054,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getContributorStats)",  function(next) {
-        client.repos.getContributorStats(
+    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsContributors)",  function(next) {
+        client.repos.getStatsContributors(
             {
                 user: "String",
                 repo: "String"
@@ -1068,8 +1068,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getCommitActivityStats)",  function(next) {
-        client.repos.getCommitActivityStats(
+    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getStatsCommitActivity)",  function(next) {
+        client.repos.getStatsCommitActivity(
             {
                 user: "String",
                 repo: "String"
@@ -1082,8 +1082,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/stats/code_frequency (getCodeFrequencyStats)",  function(next) {
-        client.repos.getCodeFrequencyStats(
+    it("should successfully execute GET /repos/:owner/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
+        client.repos.getStatsCodeFrequency(
             {
                 user: "String",
                 repo: "String"
@@ -1096,8 +1096,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/stats/participation (getParticipationStats)",  function(next) {
-        client.repos.getParticipationStats(
+    it("should successfully execute GET /repos/:owner/:repo/stats/participation (getStatsParticipation)",  function(next) {
+        client.repos.getStatsParticipation(
             {
                 user: "String",
                 repo: "String"
@@ -1110,8 +1110,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/stats/punch_card (getPunchcardStats)",  function(next) {
-        client.repos.getPunchcardStats(
+    it("should successfully execute GET /repos/:owner/:repo/stats/punch_card (getStatsPunchCard)",  function(next) {
+        client.repos.getStatsPunchCard(
             {
                 user: "String",
                 repo: "String"
