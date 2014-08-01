@@ -2831,7 +2831,7 @@
             "url": "/repos/:user/:repo/stats/contributors",
             "method": "GET",
             "params": {
-                "$user":null,
+                "$user": null,
                 "$repo": null
             }
         },
@@ -2840,7 +2840,7 @@
             "url": "/repos/:user/:repo/stats/commit_activity",
             "method": "GET",
             "params": {
-                "$user":null,
+                "$user": null,
                 "$repo": null
             }
         },
@@ -2849,7 +2849,7 @@
             "url": "/repos/:user/:repo/stats/code_frequency",
             "method": "GET",
             "params": {
-                "$user":null,
+                "$user": null,
                 "$repo": null
             }
         },
@@ -2858,7 +2858,7 @@
             "url": "/repos/:user/:repo/stats/participation",
             "method": "GET",
             "params": {
-                "$user":null,
+                "$user": null,
                 "$repo": null
             }
         },
@@ -2867,7 +2867,7 @@
             "url": "/repos/:user/:repo/stats/punch_card",
             "method": "GET",
             "params": {
-                "$user":null,
+                "$user": null,
                 "$repo": null
             }
         }
