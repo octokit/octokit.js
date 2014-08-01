@@ -73,7 +73,7 @@ var gitdata = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
-     *  - content (String): Optional. 
+     *  - content (String): Required. 
      *  - encoding (String): Required. 
      **/
     this.createBlob = function(msg, block, callback) {
