@@ -30,6 +30,8 @@ var search = module.exports = {
      *  - q (String): Required. Search Term
      *  - sort (String): Optional. comments, created, or updated Validation rule: ` ^(comments|created|updated)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
+     *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
+     *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
     this.issues = function(msg, block, callback) {
         var self = this;
@@ -72,6 +74,8 @@ var search = module.exports = {
      *  - q (String): Required. Search Term
      *  - sort (String): Optional. stars, forks, or updated Validation rule: ` ^(stars|forks|updated)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
+     *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
+     *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
     this.repos = function(msg, block, callback) {
         var self = this;
@@ -114,6 +118,8 @@ var search = module.exports = {
      *  - q (String): Required. Search Term
      *  - sort (String): Optional. followers, repositories, or joined Validation rule: ` ^(followers|repositories|joined)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
+     *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
+     *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
     this.users = function(msg, block, callback) {
         var self = this;

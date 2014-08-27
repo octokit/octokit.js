@@ -163,7 +163,7 @@ var releases = module.exports = {
      *  - id (Number): Required. 
      *  - repo (String): Required. 
      *  - tag_name (String): Required. String of the tag
-     *  - target_commitish (String): Optional. Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository�s default branch (usually master).
+     *  - target_commitish (String): Optional. Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
      *  - name (String): Optional. 
      *  - body (String): Optional. 
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
