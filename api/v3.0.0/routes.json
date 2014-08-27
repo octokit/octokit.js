@@ -3276,7 +3276,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository’s default branch (usually master)."
+                    "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
                 },
                 "name": {
                     "type": "String",
@@ -3436,7 +3436,9 @@
                     "invalidmsg": "comments, created, or updated",
                     "description": "comments, created, or updated"
                 },
-                "$order": null
+                "$order": null,
+                "$page": null,
+                "$per_page": null
             }
         },
 
@@ -3452,7 +3454,9 @@
                     "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
                     "description": "stars, forks, or updated"
                 },
-                "$order": null
+                "$order": null,
+                "$page": null,
+                "$per_page": null
             }
         },
 
@@ -3468,7 +3472,9 @@
                     "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
                     "description": "followers, repositories, or joined"
                 },
-                "$order": null
+                "$order": null,
+                "$page": null,
+                "$per_page": null
             }
         },
 
