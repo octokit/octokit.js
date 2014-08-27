@@ -1125,6 +1125,16 @@
             }
         },
 
+        "get-issue-labels": {
+            "url": "/repos/:user/:repo/issues/:number/labels",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            }
+        },
+
         "get-all-milestones": {
             "url": "/repos/:user/:repo/milestones",
             "method": "GET",
