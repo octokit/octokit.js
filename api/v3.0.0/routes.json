@@ -1935,6 +1935,14 @@
             }
         },
 
+        "one": {
+            "url": "/repositories/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            }
+        },
+
         "update": {
             "url": "/repos/:user/:repo",
             "method": "PATCH",
