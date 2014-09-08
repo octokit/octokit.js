@@ -1544,7 +1544,17 @@
 
     "statuses": {
         "get": {
-            "url": "/repos/:user/:repo/statuses/:sha",
+            "url": "/repos/:user/:repo/commits/:sha/statuses",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$sha": null
+            }
+        },
+
+        "get-combined": {
+            "url": "/repos/:user/:repo/commits/:sha/status",
             "method": "GET",
             "params": {
                 "$user": null,
@@ -1580,6 +1590,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Short description of the status."
+                },
+                "context": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A string label to differentiate this status from the status of other systems."
                 }
             }
         }
