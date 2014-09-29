@@ -2843,6 +2843,144 @@
                 "$repo": null,
                 "$id": null
             }
+        },
+
+        "get-deployments": {
+            "url": "/repos/:user/:repo/deployments",
+            "method": "GET",
+            "params": {
+                "sha": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The short or long sha that was recorded at creation time. Default: none."
+                },
+                "ref": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the ref. This can be a branch, tag, or sha. Default: none."
+                },
+                "task": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the task for the deployment. e.g. deploy or deploy:migrations. Default: none."
+                },
+                "environment": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none."
+                },
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "create-deployment": {
+            "url": "/repos/:user/:repo/deployments",
+            "method": "POST",
+            "params": {
+                "ref": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The ref to deploy. This can be a branch, tag, or sha."
+                },
+                "task": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The named task to execute. e.g. deploy or deploy:migrations. Default: deploy"
+                },
+                "auto_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true"
+                },
+                "required_contexts": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts."
+                },
+                "payload": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional JSON payload with extra information about the deployment. Default: ''"
+                },
+                "environment": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none."
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Optional short description. Default: ''"
+                },
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-deployment-statuses": {
+            "url": "/repos/:user/:repo/deployments/:id/statuses",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            }
+        },
+
+        "create-deployment-status": {
+            "url": "/repos/:user/:repo/deployments/:id/statuses",
+            "method": "POST",
+            "params": {
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The state of the status. Can be one of pending, success, error, or failure."
+                },
+                "target_url": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: ''"
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A short description of the status. Default: ''"
+                },
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            }
         }
     },
 
