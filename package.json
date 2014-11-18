@@ -15,6 +15,9 @@
     "engine" : {
         "node": ">=0.4.0"
     },
+    "dependencies": {
+        "request": "~2.44.0"
+    },
     "devDependencies": {
         "oauth": "~0.9.7",
         "optimist": "~0.6.0",
