@@ -528,7 +528,7 @@
                 "$repo": null,
                 "content": {
                     "type": "String",
-                    "required": true,
+                    "required": true ,
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
