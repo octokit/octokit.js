@@ -1053,4 +1053,74 @@ describe("[repos]", function() {
             }
         );
     });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsContributors)",  function(next) {
+        client.repos.getStatsContributors(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getStatsCommitActivity)",  function(next) {
+        client.repos.getStatsCommitActivity(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
+        client.repos.getStatsCodeFrequency(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/participation (getStatsParticipation)",  function(next) {
+        client.repos.getStatsParticipation(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/punch_card (getStatsPunchCard)",  function(next) {
+        client.repos.getStatsPunchCard(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
 });
