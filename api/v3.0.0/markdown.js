@@ -37,23 +37,15 @@ var markdown = module.exports = {
             if (err)
                 return self.sendError(err, null, msg, callback);
 
-            var ret;
-            try {
-                ret = res.data && JSON.parse(res.data);
-            }
-            catch (ex) {
-                if (callback)
-                    callback(new error.InternalServerError(ex.message), res);
-                return;
-            }
+            var ret = {
+                body: res.data,
+                meta: {}
+            };
 
-            if (!ret)
-                ret = {};
-            if (!ret.meta)
-                ret.meta = {};
             ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
+                if (res.headers[header]) {
                     ret.meta[header] = res.headers[header];
+                }
             });
 
             if (callback)
