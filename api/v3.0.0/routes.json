@@ -3481,6 +3481,28 @@
                 }
             }
         },
+        "upload-asset": {
+            "url": "/repos/:owner/:repo/releases/:id/assets?name=:name",
+            "method": "POST",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null,
+                "$name": null
+            }
+        },
         "delete-asset": {
             "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "DELETE",
@@ -3643,3 +3665,4 @@
         }
     }
 }
+
