@@ -8,7 +8,7 @@
             "port": 443,
             "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
             "requestFormat": "json",
-            "requestMedia": "application/vnd.github.beta+json"
+            "requestMedia": "application/vnd.github.v3+json"
         },
         "response-headers": [
             "X-RateLimit-Limit",
