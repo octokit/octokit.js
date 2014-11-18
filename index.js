@@ -259,7 +259,7 @@ var Client = module.exports = function(config) {
                 if (typeof value != "boolean" && !value) {
                     // we don't need to validation for undefined parameter values
                     // that are not required.
-                    if (!def.required)
+                    if (!def.required || (def["allow-empty"] && value === ""))
                         continue;
                     throw new error.BadRequest("Empty value for parameter '" +
                         paramName + "': " + value);
