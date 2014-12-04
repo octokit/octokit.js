@@ -1362,7 +1362,7 @@
                     "validation": "^(all|2fa_disabled)$",
                     "invalidmsg": "all, 2fa_disabled, default: all",
                     "description": ""
-                },
+                }
             }
         },
 
