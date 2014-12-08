@@ -39,7 +39,7 @@ var github = new GitHubApi({
     pathPrefix: "/api/v3", // for some GHEs
     timeout: 5000,
     headers: {
-        "user-agent": "My-Cool-GitHub-App", // GitHub is happy with a unique user agent
+        "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     }
 });
 github.user.getFollowingFromUser({
