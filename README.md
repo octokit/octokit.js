@@ -37,7 +37,10 @@ var github = new GitHubApi({
     protocol: "https",
     host: "github.my-GHE-enabled-company.com",
     pathPrefix: "/api/v3", // for some GHEs
-    timeout: 5000
+    timeout: 5000,
+    headers: {
+        "user-agent": "My-Cool-GitHub-App", // GitHub is happy with a unique user agent
+    }
 });
 github.user.getFollowingFromUser({
     // optional:

@@ -173,6 +173,7 @@ var Url = require("url");
  *      }
  **/
 var Client = module.exports = function(config) {
+    config.headers = config.headers || {};
     this.config = config;
     this.debug = Util.isTrue(config.debug);
 
@@ -258,7 +259,7 @@ var Client = module.exports = function(config) {
                 if (typeof value != "boolean" && !value) {
                     // we don't need to validation for undefined parameter values
                     // that are not required.
-                    if (!def.required)
+                    if (!def.required || (def["allow-empty"] && value === ""))
                         continue;
                     throw new error.BadRequest("Empty value for parameter '" +
                         paramName + "': " + value);
@@ -721,19 +722,21 @@ var Client = module.exports = function(config) {
             }
         }
 
-        if (!msg.headers)
-            msg.headers = {};
-        Object.keys(msg.headers).forEach(function(header) {
-            var headerLC = header.toLowerCase();
-            if (self.requestHeaders.indexOf(headerLC) == -1)
-                return;
-            headers[headerLC] = msg.headers[header];
-        });
+        function addCustomHeaders(customHeaders) {
+            Object.keys(customHeaders).forEach(function(header) {
+                var headerLC = header.toLowerCase();
+                if (self.requestHeaders.indexOf(headerLC) == -1)
+                    return;
+                headers[headerLC] = customHeaders[header];
+            });
+        }
+        addCustomHeaders(Util.extend(msg.headers || {}, this.config.headers));
+
         if (!headers["user-agent"])
             headers["user-agent"] = "NodeJS HTTP Client";
 
-        if (!headers["accept"])
-            headers["accept"] = this.config.requestMedia || this.constants.requestMedia;
+        if (!("accept" in headers))
+            headers.accept = this.config.requestMedia || this.constants.requestMedia;
 
         var options = {
             host: host,

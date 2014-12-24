@@ -8,7 +8,7 @@
             "port": 443,
             "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
             "requestFormat": "json",
-            "requestMedia": "application/vnd.github.beta+json"
+            "requestMedia": "application/vnd.github.v3+json"
         },
         "response-headers": [
             "X-RateLimit-Limit",
@@ -529,6 +529,7 @@
                 "content": {
                     "type": "String",
                     "required": true,
+                    "allow-empty": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
@@ -1544,7 +1545,17 @@
 
     "statuses": {
         "get": {
-            "url": "/repos/:user/:repo/statuses/:sha",
+            "url": "/repos/:user/:repo/commits/:sha/statuses",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$sha": null
+            }
+        },
+
+        "get-combined": {
+            "url": "/repos/:user/:repo/commits/:sha/status",
             "method": "GET",
             "params": {
                 "$user": null,
@@ -1580,6 +1591,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Short description of the status."
+                },
+                "context": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A string label to differentiate this status from the status of other systems."
                 }
             }
         }
@@ -2842,6 +2860,51 @@
                 "$user": null,
                 "$repo": null,
                 "$id": null
+            }
+        },
+
+        "get-stats-contributors": {
+            "url": "/repos/:user/:repo/stats/contributors",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-commit-activity": {
+            "url": "/repos/:user/:repo/stats/commit_activity",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-code-frequency": {
+            "url": "/repos/:user/:repo/stats/code_frequency",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-participation": {
+            "url": "/repos/:user/:repo/stats/participation",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            }
+        },
+
+        "get-stats-punch-card": {
+            "url": "/repos/:user/:repo/stats/punch_card",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
             }
         },
 

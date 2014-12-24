@@ -26,8 +26,23 @@ describe("[statuses]", function() {
         });
     });
 
-    it("should successfully execute GET /repos/:user/:repo/statuses/:sha (get)",  function(next) {
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha/statuses (get)",  function(next) {
         client.statuses.get(
+            {
+                user: "mikedeboer",
+                repo: "node-github",
+                sha: "30d607d8fd8002427b61273f25d442c233cbf631"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha/status (get)",  function(next) {
+        client.statuses.getCombined(
             {
                 user: "mikedeboer",
                 repo: "node-github",
