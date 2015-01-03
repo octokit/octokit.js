@@ -31,6 +31,8 @@ describe("[pullRequests]", function() {
             {
                 user: "String",
                 repo: "String",
+                base: "String",
+                head: "String",
                 state: "String",
                 page: "Number",
                 per_page: "Number"
