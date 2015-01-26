@@ -1624,6 +1624,8 @@
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all"
                 },
+                "$head": null,
+                "$base": null,
                 "$page": null,
                 "$per_page": null,
                 "sort": {
