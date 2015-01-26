@@ -11,6 +11,8 @@
 
 var Assert = require("assert");
 var Client = require("./../../index");
+var fs = require("fs");
+var mime = require("mime");
 
 describe("[releases]", function() {
     var client;
@@ -20,6 +22,8 @@ describe("[releases]", function() {
     var repo  = "test";
     var haveWriteAccess = true;       // set to false if the authenticated person below does not have write access to the repo above
     var releaseIdWithAsset = 393621;  // Some release id from the repo above that has at least 1 asset.
+    var filePathToUpload = __filename;
+    var fileSizeToUpload = fs.statSync(filePathToUpload).size;
 
     var releaseId;      // release id found when listing releases. Used for get release
     var newReleaseId;   // release id created when creating release, used for edit and delete release
@@ -190,22 +194,48 @@ describe("[releases]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:owner/:repo/releases/:id/assets (uploadAsset)",  function(next) {
+        var name = "somenameornot.zip";
+        client.releases.uploadAsset(
+            {
+                owner: owner,
+                id: releaseIdWithAsset,
+                repo: repo,
+                name: name,
+                filePath: filePathToUpload
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                Assert.equal(res.content_type, mime.lookup(name));  // matches extension of name, not filePath
+                Assert.equal(res.state, "uploaded");
+                Assert.equal(res.size, fileSizeToUpload);
+                Assert.equal(res.name, name);
+                newAssetId = res.id;
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PATCH /repos/:owner/:repo/releases/assets/:id (editAsset)",  function(next) {
         if (!newAssetId) {
             next();
             return;
         }
+        var newName = "somenewname.zip";
         client.releases.editAsset(
             {
                 owner: owner,
-                id: "Number",
+                id: newAssetId,
                 repo: repo,
-                name: "String",
-                label: "String"
+                name: newName,
+                label: "foo"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                // other assertions go here
+                Assert.equal(res.state, "uploaded");
+                Assert.equal(res.size, fileSizeToUpload);
+                Assert.equal(res.name, newName);
+                Assert.equal(res.label, "foo");
                 next();
             }
         );
@@ -219,7 +249,7 @@ describe("[releases]", function() {
         client.releases.deleteAsset(
             {
                 owner: owner,
-                id: "Number",
+                id: newAssetId,
                 repo: repo
             },
             function(err, res) {

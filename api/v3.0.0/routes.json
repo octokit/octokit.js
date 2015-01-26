@@ -3461,6 +3461,37 @@
                 "$repo": null
             }
         },
+        "upload-asset": {
+            "url": "/repos/:owner/:repo/releases/:id/assets",
+            "method": "POST",
+            "host": "uploads.github.com",
+            "hasFileBody": true,
+            "timeout": 0,
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "id": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null,
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "the file name of the asset"
+                }
+            }
+        },
         "edit-asset": {
             "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "PATCH",
