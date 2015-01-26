@@ -1355,7 +1355,14 @@
             "params": {
                 "$org": null,
                 "$page": null,
-                "$per_page": null
+                "$per_page": null,
+                "filter": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(all|2fa_disabled)$",
+                    "invalidmsg": "all, 2fa_disabled, default: all",
+                    "description": ""
+                }
             }
         },
 
