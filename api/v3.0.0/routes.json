@@ -3007,6 +3007,38 @@
             }
         },
 
+        "get-memberships": {
+            "url": "/user/memberships/orgs",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-org-membership": {
+            "url": "/user/memberships/orgs/:org",
+            "method": "GET",
+            "params": {
+                "$org": null
+            }
+        },
+
+        "update-org-membership": {
+            "url": "/user/memberships/orgs/:org",
+            "method": "PATCH",
+            "params": {
+                "$org": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(active)$",
+                    "invalidmsg": "only active is accepted",
+                    "description": "the state that the membership should be in."
+                },
+            }
+        },
+
         "get-emails": {
             "url": "/user/emails",
             "method": "GET",
