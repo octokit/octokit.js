@@ -1624,8 +1624,18 @@
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all"
                 },
-                "$head": null,
-                "$base": null,
+                "head":  {
+                    "type": "String",
+                    "required": false,
+                    "invalidmsg": "",
+                    "description": "head for pulls"
+                },
+                "base":  {
+                    "type": "String",
+                    "required": false,
+                    "invalidmsg": "",
+                    "description": "base branch name"
+                },
                 "$page": null,
                 "$per_page": null,
                 "sort": {

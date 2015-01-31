@@ -14,7 +14,7 @@ var Client = require("./../../index");
 
 describe("[user]", function() {
     var client;
-    var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
+    var token = "931408d6148e09fa059ddcf4c8f0a3d74c4af38a";
 
     beforeEach(function() {
         client = new Client({
