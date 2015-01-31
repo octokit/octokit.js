@@ -317,7 +317,7 @@ var user = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - org (String): Required. 
-     *  - state (String): Optional.  Validation rule: ` ^(open|closed)$ `.
+     *  - state (String): Required. the state that the membership should be in. Validation rule: ` ^(active)$ `.
      **/
     this.updateOrgMembership = function(msg, block, callback) {
         var self = this;

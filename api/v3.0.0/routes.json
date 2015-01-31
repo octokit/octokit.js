@@ -3035,7 +3035,7 @@
                     "validation": "^(active)$",
                     "invalidmsg": "only active is accepted",
                     "description": "the state that the membership should be in."
-                },
+                }
             }
         },
 
