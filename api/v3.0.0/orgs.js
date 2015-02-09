@@ -727,7 +727,7 @@ var orgs = module.exports = {
     };
 
     /** section: github
-     *  orgs#addTeamMember(msg, callback) -> null
+     *  orgs#addTeamMembership(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
@@ -737,7 +737,7 @@ var orgs = module.exports = {
      *  - id (String): Required. 
      *  - user (String): Required. 
      **/
-    this.addTeamMember = function(msg, block, callback) {
+    this.addTeamMembership = function(msg, block, callback) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
@@ -768,7 +768,7 @@ var orgs = module.exports = {
     };
 
     /** section: github
-     *  orgs#deleteTeamMember(msg, callback) -> null
+     *  orgs#deleteTeamMembership(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
@@ -778,7 +778,7 @@ var orgs = module.exports = {
      *  - id (String): Required. 
      *  - user (String): Required. 
      **/
-    this.deleteTeamMember = function(msg, block, callback) {
+    this.deleteTeamMembership = function(msg, block, callback) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
