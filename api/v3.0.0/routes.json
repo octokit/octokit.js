@@ -1659,7 +1659,7 @@
                 }
             }
         },
-        "createStatus": {
+        "create-status": {
             "url": "/repos/:user/:repo/deployments/:id/statuses",
             "method": "POST",
             "params": {

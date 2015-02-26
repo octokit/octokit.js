@@ -67,7 +67,7 @@ var deployments = module.exports = {
     };
 
     /** section: github
-     *  deployments#createstatus(msg, callback) -> null
+     *  deployments#createStatus(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
@@ -81,7 +81,7 @@ var deployments = module.exports = {
      *  - target_url (String): Optional. Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
      *  - description (String): Optional. Short description of the status.
      **/
-    this.createstatus = function(msg, block, callback) {
+    this.createStatus = function(msg, block, callback) {
         var self = this;
         this.client.httpSend(msg, block, function(err, res) {
             if (err)
