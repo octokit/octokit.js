@@ -894,7 +894,7 @@
                 },
                 "labels": {
                     "type": "Json",
-                    "required": true,
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Array of strings - Labels to associate with this issue."
