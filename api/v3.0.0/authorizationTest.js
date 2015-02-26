@@ -16,107 +16,39 @@ describe("[authorization]", function() {
     var client;
     var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
 
-    this.timeout(10000);
-
     beforeEach(function() {
         client = new Client({
             version: "3.0.0"
         });
         client.authenticate({
-            type: "basic",
-            username: "mikedeboertest",
-            password: "test1324"
+            type: "oauth",
+            token: token
         });
     });
 
     it("should successfully execute GET /authorizations (getAll)",  function(next) {
-        client.authorization.create(
+        client.authorization.getAll(
             {
-                scopes: ["user", "public_repo", "repo", "repo:status", "delete_repo", "gist"],
-                note: "Authorization created to unit tests auth",
-                note_url: "https://github.com/ajaxorg/node-github"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                var id = res.id;
-
-                client.authorization.getAll(
-                    {
-                        page: "1",
-                        per_page: "100"
-                    },
-                    function(err, res) {
-                        Assert.equal(err, null);
-                        Assert.equal(res.length, 1);
-
-                        client.authorization["delete"](
-                            {
-                                id: id
-                            },
-                            function(err, res) {
-                                Assert.equal(err, null);
-
-                                client.authorization.getAll(
-                                    {
-                                        page: "1",
-                                        per_page: "100"
-                                    },
-                                    function(err, res) {
-                                        Assert.equal(err, null);
-                                        Assert.equal(res.length, 0);
-
-                                        next();
-                                    }
-                                );
-                            }
-                        );
-                    }
-                );
+                // other assertions go here
+                next();
             }
         );
     });
 
     it("should successfully execute GET /authorizations/:id (get)",  function(next) {
-        client.authorization.create(
+        client.authorization.get(
             {
-                scopes: ["user", "public_repo", "repo", "repo:status", "delete_repo", "gist"],
-                note: "Authorization created to unit tests auth",
-                note_url: "https://github.com/ajaxorg/node-github"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                var id = res.id;
-
-                client.authorization.get(
-                    {
-                        id: id
-                    },
-                    function(err, res) {
-                        Assert.equal(err, null);
-                        Assert.equal(res.id, id);
-                        Assert.equal(res.note, "Authorization created to unit tests auth");
-                        Assert.equal(res.note_url, "https://github.com/ajaxorg/node-github");
-
-                        client.authorization["delete"](
-                            {
-                                id: id
-                            },
-                            function(err, res) {
-                                Assert.equal(err, null);
-
-                                client.authorization.get(
-                                    {
-                                        id: id
-                                    },
-                                    function(err, res) {
-                                        Assert.equal(err.code, 404);
-                                        next();
-                                    }
-                                );
-                            }
-                        );
-                    }
-                );
+                // other assertions go here
+                next();
             }
         );
     });
@@ -124,134 +56,45 @@ describe("[authorization]", function() {
     it("should successfully execute POST /authorizations (create)",  function(next) {
         client.authorization.create(
             {
-                scopes: ["user", "public_repo", "repo", "repo:status", "delete_repo", "gist"],
-                note: "Authorization created to unit tests auth",
-                note_url: "https://github.com/ajaxorg/node-github"
+                scopes: "Array",
+                note: "String",
+                note_url: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                var id = res.id;
-
-                client.authorization.get(
-                    {
-                        id: id
-                    },
-                    function(err, res) {
-                        Assert.equal(err, null);
-                        Assert.equal(res.id, id);
-                        Assert.equal(res.note, "Authorization created to unit tests auth");
-                        Assert.equal(res.note_url, "https://github.com/ajaxorg/node-github");
-
-                        client.authorization["delete"](
-                            {
-                                id: id
-                            },
-                            function(err, res) {
-                                Assert.equal(err, null);
-
-                                client.authorization.get(
-                                    {
-                                        id: id
-                                    },
-                                    function(err, res) {
-                                        Assert.equal(err.code, 404);
-                                        next();
-                                    }
-                                );
-                            }
-                        );
-                    }
-                );
+                // other assertions go here
+                next();
             }
         );
     });
 
     it("should successfully execute PATCH /authorizations/:id (update)",  function(next) {
-        client.authorization.create(
+        client.authorization.update(
             {
-                scopes: ["user", "public_repo", "repo", "repo:status", "delete_repo", "gist"],
-                note: "Authorization created to unit tests auth",
-                note_url: "https://github.com/ajaxorg/node-github"
+                id: "String",
+                scopes: "Array",
+                add_scopes: "Array",
+                remove_scopes: "Array",
+                note: "String",
+                note_url: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                var id = res.id;
-
-                client.authorization.update(
-                    {
-                        id: id,
-                        remove_scopes: ["repo"],
-                        note: "changed"
-                    },
-                    function(err, res) {
-                        Assert.equal(err, null);
-
-                        client.authorization.get(
-                            {
-                                id: id
-                            },
-                            function(err, res) {
-                                Assert.equal(err, null);
-                                Assert.equal(res.id, id);
-                                Assert.ok(res.scopes.indexOf("repo") === -1);
-                                Assert.equal(res.note, "changed");
-                                Assert.equal(res.note_url, "https://github.com/ajaxorg/node-github");
-
-                                client.authorization["delete"](
-                                    {
-                                        id: id
-                                    },
-                                    function(err, res) {
-                                        Assert.equal(err, null);
-
-                                        client.authorization.get(
-                                            {
-                                                id: id
-                                            },
-                                            function(err, res) {
-                                                Assert.equal(err.code, 404);
-                                                next();
-                                            }
-                                        );
-                                    }
-                                );
-                            }
-                        );
-                    }
-                );
+                // other assertions go here
+                next();
             }
         );
     });
 
     it("should successfully execute DELETE /authorizations/:id (delete)",  function(next) {
-        client.authorization.create(
+        client.authorization.delete(
             {
-                scopes: ["user", "public_repo", "repo", "repo:status", "delete_repo", "gist"],
-                note: "Authorization created to unit tests auth",
-                note_url: "https://github.com/ajaxorg/node-github"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                var id = res.id;
-
-                client.authorization["delete"](
-                    {
-                        id: id
-                    },
-                    function(err, res) {
-                        Assert.equal(err, null);
-
-                        client.authorization.get(
-                            {
-                                id: id
-                            },
-                            function(err, res) {
-                                Assert.equal(err.code, 404);
-                                next();
-                            }
-                        );
-                    }
-                );
+                // other assertions go here
+                next();
             }
         );
     });

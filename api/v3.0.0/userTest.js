@@ -97,6 +97,47 @@ describe("[user]", function() {
         );
     });
 
+    it("should successfully execute GET /user/memberships/orgs (getMemberships)",  function(next) {
+        client.user.getMemberships(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/memberships/orgs/:org (getOrgMembership)",  function(next) {
+        client.user.getOrgMembership(
+            {
+                org: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /user/memberships/orgs/:org (updateOrgMembership)",  function(next) {
+        client.user.updateOrgMembership(
+            {
+                org: "String",
+                state: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/emails (getEmails)",  function(next) {
         client.user.getEmails(
             {

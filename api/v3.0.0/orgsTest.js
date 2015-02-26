@@ -79,7 +79,8 @@ describe("[orgs]", function() {
             {
                 org: "String",
                 page: "Number",
-                per_page: "Number"
+                per_page: "Number",
+                filter: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -175,7 +176,9 @@ describe("[orgs]", function() {
     it("should successfully execute GET /orgs/:org/teams (getTeams)",  function(next) {
         client.orgs.getTeams(
             {
-                org: "String"
+                org: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

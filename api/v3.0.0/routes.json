@@ -1610,6 +1610,87 @@
         }
     },
 
+    "deployments": {
+
+        "create": {
+            "url": "/repos/:user/:repo/deployments",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "ref": {
+                    "type": "String",
+                    "required": true,
+                    "invalidmsg": "",
+                    "description": "The ref to deploy. This can be a branch, tag, or sha."
+                },
+                "task": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
+                },
+                "auto_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "description": "Parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true"
+                },
+                "payload": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON payload with extra information about the deployment"
+                },
+                "environment": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Name for the target deployment environment (e.g., production, staging, qa). Default: 'production'"
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Short description of the deployment."
+                }
+            }
+        },
+        "createStatus": {
+            "url": "/repos/:user/:repo/deployments/:id/statuses",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(pending|success|error|failure)$",
+                    "invalidmsg": "",
+                    "description": "State of the status - can be one of pending, success, error, or failure."
+                },
+                "target_url": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Short description of the status."
+                }
+            }
+        }
+    },
+
     "pull-requests": {
         "get-all": {
             "url": "/repos/:user/:repo/pulls",

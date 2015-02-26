@@ -29,22 +29,18 @@ describe("[issues]", function() {
     it("should successfully execute GET /issues (getAll)",  function(next) {
         client.issues.getAll(
             {
-                filter: "created",
-                state: "open",
-                labels: "",
-                sort: "updated",
-                direction: "asc"
+                filter: "String",
+                state: "String",
+                labels: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.length, 1);
-                var issue = res[0];
-                Assert.equal(issue.title, "My First Issue");
-                Assert.equal(issue.number, 2);
-                Assert.equal(issue.state, "open");
-                Assert.equal(issue.body, "Willing to start a debate on the best recipe of macaroni.");
-                Assert.equal(issue.assignee.login, "mikedeboertest");
-
+                // other assertions go here
                 next();
             }
         );
@@ -53,22 +49,22 @@ describe("[issues]", function() {
     it("should successfully execute GET /repos/:user/:repo/issues (repoIssues)",  function(next) {
         client.issues.repoIssues(
             {
-                user: "mikedeboertest",
-                repo: "node_chat",
-                state: "open",
-                sort: "updated",
-                direction: "asc"
+                user: "String",
+                repo: "String",
+                milestone: "String",
+                state: "String",
+                assignee: "String",
+                mentioned: "String",
+                labels: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.length, 1);
-                var issue = res[0];
-                Assert.equal(issue.title, "My First Issue");
-                Assert.equal(issue.number, 2);
-                Assert.equal(issue.state, "open");
-                Assert.equal(issue.body, "Willing to start a debate on the best recipe of macaroni.");
-                Assert.equal(issue.assignee.login, "mikedeboertest");
-
+                // other assertions go here
                 next();
             }
         );
@@ -77,23 +73,18 @@ describe("[issues]", function() {
     it("should successfully execute GET /repos/:user/:repo/issues/:number (getRepoIssue)",  function(next) {
         client.issues.getRepoIssue(
             {
-                user: "mikedeboertest",
-                repo: "node_chat",
-                number: 2
+                user: "String",
+                repo: "String",
+                number: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.title, "My First Issue");
-                Assert.equal(res.number, 2);
-                Assert.equal(res.state, "open");
-                Assert.equal(res.body, "Willing to start a debate on the best recipe of macaroni.");
-                Assert.equal(res.assignee.login, "mikedeboertest");
-
+                // other assertions go here
                 next();
             }
         );
     });
-/*
+
     it("should successfully execute POST /repos/:user/:repo/issues (create)",  function(next) {
         client.issues.create(
             {
@@ -123,7 +114,27 @@ describe("[issues]", function() {
                 body: "String",
                 assignee: "String",
                 milestone: "Number",
-                labels: "Json"
+                labels: "Json",
+                state: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/issues/comments (repoComments)",  function(next) {
+        client.issues.repoComments(
+            {
+                user: "String",
+                repo: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -264,7 +275,9 @@ describe("[issues]", function() {
         client.issues.getLabels(
             {
                 user: "String",
-                repo: "String"
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -327,6 +340,21 @@ describe("[issues]", function() {
                 user: "String",
                 repo: "String",
                 name: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/issues/:number/labels (getIssueLabels)",  function(next) {
+        client.issues.getIssueLabels(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -419,5 +447,5 @@ describe("[issues]", function() {
                 next();
             }
         );
-    });*/
+    });
 });
