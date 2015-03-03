@@ -1509,6 +1509,15 @@
             }
         },
 
+        "add-team-membership": {
+            "url": "/teams/:id/memberships/:user",
+            "method": "PUT",
+            "params": {
+                "$id": null,
+                "$user": null
+            }
+        },
+
         "get-team-repos": {
             "url": "/teams/:id/repos",
             "method": "GET",
