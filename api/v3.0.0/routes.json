@@ -1633,8 +1633,20 @@
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all"
                 },
-                "$head": null,
-                "$base": null,
+                "head": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "base": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
                 "$page": null,
                 "$per_page": null,
                 "sort": {
