@@ -3007,6 +3007,21 @@
             }
         },
 
+        "edit-organization-membership": {
+            "url": "/user/memberships/orgs/:org",
+            "method": "PATCH",
+            "params": {
+                "$org": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(open|closed|active)$",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            }
+        },
+
         "get-teams": {
             "url": "/user/teams",
             "method": "GET",
