@@ -12,7 +12,7 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-describe("[gitignore]", function() {
+describe("[markdown]", function() {
     var client;
     var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
 
@@ -20,31 +20,22 @@ describe("[gitignore]", function() {
         client = new Client({
             version: "3.0.0"
         });
-        client.authenticate({
+        /*client.authenticate({
             type: "oauth",
             token: token
-        });
+        });*/
     });
 
-    it("should successfully execute GET /gitignore/templates (templates)",  function(next) {
-        client.gitignore.templates(
-            {},
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /gitignore/templates/:name (template)",  function(next) {
-        client.gitignore.template(
+    it("should successfully execute POST /markdown (render)",  function(next) {
+        client.markdown.render(
             {
-                name: "String"
+                text: "Hello world github/linguist#1 **cool**, and #1!",
+                mode: "gfm",
+                context: "github/gollem"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                // other assertions go here
+                console.log(res);
                 next();
             }
         );

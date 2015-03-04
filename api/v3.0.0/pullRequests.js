@@ -30,8 +30,8 @@ var pullRequests = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - state (String): Optional. open, closed, or all Validation rule: ` ^(open|closed|all)$ `.
-     *  - head (String): Optional. Filter pulls by head user and branch name in the format of user:ref-name. Example: github:new-script-format.
-     *  - base (String): Optional. Filter pulls by base branch name. Example: gh-pages.
+     *  - head (String): Optional. head for pulls
+     *  - base (String): Optional. base branch name
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      *  - sort (String): Optional. Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created` Validation rule: ` ^(created|updated|popularity|long-running)$ `.

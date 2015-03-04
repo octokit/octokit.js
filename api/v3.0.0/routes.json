@@ -1610,6 +1610,92 @@
         }
     },
 
+    "deployments": {
+
+        "create": {
+            "url": "/repos/:user/:repo/deployments",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "ref": {
+                    "type": "String",
+                    "required": true,
+                    "invalidmsg": "",
+                    "description": "The ref to deploy. This can be a branch, tag, or sha."
+                },
+                "task": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
+                },
+                "auto_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "description": "Parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true"
+                },
+                "required_contexts": {
+                    "type": "Array",
+                    "required": false,
+                    "description": "Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts."
+                },
+                "payload": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON payload with extra information about the deployment"
+                },
+                "environment": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Name for the target deployment environment (e.g., production, staging, qa). Default: 'production'"
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Short description of the deployment."
+                }
+            }
+        },
+        "create-status": {
+            "url": "/repos/:user/:repo/deployments/:id/statuses",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(pending|success|error|failure)$",
+                    "invalidmsg": "",
+                    "description": "State of the status - can be one of pending, success, error, or failure."
+                },
+                "target_url": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Short description of the status."
+                }
+            }
+        }
+    },
+
     "pull-requests": {
         "get-all": {
             "url": "/repos/:user/:repo/pulls",
@@ -1624,8 +1710,18 @@
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all"
                 },
-                "$head": null,
-                "$base": null,
+                "head":  {
+                    "type": "String",
+                    "required": false,
+                    "invalidmsg": "",
+                    "description": "head for pulls"
+                },
+                "base":  {
+                    "type": "String",
+                    "required": false,
+                    "invalidmsg": "",
+                    "description": "base branch name"
+                },
                 "$page": null,
                 "$per_page": null,
                 "sort": {
@@ -3004,6 +3100,38 @@
             "params": {
                 "$page": null,
                 "$per_page": null
+            }
+        },
+
+        "get-memberships": {
+            "url": "/user/memberships/orgs",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
+        "get-org-membership": {
+            "url": "/user/memberships/orgs/:org",
+            "method": "GET",
+            "params": {
+                "$org": null
+            }
+        },
+
+        "update-org-membership": {
+            "url": "/user/memberships/orgs/:org",
+            "method": "PATCH",
+            "params": {
+                "$org": null,
+                "state": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(active)$",
+                    "invalidmsg": "only active is accepted",
+                    "description": "the state that the membership should be in."
+                }
             }
         },
 

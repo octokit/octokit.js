@@ -20,22 +20,22 @@ describe("[markdown]", function() {
         client = new Client({
             version: "3.0.0"
         });
-        /*client.authenticate({
+        client.authenticate({
             type: "oauth",
             token: token
-        });*/
+        });
     });
 
     it("should successfully execute POST /markdown (render)",  function(next) {
         client.markdown.render(
             {
-                text: "Hello world github/linguist#1 **cool**, and #1!",
-                mode: "gfm",
-                context: "github/gollem"
+                text: "String",
+                mode: "String",
+                context: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                console.log(res);
+                // other assertions go here
                 next();
             }
         );

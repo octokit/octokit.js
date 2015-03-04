@@ -31,11 +31,13 @@ describe("[pullRequests]", function() {
             {
                 user: "String",
                 repo: "String",
-                base: "String",
-                head: "String",
                 state: "String",
+                head: "String",
+                base: "String",
                 page: "Number",
-                per_page: "Number"
+                per_page: "Number",
+                sort: "String",
+                direction: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

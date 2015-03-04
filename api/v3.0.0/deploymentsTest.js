@@ -12,7 +12,7 @@
 var Assert = require("assert");
 var Client = require("./../../index");
 
-describe("[statuses]", function() {
+describe("[deployments]", function() {
     var client;
     var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
 
@@ -26,12 +26,17 @@ describe("[statuses]", function() {
         });
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/statuses (get)",  function(next) {
-        client.statuses.get(
+    it("should successfully execute POST /repos/:user/:repo/deployments (create)",  function(next) {
+        client.deployments.create(
             {
                 user: "String",
                 repo: "String",
-                sha: "String"
+                ref: "String",
+                task: "String",
+                auto_merge: "Boolean",
+                payload: "String",
+                environment: "String",
+                description: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -41,31 +46,15 @@ describe("[statuses]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/status (getCombined)",  function(next) {
-        client.statuses.getCombined(
+    it("should successfully execute POST /repos/:user/:repo/deployments/:id/statuses (createStatus)",  function(next) {
+        client.deployments.createStatus(
             {
                 user: "String",
                 repo: "String",
-                sha: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/statuses/:sha (create)",  function(next) {
-        client.statuses.create(
-            {
-                user: "String",
-                repo: "String",
-                sha: "String",
+                id: "String",
                 state: "String",
                 target_url: "String",
-                description: "String",
-                context: "String"
+                description: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
