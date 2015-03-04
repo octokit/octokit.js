@@ -1636,6 +1636,11 @@
                     "required": false,
                     "description": "Parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true"
                 },
+                "required_contexts": {
+                    "type": "Array",
+                    "required": false,
+                    "description": "Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts."
+                },
                 "payload": {
                     "type": "String",
                     "required": false,
