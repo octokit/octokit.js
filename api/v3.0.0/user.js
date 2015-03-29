@@ -27,6 +27,7 @@ var user = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - since (Number): Optional. The integer ID of the last User that you’ve seen.
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
