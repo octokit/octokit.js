@@ -4,7 +4,7 @@ A Node.JS module, which provides an object oriented wrapper for the GitHub v3 AP
 
 ## Installation
 
-  Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github.png):
+  Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github.svg):
 
       $ npm install github
 
