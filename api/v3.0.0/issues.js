@@ -84,6 +84,7 @@ var issues = module.exports = {
      *  - milestone (String): Optional.  Validation rule: ` ^([0-9]+|none|\*)$ `.
      *  - state (String): Optional. open, closed, or all Validation rule: ` ^(open|closed|all)$ `.
      *  - assignee (String): Optional. String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User.
+     *  - creator (String): Optional. The user that created the issue.
      *  - mentioned (String): Optional. String User login.
      *  - labels (String): Optional. String list of comma separated Label names. Example: bug,ui,@high
      *  - sort (String): Optional.  Validation rule: ` ^(created|updated|comments)$ `.

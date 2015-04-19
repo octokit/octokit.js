@@ -26,6 +26,7 @@
             "If-None-Match",
             "Cookie",
             "User-Agent",
+            "Accept",
             "X-GitHub-OTP"
         ],
         "params": {
@@ -823,8 +824,15 @@
                     "type": "String",
                     "required": false,
                     "validation": "",
-                    "invalidmsg": "String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User.",
+                    "invalidmsg": "",
                     "description": "String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User."
+                },
+                "creator": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The user that created the issue."
                 },
                 "mentioned": {
                     "type": "String",
