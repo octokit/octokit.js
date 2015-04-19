@@ -32,6 +32,8 @@ var repos = module.exports = {
      *  - direction (String): Optional.  Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-your-repositories
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -130,6 +132,8 @@ var repos = module.exports = {
      *  - type (String): Optional. Possible values: `all`, `public`, `member`. Default: `all`. Validation rule: ` ^(all|public|member)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-organization-repositories
      **/
     this.getFromOrg = function(msg, block, callback) {
         var self = this;
@@ -183,6 +187,8 @@ var repos = module.exports = {
      *  - has_downloads (Boolean): Optional. True to enable downloads for this repository, false to disable them. Default is true.
      *  - auto_init (Boolean): Optional. True to create an initial commit with empty README. Default is false
      *  - gitignore_template (String): Optional. Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
+     *
+     * https://developer.github.com/v3/repos/#create
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -238,6 +244,8 @@ var repos = module.exports = {
      *  - auto_init (Boolean): Optional. True to create an initial commit with empty README. Default is false
      *  - gitignore_template (String): Optional. Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
      *  - team_id (Number): Optional. The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#create
      **/
     this.createFromOrg = function(msg, block, callback) {
         var self = this;
@@ -284,6 +292,8 @@ var repos = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/#get
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -383,6 +393,8 @@ var repos = module.exports = {
      *  - has_wiki (Boolean): Optional. True to enable the wiki for this repository, false to disable it. Default is true.
      *  - has_downloads (Boolean): Optional. True to enable downloads for this repository, false to disable them. Default is true.
      *  - default_branch (String): Optional. Updates the default branch for this repository.
+     *
+     * https://developer.github.com/v3/repos/#edit
      **/
     this.update = function(msg, block, callback) {
         var self = this;
@@ -429,6 +441,8 @@ var repos = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/#delete-a-repository
      **/
     this.delete = function(msg, block, callback) {
         var self = this;
@@ -527,6 +541,8 @@ var repos = module.exports = {
      *  - anon (Boolean): Optional. Set to 1 or true to include anonymous contributors in results.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-contributors
      **/
     this.getContributors = function(msg, block, callback) {
         var self = this;
@@ -575,6 +591,8 @@ var repos = module.exports = {
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-languages
      **/
     this.getLanguages = function(msg, block, callback) {
         var self = this;
@@ -623,6 +641,8 @@ var repos = module.exports = {
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-teams
      **/
     this.getTeams = function(msg, block, callback) {
         var self = this;
@@ -671,6 +691,8 @@ var repos = module.exports = {
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-tags
      **/
     this.getTags = function(msg, block, callback) {
         var self = this;
@@ -719,6 +741,8 @@ var repos = module.exports = {
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#list-branches
      **/
     this.getBranches = function(msg, block, callback) {
         var self = this;
@@ -768,6 +792,8 @@ var repos = module.exports = {
      *  - branch (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/#get-branch
      **/
     this.getBranch = function(msg, block, callback) {
         var self = this;

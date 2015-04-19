@@ -36,6 +36,8 @@ var pullRequests = module.exports = {
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      *  - sort (String): Optional. Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created` Validation rule: ` ^(created|updated|popularity|long-running)$ `.
      *  - direction (String): Optional.  Validation rule: ` ^(asc|desc)$ `.
+     *
+     * https://developer.github.com/v3/pulls/#list-pull-requests
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -83,6 +85,8 @@ var pullRequests = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/pulls/#get-a-single-pull-request
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -133,6 +137,8 @@ var pullRequests = module.exports = {
      *  - body (String): Optional. 
      *  - base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
      *  - head (String): Required. The branch (or git ref) where your changes are implemented.
+     *
+     * https://developer.github.com/v3/pulls/#create-a-pull-request
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -182,6 +188,8 @@ var pullRequests = module.exports = {
      *  - issue (Number): Required.  Validation rule: ` ^[0-9]+$ `.
      *  - base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
      *  - head (String): Required. The branch (or git ref) where your changes are implemented.
+     *
+     * https://developer.github.com/v3/pulls/#create-a-pull-request
      **/
     this.createFromIssue = function(msg, block, callback) {
         var self = this;
@@ -232,6 +240,8 @@ var pullRequests = module.exports = {
      *  - state (String): Optional.  Validation rule: ` ^(open|closed)$ `.
      *  - title (String): Required. 
      *  - body (String): Optional. 
+     *
+     * https://developer.github.com/v3/pulls/#update-a-pull-request
      **/
     this.update = function(msg, block, callback) {
         var self = this;
@@ -281,6 +291,8 @@ var pullRequests = module.exports = {
      *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request
      **/
     this.getCommits = function(msg, block, callback) {
         var self = this;
@@ -330,6 +342,8 @@ var pullRequests = module.exports = {
      *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/pulls/#list-pull-requests-files
      **/
     this.getFiles = function(msg, block, callback) {
         var self = this;
@@ -379,6 +393,8 @@ var pullRequests = module.exports = {
      *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/pulls/#get-if-a-pull-request-has-been-merged
      **/
     this.getMerged = function(msg, block, callback) {
         var self = this;
@@ -427,6 +443,8 @@ var pullRequests = module.exports = {
      *  - repo (String): Required. 
      *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
      *  - commit_message (String): Optional. The message that will be used for the merge commit
+     *
+     * https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button
      **/
     this.merge = function(msg, block, callback) {
         var self = this;

@@ -6,6 +6,7 @@
             "protocol": "https",
             "host": "api.github.com",
             "port": 443,
+            "documentation": "https://developer.github.com/v3",
             "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
             "requestFormat": "json",
             "requestMedia": "application/vnd.github.v3+json"

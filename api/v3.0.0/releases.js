@@ -31,6 +31,8 @@ var releases = module.exports = {
      *  - repo (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository
      **/
     this.listReleases = function(msg, block, callback) {
         var self = this;
@@ -78,6 +80,8 @@ var releases = module.exports = {
      *  - owner (String): Required. 
      *  - id (Number): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/releases/#get-a-single-release
      **/
     this.getRelease = function(msg, block, callback) {
         var self = this;
@@ -130,6 +134,8 @@ var releases = module.exports = {
      *  - body (String): Optional. 
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
      *  - prerelease (Boolean): Optional. true to identify the release as a prerelease. false to identify the release as a full release. Default: false
+     *
+     * https://developer.github.com/v3/repos/releases/#create-a-release
      **/
     this.createRelease = function(msg, block, callback) {
         var self = this;
@@ -183,6 +189,8 @@ var releases = module.exports = {
      *  - body (String): Optional. 
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
      *  - prerelease (Boolean): Optional. true to identify the release as a prerelease. false to identify the release as a full release. Default: false
+     *
+     * https://developer.github.com/v3/repos/releases/#edit-a-release
      **/
     this.editRelease = function(msg, block, callback) {
         var self = this;
@@ -230,6 +238,8 @@ var releases = module.exports = {
      *  - owner (String): Required. 
      *  - id (Number): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/releases/#delete-a-release
      **/
     this.deleteRelease = function(msg, block, callback) {
         var self = this;
@@ -277,6 +287,8 @@ var releases = module.exports = {
      *  - owner (String): Required. 
      *  - id (Number): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/releases/#list-assets-for-a-release
      **/
     this.listAssets = function(msg, block, callback) {
         var self = this;
@@ -324,6 +336,8 @@ var releases = module.exports = {
      *  - owner (String): Required. 
      *  - id (Number): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/releases/#get-a-single-release-asset
      **/
     this.getAsset = function(msg, block, callback) {
         var self = this;
@@ -421,6 +435,8 @@ var releases = module.exports = {
      *  - repo (String): Required. 
      *  - name (String): Required. 
      *  - label (String): Optional. An alternate short description of the asset. Used in place of the filename.
+     *
+     * https://developer.github.com/v3/repos/releases/#edit-a-release-asset
      **/
     this.editAsset = function(msg, block, callback) {
         var self = this;
@@ -468,6 +484,8 @@ var releases = module.exports = {
      *  - owner (String): Required. 
      *  - id (Number): Required. 
      *  - repo (String): Required. 
+     *
+     * https://developer.github.com/v3/repos/releases/#delete-a-release-asset
      **/
     this.deleteAsset = function(msg, block, callback) {
         var self = this;

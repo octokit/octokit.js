@@ -28,6 +28,8 @@ var user = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - since (Number): Optional. The integer ID of the last User that you’ve seen.
+     *
+     * https://developer.github.com/v3/users/#get-a-single-user
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -73,6 +75,8 @@ var user = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - user (String): Required. 
+     *
+     * https://developer.github.com/v3/users/#get-a-single-user
      **/
     this.getFrom = function(msg, block, callback) {
         var self = this;
@@ -118,6 +122,8 @@ var user = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  No other params, simply pass an empty Object literal `{}`
+     *
+     * https://developer.github.com/v3/users/#get-a-single-user
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -169,6 +175,8 @@ var user = module.exports = {
      *  - location (String): Optional. 
      *  - hireable (Boolean): Optional. 
      *  - bio (String): Optional. 
+     *
+     * https://developer.github.com/v3/users/#update-the-authenticated-user
      **/
     this.update = function(msg, block, callback) {
         var self = this;
