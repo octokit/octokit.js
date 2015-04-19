@@ -225,17 +225,17 @@ var user = module.exports = {
                 callback(null, ret);
         });
     };
-    
+
     /** section: github
-     *  user#editOrgMembership(msg, callback) -> null
+     *  user#editOrganizationMembership(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - org (String): Required.
-     *  - state (String): Required
+     *  - org (String): Required. 
+     *  - state (String): Required.  Validation rule: ` ^(open|closed|active)$ `.
      **/
     this.editOrganizationMembership = function(msg, block, callback) {
         var self = this;
@@ -266,7 +266,7 @@ var user = module.exports = {
                 callback(null, ret);
         });
     };
-    
+
     /** section: github
      *  user#getTeams(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.

@@ -816,8 +816,8 @@ var orgs = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required.
-     *  - user (String): Required.
+     *  - id (String): Required. 
+     *  - user (String): Required. 
      **/
     this.addTeamMembership = function(msg, block, callback) {
         var self = this;
@@ -848,7 +848,7 @@ var orgs = module.exports = {
                 callback(null, ret);
         });
     };
-    
+
     /** section: github
      *  orgs#getTeamRepos(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
