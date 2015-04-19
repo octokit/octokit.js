@@ -20,7 +20,7 @@ or
 
 You can find the docs for the API of this client at [http://mikedeboer.github.com/node-github/](http://mikedeboer.github.com/node-github/)
 
-Additionally, the [official Github documentation](http://developer.github.com/)
+Additionally, the [official Github documentation](https://developer.github.com/v3/)
 is a very useful resource.
 
 ## Example
@@ -35,8 +35,8 @@ var github = new GitHubApi({
     // optional
     debug: true,
     protocol: "https",
-    host: "github.my-GHE-enabled-company.com",
-    pathPrefix: "/api/v3", // for some GHEs
+    host: "github.my-GHE-enabled-company.com", // should be api.github.com for GitHub
+    pathPrefix: "/api/v3", // for some GHEs; none for GitHub
     timeout: 5000,
     headers: {
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
