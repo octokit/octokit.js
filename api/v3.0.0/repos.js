@@ -41,7 +41,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -51,12 +54,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -86,7 +91,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -96,12 +104,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -129,7 +139,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -139,12 +152,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -177,7 +192,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -187,12 +205,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -227,7 +247,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -237,12 +260,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -268,7 +293,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -278,12 +306,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -308,7 +338,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -318,12 +351,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -357,7 +392,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -367,12 +405,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -398,7 +438,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -408,12 +451,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -442,7 +487,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -452,12 +500,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -486,7 +536,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -496,12 +549,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -529,7 +584,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -539,12 +597,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -572,7 +632,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -582,12 +645,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -615,7 +680,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -625,12 +693,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -658,7 +728,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -668,12 +741,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -702,7 +777,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -712,12 +790,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -745,7 +825,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -755,12 +838,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -787,7 +872,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -797,12 +885,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -829,7 +919,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -839,12 +932,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -871,7 +966,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -881,12 +979,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -919,7 +1019,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -929,12 +1032,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -961,7 +1066,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -971,12 +1079,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1004,7 +1114,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1014,12 +1127,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1048,7 +1163,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1058,12 +1176,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1095,7 +1215,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1105,12 +1228,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1137,7 +1262,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1147,12 +1275,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1180,7 +1310,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1190,12 +1323,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1223,7 +1358,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1233,12 +1371,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1265,7 +1405,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1275,12 +1418,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1307,7 +1452,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1317,12 +1465,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1350,7 +1500,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1360,12 +1513,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1395,7 +1550,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1405,12 +1563,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1442,7 +1602,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1452,12 +1615,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1490,7 +1655,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1500,12 +1668,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1537,7 +1707,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1547,12 +1720,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1580,7 +1755,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1590,12 +1768,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1623,7 +1803,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1633,12 +1816,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1665,7 +1850,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1675,12 +1863,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1707,7 +1897,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1717,12 +1910,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1751,7 +1946,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1761,12 +1959,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1793,7 +1993,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1803,12 +2006,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1836,7 +2041,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1846,12 +2054,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1878,7 +2088,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1888,12 +2101,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1921,7 +2136,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1931,12 +2149,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -1965,7 +2185,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -1975,12 +2198,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2007,7 +2232,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2017,12 +2245,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2050,7 +2280,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2060,12 +2293,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2091,7 +2326,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2101,12 +2339,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2133,7 +2373,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2143,12 +2386,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2176,7 +2421,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2186,12 +2434,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2217,7 +2467,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2227,12 +2480,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2258,7 +2513,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2268,12 +2526,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2301,7 +2561,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2311,12 +2574,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2342,7 +2607,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2352,12 +2620,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2384,7 +2654,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2394,12 +2667,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2427,7 +2702,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2437,12 +2715,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2468,7 +2748,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2478,12 +2761,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2509,7 +2794,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2519,12 +2807,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2552,7 +2842,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2562,12 +2855,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2594,7 +2889,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2604,12 +2902,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2639,7 +2939,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2649,12 +2952,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2687,7 +2992,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2697,12 +3005,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2729,7 +3039,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2739,12 +3052,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2771,7 +3086,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2781,12 +3099,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2812,7 +3132,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2822,12 +3145,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2853,7 +3178,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2863,12 +3191,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2894,7 +3224,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2904,12 +3237,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2935,7 +3270,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2945,12 +3283,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -2976,7 +3316,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -2986,12 +3329,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -3023,7 +3368,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -3033,12 +3381,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -3071,7 +3421,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -3081,12 +3434,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -3113,7 +3468,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -3123,12 +3481,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);
@@ -3158,7 +3518,10 @@ var repos = module.exports = {
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)
@@ -3168,12 +3531,14 @@ var repos = module.exports = {
 
             if (!ret)
                 ret = {};
-            if (!ret.meta)
-                ret.meta = {};
-            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
-                if (res.headers[header])
-                    ret.meta[header] = res.headers[header];
-            });
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
 
             if (callback)
                 callback(null, ret);

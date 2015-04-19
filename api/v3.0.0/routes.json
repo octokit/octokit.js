@@ -26,7 +26,6 @@
             "If-None-Match",
             "Cookie",
             "User-Agent",
-            "Accept",
             "X-GitHub-OTP"
         ],
         "params": {
@@ -345,6 +344,13 @@
                 "invalidmsg": "",
                 "description": "Search Term",
                 "combined": true
+            },
+            "data": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Raw data to send as the body of the request"
             }
         }
     },
@@ -3846,6 +3852,15 @@
                     "invalidmsg": "",
                     "description": "The repository context, only taken into account when rendering as `gfm`"
                 }
+            }
+        },
+
+        "render-raw": {
+            "url": "/markdown/raw",
+            "method": "POST",
+            "requestFormat": "raw",
+            "params": {
+                "$data": null
             }
         }
     },

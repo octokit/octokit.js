@@ -573,13 +573,20 @@ var Client = module.exports = function(config) {
         getPage.call(this, link, "first", callback);
     };
 
+    function getRequestFormat(hasBody, block) {
+        if (hasBody)
+            return block.requestFormat || this.constants.requestFormat;
+
+        return "query";
+    }
+
     function getQueryAndUrl(msg, def, format, config) {
         var url = def.url;
         if (config.pathPrefix && url.indexOf(config.pathPrefix) !== 0) {
             url = config.pathPrefix + def.url;
         }
         var ret = {
-            query: format == "json" ? {} : []
+            query: format == "json" ? {} : format == "raw" ? msg.data : []
         };
         if (!def || !def.params) {
             ret.url = url;
@@ -625,7 +632,7 @@ var Client = module.exports = function(config) {
             else {
                 if (format == "json")
                     ret.query[paramName] = val;
-                else
+                else if (format != "raw")
                     ret.query.push(paramName + "=" + val);
             }
         });
@@ -649,9 +656,7 @@ var Client = module.exports = function(config) {
         var method = block.method.toLowerCase();
         var hasFileBody = block.hasFileBody;
         var hasBody = !hasFileBody && ("head|get|delete".indexOf(method) === -1);
-        var format = hasBody && this.constants.requestFormat
-            ? this.constants.requestFormat
-            : "query";
+        var format = getRequestFormat.call(this, hasBody, block);
         var obj = getQueryAndUrl(msg, block, format, self.config);
         var query = obj.query;
         var url = this.config.url ? this.config.url + obj.url : obj.url;
@@ -692,12 +697,14 @@ var Client = module.exports = function(config) {
         if (hasBody) {
             if (format == "json")
                 query = JSON.stringify(query);
-            else
+            else if (format != "raw")
                 query = query.join("&");
             headers["content-length"] = Buffer.byteLength(query, "utf8");
             headers["content-type"] = format == "json"
                 ? "application/json; charset=utf-8"
-                : "application/x-www-form-urlencoded; charset=utf-8";
+                : format == "raw"
+                    ? "text/plain; charset=utf-8"
+                    : "application/x-www-form-urlencoded; charset=utf-8";
         }
         if (this.auth) {
             var basic;

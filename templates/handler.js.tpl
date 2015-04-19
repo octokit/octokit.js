@@ -7,7 +7,10 @@
 
             var ret;
             try {
-                ret = res.data && JSON.parse(res.data);
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
             }
             catch (ex) {
                 if (callback)

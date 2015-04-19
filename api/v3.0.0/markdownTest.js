@@ -40,4 +40,17 @@ describe("[markdown]", function() {
             }
         );
     });
+
+    it("should successfully execute POST /markdown/raw (render)",  function(next) {
+        client.markdown.renderRaw(
+            {
+                data: "Hello world github/linguist#1 **cool**, and #1!"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                console.log(res);
+                next();
+            }
+        );
+    });
 });
