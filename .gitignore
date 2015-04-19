@@ -5,3 +5,4 @@ node_modules
 .settings
 .c9revisions
 /nbproject/private/
+.idea

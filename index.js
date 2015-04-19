@@ -5,6 +5,7 @@ var fs = require("fs");
 var mime = require("mime");
 var Util = require("./util");
 var Url = require("url");
+var Promise = require('es6-promise').Promise;
 
 /** section: github
  * class Client
@@ -349,7 +350,10 @@ var Client = module.exports = function(config) {
                         };
                     }
 
-                    self[section][funcName] = function(msg, callback) {
+
+
+
+                    self[section][funcName] = function(msg, callback){
                         try {
                             parseParams(msg, block.params);
                         }
@@ -363,7 +367,20 @@ var Client = module.exports = function(config) {
                             return;
                         }
 
-                        api[section][funcName].call(api, msg, block, callback);
+                        // good description for standart: http://www.html5rocks.com/en/tutorials/es6/promises/
+                        return new Promise(function (resolve, reject) {
+                            api[section][funcName].call(api, msg, block, function(err, response){
+                                if (Util.isFunction(callback)) {
+                                    callback.apply(null, arguments)
+                                }
+
+                                if (Util.isNull(err)) {
+                                    resolve(response);
+                                } else {
+                                    reject(err);
+                                }
+                            });
+                        });
                     };
                 }
                 else {

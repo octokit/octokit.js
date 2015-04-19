@@ -105,19 +105,19 @@ var _slice = Array.prototype.slice;
  *      - arg1 (mixed): messages to be printed to the standard output
  *      - type (String): type denotation of the message. Possible values:
  *          'info', 'error', 'fatal', 'exit'. Optional, defaults to 'info'.
- * 
+ *
  *  Unified logging to the console; arguments passed to this function will put logged
  *  to the standard output of the current process and properly formatted.
  *  Any non-String object will be inspected by the NodeJS util#inspect utility
  *  function.
  *  Messages will be prefixed with its type (with corresponding font color), like so:
- * 
+ *
  *      [info] informational message
  *      [error] error message
  *      [fatal] fatal error message
  *      [exit] program exit message (not an error)
- * 
- * The type of message can be defined by passing it to this function as the last/ 
+ *
+ * The type of message can be defined by passing it to this function as the last/
  * final argument. If the type can not be found, this last/ final argument will be
  * regarded as yet another message.
  **/
@@ -137,4 +137,18 @@ exports.log = function() {
     msg.split("\n").forEach(function(line) {
         console.log(pfx + " " + line);
     });
+};
+
+
+
+exports.isUndefined = function isUndefined(x) {
+    return typeof x === 'undefined';
+};
+
+exports.isNull = function isNull(x) {
+    return x === null;
+};
+
+exports.isFunction = function isFunction(x) {
+    return typeof x === 'function';
 };
