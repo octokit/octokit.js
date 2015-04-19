@@ -2998,4 +2998,186 @@ var repos = module.exports = {
         });
     };
 
+    /** section: github
+     *  repos#getDeployments(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  ##### Params on the `msg` object:
+     *
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - sha (String): Optional. The short or long sha that was recorded at creation time. Default: none.
+     *  - ref (String): Optional. The name of the ref. This can be a branch, tag, or sha. Default: none.
+     *  - task (String): Optional. The name of the task for the deployment. e.g. deploy or deploy:migrations. Default: none.
+     *  - environment (String): Optional. The name of the environment that was deployed to. e.g. staging or production. Default: none.
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
+     *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     **/
+    this.getDeployments = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+    /** section: github
+     *  repos#createDeployment(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  ##### Params on the `msg` object:
+     *
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - ref (String): Required. The ref to deploy. This can be a branch, tag, or sha.
+     *  - task (String): Required. The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
+     *  - auto_merge (Boolean): Optional. Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true
+     *  - required_contexts (Array): Optional. Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
+     *  - payload (String): Optional. Optional JSON payload with extra information about the deployment. Default: ''
+     *  - environment (String): Optional. The name of the environment that was deployed to. e.g. staging or production. Default: none.
+     *  - description (String): Optional. Optional short description. Default: ''
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     **/
+    this.createDeployment = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+    /** section: github
+     *  repos#getDeploymentStatuses(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  ##### Params on the `msg` object:
+     *
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - id (String): Required. 
+     **/
+    this.getDeploymentStatuses = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+    /** section: github
+     *  repos#createDeploymentStatus(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  ##### Params on the `msg` object:
+     *
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - state (String): Optional. The state of the status. Can be one of pending, success, error, or failure.
+     *  - target_url (String): Optional. The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: ''
+     *  - description (String): Optional. A short description of the status. Default: ''
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - id (String): Required. 
+     **/
+    this.createDeploymentStatus = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
 }).call(repos.repos);
