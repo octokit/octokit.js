@@ -6,7 +6,7 @@ A Node.JS module, which provides an object oriented wrapper for the GitHub v3 AP
 
   Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github.svg):
 
-      $ npm install github
+      $ npm install node-github
 
 or
 
@@ -27,7 +27,7 @@ is a very useful resource.
 
 Print all followers of the user "mikedeboer" to the console.
 ```javascript
-var GitHubApi = require("github");
+var GitHubApi = require("node-github");
 
 var github = new GitHubApi({
     // required
