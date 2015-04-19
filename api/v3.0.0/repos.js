@@ -2998,4 +2998,141 @@ var repos = module.exports = {
         });
     };
 
+    this.getDeployments = function(msg, block, callback) {
+
+        msg.headers = msg.headers ? msg.headers : [];
+        msg.headers[ 'Accept' ] = 'application/vnd.github.cannonball-preview+json';
+
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+
+    this.createDeployment = function(msg, block, callback) {
+
+        msg.headers = msg.headers ? msg.headers : [];
+        msg.headers[ 'Accept' ] = 'application/vnd.github.cannonball-preview+json';
+
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+    this.getDeploymentStatuses = function(msg, block, callback) {
+
+        msg.headers = msg.headers ? msg.headers : [];
+        msg.headers[ 'Accept' ] = 'application/vnd.github.cannonball-preview+json';
+
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+    this.createDeploymentStatus = function(msg, block, callback) {
+
+        msg.headers = msg.headers ? msg.headers : [];
+        msg.headers[ 'Accept' ] = 'application/vnd.github.cannonball-preview+json';
+
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (!ret.meta)
+                ret.meta = {};
+            ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                if (res.headers[header])
+                    ret.meta[header] = res.headers[header];
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
 }).call(repos.repos);
