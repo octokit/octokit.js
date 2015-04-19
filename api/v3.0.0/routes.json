@@ -2919,6 +2919,20 @@
     },
 
     "user": {
+        "get-all": {
+            "url": "/users",
+            "method": "GET",
+            "params": {
+                "since":{
+                    "type": "Number",
+                    "required": false,
+                    "validation": "",
+                    "description": "The integer ID of the last User that you’ve seen." 
+                }
+            }
+            
+        },
+        
         "get-from": {
             "url": "/users/:user",
             "method": "GET",
