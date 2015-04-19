@@ -35,6 +35,8 @@ var issues = module.exports = {
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/issues/#list-issues
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -92,6 +94,8 @@ var issues = module.exports = {
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/issues/#list-issues-for-a-repository
      **/
     this.repoIssues = function(msg, block, callback) {
         var self = this;
@@ -139,6 +143,8 @@ var issues = module.exports = {
      *  - user (String): Required. 
      *  - repo (String): Required. 
      *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/issues/#get-a-single-issue
      **/
     this.getRepoIssue = function(msg, block, callback) {
         var self = this;
@@ -190,6 +196,8 @@ var issues = module.exports = {
      *  - assignee (String): Optional. Login for the user that this issue should be assigned to.
      *  - milestone (Number): Optional. Milestone to associate this issue with. Validation rule: ` ^[0-9]+$ `.
      *  - labels (Json): Optional. Array of strings - Labels to associate with this issue.
+     *
+     * https://developer.github.com/v3/issues/#create-an-issue
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -243,6 +251,8 @@ var issues = module.exports = {
      *  - milestone (Number): Optional. Milestone to associate this issue with. Validation rule: ` ^[0-9]+$ `.
      *  - labels (Json): Optional. Array of strings - Labels to associate with this issue.
      *  - state (String): Optional. open or closed Validation rule: ` ^(open|closed)$ `.
+     *
+     * https://developer.github.com/v3/issues/#edit-an-issue
      **/
     this.edit = function(msg, block, callback) {
         var self = this;

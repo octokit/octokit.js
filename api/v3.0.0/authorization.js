@@ -29,6 +29,8 @@ var authorization = module.exports = {
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -74,6 +76,8 @@ var authorization = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - id (String): Required. 
+     *
+     * https://developer.github.com/v3/oauth_authorizations/#get-a-single-authorization
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -121,6 +125,8 @@ var authorization = module.exports = {
      *  - scopes (Array): Optional. A list of scopes that this authorization is in.
      *  - note (String): Optional. A note to remind you what the OAuth token is for.
      *  - note_url (String): Optional. A URL to remind you what app the OAuth token is for.
+     *
+     * https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -171,6 +177,8 @@ var authorization = module.exports = {
      *  - remove_scopes (Array): Optional. A list of scopes to remove from this authorization.
      *  - note (String): Optional. A note to remind you what the OAuth token is for.
      *  - note_url (String): Optional. A URL to remind you what app the OAuth token is for.
+     *
+     * https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization
      **/
     this.update = function(msg, block, callback) {
         var self = this;
@@ -216,6 +224,8 @@ var authorization = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - id (String): Required. 
+     *
+     * https://developer.github.com/v3/oauth_authorizations/#delete-an-authorization
      **/
     this.delete = function(msg, block, callback) {
         var self = this;

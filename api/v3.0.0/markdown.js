@@ -30,6 +30,8 @@ var markdown = module.exports = {
      *  - text (String): Required. The Markdown text to render
      *  - mode (String): Optional. The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly. Validation rule: ` ^(markdown|gfm)$ `.
      *  - context (String): Optional. The repository context, only taken into account when rendering as `gfm`
+     *
+     * https://developer.github.com/v3/markdown/#render-an-arbitrary-markdown-document
      **/
     this.render = function(msg, block, callback) {
         var self = this;
@@ -75,6 +77,8 @@ var markdown = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - data (String): Required. Raw data to send as the body of the request
+     *
+     * https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode
      **/
     this.renderRaw = function(msg, block, callback) {
         var self = this;

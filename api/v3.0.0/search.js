@@ -32,6 +32,8 @@ var search = module.exports = {
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/search/#search-code
      **/
     this.code = function(msg, block, callback) {
         var self = this;
@@ -81,6 +83,8 @@ var search = module.exports = {
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/search/#search-issues
      **/
     this.issues = function(msg, block, callback) {
         var self = this;
@@ -130,6 +134,8 @@ var search = module.exports = {
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/search/#search-repositories
      **/
     this.repos = function(msg, block, callback) {
         var self = this;
@@ -179,6 +185,8 @@ var search = module.exports = {
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/search/#search-users
      **/
     this.users = function(msg, block, callback) {
         var self = this;

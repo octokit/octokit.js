@@ -77,6 +77,8 @@ var orgs = module.exports = {
      *  - org (String): Required. 
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
+     *
+     * https://developer.github.com/v3/orgs/#get-an-organization
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -127,6 +129,8 @@ var orgs = module.exports = {
      *  - email (String): Optional. Publicly visible email address.
      *  - location (String): Optional. 
      *  - name (String): Optional. 
+     *
+     * https://developer.github.com/v3/orgs/#edit-an-organization
      **/
     this.update = function(msg, block, callback) {
         var self = this;
