@@ -26,10 +26,26 @@ describe("[search]", function() {
         });*/
     });
 
+    it("should successfully execute GET /search/code/:q (code)",  function(next) {
+        client.search.code(
+            {
+                q: ['test', 'repo:mikedeboertest/1423836276146'].join('+')
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                Assert.equal(res.items.length, 1);
+                var file = res.items[0];
+                Assert.equal(file.name, "TEST.md");
+
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /search/issues/:q (issues)",  function(next) {
         client.search.issues(
             {
-                q: ['macaroni', 'repo:mikedeboertest/node_chat', 'state:open'].join('+')
+                q: ['debate', 'repo:mikedeboertest/node_chat', 'state:open'].join('+')
             },
             function(err, res) {
                 Assert.equal(err, null);

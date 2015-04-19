@@ -173,7 +173,7 @@ var issues = module.exports = {
      *  - body (String): Optional. 
      *  - assignee (String): Optional. Login for the user that this issue should be assigned to.
      *  - milestone (Number): Optional. Milestone to associate this issue with. Validation rule: ` ^[0-9]+$ `.
-     *  - labels (Json): Required. Array of strings - Labels to associate with this issue.
+     *  - labels (Json): Optional. Array of strings - Labels to associate with this issue.
      **/
     this.create = function(msg, block, callback) {
         var self = this;

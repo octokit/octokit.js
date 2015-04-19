@@ -3559,6 +3559,24 @@
     },
 
     "search": {
+        "code": {
+            "url": "/search/code",
+            "method": "GET",
+            "params": {
+                "$q": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^indexed$",
+                    "invalidmsg": "indexed only",
+                    "description": "indexed only"
+                },
+                "$order": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
         "issues": {
             "url": "/search/issues",
             "method": "GET",

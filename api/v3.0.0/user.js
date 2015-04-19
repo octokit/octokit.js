@@ -58,6 +58,7 @@ var user = module.exports = {
                 callback(null, ret);
         });
     };
+
     /** section: github
      *  user#getFrom(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
