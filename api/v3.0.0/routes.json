@@ -3463,6 +3463,20 @@
                 "$per_page": null
             }
         },
+        "latest-release": {
+            "url": "/repos/:owner/:repo/releases/latest",
+            "method": "GET",
+            "params": {
+                "owner": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        },
         "get-release": {
             "url": "/repos/:owner/:repo/releases/:id",
             "method": "GET",

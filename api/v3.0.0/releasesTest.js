@@ -26,6 +26,7 @@ describe("[releases]", function() {
     var fileSizeToUpload = fs.statSync(filePathToUpload).size;
 
     var releaseId;      // release id found when listing releases. Used for get release
+    var latestReleaseId;// latest release id found when listing releases. Used to verify latest release.
     var newReleaseId;   // release id created when creating release, used for edit and delete release
     var assetId;        // asset id found when listing assets. Used for get asset
     var newAssetId;     // asset id used when creating asset. Used for edit and delete asset
@@ -43,15 +44,36 @@ describe("[releases]", function() {
     it("should successfully execute GET /repos/:owner/:repo/releases (listReleases)",  function(next) {
         client.releases.listReleases(
             {
-              owner: owner,
-              repo: repo,
+                owner: owner,
+                repo: repo
             },
             function(err, res) {
                 Assert.equal(err, null);
                 Assert.ok(res instanceof Array);
                 if (res instanceof Array && res.length > 0) {
-                  releaseId = res[0].id;
+                    releaseId = res[0].id;
                 }
+                //find the latest release
+                var latestRelease = res.reduce(function(prev, current) {
+                    var currentDate = new Date(current["created_at"]);
+                    var prevDate = prev && new Date(prev["created_at"]);
+                    return prevDate > currentDate ? prev : current;
+                });
+                latestReleaseId = latestRelease && latestRelease.id;
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/releases/latest (latestRelease)",  function(next) {
+        client.releases.latestRelease(
+            {
+                owner: owner,
+                repo: repo
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                Assert.equal(res.id, latestReleaseId);
                 next();
             }
         );
@@ -90,7 +112,7 @@ describe("[releases]", function() {
                 name: "node-github-name",
                 body: "node-github-body",
                 draft: false,
-                prerelease: true,
+                prerelease: true
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -122,7 +144,7 @@ describe("[releases]", function() {
                 name: "node-github-new-name",
                 body: "node-github-new-body",
                 draft: true,
-                prerelease: true,
+                prerelease: true
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -148,7 +170,7 @@ describe("[releases]", function() {
             {
                 owner: owner,
                 repo: repo,
-                id: newReleaseId,
+                id: newReleaseId
             },
             function(err, res) {
                 Assert.equal(err, null);
