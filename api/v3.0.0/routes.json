@@ -1916,8 +1916,8 @@
                     "type": "String",
                     "required": false,
                     "validation": "^(all|owner|member)$",
-                    "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `public`.",
-                    "description": "Possible values: `all`, `owner`, `member`. Default: `public`."
+                    "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
+                    "description": "Possible values: `all`, `owner`, `member`. Default: `owner`."
                 },
                 "sort": {
                     "type": "String",
