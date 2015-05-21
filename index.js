@@ -419,8 +419,8 @@ var Client = module.exports = function(config) {
             this.auth = false;
             return;
         }
-        if (!options.type || "basic|oauth|client|token".indexOf(options.type) === -1)
-            throw new Error("Invalid authentication type, must be 'basic', 'oauth' or 'client'");
+        if (!options.type || "basic|oauth|oauth-basic|client|token".indexOf(options.type) === -1)
+            throw new Error("Invalid authentication type, must be 'basic', 'oauth', 'oauth-basic' or 'client'");
         if (options.type == "basic" && (!options.username || !options.password))
             throw new Error("Basic authentication requires both a username and password to be set");
         if (options.type == "oauth") {
@@ -429,6 +429,8 @@ var Client = module.exports = function(config) {
         }
         if (options.type == "token" && !options.token)
             throw new Error("Token authentication requires a token to be set");
+        if (options.type == "oauth-basic" && !options.token)
+            throw new Error("OAuth2 authentication requires a token to be set (More info: https://developer.github.com/v3/auth/#via-oauth-tokens)");
 
         this.auth = options;
     };
@@ -714,6 +716,9 @@ var Client = module.exports = function(config) {
         if (this.auth) {
             var basic;
             switch (this.auth.type) {
+                case "oauth-basic":
+                    headers["x-oauth-basic"] = this.auth.token;
+                    break;
                 case "oauth":
                     if (this.auth.token) {
                         path += (path.indexOf("?") === -1 ? "?" : "&") +
