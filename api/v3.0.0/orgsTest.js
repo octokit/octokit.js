@@ -271,8 +271,8 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute PUT /teams/:id/members/:user (addTeamMember)",  function(next) {
-        client.orgs.addTeamMember(
+    it("should successfully execute PUT /teams/:id/memberships/:user (addTeamMembership)",  function(next) {
+        client.orgs.addTeamMembership(
             {
                 id: "String",
                 user: "String"
@@ -285,8 +285,8 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute DELETE /teams/:id/members/:user (deleteTeamMember)",  function(next) {
-        client.orgs.deleteTeamMember(
+    it("should successfully execute DELETE /teams/:id/memberships/:user (deleteTeamMembership)",  function(next) {
+        client.orgs.deleteTeamMembership(
             {
                 id: "String",
                 user: "String"

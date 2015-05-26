@@ -1506,8 +1506,8 @@
             }
         },
 
-        "add-team-member": {
-            "url": "/teams/:id/members/:user",
+        "add-team-membership": {
+            "url": "/teams/:id/memberships/:user",
             "method": "PUT",
             "params": {
                 "$id": null,
@@ -1515,8 +1515,8 @@
             }
         },
 
-        "delete-team-member": {
-            "url": "/teams/:id/members/:user",
+        "delete-team-membership": {
+            "url": "/teams/:id/memberships/:user",
             "method": "DELETE",
             "params": {
                 "$id": null,
