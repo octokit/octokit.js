@@ -3911,5 +3911,35 @@
             "method": "GET",
             "params": { }
         }
+    },
+
+    "notifications": {
+        "get-all": {
+            "url": "/notifications",
+            "method": "GET",
+            "params": {
+                "all": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If true, show notifications marked as read. Default: false"
+                },
+                "participating": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false"
+                },
+                "since": {
+                    "type": "Date",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Filters out any notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now"
+                }
+            }
+        }
     }
 }
