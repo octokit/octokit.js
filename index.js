@@ -5,6 +5,7 @@ var fs = require("fs");
 var mime = require("mime");
 var Util = require("./util");
 var Url = require("url");
+var Promise = require("./promise");
 
 /** section: github
  * class Client
@@ -362,8 +363,25 @@ var Client = module.exports = function(config) {
                             // on error, there's no need to continue.
                             return;
                         }
+                        if (!callback){
+                            var promise = new Promise(function(resolve,reject){
+                                var cb = function(err, obj){
+                                    if (err){
+                                        reject(err);
+                                    } else {
+                                        resolve(obj);
+                                    }
+                                };
+                                api[section][funcName].call(api, msg, block, cb);
+                            });
 
-                        api[section][funcName].call(api, msg, block, callback);
+                        } else {
+                            api[section][funcName].call(api, msg, block, callback);
+                        }
+
+                        
+                        
+                        return promise;
                     };
                 }
                 else {
