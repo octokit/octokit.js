@@ -386,6 +386,7 @@ var releases = module.exports = {
      *  - id (Number): Required. 
      *  - repo (String): Required. 
      *  - name (String): Required. the file name of the asset
+     *  - filePath (String): Required. the file path of the asset
      **/
     this.uploadAsset = function(msg, block, callback) {
         var self = this;
