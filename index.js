@@ -180,7 +180,15 @@ var Client = module.exports = function(config) {
     this.debug = Util.isTrue(config.debug);
 
     this.version = config.version;
-    var cls = require("./api/v" + this.version);
+    var cls;
+    if (this.version === '3.0.0') {
+        cls = require("./api/v3.0.0");
+    } else {
+        if (process.browser) {
+            throw new Error('only version 3.0.0 is supported in the browser');
+        }
+        cls = require("./api/v" + this.version);
+    }
     this[this.version] = new cls(this);
 
     var pathPrefix = "";
@@ -765,7 +773,13 @@ var Client = module.exports = function(config) {
             port: port,
             path: path,
             method: method,
-            headers: headers
+            headers: headers,
+
+            // https://github.com/substack/https-browserify/pull/1
+            scheme: protocol,
+
+            // https://github.com/substack/http-browserify/pull/90
+            withCredentials: false
         };
 
         if (this.config.rejectUnauthorized !== undefined)
@@ -775,12 +789,18 @@ var Client = module.exports = function(config) {
             console.log("REQUEST: ", options);
 
         function httpSendRequest() {
-            var req = require(protocol).request(options, function(res) {
+            var p = protocol === 'https' ? require('https') : require('http');
+            var req = p.request(options, function(res) {
                 if (self.debug) {
                     console.log("STATUS: " + res.statusCode);
                     console.log("HEADERS: " + JSON.stringify(res.headers));
                 }
-                res.setEncoding("utf8");
+                if (res.setEncoding) {
+                    // This method does not exist in the browser, so we just skip it for now.
+                    // https://github.com/substack/http-browserify/issues/21
+                    // https://github.com/substack/http-browserify/pull/10
+                    res.setEncoding("utf8");
+                }
                 var data = "";
                 res.on("data", function(chunk) {
                     data += chunk;

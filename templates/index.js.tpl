@@ -19,7 +19,7 @@ var error = require("./../../error");
 
 var GithubHandler = module.exports = function(client) {
     this.client = client;
-    this.routes = JSON.parse(Fs.readFileSync(__dirname + "/routes.json", "utf8"));
+    this.routes = require("./routes.json");
 };
 
 var proto = {
@@ -33,8 +33,6 @@ var proto = {
     }
 };
 
-[<%scripts%>].forEach(function(api) {
-    Util.extend(proto, require("./" + api));
-});
+<%scripts%>
 
 GithubHandler.prototype = proto;

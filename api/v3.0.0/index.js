@@ -19,7 +19,7 @@ var error = require("./../../error");
 
 var GithubHandler = module.exports = function(client) {
     this.client = client;
-    this.routes = JSON.parse(Fs.readFileSync(__dirname + "/routes.json", "utf8"));
+    this.routes = require("./routes.json");
 };
 
 var proto = {
@@ -33,8 +33,20 @@ var proto = {
     }
 };
 
-["gists", "gitdata", "issues", "authorization", "orgs", "statuses", "pullRequests", "repos", "user", "events", "releases", "search", "markdown", "gitignore", "misc"].forEach(function(api) {
-    Util.extend(proto, require("./" + api));
-});
+Util.extend(proto, require("./gists"));
+Util.extend(proto, require("./gitdata"));
+Util.extend(proto, require("./issues"));
+Util.extend(proto, require("./authorization"));
+Util.extend(proto, require("./orgs"));
+Util.extend(proto, require("./statuses"));
+Util.extend(proto, require("./pullRequests"));
+Util.extend(proto, require("./repos"));
+Util.extend(proto, require("./user"));
+Util.extend(proto, require("./events"));
+Util.extend(proto, require("./releases"));
+Util.extend(proto, require("./search"));
+Util.extend(proto, require("./markdown"));
+Util.extend(proto, require("./gitignore"));
+Util.extend(proto, require("./misc"));
 
 GithubHandler.prototype = proto;

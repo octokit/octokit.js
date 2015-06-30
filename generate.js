@@ -242,11 +242,15 @@ var main = module.exports = function(versions, tests, restore) {
             var sectionNames = Object.keys(sections);
 
             Util.log("Writing index.js file for version " + version);
+
+            var scripts = sectionNames.map(function(sectionName) {
+                return 'Util.extend(proto, require("./' + sectionName + '"));';
+            }).join('\n');
             Fs.writeFileSync(Path.join(dir, "index.js"),
                 IndexTpl
                     .replace("<%name%>", defines.constants.name)
                     .replace("<%description%>", defines.constants.description)
-                    .replace("<%scripts%>", "\"" + sectionNames.join("\", \"") + "\""),
+                    .replace("<%scripts%>", scripts),
                 "utf8");
 
             Object.keys(sections).forEach(function(section) {
