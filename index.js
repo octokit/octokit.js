@@ -179,6 +179,7 @@ var Client = module.exports = function(config) {
     config.headers = config.headers || {};
     this.config = config;
     this.debug = Util.isTrue(config.debug);
+    this.Promise = config.Promise || config.promise || Promise;
 
     this.version = config.version;
     var cls = require("./api/v" + this.version);
@@ -364,24 +365,24 @@ var Client = module.exports = function(config) {
                             return;
                         }
                         if (!callback){
-                            var promise = new Promise(function(resolve,reject){
-                                var cb = function(err, obj){
-                                    if (err){
-                                        reject(err);
-                                    } else {
-                                        resolve(obj);
-                                    }
-                                };
-                                api[section][funcName].call(api, msg, block, cb);
-                            });
-
+                            if (self.Promise) {
+                                return new self.Promise(function(resolve,reject){
+                                    var cb = function(err, obj){
+                                        if (err){
+                                            reject(err);
+                                        } else {
+                                            resolve(obj);
+                                        }
+                                    };
+                                    api[section][funcName].call(api, msg, block, cb);
+                                });
+                            } else {
+                                throw new Error('neither a callback or global promise implementation was provided');
+                            }
                         } else {
                             api[section][funcName].call(api, msg, block, callback);
                         }
 
-                        
-                        
-                        return promise;
                     };
                 }
                 else {
