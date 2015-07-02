@@ -671,6 +671,7 @@ var Client = module.exports = function(config) {
         var host = block.host || this.config.host || this.constants.host;
         var port = this.config.port || this.constants.port || (protocol == "https" ? 443 : 80);
         var proxyUrl;
+        var ca = this.config.ca;
         if (this.config.proxy !== undefined) {
             proxyUrl = this.config.proxy;
         } else {
@@ -765,7 +766,8 @@ var Client = module.exports = function(config) {
             port: port,
             path: path,
             method: method,
-            headers: headers
+            headers: headers,
+            ca: ca
         };
 
         if (this.config.rejectUnauthorized !== undefined)
