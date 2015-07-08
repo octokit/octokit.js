@@ -97,7 +97,7 @@ github.authenticate({
     token: token
 });
 
-// OAuth2 Key/Secret
+// OAuth2 Key/Secret (to get a token)
 github.authenticate({
     type: "oauth",
     key: "clientID",
