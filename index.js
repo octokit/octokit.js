@@ -489,19 +489,25 @@ var Client = module.exports = function(config) {
         return getPageLinks(link).first;
     };
 
-    function getPage(link, which, callback) {
+    function getPage(link, which, headers, callback) {
         var url = getPageLinks(link)[which];
         if (!url)
             return callback(new error.NotFound("No " + which + " page found"));
 
         var api = this[this.version];
         var parsedUrl = Url.parse(url, true);
+
+        var msg = Object.create(parsedUrl.query);
+        if (headers != null)
+            msg.headers = headers;
+
         var block = {
             url: parsedUrl.pathname,
             method: "GET",
             params: parsedUrl.query
         };
-        this.httpSend(parsedUrl.query, block, function(err, res) {
+
+        this.httpSend(msg, block, function(err, res) {
             if (err)
                 return api.sendError(err, null, parsedUrl.query, callback);
 
@@ -537,45 +543,65 @@ var Client = module.exports = function(config) {
     /**
      *  Client#getNextPage(link, callback) -> null
      *      - link (mixed): response of a request or the contents of the Link header
+     *      - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
      *  Get the next page, based on the contents of the `Link` header
      **/
-    this.getNextPage = function(link, callback) {
-        getPage.call(this, link, "next", callback);
+    this.getNextPage = function(link, headers, callback) {
+        if (typeof headers == 'function') {
+            callback = headers;
+            headers = null;
+        }
+        getPage.call(this, link, "next", headers, callback);
     };
 
     /**
      *  Client#getPreviousPage(link, callback) -> null
      *      - link (mixed): response of a request or the contents of the Link header
+     *      - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
      *  Get the previous page, based on the contents of the `Link` header
      **/
-    this.getPreviousPage = function(link, callback) {
-        getPage.call(this, link, "prev", callback);
+    this.getPreviousPage = function(link, headers, callback) {
+        if (typeof headers == 'function') {
+            callback = headers;
+            headers = null;
+        }
+        getPage.call(this, link, "prev", headers, callback);
     };
 
     /**
      *  Client#getLastPage(link, callback) -> null
      *      - link (mixed): response of a request or the contents of the Link header
+     *      - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
      *  Get the last page, based on the contents of the `Link` header
      **/
-    this.getLastPage = function(link, callback) {
-        getPage.call(this, link, "last", callback);
+    this.getLastPage = function(link, headers, callback) {
+        if (typeof headers == 'function') {
+            callback = headers;
+            headers = null;
+        }
+        getPage.call(this, link, "last", headers, callback);
     };
 
     /**
      *  Client#getFirstPage(link, callback) -> null
      *      - link (mixed): response of a request or the contents of the Link header
+     *      - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
      *
      *  Get the first page, based on the contents of the `Link` header
      **/
-    this.getFirstPage = function(link, callback) {
-        getPage.call(this, link, "first", callback);
+    this.getFirstPage = function(link, headers, callback) {
+        if (typeof headers == 'function') {
+            callback = headers;
+            headers = null;
+        }
+        getPage.call(this, link, "first", headers, callback);
     };
 
     function getRequestFormat(hasBody, block) {
