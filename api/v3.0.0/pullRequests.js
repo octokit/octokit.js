@@ -591,7 +591,7 @@ var pullRequests = module.exports = {
      *  - body (String): Required. 
      *  - commit_id (String): Required. Sha of the commit to comment on.
      *  - path (String): Required. Relative path of the file to comment on.
-     *  - position (Number): Required. Column index in the diff to comment on.
+     *  - position (Number): Required. Line index in the diff to comment on.
      **/
     this.createComment = function(msg, block, callback) {
         var self = this;
