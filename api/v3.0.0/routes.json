@@ -1425,6 +1425,15 @@
             }
         },
 
+        "remove-organization-membership": {
+            "url": "/orgs/:org/memberships/:user",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$user": null
+            }
+        },
+
         "publicize-membership": {
             "url": "/orgs/:org/public_members/:user",
             "method": "PUT",
