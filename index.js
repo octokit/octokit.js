@@ -363,7 +363,7 @@ var Client = module.exports = function(config) {
                             return;
                         }
 
-                        api[section][funcName].call(api, msg, block, callback);
+                        api[section][funcName].call(api, msg, JSON.parse(JSON.stringify(block)), callback);
                     };
                 }
                 else {
