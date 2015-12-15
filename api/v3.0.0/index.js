@@ -28,7 +28,7 @@ var proto = {
             Util.log(err, block, msg.user, "error");
         if (typeof err == "string")
             err = new error.InternalServerError(err);
-        if (callback)
+        if (callback && typeof(callback) === "function")
             callback(err);
     }
 };
