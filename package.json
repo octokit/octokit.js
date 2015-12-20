@@ -1,16 +1,17 @@
 {
-    "name" : "github",
+    "name" : "github4",
     "version" : "0.2.4",
     "description" : "NodeJS wrapper for the GitHub API",
     "author": "Mike de Boer <info@mikedeboer.nl>",
     "contributors": [
         { "name": "Mike de Boer", "email": "info@mikedeboer.nl" },
-        { "name": "Fabian Jakobs", "email": "fabian@c9.io" }
+        { "name": "Fabian Jakobs", "email": "fabian@c9.io" },
+        { "name": "Joe Gallo", "email": "joe@brassafrax.com" }
     ],
-    "homepage": "http://github.com/mikedeboer/node-github",
+    "homepage": "https://github.com/kaizensoze/node-github",
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/mikedeboer/node-github.git"
+        "url" : "https://github.com/kaizensoze/node-github.git"
     },
     "engine" : {
         "node": ">=0.4.0"
