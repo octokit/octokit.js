@@ -32,8 +32,6 @@ var repos = module.exports = {
      *  - direction (String): Optional.  Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-your-repositories
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -78,7 +76,7 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
+     *  - user (String): Required.
      *  - type (String): Optional. Possible values: `all`, `owner`, `member`. Default: `public`. Validation rule: ` ^(all|owner|member)$ `.
      *  - sort (String): Optional. Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`. Validation rule: ` ^(created|updated|pushed|full_name)$ `.
      *  - direction (String): Optional.  Validation rule: ` ^(asc|desc)$ `.
@@ -128,12 +126,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - org (String): Required. 
+     *  - org (String): Required.
      *  - type (String): Optional. Possible values: `all`, `public`, `member`. Default: `all`. Validation rule: ` ^(all|public|member)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-organization-repositories
      **/
     this.getFromOrg = function(msg, block, callback) {
         var self = this;
@@ -178,7 +174,7 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - name (String): Required. 
+     *  - name (String): Required.
      *  - description (String): Optional. 
      *  - homepage (String): Optional. 
      *  - private (Boolean): Optional. True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
@@ -187,8 +183,6 @@ var repos = module.exports = {
      *  - has_downloads (Boolean): Optional. True to enable downloads for this repository, false to disable them. Default is true.
      *  - auto_init (Boolean): Optional. True to create an initial commit with empty README. Default is false
      *  - gitignore_template (String): Optional. Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
-     *
-     * https://developer.github.com/v3/repos/#create
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -233,8 +227,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - org (String): Required. 
-     *  - name (String): Required. 
+     *  - org (String): Required.
+     *  - name (String): Required.
      *  - description (String): Optional. 
      *  - homepage (String): Optional. 
      *  - private (Boolean): Optional. True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
@@ -244,8 +238,6 @@ var repos = module.exports = {
      *  - auto_init (Boolean): Optional. True to create an initial commit with empty README. Default is false
      *  - gitignore_template (String): Optional. Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
      *  - team_id (Number): Optional. The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#create
      **/
     this.createFromOrg = function(msg, block, callback) {
         var self = this;
@@ -290,10 +282,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/#get
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -338,7 +328,7 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
+     *  - id (String): Required.
      **/
     this.one = function(msg, block, callback) {
         var self = this;
@@ -383,9 +373,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - name (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - name (String): Required.
      *  - description (String): Optional. 
      *  - homepage (String): Optional. 
      *  - private (Boolean): Optional. True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
@@ -393,8 +383,6 @@ var repos = module.exports = {
      *  - has_wiki (Boolean): Optional. True to enable the wiki for this repository, false to disable it. Default is true.
      *  - has_downloads (Boolean): Optional. True to enable downloads for this repository, false to disable them. Default is true.
      *  - default_branch (String): Optional. Updates the default branch for this repository.
-     *
-     * https://developer.github.com/v3/repos/#edit
      **/
     this.update = function(msg, block, callback) {
         var self = this;
@@ -439,10 +427,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/#delete-a-repository
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.delete = function(msg, block, callback) {
         var self = this;
@@ -487,10 +473,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
-     *  - head (String): Required. The branch (or git ref) where your changes are implemented.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - base (String): Required.The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+     *  - head (String): Required.The branch (or git ref) where your changes are implemented.
      *  - commit_message (String): Optional. Commit message to use for the merge commit. If omitted, a default message will be used.
      **/
     this.merge = function(msg, block, callback) {
@@ -536,13 +522,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - anon (Boolean): Optional. Set to 1 or true to include anonymous contributors in results.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-contributors
      **/
     this.getContributors = function(msg, block, callback) {
         var self = this;
@@ -587,12 +571,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-languages
      **/
     this.getLanguages = function(msg, block, callback) {
         var self = this;
@@ -637,12 +619,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-teams
      **/
     this.getTeams = function(msg, block, callback) {
         var self = this;
@@ -687,12 +667,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-tags
      **/
     this.getTags = function(msg, block, callback) {
         var self = this;
@@ -737,12 +715,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#list-branches
      **/
     this.getBranches = function(msg, block, callback) {
         var self = this;
@@ -787,13 +763,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - branch (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - branch (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/#get-branch
      **/
     this.getBranch = function(msg, block, callback) {
         var self = this;
@@ -838,8 +812,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -886,9 +860,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - collabuser (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - collabuser (String): Required.
      **/
     this.getCollaborator = function(msg, block, callback) {
         var self = this;
@@ -933,9 +907,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - collabuser (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - collabuser (String): Required.
      **/
     this.addCollaborator = function(msg, block, callback) {
         var self = this;
@@ -980,9 +954,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - collabuser (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - collabuser (String): Required.
      **/
     this.removeCollaborator = function(msg, block, callback) {
         var self = this;
@@ -1027,8 +1001,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - sha (String): Optional. Sha or branch to start listing commits from.
      *  - path (String): Optional. Only commits containing this file path will be returned.
      *  - author (String): Optional. GitHub login or email address by which to filter by commit author.
@@ -1080,9 +1054,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - sha (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - sha (String): Required.
      **/
     this.getCommit = function(msg, block, callback) {
         var self = this;
@@ -1127,8 +1101,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -1175,9 +1149,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - sha (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - sha (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -1224,11 +1198,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - sha (String): Required. 
-     *  - body (String): Required. 
-     *  - commit_id (String): Required. Sha of the commit to comment on.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - sha (String): Required.
+     *  - body (String): Required.
+     *  - commit_id (String): Required.Sha of the commit to comment on.
      *  - path (String): Optional. Relative path of the file to comment on.
      *  - position (Number): Optional. Line index in the diff to comment on.
      *  - line (Number): Optional. Line number in the file to comment on. Defaults to 1.
@@ -1276,9 +1250,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.getCommitComment = function(msg, block, callback) {
         var self = this;
@@ -1323,10 +1297,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
-     *  - body (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
+     *  - body (String): Required.
      **/
     this.updateCommitComment = function(msg, block, callback) {
         var self = this;
@@ -1371,10 +1345,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
-     *  - head (String): Required. The branch (or git ref) where your changes are implemented.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - base (String): Required.The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+     *  - head (String): Required.The branch (or git ref) where your changes are implemented.
      **/
     this.compareCommits = function(msg, block, callback) {
         var self = this;
@@ -1419,9 +1393,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.deleteCommitComment = function(msg, block, callback) {
         var self = this;
@@ -1466,8 +1440,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - ref (String): Optional. The String name of the Commit/Branch/Tag. Defaults to master.
      **/
     this.getReadme = function(msg, block, callback) {
@@ -1513,8 +1487,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - path (String): Optional. The content path.
      *  - ref (String): Optional. The String name of the Commit/Branch/Tag. Defaults to master.
      **/
@@ -1561,8 +1535,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - content (String): Optional. 
      *  - message (String): Optional. 
      *  - path (String): Optional. The content path.
@@ -1611,11 +1585,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - path (String): Required. The content path.
-     *  - message (String): Required. The commit message.
-     *  - content (String): Required. The new file content, Base64 encoded.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - path (String): Required.The content path.
+     *  - message (String): Required.The commit message.
+     *  - content (String): Required.The new file content, Base64 encoded.
      *  - branch (String): Optional. The branch name. If not provided, uses the repository’s default branch (usually master).
      *  - author (Json): Optional. 
      *  - committer (Json): Optional. 
@@ -1663,12 +1637,12 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - path (String): Required. The content path.
-     *  - message (String): Required. The commit message.
-     *  - content (String): Required. The updated file content, Base64 encoded.
-     *  - sha (String): Required. The blob SHA of the file being replaced.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - path (String): Required.The content path.
+     *  - message (String): Required.The commit message.
+     *  - content (String): Required.The updated file content, Base64 encoded.
+     *  - sha (String): Required.The blob SHA of the file being replaced.
      *  - branch (String): Optional. The branch name. If not provided, uses the repository’s default branch (usually master).
      *  - author (Json): Optional. 
      *  - committer (Json): Optional. 
@@ -1716,11 +1690,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - path (String): Required. The content path.
-     *  - message (String): Required. The commit message.
-     *  - sha (String): Required. The blob SHA of the file being removed.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - path (String): Required.The content path.
+     *  - message (String): Required.The commit message.
+     *  - sha (String): Required.The blob SHA of the file being removed.
      *  - branch (String): Optional. The branch name. If not provided, uses the repository’s default branch (usually master).
      *  - author (Json): Optional. 
      *  - committer (Json): Optional. 
@@ -1768,10 +1742,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - ref (String): Optional. String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
-     *  - archive_format (String): Required. Either tarball or zipball Validation rule: ` ^(tarball|zipball)$ `.
+     *  - archive_format (String): Required.Either tarball or zipball Validation rule: ` ^(tarball|zipball)$ `.
      **/
     this.getArchiveLink = function(msg, block, callback) {
         var self = this;
@@ -1816,8 +1790,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -1864,9 +1838,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.getDownload = function(msg, block, callback) {
         var self = this;
@@ -1911,9 +1885,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.deleteDownload = function(msg, block, callback) {
         var self = this;
@@ -1958,8 +1932,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - sort (String): Optional. Possible values: `newest`, `oldest`, `watchers`, default: `newest`. Validation rule: ` ^(newest|oldest|watchers)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
@@ -2007,8 +1981,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - organization (String): Optional. Organization login. The repository will be forked into this organization.
      **/
     this.fork = function(msg, block, callback) {
@@ -2054,8 +2028,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2102,9 +2076,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.getKey = function(msg, block, callback) {
         var self = this;
@@ -2149,10 +2123,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - title (String): Required. 
-     *  - key (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - title (String): Required.
+     *  - key (String): Required.
      **/
     this.createKey = function(msg, block, callback) {
         var self = this;
@@ -2197,11 +2171,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
-     *  - title (String): Required. 
-     *  - key (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
+     *  - title (String): Required.
+     *  - key (String): Required.
      **/
     this.updateKey = function(msg, block, callback) {
         var self = this;
@@ -2246,9 +2220,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.deleteKey = function(msg, block, callback) {
         var self = this;
@@ -2293,8 +2267,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2387,7 +2361,7 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
+     *  - user (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2434,8 +2408,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2482,8 +2456,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.star = function(msg, block, callback) {
         var self = this;
@@ -2528,8 +2502,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.unStar = function(msg, block, callback) {
         var self = this;
@@ -2574,8 +2548,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2668,7 +2642,7 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
+     *  - user (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2715,8 +2689,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2763,8 +2737,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.watch = function(msg, block, callback) {
         var self = this;
@@ -2809,8 +2783,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.unWatch = function(msg, block, callback) {
         var self = this;
@@ -2855,8 +2829,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -2903,9 +2877,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.getHook = function(msg, block, callback) {
         var self = this;
@@ -2950,10 +2924,10 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - name (String): Required. 
-     *  - config (Json): Required. A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - name (String): Required.
+     *  - config (Json): Required.A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
      *  - events (Array): Optional. Determines what events the hook is triggered for. Default: `['push']`.
      *  - active (Boolean): Optional. Determines whether the hook is actually triggered on pushes.
      **/
@@ -3000,11 +2974,11 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
-     *  - name (String): Required. 
-     *  - config (Json): Required. A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
+     *  - name (String): Required.
+     *  - config (Json): Required.A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
      *  - events (Array): Optional. Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`.
      *  - add_events (Array): Optional. Determines a list of events to be added to the list of events that the Hook triggers for.
      *  - remove_events (Array): Optional. Determines a list of events to be removed from the list of events that the Hook triggers for.
@@ -3053,9 +3027,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.testHook = function(msg, block, callback) {
         var self = this;
@@ -3100,9 +3074,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.deleteHook = function(msg, block, callback) {
         var self = this;
@@ -3147,8 +3121,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.getStatsContributors = function(msg, block, callback) {
         var self = this;
@@ -3193,8 +3167,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.getStatsCommitActivity = function(msg, block, callback) {
         var self = this;
@@ -3239,8 +3213,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.getStatsCodeFrequency = function(msg, block, callback) {
         var self = this;
@@ -3285,8 +3259,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.getStatsParticipation = function(msg, block, callback) {
         var self = this;
@@ -3331,8 +3305,8 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.getStatsPunchCard = function(msg, block, callback) {
         var self = this;
@@ -3381,8 +3355,8 @@ var repos = module.exports = {
      *  - ref (String): Optional. The name of the ref. This can be a branch, tag, or sha. Default: none.
      *  - task (String): Optional. The name of the task for the deployment. e.g. deploy or deploy:migrations. Default: none.
      *  - environment (String): Optional. The name of the environment that was deployed to. e.g. staging or production. Default: none.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -3429,15 +3403,15 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - ref (String): Required. The ref to deploy. This can be a branch, tag, or sha.
-     *  - task (String): Required. The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
+     *  - ref (String): Required.The ref to deploy. This can be a branch, tag, or sha.
+     *  - task (String): Required.The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
      *  - auto_merge (Boolean): Optional. Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true
      *  - required_contexts (Array): Optional. Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
      *  - payload (String): Optional. Optional JSON payload with extra information about the deployment. Default: ''
      *  - environment (String): Optional. The name of the environment that was deployed to. e.g. staging or production. Default: none.
      *  - description (String): Optional. Optional short description. Default: ''
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      **/
     this.createDeployment = function(msg, block, callback) {
         var self = this;
@@ -3482,9 +3456,9 @@ var repos = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.getDeploymentStatuses = function(msg, block, callback) {
         var self = this;
@@ -3532,9 +3506,9 @@ var repos = module.exports = {
      *  - state (String): Optional. The state of the status. Can be one of pending, success, error, or failure.
      *  - target_url (String): Optional. The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: ''
      *  - description (String): Optional. A short description of the status. Default: ''
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - id (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - id (String): Required.
      **/
     this.createDeploymentStatus = function(msg, block, callback) {
         var self = this;

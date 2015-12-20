@@ -28,8 +28,6 @@ var gitignore = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  No other params, simply pass an empty Object literal `{}`
-     *
-     * https://developer.github.com/v3/gitignore/#listing-available-templates
      **/
     this.templates = function(msg, block, callback) {
         var self = this;
@@ -74,7 +72,7 @@ var gitignore = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - name (String): Required. The name of the .gitignore template to get
+     *  - name (String): Required.The name of the .gitignore template to get
      **/
     this.template = function(msg, block, callback) {
         var self = this;

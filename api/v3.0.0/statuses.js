@@ -27,9 +27,9 @@ var statuses = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - sha (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - sha (String): Required.
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -74,9 +74,9 @@ var statuses = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - sha (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - sha (String): Required.
      **/
     this.getCombined = function(msg, block, callback) {
         var self = this;
@@ -121,10 +121,10 @@ var statuses = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - sha (String): Required. 
-     *  - state (String): Required. State of the status - can be one of pending, success, error, or failure. Validation rule: ` ^(pending|success|error|failure)$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - sha (String): Required.
+     *  - state (String): Required.State of the status - can be one of pending, success, error, or failure. Validation rule: ` ^(pending|success|error|failure)$ `.
      *  - target_url (String): Optional. Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
      *  - description (String): Optional. Short description of the status.
      *  - context (String): Optional. A string label to differentiate this status from the status of other systems.

@@ -30,8 +30,6 @@ var gists = module.exports = {
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-     *
-     * https://developer.github.com/v3/gists/#list-gists
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -76,7 +74,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
+     *  - user (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -125,10 +123,8 @@ var gists = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - description (String): Optional. 
-     *  - public (Boolean): Required. 
-     *  - files (Json): Required. Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
-     *
-     * https://developer.github.com/v3/gists/#create-a-gist
+     *  - public (Boolean): Required.
+     *  - files (Json): Required.Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -173,11 +169,9 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
+     *  - id (String): Required.
      *  - description (String): Optional. 
-     *  - files (Json): Required. Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
-     *
-     * https://developer.github.com/v3/gists/#edit-a-gist
+     *  - files (Json): Required.Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
      **/
     this.edit = function(msg, block, callback) {
         var self = this;
@@ -223,8 +217,6 @@ var gists = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-     *
-     * https://developer.github.com/v3/gists/#list-gists
      **/
     this.public = function(msg, block, callback) {
         var self = this;
@@ -270,8 +262,6 @@ var gists = module.exports = {
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
      *  - since (Date): Optional. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-     *
-     * https://developer.github.com/v3/gists/#list-gists
      **/
     this.starred = function(msg, block, callback) {
         var self = this;
@@ -316,9 +306,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
-     *
-     * https://developer.github.com/v3/gists/#get-a-single-gist
+     *  - id (String): Required.
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -363,9 +351,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
-     *
-     * https://developer.github.com/v3/gists/#star-a-gist
+     *  - id (String): Required.
      **/
     this.star = function(msg, block, callback) {
         var self = this;
@@ -410,9 +396,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
-     *
-     * https://developer.github.com/v3/gists/#unstar-a-gist
+     *  - id (String): Required.
      **/
     this.deleteStar = function(msg, block, callback) {
         var self = this;
@@ -457,9 +441,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
-     *
-     * https://developer.github.com/v3/gists/#check-if-a-gist-is-starred
+     *  - id (String): Required.
      **/
     this.checkStar = function(msg, block, callback) {
         var self = this;
@@ -504,9 +486,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
-     *
-     * https://developer.github.com/v3/gists/#fork-a-gist
+     *  - id (String): Required.
      **/
     this.fork = function(msg, block, callback) {
         var self = this;
@@ -551,9 +531,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - id (String): Required. 
-     *
-     * https://developer.github.com/v3/gists/#unstar-a-gist
+     *  - id (String): Required.
      **/
     this.delete = function(msg, block, callback) {
         var self = this;
@@ -598,7 +576,7 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - gist_id (String): Required. Id (SHA1 hash) of the gist.
+     *  - gist_id (String): Required.Id (SHA1 hash) of the gist.
      **/
     this.getComments = function(msg, block, callback) {
         var self = this;
@@ -643,8 +621,8 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - gist_id (String): Required. Id (SHA1 hash) of the gist.
-     *  - id (String): Required. 
+     *  - gist_id (String): Required.Id (SHA1 hash) of the gist.
+     *  - id (String): Required.
      **/
     this.getComment = function(msg, block, callback) {
         var self = this;
@@ -689,8 +667,8 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - gist_id (String): Required. Id (SHA1 hash) of the gist.
-     *  - body (String): Required. 
+     *  - gist_id (String): Required.Id (SHA1 hash) of the gist.
+     *  - body (String): Required.
      **/
     this.createComment = function(msg, block, callback) {
         var self = this;
@@ -735,9 +713,9 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - gist_id (String): Required. Id (SHA1 hash) of the gist.
-     *  - id (String): Required. 
-     *  - body (String): Required. 
+     *  - gist_id (String): Required.Id (SHA1 hash) of the gist.
+     *  - id (String): Required.
+     *  - body (String): Required.
      **/
     this.editComment = function(msg, block, callback) {
         var self = this;
@@ -782,8 +760,8 @@ var gists = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - gist_id (String): Required. Id (SHA1 hash) of the gist.
-     *  - id (String): Required. 
+     *  - gist_id (String): Required.Id (SHA1 hash) of the gist.
+     *  - id (String): Required.
      **/
     this.deleteComment = function(msg, block, callback) {
         var self = this;

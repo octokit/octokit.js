@@ -27,12 +27,10 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - repo (String): Required. 
+     *  - owner (String): Required.
+     *  - repo (String): Required.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository
      **/
     this.listReleases = function(msg, block, callback) {
         var self = this;
@@ -77,11 +75,9 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/releases/#get-a-single-release
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
      **/
     this.getRelease = function(msg, block, callback) {
         var self = this;
@@ -126,16 +122,14 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - repo (String): Required. 
-     *  - tag_name (String): Required. String of the tag
+     *  - owner (String): Required.
+     *  - repo (String): Required.
+     *  - tag_name (String): Required.String of the tag
      *  - target_commitish (String): Optional. Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
      *  - name (String): Optional. 
      *  - body (String): Optional. 
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
      *  - prerelease (Boolean): Optional. true to identify the release as a prerelease. false to identify the release as a full release. Default: false
-     *
-     * https://developer.github.com/v3/repos/releases/#create-a-release
      **/
     this.createRelease = function(msg, block, callback) {
         var self = this;
@@ -180,17 +174,15 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *  - tag_name (String): Required. String of the tag
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
+     *  - tag_name (String): Required.String of the tag
      *  - target_commitish (String): Optional. Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
      *  - name (String): Optional. 
      *  - body (String): Optional. 
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
      *  - prerelease (Boolean): Optional. true to identify the release as a prerelease. false to identify the release as a full release. Default: false
-     *
-     * https://developer.github.com/v3/repos/releases/#edit-a-release
      **/
     this.editRelease = function(msg, block, callback) {
         var self = this;
@@ -235,11 +227,9 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/releases/#delete-a-release
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
      **/
     this.deleteRelease = function(msg, block, callback) {
         var self = this;
@@ -284,11 +274,9 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/releases/#list-assets-for-a-release
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
      **/
     this.listAssets = function(msg, block, callback) {
         var self = this;
@@ -333,11 +321,9 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/releases/#get-a-single-release-asset
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
      **/
     this.getAsset = function(msg, block, callback) {
         var self = this;
@@ -382,10 +368,10 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *  - name (String): Required. the file name of the asset
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
+     *  - name (String): Required.the file name of the asset
      **/
     this.uploadAsset = function(msg, block, callback) {
         var self = this;
@@ -430,13 +416,11 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *  - name (String): Required. 
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
+     *  - name (String): Required.
      *  - label (String): Optional. An alternate short description of the asset. Used in place of the filename.
-     *
-     * https://developer.github.com/v3/repos/releases/#edit-a-release-asset
      **/
     this.editAsset = function(msg, block, callback) {
         var self = this;
@@ -481,11 +465,9 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - id (Number): Required. 
-     *  - repo (String): Required. 
-     *
-     * https://developer.github.com/v3/repos/releases/#delete-a-release-asset
+     *  - owner (String): Required.
+     *  - id (Number): Required.
+     *  - repo (String): Required.
      **/
     this.deleteAsset = function(msg, block, callback) {
         var self = this;

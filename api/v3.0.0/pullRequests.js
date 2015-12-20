@@ -27,8 +27,8 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
      *  - state (String): Optional. open, closed, or all Validation rule: ` ^(open|closed|all)$ `.
      *  - head (String): Optional. 
      *  - base (String): Optional. 
@@ -36,8 +36,6 @@ var pullRequests = module.exports = {
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      *  - sort (String): Optional. Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created` Validation rule: ` ^(created|updated|popularity|long-running)$ `.
      *  - direction (String): Optional.  Validation rule: ` ^(asc|desc)$ `.
-     *
-     * https://developer.github.com/v3/pulls/#list-pull-requests
      **/
     this.getAll = function(msg, block, callback) {
         var self = this;
@@ -82,11 +80,9 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/pulls/#get-a-single-pull-request
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      **/
     this.get = function(msg, block, callback) {
         var self = this;
@@ -131,14 +127,12 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - title (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - title (String): Required.
      *  - body (String): Optional. 
-     *  - base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
-     *  - head (String): Required. The branch (or git ref) where your changes are implemented.
-     *
-     * https://developer.github.com/v3/pulls/#create-a-pull-request
+     *  - base (String): Required.The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+     *  - head (String): Required.The branch (or git ref) where your changes are implemented.
      **/
     this.create = function(msg, block, callback) {
         var self = this;
@@ -183,13 +177,11 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - issue (Number): Required.  Validation rule: ` ^[0-9]+$ `.
-     *  - base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
-     *  - head (String): Required. The branch (or git ref) where your changes are implemented.
-     *
-     * https://developer.github.com/v3/pulls/#create-a-pull-request
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - issue (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - base (String): Required.The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+     *  - head (String): Required.The branch (or git ref) where your changes are implemented.
      **/
     this.createFromIssue = function(msg, block, callback) {
         var self = this;
@@ -234,14 +226,12 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      *  - state (String): Optional.  Validation rule: ` ^(open|closed)$ `.
-     *  - title (String): Required. 
+     *  - title (String): Required.
      *  - body (String): Optional. 
-     *
-     * https://developer.github.com/v3/pulls/#update-a-pull-request
      **/
     this.update = function(msg, block, callback) {
         var self = this;
@@ -286,13 +276,11 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request
      **/
     this.getCommits = function(msg, block, callback) {
         var self = this;
@@ -337,13 +325,11 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/pulls/#list-pull-requests-files
      **/
     this.getFiles = function(msg, block, callback) {
         var self = this;
@@ -388,13 +374,11 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/pulls/#get-if-a-pull-request-has-been-merged
      **/
     this.getMerged = function(msg, block, callback) {
         var self = this;
@@ -439,12 +423,10 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      *  - commit_message (String): Optional. The message that will be used for the merge commit
-     *
-     * https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button
      **/
     this.merge = function(msg, block, callback) {
         var self = this;
@@ -489,9 +471,9 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
      **/
@@ -538,9 +520,9 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      **/
     this.getComment = function(msg, block, callback) {
         var self = this;
@@ -585,13 +567,13 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
-     *  - body (String): Required. 
-     *  - commit_id (String): Required. Sha of the commit to comment on.
-     *  - path (String): Required. Relative path of the file to comment on.
-     *  - position (Number): Required. Column index in the diff to comment on.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - body (String): Required.
+     *  - commit_id (String): Required.Sha of the commit to comment on.
+     *  - path (String): Required.Relative path of the file to comment on.
+     *  - position (Number): Required.Column index in the diff to comment on.
      **/
     this.createComment = function(msg, block, callback) {
         var self = this;
@@ -636,11 +618,11 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
-     *  - body (String): Required. 
-     *  - in_reply_to (Number): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - body (String): Required.
+     *  - in_reply_to (Number): Required.
      **/
     this.createCommentReply = function(msg, block, callback) {
         var self = this;
@@ -685,10 +667,10 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
-     *  - body (String): Required. 
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
+     *  - body (String): Required.
      **/
     this.updateComment = function(msg, block, callback) {
         var self = this;
@@ -733,9 +715,9 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required. 
-     *  - repo (String): Required. 
-     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - user (String): Required.
+     *  - repo (String): Required.
+     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
      **/
     this.deleteComment = function(msg, block, callback) {
         var self = this;

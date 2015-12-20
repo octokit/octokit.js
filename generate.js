@@ -128,7 +128,7 @@ var main = module.exports = function(versions, tests, restore) {
                         def = paramsStruct[paramName];
 
                     line = indent + " *  - " + paramName + " (" + (def.type || "mixed") + "): " +
-                        (def.required ? "Required. " : "Optional. ");
+                        (def.required ? "Required." : "Optional. ");
                     if (def.description)
                         line += def.description;
                     if (def.validation)
@@ -141,7 +141,7 @@ var main = module.exports = function(versions, tests, restore) {
                     var docSection = DocSectionsMap[section] || section;
                     var url = searchSectionUrl(docsUrl + "/" + docSection + "/",
                         block.method + " " + block.url);
-                    
+
                     if (url) {
                         comment.push(
                             indent + " *",

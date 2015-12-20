@@ -27,13 +27,11 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term
+     *  - q (String): Required.Search Term
      *  - sort (String): Optional. indexed only Validation rule: ` ^indexed$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/search/#search-code
      **/
     this.code = function(msg, block, callback) {
         var self = this;
@@ -78,13 +76,11 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term
+     *  - q (String): Required.Search Term
      *  - sort (String): Optional. comments, created, or updated Validation rule: ` ^(comments|created|updated)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/search/#search-issues
      **/
     this.issues = function(msg, block, callback) {
         var self = this;
@@ -129,13 +125,11 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term
+     *  - q (String): Required.Search Term
      *  - sort (String): Optional. stars, forks, or updated Validation rule: ` ^(stars|forks|updated)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/search/#search-repositories
      **/
     this.repos = function(msg, block, callback) {
         var self = this;
@@ -180,13 +174,11 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - q (String): Required. Search Term
+     *  - q (String): Required.Search Term
      *  - sort (String): Optional. followers, repositories, or joined Validation rule: ` ^(followers|repositories|joined)$ `.
      *  - order (String): Optional. asc or desc Validation rule: ` ^(asc|desc)$ `.
      *  - page (Number): Optional. Page number of the results to fetch. Validation rule: ` ^[0-9]+$ `.
      *  - per_page (Number): Optional. A custom page size up to 100. Default is 30. Validation rule: ` ^[0-9]+$ `.
-     *
-     * https://developer.github.com/v3/search/#search-users
      **/
     this.users = function(msg, block, callback) {
         var self = this;
@@ -231,7 +223,7 @@ var search = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - email (String): Required. Email address
+     *  - email (String): Required.Email address
      **/
     this.email = function(msg, block, callback) {
         var self = this;
