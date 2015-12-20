@@ -1,5 +1,4 @@
-### NOTE:
-[mikedeboer/node-github](https://github.com/mikedeboer/node-github) seems to no longer be maintained so I forked it here and am working on applying PRs and issues from that repo. See progress [here](https://github.com/kaizensoze/github4/wiki/Transition-from-upstream).
+##### NOTE: [mikedeboer/node-github](https://github.com/mikedeboer/node-github) seems to no longer be maintained so I forked it here and am working on applying PRs and issues from that repo. See progress [here](https://github.com/kaizensoze/github4/wiki/Transition-from-upstream).
 
 # Node-github
 
