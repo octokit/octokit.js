@@ -1,3 +1,6 @@
+### NOTE:
+[mikedeboer/node-github](https://github.com/mikedeboer/node-github) seems to no longer be maintained so I forked it here and am working on applying PRs and issues from that repo. See progress [here](./wiki/Transition-from-upstream).
+
 # Node-github
 
 A Node.js wrapper for GitHub API.
@@ -12,19 +15,19 @@ or
 
   Install via git clone:
 
-      $ git clone git@github.com:kaizensoze/node-github.git
+      $ git clone git@github.com:kaizensoze/github4.git
       $ cd node-github
       $ npm install
 
 ## Documentation
 
-Client API: [https://kaizensoze.github.io/node-github/](https://kaizensoze.github.io/node-github/)
+Client API: [https://kaizensoze.github.io/github4/](https://kaizensoze.github.io/github4/)
 
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Example
 
-Print all followers of the user "kaizensoze" to the console.
+Print all followers of the user "defunkt" to the console:
 ```javascript
 var GitHubApi = require("github4");
 
@@ -46,14 +49,14 @@ github.user.getFollowingFromUser({
     // headers: {
     //     "cookie": "blahblah"
     // },
-    user: "kaizensoze"
+    user: "defunkt"
 }, function(err, res) {
     console.log(JSON.stringify(res));
 });
 ```
 
-First the _GitHubApi_ class is imported from the _node-github_ module. This class provides
-access to all of GitHub's APIs (e.g. user, issues or repo APIs). The _getFollowingFromUser_
+First the `GitHubApi` class is imported from the `node-github` module. This class provides
+access to all of GitHub's APIs (e.g. user, issues or repo APIs). The `getFollowingFromUser`
 method lists all followers of a given GitHub user. Is is part of the user API. It
 takes the user name as first argument and a callback as last argument. Once the
 follower list is returned from the server, the callback is called.
@@ -71,8 +74,8 @@ course calls, which change data or read sensitive information have to be authent
 You need the GitHub user name and the API key for authentication. The API key can
 be found in the user's _Account Settings_ page.
 
-This example shows how to authenticate and then change _location_ field of the
-account settings to _Argentina_:
+This example shows how to authenticate and then change `location` field of the
+account settings to "Argentina":
 ```javascript
 github.authenticate({
     type: "basic",
