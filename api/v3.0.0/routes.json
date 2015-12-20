@@ -1416,6 +1416,24 @@
             }
         },
 
+        "add-organization-membership": {
+            "url": "/orgs/:org/memberships/:user",
+            "method": "PUT",
+            "params": {
+                "$org": null,
+                "$user": null
+            }
+        },
+
+        "remove-organization-membership": {
+            "url": "/orgs/:org/memberships/:user",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$user": null
+            }
+        },
+
         "publicize-membership": {
             "url": "/orgs/:org/public_members/:user",
             "method": "PUT",
@@ -3101,12 +3119,12 @@
                     "type": "Number",
                     "required": false,
                     "validation": "",
-                    "description": "The integer ID of the last User that you’ve seen." 
+                    "description": "The integer ID of the last User that you’ve seen."
                 }
             }
-            
+
         },
-        
+
         "get-from": {
             "url": "/users/:user",
             "method": "GET",
