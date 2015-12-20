@@ -1,32 +1,35 @@
 ##### NOTE: [mikedeboer/node-github](https://github.com/mikedeboer/node-github) seems to no longer be maintained so I forked it here and am working on applying PRs and issues from that repo. See progress [here](https://github.com/kaizensoze/github4/wiki/Transition-from-upstream).
 
-# Node-github
+# Github4
 
 A Node.js wrapper for GitHub API.
 
 ## Installation
 
-  Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github4.svg):
+Install via [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github4.svg)
 
-      $ npm install github4
+```bash
+$ npm install github4
+```
 
 or
 
-  Install via git clone:
+Install via git clone
 
-      $ git clone git@github.com:kaizensoze/github4.git
-      $ cd node-github
-      $ npm install
+```bash
+$ git clone git@github.com:kaizensoze/github4.git
+$ cd node-github
+$ npm install
+```
 
 ## Documentation
 
+GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)  
 Client API: [https://kaizensoze.github.io/github4/](https://kaizensoze.github.io/github4/)
-
-GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Example
 
-Print all followers of the user "defunkt" to the console:
+Get all followers for user "defunkt":
 ```javascript
 var GitHubApi = require("github4");
 
@@ -54,61 +57,43 @@ github.user.getFollowingFromUser({
 });
 ```
 
-First the `GitHubApi` class is imported from the `node-github` module. This class provides
-access to all of GitHub's APIs (e.g. user, issues or repo APIs). The `getFollowingFromUser`
-method lists all followers of a given GitHub user. Is is part of the user API. It
-takes the user name as first argument and a callback as last argument. Once the
-follower list is returned from the server, the callback is called.
-
-Like in Node.JS, callbacks are always the last argument. If the functions fails an
-error object is passed as first argument to the callback.
-
 ## Authentication
 
-Most GitHub API calls don't require authentication. As a rule of thumb: If you
-can see the information by visiting the site without being logged in, you don't
-have to be authenticated to retrieve the same information through the API. Of
-course calls, which change data or read sensitive information have to be authenticated.
+Most GitHub API calls don't require authentication. As a rule of thumb: If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API. Of course calls, which change data or read sensitive information have to be authenticated.
 
-You need the GitHub user name and the API key for authentication. The API key can
-be found in the user's _Account Settings_ page.
+You need the GitHub user name and the API key for authentication. The API key can be found in the user's _Account Settings_.
 
-This example shows how to authenticate and then change `location` field of the
-account settings to "Argentina":
 ```javascript
+// basic
 github.authenticate({
     type: "basic",
-    username: username,
-    password: password
+    username: USERNAME,
+    password: PASSWORD
 });
-github.user.update({
-    location: "Argentina"
-}, function(err) {
-    console.log("done!");
-});
-```
-Note that the _authenticate_ method is synchronous because it only stores the
-credentials for the next request.
 
-Other examples for the various authentication methods:
-```javascript
 // OAuth2
 github.authenticate({
     type: "oauth",
-    token: token
+    token: AUTH_TOKEN
 });
 
 // OAuth2 Key/Secret
 github.authenticate({
     type: "oauth",
-    key: "clientID",
-    secret: "clientSecret"
+    key: CLIENT_ID,
+    secret: CLIENT_SECRET
 })
+```
 
-// Deprecated Gihub API token (seems not to be working with the v3 API)
-github.authenticate({
-    type: "token",
-    token: token
+Note: `authenticate` is synchronous because it only stores the
+credentials for the next request.
+
+Once authenticated you can update a user field like so:
+```javascript
+github.user.update({
+    location: "Argentina"
+}, function(err) {
+    console.log("done!");
 });
 ```
 
@@ -135,39 +120,22 @@ github.authorization.create({
 });
 ```
 
-## Implemented GitHub APIs
+## Tests
 
-* Gists: 100%
-* Git Data: 100%
-* Issues: 100%
-* Orgs: 100%
-* Pull Requests: 100%
-* Repos: 100%
-* Users: 100%
-* Events: 100%
-* Search: 100%
-* Markdown: 100%
-* Rate Limit: 100%
-* Releases: 100%
-* Gitignore: 100%
-* Meta: 100%
-* Emojis: 100%
-
-## Running the Tests
-
-The unit tests are based on the [mocha](http://visionmedia.github.com/mocha/)
-module, which may be installed via npm. To run the tests make sure that the
-npm dependencies are installed by running `npm install` from the project directory.
-
-Before running unit tests:
-```shell
-npm install mocha -g
+Install mocha
+```bash
+$ npm install mocha -g
 ```
-At the moment, test classes can only be run separately. This will e.g. run the Issues Api test:
-```shell
-mocha api/v3.0.0/issuesTest.js
+
+Run all tests
+```bash
+$ mocha
 ```
-Note that a connection to the internet is required to run the tests.
+
+Or run a specific test
+```bash
+$ mocha api/v3.0.0/issuesTest.js
+```
 
 ## LICENSE
 
