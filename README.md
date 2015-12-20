@@ -18,13 +18,13 @@ or
 
 ## Documentation
 
-Client API: [http://mikedeboer.github.com/node-github/](http://mikedeboer.github.com/node-github/)
+Client API: [https://kaizensoze.github.io/node-github/](https://kaizensoze.github.io/node-github/)
 
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Example
 
-Print all followers of the user "mikedeboer" to the console.
+Print all followers of the user "kaizensoze" to the console.
 ```javascript
 var GitHubApi = require("github4");
 
