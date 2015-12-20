@@ -1,33 +1,32 @@
-# JavaScript GitHub API for Node.JS
+# Node-github
 
-A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.
+A Node.js wrapper for GitHub API.
 
 ## Installation
 
-  Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github.svg):
+  Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github4.svg):
 
-      $ npm install github
+      $ npm install github4
 
 or
 
   Install via git clone:
 
-      $ git clone git://github.com/mikedeboer/node-github.git
+      $ git clone git@github.com:kaizensoze/node-github.git
       $ cd node-github
       $ npm install
 
 ## Documentation
 
-You can find the docs for the API of this client at [http://mikedeboer.github.com/node-github/](http://mikedeboer.github.com/node-github/)
+Client API: [http://mikedeboer.github.com/node-github/](http://mikedeboer.github.com/node-github/)
 
-Additionally, the [official Github documentation](https://developer.github.com/v3/)
-is a very useful resource.
+GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Example
 
 Print all followers of the user "mikedeboer" to the console.
 ```javascript
-var GitHubApi = require("github");
+var GitHubApi = require("github4");
 
 var github = new GitHubApi({
     // required
@@ -47,7 +46,7 @@ github.user.getFollowingFromUser({
     // headers: {
     //     "cookie": "blahblah"
     // },
-    user: "mikedeboer"
+    user: "kaizensoze"
 }, function(err, res) {
     console.log(JSON.stringify(res));
 });
