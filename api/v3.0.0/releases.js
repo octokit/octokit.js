@@ -122,8 +122,8 @@ var releases = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - owner (String): Required. 
-     *  - repo (String): Required. 
+     *  - owner (String): Required.
+     *  - repo (String): Required.
      *
      * https://developer.github.com/v3/repos/releases/#get-the-latest-release
      **/
@@ -174,8 +174,8 @@ var releases = module.exports = {
      *  - repo (String): Required.
      *  - tag_name (String): Required.String of the tag
      *  - target_commitish (String): Optional. Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
-     *  - name (String): Optional. 
-     *  - body (String): Optional. 
+     *  - name (String): Optional.
+     *  - body (String): Optional.
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
      *  - prerelease (Boolean): Optional. true to identify the release as a prerelease. false to identify the release as a full release. Default: false
      **/
@@ -227,8 +227,8 @@ var releases = module.exports = {
      *  - repo (String): Required.
      *  - tag_name (String): Required.String of the tag
      *  - target_commitish (String): Optional. Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
-     *  - name (String): Optional. 
-     *  - body (String): Optional. 
+     *  - name (String): Optional.
+     *  - body (String): Optional.
      *  - draft (Boolean): Optional. true to create a draft (unpublished) release, false to create a published one. Default: false
      *  - prerelease (Boolean): Optional. true to identify the release as a prerelease. false to identify the release as a full release. Default: false
      **/
@@ -419,7 +419,8 @@ var releases = module.exports = {
      *  - owner (String): Required.
      *  - id (Number): Required.
      *  - repo (String): Required.
-     *  - name (String): Required.the file name of the asset
+     *  - name (String): Required. The file name of the asset.
+     *  - filePath (String): Required. The file path of the asset.
      **/
     this.uploadAsset = function(msg, block, callback) {
         var self = this;
