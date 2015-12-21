@@ -1,8 +1,8 @@
 /** section: github, internal
  *  Example
- * 
+ *
  *  Github API usage example.
- * 
+ *
  *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
@@ -16,8 +16,7 @@
 var Client = require("./../index");
 
 var github = new Client({
-    debug: true,
-    version: "3.0.0"
+    debug: true
 });
 
 github.authenticate({

@@ -16,14 +16,8 @@ var Url = require("url");
  *
  *  Author: Mike de Boer <mike@c9.io>
  *
- *  [[Client]] can load any version of the [[github]] client API, with the
- *  requirement that a valid routes.json definition file is present in the
- *  `api/[VERSION]` directory and that the routes found in this file are
- *  implemented as well.
- *
  *  Upon instantiation of the [[Client]] class, the routes.json file is loaded
- *  from the API version specified in the configuration and, parsed and from it
- *  the routes for HTTP requests are extracted. For each HTTP endpoint to the
+ *  and parsed for the API HTTP endpoints. For each HTTP endpoint to the
  *  HTTP server, a method is generated which accepts a Javascript Object
  *  with parameters and an optional callback to be invoked when the API request
  *  returns from the server or when the parameters could not be validated.
@@ -179,8 +173,7 @@ var Client = module.exports = function(config) {
     this.config = config;
     this.debug = Util.isTrue(config.debug);
 
-    this.version = config.version;
-    this[this.version] = JSON.parse(fs.readFileSync(__dirname + "/api/v" + this.version + "/routes.json", "utf8"));
+    this.routes = JSON.parse(fs.readFileSync(__dirname + "/routes.json", "utf8"));
 
     var pathPrefix = "";
     // Check if a prefix is passed in the config and strip any leading or trailing slashes from it.
@@ -196,7 +189,7 @@ var Client = module.exports = function(config) {
     /**
      *  Client#setupRoutes() -> null
      *
-     *  Configures the routes as defined in a routes.json file of an API version
+     *  Configures the routes as defined in routes.json.
      *
      *  [[Client#setupRoutes]] is invoked by the constructor, takes the
      *  contents of the JSON document that contains the definitions of all the
@@ -222,7 +215,7 @@ var Client = module.exports = function(config) {
      **/
     this.setupRoutes = function() {
         var self = this;
-        var routes = this[this.version];
+        var routes = this.routes;
         var defines = routes.defines;
         this.constants = defines.constants;
         this.requestHeaders = defines["request-headers"].map(function(header) {

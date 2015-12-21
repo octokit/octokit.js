@@ -19,9 +19,7 @@ describe("[authorization]", function() {
     this.timeout(10000);
 
     beforeEach(function() {
-        client = new Client({
-            version: "3.0.0"
-        });
+        client = new Client();
         client.authenticate({
             type: "basic",
             username: "mikedeboertest",

@@ -2,9 +2,7 @@
 
 var Client = require("./../index");
 
-var github = new Client({
-    version: "3.0.0"
-});
+var github = new Client();
 
 /*
 !!!UNCOMMENT THE FOLLOWING TO MAKE THIS SCRIPT WORK, BUT CHANGE THE CREDENTIALS TO YOUR OWN!!!

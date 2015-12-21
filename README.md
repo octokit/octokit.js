@@ -34,8 +34,6 @@ Get all followers for user "defunkt":
 var GitHubApi = require("github4");
 
 var github = new GitHubApi({
-    // required
-    version: "3.0.0",
     // optional
     debug: true,
     protocol: "https",
@@ -134,7 +132,7 @@ $ mocha
 
 Or run a specific test
 ```bash
-$ mocha api/v3.0.0/issuesTest.js
+$ mocha test/issuesTest.js
 ```
 
 ## LICENSE
