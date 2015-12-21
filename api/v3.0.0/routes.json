@@ -1967,9 +1967,9 @@
                 "type": {
                     "type": "String",
                     "required": false,
-                    "validation": "^(all|public|member)$",
-                    "invalidmsg": "Possible values: `all`, `public`, `member`. Default: `all`.",
-                    "description": "Possible values: `all`, `public`, `member`. Default: `all`."
+                    "validation": "^(all|public|private|forks|sources|member)$",
+                    "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
+                    "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`."
                 },
                 "$page": null,
                 "$per_page": null
