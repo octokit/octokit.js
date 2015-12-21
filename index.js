@@ -180,8 +180,7 @@ var Client = module.exports = function(config) {
     this.debug = Util.isTrue(config.debug);
 
     this.version = config.version;
-    var cls = require("./api/v" + this.version);
-    this[this.version] = new cls(this);
+    this[this.version] = JSON.parse(fs.readFileSync(__dirname + "/api/v" + this.version + "/routes.json", "utf8"));
 
     var pathPrefix = "";
     // Check if a prefix is passed in the config and strip any leading or trailing slashes from it.
@@ -223,11 +222,13 @@ var Client = module.exports = function(config) {
      **/
     this.setupRoutes = function() {
         var self = this;
-        var api = this[this.version];
-        var routes = api.routes;
+        var routes = this[this.version];
         var defines = routes.defines;
         this.constants = defines.constants;
         this.requestHeaders = defines["request-headers"].map(function(header) {
+            return header.toLowerCase();
+        });
+        this.responseHeaders = defines["response-headers"].map(function(header) {
             return header.toLowerCase();
         });
         delete routes.defines;
@@ -326,20 +327,6 @@ var Client = module.exports = function(config) {
                     parts.splice(0, 2);
                     var funcName = Util.toCamelCase(parts.join("-"));
 
-                    if (!api[section]) {
-                        throw new Error("Unsupported route section, not implemented in version " +
-                            self.version + " for route '" + endPoint + "' and block: " +
-                            JSON.stringify(block));
-                    }
-
-                    if (!api[section][funcName]) {
-                        if (self.debug)
-                            Util.log("Tried to call " + funcName);
-                        throw new Error("Unsupported route, not implemented in version " +
-                            self.version + " for route '" + endPoint + "' and block: " +
-                            JSON.stringify(block));
-                    }
-
                     if (!self[section]) {
                         self[section] = {};
                         // add a utility function 'getFooApi()', which returns the
@@ -356,14 +343,13 @@ var Client = module.exports = function(config) {
                         catch (ex) {
                             // when the message was sent to the client, we can
                             // reply with the error directly.
-                            api.sendError(ex, block, msg, callback);
+                            self.sendError(ex, block, msg, callback);
                             if (self.debug)
                                 Util.log(ex.message, "fatal");
                             // on error, there's no need to continue.
                             return;
                         }
-
-                        api[section][funcName].call(api, msg, block, callback);
+                        self.handler(msg, block, callback);
                     };
                 }
                 else {
@@ -494,16 +480,16 @@ var Client = module.exports = function(config) {
         if (!url)
             return callback(new error.NotFound("No " + which + " page found"));
 
-        var api = this[this.version];
         var parsedUrl = Url.parse(url, true);
         var block = {
             url: parsedUrl.pathname,
             method: "GET",
             params: parsedUrl.query
         };
+        var self = this;
         this.httpSend(parsedUrl.query, block, function(err, res) {
             if (err)
-                return api.sendError(err, null, parsedUrl.query, callback);
+                return self.sendError(err, null, parsedUrl.query, callback);
 
             var ret;
             try {
@@ -523,7 +509,7 @@ var Client = module.exports = function(config) {
             if (typeof ret == "object") {
                 if (!ret.meta)
                     ret.meta = {};
-                ["x-ratelimit-limit", "x-ratelimit-remaining", "link"].forEach(function(header) {
+            self.responseHeaders.forEach(function(header) {
                     if (res.headers[header])
                         ret.meta[header] = res.headers[header];
                 });

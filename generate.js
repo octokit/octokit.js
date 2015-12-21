@@ -20,21 +20,8 @@ var Async = require("async");
 var Optimist = require("optimist");
 var Util = require("./util");
 
-var IndexTpl = Fs.readFileSync(__dirname + "/templates/index.js.tpl", "utf8");
-var SectionTpl = Fs.readFileSync(__dirname + "/templates/section.js.tpl", "utf8");
-var HandlerTpl = Fs.readFileSync(__dirname + "/templates/handler.js.tpl", "utf8");
-var AfterRequestTpl = Fs.readFileSync(__dirname + "/templates/after_request.js.tpl", "utf8");
 var TestSectionTpl = Fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
 var TestHandlerTpl = Fs.readFileSync(__dirname + "/templates/test_handler.js.tpl", "utf8");
-
-var DocSectionsMap = {
-    "authorization": "oauth_authorizations",
-    "gitdata": "git",
-    "pull-requests": "pulls",
-    "pullRequests": "pulls",
-    "releases": "repos/releases",
-    "user": "users"
-};
 
 var main = module.exports = function(versions, tests, restore) {
     Util.log("Generating for versions", Object.keys(versions));
@@ -62,357 +49,161 @@ var main = module.exports = function(versions, tests, restore) {
         var routes = versions[version];
         var defines = routes.defines;
         delete routes.defines;
-        var headers = defines["response-headers"];
-        // cast header names to lowercase.
-        if (headers && headers.length)
-            headers = headers.map(function(header) { return header.toLowerCase(); });
         var sections = {};
         var testSections = {};
+        var apidocs = "";
 
-        // First fetch and cache the documentation sections, but only if the site
-        // can be reached at the moment.
-        var addDocLink = false;
-        var docsUrl = defines.constants.documentation;
-        pingDocumentationUrl(docsUrl, function(success) {
-            if (success) {
-                Util.log("Using '" + docsUrl + "' to generate links to online documentation.");
-                addDocLink = true;
-                Async.each(Object.keys(routes), function(section, sectionDone) {
-                    section = DocSectionsMap[section] || section;
-                    getSectionDocument(docsUrl + "/" + section + "/", function(err) {
-                        // Ignore errors here...
-                        sectionDone();
-                    });
-                }, generateFiles);
-                return;
-            }
-
-            Util.log("Could not reach documentation site, continuing without " +
-                "adding links to online documentation.");
-            generateFiles();
-        });
-
-        function generateFiles() {
-            function createComment(block, section, funcName, indent) {
-                var paramsStruct = block.params;
-                var params = Object.keys(paramsStruct);
-                var comment = [
-                    indent + "/** section: github",
-                    indent + " *  " + section + "#" + funcName + "(msg, callback) -> null",
-                    indent + " *      - msg (Object): Object that contains the parameters and their values to be sent to the server.",
-                    indent + " *      - callback (Function): function to call when the request is finished " +
-                        "with an error as first argument and result data as second argument.",
-                    indent + " *",
-                    indent + " *  ##### Params on the `msg` object:",
-                    indent + " *"
-                ];
-                comment.push(indent + " *  - headers (Object): Optional. Key/ value pair "
-                    + "of request headers to pass along with the HTTP request. Valid headers are: "
-                    + "'" + defines["request-headers"].join("', '") + "'.");
-                if (!params.length)
-                    comment.push(indent + " *  No other params, simply pass an empty Object literal `{}`");
-                var paramName, def, line;
-                for (var i = 0, l = params.length; i < l; ++i) {
-                    paramName = params[i];
-                    if (paramName.charAt(0) == "$") {
-                        paramName = paramName.substr(1);
-                        if (!defines.params[paramName]) {
-                            Util.log("Invalid variable parameter name substitution; param '" +
-                                paramName + "' not found in defines block", "fatal");
-                            process.exit(1);
-                        }
-                        else
-                            def = defines.params[paramName];
+        function createComment(paramsStruct, section, funcName) {
+            var params = Object.keys(paramsStruct);
+            var comment = [
+                "/** section: github",
+                " *  " + section + "#" + funcName + "(msg, callback) -> null",
+                " *      - msg (Object): Object that contains the parameters and their values to be sent to the server.",
+                " *      - callback (Function): function to call when the request is finished " +
+                    "with an error as first argument and result data as second argument.",
+                " * ",
+                " *  ##### Params on the `msg` object:",
+                " * "
+            ];
+            comment.push(" *  - headers (Object): Optional. Key/ value pair "
+                + "of request headers to pass along with the HTTP request. Valid headers are: "
+                + "'" + defines["request-headers"].join("', '") + "'.");
+            if (!params.length)
+                comment.push(" *  No other params, simply pass an empty Object literal `{}`");
+            var paramName, def, line;
+            for (var i = 0, l = params.length; i < l; ++i) {
+                paramName = params[i];
+                if (paramName.charAt(0) == "$") {
+                    paramName = paramName.substr(1);
+                    if (!defines.params[paramName]) {
+                        Util.log("Invalid variable parameter name substitution; param '" +
+                            paramName + "' not found in defines block", "fatal");
+                        process.exit(1);
                     }
                     else
-                        def = paramsStruct[paramName];
-
-                    line = indent + " *  - " + paramName + " (" + (def.type || "mixed") + "): " +
-                        (def.required ? "Required." : "Optional. ");
-                    if (def.description)
-                        line += def.description;
-                    if (def.validation)
-                        line += " Validation rule: ` " + def.validation + " `.";
-
-                    comment.push(line);
+                        def = defines.params[paramName];
                 }
+                else
+                    def = paramsStruct[paramName];
 
-                if (addDocLink) {
-                    var docSection = DocSectionsMap[section] || section;
-                    var url = searchSectionUrl(docsUrl + "/" + docSection + "/",
-                        block.method + " " + block.url);
+                line = " *  - " + paramName + " (" + (def.type || "mixed") + "): " +
+                    (def.required ? "Required." : "Optional.");
+                if (def.description)
+                    line +=  " " + def.description;
+                if (def.validation)
+                    line += " Validation rule: ` " + def.validation + " `.";
 
-                    if (url) {
-                        comment.push(
-                            indent + " *",
-                            indent + " * " + url);
-                    }
-                    else {
-                        Util.log("No documentation link found for '" + block.url +
-                            "' on '" + docsUrl + "/" + docSection + "/'");
-                    }
-                }
-
-                return comment.join("\n") + "\n" + indent + " **/";
+                comment.push(line);
             }
 
-            function getParams(paramsStruct, indent) {
-                var params = Object.keys(paramsStruct);
-                if (!params.length)
-                    return "{}";
-                var values = [];
-                var paramName, def;
-                for (var i = 0, l = params.length; i < l; ++i) {
-                    paramName = params[i];
-                    if (paramName.charAt(0) == "$") {
-                        paramName = paramName.substr(1);
-                        if (!defines.params[paramName]) {
-                            Util.log("Invalid variable parameter name substitution; param '" +
-                                paramName + "' not found in defines block", "fatal");
-                            process.exit(1);
-                        }
-                        else
-                            def = defines.params[paramName];
+            return comment.join("\n") + "\n **/\n";
+        }
+
+        function getParams(paramsStruct, indent) {
+            var params = Object.keys(paramsStruct);
+            if (!params.length)
+                return "{}";
+            var values = [];
+            var paramName, def;
+            for (var i = 0, l = params.length; i < l; ++i) {
+                paramName = params[i];
+                if (paramName.charAt(0) == "$") {
+                    paramName = paramName.substr(1);
+                    if (!defines.params[paramName]) {
+                        Util.log("Invalid variable parameter name substitution; param '" +
+                            paramName + "' not found in defines block", "fatal");
+                        process.exit(1);
                     }
                     else
-                        def = paramsStruct[paramName];
-
-                    values.push(indent + "    " + paramName + ": \"" + def.type + "\"");
+                        def = defines.params[paramName];
                 }
-                return "{\n" + values.join(",\n") + "\n" + indent + "}";
+                else
+                    def = paramsStruct[paramName];
+
+                values.push(indent + "    " + paramName + ": \"" + def.type + "\"");
             }
+            return "{\n" + values.join(",\n") + "\n" + indent + "}";
+        }
 
-            function prepareApi(struct, baseType) {
-                if (!baseType)
-                    baseType = "";
+        function prepareApi(struct, baseType) {
+            if (!baseType)
+                baseType = "";
 
-                Object.keys(struct).forEach(function(routePart) {
-                    var block = struct[routePart];
-                    if (!block)
-                        return;
-                    var messageType = baseType + "/" + routePart;
-                    if (block.url && block.params) {
-                        // we ended up at an API definition part!
-                        var parts = messageType.split("/");
-                        var section = Util.toCamelCase(parts[1].toLowerCase());
-                        if (!block.method) {
-                            throw new Error("No HTTP method specified for " + messageType +
-                                "in section " + section);
-                        }
-
-                        parts.splice(0, 2);
-                        var funcName = Util.toCamelCase(parts.join("-"));
-                        var comment = createComment(block, section, funcName, "    ");
-
-                        // add the handler to the sections
-                        if (!sections[section])
-                            sections[section] = [];
-
-                        var afterRequest = "";
-                        if (headers && headers.length) {
-                            afterRequest = AfterRequestTpl.replace("<%headers%>", "\"" +
-                                headers.join("\", \"") + "\"");
-                        }
-                        sections[section].push(HandlerTpl
-                            .replace("<%funcName%>", funcName)
-                            .replace("<%comment%>", comment)
-                            .replace("<%afterRequest%>", afterRequest)
-                        );
-
-                        // add test to the testSections
-                        if (!testSections[section])
-                            testSections[section] = [];
-                        testSections[section].push(TestHandlerTpl
-                            .replace("<%name%>", block.method + " " + block.url + " (" + funcName + ")")
-                            .replace("<%funcName%>", section + "." + funcName)
-                            .replace("<%params%>", getParams(block.params, "            "))
-                        );
-                    }
-                    else {
-                        // recurse into this block next:
-                        prepareApi(block, messageType);
-                    }
-                });
-            }
-
-            Util.log("Converting routes to functions");
-            prepareApi(routes);
-
-            Util.log("Writing files to version dir");
-            var sectionNames = Object.keys(sections);
-
-            Util.log("Writing index.js file for version " + version);
-            Fs.writeFileSync(Path.join(dir, "index.js"),
-                IndexTpl
-                    .replace("<%name%>", defines.constants.name)
-                    .replace("<%description%>", defines.constants.description)
-                    .replace("<%scripts%>", "\"" + sectionNames.join("\", \"") + "\""),
-                "utf8");
-
-            Object.keys(sections).forEach(function(section) {
-                var def = sections[section];
-                Util.log("Writing '" + section + ".js' file for version " + version);
-                Fs.writeFileSync(Path.join(dir, section + ".js"), SectionTpl
-                    .replace(/<%sectionName%>/g, section)
-                    .replace("<%sectionBody%>", def.join("\n")),
-                    "utf8"
-                );
-
-                // When we don't need to generate tests, bail out here.
-                if (!tests)
+            Object.keys(struct).forEach(function(routePart) {
+                var block = struct[routePart];
+                if (!block)
                     return;
+                var messageType = baseType + "/" + routePart;
+                if (block.url && block.params) {
+                    // we ended up at an API definition part!
+                    var parts = messageType.split("/");
+                    var section = Util.toCamelCase(parts[1]);
+                    if (!block.method) {
+                        throw new Error("No HTTP method specified for " + messageType +
+                            "in section " + section);
+                    }
 
-                def = testSections[section];
-                // test if previous tests already contained implementations by checking
-                // if the difference in character count between the current test file
-                // and the newly generated one is more than twenty characters.
-                var body = TestSectionTpl
-                    .replace("<%version%>", version.replace("v", ""))
-                    .replace(/<%sectionName%>/g, section)
-                    .replace("<%testBody%>", def.join("\n\n"));
-                var path = Path.join(dir, section + "Test.js");
-                if (Fs.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
-                    Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
-                        "that were already implemented. \nPlease be sure te check this file " +
-                        "and move all implemented tests back into the newly generated test!", "error");
-                    Fs.renameSync(path, path + ".bak");
+                    // add the handler to the sections
+                    if (!sections[section]) {
+                        sections[section] = [];
+                        apidocs += "/** section: github\n";
+                        apidocs += " * mixin " + section + "\n";
+                        apidocs += " **/\n";
+                    }
+
+                    parts.splice(0, 2);
+                    var funcName = Util.toCamelCase(parts.join("-"));
+                    apidocs += createComment(block.params, section, funcName);
+
+                    // add test to the testSections
+                    if (!testSections[section])
+                        testSections[section] = [];
+                    testSections[section].push(TestHandlerTpl
+                        .replace("<%name%>", block.method + " " + block.url + " (" + funcName + ")")
+                        .replace("<%funcName%>", section + "." + funcName)
+                        .replace("<%params%>", getParams(block.params, "            "))
+                    );
                 }
-
-                Util.log("Writing test file for " + section + ", version " + version);
-                Fs.writeFileSync(path, body, "utf8");
+                else {
+                    // recurse into this block next:
+                    prepareApi(block, messageType);
+                }
             });
-
-            versionDone();
         }
-    }, function() {});
-};
 
-function getRequestOptions(url, method) {
-    var parsedUrl = Url.parse(url);
-    var protocol = parsedUrl.protocol.replace(/[:\/]+/, "");
-    return {
-        options: {
-            hostname: parsedUrl.hostname,
-            method: method || "GET",
-            path: parsedUrl.pathname,
-            port: parsedUrl.port || protocol == "https" ? 443 : 80
-        },
-        protocol: protocol
-    };
-}
+        Util.log("Converting routes to functions");
+        prepareApi(routes);
 
-function pingDocumentationUrl(url, callback) {
-    if (!url) {
-        callback(false);
-        return;
-    }
+        Util.log("Writing files to version dir");
 
-    var options = getRequestOptions(url, "HEAD");
+        Fs.writeFileSync(dir + "/apidocs.js", apidocs);
 
-    function callCallback(result) {
-        if (!callback)
-            return;
-        var cb = callback;
-        callback = undefined;
-        cb(result);
-    }
+        Object.keys(sections).forEach(function(section) {
+            // When we don't need to generate tests, bail out here.
+            if (!tests)
+                return;
 
-    var req = require(options.protocol).request(options.options, function(res) {
-        if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
-            callCallback(false);
-        } else {
-            callCallback(true);
-        }
-    });
-    req.on("error", function(err) {
-        callCallback(false);
-    });
-    req.end();
-}
-
-function searchSectionUrl(url, needle) {
-    var doc = sectionDocCache[url];
-    if (!doc)
-        return null;
-
-    var idx = doc.indexOf(needle);
-    var userIdx = needle.indexOf(":user");
-    // GH uses ':owner' to identify the :user param for clearer documentation,
-    // so we attempt to substitute that here to search for instead.
-    if (idx == -1 && userIdx != -1) {
-        needle = needle.substr(0, userIdx) + ":owner" + needle.substr(userIdx + 5);
-        idx = doc.indexOf(needle);
-    }
-
-    // We tried.
-    if (idx == -1)
-        return null;
-
-    var subDoc = doc.substr(0, idx);
-    // Search for the first header with an ID attribute.
-    var headerIdx = -1;
-    for (var i = 2; i >= 1 && headerIdx == -1; --i) {
-        headerIdx = subDoc.lastIndexOf("<h" + i + " id=");
-    }
-
-    // We tried.
-    if (headerIdx == -1)
-        return null;
-
-    // Fetch the content of the ID attribute.
-    var id = subDoc.substr(headerIdx).match(/id=["']+([^'">]*)/);
-    if (!id || !id.length)
-        return null;
-
-    return url + "#" + id[1];
-}
-
-var sectionDocCache = {};
-
-function getSectionDocument(url, callback) {
-    // First try to fetch the section document from cache.
-    if (sectionDocCache[url]) {
-        callCallback(null, sectionDocCache[url]);
-        return;
-    }
-
-    var options = getRequestOptions(url);
-
-    function callCallback(err, result) {
-        if (callback) {
-            var cb = callback;
-            callback = undefined;
-            cb(err, result);
-        }
-    }
-
-    Util.log("Fetching documentation section '" + url + "'");
-    var req = require(options.protocol).request(options.options, function(res) {
-        res.setEncoding("utf8");
-        var data = "";
-        res.on("data", function(chunk) {
-            data += chunk;
-        });
-        res.on("error", function(err) {
-            callCallback(err);
-        });
-        res.on("end", function() {
-            if (res.statusCode >= 400 && res.statusCode < 600 || res.statusCode < 10) {
-                callCallback(data, res.statusCode);
-            } else {
-                sectionDocCache[url] = data;
-                callCallback(null, data);
+            var def = testSections[section];
+            // test if previous tests already contained implementations by checking
+            // if the difference in character count between the current test file
+            // and the newly generated one is more than twenty characters.
+            var body = TestSectionTpl
+                .replace("<%version%>", version.replace("v", ""))
+                .replace(/<%sectionName%>/g, section)
+                .replace("<%testBody%>", def.join("\n\n"));
+            var path = Path.join(dir, section + "Test.js");
+            if (Fs.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
+                Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
+                    "that were already implemented. \nPlease be sure te check this file " +
+                    "and move all implemented tests back into the newly generated test!", "error");
+                Fs.renameSync(path, path + ".bak");
             }
+
+            Util.log("Writing test file for " + section + ", version " + version);
+            Fs.writeFileSync(path, body, "utf8");
         });
     });
-    req.on("error", function(e) {
-        callCallback(e.message);
-    });
-    req.on("timeout", function() {
-        callCallback("Gateway timed out for '" + url + "'");
-    });
-    req.end();
-}
+};
 
 if (!module.parent) {
     var argv = Optimist
