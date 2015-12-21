@@ -3131,7 +3131,6 @@
                     "description": "The integer ID of the last User that you’ve seen."
                 }
             }
-
         },
 
         "get-from": {
