@@ -4,6 +4,8 @@ logs
 *.log
 npm-debug.log*
 
+*.orig
+
 0.0.1.seed
 
 .settings.xml
