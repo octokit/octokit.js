@@ -567,13 +567,13 @@ var pullRequests = module.exports = {
      *  ##### Params on the `msg` object:
      *
      *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-     *  - user (String): Required.
-     *  - repo (String): Required.
-     *  - number (Number): Required. Validation rule: ` ^[0-9]+$ `.
-     *  - body (String): Required.
-     *  - commit_id (String): Required.Sha of the commit to comment on.
-     *  - path (String): Required.Relative path of the file to comment on.
-     *  - position (Number): Required.Column index in the diff to comment on.
+     *  - user (String): Required. 
+     *  - repo (String): Required. 
+     *  - number (Number): Required.  Validation rule: ` ^[0-9]+$ `.
+     *  - body (String): Required. 
+     *  - commit_id (String): Required. Sha of the commit to comment on.
+     *  - path (String): Required. Relative path of the file to comment on.
+     *  - position (Number): Required. Line index in the diff to comment on.
      **/
     this.createComment = function(msg, block, callback) {
         var self = this;
