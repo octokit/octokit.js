@@ -665,6 +665,8 @@ var Client = module.exports = function(config) {
         var obj = getQueryAndUrl(msg, block, format, self.config);
         var query = obj.query;
         var url = this.config.url ? this.config.url + obj.url : obj.url;
+        var HttpsProxyAgent = require('https-proxy-agent');
+        var agent = undefined;
 
         var path = url;
         var protocol = this.config.protocol || this.constants.protocol || "http";
@@ -678,20 +680,7 @@ var Client = module.exports = function(config) {
             proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
         }
         if (proxyUrl) {
-            path = Url.format({
-                protocol: protocol,
-                hostname: host,
-                port: port,
-                pathname: path
-            });
-
-            if (!/^(http|https):\/\//.test(proxyUrl))
-                proxyUrl = "https://" + proxyUrl;
-
-            var parsedUrl = Url.parse(proxyUrl);
-            protocol = parsedUrl.protocol.replace(":", "");
-            host = parsedUrl.hostname;
-            port = parsedUrl.port || (protocol == "https" ? 443 : 80);
+            agent = new HttpsProxyAgent(proxyUrl);
         }
         if (!hasBody && query.length)
             path += "?" + query.join("&");
@@ -769,6 +758,10 @@ var Client = module.exports = function(config) {
             headers: headers,
             ca: ca
         };
+
+        if (agent) {
+            options.agent = agent;
+        }
 
         if (this.config.rejectUnauthorized !== undefined)
             options.rejectUnauthorized = this.config.rejectUnauthorized;
