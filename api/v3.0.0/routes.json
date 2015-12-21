@@ -1551,6 +1551,15 @@
             }
         },
 
+        "get-team-membership": {
+            "url": "/teams/:id/memberships/:user",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$user": null
+            }
+        },
+
         "get-team-repos": {
             "url": "/teams/:id/repos",
             "method": "GET",
