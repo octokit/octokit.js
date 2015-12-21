@@ -1941,8 +1941,8 @@
                     "type": "String",
                     "required": false,
                     "validation": "^(all|public|private|forks|sources|member)$",
-                    "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `member`. Default: `all`.",
-                    "description": "Possible values: `all`, `public`, `private`, `forks`, `member`. Default: `all`."
+                    "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
+                    "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`."
                 },
                 "$page": null,
                 "$per_page": null
@@ -3101,12 +3101,12 @@
                     "type": "Number",
                     "required": false,
                     "validation": "",
-                    "description": "The integer ID of the last User that you’ve seen." 
+                    "description": "The integer ID of the last User that you’ve seen."
                 }
             }
-            
+
         },
-        
+
         "get-from": {
             "url": "/users/:user",
             "method": "GET",
