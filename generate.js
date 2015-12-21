@@ -12,7 +12,7 @@
 
 "use strict";
 
-var Fs = require("fs");
+var fs = require("fs");
 var Path = require("path");
 var Url = require("url");
 
@@ -20,8 +20,8 @@ var Async = require("async");
 var Optimist = require("optimist");
 var Util = require("./util");
 
-var TestSectionTpl = Fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
-var TestHandlerTpl = Fs.readFileSync(__dirname + "/templates/test_handler.js.tpl", "utf8");
+var TestSectionTpl = fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
+var TestHandlerTpl = fs.readFileSync(__dirname + "/templates/test_handler.js.tpl", "utf8");
 
 var main = module.exports = function(versions, tests, restore) {
     Util.log("Generating for versions", Object.keys(versions));
@@ -33,12 +33,12 @@ var main = module.exports = function(versions, tests, restore) {
         // and short-circuit.
         if (restore) {
             var bakRE = /\.bak$/;
-            var files = Fs.readdirSync(dir).filter(function(file) {
+            var files = fs.readdirSync(dir).filter(function(file) {
                 return bakRE.test(file);
             }).forEach(function(file) {
                 var from = Path.join(dir, file);
                 var to = Path.join(dir, file.replace(/\.bak$/, ""));
-                Fs.renameSync(from, to);
+                fs.renameSync(from, to);
                 Util.log("Restored '" + file + "' (" + version + ")");
             });
 
@@ -176,7 +176,7 @@ var main = module.exports = function(versions, tests, restore) {
 
         Util.log("Writing files to version dir");
 
-        Fs.writeFileSync(dir + "/apidocs.js", apidocs);
+        fs.writeFileSync(dir + "/apidocs.js", apidocs);
 
         Object.keys(sections).forEach(function(section) {
             // When we don't need to generate tests, bail out here.
@@ -191,16 +191,16 @@ var main = module.exports = function(versions, tests, restore) {
                 .replace("<%version%>", version.replace("v", ""))
                 .replace(/<%sectionName%>/g, section)
                 .replace("<%testBody%>", def.join("\n\n"));
-            var path = Path.join(dir, section + "Test.js");
-            if (Fs.existsSync(path) && Math.abs(Fs.readFileSync(path, "utf8").length - body.length) >= 20) {
+            var path = Path.join(testDir, section + "Test.js");
+            if (fs.existsSync(path) && Math.abs(fs.readFileSync(path, "utf8").length - body.length) >= 20) {
                 Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
                     "that were already implemented. \nPlease be sure te check this file " +
                     "and move all implemented tests back into the newly generated test!", "error");
-                Fs.renameSync(path, path + ".bak");
+                fs.renameSync(path, path + ".bak");
             }
 
             Util.log("Writing test file for " + section + ", version " + version);
-            Fs.writeFileSync(path, body, "utf8");
+            fs.writeFileSync(path, body, "utf8");
         });
     });
 };
@@ -227,12 +227,13 @@ if (!module.parent) {
     }
 
     var baseDir = Path.join(__dirname, "api");
+    var testDir = Path.join(__dirname, "test");
     var availVersions = {};
-    Fs.readdirSync(baseDir).forEach(function(version) {
+    fs.readdirSync(baseDir).forEach(function(version) {
         var path = Path.join(baseDir, version, "routes.json");
-        if (!Fs.existsSync(path))
+        if (!fs.existsSync(path))
             return;
-        var routes = JSON.parse(Fs.readFileSync(path, "utf8"));
+        var routes = JSON.parse(fs.readFileSync(path, "utf8"));
         if (!routes.defines)
             return;
         availVersions[version] = routes;

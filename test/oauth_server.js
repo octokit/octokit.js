@@ -1,8 +1,8 @@
 "use strict";
 
-var GitHubApi = require("./../index");
+var Client = require("./../index");
 
-var github = new GitHubApi({
+var github = new Client({
     version: "3.0.0"
 });
 

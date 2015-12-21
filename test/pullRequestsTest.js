@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../../index");
+var Client = require("./../index");
 
 describe("[pullRequests]", function() {
     var client;

@@ -32,13 +32,14 @@
   },
   "devDependencies": {
     "async": "^0.9.0",
+    "mocha": "~1.13.0",
     "oauth": "~0.9.7",
     "optimist": "~0.6.0",
-    "mocha": "~1.13.0"
+    "should": "^8.0.2"
   },
   "main": ".",
   "scripts": {
-    "test": "node ./test/all.js"
+    "test": "./node_modules/.bin/mocha"
   },
   "license": "MIT",
   "licenses": [
