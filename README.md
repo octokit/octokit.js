@@ -98,7 +98,7 @@ github.user.update({
 ```
 
 ### Creating tokens for your application
-[Create a new authorization](http://developer.github.com/v3/oauth/#create-a-new-authorization) for your application giving it access to the wanted scopes you need instead of relying on username / password and is the way to go if you have [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) on.
+[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization) for your application giving it access to the wanted scopes you need instead of relying on username / password and is the way to go if you have [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) on.
 
 For example:
 
