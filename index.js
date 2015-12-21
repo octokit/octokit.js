@@ -770,7 +770,7 @@ var Client = module.exports = function(config) {
             console.log("REQUEST: ", options);
 
         function httpSendRequest() {
-            var req = require(protocol).request(options, function(res) {
+            var req = require('follow-redirects/' + protocol).request(options, function(res) {
                 if (self.debug) {
                     console.log("STATUS: " + res.statusCode);
                     console.log("HEADERS: " + JSON.stringify(res.headers));
