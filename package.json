@@ -1,6 +1,6 @@
 {
   "name": "github4",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "NodeJS wrapper for the GitHub API",
   "author": "Mike de Boer <info@mikedeboer.nl>",
   "contributors": [
@@ -28,12 +28,12 @@
   "dependencies": {
     "follow-redirects": "0.0.7",
     "https-proxy-agent": "^1.0.0",
-    "mime": "^1.2.11"
+    "mime": "^1.2.11",
+    "oauth": "^0.9.14"
   },
   "devDependencies": {
     "async": "^0.9.0",
     "mocha": "~1.13.0",
-    "oauth": "~0.9.7",
     "optimist": "~0.6.0",
     "should": "^8.0.2"
   },
