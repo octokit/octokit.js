@@ -134,7 +134,7 @@ $ mocha
 
 Or run a specific test
 ```bash
-$ mocha api/v3.0.0/issuesTest.js
+$ mocha test/issuesTest.js
 ```
 
 ## LICENSE
