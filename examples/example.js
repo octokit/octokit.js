@@ -20,9 +20,8 @@ var github = new Client({
 });
 
 github.authenticate({
-    type: "basic",
-    username: "mikedeboer",
-    password: "mysecretpass"
+    type: "oauth",
+    token: "ef6b58a25fc2e0145754610c3d3b6dce2251d6c1"
 });
 
 github.user.get({}, function(err, res) {
