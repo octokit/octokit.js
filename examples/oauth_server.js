@@ -4,14 +4,11 @@ var Client = require("./../index");
 
 var github = new Client();
 
-/*
-!!!UNCOMMENT THE FOLLOWING TO MAKE THIS SCRIPT WORK, BUT CHANGE THE CREDENTIALS TO YOUR OWN!!!
 github.authenticate({
     type: "basic",
-    username: "mikedeboertest",
-    password: "test1324"
+    username: "<USERNAME>",
+    password: "<PASSWORD>"
 });
-*/
 
 github.authorization.getAll({}, function(err, res) {
     if (err)
