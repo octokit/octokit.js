@@ -502,7 +502,7 @@ var Client = module.exports = function(config) {
             if (typeof ret == "object") {
                 if (!ret.meta)
                     ret.meta = {};
-            self.responseHeaders.forEach(function(header) {
+                self.responseHeaders.forEach(function(header) {
                     if (res.headers[header])
                         ret.meta[header] = res.headers[header];
                 });
@@ -818,4 +818,44 @@ var Client = module.exports = function(config) {
             httpSendRequest();
         }
     };
+
+    this.sendError = function(err, block, msg, callback) {
+        if (this.debug)
+            Util.log(err, block, msg, "error");
+        if (typeof err == "string")
+            err = new error.InternalServerError(err);
+        if (callback)
+            callback(err);
+    };
+
+    this.handler = function(msg, block, callback) {
+        var self = this;
+        this.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, msg, null, callback);
+
+            var ret;
+            try {
+                ret = res.data && JSON.parse(res.data);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret) {
+                ret = {};
+            }
+            ret.meta = {};
+            self.responseHeaders.forEach(function(header) {
+                if (res.headers[header]) {
+                    ret.meta[header] = res.headers[header];
+                }
+            });
+
+            if (callback)
+                callback(null, ret);
+        });
+    }
 }).call(Client.prototype);
