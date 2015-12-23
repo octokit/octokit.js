@@ -21,15 +21,9 @@ var github = new Client({
 
 github.authenticate({
     type: "oauth",
-    token: "ef6b58a25fc2e0145754610c3d3b6dce2251d6c1"
+    token: "<TOKEN>"
 });
 
 github.user.get({}, function(err, res) {
-    console.log("GOT ERR?", err);
-    console.log("GOT RES?", res);
-
-    github.repos.getAll({}, function(err, res) {
-        console.log("GOT ERR?", err);
-        console.log("GOT RES?", res);
-    });
+    console.log(err, res);
 });
