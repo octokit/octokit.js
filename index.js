@@ -349,7 +349,7 @@ var Client = module.exports = function(config) {
                             // on error, there's no need to continue.
                             return;
                         }
-                        self.handler(msg, block, callback);
+                        self.handler(msg, JSON.parse(JSON.stringify(block)), callback);
                     };
                 }
                 else {
