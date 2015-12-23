@@ -1,8 +1,8 @@
 /** section: github, internal
  *  Example
- * 
+ *
  *  Github API usage example.
- * 
+ *
  *  Copyright 2012 Cloud9 IDE, Inc.
  *
  *  This product includes software developed by
@@ -16,22 +16,14 @@
 var Client = require("./../index");
 
 var github = new Client({
-    debug: true,
-    version: "3.0.0"
+    debug: true
 });
 
 github.authenticate({
-    type: "basic",
-    username: "mikedeboer",
-    password: "mysecretpass"
+    type: "oauth",
+    token: "<TOKEN>"
 });
 
 github.user.get({}, function(err, res) {
-    console.log("GOT ERR?", err);
-    console.log("GOT RES?", res);
-
-    github.repos.getAll({}, function(err, res) {
-        console.log("GOT ERR?", err);
-        console.log("GOT RES?", res);
-    });
+    console.log(err, res);
 });

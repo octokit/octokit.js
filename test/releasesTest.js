@@ -31,9 +31,7 @@ describe("[releases]", function() {
     var newAssetId;     // asset id used when creating asset. Used for edit and delete asset
 
     beforeEach(function() {
-        client = new Client({
-            version: "3.0.0"
-        });
+        client = new Client();
         client.authenticate({
             type: "oauth",
             token: token

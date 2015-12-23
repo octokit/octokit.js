@@ -16,9 +16,7 @@ describe("[gitignore]", function() {
     var client;
 
     beforeEach(function() {
-        client = new Client({
-            version: "3.0.0"
-        });
+        client = new Client();
     });
 
     it("should successfully execute GET /gitignore/templates (templates)",  function(next) {

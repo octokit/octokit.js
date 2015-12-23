@@ -34,8 +34,6 @@ Get all followers for user "defunkt":
 var GitHubApi = require("github4");
 
 var github = new GitHubApi({
-    // required
-    version: "3.0.0",
     // optional
     debug: true,
     protocol: "https",
