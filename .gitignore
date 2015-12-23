@@ -16,3 +16,5 @@ npm-debug.log*
 /nbproject/private/
 
 .DS_Store
+
+.idea
