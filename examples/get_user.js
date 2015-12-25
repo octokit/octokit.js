@@ -21,7 +21,7 @@ var github = new Client({
 
 github.authenticate({
     type: "oauth",
-    token: "<TOKEN>"
+    token: "TOKEN" // Replace with your oauth token
 });
 
 github.user.get({}, function(err, res) {
