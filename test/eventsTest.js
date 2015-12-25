@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[events]", function() {
     var client;
@@ -27,19 +27,12 @@ describe("[events]", function() {
     it("should successfully execute GET /events (get)",  function(next) {
         client.events.get(
             {
-                page: 1,
-                per_page: 30
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
-                // other assertions go here
                 Assert.equal(err, null);
-                Assert.ok(res.length > 1);
-                Assert.equal(typeof res[0].type, "string");
-                Assert.equal(typeof res[0].created_at, "string");
-                Assert.equal(typeof res[0]["public"], "boolean");
-                Assert.equal(typeof res[0].id, "string");
-                Assert.ok("actor" in res[0]);
-                Assert.ok("repo" in res[0]);
+                // other assertions go here
                 next();
             }
         );
@@ -48,20 +41,14 @@ describe("[events]", function() {
     it("should successfully execute GET /repos/:user/:repo/events (getFromRepo)",  function(next) {
         client.events.getFromRepo(
             {
-                user: "mikedeboertest",
-                repo: "node_chat"
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.length, 5);
-                // this is the lastly listed event
-                var last = res.pop();
-                Assert.equal(last.type, "ForkEvent");
-                Assert.equal(last.created_at, "2012-10-05T15:03:11Z");
-                Assert.equal(last.id, "1607304921");
-                Assert.equal(last["public"], true);
-                Assert.equal(last.actor.login, "mikedeboer");
-                Assert.equal(last.repo.name, "mikedeboertest/node_chat");
+                // other assertions go here
                 next();
             }
         );
@@ -70,21 +57,14 @@ describe("[events]", function() {
     it("should successfully execute GET /repos/:user/:repo/issues/events (getFromRepoIssues)",  function(next) {
         client.events.getFromRepoIssues(
             {
-                user: "mikedeboertest",
-                repo: "node_chat"
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.length, 4);
-                // this is the lastly listed event
-                var last = res.pop();
-                Assert.equal(last.event, "referenced");
-                Assert.equal(last.created_at, "2012-10-05T15:05:31Z");
-                Assert.equal(last.id, "26276344");
-                Assert.equal(last.actor.login, "mikedeboertest");
-                Assert.equal(last.issue.title, "Macaroni");
-                Assert.equal(last.issue.number, 1);
-                Assert.equal(last.issue.state, "closed");
+                // other assertions go here
                 next();
             }
         );
@@ -93,16 +73,14 @@ describe("[events]", function() {
     it("should successfully execute GET /networks/:user/:repo/events (getFromRepoNetwork)",  function(next) {
         client.events.getFromRepoNetwork(
             {
-                user: "mikedeboertest",
-                repo: "node_chat"
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.length > 1);
-                var last = res.pop();
-                Assert.equal(typeof last.id, "string");
-                Assert.equal(typeof last.created_at, "string");
-                Assert.equal(typeof last.actor, "object");
+                // other assertions go here
                 next();
             }
         );
@@ -111,15 +89,13 @@ describe("[events]", function() {
     it("should successfully execute GET /orgs/:org/events (getFromOrg)",  function(next) {
         client.events.getFromOrg(
             {
-                org: "ajaxorg"
+                org: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.length > 1);
-                var last = res.pop();
-                Assert.equal(typeof last.id, "string");
-                Assert.equal(typeof last.created_at, "string");
-                Assert.equal(typeof last.actor, "object");
+                // other assertions go here
                 next();
             }
         );
@@ -128,15 +104,13 @@ describe("[events]", function() {
     it("should successfully execute GET /users/:user/received_events (getReceived)",  function(next) {
         client.events.getReceived(
             {
-                user: "mikedeboertest"
+                user: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.length > 0);
-                var last = res.pop();
-                Assert.equal(typeof last.id, "string");
-                Assert.equal(typeof last.created_at, "string");
-                Assert.equal(typeof last.actor, "object");
+                // other assertions go here
                 next();
             }
         );
@@ -145,15 +119,13 @@ describe("[events]", function() {
     it("should successfully execute GET /users/:user/received_events/public (getReceivedPublic)",  function(next) {
         client.events.getReceivedPublic(
             {
-                user: "mikedeboertest"
+                user: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.length > 0);
-                var last = res.pop();
-                Assert.equal(typeof last.id, "string");
-                Assert.equal(typeof last.created_at, "string");
-                Assert.equal(typeof last.actor, "object");
+                // other assertions go here
                 next();
             }
         );
@@ -162,15 +134,13 @@ describe("[events]", function() {
     it("should successfully execute GET /users/:user/events (getFromUser)",  function(next) {
         client.events.getFromUser(
             {
-                user: "mikedeboertest"
+                user: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.length > 1);
-                var last = res.pop();
-                Assert.equal(typeof last.id, "string");
-                Assert.equal(typeof last.created_at, "string");
-                Assert.equal(typeof last.actor, "object");
+                // other assertions go here
                 next();
             }
         );
@@ -179,15 +149,13 @@ describe("[events]", function() {
     it("should successfully execute GET /users/:user/events/public (getFromUserPublic)",  function(next) {
         client.events.getFromUserPublic(
             {
-                user: "mikedeboertest"
+                user: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.length > 1);
-                var last = res.pop();
-                Assert.equal(typeof last.id, "string");
-                Assert.equal(typeof last.created_at, "string");
-                Assert.equal(typeof last.actor, "object");
+                // other assertions go here
                 next();
             }
         );
@@ -196,13 +164,14 @@ describe("[events]", function() {
     it("should successfully execute GET /users/:user/events/orgs/:org (getFromUserOrg)",  function(next) {
         client.events.getFromUserOrg(
             {
-                user: "mikedeboer",
-                org: "ajaxorg"
+                user: "String",
+                org: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
-                // we're not logged in as `mikedeboer` right now, so github API does not allow
-                // us to see the resource.
-                Assert.equal(err.code, 404);
+                Assert.equal(err, null);
+                // other assertions go here
                 next();
             }
         );

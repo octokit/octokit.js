@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[orgs]", function() {
     var client;
@@ -77,7 +77,8 @@ describe("[orgs]", function() {
             {
                 org: "String",
                 page: "Number",
-                per_page: "Number"
+                per_page: "Number",
+                filter: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -142,6 +143,34 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute PUT /orgs/:org/memberships/:user (addOrganizationMembership)",  function(next) {
+        client.orgs.addOrganizationMembership(
+            {
+                org: "String",
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /orgs/:org/memberships/:user (removeOrganizationMembership)",  function(next) {
+        client.orgs.removeOrganizationMembership(
+            {
+                org: "String",
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PUT /orgs/:org/public_members/:user (publicizeMembership)",  function(next) {
         client.orgs.publicizeMembership(
             {
@@ -173,7 +202,9 @@ describe("[orgs]", function() {
     it("should successfully execute GET /orgs/:org/teams (getTeams)",  function(next) {
         client.orgs.getTeams(
             {
-                org: "String"
+                org: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -285,6 +316,34 @@ describe("[orgs]", function() {
 
     it("should successfully execute DELETE /teams/:id/members/:user (deleteTeamMember)",  function(next) {
         client.orgs.deleteTeamMember(
+            {
+                id: "String",
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /teams/:id/memberships/:user (addTeamMembership)",  function(next) {
+        client.orgs.addTeamMembership(
+            {
+                id: "String",
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /teams/:id/memberships/:user (getTeamMembership)",  function(next) {
+        client.orgs.getTeamMembership(
             {
                 id: "String",
                 user: "String"

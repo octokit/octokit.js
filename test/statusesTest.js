@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[statuses]", function() {
     var client;
@@ -27,9 +27,9 @@ describe("[statuses]", function() {
     it("should successfully execute GET /repos/:user/:repo/commits/:sha/statuses (get)",  function(next) {
         client.statuses.get(
             {
-                user: "mikedeboer",
-                repo: "node-github",
-                sha: "30d607d8fd8002427b61273f25d442c233cbf631"
+                user: "String",
+                repo: "String",
+                sha: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -39,12 +39,12 @@ describe("[statuses]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/status (get)",  function(next) {
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha/status (getCombined)",  function(next) {
         client.statuses.getCombined(
             {
-                user: "mikedeboer",
-                repo: "node-github",
-                sha: "30d607d8fd8002427b61273f25d442c233cbf631"
+                user: "String",
+                repo: "String",
+                sha: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -62,7 +62,8 @@ describe("[statuses]", function() {
                 sha: "String",
                 state: "String",
                 target_url: "String",
-                description: "String"
+                description: "String",
+                context: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

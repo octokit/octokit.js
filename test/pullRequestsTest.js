@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[pullRequests]", function() {
     var client;
@@ -29,11 +29,13 @@ describe("[pullRequests]", function() {
             {
                 user: "String",
                 repo: "String",
-                base: "String",
-                head: "String",
                 state: "String",
+                head: "String",
+                base: "String",
                 page: "Number",
-                per_page: "Number"
+                per_page: "Number",
+                sort: "String",
+                direction: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

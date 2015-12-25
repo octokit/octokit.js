@@ -22,7 +22,15 @@ var Util = require("./util");
 var TestSectionTpl = fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
 var TestHandlerTpl = fs.readFileSync(__dirname + "/templates/test_handler.js.tpl", "utf8");
 
-var main = module.exports = function(routes, tests) {
+var main = module.exports = function() {
+    // check routes path
+    var routesPath = Path.join(__dirname, "routes.json");
+    var routes = JSON.parse(fs.readFileSync(routesPath, "utf8"));
+    if (!routes.defines) {
+        Util.log("No routes defined.", "fatal");
+        process.exit(1);
+    }
+
     Util.log("Generating...");
 
     var defines = routes.defines;
@@ -156,55 +164,17 @@ var main = module.exports = function(routes, tests) {
     fs.writeFileSync(apidocsPath, apidocs);
 
     Object.keys(sections).forEach(function(section) {
-        // When we don't need to generate tests, bail out here.
-        if (!tests)
-            return;
+        Util.log("Writing test file for " + section);
 
         var def = testSections[section];
-        // test if previous tests already contained implementations by checking
-        // if the difference in character count between the current test file
-        // and the newly generated one is more than twenty characters.
         var body = TestSectionTpl
             .replace("<%version%>", "3.0.0")
             .replace(/<%sectionName%>/g, section)
             .replace("<%testBody%>", def.join("\n\n"));
         var path = Path.join(__dirname, "test", section + "Test.js");
-        if (fs.existsSync(path) && Math.abs(fs.readFileSync(path, "utf8").length - body.length) >= 20) {
-            Util.log("Moving old test file to '" + path + ".bak' to preserve tests " +
-                "that were already implemented. \nPlease be sure te check this file " +
-                "and move all implemented tests back into the newly generated test!", "error");
-            fs.renameSync(path, path + ".bak");
-        }
 
-        Util.log("Writing test file for " + section);
         fs.writeFileSync(path, body, "utf8");
     });
 };
 
-if (!module.parent) {
-    var argv = Optimist
-      .wrap(80)
-      .usage("Generate the implementation of the node-github module, including "
-           + "unit-test scaffolds.\nUsage: $0 [-r] [-v VERSION]")
-      .alias("t", "tests")
-      .describe("t", "Also generate unit test scaffolds")
-      .alias("h", "help")
-      .describe("h", "Display this usage information")
-      .boolean(["t", "h"])
-      .argv;
-
-    if (argv.help) {
-        Util.log(Optimist.help());
-        process.exit();
-    }
-
-    var routesPath = Path.join(__dirname, "routes.json");
-    var routes = JSON.parse(fs.readFileSync(routesPath, "utf8"));
-    if (!routes.defines) {
-        Util.log("No routes defined.", "fatal");
-        process.exit(1);
-    }
-
-    Util.log("Starting up...");
-    main(routes, argv.tests);
-}
+main();

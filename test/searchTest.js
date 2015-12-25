@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[search]", function() {
     var client;
@@ -24,85 +24,75 @@ describe("[search]", function() {
         });
     });
 
-    it("should successfully execute GET /search/code/:q (code)",  function(next) {
+    it("should successfully execute GET /search/code (code)",  function(next) {
         client.search.code(
             {
-                q: ['test', 'repo:mikedeboertest/1423836276146'].join('+')
+                q: "String",
+                sort: "String",
+                order: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.items.length, 1);
-                var file = res.items[0];
-                Assert.equal(file.name, "TEST.md");
-
+                // other assertions go here
                 next();
             }
         );
     });
 
-    it("should successfully execute GET /search/issues/:q (issues)",  function(next) {
+    it("should successfully execute GET /search/issues (issues)",  function(next) {
         client.search.issues(
             {
-                q: ['debate', 'repo:mikedeboertest/node_chat', 'state:open'].join('+')
+                q: "String",
+                sort: "String",
+                order: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.items.length, 1);
-                var issue = res.items[0];
-                Assert.equal(issue.title, "My First Issue");
-                Assert.equal(issue.state, "open");
-
+                // other assertions go here
                 next();
             }
         );
     });
 
-    it("should successfully execute GET /search/repositories/:q (repos)",  function(next) {
+    it("should successfully execute GET /search/repositories (repos)",  function(next) {
         client.search.repos(
             {
-                q: ['pasta', 'language:JavaScript'].join('+')
+                q: "String",
+                sort: "String",
+                order: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res.items.length > 0);
-                Assert.equal(res.items[0].language, "JavaScript");
-
+                // other assertions go here
                 next();
             }
         );
     });
 
-    it("should successfully execute GET /search/users/:q (users)",  function(next) {
+    it("should successfully execute GET /search/users (users)",  function(next) {
         client.search.users(
             {
-                q: "mikedeboer"
+                q: "String",
+                sort: "String",
+                order: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.items.length, 2);
-                var user = res.items[0];
-                Assert.equal(user.login, "mikedeboer");
-
-                client.search.users(
-                    {
-                        q: "location:Jyväskylä"
-                    },
-                    function(err, res) {
-                        Assert.equal(err, null);
-                        //XXX: this is likely to change often. I added this for
-                        //     issue #159.
-                        Assert.equal(res.items.length, 30);
-                        var user = res.items[0];
-                        Assert.equal(user.login, "bebraw");
-
-                        next();
-                    }
-                );
+                // other assertions go here
+                next();
             }
         );
     });
 
-    /*it("should successfully execute GET /search/user/email/:email (email)",  function(next) {
+    it("should successfully execute GET /legacy/user/email/:email (email)",  function(next) {
         client.search.email(
             {
                 email: "String"
@@ -113,5 +103,5 @@ describe("[search]", function() {
                 next();
             }
         );
-    });*/
+    });
 });
