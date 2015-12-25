@@ -18,3 +18,5 @@ npm-debug.log*
 .DS_Store
 
 .idea
+
+test_auth.json

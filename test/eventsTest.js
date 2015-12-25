@@ -11,10 +11,11 @@
 
 var Assert = require("assert");
 var Client = require("./../../index");
+var testAuth = require("./../test_auth.json");
 
 describe("[events]", function() {
     var client;
-    var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
+    var token = testAuth["token"];
 
     beforeEach(function() {
         client = new Client();

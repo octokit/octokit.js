@@ -27,6 +27,17 @@ $ npm install
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)  
 Client API: [https://kaizensoze.github.io/github4/](https://kaizensoze.github.io/github4/)
 
+## Test auth file
+
+Create test auth file for running tests/examples.
+
+```bash
+$ > test_auth.json
+{
+    "token": "<TOKEN>"
+}
+```
+
 ## Example
 
 Get all followers for user "defunkt":
@@ -118,7 +129,9 @@ github.authorization.create({
 });
 ```
 
-## Generate/update docs/tests
+## Generate doc/tests
+
+Generate/update doc/tests.
 
 ```bash
 $ node generate.js
