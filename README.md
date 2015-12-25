@@ -118,6 +118,12 @@ github.authorization.create({
 });
 ```
 
+## Generate/update docs/tests
+
+```bash
+$ node generate.js
+```
+
 ## Tests
 
 Install mocha

@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[repos]", function() {
     var client;
@@ -133,6 +133,19 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repositories/:id (one)",  function(next) {
+        client.repos.one(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PATCH /repos/:user/:repo (update)",  function(next) {
         client.repos.update(
             {
@@ -144,7 +157,8 @@ describe("[repos]", function() {
                 private: "Boolean",
                 has_issues: "Boolean",
                 has_wiki: "Boolean",
-                has_downloads: "Boolean"
+                has_downloads: "Boolean",
+                default_branch: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -267,7 +281,7 @@ describe("[repos]", function() {
     });
 
     it("should successfully execute GET /repos/:user/:repo/branches/:branch (getBranch)",  function(next) {
-        client.repos.getBranches(
+        client.repos.getBranch(
             {
                 user: "String",
                 repo: "String",
@@ -351,9 +365,11 @@ describe("[repos]", function() {
                 repo: "String",
                 sha: "String",
                 path: "String",
+                author: "String",
                 page: "Number",
                 per_page: "Number",
-                author: "String"
+                since: "Date",
+                until: "Date"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -523,15 +539,16 @@ describe("[repos]", function() {
             }
         );
     });
-    it("should successfully execute GET /repos/:user/:repo/contents/:path (createContent)",  function(next) {
-        client.repos.getContent(
+
+    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createContent)",  function(next) {
+        client.repos.createContent(
             {
                 user: "String",
                 repo: "String",
+                content: "String",
+                message: "String",
                 path: "String",
-                ref: "String",
-                content:"String",
-                message:"String"
+                ref: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -607,6 +624,7 @@ describe("[repos]", function() {
             {
                 user: "String",
                 repo: "String",
+                ref: "String",
                 archive_format: "String"
             },
             function(err, res) {
@@ -835,8 +853,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/starred/:user/:repo (watch)",  function(next) {
-        client.repos.watch(
+    it("should successfully execute PUT /user/starred/:user/:repo (star)",  function(next) {
+        client.repos.star(
             {
                 user: "String",
                 repo: "String"
@@ -849,8 +867,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/starred/:user/:repo (unWatch)",  function(next) {
-        client.repos.unWatch(
+    it("should successfully execute DELETE /user/starred/:user/:repo (unStar)",  function(next) {
+        client.repos.unStar(
             {
                 user: "String",
                 repo: "String"
@@ -1113,6 +1131,80 @@ describe("[repos]", function() {
             {
                 user: "String",
                 repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/deployments (getDeployments)",  function(next) {
+        client.repos.getDeployments(
+            {
+                sha: "String",
+                ref: "String",
+                task: "String",
+                environment: "String",
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/deployments (createDeployment)",  function(next) {
+        client.repos.createDeployment(
+            {
+                ref: "String",
+                task: "String",
+                auto_merge: "Boolean",
+                required_contexts: "Array",
+                payload: "String",
+                environment: "String",
+                description: "String",
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
+        client.repos.getDeploymentStatuses(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/deployments/:id/statuses (createDeploymentStatus)",  function(next) {
+        client.repos.createDeploymentStatus(
+            {
+                state: "String",
+                target_url: "String",
+                description: "String",
+                user: "String",
+                repo: "String",
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

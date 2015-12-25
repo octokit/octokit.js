@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright 2012 Cloud9 IDE, Inc.
  *
  * This product includes software developed by
@@ -10,25 +10,11 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
-var fs = require("fs");
-var mime = require("mime");
+var Client = require("./../../index");
 
 describe("[releases]", function() {
     var client;
     var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
-
-    var owner = "greggman";
-    var repo  = "test";
-    var haveWriteAccess = true;       // set to false if the authenticated person below does not have write access to the repo above
-    var releaseIdWithAsset = 393621;  // Some release id from the repo above that has at least 1 asset.
-    var filePathToUpload = __filename;
-    var fileSizeToUpload = fs.statSync(filePathToUpload).size;
-
-    var releaseId;      // release id found when listing releases. Used for get release
-    var newReleaseId;   // release id created when creating release, used for edit and delete release
-    var assetId;        // asset id found when listing assets. Used for get asset
-    var newAssetId;     // asset id used when creating asset. Used for edit and delete asset
 
     beforeEach(function() {
         client = new Client();
@@ -41,34 +27,29 @@ describe("[releases]", function() {
     it("should successfully execute GET /repos/:owner/:repo/releases (listReleases)",  function(next) {
         client.releases.listReleases(
             {
-              owner: owner,
-              repo: repo,
+                owner: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res instanceof Array);
-                if (res instanceof Array && res.length > 0) {
-                  releaseId = res[0].id;
-                }
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute GET /repos/:owner/:repo/releases/:id (getRelease)",  function(next) {
-        if (!releaseId) {
-            next();
-            return;
-        }
         client.releases.getRelease(
             {
-                owner: owner,
-                id: releaseId,
-                repo: repo
+                owner: "String",
+                id: "Number",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.id, releaseId);
+                // other assertions go here
                 next();
             }
         );
@@ -77,92 +58,68 @@ describe("[releases]", function() {
     it("should successfully execute GET /repos/:owner/:repo/releases/latest (getLatestRelease)",  function(next) {
         client.releases.getLatestRelease(
             {
-                owner: owner,
-                repo: repo
+                owner: "String",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
-        if (!haveWriteAccess) {
-          next();
-          return;
-        }
         client.releases.createRelease(
             {
-                owner: owner,
-                repo: repo,
-                tag_name: "node-github-tag",
-                target_commitish: "master",
-                name: "node-github-name",
-                body: "node-github-body",
-                draft: false,
-                prerelease: true,
+                owner: "String",
+                repo: "String",
+                tag_name: "String",
+                target_commitish: "String",
+                name: "String",
+                body: "String",
+                draft: "Boolean",
+                prerelease: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.tag_name, "node-github-tag");
-                Assert.equal(res.target_commitish, "master");
-                Assert.equal(res.name, "node-github-name");
-                Assert.equal(res.body, "node-github-body");
-                Assert.equal(res.assets.length, 0);
-                Assert.ok(res.prerelease);
-                Assert.ok(!res.draft);
-                newReleaseId = res.id;
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute PATCH /repos/:owner/:repo/releases/:id (editRelease)",  function(next) {
-        if (!haveWriteAccess) {
-          next();
-          return;
-        }
         client.releases.editRelease(
             {
-                owner: owner,
-                id: newReleaseId,
-                repo: repo,
-                tag_name: "node-github-new-tag",
-                target_commitish: "master",
-                name: "node-github-new-name",
-                body: "node-github-new-body",
-                draft: true,
-                prerelease: true,
+                owner: "String",
+                id: "Number",
+                repo: "String",
+                tag_name: "String",
+                target_commitish: "String",
+                name: "String",
+                body: "String",
+                draft: "Boolean",
+                prerelease: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.id, newReleaseId);
-                Assert.equal(res.tag_name, "node-github-new-tag");
-                Assert.equal(res.target_commitish, "master");
-                Assert.equal(res.name, "node-github-new-name");
-                Assert.equal(res.body, "node-github-new-body");
-                Assert.equal(res.assets.length, 0);
-                Assert.ok(res.prerelease);
-                Assert.ok(res.draft);
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute DELETE /repos/:owner/:repo/releases/:id (deleteRelease)",  function(next) {
-        if (!haveWriteAccess) {
-          next();
-          return;
-        }
         client.releases.deleteRelease(
             {
-                owner: owner,
-                repo: repo,
-                id: newReleaseId,
+                owner: "String",
+                id: "Number",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
+                // other assertions go here
                 next();
             }
         );
@@ -171,97 +128,72 @@ describe("[releases]", function() {
     it("should successfully execute GET /repos/:owner/:repo/releases/:id/assets (listAssets)",  function(next) {
         client.releases.listAssets(
             {
-                owner: owner,
-                id: releaseIdWithAsset,
-                repo: repo
+                owner: "String",
+                id: "Number",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.ok(res instanceof Array);
-                if (res instanceof Array && res.length > 0) {
-                    assetId = res[0].id;
-                }
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute GET /repos/:owner/:repo/releases/assets/:id (getAsset)",  function(next) {
-        if (!assetId) {
-            next();
-            return;
-        }
         client.releases.getAsset(
             {
-                owner: owner,
-                id: assetId,
-                repo: repo
+                owner: "String",
+                id: "Number",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.id, assetId);
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute POST /repos/:owner/:repo/releases/:id/assets (uploadAsset)",  function(next) {
-        var name = "somenameornot.zip";
         client.releases.uploadAsset(
             {
-                owner: owner,
-                id: releaseIdWithAsset,
-                repo: repo,
-                name: name,
-                filePath: filePathToUpload
+                owner: "String",
+                id: "Number",
+                repo: "String",
+                name: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.content_type, mime.lookup(name));  // matches extension of name, not filePath
-                Assert.equal(res.state, "uploaded");
-                Assert.equal(res.size, fileSizeToUpload);
-                Assert.equal(res.name, name);
-                newAssetId = res.id;
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute PATCH /repos/:owner/:repo/releases/assets/:id (editAsset)",  function(next) {
-        if (!newAssetId) {
-            next();
-            return;
-        }
-        var newName = "somenewname.zip";
         client.releases.editAsset(
             {
-                owner: owner,
-                id: newAssetId,
-                repo: repo,
-                name: newName,
-                label: "foo"
+                owner: "String",
+                id: "Number",
+                repo: "String",
+                name: "String",
+                label: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                Assert.equal(res.state, "uploaded");
-                Assert.equal(res.size, fileSizeToUpload);
-                Assert.equal(res.name, newName);
-                Assert.equal(res.label, "foo");
+                // other assertions go here
                 next();
             }
         );
     });
 
     it("should successfully execute DELETE /repos/:owner/:repo/releases/assets/:id (deleteAsset)",  function(next) {
-        if (!newAssetId) {
-            next();
-            return;
-        }
         client.releases.deleteAsset(
             {
-                owner: owner,
-                id: newAssetId,
-                repo: repo
+                owner: "String",
+                id: "Number",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

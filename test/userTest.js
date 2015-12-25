@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[user]", function() {
     var client;
@@ -22,6 +22,19 @@ describe("[user]", function() {
             type: "oauth",
             token: token
         });
+    });
+
+    it("should successfully execute GET /users (getAll)",  function(next) {
+        client.user.getAll(
+            {
+                since: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
     });
 
     it("should successfully execute GET /users/:user (getFrom)",  function(next) {
@@ -72,6 +85,20 @@ describe("[user]", function() {
             {
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /user/memberships/orgs/:org (editOrganizationMembership)",  function(next) {
+        client.user.editOrganizationMembership(
+            {
+                org: "String",
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

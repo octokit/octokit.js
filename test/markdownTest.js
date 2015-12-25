@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[markdown]", function() {
     var client;
@@ -18,35 +18,35 @@ describe("[markdown]", function() {
 
     beforeEach(function() {
         client = new Client();
-        /*client.authenticate({
+        client.authenticate({
             type: "oauth",
             token: token
-        });*/
+        });
     });
 
     it("should successfully execute POST /markdown (render)",  function(next) {
         client.markdown.render(
             {
-                text: "Hello world github/linguist#1 **cool**, and #1!",
-                mode: "gfm",
-                context: "github/gollem"
+                text: "String",
+                mode: "String",
+                context: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                console.log(res);
+                // other assertions go here
                 next();
             }
         );
     });
 
-    it("should successfully execute POST /markdown/raw (render)",  function(next) {
+    it("should successfully execute POST /markdown/raw (renderRaw)",  function(next) {
         client.markdown.renderRaw(
             {
-                data: "Hello world github/linguist#1 **cool**, and #1!"
+                data: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
-                console.log(res);
+                // other assertions go here
                 next();
             }
         );

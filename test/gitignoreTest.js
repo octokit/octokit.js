@@ -10,13 +10,18 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../../index");
 
 describe("[gitignore]", function() {
     var client;
+    var token = "c286e38330e15246a640c2cf32a45ea45d93b2ba";
 
     beforeEach(function() {
         client = new Client();
+        client.authenticate({
+            type: "oauth",
+            token: token
+        });
     });
 
     it("should successfully execute GET /gitignore/templates (templates)",  function(next) {
@@ -25,9 +30,6 @@ describe("[gitignore]", function() {
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
-                Assert.ifError(err);
-                Assert(Array.isArray(res));
-                Assert(res.length > 10);
                 next();
             }
         );
@@ -36,15 +38,11 @@ describe("[gitignore]", function() {
     it("should successfully execute GET /gitignore/templates/:name (template)",  function(next) {
         client.gitignore.template(
             {
-                name: "C"
+                name: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
-                Assert.ifError(err);
-                Assert('name' in res);
-                Assert('source' in res);
-                Assert(typeof res.source === 'string');
                 next();
             }
         );
