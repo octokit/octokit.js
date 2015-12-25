@@ -28,8 +28,7 @@
   "dependencies": {
     "follow-redirects": "0.0.7",
     "https-proxy-agent": "^1.0.0",
-    "mime": "^1.2.11",
-    "oauth": "^0.9.14"
+    "mime": "^1.2.11"
   },
   "devDependencies": {
     "async": "^0.9.0",
