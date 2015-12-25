@@ -14,6 +14,7 @@
 "use strict";
 
 var Client = require("./../index");
+var testAuth = require("./../test_auth.json");
 
 var github = new Client({
     debug: true
@@ -21,7 +22,7 @@ var github = new Client({
 
 github.authenticate({
     type: "oauth",
-    token: "TOKEN" // Replace with your oauth token
+    token: testAuth["token"]
 });
 
 github.user.get({}, function(err, res) {
