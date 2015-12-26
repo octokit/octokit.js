@@ -48,6 +48,9 @@
     }
   ],
   "apidoc": {
-    "title": "github4"
+    "title": "github4",
+    "template": {
+      "withCompare": false
+    }
   }
 }
