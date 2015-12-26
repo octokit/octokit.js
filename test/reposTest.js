@@ -25,32 +25,12 @@ describe("[repos]", function() {
         });
     });
 
-    it("should successfully execute GET /user/repos (getAll)",  function(next) {
-        client.repos.getAll(
-            {
-                type: "String",
-                sort: "String",
-                direction: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /users/:user/repos (getFromUser)",  function(next) {
-        client.repos.getFromUser(
+    it("should successfully execute PUT /repos/:user/:repo/collaborators/:collabuser (addCollaborator)",  function(next) {
+        client.repos.addCollaborator(
             {
                 user: "String",
-                type: "String",
-                sort: "String",
-                direction: "String",
-                page: "Number",
-                per_page: "Number"
+                repo: "String",
+                collabuser: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -60,13 +40,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/repos (getFromOrg)",  function(next) {
-        client.repos.getFromOrg(
+    it("should successfully execute GET /repos/:user/:repo/compare/:base...:head (compareCommits)",  function(next) {
+        client.repos.compareCommits(
             {
-                org: "String",
-                type: "String",
-                page: "Number",
-                per_page: "Number"
+                user: "String",
+                repo: "String",
+                base: "String",
+                head: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -88,6 +68,103 @@ describe("[repos]", function() {
                 has_downloads: "Boolean",
                 auto_init: "Boolean",
                 gitignore_template: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/commits/:sha/comments (createCommitComment)",  function(next) {
+        client.repos.createCommitComment(
+            {
+                user: "String",
+                repo: "String",
+                sha: "String",
+                body: "String",
+                commit_id: "String",
+                path: "String",
+                position: "Number",
+                line: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createContent)",  function(next) {
+        client.repos.createContent(
+            {
+                user: "String",
+                repo: "String",
+                content: "String",
+                message: "String",
+                path: "String",
+                ref: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/deployments (createDeployment)",  function(next) {
+        client.repos.createDeployment(
+            {
+                ref: "String",
+                task: "String",
+                auto_merge: "Boolean",
+                required_contexts: "Array",
+                payload: "String",
+                environment: "String",
+                description: "String",
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/deployments/:id/statuses (createDeploymentStatus)",  function(next) {
+        client.repos.createDeploymentStatus(
+            {
+                state: "String",
+                target_url: "String",
+                description: "String",
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createFile)",  function(next) {
+        client.repos.createFile(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                message: "String",
+                content: "String",
+                branch: "String",
+                author: "Json",
+                committer: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -120,46 +197,31 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo (get)",  function(next) {
-        client.repos.get(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repositories/:id (one)",  function(next) {
-        client.repos.one(
-            {
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:user/:repo (update)",  function(next) {
-        client.repos.update(
+    it("should successfully execute POST /repos/:user/:repo/hooks (createHook)",  function(next) {
+        client.repos.createHook(
             {
                 user: "String",
                 repo: "String",
                 name: "String",
-                description: "String",
-                homepage: "String",
-                private: "Boolean",
-                has_issues: "Boolean",
-                has_wiki: "Boolean",
-                has_downloads: "Boolean",
-                default_branch: "String"
+                config: "Json",
+                events: "Array",
+                active: "Boolean"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/keys (createKey)",  function(next) {
+        client.repos.createKey(
+            {
+                user: "String",
+                repo: "String",
+                title: "String",
+                key: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -183,14 +245,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/merges (merge)",  function(next) {
-        client.repos.merge(
+    it("should successfully execute DELETE /repos/:user/:repo/comments/:id (deleteCommitComment)",  function(next) {
+        client.repos.deleteCommitComment(
             {
                 user: "String",
                 repo: "String",
-                base: "String",
-                head: "String",
-                commit_message: "String"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -200,12 +260,106 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/contributors (getContributors)",  function(next) {
-        client.repos.getContributors(
+    it("should successfully execute DELETE /repos/:user/:repo/downloads/:id (deleteDownload)",  function(next) {
+        client.repos.deleteDownload(
             {
                 user: "String",
                 repo: "String",
-                anon: "Boolean",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/contents/:path (deleteFile)",  function(next) {
+        client.repos.deleteFile(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                message: "String",
+                sha: "String",
+                branch: "String",
+                author: "Json",
+                committer: "Json"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/hooks/:id (deleteHook)",  function(next) {
+        client.repos.deleteHook(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/keys/:id (deleteKey)",  function(next) {
+        client.repos.deleteKey(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/forks (fork)",  function(next) {
+        client.repos.fork(
+            {
+                user: "String",
+                repo: "String",
+                organization: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo (get)",  function(next) {
+        client.repos.get(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/repos (getAll)",  function(next) {
+        client.repos.getAll(
+            {
+                type: "String",
+                sort: "String",
+                direction: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -217,8 +371,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/languages (getLanguages)",  function(next) {
-        client.repos.getLanguages(
+    it("should successfully execute GET /repos/:user/:repo/comments (getAllCommitComments)",  function(next) {
+        client.repos.getAllCommitComments(
             {
                 user: "String",
                 repo: "String",
@@ -233,45 +387,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/teams (getTeams)",  function(next) {
-        client.repos.getTeams(
+    it("should successfully execute GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
+        client.repos.getArchiveLink(
             {
                 user: "String",
                 repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/tags (getTags)",  function(next) {
-        client.repos.getTags(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/branches (getBranches)",  function(next) {
-        client.repos.getBranches(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
+                ref: "String",
+                archive_format: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -298,8 +420,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
-        client.repos.getCollaborators(
+    it("should successfully execute GET /repos/:user/:repo/branches (getBranches)",  function(next) {
+        client.repos.getBranches(
             {
                 user: "String",
                 repo: "String",
@@ -329,12 +451,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/collaborators/:collabuser (addCollaborator)",  function(next) {
-        client.repos.addCollaborator(
+    it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
+        client.repos.getCollaborators(
             {
                 user: "String",
                 repo: "String",
-                collabuser: "String"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -344,12 +467,44 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
-        client.repos.removeCollaborator(
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha (getCommit)",  function(next) {
+        client.repos.getCommit(
             {
                 user: "String",
                 repo: "String",
-                collabuser: "String"
+                sha: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/comments/:id (getCommitComment)",  function(next) {
+        client.repos.getCommitComment(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
+        client.repos.getCommitComments(
+            {
+                user: "String",
+                repo: "String",
+                sha: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -380,151 +535,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha (getCommit)",  function(next) {
-        client.repos.getCommit(
-            {
-                user: "String",
-                repo: "String",
-                sha: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/comments (getAllCommitComments)",  function(next) {
-        client.repos.getAllCommitComments(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
-        client.repos.getCommitComments(
-            {
-                user: "String",
-                repo: "String",
-                sha: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/commits/:sha/comments (createCommitComment)",  function(next) {
-        client.repos.createCommitComment(
-            {
-                user: "String",
-                repo: "String",
-                sha: "String",
-                body: "String",
-                commit_id: "String",
-                path: "String",
-                position: "Number",
-                line: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/comments/:id (getCommitComment)",  function(next) {
-        client.repos.getCommitComment(
-            {
-                user: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:user/:repo/comments/:id (updateCommitComment)",  function(next) {
-        client.repos.updateCommitComment(
-            {
-                user: "String",
-                repo: "String",
-                id: "String",
-                body: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/compare/:base...:head (compareCommits)",  function(next) {
-        client.repos.compareCommits(
-            {
-                user: "String",
-                repo: "String",
-                base: "String",
-                head: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:user/:repo/comments/:id (deleteCommitComment)",  function(next) {
-        client.repos.deleteCommitComment(
-            {
-                user: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/readme (getReadme)",  function(next) {
-        client.repos.getReadme(
-            {
-                user: "String",
-                repo: "String",
-                ref: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /repos/:user/:repo/contents/:path (getContent)",  function(next) {
         client.repos.getContent(
             {
@@ -541,15 +551,14 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createContent)",  function(next) {
-        client.repos.createContent(
+    it("should successfully execute GET /repos/:user/:repo/contributors (getContributors)",  function(next) {
+        client.repos.getContributors(
             {
                 user: "String",
                 repo: "String",
-                content: "String",
-                message: "String",
-                path: "String",
-                ref: "String"
+                anon: "Boolean",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -559,17 +568,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createFile)",  function(next) {
-        client.repos.createFile(
+    it("should successfully execute GET /repos/:user/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
+        client.repos.getDeploymentStatuses(
             {
                 user: "String",
                 repo: "String",
-                path: "String",
-                message: "String",
-                content: "String",
-                branch: "String",
-                author: "Json",
-                committer: "Json"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -579,66 +583,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/contents/:path (updateFile)",  function(next) {
-        client.repos.updateFile(
+    it("should successfully execute GET /repos/:user/:repo/deployments (getDeployments)",  function(next) {
+        client.repos.getDeployments(
             {
-                user: "String",
-                repo: "String",
-                path: "String",
-                message: "String",
-                content: "String",
                 sha: "String",
-                branch: "String",
-                author: "Json",
-                committer: "Json"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:user/:repo/contents/:path (deleteFile)",  function(next) {
-        client.repos.deleteFile(
-            {
-                user: "String",
-                repo: "String",
-                path: "String",
-                message: "String",
-                sha: "String",
-                branch: "String",
-                author: "Json",
-                committer: "Json"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
-        client.repos.getArchiveLink(
-            {
-                user: "String",
-                repo: "String",
                 ref: "String",
-                archive_format: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/downloads (getDownloads)",  function(next) {
-        client.repos.getDownloads(
-            {
+                task: "String",
+                environment: "String",
                 user: "String",
                 repo: "String",
                 page: "Number",
@@ -667,12 +618,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/downloads/:id (deleteDownload)",  function(next) {
-        client.repos.deleteDownload(
+    it("should successfully execute GET /repos/:user/:repo/downloads (getDownloads)",  function(next) {
+        client.repos.getDownloads(
             {
                 user: "String",
                 repo: "String",
-                id: "String"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -699,12 +651,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/forks (fork)",  function(next) {
-        client.repos.fork(
+    it("should successfully execute GET /orgs/:org/repos (getFromOrg)",  function(next) {
+        client.repos.getFromOrg(
             {
-                user: "String",
-                repo: "String",
-                organization: "String"
+                org: "String",
+                type: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -714,8 +667,41 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/keys (getKeys)",  function(next) {
-        client.repos.getKeys(
+    it("should successfully execute GET /users/:user/repos (getFromUser)",  function(next) {
+        client.repos.getFromUser(
+            {
+                user: "String",
+                type: "String",
+                sort: "String",
+                direction: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/hooks/:id (getHook)",  function(next) {
+        client.repos.getHook(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/hooks (getHooks)",  function(next) {
+        client.repos.getHooks(
             {
                 user: "String",
                 repo: "String",
@@ -745,13 +731,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/keys (createKey)",  function(next) {
-        client.repos.createKey(
+    it("should successfully execute GET /repos/:user/:repo/keys (getKeys)",  function(next) {
+        client.repos.getKeys(
             {
                 user: "String",
                 repo: "String",
-                title: "String",
-                key: "String"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -761,14 +747,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/keys/:id (updateKey)",  function(next) {
-        client.repos.updateKey(
+    it("should successfully execute GET /repos/:user/:repo/languages (getLanguages)",  function(next) {
+        client.repos.getLanguages(
             {
                 user: "String",
                 repo: "String",
-                id: "String",
-                title: "String",
-                key: "String"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -778,12 +763,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/keys/:id (deleteKey)",  function(next) {
-        client.repos.deleteKey(
+    it("should successfully execute GET /repos/:user/:repo/readme (getReadme)",  function(next) {
+        client.repos.getReadme(
             {
                 user: "String",
                 repo: "String",
-                id: "String"
+                ref: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -854,8 +839,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/starred/:user/:repo (star)",  function(next) {
-        client.repos.star(
+    it("should successfully execute GET /repos/:user/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
+        client.repos.getStatsCodeFrequency(
             {
                 user: "String",
                 repo: "String"
@@ -868,8 +853,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/starred/:user/:repo (unStar)",  function(next) {
-        client.repos.unStar(
+    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getStatsCommitActivity)",  function(next) {
+        client.repos.getStatsCommitActivity(
             {
                 user: "String",
                 repo: "String"
@@ -882,8 +867,66 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/watchers (getWatchers)",  function(next) {
-        client.repos.getWatchers(
+    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsContributors)",  function(next) {
+        client.repos.getStatsContributors(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/participation (getStatsParticipation)",  function(next) {
+        client.repos.getStatsParticipation(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stats/punch_card (getStatsPunchCard)",  function(next) {
+        client.repos.getStatsPunchCard(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/tags (getTags)",  function(next) {
+        client.repos.getTags(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/teams (getTeams)",  function(next) {
+        client.repos.getTeams(
             {
                 user: "String",
                 repo: "String",
@@ -927,6 +970,22 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/watchers (getWatchers)",  function(next) {
+        client.repos.getWatchers(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/watched/:user/:repo (getWatching)",  function(next) {
         client.repos.getWatching(
             {
@@ -943,8 +1002,82 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/watched/:user/:repo (watch)",  function(next) {
-        client.repos.watch(
+    it("should successfully execute POST /repos/:user/:repo/merges (merge)",  function(next) {
+        client.repos.merge(
+            {
+                user: "String",
+                repo: "String",
+                base: "String",
+                head: "String",
+                commit_message: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repositories/:id (one)",  function(next) {
+        client.repos.one(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
+        client.repos.removeCollaborator(
+            {
+                user: "String",
+                repo: "String",
+                collabuser: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /user/starred/:user/:repo (star)",  function(next) {
+        client.repos.star(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
+        client.repos.testHook(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/starred/:user/:repo (unStar)",  function(next) {
+        client.repos.unStar(
             {
                 user: "String",
                 repo: "String"
@@ -971,46 +1104,56 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/hooks (getHooks)",  function(next) {
-        client.repos.getHooks(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/hooks/:id (getHook)",  function(next) {
-        client.repos.getHook(
-            {
-                user: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/hooks (createHook)",  function(next) {
-        client.repos.createHook(
+    it("should successfully execute PATCH /repos/:user/:repo (update)",  function(next) {
+        client.repos.update(
             {
                 user: "String",
                 repo: "String",
                 name: "String",
-                config: "Json",
-                events: "Array",
-                active: "Boolean"
+                description: "String",
+                homepage: "String",
+                private: "Boolean",
+                has_issues: "Boolean",
+                has_wiki: "Boolean",
+                has_downloads: "Boolean",
+                default_branch: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/comments/:id (updateCommitComment)",  function(next) {
+        client.repos.updateCommitComment(
+            {
+                user: "String",
+                repo: "String",
+                id: "String",
+                body: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/contents/:path (updateFile)",  function(next) {
+        client.repos.updateFile(
+            {
+                user: "String",
+                repo: "String",
+                path: "String",
+                message: "String",
+                content: "String",
+                sha: "String",
+                branch: "String",
+                author: "Json",
+                committer: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1041,12 +1184,14 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
-        client.repos.testHook(
+    it("should successfully execute PUT /repos/:user/:repo/keys/:id (updateKey)",  function(next) {
+        client.repos.updateKey(
             {
                 user: "String",
                 repo: "String",
-                id: "String"
+                id: "String",
+                title: "String",
+                key: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1056,156 +1201,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/hooks/:id (deleteHook)",  function(next) {
-        client.repos.deleteHook(
-            {
-                user: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsContributors)",  function(next) {
-        client.repos.getStatsContributors(
+    it("should successfully execute PUT /user/watched/:user/:repo (watch)",  function(next) {
+        client.repos.watch(
             {
                 user: "String",
                 repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getStatsCommitActivity)",  function(next) {
-        client.repos.getStatsCommitActivity(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
-        client.repos.getStatsCodeFrequency(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/stats/participation (getStatsParticipation)",  function(next) {
-        client.repos.getStatsParticipation(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/stats/punch_card (getStatsPunchCard)",  function(next) {
-        client.repos.getStatsPunchCard(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/deployments (getDeployments)",  function(next) {
-        client.repos.getDeployments(
-            {
-                sha: "String",
-                ref: "String",
-                task: "String",
-                environment: "String",
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/deployments (createDeployment)",  function(next) {
-        client.repos.createDeployment(
-            {
-                ref: "String",
-                task: "String",
-                auto_merge: "Boolean",
-                required_contexts: "Array",
-                payload: "String",
-                environment: "String",
-                description: "String",
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
-        client.repos.getDeploymentStatuses(
-            {
-                user: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/deployments/:id/statuses (createDeploymentStatus)",  function(next) {
-        client.repos.createDeploymentStatus(
-            {
-                state: "String",
-                target_url: "String",
-                description: "String",
-                user: "String",
-                repo: "String",
-                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

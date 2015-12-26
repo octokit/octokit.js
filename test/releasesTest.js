@@ -25,13 +25,17 @@ describe("[releases]", function() {
         });
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/releases (listReleases)",  function(next) {
-        client.releases.listReleases(
+    it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
+        client.releases.createRelease(
             {
                 owner: "String",
                 repo: "String",
-                page: "Number",
-                per_page: "Number"
+                tag_name: "String",
+                target_commitish: "String",
+                name: "String",
+                body: "String",
+                draft: "Boolean",
+                prerelease: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -41,8 +45,8 @@ describe("[releases]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/releases/:id (getRelease)",  function(next) {
-        client.releases.getRelease(
+    it("should successfully execute DELETE /repos/:owner/:repo/releases/assets/:id (deleteAsset)",  function(next) {
+        client.releases.deleteAsset(
             {
                 owner: "String",
                 id: "Number",
@@ -56,10 +60,11 @@ describe("[releases]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/releases/latest (getLatestRelease)",  function(next) {
-        client.releases.getLatestRelease(
+    it("should successfully execute DELETE /repos/:owner/:repo/releases/:id (deleteRelease)",  function(next) {
+        client.releases.deleteRelease(
             {
                 owner: "String",
+                id: "Number",
                 repo: "String"
             },
             function(err, res) {
@@ -70,17 +75,14 @@ describe("[releases]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
-        client.releases.createRelease(
+    it("should successfully execute PATCH /repos/:owner/:repo/releases/assets/:id (editAsset)",  function(next) {
+        client.releases.editAsset(
             {
                 owner: "String",
+                id: "Number",
                 repo: "String",
-                tag_name: "String",
-                target_commitish: "String",
                 name: "String",
-                body: "String",
-                draft: "Boolean",
-                prerelease: "Boolean"
+                label: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -111,8 +113,37 @@ describe("[releases]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:owner/:repo/releases/:id (deleteRelease)",  function(next) {
-        client.releases.deleteRelease(
+    it("should successfully execute GET /repos/:owner/:repo/releases/assets/:id (getAsset)",  function(next) {
+        client.releases.getAsset(
+            {
+                owner: "String",
+                id: "Number",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/releases/latest (getLatestRelease)",  function(next) {
+        client.releases.getLatestRelease(
+            {
+                owner: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/releases/:id (getRelease)",  function(next) {
+        client.releases.getRelease(
             {
                 owner: "String",
                 id: "Number",
@@ -141,12 +172,13 @@ describe("[releases]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/releases/assets/:id (getAsset)",  function(next) {
-        client.releases.getAsset(
+    it("should successfully execute GET /repos/:owner/:repo/releases (listReleases)",  function(next) {
+        client.releases.listReleases(
             {
                 owner: "String",
-                id: "Number",
-                repo: "String"
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -163,38 +195,6 @@ describe("[releases]", function() {
                 id: "Number",
                 repo: "String",
                 name: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:owner/:repo/releases/assets/:id (editAsset)",  function(next) {
-        client.releases.editAsset(
-            {
-                owner: "String",
-                id: "Number",
-                repo: "String",
-                name: "String",
-                label: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:owner/:repo/releases/assets/:id (deleteAsset)",  function(next) {
-        client.releases.deleteAsset(
-            {
-                owner: "String",
-                id: "Number",
-                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

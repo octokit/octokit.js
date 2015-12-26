@@ -25,42 +25,6 @@ describe("[pullRequests]", function() {
         });
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls (getAll)",  function(next) {
-        client.pullRequests.getAll(
-            {
-                user: "String",
-                repo: "String",
-                state: "String",
-                head: "String",
-                base: "String",
-                page: "Number",
-                per_page: "Number",
-                sort: "String",
-                direction: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number (get)",  function(next) {
-        client.pullRequests.get(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /repos/:user/:repo/pulls (create)",  function(next) {
         client.pullRequests.create(
             {
@@ -70,6 +34,42 @@ describe("[pullRequests]", function() {
                 body: "String",
                 base: "String",
                 head: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createComment)",  function(next) {
+        client.pullRequests.createComment(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                body: "String",
+                commit_id: "String",
+                path: "String",
+                position: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createCommentReply)",  function(next) {
+        client.pullRequests.createCommentReply(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                body: "String",
+                in_reply_to: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -96,15 +96,80 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/pulls/:number (update)",  function(next) {
-        client.pullRequests.update(
+    it("should successfully execute DELETE /repos/:user/:repo/pulls/comments/:number (deleteComment)",  function(next) {
+        client.pullRequests.deleteComment(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number (get)",  function(next) {
+        client.pullRequests.get(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/pulls (getAll)",  function(next) {
+        client.pullRequests.getAll(
+            {
+                user: "String",
+                repo: "String",
+                state: "String",
+                head: "String",
+                base: "String",
+                page: "Number",
+                per_page: "Number",
+                sort: "String",
+                direction: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/pulls/comments/:number (getComment)",  function(next) {
+        client.pullRequests.getComment(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number/comments (getComments)",  function(next) {
+        client.pullRequests.getComments(
             {
                 user: "String",
                 repo: "String",
                 number: "Number",
-                state: "String",
-                title: "String",
-                body: "String"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -181,65 +246,15 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number/comments (getComments)",  function(next) {
-        client.pullRequests.getComments(
+    it("should successfully execute PATCH /repos/:user/:repo/pulls/:number (update)",  function(next) {
+        client.pullRequests.update(
             {
                 user: "String",
                 repo: "String",
                 number: "Number",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/pulls/comments/:number (getComment)",  function(next) {
-        client.pullRequests.getComment(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createComment)",  function(next) {
-        client.pullRequests.createComment(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number",
-                body: "String",
-                commit_id: "String",
-                path: "String",
-                position: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createCommentReply)",  function(next) {
-        client.pullRequests.createCommentReply(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number",
-                body: "String",
-                in_reply_to: "Number"
+                state: "String",
+                title: "String",
+                body: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -256,21 +271,6 @@ describe("[pullRequests]", function() {
                 repo: "String",
                 number: "Number",
                 body: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:user/:repo/pulls/comments/:number (deleteComment)",  function(next) {
-        client.pullRequests.deleteComment(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -42,6 +42,19 @@ describe("[search]", function() {
         );
     });
 
+    it("should successfully execute GET /legacy/user/email/:email (email)",  function(next) {
+        client.search.email(
+            {
+                email: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /search/issues (issues)",  function(next) {
         client.search.issues(
             {
@@ -84,19 +97,6 @@ describe("[search]", function() {
                 order: "String",
                 page: "Number",
                 per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /legacy/user/email/:email (email)",  function(next) {
-        client.search.email(
-            {
-                email: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

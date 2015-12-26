@@ -137,6 +137,13 @@ Generate/update doc/tests.
 $ node generate.js
 ```
 
+## Update apidoc
+
+```bash
+$ npm install apidoc -g
+$ apidoc -i doc/ -o apidoc/
+```
+
 ## Tests
 
 Install mocha

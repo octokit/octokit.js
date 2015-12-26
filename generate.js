@@ -39,50 +39,65 @@ var main = module.exports = function() {
     var testSections = {};
     var apidocs = "";
 
-    function createComment(paramsStruct, section, funcName) {
-        var params = Object.keys(paramsStruct);
-        var comment = [
-            "/** section: github",
-            " *  " + section + "#" + funcName + "(msg, callback) -> null",
-            " *      - msg (Object): Object that contains the parameters and their values to be sent to the server.",
-            " *      - callback (Function): function to call when the request is finished " +
-                "with an error as first argument and result data as second argument.",
-            " * ",
-            " *  ##### Params on the `msg` object:",
-            " * "
-        ];
-        comment.push(" *  - headers (Object): Optional. Key/ value pair "
-            + "of request headers to pass along with the HTTP request. Valid headers are: "
-            + "'" + defines["request-headers"].join("', '") + "'.");
-        if (!params.length)
-            comment.push(" *  No other params, simply pass an empty Object literal `{}`");
-        var paramName, def, line;
-        for (var i = 0, l = params.length; i < l; ++i) {
-            paramName = params[i];
-            if (paramName.charAt(0) == "$") {
-                paramName = paramName.substr(1);
-                if (!defines.params[paramName]) {
-                    Util.log("Invalid variable parameter name substitution; param '" +
-                        paramName + "' not found in defines block", "fatal");
-                    process.exit(1);
-                }
-                else
-                    def = defines.params[paramName];
-            }
-            else
-                def = paramsStruct[paramName];
+    function createComment(section, funcName, block) {
+        var method = block['method'].toLowerCase();
+        var url = block['url'];
 
-            line = " *  - " + paramName + " (" + (def.type || "mixed") + "): " +
-                (def.required ? "Required." : "Optional.");
-            if (def.description)
-                line +=  " " + def.description;
-            if (def.validation)
-                line += " Validation rule: ` " + def.validation + " `.";
-
-            comment.push(line);
+        var funcDisplayName = funcName;
+        // apidocjs bug: https://github.com/apidoc/apidoc/issues/391
+        if (funcDisplayName === "watch") {
+            funcDisplayName = "watch2";
         }
 
-        return comment.join("\n") + "\n **/\n";
+        var commentLines = [
+            "/**",
+            " * @api {" + method + "} " + url + " " + funcName,
+            " * @apiName " + funcDisplayName,
+            " * @apiGroup " + section,
+            " *"
+        ];
+
+        var paramsObj = block['params'];
+
+        // sort params so Required come before Optional
+        var paramKeys = Object.keys(paramsObj);
+        paramKeys.sort(function(paramA, paramB) {
+            var cleanParamA = paramA.replace(/^\$/, "");
+            var cleanParamB = paramB.replace(/^\$/, "");
+
+            var paramInfoA = paramsObj[paramA] || defines['params'][cleanParamA];
+            var paramInfoB = paramsObj[paramB] || defines['params'][cleanParamB];
+
+            var paramRequiredA = paramInfoA['required'];
+            var paramRequiredB = paramInfoB['required'];
+
+            if (paramRequiredA && !paramRequiredB) return -1;
+            if (!paramRequiredA && paramRequiredB) return 1;
+            return 0;
+        });
+
+        paramKeys.forEach(function(param) {
+            var cleanParam = param.replace(/^\$/, "");
+            var paramInfo = paramsObj[param] || defines['params'][cleanParam];
+
+            var paramRequired = paramInfo['required'];
+            var paramType = paramInfo['type'];
+            var paramDescription = paramInfo['description'];
+
+            var paramLabel = cleanParam;
+            if (!paramRequired) {
+                paramLabel = "[" + paramLabel + "]";
+            }
+
+            var optionalLabel = !paramRequired ? "Optional " : " ";
+
+            // @apiParam {String} lastname     Mandatory Lastname.
+            // @apiParam {String} [firstname]  Optional Firstname of the User.
+
+            commentLines.push(" * @apiParam {" + paramType + "} " + paramLabel + "  " + optionalLabel + paramDescription);
+        });
+
+        return commentLines.join("\n") + "\n */\n\n";
     }
 
     function getParams(paramsStruct, indent) {
@@ -115,7 +130,7 @@ var main = module.exports = function() {
         if (!baseType)
             baseType = "";
 
-        Object.keys(struct).forEach(function(routePart) {
+        Object.keys(struct).sort().forEach(function(routePart) {
             var block = struct[routePart];
             if (!block)
                 return;
@@ -132,14 +147,11 @@ var main = module.exports = function() {
                 // add the handler to the sections
                 if (!sections[section]) {
                     sections[section] = [];
-                    apidocs += "/** section: github\n";
-                    apidocs += " * mixin " + section + "\n";
-                    apidocs += " **/\n";
                 }
 
                 parts.splice(0, 2);
                 var funcName = Util.toCamelCase(parts.join("-"));
-                apidocs += createComment(block.params, section, funcName);
+                apidocs += createComment(section, funcName, block);
 
                 // add test to the testSections
                 if (!testSections[section])
