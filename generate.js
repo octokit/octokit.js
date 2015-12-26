@@ -172,7 +172,7 @@ var main = module.exports = function() {
     Util.log("Converting routes to functions");
     prepareApi(routes);
 
-    var apidocsPath = Path.join(__dirname, "doc", "apidocs.js");
+    var apidocsPath = Path.join(__dirname, "doc", "apidoc.js");
     fs.writeFileSync(apidocsPath, apidocs);
 
     Object.keys(sections).forEach(function(section) {
