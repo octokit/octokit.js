@@ -91,9 +91,6 @@ var main = module.exports = function() {
 
             var optionalLabel = !paramRequired ? "Optional " : " ";
 
-            // @apiParam {String} lastname     Mandatory Lastname.
-            // @apiParam {String} [firstname]  Optional Firstname of the User.
-
             commentLines.push(" * @apiParam {" + paramType + "} " + paramLabel + "  " + optionalLabel + paramDescription);
         });
 

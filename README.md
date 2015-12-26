@@ -24,8 +24,8 @@ $ npm install
 
 ## Documentation
 
-GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)  
-Client API: [https://kaizensoze.github.io/github4/](https://kaizensoze.github.io/github4/)
+Client API: [https://kaizensoze.github.io/github4/](https://kaizensoze.github.io/github4/)  
+GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Test auth file
 
