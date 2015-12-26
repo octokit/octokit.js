@@ -6,17 +6,13 @@ npm-debug.log*
 
 *.orig
 
-0.0.1.seed
-
 .settings.xml
 .settings
 
 .c9revisions
-
-/nbproject/private/
-
 .DS_Store
-
 .idea
 
 test_auth.json
+
+apidoc/
