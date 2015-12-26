@@ -25,11 +25,25 @@ describe("[authorization]", function() {
         });
     });
 
-    it("should successfully execute GET /authorizations (getAll)",  function(next) {
-        client.authorization.getAll(
+    it("should successfully execute POST /authorizations (create)",  function(next) {
+        client.authorization.create(
             {
-                page: "Number",
-                per_page: "Number"
+                scopes: "Array",
+                note: "String",
+                note_url: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /authorizations/:id (delete)",  function(next) {
+        client.authorization.delete(
+            {
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -52,12 +66,11 @@ describe("[authorization]", function() {
         );
     });
 
-    it("should successfully execute POST /authorizations (create)",  function(next) {
-        client.authorization.create(
+    it("should successfully execute GET /authorizations (getAll)",  function(next) {
+        client.authorization.getAll(
             {
-                scopes: "Array",
-                note: "String",
-                note_url: "String"
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -76,19 +89,6 @@ describe("[authorization]", function() {
                 remove_scopes: "Array",
                 note: "String",
                 note_url: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /authorizations/:id (delete)",  function(next) {
-        client.authorization.delete(
-            {
-                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

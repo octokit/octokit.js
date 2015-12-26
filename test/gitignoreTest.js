@@ -25,9 +25,11 @@ describe("[gitignore]", function() {
         });
     });
 
-    it("should successfully execute GET /gitignore/templates (templates)",  function(next) {
-        client.gitignore.templates(
-            {},
+    it("should successfully execute GET /gitignore/templates/:name (template)",  function(next) {
+        client.gitignore.template(
+            {
+                name: "String"
+            },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
@@ -36,11 +38,9 @@ describe("[gitignore]", function() {
         );
     });
 
-    it("should successfully execute GET /gitignore/templates/:name (template)",  function(next) {
-        client.gitignore.template(
-            {
-                name: "String"
-            },
+    it("should successfully execute GET /gitignore/templates (templates)",  function(next) {
+        client.gitignore.templates(
+            {},
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here

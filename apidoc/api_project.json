@@ -1,0 +1,1 @@
+{  "title": "github4",  "url": "https://kaizensoze.github.io/github4/",  "name": "github4",  "version": "0.2.11",  "description": "NodeJS wrapper for the GitHub API",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2015-12-26T21:38:37.341Z",    "url": "http://apidocjs.com",    "version": "0.14.0"  }}

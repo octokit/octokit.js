@@ -46,5 +46,8 @@
       "type": "The MIT License",
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
-  ]
+  ],
+  "apidoc": {
+    "title": "github4"
+  }
 }

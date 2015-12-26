@@ -39,6 +39,21 @@ describe("[events]", function() {
         );
     });
 
+    it("should successfully execute GET /orgs/:org/events (getFromOrg)",  function(next) {
+        client.events.getFromOrg(
+            {
+                org: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/events (getFromRepo)",  function(next) {
         client.events.getFromRepo(
             {
@@ -87,10 +102,41 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/events (getFromOrg)",  function(next) {
-        client.events.getFromOrg(
+    it("should successfully execute GET /users/:user/events (getFromUser)",  function(next) {
+        client.events.getFromUser(
             {
+                user: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /users/:user/events/orgs/:org (getFromUserOrg)",  function(next) {
+        client.events.getFromUserOrg(
+            {
+                user: "String",
                 org: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /users/:user/events/public (getFromUserPublic)",  function(next) {
+        client.events.getFromUserPublic(
+            {
+                user: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -121,52 +167,6 @@ describe("[events]", function() {
         client.events.getReceivedPublic(
             {
                 user: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /users/:user/events (getFromUser)",  function(next) {
-        client.events.getFromUser(
-            {
-                user: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /users/:user/events/public (getFromUserPublic)",  function(next) {
-        client.events.getFromUserPublic(
-            {
-                user: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /users/:user/events/orgs/:org (getFromUserOrg)",  function(next) {
-        client.events.getFromUserOrg(
-            {
-                user: "String",
-                org: "String",
                 page: "Number",
                 per_page: "Number"
             },

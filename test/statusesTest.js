@@ -25,6 +25,25 @@ describe("[statuses]", function() {
         });
     });
 
+    it("should successfully execute POST /repos/:user/:repo/statuses/:sha (create)",  function(next) {
+        client.statuses.create(
+            {
+                user: "String",
+                repo: "String",
+                sha: "String",
+                state: "String",
+                target_url: "String",
+                description: "String",
+                context: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/commits/:sha/statuses (get)",  function(next) {
         client.statuses.get(
             {
@@ -46,25 +65,6 @@ describe("[statuses]", function() {
                 user: "String",
                 repo: "String",
                 sha: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:user/:repo/statuses/:sha (create)",  function(next) {
-        client.statuses.create(
-            {
-                user: "String",
-                repo: "String",
-                sha: "String",
-                state: "String",
-                target_url: "String",
-                description: "String",
-                context: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

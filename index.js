@@ -24,112 +24,12 @@ var Url = require("url");
  *
  *  When an HTTP endpoint is processed and a method is generated as described
  *  above, [[Client]] also sets up parameter validation with the rules as
- *  defined in the routes.json. A full example that illustrates how this works
- *  is shown below:
+ *  defined in the routes.json.
  *
- *  ##### Example
- *
- *  First, we look at a listing of a sample routes.json routes definition file:
- *
- *      {
- *          "defines": {
- *              "constants": {
- *                  "name": "Github",
- *                  "description": "A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.",
- *                  "protocol": "https",
- *                  "host": "api.github.com",
- *                  "port": 443,
- *                  "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
- *                  "requestFormat": "json"
- *              },
- *              "response-headers": [
- *                  "X-RateLimit-Limit",
- *                  "X-RateLimit-Remaining",
- *                  "Link"
- *              ],
- *              "params": {
- *                  "files": {
- *                      "type": "Json",
- *                      "required": true,
- *                      "validation": "",
- *                      "invalidmsg": "",
- *                      "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
- *                  },
- *                  "user": {
- *                      "type": "String",
- *                      "required": true,
- *                      "validation": "",
- *                      "invalidmsg": "",
- *                      "description": ""
- *                  },
- *                  "description": {
- *                      "type": "String",
- *                      "required": false,
- *                      "validation": "",
- *                      "invalidmsg": "",
- *                      "description": ""
- *                  },
- *                  "page": {
- *                      "type": "Number",
- *                      "required": false,
- *                      "validation": "^[0-9]+$",
- *                      "invalidmsg": "",
- *                      "description": "Page number of the results to fetch."
- *                  },
- *                  "per_page": {
- *                      "type": "Number",
- *                      "required": false,
- *                      "validation": "^[0-9]+$",
- *                      "invalidmsg": "",
- *                      "description": "A custom page size up to 100. Default is 30."
- *                  }
- *              }
- *          },
- *
- *          "gists": {
- *              "get-from-user": {
- *                  "url": ":user/gists",
- *                  "method": "GET",
- *                  "params": {
- *                      "$user": null,
- *                      "$page": null,
- *                      "$per_page": null
- *                  }
- *              },
- *
- *              "create": {
- *                  "url": "/gists",
- *                  "method": "POST",
- *                  "params": {
- *                      "$description": null,
- *                      "public": {
- *                          "type": "Boolean",
- *                          "required": true,
- *                          "validation": "",
- *                          "invalidmsg": "",
- *                          "description": ""
- *                      },
- *                      "$files": null
- *                  }
- *              }
- *          }
- *       }
- *
- *  You probably noticed that the definition is quite verbose and the decision
- *  for its design was made to be verbose whilst still allowing for basic variable
- *  definitions and substitions for request parameters.
- *
- *  There are two sections; 'defines' and 'gists' in this example.
- *
- *  The `defines` section contains a list of `constants` that will be used by the
- *  [[Client]] to make requests to the right URL that hosts the API.
- *  The `gists` section defines the endpoints for calls to the API server, for
- *  gists specifically in this example, but the other API sections are defined in
- *  the exact same way.
  *  These definitions are parsed and methods are created that the client can call
  *  to make an HTTP request to the server.
- *  there is one endpoint defined: .
- *  In this example, the endpoint `gists/get-from-user` will be exposed as a member
+ *
+ *  For example, the endpoint `gists/get-from-user` will be exposed as a member
  *  on the [[Client]] object and may be invoked with
  *
  *      client.getFromUser({
