@@ -43,10 +43,16 @@ var main = module.exports = function() {
         var method = block['method'].toLowerCase();
         var url = block['url'];
 
+        var funcDisplayName = funcName;
+        // apidocjs bug: https://github.com/apidoc/apidoc/issues/391
+        if (funcDisplayName === "watch") {
+            funcDisplayName = "watch2";
+        }
+
         var commentLines = [
             "/**",
             " * @api {" + method + "} " + url + " " + funcName,
-            " * @apiName " + funcName,
+            " * @apiName " + funcDisplayName,
             " * @apiGroup " + section,
             " *"
         ];

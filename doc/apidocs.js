@@ -2178,7 +2178,7 @@
 
 /**
  * @api {put} /user/watched/:user/:repo watch
- * @apiName watch
+ * @apiName watch2
  * @apiGroup repos
  *
  * @apiParam {String} user   
