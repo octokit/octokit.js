@@ -129,15 +129,13 @@ github.authorization.create({
 });
 ```
 
-## Generate doc/tests
-
-Generate/update doc/tests.
+## Update docs/tests
 
 ```bash
 $ node generate.js
 ```
 
-## Update apidoc
+Dev note for updating apidoc for github pages:
 
 ```bash
 $ npm install apidoc -g
