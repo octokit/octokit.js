@@ -94,6 +94,8 @@ var main = module.exports = function() {
             commentLines.push(" * @apiParam {" + paramType + "} " + paramLabel + "  " + optionalLabel + paramDescription);
         });
 
+        commentLines.push(" * @apiExample {js} ex:\ngithub." + section + "." + funcName + "({ ... });"); 
+
         return commentLines.join("\n") + "\n */\n\n";
     }
 
