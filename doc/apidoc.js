@@ -6,6 +6,8 @@
  * @apiParam {Array} [scopes]  Optional A list of scopes that this authorization is in.
  * @apiParam {String} [note]  Optional A note to remind you what the OAuth token is for.
  * @apiParam {String} [note_url]  Optional A URL to remind you what app the OAuth token is for.
+ * @apiExample {js} ex:
+github.authorization.create({ ... });
  */
 
 /**
@@ -14,6 +16,8 @@
  * @apiGroup authorization
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.authorization.delete({ ... });
  */
 
 /**
@@ -22,6 +26,8 @@
  * @apiGroup authorization
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.authorization.get({ ... });
  */
 
 /**
@@ -31,6 +37,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.authorization.getAll({ ... });
  */
 
 /**
@@ -44,6 +52,8 @@
  * @apiParam {Array} [remove_scopes]  Optional A list of scopes to remove from this authorization.
  * @apiParam {String} [note]  Optional A note to remind you what the OAuth token is for.
  * @apiParam {String} [note_url]  Optional A URL to remind you what app the OAuth token is for.
+ * @apiExample {js} ex:
+github.authorization.update({ ... });
  */
 
 /**
@@ -53,6 +63,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.get({ ... });
  */
 
 /**
@@ -63,6 +75,8 @@
  * @apiParam {String} org   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromOrg({ ... });
  */
 
 /**
@@ -74,6 +88,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromRepo({ ... });
  */
 
 /**
@@ -85,6 +101,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromRepoIssues({ ... });
  */
 
 /**
@@ -96,6 +114,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromRepoNetwork({ ... });
  */
 
 /**
@@ -106,6 +126,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromUser({ ... });
  */
 
 /**
@@ -117,6 +139,8 @@
  * @apiParam {String} org   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromUserOrg({ ... });
  */
 
 /**
@@ -127,6 +151,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getFromUserPublic({ ... });
  */
 
 /**
@@ -137,6 +163,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getReceived({ ... });
  */
 
 /**
@@ -147,6 +175,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.events.getReceivedPublic({ ... });
  */
 
 /**
@@ -155,6 +185,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.checkStar({ ... });
  */
 
 /**
@@ -165,6 +197,8 @@
  * @apiParam {Boolean} public   
  * @apiParam {Json} files   Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
  * @apiParam {String} [description]  Optional 
+ * @apiExample {js} ex:
+github.gists.create({ ... });
  */
 
 /**
@@ -174,6 +208,8 @@
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
  * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.gists.createComment({ ... });
  */
 
 /**
@@ -182,6 +218,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.delete({ ... });
  */
 
 /**
@@ -191,6 +229,8 @@
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.deleteComment({ ... });
  */
 
 /**
@@ -199,6 +239,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.deleteStar({ ... });
  */
 
 /**
@@ -209,6 +251,8 @@
  * @apiParam {String} id   
  * @apiParam {Json} files   Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
  * @apiParam {String} [description]  Optional 
+ * @apiExample {js} ex:
+github.gists.edit({ ... });
  */
 
 /**
@@ -219,6 +263,8 @@
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
  * @apiParam {String} id   
  * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.gists.editComment({ ... });
  */
 
 /**
@@ -227,6 +273,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.fork({ ... });
  */
 
 /**
@@ -235,6 +283,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.get({ ... });
  */
 
 /**
@@ -245,6 +295,8 @@
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.gists.getAll({ ... });
  */
 
 /**
@@ -254,6 +306,8 @@
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.getComment({ ... });
  */
 
 /**
@@ -262,6 +316,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
+ * @apiExample {js} ex:
+github.gists.getComments({ ... });
  */
 
 /**
@@ -273,6 +329,8 @@
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.gists.getFromUser({ ... });
  */
 
 /**
@@ -281,6 +339,8 @@
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.gists.public({ ... });
  */
 
 /**
@@ -289,6 +349,8 @@
  * @apiGroup gists
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.star({ ... });
  */
 
 /**
@@ -297,6 +359,8 @@
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.gists.starred({ ... });
  */
 
 /**
@@ -308,6 +372,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} content   
  * @apiParam {String} encoding   
+ * @apiExample {js} ex:
+github.gitdata.createBlob({ ... });
  */
 
 /**
@@ -322,6 +388,8 @@
  * @apiParam {Array} parents   Array of the SHAs of the commits that were the parents of this commit. If omitted or empty, the commit will be written as a root commit. For a single parent, an array of one SHA should be provided, for a merge commit, an array of more than one should be provided.
  * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
+ * @apiExample {js} ex:
+github.gitdata.createCommit({ ... });
  */
 
 /**
@@ -333,6 +401,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} ref   String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.gitdata.createReference({ ... });
  */
 
 /**
@@ -347,6 +417,8 @@
  * @apiParam {String} object   String of the SHA of the git object this is tagging
  * @apiParam {String} type   String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.
  * @apiParam {Json} tagger   JSON object that contains the following keys: `name` - String of the name of the author of the tag, `email` - String of the email of the author of the tag, `date` - Timestamp of when this object was tagged
+ * @apiExample {js} ex:
+github.gitdata.createTag({ ... });
  */
 
 /**
@@ -358,6 +430,8 @@
  * @apiParam {String} repo   
  * @apiParam {Json} tree   Array of Hash objects (of path, mode, type and sha) specifying a tree structure
  * @apiParam {String} [base_tree]  Optional String of the SHA1 of the tree you want to update with new data
+ * @apiExample {js} ex:
+github.gitdata.createTree({ ... });
  */
 
 /**
@@ -368,6 +442,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} ref   String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiExample {js} ex:
+github.gitdata.deleteReference({ ... });
  */
 
 /**
@@ -379,6 +455,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.gitdata.getAllReferences({ ... });
  */
 
 /**
@@ -391,6 +469,8 @@
  * @apiParam {String} sha   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.gitdata.getBlob({ ... });
  */
 
 /**
@@ -401,6 +481,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.gitdata.getCommit({ ... });
  */
 
 /**
@@ -411,6 +493,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} ref   String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiExample {js} ex:
+github.gitdata.getReference({ ... });
  */
 
 /**
@@ -421,6 +505,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.gitdata.getTag({ ... });
  */
 
 /**
@@ -432,6 +518,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} sha   
  * @apiParam {Boolean} [recursive]  Optional 
+ * @apiExample {js} ex:
+github.gitdata.getTree({ ... });
  */
 
 /**
@@ -444,6 +532,8 @@
  * @apiParam {String} ref   String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiParam {String} sha   
  * @apiParam {Boolean} [force]  Optional Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
+ * @apiExample {js} ex:
+github.gitdata.updateReference({ ... });
  */
 
 /**
@@ -452,6 +542,8 @@
  * @apiGroup gitignore
  *
  * @apiParam {String} name   The name of the .gitignore template to get
+ * @apiExample {js} ex:
+github.gitignore.template({ ... });
  */
 
 /**
@@ -459,6 +551,8 @@
  * @apiName templates
  * @apiGroup gitignore
  *
+ * @apiExample {js} ex:
+github.gitignore.templates({ ... });
  */
 
 /**
@@ -473,6 +567,8 @@
  * @apiParam {String} [assignee]  Optional Login for the user that this issue should be assigned to.
  * @apiParam {Number} [milestone]  Optional Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Optional Array of strings - Labels to associate with this issue.
+ * @apiExample {js} ex:
+github.issues.create({ ... });
  */
 
 /**
@@ -484,6 +580,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} number   
  * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.issues.createComment({ ... });
  */
 
 /**
@@ -495,6 +593,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} name   
  * @apiParam {String} color   6 character hex code, without a leading #.
+ * @apiExample {js} ex:
+github.issues.createLabel({ ... });
  */
 
 /**
@@ -508,6 +608,8 @@
  * @apiParam {String} [state]  Optional 
  * @apiParam {String} [description]  Optional 
  * @apiParam {Date} [due_on]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.issues.createMilestone({ ... });
  */
 
 /**
@@ -518,6 +620,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.issues.deleteComment({ ... });
  */
 
 /**
@@ -528,6 +632,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} name   
+ * @apiExample {js} ex:
+github.issues.deleteLabel({ ... });
  */
 
 /**
@@ -538,6 +644,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.deleteMilestone({ ... });
  */
 
 /**
@@ -554,6 +662,8 @@
  * @apiParam {Number} [milestone]  Optional Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Optional Array of strings - Labels to associate with this issue.
  * @apiParam {String} [state]  Optional open or closed
+ * @apiExample {js} ex:
+github.issues.edit({ ... });
  */
 
 /**
@@ -565,6 +675,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} id   
  * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.issues.editComment({ ... });
  */
 
 /**
@@ -580,6 +692,8 @@
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getAll({ ... });
  */
 
 /**
@@ -593,6 +707,8 @@
  * @apiParam {String} [sort]  Optional due_date, completeness, default: due_date
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getAllMilestones({ ... });
  */
 
 /**
@@ -603,6 +719,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.issues.getComment({ ... });
  */
 
 /**
@@ -615,6 +733,8 @@
  * @apiParam {Number} number   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getComments({ ... });
  */
 
 /**
@@ -625,6 +745,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.issues.getEvent({ ... });
  */
 
 /**
@@ -637,6 +759,8 @@
  * @apiParam {Number} number   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getEvents({ ... });
  */
 
 /**
@@ -647,6 +771,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.getIssueLabels({ ... });
  */
 
 /**
@@ -657,6 +783,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} name   
+ * @apiExample {js} ex:
+github.issues.getLabel({ ... });
  */
 
 /**
@@ -668,6 +796,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getLabels({ ... });
  */
 
 /**
@@ -678,6 +808,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.getMilestone({ ... });
  */
 
 /**
@@ -689,6 +821,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getRepoEvents({ ... });
  */
 
 /**
@@ -699,6 +833,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.getRepoIssue({ ... });
  */
 
 /**
@@ -713,6 +849,8 @@
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.repoComments({ ... });
  */
 
 /**
@@ -733,6 +871,8 @@
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {String} [mentioned]  Optional String User login.
+ * @apiExample {js} ex:
+github.issues.repoIssues({ ... });
  */
 
 /**
@@ -744,6 +884,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} name   
  * @apiParam {String} color   6 character hex code, without a leading #.
+ * @apiExample {js} ex:
+github.issues.updateLabel({ ... });
  */
 
 /**
@@ -758,6 +900,8 @@
  * @apiParam {String} [state]  Optional 
  * @apiParam {String} [description]  Optional 
  * @apiParam {Date} [due_on]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.issues.updateMilestone({ ... });
  */
 
 /**
@@ -768,6 +912,8 @@
  * @apiParam {String} text   The Markdown text to render
  * @apiParam {String} [mode]  Optional The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.
  * @apiParam {String} [context]  Optional The repository context, only taken into account when rendering as `gfm`
+ * @apiExample {js} ex:
+github.markdown.render({ ... });
  */
 
 /**
@@ -776,6 +922,8 @@
  * @apiGroup markdown
  *
  * @apiParam {String} data   Raw data to send as the body of the request
+ * @apiExample {js} ex:
+github.markdown.renderRaw({ ... });
  */
 
 /**
@@ -783,6 +931,8 @@
  * @apiName emojis
  * @apiGroup misc
  *
+ * @apiExample {js} ex:
+github.misc.emojis({ ... });
  */
 
 /**
@@ -790,6 +940,8 @@
  * @apiName meta
  * @apiGroup misc
  *
+ * @apiExample {js} ex:
+github.misc.meta({ ... });
  */
 
 /**
@@ -797,6 +949,8 @@
  * @apiName rateLimit
  * @apiGroup misc
  *
+ * @apiExample {js} ex:
+github.misc.rateLimit({ ... });
  */
 
 /**
@@ -806,6 +960,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.addOrganizationMembership({ ... });
  */
 
 /**
@@ -815,6 +971,8 @@
  *
  * @apiParam {String} id   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.addTeamMember({ ... });
  */
 
 /**
@@ -824,6 +982,8 @@
  *
  * @apiParam {String} id   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.addTeamMembership({ ... });
  */
 
 /**
@@ -834,6 +994,8 @@
  * @apiParam {String} id   
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.orgs.addTeamRepo({ ... });
  */
 
 /**
@@ -843,6 +1005,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.concealMembership({ ... });
  */
 
 /**
@@ -854,6 +1018,8 @@
  * @apiParam {String} name   
  * @apiParam {Array} [repo_names]  Optional Array of strings
  * @apiParam {String} [permission]  Optional `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.
+ * @apiExample {js} ex:
+github.orgs.createTeam({ ... });
  */
 
 /**
@@ -862,6 +1028,8 @@
  * @apiGroup orgs
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.deleteTeam({ ... });
  */
 
 /**
@@ -871,6 +1039,8 @@
  *
  * @apiParam {String} id   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.deleteTeamMember({ ... });
  */
 
 /**
@@ -881,6 +1051,8 @@
  * @apiParam {String} id   
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.orgs.deleteTeamRepo({ ... });
  */
 
 /**
@@ -891,6 +1063,8 @@
  * @apiParam {String} org   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.get({ ... });
  */
 
 /**
@@ -901,6 +1075,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.getFromUser({ ... });
  */
 
 /**
@@ -910,6 +1086,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.getMember({ ... });
  */
 
 /**
@@ -921,6 +1099,8 @@
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {String} [filter]  Optional 
+ * @apiExample {js} ex:
+github.orgs.getMembers({ ... });
  */
 
 /**
@@ -930,6 +1110,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.getPublicMember({ ... });
  */
 
 /**
@@ -938,6 +1120,8 @@
  * @apiGroup orgs
  *
  * @apiParam {String} org   
+ * @apiExample {js} ex:
+github.orgs.getPublicMembers({ ... });
  */
 
 /**
@@ -946,6 +1130,8 @@
  * @apiGroup orgs
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.getTeam({ ... });
  */
 
 /**
@@ -955,6 +1141,8 @@
  *
  * @apiParam {String} id   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.getTeamMember({ ... });
  */
 
 /**
@@ -965,6 +1153,8 @@
  * @apiParam {String} id   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.getTeamMembers({ ... });
  */
 
 /**
@@ -974,6 +1164,8 @@
  *
  * @apiParam {String} id   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.getTeamMembership({ ... });
  */
 
 /**
@@ -984,6 +1176,8 @@
  * @apiParam {String} id   
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.orgs.getTeamRepo({ ... });
  */
 
 /**
@@ -994,6 +1188,8 @@
  * @apiParam {String} id   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.getTeamRepos({ ... });
  */
 
 /**
@@ -1004,6 +1200,8 @@
  * @apiParam {String} org   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.getTeams({ ... });
  */
 
 /**
@@ -1013,6 +1211,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.publicizeMembership({ ... });
  */
 
 /**
@@ -1022,6 +1222,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.removeMember({ ... });
  */
 
 /**
@@ -1031,6 +1233,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.orgs.removeOrganizationMembership({ ... });
  */
 
 /**
@@ -1044,6 +1248,8 @@
  * @apiParam {String} [email]  Optional Publicly visible email address.
  * @apiParam {String} [location]  Optional 
  * @apiParam {String} [name]  Optional 
+ * @apiExample {js} ex:
+github.orgs.update({ ... });
  */
 
 /**
@@ -1054,6 +1260,8 @@
  * @apiParam {String} id   
  * @apiParam {String} name   
  * @apiParam {String} [permission]  Optional `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.
+ * @apiExample {js} ex:
+github.orgs.updateTeam({ ... });
  */
 
 /**
@@ -1067,6 +1275,8 @@
  * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {String} head   The branch (or git ref) where your changes are implemented.
  * @apiParam {String} [body]  Optional 
+ * @apiExample {js} ex:
+github.pullRequests.create({ ... });
  */
 
 /**
@@ -1081,6 +1291,8 @@
  * @apiParam {String} commit_id   Sha of the commit to comment on.
  * @apiParam {String} path   Relative path of the file to comment on.
  * @apiParam {Number} position   Column index in the diff to comment on.
+ * @apiExample {js} ex:
+github.pullRequests.createComment({ ... });
  */
 
 /**
@@ -1093,6 +1305,8 @@
  * @apiParam {Number} number   
  * @apiParam {String} body   
  * @apiParam {Number} in_reply_to   
+ * @apiExample {js} ex:
+github.pullRequests.createCommentReply({ ... });
  */
 
 /**
@@ -1105,6 +1319,8 @@
  * @apiParam {Number} issue   
  * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {String} head   The branch (or git ref) where your changes are implemented.
+ * @apiExample {js} ex:
+github.pullRequests.createFromIssue({ ... });
  */
 
 /**
@@ -1115,6 +1331,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.pullRequests.deleteComment({ ... });
  */
 
 /**
@@ -1125,6 +1343,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.pullRequests.get({ ... });
  */
 
 /**
@@ -1141,6 +1361,8 @@
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {String} [sort]  Optional Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`
  * @apiParam {String} [direction]  Optional 
+ * @apiExample {js} ex:
+github.pullRequests.getAll({ ... });
  */
 
 /**
@@ -1151,6 +1373,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.pullRequests.getComment({ ... });
  */
 
 /**
@@ -1163,6 +1387,8 @@
  * @apiParam {Number} number   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.getComments({ ... });
  */
 
 /**
@@ -1175,6 +1401,8 @@
  * @apiParam {Number} number   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.getCommits({ ... });
  */
 
 /**
@@ -1187,6 +1415,8 @@
  * @apiParam {Number} number   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.getFiles({ ... });
  */
 
 /**
@@ -1199,6 +1429,8 @@
  * @apiParam {Number} number   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.getMerged({ ... });
  */
 
 /**
@@ -1210,6 +1442,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} number   
  * @apiParam {String} [commit_message]  Optional The message that will be used for the merge commit
+ * @apiExample {js} ex:
+github.pullRequests.merge({ ... });
  */
 
 /**
@@ -1223,6 +1457,8 @@
  * @apiParam {String} [state]  Optional 
  * @apiParam {String} [title]  Optional 
  * @apiParam {String} [body]  Optional 
+ * @apiExample {js} ex:
+github.pullRequests.update({ ... });
  */
 
 /**
@@ -1234,6 +1470,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} number   
  * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.pullRequests.updateComment({ ... });
  */
 
 /**
@@ -1249,6 +1487,8 @@
  * @apiParam {String} [body]  Optional 
  * @apiParam {Boolean} [draft]  Optional true to create a draft (unpublished) release, false to create a published one. Default: false
  * @apiParam {Boolean} [prerelease]  Optional true to identify the release as a prerelease. false to identify the release as a full release. Default: false
+ * @apiExample {js} ex:
+github.releases.createRelease({ ... });
  */
 
 /**
@@ -1259,6 +1499,8 @@
  * @apiParam {String} owner   
  * @apiParam {Number} id   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.releases.deleteAsset({ ... });
  */
 
 /**
@@ -1269,6 +1511,8 @@
  * @apiParam {String} owner   
  * @apiParam {Number} id   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.releases.deleteRelease({ ... });
  */
 
 /**
@@ -1281,6 +1525,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} name   
  * @apiParam {String} [label]  Optional An alternate short description of the asset. Used in place of the filename.
+ * @apiExample {js} ex:
+github.releases.editAsset({ ... });
  */
 
 /**
@@ -1297,6 +1543,8 @@
  * @apiParam {String} [body]  Optional 
  * @apiParam {Boolean} [draft]  Optional true to create a draft (unpublished) release, false to create a published one. Default: false
  * @apiParam {Boolean} [prerelease]  Optional true to identify the release as a prerelease. false to identify the release as a full release. Default: false
+ * @apiExample {js} ex:
+github.releases.editRelease({ ... });
  */
 
 /**
@@ -1307,6 +1555,8 @@
  * @apiParam {String} owner   
  * @apiParam {Number} id   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.releases.getAsset({ ... });
  */
 
 /**
@@ -1316,6 +1566,8 @@
  *
  * @apiParam {String} owner   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.releases.getLatestRelease({ ... });
  */
 
 /**
@@ -1326,6 +1578,8 @@
  * @apiParam {String} owner   
  * @apiParam {Number} id   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.releases.getRelease({ ... });
  */
 
 /**
@@ -1336,6 +1590,8 @@
  * @apiParam {String} owner   
  * @apiParam {Number} id   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.releases.listAssets({ ... });
  */
 
 /**
@@ -1347,6 +1603,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.releases.listReleases({ ... });
  */
 
 /**
@@ -1358,6 +1616,8 @@
  * @apiParam {Number} id   
  * @apiParam {String} repo   
  * @apiParam {String} name   the file name of the asset
+ * @apiExample {js} ex:
+github.releases.uploadAsset({ ... });
  */
 
 /**
@@ -1368,6 +1628,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} collabuser   
+ * @apiExample {js} ex:
+github.repos.addCollaborator({ ... });
  */
 
 /**
@@ -1379,6 +1641,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {String} head   The branch (or git ref) where your changes are implemented.
+ * @apiExample {js} ex:
+github.repos.compareCommits({ ... });
  */
 
 /**
@@ -1395,6 +1659,8 @@
  * @apiParam {Boolean} [has_downloads]  Optional True to enable downloads for this repository, false to disable them. Default is true.
  * @apiParam {Boolean} [auto_init]  Optional True to create an initial commit with empty README. Default is false
  * @apiParam {String} [gitignore_template]  Optional Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
+ * @apiExample {js} ex:
+github.repos.create({ ... });
  */
 
 /**
@@ -1410,6 +1676,8 @@
  * @apiParam {String} [path]  Optional Relative path of the file to comment on.
  * @apiParam {Number} [position]  Optional Line index in the diff to comment on.
  * @apiParam {Number} [line]  Optional Line number in the file to comment on. Defaults to 1.
+ * @apiExample {js} ex:
+github.repos.createCommitComment({ ... });
  */
 
 /**
@@ -1423,6 +1691,8 @@
  * @apiParam {String} [message]  Optional 
  * @apiParam {String} [path]  Optional The content path.
  * @apiParam {String} [ref]  Optional The String name of the Commit/Branch/Tag. Defaults to master.
+ * @apiExample {js} ex:
+github.repos.createContent({ ... });
  */
 
 /**
@@ -1439,6 +1709,8 @@
  * @apiParam {String} [payload]  Optional Optional JSON payload with extra information about the deployment. Default: ''
  * @apiParam {String} [environment]  Optional The name of the environment that was deployed to. e.g. staging or production. Default: none.
  * @apiParam {String} [description]  Optional Optional short description. Default: ''
+ * @apiExample {js} ex:
+github.repos.createDeployment({ ... });
  */
 
 /**
@@ -1452,6 +1724,8 @@
  * @apiParam {String} [state]  Optional The state of the status. Can be one of pending, success, error, or failure.
  * @apiParam {String} [target_url]  Optional The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: ''
  * @apiParam {String} [description]  Optional A short description of the status. Default: ''
+ * @apiExample {js} ex:
+github.repos.createDeploymentStatus({ ... });
  */
 
 /**
@@ -1467,6 +1741,8 @@
  * @apiParam {String} [branch]  Optional The branch name. If not provided, uses the repository’s default branch (usually master).
  * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
+ * @apiExample {js} ex:
+github.repos.createFile({ ... });
  */
 
 /**
@@ -1485,6 +1761,8 @@
  * @apiParam {Boolean} [auto_init]  Optional True to create an initial commit with empty README. Default is false
  * @apiParam {String} [gitignore_template]  Optional Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
  * @apiParam {Boolean} [has_issues]  Optional True to enable issues for this repository, false to disable them. Default is true.
+ * @apiExample {js} ex:
+github.repos.createFromOrg({ ... });
  */
 
 /**
@@ -1498,6 +1776,8 @@
  * @apiParam {Json} config   A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
  * @apiParam {Array} [events]  Optional Determines what events the hook is triggered for. Default: `['push']`.
  * @apiParam {Boolean} [active]  Optional Determines whether the hook is actually triggered on pushes.
+ * @apiExample {js} ex:
+github.repos.createHook({ ... });
  */
 
 /**
@@ -1509,6 +1789,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} title   
  * @apiParam {String} key   
+ * @apiExample {js} ex:
+github.repos.createKey({ ... });
  */
 
 /**
@@ -1518,6 +1800,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.delete({ ... });
  */
 
 /**
@@ -1528,6 +1812,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.deleteCommitComment({ ... });
  */
 
 /**
@@ -1538,6 +1824,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.deleteDownload({ ... });
  */
 
 /**
@@ -1553,6 +1841,8 @@
  * @apiParam {String} [branch]  Optional The branch name. If not provided, uses the repository’s default branch (usually master).
  * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
+ * @apiExample {js} ex:
+github.repos.deleteFile({ ... });
  */
 
 /**
@@ -1563,6 +1853,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.deleteHook({ ... });
  */
 
 /**
@@ -1573,6 +1865,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.deleteKey({ ... });
  */
 
 /**
@@ -1583,6 +1877,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} [organization]  Optional Organization login. The repository will be forked into this organization.
+ * @apiExample {js} ex:
+github.repos.fork({ ... });
  */
 
 /**
@@ -1592,6 +1888,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.get({ ... });
  */
 
 /**
@@ -1604,6 +1902,8 @@
  * @apiParam {String} [direction]  Optional 
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getAll({ ... });
  */
 
 /**
@@ -1615,6 +1915,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getAllCommitComments({ ... });
  */
 
 /**
@@ -1626,6 +1928,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} archive_format   Either tarball or zipball
  * @apiParam {String} [ref]  Optional String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiExample {js} ex:
+github.repos.getArchiveLink({ ... });
  */
 
 /**
@@ -1638,6 +1942,8 @@
  * @apiParam {String} branch   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getBranch({ ... });
  */
 
 /**
@@ -1649,6 +1955,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getBranches({ ... });
  */
 
 /**
@@ -1659,6 +1967,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} collabuser   
+ * @apiExample {js} ex:
+github.repos.getCollaborator({ ... });
  */
 
 /**
@@ -1670,6 +1980,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getCollaborators({ ... });
  */
 
 /**
@@ -1680,6 +1992,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.repos.getCommit({ ... });
  */
 
 /**
@@ -1690,6 +2004,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getCommitComment({ ... });
  */
 
 /**
@@ -1702,6 +2018,8 @@
  * @apiParam {String} sha   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getCommitComments({ ... });
  */
 
 /**
@@ -1718,6 +2036,8 @@
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {Date} [until]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.repos.getCommits({ ... });
  */
 
 /**
@@ -1729,6 +2049,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} [path]  Optional The content path.
  * @apiParam {String} [ref]  Optional The String name of the Commit/Branch/Tag. Defaults to master.
+ * @apiExample {js} ex:
+github.repos.getContent({ ... });
  */
 
 /**
@@ -1741,6 +2063,8 @@
  * @apiParam {Boolean} [anon]  Optional Set to 1 or true to include anonymous contributors in results.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getContributors({ ... });
  */
 
 /**
@@ -1751,6 +2075,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getDeploymentStatuses({ ... });
  */
 
 /**
@@ -1766,6 +2092,8 @@
  * @apiParam {String} [environment]  Optional The name of the environment that was deployed to. e.g. staging or production. Default: none.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getDeployments({ ... });
  */
 
 /**
@@ -1776,6 +2104,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getDownload({ ... });
  */
 
 /**
@@ -1787,6 +2117,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getDownloads({ ... });
  */
 
 /**
@@ -1799,6 +2131,8 @@
  * @apiParam {String} [sort]  Optional Possible values: `newest`, `oldest`, `watchers`, default: `newest`.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getForks({ ... });
  */
 
 /**
@@ -1810,6 +2144,8 @@
  * @apiParam {String} [type]  Optional Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getFromOrg({ ... });
  */
 
 /**
@@ -1823,6 +2159,8 @@
  * @apiParam {String} [direction]  Optional 
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getFromUser({ ... });
  */
 
 /**
@@ -1833,6 +2171,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getHook({ ... });
  */
 
 /**
@@ -1844,6 +2184,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getHooks({ ... });
  */
 
 /**
@@ -1854,6 +2196,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getKey({ ... });
  */
 
 /**
@@ -1865,6 +2209,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getKeys({ ... });
  */
 
 /**
@@ -1876,6 +2222,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getLanguages({ ... });
  */
 
 /**
@@ -1886,6 +2234,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} [ref]  Optional The String name of the Commit/Branch/Tag. Defaults to master.
+ * @apiExample {js} ex:
+github.repos.getReadme({ ... });
  */
 
 /**
@@ -1897,6 +2247,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getStargazers({ ... });
  */
 
 /**
@@ -1906,6 +2258,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getStarred({ ... });
  */
 
 /**
@@ -1916,6 +2270,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getStarredFromUser({ ... });
  */
 
 /**
@@ -1927,6 +2283,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getStarring({ ... });
  */
 
 /**
@@ -1936,6 +2294,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.getStatsCodeFrequency({ ... });
  */
 
 /**
@@ -1945,6 +2305,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.getStatsCommitActivity({ ... });
  */
 
 /**
@@ -1954,6 +2316,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.getStatsContributors({ ... });
  */
 
 /**
@@ -1963,6 +2327,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.getStatsParticipation({ ... });
  */
 
 /**
@@ -1972,6 +2338,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.getStatsPunchCard({ ... });
  */
 
 /**
@@ -1983,6 +2351,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getTags({ ... });
  */
 
 /**
@@ -1994,6 +2364,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getTeams({ ... });
  */
 
 /**
@@ -2003,6 +2375,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getWatched({ ... });
  */
 
 /**
@@ -2013,6 +2387,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getWatchedFromUser({ ... });
  */
 
 /**
@@ -2024,6 +2400,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getWatchers({ ... });
  */
 
 /**
@@ -2035,6 +2413,8 @@
  * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getWatching({ ... });
  */
 
 /**
@@ -2047,6 +2427,8 @@
  * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {String} head   The branch (or git ref) where your changes are implemented.
  * @apiParam {String} [commit_message]  Optional Commit message to use for the merge commit. If omitted, a default message will be used.
+ * @apiExample {js} ex:
+github.repos.merge({ ... });
  */
 
 /**
@@ -2055,6 +2437,8 @@
  * @apiGroup repos
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.one({ ... });
  */
 
 /**
@@ -2065,6 +2449,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} collabuser   
+ * @apiExample {js} ex:
+github.repos.removeCollaborator({ ... });
  */
 
 /**
@@ -2074,6 +2460,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.star({ ... });
  */
 
 /**
@@ -2084,6 +2472,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.testHook({ ... });
  */
 
 /**
@@ -2093,6 +2483,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.unStar({ ... });
  */
 
 /**
@@ -2102,6 +2494,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.unWatch({ ... });
  */
 
 /**
@@ -2119,6 +2513,8 @@
  * @apiParam {Boolean} [has_wiki]  Optional True to enable the wiki for this repository, false to disable it. Default is true.
  * @apiParam {Boolean} [has_downloads]  Optional True to enable downloads for this repository, false to disable them. Default is true.
  * @apiParam {String} [default_branch]  Optional Updates the default branch for this repository.
+ * @apiExample {js} ex:
+github.repos.update({ ... });
  */
 
 /**
@@ -2130,6 +2526,8 @@
  * @apiParam {String} repo   
  * @apiParam {String} id   
  * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.repos.updateCommitComment({ ... });
  */
 
 /**
@@ -2146,6 +2544,8 @@
  * @apiParam {String} [branch]  Optional The branch name. If not provided, uses the repository’s default branch (usually master).
  * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
+ * @apiExample {js} ex:
+github.repos.updateFile({ ... });
  */
 
 /**
@@ -2162,6 +2562,8 @@
  * @apiParam {Array} [add_events]  Optional Determines a list of events to be added to the list of events that the Hook triggers for.
  * @apiParam {Array} [remove_events]  Optional Determines a list of events to be removed from the list of events that the Hook triggers for.
  * @apiParam {Boolean} [active]  Optional Determines whether the hook is actually triggered on pushes.
+ * @apiExample {js} ex:
+github.repos.updateHook({ ... });
  */
 
 /**
@@ -2174,6 +2576,8 @@
  * @apiParam {String} id   
  * @apiParam {String} title   
  * @apiParam {String} key   
+ * @apiExample {js} ex:
+github.repos.updateKey({ ... });
  */
 
 /**
@@ -2183,6 +2587,8 @@
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.watch({ ... });
  */
 
 /**
@@ -2195,6 +2601,8 @@
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.search.code({ ... });
  */
 
 /**
@@ -2203,6 +2611,8 @@
  * @apiGroup search
  *
  * @apiParam {String} email   Email address
+ * @apiExample {js} ex:
+github.search.email({ ... });
  */
 
 /**
@@ -2215,6 +2625,8 @@
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.search.issues({ ... });
  */
 
 /**
@@ -2227,6 +2639,8 @@
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.search.repos({ ... });
  */
 
 /**
@@ -2239,6 +2653,8 @@
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.search.users({ ... });
  */
 
 /**
@@ -2253,6 +2669,8 @@
  * @apiParam {String} [target_url]  Optional Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
  * @apiParam {String} [description]  Optional Short description of the status.
  * @apiParam {String} [context]  Optional A string label to differentiate this status from the status of other systems.
+ * @apiExample {js} ex:
+github.statuses.create({ ... });
  */
 
 /**
@@ -2263,6 +2681,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.statuses.get({ ... });
  */
 
 /**
@@ -2273,6 +2693,8 @@
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.statuses.getCombined({ ... });
  */
 
 /**
@@ -2280,6 +2702,8 @@
  * @apiName addEmails
  * @apiGroup user
  *
+ * @apiExample {js} ex:
+github.user.addEmails({ ... });
  */
 
 /**
@@ -2289,6 +2713,8 @@
  *
  * @apiParam {String} title   
  * @apiParam {String} key   
+ * @apiExample {js} ex:
+github.user.createKey({ ... });
  */
 
 /**
@@ -2296,6 +2722,8 @@
  * @apiName deleteEmails
  * @apiGroup user
  *
+ * @apiExample {js} ex:
+github.user.deleteEmails({ ... });
  */
 
 /**
@@ -2304,6 +2732,8 @@
  * @apiGroup user
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.user.deleteKey({ ... });
  */
 
 /**
@@ -2313,6 +2743,8 @@
  *
  * @apiParam {String} org   
  * @apiParam {String} state   
+ * @apiExample {js} ex:
+github.user.editOrganizationMembership({ ... });
  */
 
 /**
@@ -2321,6 +2753,8 @@
  * @apiGroup user
  *
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.user.followUser({ ... });
  */
 
 /**
@@ -2328,6 +2762,8 @@
  * @apiName get
  * @apiGroup user
  *
+ * @apiExample {js} ex:
+github.user.get({ ... });
  */
 
 /**
@@ -2336,6 +2772,8 @@
  * @apiGroup user
  *
  * @apiParam {Number} [since]  Optional The integer ID of the last User that you’ve seen.
+ * @apiExample {js} ex:
+github.user.getAll({ ... });
  */
 
 /**
@@ -2345,6 +2783,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getEmails({ ... });
  */
 
 /**
@@ -2355,6 +2795,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getFollowUser({ ... });
  */
 
 /**
@@ -2365,6 +2807,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getFollowers({ ... });
  */
 
 /**
@@ -2374,6 +2818,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getFollowing({ ... });
  */
 
 /**
@@ -2384,6 +2830,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getFollowingFromUser({ ... });
  */
 
 /**
@@ -2392,6 +2840,8 @@
  * @apiGroup user
  *
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.user.getFrom({ ... });
  */
 
 /**
@@ -2400,6 +2850,8 @@
  * @apiGroup user
  *
  * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.user.getKey({ ... });
  */
 
 /**
@@ -2409,6 +2861,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getKeys({ ... });
  */
 
 /**
@@ -2419,6 +2873,8 @@
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getKeysFromUser({ ... });
  */
 
 /**
@@ -2428,6 +2884,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getOrgs({ ... });
  */
 
 /**
@@ -2437,6 +2895,8 @@
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.user.getTeams({ ... });
  */
 
 /**
@@ -2445,6 +2905,8 @@
  * @apiGroup user
  *
  * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.user.unFollowUser({ ... });
  */
 
 /**
@@ -2459,6 +2921,8 @@
  * @apiParam {String} [location]  Optional 
  * @apiParam {Boolean} [hireable]  Optional 
  * @apiParam {String} [bio]  Optional 
+ * @apiExample {js} ex:
+github.user.update({ ... });
  */
 
 /**
@@ -2469,5 +2933,7 @@
  * @apiParam {String} id   
  * @apiParam {String} title   
  * @apiParam {String} key   
+ * @apiExample {js} ex:
+github.user.updateKey({ ... });
  */
 
