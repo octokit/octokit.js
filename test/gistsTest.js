@@ -41,9 +41,9 @@ describe("[gists]", function() {
     it("should successfully execute POST /gists (create)",  function(next) {
         client.gists.create(
             {
+                files: "Json",
                 description: "String",
-                public: "Boolean",
-                files: "Json"
+                public: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -94,19 +94,6 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute DELETE /gists/:id/star (deleteStar)",  function(next) {
-        client.gists.deleteStar(
-            {
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute PATCH /gists/:id (edit)",  function(next) {
         client.gists.edit(
             {
@@ -137,7 +124,7 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute POST /gists/:id/fork (fork)",  function(next) {
+    it("should successfully execute POST /gists/:id/forks (fork)",  function(next) {
         client.gists.fork(
             {
                 id: "String"
@@ -205,6 +192,34 @@ describe("[gists]", function() {
         );
     });
 
+    it("should successfully execute GET /gists/:id/commits (getCommits)",  function(next) {
+        client.gists.getCommits(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /gists/:id/forks (getForks)",  function(next) {
+        client.gists.getForks(
+            {
+                id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /users/:user/gists (getFromUser)",  function(next) {
         client.gists.getFromUser(
             {
@@ -212,6 +227,20 @@ describe("[gists]", function() {
                 page: "Number",
                 per_page: "Number",
                 since: "Date"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /gists/:id/:sha (getRevision)",  function(next) {
+        client.gists.getRevision(
+            {
+                id: "String",
+                sha: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -251,6 +280,19 @@ describe("[gists]", function() {
         client.gists.starred(
             {
                 since: "Date"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /gists/:id/star (unStar)",  function(next) {
+        client.gists.unStar(
+            {
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

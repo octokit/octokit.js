@@ -480,7 +480,8 @@
                 "$page": null,
                 "$per_page": null,
                 "$since": null
-            }
+            },
+            "description": "List the authenticated user's gists or if called anonymously, this will return all public gists"
         },
 
         "get-from-user": {
@@ -491,13 +492,52 @@
                 "$page": null,
                 "$per_page": null,
                 "$since": null
-            }
+            },
+            "description": "List a user's gists"
+        },
+
+        "public": {
+            "url": "/gists/public",
+            "method": "GET",
+            "params": {
+                "$since": null
+            },
+            "description": "List all public gists"
+        },
+
+        "starred": {
+            "url": "/gists/starred",
+            "method": "GET",
+            "params": {
+                "$since": null
+            },
+            "description": "List the authenticated user's starred gists"
+        },
+
+        "get": {
+            "url": "/gists/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single gist"
+        },
+
+        "get-revision": {
+            "url": "/gists/:id/:sha",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$sha": null
+            },
+            "description": "Get a specific revision of a gist"
         },
 
         "create": {
             "url": "/gists",
             "method": "POST",
             "params": {
+                "$files": null,
                 "$description": null,
                 "public": {
                     "type": "Boolean",
@@ -505,9 +545,9 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
-                },
-                "$files": null
-            }
+                }
+            },
+            "description": "Create a gist"
         },
 
         "edit": {
@@ -517,31 +557,17 @@
                 "$id": null,
                 "$description": null,
                 "$files": null
-            }
+            },
+            "description": "Edit a gist"
         },
 
-        "public": {
-            "url": "/gists/public",
-            "method": "GET",
-            "params": {
-                "$since": null
-            }
-        },
-
-        "starred": {
-            "url": "/gists/starred",
-            "method": "GET",
-            "params": {
-                "$since": null
-            }
-        },
-
-        "get": {
-            "url": "/gists/:id",
+        "get-commits": {
+            "url": "/gists/:id/commits",
             "method": "GET",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "List gist commits"
         },
 
         "star": {
@@ -549,15 +575,17 @@
             "method": "PUT",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Star a gist"
         },
 
-        "delete-star": {
+        "un-star": {
             "url": "/gists/:id/star",
             "method": "DELETE",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Unstar a gist"
         },
 
         "check-star": {
@@ -565,15 +593,28 @@
             "method": "GET",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Check if a gist is starred"
         },
 
         "fork": {
-            "url": "/gists/:id/fork",
+            "url": "/gists/:id/forks",
             "method": "POST",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Fork a gist"
+        },
+
+        "get-forks": {
+            "url": "/gists/:id/forks",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List gist forks"
         },
 
         "delete": {
@@ -581,7 +622,8 @@
             "method": "DELETE",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Delete a gist"
         },
 
         "get-comments": {
@@ -589,7 +631,8 @@
             "method": "GET",
             "params": {
                 "$gist_id": null
-            }
+            },
+            "description": "List comments on a gist"
         },
 
         "get-comment": {
@@ -598,7 +641,8 @@
             "params": {
                 "$gist_id": null,
                 "$id": null
-            }
+            },
+            "description": "Get a single comment"
         },
 
         "create-comment": {
@@ -607,7 +651,8 @@
             "params": {
                 "$gist_id": null,
                 "$body": null
-            }
+            },
+            "description": "Create a comment"
         },
 
         "edit-comment": {
@@ -617,7 +662,8 @@
                 "$gist_id": null,
                 "$id": null,
                 "$body": null
-            }
+            },
+            "description": "Edit a comment"
         },
 
         "delete-comment": {
@@ -626,7 +672,8 @@
             "params": {
                 "$gist_id": null,
                 "$id": null
-            }
+            },
+            "description": "Delete a comment"
         }
     },
 

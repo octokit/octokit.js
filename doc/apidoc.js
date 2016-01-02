@@ -197,7 +197,7 @@ github.events.getReceivedPublic({ ... });
 /**
  * @api {get} /gists/:id/star checkStar
  * @apiName checkStar
- * @apiDescription undefined
+ * @apiDescription Check if a gist is starred
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -208,11 +208,11 @@ github.gists.checkStar({ ... });
 /**
  * @api {post} /gists create
  * @apiName create
- * @apiDescription undefined
+ * @apiDescription Create a gist
  * @apiGroup gists
  *
- * @apiParam {Boolean} public   
  * @apiParam {Json} files   Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'
+ * @apiParam {Boolean} public   
  * @apiParam {String} [description]  Optional 
  * @apiExample {js} ex:
 github.gists.create({ ... });
@@ -221,7 +221,7 @@ github.gists.create({ ... });
 /**
  * @api {post} /gists/:gist_id/comments createComment
  * @apiName createComment
- * @apiDescription undefined
+ * @apiDescription Create a comment
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -233,7 +233,7 @@ github.gists.createComment({ ... });
 /**
  * @api {delete} /gists/:id delete
  * @apiName delete
- * @apiDescription undefined
+ * @apiDescription Delete a gist
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -244,7 +244,7 @@ github.gists.delete({ ... });
 /**
  * @api {delete} /gists/:gist_id/comments/:id deleteComment
  * @apiName deleteComment
- * @apiDescription undefined
+ * @apiDescription Delete a comment
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -254,20 +254,9 @@ github.gists.deleteComment({ ... });
  */
 
 /**
- * @api {delete} /gists/:id/star deleteStar
- * @apiName deleteStar
- * @apiDescription undefined
- * @apiGroup gists
- *
- * @apiParam {String} id   
- * @apiExample {js} ex:
-github.gists.deleteStar({ ... });
- */
-
-/**
  * @api {patch} /gists/:id edit
  * @apiName edit
- * @apiDescription undefined
+ * @apiDescription Edit a gist
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -280,7 +269,7 @@ github.gists.edit({ ... });
 /**
  * @api {patch} /gists/:gist_id/comments/:id editComment
  * @apiName editComment
- * @apiDescription undefined
+ * @apiDescription Edit a comment
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -291,9 +280,9 @@ github.gists.editComment({ ... });
  */
 
 /**
- * @api {post} /gists/:id/fork fork
+ * @api {post} /gists/:id/forks fork
  * @apiName fork
- * @apiDescription undefined
+ * @apiDescription Fork a gist
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -304,7 +293,7 @@ github.gists.fork({ ... });
 /**
  * @api {get} /gists/:id get
  * @apiName get
- * @apiDescription undefined
+ * @apiDescription Get a single gist
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -315,7 +304,7 @@ github.gists.get({ ... });
 /**
  * @api {get} /gists getAll
  * @apiName getAll
- * @apiDescription undefined
+ * @apiDescription List the authenticated user's gists or if called anonymously, this will return all public gists
  * @apiGroup gists
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -328,7 +317,7 @@ github.gists.getAll({ ... });
 /**
  * @api {get} /gists/:gist_id/comments/:id getComment
  * @apiName getComment
- * @apiDescription undefined
+ * @apiDescription Get a single comment
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -340,7 +329,7 @@ github.gists.getComment({ ... });
 /**
  * @api {get} /gists/:gist_id/comments getComments
  * @apiName getComments
- * @apiDescription undefined
+ * @apiDescription List comments on a gist
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -349,9 +338,33 @@ github.gists.getComments({ ... });
  */
 
 /**
+ * @api {get} /gists/:id/commits getCommits
+ * @apiName getCommits
+ * @apiDescription List gist commits
+ * @apiGroup gists
+ *
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.getCommits({ ... });
+ */
+
+/**
+ * @api {get} /gists/:id/forks getForks
+ * @apiName getForks
+ * @apiDescription List gist forks
+ * @apiGroup gists
+ *
+ * @apiParam {String} id   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.gists.getForks({ ... });
+ */
+
+/**
  * @api {get} /users/:user/gists getFromUser
  * @apiName getFromUser
- * @apiDescription undefined
+ * @apiDescription List a user's gists
  * @apiGroup gists
  *
  * @apiParam {String} user   
@@ -363,9 +376,21 @@ github.gists.getFromUser({ ... });
  */
 
 /**
+ * @api {get} /gists/:id/:sha getRevision
+ * @apiName getRevision
+ * @apiDescription Get a specific revision of a gist
+ * @apiGroup gists
+ *
+ * @apiParam {String} id   
+ * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.gists.getRevision({ ... });
+ */
+
+/**
  * @api {get} /gists/public public
  * @apiName public
- * @apiDescription undefined
+ * @apiDescription List all public gists
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -376,7 +401,7 @@ github.gists.public({ ... });
 /**
  * @api {put} /gists/:id/star star
  * @apiName star
- * @apiDescription undefined
+ * @apiDescription Star a gist
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -387,12 +412,23 @@ github.gists.star({ ... });
 /**
  * @api {get} /gists/starred starred
  * @apiName starred
- * @apiDescription undefined
+ * @apiDescription List the authenticated user's starred gists
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} ex:
 github.gists.starred({ ... });
+ */
+
+/**
+ * @api {delete} /gists/:id/star unStar
+ * @apiName unStar
+ * @apiDescription Unstar a gist
+ * @apiGroup gists
+ *
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.gists.unStar({ ... });
  */
 
 /**
