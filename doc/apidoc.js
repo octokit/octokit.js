@@ -74,8 +74,8 @@ github.events.get({ ... });
  */
 
 /**
- * @api {get} /orgs/:org/events getFromOrg
- * @apiName getFromOrg
+ * @api {get} /orgs/:org/events getForOrg
+ * @apiName getForOrg
  * @apiDescription List public events for an organization
  * @apiGroup events
  *
@@ -83,12 +83,12 @@ github.events.get({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromOrg({ ... });
+github.events.getForOrg({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/events getFromRepo
- * @apiName getFromRepo
+ * @api {get} /repos/:user/:repo/events getForRepo
+ * @apiName getForRepo
  * @apiDescription List repository events
  * @apiGroup events
  *
@@ -97,12 +97,12 @@ github.events.getFromOrg({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromRepo({ ... });
+github.events.getForRepo({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/events getFromRepoIssues
- * @apiName getFromRepoIssues
+ * @api {get} /repos/:user/:repo/issues/events getForRepoIssues
+ * @apiName getForRepoIssues
  * @apiDescription List issue events for a repository
  * @apiGroup events
  *
@@ -111,12 +111,12 @@ github.events.getFromRepo({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromRepoIssues({ ... });
+github.events.getForRepoIssues({ ... });
  */
 
 /**
- * @api {get} /networks/:user/:repo/events getFromRepoNetwork
- * @apiName getFromRepoNetwork
+ * @api {get} /networks/:user/:repo/events getForRepoNetwork
+ * @apiName getForRepoNetwork
  * @apiDescription List public events for a network of repositories
  * @apiGroup events
  *
@@ -125,12 +125,12 @@ github.events.getFromRepoIssues({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromRepoNetwork({ ... });
+github.events.getForRepoNetwork({ ... });
  */
 
 /**
- * @api {get} /users/:user/events getFromUser
- * @apiName getFromUser
+ * @api {get} /users/:user/events getForUser
+ * @apiName getForUser
  * @apiDescription List events performed by a user
  * @apiGroup events
  *
@@ -138,12 +138,12 @@ github.events.getFromRepoNetwork({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromUser({ ... });
+github.events.getForUser({ ... });
  */
 
 /**
- * @api {get} /users/:user/events/orgs/:org getFromUserOrg
- * @apiName getFromUserOrg
+ * @api {get} /users/:user/events/orgs/:org getForUserOrg
+ * @apiName getForUserOrg
  * @apiDescription List events for an organization
  * @apiGroup events
  *
@@ -152,12 +152,12 @@ github.events.getFromUser({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromUserOrg({ ... });
+github.events.getForUserOrg({ ... });
  */
 
 /**
- * @api {get} /users/:user/events/public getFromUserPublic
- * @apiName getFromUserPublic
+ * @api {get} /users/:user/events/public getForUserPublic
+ * @apiName getForUserPublic
  * @apiDescription List public events performed by a user
  * @apiGroup events
  *
@@ -165,7 +165,7 @@ github.events.getFromUserOrg({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.events.getFromUserPublic({ ... });
+github.events.getForUserPublic({ ... });
  */
 
 /**

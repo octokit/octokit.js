@@ -39,8 +39,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/events (getFromOrg)",  function(next) {
-        client.events.getFromOrg(
+    it("should successfully execute GET /orgs/:org/events (getForOrg)",  function(next) {
+        client.events.getForOrg(
             {
                 org: "String",
                 page: "Number",
@@ -54,8 +54,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/events (getFromRepo)",  function(next) {
-        client.events.getFromRepo(
+    it("should successfully execute GET /repos/:user/:repo/events (getForRepo)",  function(next) {
+        client.events.getForRepo(
             {
                 user: "String",
                 repo: "String",
@@ -70,8 +70,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/events (getFromRepoIssues)",  function(next) {
-        client.events.getFromRepoIssues(
+    it("should successfully execute GET /repos/:user/:repo/issues/events (getForRepoIssues)",  function(next) {
+        client.events.getForRepoIssues(
             {
                 user: "String",
                 repo: "String",
@@ -86,8 +86,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /networks/:user/:repo/events (getFromRepoNetwork)",  function(next) {
-        client.events.getFromRepoNetwork(
+    it("should successfully execute GET /networks/:user/:repo/events (getForRepoNetwork)",  function(next) {
+        client.events.getForRepoNetwork(
             {
                 user: "String",
                 repo: "String",
@@ -102,8 +102,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events (getFromUser)",  function(next) {
-        client.events.getFromUser(
+    it("should successfully execute GET /users/:user/events (getForUser)",  function(next) {
+        client.events.getForUser(
             {
                 user: "String",
                 page: "Number",
@@ -117,8 +117,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events/orgs/:org (getFromUserOrg)",  function(next) {
-        client.events.getFromUserOrg(
+    it("should successfully execute GET /users/:user/events/orgs/:org (getForUserOrg)",  function(next) {
+        client.events.getForUserOrg(
             {
                 user: "String",
                 org: "String",
@@ -133,8 +133,8 @@ describe("[events]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events/public (getFromUserPublic)",  function(next) {
-        client.events.getFromUserPublic(
+    it("should successfully execute GET /users/:user/events/public (getForUserPublic)",  function(next) {
+        client.events.getForUserPublic(
             {
                 user: "String",
                 page: "Number",
