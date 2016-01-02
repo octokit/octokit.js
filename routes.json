@@ -2822,7 +2822,8 @@
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List Stargazers"
         },
 
         "get-starred": {
@@ -2831,7 +2832,8 @@
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List repositories being starred by the authenticated user"
         },
 
         "get-starred-from-user": {
@@ -2841,7 +2843,8 @@
                 "$user": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List repositories being starred by a user"
         },
 
         "get-starring": {
@@ -2852,7 +2855,8 @@
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Check if you are starring a repository"
         },
 
         "star": {
@@ -2861,7 +2865,8 @@
             "params": {
                 "$user": null,
                 "$repo": null
-            }
+            },
+            "description": "Star a repository"
         },
 
         "un-star": {
@@ -2870,7 +2875,8 @@
             "params": {
                 "$user": null,
                 "$repo": null
-            }
+            },
+            "description": "Unstar a repository"
         },
 
         "get-watchers": {

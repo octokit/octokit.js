@@ -2416,7 +2416,7 @@ github.repos.getReadme({ ... });
 /**
  * @api {get} /repos/:user/:repo/stargazers getStargazers
  * @apiName getStargazers
- * @apiDescription undefined
+ * @apiDescription List Stargazers
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2430,7 +2430,7 @@ github.repos.getStargazers({ ... });
 /**
  * @api {get} /user/starred getStarred
  * @apiName getStarred
- * @apiDescription undefined
+ * @apiDescription List repositories being starred by the authenticated user
  * @apiGroup repos
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2442,7 +2442,7 @@ github.repos.getStarred({ ... });
 /**
  * @api {get} /users/:user/starred getStarredFromUser
  * @apiName getStarredFromUser
- * @apiDescription undefined
+ * @apiDescription List repositories being starred by a user
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2455,7 +2455,7 @@ github.repos.getStarredFromUser({ ... });
 /**
  * @api {get} /user/starred/:user/:repo getStarring
  * @apiName getStarring
- * @apiDescription undefined
+ * @apiDescription Check if you are starring a repository
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2649,7 +2649,7 @@ github.repos.removeCollaborator({ ... });
 /**
  * @api {put} /user/starred/:user/:repo star
  * @apiName star
- * @apiDescription undefined
+ * @apiDescription Star a repository
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2674,7 +2674,7 @@ github.repos.testHook({ ... });
 /**
  * @api {delete} /user/starred/:user/:repo unStar
  * @apiName unStar
- * @apiDescription undefined
+ * @apiDescription Unstar a repository
  * @apiGroup repos
  *
  * @apiParam {String} user   
