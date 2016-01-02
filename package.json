@@ -1,6 +1,6 @@
 {
   "name": "github4",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "NodeJS wrapper for the GitHub API",
   "author": "Mike de Boer <info@mikedeboer.nl>",
   "contributors": [
@@ -17,10 +17,10 @@
       "email": "joe@brassafrax.com"
     }
   ],
-  "homepage": "https://github.com/kaizensoze/github4",
+  "homepage": "https://github.com/kaizensoze/node-github",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaizensoze/github4.git"
+    "url": "https://github.com/kaizensoze/node-github.git"
   },
   "engine": {
     "node": ">=0.4.0"
@@ -48,7 +48,7 @@
     }
   ],
   "apidoc": {
-    "title": "github4",
+    "title": "node-github",
     "template": {
       "withCompare": false
     }
