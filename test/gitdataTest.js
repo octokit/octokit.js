@@ -126,22 +126,6 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/refs (getAllReferences)",  function(next) {
-        client.gitdata.getAllReferences(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /repos/:user/:repo/git/blobs/:sha (getBlob)",  function(next) {
         client.gitdata.getBlob(
             {
@@ -189,12 +173,44 @@ describe("[gitdata]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/git/refs (getReferences)",  function(next) {
+        client.gitdata.getReferences(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/git/tags/:sha (getTag)",  function(next) {
         client.gitdata.getTag(
             {
                 user: "String",
                 repo: "String",
                 sha: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/git/refs/tags (getTags)",  function(next) {
+        client.gitdata.getTags(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

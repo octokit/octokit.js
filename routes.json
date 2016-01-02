@@ -687,7 +687,8 @@
                 "$sha": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get a Blob"
         },
 
         "create-blob": {
@@ -711,7 +712,8 @@
                     "invalidmsg": "",
                     "description": ""
                 }
-            }
+            },
+            "description": "Create a Blob"
         },
 
         "get-commit": {
@@ -721,7 +723,8 @@
                 "$user": null,
                 "$repo": null,
                 "$sha": null
-            }
+            },
+            "description": "Get a Commit"
         },
 
         "create-commit": {
@@ -765,7 +768,8 @@
                     "invalidmsg": "",
                     "description": ""
                 }
-            }
+            },
+            "description": "Create a Commit"
         },
 
         "get-reference": {
@@ -775,10 +779,11 @@
                 "$user": null,
                 "$repo": null,
                 "$ref": null
-            }
+            },
+            "description": "Get a Reference"
         },
 
-        "get-all-references": {
+        "get-references": {
             "url": "/repos/:user/:repo/git/refs",
             "method": "GET",
             "params": {
@@ -786,7 +791,20 @@
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get all References"
+        },
+
+        "get-tags": {
+            "url": "/repos/:user/:repo/git/refs/tags",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get all tag References"
         },
 
         "create-reference": {
@@ -797,7 +815,8 @@
                 "$repo": null,
                 "$ref": null,
                 "$sha": null
-            }
+            },
+            "description": "Create a Reference"
         },
 
         "update-reference": {
@@ -815,7 +834,8 @@
                     "invalidmsg": "",
                     "description": "Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work."
                 }
-            }
+            },
+            "description": "Update a Reference"
         },
 
         "delete-reference": {
@@ -825,7 +845,8 @@
                 "$user": null,
                 "$repo": null,
                 "$ref": null
-            }
+            },
+            "description": "Delete a Reference"
         },
 
         "get-tag": {
@@ -835,7 +856,8 @@
                 "$user": null,
                 "$repo": null,
                 "$sha": null
-            }
+            },
+            "description": "Get a Tag"
         },
 
         "create-tag": {
@@ -879,7 +901,8 @@
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `name` - String of the name of the author of the tag, `email` - String of the email of the author of the tag, `date` - Timestamp of when this object was tagged"
                 }
-            }
+            },
+            "description": "Create a Tag Object"
         },
 
         "get-tree": {
@@ -896,7 +919,8 @@
                     "invalidmsg": "",
                     "description": ""
                 }
-            }
+            },
+            "description": "Get a Tree"
         },
 
         "create-tree": {
@@ -919,7 +943,8 @@
                     "invalidmsg": "",
                     "description": "String of the SHA1 of the tree you want to update with new data"
                 }
-            }
+            },
+            "description": "Create a Tree"
         }
     },
 

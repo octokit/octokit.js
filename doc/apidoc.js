@@ -434,7 +434,7 @@ github.gists.unStar({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/blobs createBlob
  * @apiName createBlob
- * @apiDescription undefined
+ * @apiDescription Create a Blob
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -448,7 +448,7 @@ github.gitdata.createBlob({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/commits createCommit
  * @apiName createCommit
- * @apiDescription undefined
+ * @apiDescription Create a Commit
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -465,7 +465,7 @@ github.gitdata.createCommit({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/refs createReference
  * @apiName createReference
- * @apiDescription undefined
+ * @apiDescription Create a Reference
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -479,7 +479,7 @@ github.gitdata.createReference({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/tags createTag
  * @apiName createTag
- * @apiDescription undefined
+ * @apiDescription Create a Tag Object
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -496,7 +496,7 @@ github.gitdata.createTag({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/trees createTree
  * @apiName createTree
- * @apiDescription undefined
+ * @apiDescription Create a Tree
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -510,7 +510,7 @@ github.gitdata.createTree({ ... });
 /**
  * @api {delete} /repos/:user/:repo/git/refs/:ref deleteReference
  * @apiName deleteReference
- * @apiDescription undefined
+ * @apiDescription Delete a Reference
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -521,23 +521,9 @@ github.gitdata.deleteReference({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/refs getAllReferences
- * @apiName getAllReferences
- * @apiDescription undefined
- * @apiGroup gitdata
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.gitdata.getAllReferences({ ... });
- */
-
-/**
  * @api {get} /repos/:user/:repo/git/blobs/:sha getBlob
  * @apiName getBlob
- * @apiDescription undefined
+ * @apiDescription Get a Blob
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -552,7 +538,7 @@ github.gitdata.getBlob({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/commits/:sha getCommit
  * @apiName getCommit
- * @apiDescription undefined
+ * @apiDescription Get a Commit
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -565,7 +551,7 @@ github.gitdata.getCommit({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/refs/:ref getReference
  * @apiName getReference
- * @apiDescription undefined
+ * @apiDescription Get a Reference
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -576,9 +562,23 @@ github.gitdata.getReference({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/git/refs getReferences
+ * @apiName getReferences
+ * @apiDescription Get all References
+ * @apiGroup gitdata
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.gitdata.getReferences({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/git/tags/:sha getTag
  * @apiName getTag
- * @apiDescription undefined
+ * @apiDescription Get a Tag
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -589,9 +589,23 @@ github.gitdata.getTag({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/git/refs/tags getTags
+ * @apiName getTags
+ * @apiDescription Get all tag References
+ * @apiGroup gitdata
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.gitdata.getTags({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/git/trees/:sha getTree
  * @apiName getTree
- * @apiDescription undefined
+ * @apiDescription Get a Tree
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -605,7 +619,7 @@ github.gitdata.getTree({ ... });
 /**
  * @api {patch} /repos/:user/:repo/git/refs/:ref updateReference
  * @apiName updateReference
- * @apiDescription undefined
+ * @apiDescription Update a Reference
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
