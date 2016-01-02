@@ -484,7 +484,7 @@
             "description": "List the authenticated user's gists or if called anonymously, this will return all public gists"
         },
 
-        "get-from-user": {
+        "get-for-user": {
             "url": "/users/:user/gists",
             "method": "GET",
             "params": {
@@ -496,7 +496,7 @@
             "description": "List a user's gists"
         },
 
-        "public": {
+        "get-public": {
             "url": "/gists/public",
             "method": "GET",
             "params": {
@@ -505,7 +505,7 @@
             "description": "List all public gists"
         },
 
-        "starred": {
+        "get-starred": {
             "url": "/gists/starred",
             "method": "GET",
             "params": {

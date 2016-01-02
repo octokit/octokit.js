@@ -349,6 +349,20 @@ github.gists.getCommits({ ... });
  */
 
 /**
+ * @api {get} /users/:user/gists getForUser
+ * @apiName getForUser
+ * @apiDescription List a user's gists
+ * @apiGroup gists
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiExample {js} ex:
+github.gists.getForUser({ ... });
+ */
+
+/**
  * @api {get} /gists/:id/forks getForks
  * @apiName getForks
  * @apiDescription List gist forks
@@ -362,17 +376,14 @@ github.gists.getForks({ ... });
  */
 
 /**
- * @api {get} /users/:user/gists getFromUser
- * @apiName getFromUser
- * @apiDescription List a user's gists
+ * @api {get} /gists/public getPublic
+ * @apiName getPublic
+ * @apiDescription List all public gists
  * @apiGroup gists
  *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} ex:
-github.gists.getFromUser({ ... });
+github.gists.getPublic({ ... });
  */
 
 /**
@@ -388,14 +399,14 @@ github.gists.getRevision({ ... });
  */
 
 /**
- * @api {get} /gists/public public
- * @apiName public
- * @apiDescription List all public gists
+ * @api {get} /gists/starred getStarred
+ * @apiName getStarred
+ * @apiDescription List the authenticated user's starred gists
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} ex:
-github.gists.public({ ... });
+github.gists.getStarred({ ... });
  */
 
 /**
@@ -407,17 +418,6 @@ github.gists.public({ ... });
  * @apiParam {String} id   
  * @apiExample {js} ex:
 github.gists.star({ ... });
- */
-
-/**
- * @api {get} /gists/starred starred
- * @apiName starred
- * @apiDescription List the authenticated user's starred gists
- * @apiGroup gists
- *
- * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
- * @apiExample {js} ex:
-github.gists.starred({ ... });
  */
 
 /**

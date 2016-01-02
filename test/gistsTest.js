@@ -205,6 +205,22 @@ describe("[gists]", function() {
         );
     });
 
+    it("should successfully execute GET /users/:user/gists (getForUser)",  function(next) {
+        client.gists.getForUser(
+            {
+                user: "String",
+                page: "Number",
+                per_page: "Number",
+                since: "Date"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /gists/:id/forks (getForks)",  function(next) {
         client.gists.getForks(
             {
@@ -220,12 +236,9 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/gists (getFromUser)",  function(next) {
-        client.gists.getFromUser(
+    it("should successfully execute GET /gists/public (getPublic)",  function(next) {
+        client.gists.getPublic(
             {
-                user: "String",
-                page: "Number",
-                per_page: "Number",
                 since: "Date"
             },
             function(err, res) {
@@ -250,8 +263,8 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute GET /gists/public (public)",  function(next) {
-        client.gists.public(
+    it("should successfully execute GET /gists/starred (getStarred)",  function(next) {
+        client.gists.getStarred(
             {
                 since: "Date"
             },
@@ -267,19 +280,6 @@ describe("[gists]", function() {
         client.gists.star(
             {
                 id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /gists/starred (starred)",  function(next) {
-        client.gists.starred(
-            {
-                since: "Date"
             },
             function(err, res) {
                 Assert.equal(err, null);
