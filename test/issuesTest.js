@@ -25,6 +25,21 @@ describe("[issues]", function() {
         });
     });
 
+    it("should successfully execute GET /repos/:user/:repo/assignees/:assignee (checkAssignee)",  function(next) {
+        client.issues.checkAssignee(
+            {
+                user: "String",
+                repo: "String",
+                assignee: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:user/:repo/issues (create)",  function(next) {
         client.issues.create(
             {
@@ -220,6 +235,20 @@ describe("[issues]", function() {
                 sort: "String",
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/assignees (getAssignees)",  function(next) {
+        client.issues.getAssignees(
+            {
+                user: "String",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -653,6 +653,19 @@ github.gitignore.templates({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/assignees/:assignee checkAssignee
+ * @apiName checkAssignee
+ * @apiDescription Check assignee
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} assignee   Login for the user that this issue should be assigned to.
+ * @apiExample {js} ex:
+github.issues.checkAssignee({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/issues create
  * @apiName create
  * @apiDescription Create an issue
@@ -830,6 +843,18 @@ github.issues.getAll({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.issues.getAllMilestones({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/assignees getAssignees
+ * @apiName getAssignees
+ * @apiDescription List assignees
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.issues.getAssignees({ ... });
  */
 
 /**

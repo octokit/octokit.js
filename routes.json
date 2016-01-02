@@ -1241,6 +1241,33 @@
             "description": "Edit an issue"
         },
 
+        "get-assignees": {
+            "url": "/repos/:user/:repo/assignees",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "List assignees"
+        },
+
+        "check-assignee": {
+            "url": "/repos/:user/:repo/assignees/:assignee",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "assignee": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Login for the user that this issue should be assigned to."
+                }
+            },
+            "description": "Check assignee"
+        },
+
         "repo-comments": {
             "url": "/repos/:user/:repo/issues/comments",
             "method": "GET",
