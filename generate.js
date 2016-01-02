@@ -94,6 +94,7 @@ var main = module.exports = function() {
             "/**",
             " * @api {" + method + "} " + url + " " + funcName,
             " * @apiName " + funcDisplayName,
+            " * @apiDescription " + block['description'],
             " * @apiGroup " + section,
             " *"
         ];

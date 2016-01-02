@@ -357,6 +357,121 @@
         }
     },
 
+    "events": {
+        "get": {
+            "url": "/events",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public events"
+        },
+
+        "get-from-repo": {
+            "url": "/repos/:user/:repo/events",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List repository events"
+        },
+
+        "get-from-repo-issues": {
+            "url": "/repos/:user/:repo/issues/events",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List issue events for a repository"
+        },
+
+        "get-from-repo-network": {
+            "url": "/networks/:user/:repo/events",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public events for a network of repositories"
+        },
+
+        "get-from-org": {
+            "url": "/orgs/:org/events",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public events for an organization"
+        },
+
+        "get-received": {
+            "url": "/users/:user/received_events",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List events that a user has received"
+        },
+
+        "get-received-public": {
+            "url": "/users/:user/received_events/public",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public events that a user has received"
+        },
+
+        "get-from-user": {
+            "url": "/users/:user/events",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List events performed by a user"
+        },
+
+        "get-from-user-public": {
+            "url": "/users/:user/events/public",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public events performed by a user"
+        },
+
+        "get-from-user-org": {
+            "url": "/users/:user/events/orgs/:org",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$org": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List events for an organization"
+        }
+    },
+
     "gists": {
         "get-all": {
             "url": "/gists",
@@ -3363,111 +3478,6 @@
             "method": "DELETE",
             "params": {
                 "$id": null
-            }
-        }
-    },
-
-    "events": {
-        "get": {
-            "url": "/events",
-            "method": "GET",
-            "params": {
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-repo": {
-            "url": "/repos/:user/:repo/events",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-repo-issues": {
-            "url": "/repos/:user/:repo/issues/events",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-repo-network": {
-            "url": "/networks/:user/:repo/events",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-org": {
-            "url": "/orgs/:org/events",
-            "method": "GET",
-            "params": {
-                "$org": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-received": {
-            "url": "/users/:user/received_events",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-received-public": {
-            "url": "/users/:user/received_events/public",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-user": {
-            "url": "/users/:user/events",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-user-public": {
-            "url": "/users/:user/events/public",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-from-user-org": {
-            "url": "/users/:user/events/orgs/:org",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$org": null,
-                "$page": null,
-                "$per_page": null
             }
         }
     },

@@ -1,6 +1,7 @@
 /**
  * @api {post} /authorizations create
  * @apiName create
+ * @apiDescription undefined
  * @apiGroup authorization
  *
  * @apiParam {Array} [scopes]  Optional A list of scopes that this authorization is in.
@@ -13,6 +14,7 @@ github.authorization.create({ ... });
 /**
  * @api {delete} /authorizations/:id delete
  * @apiName delete
+ * @apiDescription undefined
  * @apiGroup authorization
  *
  * @apiParam {String} id   
@@ -23,6 +25,7 @@ github.authorization.delete({ ... });
 /**
  * @api {get} /authorizations/:id get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup authorization
  *
  * @apiParam {String} id   
@@ -33,6 +36,7 @@ github.authorization.get({ ... });
 /**
  * @api {get} /authorizations getAll
  * @apiName getAll
+ * @apiDescription undefined
  * @apiGroup authorization
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -44,6 +48,7 @@ github.authorization.getAll({ ... });
 /**
  * @api {patch} /authorizations/:id update
  * @apiName update
+ * @apiDescription undefined
  * @apiGroup authorization
  *
  * @apiParam {String} id   
@@ -59,6 +64,7 @@ github.authorization.update({ ... });
 /**
  * @api {get} /events get
  * @apiName get
+ * @apiDescription List public events
  * @apiGroup events
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -70,6 +76,7 @@ github.events.get({ ... });
 /**
  * @api {get} /orgs/:org/events getFromOrg
  * @apiName getFromOrg
+ * @apiDescription List public events for an organization
  * @apiGroup events
  *
  * @apiParam {String} org   
@@ -82,6 +89,7 @@ github.events.getFromOrg({ ... });
 /**
  * @api {get} /repos/:user/:repo/events getFromRepo
  * @apiName getFromRepo
+ * @apiDescription List repository events
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -95,6 +103,7 @@ github.events.getFromRepo({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/events getFromRepoIssues
  * @apiName getFromRepoIssues
+ * @apiDescription List issue events for a repository
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -108,6 +117,7 @@ github.events.getFromRepoIssues({ ... });
 /**
  * @api {get} /networks/:user/:repo/events getFromRepoNetwork
  * @apiName getFromRepoNetwork
+ * @apiDescription List public events for a network of repositories
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -121,6 +131,7 @@ github.events.getFromRepoNetwork({ ... });
 /**
  * @api {get} /users/:user/events getFromUser
  * @apiName getFromUser
+ * @apiDescription List events performed by a user
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -133,6 +144,7 @@ github.events.getFromUser({ ... });
 /**
  * @api {get} /users/:user/events/orgs/:org getFromUserOrg
  * @apiName getFromUserOrg
+ * @apiDescription List events for an organization
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -146,6 +158,7 @@ github.events.getFromUserOrg({ ... });
 /**
  * @api {get} /users/:user/events/public getFromUserPublic
  * @apiName getFromUserPublic
+ * @apiDescription List public events performed by a user
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -158,6 +171,7 @@ github.events.getFromUserPublic({ ... });
 /**
  * @api {get} /users/:user/received_events getReceived
  * @apiName getReceived
+ * @apiDescription List events that a user has received
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -170,6 +184,7 @@ github.events.getReceived({ ... });
 /**
  * @api {get} /users/:user/received_events/public getReceivedPublic
  * @apiName getReceivedPublic
+ * @apiDescription List public events that a user has received
  * @apiGroup events
  *
  * @apiParam {String} user   
@@ -182,6 +197,7 @@ github.events.getReceivedPublic({ ... });
 /**
  * @api {get} /gists/:id/star checkStar
  * @apiName checkStar
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -192,6 +208,7 @@ github.gists.checkStar({ ... });
 /**
  * @api {post} /gists create
  * @apiName create
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {Boolean} public   
@@ -204,6 +221,7 @@ github.gists.create({ ... });
 /**
  * @api {post} /gists/:gist_id/comments createComment
  * @apiName createComment
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -215,6 +233,7 @@ github.gists.createComment({ ... });
 /**
  * @api {delete} /gists/:id delete
  * @apiName delete
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -225,6 +244,7 @@ github.gists.delete({ ... });
 /**
  * @api {delete} /gists/:gist_id/comments/:id deleteComment
  * @apiName deleteComment
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -236,6 +256,7 @@ github.gists.deleteComment({ ... });
 /**
  * @api {delete} /gists/:id/star deleteStar
  * @apiName deleteStar
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -246,6 +267,7 @@ github.gists.deleteStar({ ... });
 /**
  * @api {patch} /gists/:id edit
  * @apiName edit
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -258,6 +280,7 @@ github.gists.edit({ ... });
 /**
  * @api {patch} /gists/:gist_id/comments/:id editComment
  * @apiName editComment
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -270,6 +293,7 @@ github.gists.editComment({ ... });
 /**
  * @api {post} /gists/:id/fork fork
  * @apiName fork
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -280,6 +304,7 @@ github.gists.fork({ ... });
 /**
  * @api {get} /gists/:id get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -290,6 +315,7 @@ github.gists.get({ ... });
 /**
  * @api {get} /gists getAll
  * @apiName getAll
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -302,6 +328,7 @@ github.gists.getAll({ ... });
 /**
  * @api {get} /gists/:gist_id/comments/:id getComment
  * @apiName getComment
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -313,6 +340,7 @@ github.gists.getComment({ ... });
 /**
  * @api {get} /gists/:gist_id/comments getComments
  * @apiName getComments
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} gist_id   Id (SHA1 hash) of the gist.
@@ -323,6 +351,7 @@ github.gists.getComments({ ... });
 /**
  * @api {get} /users/:user/gists getFromUser
  * @apiName getFromUser
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} user   
@@ -336,6 +365,7 @@ github.gists.getFromUser({ ... });
 /**
  * @api {get} /gists/public public
  * @apiName public
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -346,6 +376,7 @@ github.gists.public({ ... });
 /**
  * @api {put} /gists/:id/star star
  * @apiName star
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {String} id   
@@ -356,6 +387,7 @@ github.gists.star({ ... });
 /**
  * @api {get} /gists/starred starred
  * @apiName starred
+ * @apiDescription undefined
  * @apiGroup gists
  *
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -366,6 +398,7 @@ github.gists.starred({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/blobs createBlob
  * @apiName createBlob
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -379,6 +412,7 @@ github.gitdata.createBlob({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/commits createCommit
  * @apiName createCommit
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -395,6 +429,7 @@ github.gitdata.createCommit({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/refs createReference
  * @apiName createReference
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -408,6 +443,7 @@ github.gitdata.createReference({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/tags createTag
  * @apiName createTag
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -424,6 +460,7 @@ github.gitdata.createTag({ ... });
 /**
  * @api {post} /repos/:user/:repo/git/trees createTree
  * @apiName createTree
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -437,6 +474,7 @@ github.gitdata.createTree({ ... });
 /**
  * @api {delete} /repos/:user/:repo/git/refs/:ref deleteReference
  * @apiName deleteReference
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -449,6 +487,7 @@ github.gitdata.deleteReference({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/refs getAllReferences
  * @apiName getAllReferences
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -462,6 +501,7 @@ github.gitdata.getAllReferences({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/blobs/:sha getBlob
  * @apiName getBlob
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -476,6 +516,7 @@ github.gitdata.getBlob({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/commits/:sha getCommit
  * @apiName getCommit
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -488,6 +529,7 @@ github.gitdata.getCommit({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/refs/:ref getReference
  * @apiName getReference
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -500,6 +542,7 @@ github.gitdata.getReference({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/tags/:sha getTag
  * @apiName getTag
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -512,6 +555,7 @@ github.gitdata.getTag({ ... });
 /**
  * @api {get} /repos/:user/:repo/git/trees/:sha getTree
  * @apiName getTree
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -525,6 +569,7 @@ github.gitdata.getTree({ ... });
 /**
  * @api {patch} /repos/:user/:repo/git/refs/:ref updateReference
  * @apiName updateReference
+ * @apiDescription undefined
  * @apiGroup gitdata
  *
  * @apiParam {String} user   
@@ -539,6 +584,7 @@ github.gitdata.updateReference({ ... });
 /**
  * @api {get} /gitignore/templates/:name template
  * @apiName template
+ * @apiDescription undefined
  * @apiGroup gitignore
  *
  * @apiParam {String} name   The name of the .gitignore template to get
@@ -549,6 +595,7 @@ github.gitignore.template({ ... });
 /**
  * @api {get} /gitignore/templates templates
  * @apiName templates
+ * @apiDescription undefined
  * @apiGroup gitignore
  *
  * @apiExample {js} ex:
@@ -558,6 +605,7 @@ github.gitignore.templates({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues create
  * @apiName create
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -574,6 +622,7 @@ github.issues.create({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues/:number/comments createComment
  * @apiName createComment
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -587,6 +636,7 @@ github.issues.createComment({ ... });
 /**
  * @api {post} /repos/:user/:repo/labels createLabel
  * @apiName createLabel
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -600,6 +650,7 @@ github.issues.createLabel({ ... });
 /**
  * @api {post} /repos/:user/:repo/milestones createMilestone
  * @apiName createMilestone
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -615,6 +666,7 @@ github.issues.createMilestone({ ... });
 /**
  * @api {delete} /repos/:user/:repo/issues/comments/:id deleteComment
  * @apiName deleteComment
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -627,6 +679,7 @@ github.issues.deleteComment({ ... });
 /**
  * @api {delete} /repos/:user/:repo/labels/:name deleteLabel
  * @apiName deleteLabel
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -639,6 +692,7 @@ github.issues.deleteLabel({ ... });
 /**
  * @api {delete} /repos/:user/:repo/milestones/:number deleteMilestone
  * @apiName deleteMilestone
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -651,6 +705,7 @@ github.issues.deleteMilestone({ ... });
 /**
  * @api {patch} /repos/:user/:repo/issues/:number edit
  * @apiName edit
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -669,6 +724,7 @@ github.issues.edit({ ... });
 /**
  * @api {patch} /repos/:user/:repo/issues/comments/:id editComment
  * @apiName editComment
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -682,6 +738,7 @@ github.issues.editComment({ ... });
 /**
  * @api {get} /issues getAll
  * @apiName getAll
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} [filter]  Optional 
@@ -699,6 +756,7 @@ github.issues.getAll({ ... });
 /**
  * @api {get} /repos/:user/:repo/milestones getAllMilestones
  * @apiName getAllMilestones
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -714,6 +772,7 @@ github.issues.getAllMilestones({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/comments/:id getComment
  * @apiName getComment
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -726,6 +785,7 @@ github.issues.getComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/comments getComments
  * @apiName getComments
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -740,6 +800,7 @@ github.issues.getComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/events/:id getEvent
  * @apiName getEvent
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -752,6 +813,7 @@ github.issues.getEvent({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/events getEvents
  * @apiName getEvents
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -766,6 +828,7 @@ github.issues.getEvents({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/labels getIssueLabels
  * @apiName getIssueLabels
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -778,6 +841,7 @@ github.issues.getIssueLabels({ ... });
 /**
  * @api {get} /repos/:user/:repo/labels/:name getLabel
  * @apiName getLabel
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -790,6 +854,7 @@ github.issues.getLabel({ ... });
 /**
  * @api {get} /repos/:user/:repo/labels getLabels
  * @apiName getLabels
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -803,6 +868,7 @@ github.issues.getLabels({ ... });
 /**
  * @api {get} /repos/:user/:repo/milestones/:number getMilestone
  * @apiName getMilestone
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -815,6 +881,7 @@ github.issues.getMilestone({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/events getRepoEvents
  * @apiName getRepoEvents
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -828,6 +895,7 @@ github.issues.getRepoEvents({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number getRepoIssue
  * @apiName getRepoIssue
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -840,6 +908,7 @@ github.issues.getRepoIssue({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/comments repoComments
  * @apiName repoComments
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -856,6 +925,7 @@ github.issues.repoComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues repoIssues
  * @apiName repoIssues
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -878,6 +948,7 @@ github.issues.repoIssues({ ... });
 /**
  * @api {post} /repos/:user/:repo/labels/:name updateLabel
  * @apiName updateLabel
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -891,6 +962,7 @@ github.issues.updateLabel({ ... });
 /**
  * @api {patch} /repos/:user/:repo/milestones/:number updateMilestone
  * @apiName updateMilestone
+ * @apiDescription undefined
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -907,6 +979,7 @@ github.issues.updateMilestone({ ... });
 /**
  * @api {post} /markdown render
  * @apiName render
+ * @apiDescription undefined
  * @apiGroup markdown
  *
  * @apiParam {String} text   The Markdown text to render
@@ -919,6 +992,7 @@ github.markdown.render({ ... });
 /**
  * @api {post} /markdown/raw renderRaw
  * @apiName renderRaw
+ * @apiDescription undefined
  * @apiGroup markdown
  *
  * @apiParam {String} data   Raw data to send as the body of the request
@@ -929,6 +1003,7 @@ github.markdown.renderRaw({ ... });
 /**
  * @api {get} /emojis emojis
  * @apiName emojis
+ * @apiDescription undefined
  * @apiGroup misc
  *
  * @apiExample {js} ex:
@@ -938,6 +1013,7 @@ github.misc.emojis({ ... });
 /**
  * @api {get} /meta meta
  * @apiName meta
+ * @apiDescription undefined
  * @apiGroup misc
  *
  * @apiExample {js} ex:
@@ -947,6 +1023,7 @@ github.misc.meta({ ... });
 /**
  * @api {get} /rate_limit rateLimit
  * @apiName rateLimit
+ * @apiDescription undefined
  * @apiGroup misc
  *
  * @apiExample {js} ex:
@@ -956,6 +1033,7 @@ github.misc.rateLimit({ ... });
 /**
  * @api {put} /orgs/:org/memberships/:user addOrganizationMembership
  * @apiName addOrganizationMembership
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -967,6 +1045,7 @@ github.orgs.addOrganizationMembership({ ... });
 /**
  * @api {put} /teams/:id/members/:user addTeamMember
  * @apiName addTeamMember
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -978,6 +1057,7 @@ github.orgs.addTeamMember({ ... });
 /**
  * @api {put} /teams/:id/memberships/:user addTeamMembership
  * @apiName addTeamMembership
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -989,6 +1069,7 @@ github.orgs.addTeamMembership({ ... });
 /**
  * @api {put} /teams/:id/repos/:user/:repo addTeamRepo
  * @apiName addTeamRepo
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1001,6 +1082,7 @@ github.orgs.addTeamRepo({ ... });
 /**
  * @api {delete} /orgs/:org/public_members/:user concealMembership
  * @apiName concealMembership
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1012,6 +1094,7 @@ github.orgs.concealMembership({ ... });
 /**
  * @api {post} /orgs/:org/teams createTeam
  * @apiName createTeam
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1025,6 +1108,7 @@ github.orgs.createTeam({ ... });
 /**
  * @api {delete} /teams/:id deleteTeam
  * @apiName deleteTeam
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1035,6 +1119,7 @@ github.orgs.deleteTeam({ ... });
 /**
  * @api {delete} /teams/:id/members/:user deleteTeamMember
  * @apiName deleteTeamMember
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1046,6 +1131,7 @@ github.orgs.deleteTeamMember({ ... });
 /**
  * @api {delete} /teams/:id/repos/:user/:repo deleteTeamRepo
  * @apiName deleteTeamRepo
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1058,6 +1144,7 @@ github.orgs.deleteTeamRepo({ ... });
 /**
  * @api {get} /orgs/:org get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1070,6 +1157,7 @@ github.orgs.get({ ... });
 /**
  * @api {get} /users/:user/orgs getFromUser
  * @apiName getFromUser
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} user   
@@ -1082,6 +1170,7 @@ github.orgs.getFromUser({ ... });
 /**
  * @api {get} /orgs/:org/members/:user getMember
  * @apiName getMember
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1093,6 +1182,7 @@ github.orgs.getMember({ ... });
 /**
  * @api {get} /orgs/:org/members getMembers
  * @apiName getMembers
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1106,6 +1196,7 @@ github.orgs.getMembers({ ... });
 /**
  * @api {get} /orgs/:org/public_members/:user getPublicMember
  * @apiName getPublicMember
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1117,6 +1208,7 @@ github.orgs.getPublicMember({ ... });
 /**
  * @api {get} /orgs/:org/public_members getPublicMembers
  * @apiName getPublicMembers
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1127,6 +1219,7 @@ github.orgs.getPublicMembers({ ... });
 /**
  * @api {get} /teams/:id getTeam
  * @apiName getTeam
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1137,6 +1230,7 @@ github.orgs.getTeam({ ... });
 /**
  * @api {get} /teams/:id/members/:user getTeamMember
  * @apiName getTeamMember
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1148,6 +1242,7 @@ github.orgs.getTeamMember({ ... });
 /**
  * @api {get} /teams/:id/members getTeamMembers
  * @apiName getTeamMembers
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1160,6 +1255,7 @@ github.orgs.getTeamMembers({ ... });
 /**
  * @api {get} /teams/:id/memberships/:user getTeamMembership
  * @apiName getTeamMembership
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1171,6 +1267,7 @@ github.orgs.getTeamMembership({ ... });
 /**
  * @api {get} /teams/:id/repos/:user/:repo getTeamRepo
  * @apiName getTeamRepo
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1183,6 +1280,7 @@ github.orgs.getTeamRepo({ ... });
 /**
  * @api {get} /teams/:id/repos getTeamRepos
  * @apiName getTeamRepos
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1195,6 +1293,7 @@ github.orgs.getTeamRepos({ ... });
 /**
  * @api {get} /orgs/:org/teams getTeams
  * @apiName getTeams
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1207,6 +1306,7 @@ github.orgs.getTeams({ ... });
 /**
  * @api {put} /orgs/:org/public_members/:user publicizeMembership
  * @apiName publicizeMembership
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1218,6 +1318,7 @@ github.orgs.publicizeMembership({ ... });
 /**
  * @api {delete} /orgs/:org/members/:user removeMember
  * @apiName removeMember
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1229,6 +1330,7 @@ github.orgs.removeMember({ ... });
 /**
  * @api {delete} /orgs/:org/memberships/:user removeOrganizationMembership
  * @apiName removeOrganizationMembership
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1240,6 +1342,7 @@ github.orgs.removeOrganizationMembership({ ... });
 /**
  * @api {patch} /orgs/:org update
  * @apiName update
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} org   
@@ -1255,6 +1358,7 @@ github.orgs.update({ ... });
 /**
  * @api {patch} /teams/:id updateTeam
  * @apiName updateTeam
+ * @apiDescription undefined
  * @apiGroup orgs
  *
  * @apiParam {String} id   
@@ -1267,6 +1371,7 @@ github.orgs.updateTeam({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls create
  * @apiName create
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1282,6 +1387,7 @@ github.pullRequests.create({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls/:number/comments createComment
  * @apiName createComment
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1298,6 +1404,7 @@ github.pullRequests.createComment({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls/:number/comments createCommentReply
  * @apiName createCommentReply
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1312,6 +1419,7 @@ github.pullRequests.createCommentReply({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls createFromIssue
  * @apiName createFromIssue
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1326,6 +1434,7 @@ github.pullRequests.createFromIssue({ ... });
 /**
  * @api {delete} /repos/:user/:repo/pulls/comments/:number deleteComment
  * @apiName deleteComment
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1338,6 +1447,7 @@ github.pullRequests.deleteComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1350,6 +1460,7 @@ github.pullRequests.get({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls getAll
  * @apiName getAll
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1368,6 +1479,7 @@ github.pullRequests.getAll({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/comments/:number getComment
  * @apiName getComment
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1380,6 +1492,7 @@ github.pullRequests.getComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number/comments getComments
  * @apiName getComments
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1394,6 +1507,7 @@ github.pullRequests.getComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number/commits getCommits
  * @apiName getCommits
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1408,6 +1522,7 @@ github.pullRequests.getCommits({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number/files getFiles
  * @apiName getFiles
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1422,6 +1537,7 @@ github.pullRequests.getFiles({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number/merge getMerged
  * @apiName getMerged
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1436,6 +1552,7 @@ github.pullRequests.getMerged({ ... });
 /**
  * @api {put} /repos/:user/:repo/pulls/:number/merge merge
  * @apiName merge
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1449,6 +1566,7 @@ github.pullRequests.merge({ ... });
 /**
  * @api {patch} /repos/:user/:repo/pulls/:number update
  * @apiName update
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1464,6 +1582,7 @@ github.pullRequests.update({ ... });
 /**
  * @api {patch} /repos/:user/:repo/pulls/comments/:number updateComment
  * @apiName updateComment
+ * @apiDescription undefined
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1477,6 +1596,7 @@ github.pullRequests.updateComment({ ... });
 /**
  * @api {post} /repos/:owner/:repo/releases createRelease
  * @apiName createRelease
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1494,6 +1614,7 @@ github.releases.createRelease({ ... });
 /**
  * @api {delete} /repos/:owner/:repo/releases/assets/:id deleteAsset
  * @apiName deleteAsset
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1506,6 +1627,7 @@ github.releases.deleteAsset({ ... });
 /**
  * @api {delete} /repos/:owner/:repo/releases/:id deleteRelease
  * @apiName deleteRelease
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1518,6 +1640,7 @@ github.releases.deleteRelease({ ... });
 /**
  * @api {patch} /repos/:owner/:repo/releases/assets/:id editAsset
  * @apiName editAsset
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1532,6 +1655,7 @@ github.releases.editAsset({ ... });
 /**
  * @api {patch} /repos/:owner/:repo/releases/:id editRelease
  * @apiName editRelease
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1550,6 +1674,7 @@ github.releases.editRelease({ ... });
 /**
  * @api {get} /repos/:owner/:repo/releases/assets/:id getAsset
  * @apiName getAsset
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1562,6 +1687,7 @@ github.releases.getAsset({ ... });
 /**
  * @api {get} /repos/:owner/:repo/releases/latest getLatestRelease
  * @apiName getLatestRelease
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1573,6 +1699,7 @@ github.releases.getLatestRelease({ ... });
 /**
  * @api {get} /repos/:owner/:repo/releases/:id getRelease
  * @apiName getRelease
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1585,6 +1712,7 @@ github.releases.getRelease({ ... });
 /**
  * @api {get} /repos/:owner/:repo/releases/:id/assets listAssets
  * @apiName listAssets
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1597,6 +1725,7 @@ github.releases.listAssets({ ... });
 /**
  * @api {get} /repos/:owner/:repo/releases listReleases
  * @apiName listReleases
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1610,6 +1739,7 @@ github.releases.listReleases({ ... });
 /**
  * @api {post} /repos/:owner/:repo/releases/:id/assets uploadAsset
  * @apiName uploadAsset
+ * @apiDescription undefined
  * @apiGroup releases
  *
  * @apiParam {String} owner   
@@ -1623,6 +1753,7 @@ github.releases.uploadAsset({ ... });
 /**
  * @api {put} /repos/:user/:repo/collaborators/:collabuser addCollaborator
  * @apiName addCollaborator
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1635,6 +1766,7 @@ github.repos.addCollaborator({ ... });
 /**
  * @api {get} /repos/:user/:repo/compare/:base...:head compareCommits
  * @apiName compareCommits
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1648,6 +1780,7 @@ github.repos.compareCommits({ ... });
 /**
  * @api {post} /user/repos create
  * @apiName create
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} name   
@@ -1666,6 +1799,7 @@ github.repos.create({ ... });
 /**
  * @api {post} /repos/:user/:repo/commits/:sha/comments createCommitComment
  * @apiName createCommitComment
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1683,6 +1817,7 @@ github.repos.createCommitComment({ ... });
 /**
  * @api {put} /repos/:user/:repo/contents/:path createContent
  * @apiName createContent
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1698,6 +1833,7 @@ github.repos.createContent({ ... });
 /**
  * @api {post} /repos/:user/:repo/deployments createDeployment
  * @apiName createDeployment
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} ref   The ref to deploy. This can be a branch, tag, or sha.
@@ -1716,6 +1852,7 @@ github.repos.createDeployment({ ... });
 /**
  * @api {post} /repos/:user/:repo/deployments/:id/statuses createDeploymentStatus
  * @apiName createDeploymentStatus
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1731,6 +1868,7 @@ github.repos.createDeploymentStatus({ ... });
 /**
  * @api {put} /repos/:user/:repo/contents/:path createFile
  * @apiName createFile
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1748,6 +1886,7 @@ github.repos.createFile({ ... });
 /**
  * @api {post} /orgs/:org/repos createFromOrg
  * @apiName createFromOrg
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} org   
@@ -1768,6 +1907,7 @@ github.repos.createFromOrg({ ... });
 /**
  * @api {post} /repos/:user/:repo/hooks createHook
  * @apiName createHook
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1783,6 +1923,7 @@ github.repos.createHook({ ... });
 /**
  * @api {post} /repos/:user/:repo/keys createKey
  * @apiName createKey
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1796,6 +1937,7 @@ github.repos.createKey({ ... });
 /**
  * @api {delete} /repos/:user/:repo delete
  * @apiName delete
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1807,6 +1949,7 @@ github.repos.delete({ ... });
 /**
  * @api {delete} /repos/:user/:repo/comments/:id deleteCommitComment
  * @apiName deleteCommitComment
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1819,6 +1962,7 @@ github.repos.deleteCommitComment({ ... });
 /**
  * @api {delete} /repos/:user/:repo/downloads/:id deleteDownload
  * @apiName deleteDownload
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1831,6 +1975,7 @@ github.repos.deleteDownload({ ... });
 /**
  * @api {delete} /repos/:user/:repo/contents/:path deleteFile
  * @apiName deleteFile
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1848,6 +1993,7 @@ github.repos.deleteFile({ ... });
 /**
  * @api {delete} /repos/:user/:repo/hooks/:id deleteHook
  * @apiName deleteHook
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1860,6 +2006,7 @@ github.repos.deleteHook({ ... });
 /**
  * @api {delete} /repos/:user/:repo/keys/:id deleteKey
  * @apiName deleteKey
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1872,6 +2019,7 @@ github.repos.deleteKey({ ... });
 /**
  * @api {post} /repos/:user/:repo/forks fork
  * @apiName fork
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1884,6 +2032,7 @@ github.repos.fork({ ... });
 /**
  * @api {get} /repos/:user/:repo get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1895,6 +2044,7 @@ github.repos.get({ ... });
 /**
  * @api {get} /user/repos getAll
  * @apiName getAll
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} [type]  Optional Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.
@@ -1909,6 +2059,7 @@ github.repos.getAll({ ... });
 /**
  * @api {get} /repos/:user/:repo/comments getAllCommitComments
  * @apiName getAllCommitComments
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1922,6 +2073,7 @@ github.repos.getAllCommitComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/:archive_format/:ref getArchiveLink
  * @apiName getArchiveLink
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1935,6 +2087,7 @@ github.repos.getArchiveLink({ ... });
 /**
  * @api {get} /repos/:user/:repo/branches/:branch getBranch
  * @apiName getBranch
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1949,6 +2102,7 @@ github.repos.getBranch({ ... });
 /**
  * @api {get} /repos/:user/:repo/branches getBranches
  * @apiName getBranches
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1962,6 +2116,7 @@ github.repos.getBranches({ ... });
 /**
  * @api {get} /repos/:user/:repo/collaborators/:collabuser getCollaborator
  * @apiName getCollaborator
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1974,6 +2129,7 @@ github.repos.getCollaborator({ ... });
 /**
  * @api {get} /repos/:user/:repo/collaborators getCollaborators
  * @apiName getCollaborators
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1987,6 +2143,7 @@ github.repos.getCollaborators({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits/:sha getCommit
  * @apiName getCommit
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -1999,6 +2156,7 @@ github.repos.getCommit({ ... });
 /**
  * @api {get} /repos/:user/:repo/comments/:id getCommitComment
  * @apiName getCommitComment
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2011,6 +2169,7 @@ github.repos.getCommitComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits/:sha/comments getCommitComments
  * @apiName getCommitComments
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2025,6 +2184,7 @@ github.repos.getCommitComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits getCommits
  * @apiName getCommits
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2043,6 +2203,7 @@ github.repos.getCommits({ ... });
 /**
  * @api {get} /repos/:user/:repo/contents/:path getContent
  * @apiName getContent
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2056,6 +2217,7 @@ github.repos.getContent({ ... });
 /**
  * @api {get} /repos/:user/:repo/contributors getContributors
  * @apiName getContributors
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2070,6 +2232,7 @@ github.repos.getContributors({ ... });
 /**
  * @api {get} /repos/:user/:repo/deployments/:id/statuses getDeploymentStatuses
  * @apiName getDeploymentStatuses
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2082,6 +2245,7 @@ github.repos.getDeploymentStatuses({ ... });
 /**
  * @api {get} /repos/:user/:repo/deployments getDeployments
  * @apiName getDeployments
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2099,6 +2263,7 @@ github.repos.getDeployments({ ... });
 /**
  * @api {get} /repos/:user/:repo/downloads/:id getDownload
  * @apiName getDownload
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2111,6 +2276,7 @@ github.repos.getDownload({ ... });
 /**
  * @api {get} /repos/:user/:repo/downloads getDownloads
  * @apiName getDownloads
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2124,6 +2290,7 @@ github.repos.getDownloads({ ... });
 /**
  * @api {get} /repos/:user/:repo/forks getForks
  * @apiName getForks
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2138,6 +2305,7 @@ github.repos.getForks({ ... });
 /**
  * @api {get} /orgs/:org/repos getFromOrg
  * @apiName getFromOrg
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} org   
@@ -2151,6 +2319,7 @@ github.repos.getFromOrg({ ... });
 /**
  * @api {get} /users/:user/repos getFromUser
  * @apiName getFromUser
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2166,6 +2335,7 @@ github.repos.getFromUser({ ... });
 /**
  * @api {get} /repos/:user/:repo/hooks/:id getHook
  * @apiName getHook
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2178,6 +2348,7 @@ github.repos.getHook({ ... });
 /**
  * @api {get} /repos/:user/:repo/hooks getHooks
  * @apiName getHooks
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2191,6 +2362,7 @@ github.repos.getHooks({ ... });
 /**
  * @api {get} /repos/:user/:repo/keys/:id getKey
  * @apiName getKey
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2203,6 +2375,7 @@ github.repos.getKey({ ... });
 /**
  * @api {get} /repos/:user/:repo/keys getKeys
  * @apiName getKeys
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2216,6 +2389,7 @@ github.repos.getKeys({ ... });
 /**
  * @api {get} /repos/:user/:repo/languages getLanguages
  * @apiName getLanguages
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2229,6 +2403,7 @@ github.repos.getLanguages({ ... });
 /**
  * @api {get} /repos/:user/:repo/readme getReadme
  * @apiName getReadme
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2241,6 +2416,7 @@ github.repos.getReadme({ ... });
 /**
  * @api {get} /repos/:user/:repo/stargazers getStargazers
  * @apiName getStargazers
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2254,6 +2430,7 @@ github.repos.getStargazers({ ... });
 /**
  * @api {get} /user/starred getStarred
  * @apiName getStarred
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2265,6 +2442,7 @@ github.repos.getStarred({ ... });
 /**
  * @api {get} /users/:user/starred getStarredFromUser
  * @apiName getStarredFromUser
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2277,6 +2455,7 @@ github.repos.getStarredFromUser({ ... });
 /**
  * @api {get} /user/starred/:user/:repo getStarring
  * @apiName getStarring
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2290,6 +2469,7 @@ github.repos.getStarring({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/code_frequency getStatsCodeFrequency
  * @apiName getStatsCodeFrequency
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2301,6 +2481,7 @@ github.repos.getStatsCodeFrequency({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/commit_activity getStatsCommitActivity
  * @apiName getStatsCommitActivity
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2312,6 +2493,7 @@ github.repos.getStatsCommitActivity({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/contributors getStatsContributors
  * @apiName getStatsContributors
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2323,6 +2505,7 @@ github.repos.getStatsContributors({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/participation getStatsParticipation
  * @apiName getStatsParticipation
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2334,6 +2517,7 @@ github.repos.getStatsParticipation({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/punch_card getStatsPunchCard
  * @apiName getStatsPunchCard
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2345,6 +2529,7 @@ github.repos.getStatsPunchCard({ ... });
 /**
  * @api {get} /repos/:user/:repo/tags getTags
  * @apiName getTags
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2358,6 +2543,7 @@ github.repos.getTags({ ... });
 /**
  * @api {get} /repos/:user/:repo/teams getTeams
  * @apiName getTeams
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2371,6 +2557,7 @@ github.repos.getTeams({ ... });
 /**
  * @api {get} /user/watched getWatched
  * @apiName getWatched
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2382,6 +2569,7 @@ github.repos.getWatched({ ... });
 /**
  * @api {get} /users/:user/watched getWatchedFromUser
  * @apiName getWatchedFromUser
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2394,6 +2582,7 @@ github.repos.getWatchedFromUser({ ... });
 /**
  * @api {get} /repos/:user/:repo/watchers getWatchers
  * @apiName getWatchers
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2407,6 +2596,7 @@ github.repos.getWatchers({ ... });
 /**
  * @api {get} /user/watched/:user/:repo getWatching
  * @apiName getWatching
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2420,6 +2610,7 @@ github.repos.getWatching({ ... });
 /**
  * @api {post} /repos/:user/:repo/merges merge
  * @apiName merge
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2434,6 +2625,7 @@ github.repos.merge({ ... });
 /**
  * @api {get} /repositories/:id one
  * @apiName one
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} id   
@@ -2444,6 +2636,7 @@ github.repos.one({ ... });
 /**
  * @api {delete} /repos/:user/:repo/collaborators/:collabuser removeCollaborator
  * @apiName removeCollaborator
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2456,6 +2649,7 @@ github.repos.removeCollaborator({ ... });
 /**
  * @api {put} /user/starred/:user/:repo star
  * @apiName star
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2467,6 +2661,7 @@ github.repos.star({ ... });
 /**
  * @api {post} /repos/:user/:repo/hooks/:id/test testHook
  * @apiName testHook
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2479,6 +2674,7 @@ github.repos.testHook({ ... });
 /**
  * @api {delete} /user/starred/:user/:repo unStar
  * @apiName unStar
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2490,6 +2686,7 @@ github.repos.unStar({ ... });
 /**
  * @api {delete} /user/watched/:user/:repo unWatch
  * @apiName unWatch
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2501,6 +2698,7 @@ github.repos.unWatch({ ... });
 /**
  * @api {patch} /repos/:user/:repo update
  * @apiName update
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2520,6 +2718,7 @@ github.repos.update({ ... });
 /**
  * @api {patch} /repos/:user/:repo/comments/:id updateCommitComment
  * @apiName updateCommitComment
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2533,6 +2732,7 @@ github.repos.updateCommitComment({ ... });
 /**
  * @api {put} /repos/:user/:repo/contents/:path updateFile
  * @apiName updateFile
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2551,6 +2751,7 @@ github.repos.updateFile({ ... });
 /**
  * @api {patch} /repos/:user/:repo/hooks/:id updateHook
  * @apiName updateHook
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2569,6 +2770,7 @@ github.repos.updateHook({ ... });
 /**
  * @api {put} /repos/:user/:repo/keys/:id updateKey
  * @apiName updateKey
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2583,6 +2785,7 @@ github.repos.updateKey({ ... });
 /**
  * @api {put} /user/watched/:user/:repo watch
  * @apiName watch2
+ * @apiDescription undefined
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2594,6 +2797,7 @@ github.repos.watch({ ... });
 /**
  * @api {get} /search/code code
  * @apiName code
+ * @apiDescription undefined
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
@@ -2608,6 +2812,7 @@ github.search.code({ ... });
 /**
  * @api {get} /legacy/user/email/:email email
  * @apiName email
+ * @apiDescription undefined
  * @apiGroup search
  *
  * @apiParam {String} email   Email address
@@ -2618,6 +2823,7 @@ github.search.email({ ... });
 /**
  * @api {get} /search/issues issues
  * @apiName issues
+ * @apiDescription undefined
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
@@ -2632,6 +2838,7 @@ github.search.issues({ ... });
 /**
  * @api {get} /search/repositories repos
  * @apiName repos
+ * @apiDescription undefined
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
@@ -2646,6 +2853,7 @@ github.search.repos({ ... });
 /**
  * @api {get} /search/users users
  * @apiName users
+ * @apiDescription undefined
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
@@ -2660,6 +2868,7 @@ github.search.users({ ... });
 /**
  * @api {post} /repos/:user/:repo/statuses/:sha create
  * @apiName create
+ * @apiDescription undefined
  * @apiGroup statuses
  *
  * @apiParam {String} user   
@@ -2676,6 +2885,7 @@ github.statuses.create({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits/:sha/statuses get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup statuses
  *
  * @apiParam {String} user   
@@ -2688,6 +2898,7 @@ github.statuses.get({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits/:sha/status getCombined
  * @apiName getCombined
+ * @apiDescription undefined
  * @apiGroup statuses
  *
  * @apiParam {String} user   
@@ -2700,6 +2911,7 @@ github.statuses.getCombined({ ... });
 /**
  * @api {post} /user/emails addEmails
  * @apiName addEmails
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiExample {js} ex:
@@ -2709,6 +2921,7 @@ github.user.addEmails({ ... });
 /**
  * @api {post} /user/keys createKey
  * @apiName createKey
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} title   
@@ -2720,6 +2933,7 @@ github.user.createKey({ ... });
 /**
  * @api {delete} /user/emails deleteEmails
  * @apiName deleteEmails
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiExample {js} ex:
@@ -2729,6 +2943,7 @@ github.user.deleteEmails({ ... });
 /**
  * @api {delete} /user/keys/:id deleteKey
  * @apiName deleteKey
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} id   
@@ -2739,6 +2954,7 @@ github.user.deleteKey({ ... });
 /**
  * @api {patch} /user/memberships/orgs/:org editOrganizationMembership
  * @apiName editOrganizationMembership
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} org   
@@ -2750,6 +2966,7 @@ github.user.editOrganizationMembership({ ... });
 /**
  * @api {put} /user/following/:user followUser
  * @apiName followUser
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2760,6 +2977,7 @@ github.user.followUser({ ... });
 /**
  * @api {get} /user get
  * @apiName get
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiExample {js} ex:
@@ -2769,6 +2987,7 @@ github.user.get({ ... });
 /**
  * @api {get} /users getAll
  * @apiName getAll
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {Number} [since]  Optional The integer ID of the last User that you’ve seen.
@@ -2779,6 +2998,7 @@ github.user.getAll({ ... });
 /**
  * @api {get} /user/emails getEmails
  * @apiName getEmails
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2790,6 +3010,7 @@ github.user.getEmails({ ... });
 /**
  * @api {get} /user/following/:user getFollowUser
  * @apiName getFollowUser
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2802,6 +3023,7 @@ github.user.getFollowUser({ ... });
 /**
  * @api {get} /users/:user/followers getFollowers
  * @apiName getFollowers
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2814,6 +3036,7 @@ github.user.getFollowers({ ... });
 /**
  * @api {get} /user/following getFollowing
  * @apiName getFollowing
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2825,6 +3048,7 @@ github.user.getFollowing({ ... });
 /**
  * @api {get} /users/:user/following getFollowingFromUser
  * @apiName getFollowingFromUser
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2837,6 +3061,7 @@ github.user.getFollowingFromUser({ ... });
 /**
  * @api {get} /users/:user getFrom
  * @apiName getFrom
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2847,6 +3072,7 @@ github.user.getFrom({ ... });
 /**
  * @api {get} /user/keys/:id getKey
  * @apiName getKey
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} id   
@@ -2857,6 +3083,7 @@ github.user.getKey({ ... });
 /**
  * @api {get} /user/keys getKeys
  * @apiName getKeys
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2868,6 +3095,7 @@ github.user.getKeys({ ... });
 /**
  * @api {get} /users/:user/keys getKeysFromUser
  * @apiName getKeysFromUser
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2880,6 +3108,7 @@ github.user.getKeysFromUser({ ... });
 /**
  * @api {get} /user/orgs getOrgs
  * @apiName getOrgs
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2891,6 +3120,7 @@ github.user.getOrgs({ ... });
 /**
  * @api {get} /user/teams getTeams
  * @apiName getTeams
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -2902,6 +3132,7 @@ github.user.getTeams({ ... });
 /**
  * @api {delete} /user/following/:user unFollowUser
  * @apiName unFollowUser
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} user   
@@ -2912,6 +3143,7 @@ github.user.unFollowUser({ ... });
 /**
  * @api {patch} /user update
  * @apiName update
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} [name]  Optional 
@@ -2928,6 +3160,7 @@ github.user.update({ ... });
 /**
  * @api {patch} /user/keys/:id updateKey
  * @apiName updateKey
+ * @apiDescription undefined
  * @apiGroup user
  *
  * @apiParam {String} id   
