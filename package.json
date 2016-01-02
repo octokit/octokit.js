@@ -46,6 +46,7 @@
   ],
   "apidoc": {
     "title": "node-github",
+    "name": "node-github",
     "template": {
       "withCompare": false
     }
