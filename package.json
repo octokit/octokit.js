@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "mocha": "~1.13.0",
-    "optimist": "~0.6.0",
     "should": "^8.0.2"
   },
   "main": ".",

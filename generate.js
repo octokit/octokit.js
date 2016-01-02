@@ -15,8 +15,6 @@
 var fs = require("fs");
 var Path = require("path");
 var Url = require("url");
-
-var Optimist = require("optimist");
 var Util = require("./util");
 
 var TestSectionTpl = fs.readFileSync(__dirname + "/templates/test_section.js.tpl", "utf8");
