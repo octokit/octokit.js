@@ -39,6 +39,49 @@ var main = module.exports = function() {
     var testSections = {};
     var apidocs = "";
 
+    function prepareApi(struct, baseType) {
+        if (!baseType)
+            baseType = "";
+
+        Object.keys(struct).sort().forEach(function(routePart) {
+            var block = struct[routePart];
+            if (!block)
+                return;
+            var messageType = baseType + "/" + routePart;
+            if (block.url && block.params) {
+                // we ended up at an API definition part!
+                var parts = messageType.split("/");
+                var section = Util.toCamelCase(parts[1]);
+                if (!block.method) {
+                    throw new Error("No HTTP method specified for " + messageType +
+                        "in section " + section);
+                }
+
+                // add the handler to the sections
+                if (!sections[section]) {
+                    sections[section] = [];
+                }
+
+                parts.splice(0, 2);
+                var funcName = Util.toCamelCase(parts.join("-"));
+                apidocs += createComment(section, funcName, block);
+
+                // add test to the testSections
+                if (!testSections[section])
+                    testSections[section] = [];
+                testSections[section].push(TestHandlerTpl
+                    .replace("<%name%>", block.method + " " + block.url + " (" + funcName + ")")
+                    .replace("<%funcName%>", section + "." + funcName)
+                    .replace("<%params%>", getParams(block.params, "            "))
+                );
+            }
+            else {
+                // recurse into this block next:
+                prepareApi(block, messageType);
+            }
+        });
+    }
+
     function createComment(section, funcName, block) {
         var method = block['method'].toLowerCase();
         var url = block['url'];
@@ -94,7 +137,7 @@ var main = module.exports = function() {
             commentLines.push(" * @apiParam {" + paramType + "} " + paramLabel + "  " + optionalLabel + paramDescription);
         });
 
-        commentLines.push(" * @apiExample {js} ex:\ngithub." + section + "." + funcName + "({ ... });"); 
+        commentLines.push(" * @apiExample {js} ex:\ngithub." + section + "." + funcName + "({ ... });");
 
         return commentLines.join("\n") + "\n */\n\n";
     }
@@ -123,49 +166,6 @@ var main = module.exports = function() {
             values.push(indent + "    " + paramName + ": \"" + def.type + "\"");
         }
         return "{\n" + values.join(",\n") + "\n" + indent + "}";
-    }
-
-    function prepareApi(struct, baseType) {
-        if (!baseType)
-            baseType = "";
-
-        Object.keys(struct).sort().forEach(function(routePart) {
-            var block = struct[routePart];
-            if (!block)
-                return;
-            var messageType = baseType + "/" + routePart;
-            if (block.url && block.params) {
-                // we ended up at an API definition part!
-                var parts = messageType.split("/");
-                var section = Util.toCamelCase(parts[1]);
-                if (!block.method) {
-                    throw new Error("No HTTP method specified for " + messageType +
-                        "in section " + section);
-                }
-
-                // add the handler to the sections
-                if (!sections[section]) {
-                    sections[section] = [];
-                }
-
-                parts.splice(0, 2);
-                var funcName = Util.toCamelCase(parts.join("-"));
-                apidocs += createComment(section, funcName, block);
-
-                // add test to the testSections
-                if (!testSections[section])
-                    testSections[section] = [];
-                testSections[section].push(TestHandlerTpl
-                    .replace("<%name%>", block.method + " " + block.url + " (" + funcName + ")")
-                    .replace("<%funcName%>", section + "." + funcName)
-                    .replace("<%params%>", getParams(block.params, "            "))
-                );
-            }
-            else {
-                // recurse into this block next:
-                prepareApi(block, messageType);
-            }
-        });
     }
 
     Util.log("Converting routes to functions");
