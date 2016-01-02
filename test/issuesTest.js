@@ -176,6 +176,21 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/issues/:number (get)",  function(next) {
+        client.issues.get(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /issues (getAll)",  function(next) {
         client.issues.getAll(
             {
@@ -278,6 +293,71 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute GET /orgs/:org/issues (getForOrg)",  function(next) {
+        client.issues.getForOrg(
+            {
+                filter: "String",
+                state: "String",
+                labels: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/issues (getForRepo)",  function(next) {
+        client.issues.getForRepo(
+            {
+                user: "String",
+                repo: "String",
+                milestone: "String",
+                state: "String",
+                assignee: "String",
+                creator: "String",
+                mentioned: "String",
+                labels: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/issues (getForUser)",  function(next) {
+        client.issues.getForUser(
+            {
+                filter: "String",
+                state: "String",
+                labels: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/issues/:number/labels (getIssueLabels)",  function(next) {
         client.issues.getIssueLabels(
             {
@@ -355,51 +435,11 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number (getRepoIssue)",  function(next) {
-        client.issues.getRepoIssue(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /repos/:user/:repo/issues/comments (repoComments)",  function(next) {
         client.issues.repoComments(
             {
                 user: "String",
                 repo: "String",
-                sort: "String",
-                direction: "String",
-                since: "Date",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/issues (repoIssues)",  function(next) {
-        client.issues.repoIssues(
-            {
-                user: "String",
-                repo: "String",
-                milestone: "String",
-                state: "String",
-                assignee: "String",
-                creator: "String",
-                mentioned: "String",
-                labels: "String",
                 sort: "String",
                 direction: "String",
                 since: "Date",

@@ -655,7 +655,7 @@ github.gitignore.templates({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues create
  * @apiName create
- * @apiDescription undefined
+ * @apiDescription Create an issue
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -755,7 +755,7 @@ github.issues.deleteMilestone({ ... });
 /**
  * @api {patch} /repos/:user/:repo/issues/:number edit
  * @apiName edit
- * @apiDescription undefined
+ * @apiDescription Edit an issue
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -786,9 +786,22 @@ github.issues.editComment({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/issues/:number get
+ * @apiName get
+ * @apiDescription Get a single issue
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.get({ ... });
+ */
+
+/**
  * @api {get} /issues getAll
  * @apiName getAll
- * @apiDescription undefined
+ * @apiDescription List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories
  * @apiGroup issues
  *
  * @apiParam {String} [filter]  Optional 
@@ -876,6 +889,65 @@ github.issues.getEvents({ ... });
  */
 
 /**
+ * @api {get} /orgs/:org/issues getForOrg
+ * @apiName getForOrg
+ * @apiDescription List all issues for a given organization for the authenticated user
+ * @apiGroup issues
+ *
+ * @apiParam {String} [filter]  Optional 
+ * @apiParam {String} [state]  Optional open, closed, or all
+ * @apiParam {String} [labels]  Optional String list of comma separated Label names. Example: bug,ui,@high
+ * @apiParam {String} [sort]  Optional 
+ * @apiParam {String} [direction]  Optional 
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getForOrg({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/issues getForRepo
+ * @apiName getForRepo
+ * @apiDescription List issues for a repository
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [milestone]  Optional 
+ * @apiParam {String} [state]  Optional open, closed, or all
+ * @apiParam {String} [assignee]  Optional String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User.
+ * @apiParam {String} [creator]  Optional The user that created the issue.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiParam {String} [labels]  Optional String list of comma separated Label names. Example: bug,ui,@high
+ * @apiParam {String} [sort]  Optional 
+ * @apiParam {String} [direction]  Optional 
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {String} [mentioned]  Optional String User login.
+ * @apiExample {js} ex:
+github.issues.getForRepo({ ... });
+ */
+
+/**
+ * @api {get} /user/issues getForUser
+ * @apiName getForUser
+ * @apiDescription List all issues across owned and member repositories for the authenticated user
+ * @apiGroup issues
+ *
+ * @apiParam {String} [filter]  Optional 
+ * @apiParam {String} [state]  Optional open, closed, or all
+ * @apiParam {String} [labels]  Optional String list of comma separated Label names. Example: bug,ui,@high
+ * @apiParam {String} [sort]  Optional 
+ * @apiParam {String} [direction]  Optional 
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getForUser({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/issues/:number/labels getIssueLabels
  * @apiName getIssueLabels
  * @apiDescription undefined
@@ -943,19 +1015,6 @@ github.issues.getRepoEvents({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number getRepoIssue
- * @apiName getRepoIssue
- * @apiDescription undefined
- * @apiGroup issues
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} number   
- * @apiExample {js} ex:
-github.issues.getRepoIssue({ ... });
- */
-
-/**
  * @api {get} /repos/:user/:repo/issues/comments repoComments
  * @apiName repoComments
  * @apiDescription undefined
@@ -970,29 +1029,6 @@ github.issues.getRepoIssue({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.issues.repoComments({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/issues repoIssues
- * @apiName repoIssues
- * @apiDescription undefined
- * @apiGroup issues
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} [milestone]  Optional 
- * @apiParam {String} [state]  Optional open, closed, or all
- * @apiParam {String} [assignee]  Optional String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User.
- * @apiParam {String} [creator]  Optional The user that created the issue.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiParam {String} [labels]  Optional String list of comma separated Label names. Example: bug,ui,@high
- * @apiParam {String} [sort]  Optional 
- * @apiParam {String} [direction]  Optional 
- * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {String} [mentioned]  Optional String User login.
- * @apiExample {js} ex:
-github.issues.repoIssues({ ... });
  */
 
 /**

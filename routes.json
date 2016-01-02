@@ -985,10 +985,91 @@
                 "$since": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories"
         },
 
-        "repo-issues": {
+        "get-for-user": {
+            "url": "/user/issues",
+            "method": "GET",
+            "params": {
+                "filter": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(all|assigned|created|mentioned|subscribed)$",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed|all)$",
+                    "invalidmsg": "open, closed, all, default: open",
+                    "description": "open, closed, or all"
+                },
+                "labels": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "String list of comma separated Label names. Example: bug,ui,@high"
+                },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated|comments)$",
+                    "invalidmsg": "created, updated, comments, default: created.",
+                    "description": ""
+                },
+                "$direction": null,
+                "$since": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all issues across owned and member repositories for the authenticated user"
+        },
+
+        "get-for-org": {
+            "url": "/orgs/:org/issues",
+            "method": "GET",
+            "params": {
+                "filter": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(all|assigned|created|mentioned|subscribed)$",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed|all)$",
+                    "invalidmsg": "open, closed, all, default: open",
+                    "description": "open, closed, or all"
+                },
+                "labels": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "String list of comma separated Label names. Example: bug,ui,@high"
+                },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated|comments)$",
+                    "invalidmsg": "created, updated, comments, default: created.",
+                    "description": ""
+                },
+                "$direction": null,
+                "$since": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all issues for a given organization for the authenticated user"
+        },
+
+        "get-for-repo": {
             "url": "/repos/:user/:repo/issues",
             "method": "GET",
             "params": {
@@ -1047,17 +1128,19 @@
                 "$since": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List issues for a repository"
         },
 
-        "get-repo-issue": {
+        "get": {
             "url": "/repos/:user/:repo/issues/:number",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$repo": null,
                 "$number": null
-            }
+            },
+            "description": "Get a single issue"
         },
 
         "create": {
@@ -1101,7 +1184,8 @@
                     "invalidmsg": "",
                     "description": "Array of strings - Labels to associate with this issue."
                 }
-            }
+            },
+            "description": "Create an issue"
         },
 
         "edit": {
@@ -1153,7 +1237,8 @@
                     "invalidmsg": "open, closed, default: open",
                     "description": "open or closed"
                 }
-            }
+            },
+            "description": "Edit an issue"
         },
 
         "repo-comments": {
