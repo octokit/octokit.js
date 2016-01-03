@@ -29,21 +29,8 @@ describe("[orgs]", function() {
         client.orgs.addOrganizationMembership(
             {
                 org: "String",
-                user: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PUT /teams/:id/members/:user (addTeamMember)",  function(next) {
-        client.orgs.addTeamMember(
-            {
-                id: "String",
-                user: "String"
+                user: "String",
+                role: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -82,6 +69,49 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute GET /orgs/:org/members/:user (checkMembership)",  function(next) {
+        client.orgs.checkMembership(
+            {
+                org: "String",
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /orgs/:org/public_members/:user (checkPublicMembership)",  function(next) {
+        client.orgs.checkPublicMembership(
+            {
+                org: "String",
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /teams/:id/repos/:user/:repo (checkTeamRepo)",  function(next) {
+        client.orgs.checkTeamRepo(
+            {
+                id: "String",
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /orgs/:org/public_members/:user (concealMembership)",  function(next) {
         client.orgs.concealMembership(
             {
@@ -101,8 +131,8 @@ describe("[orgs]", function() {
             {
                 org: "String",
                 name: "String",
-                repo_names: "Array",
-                permission: "String"
+                description: "String",
+                repo_names: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -116,20 +146,6 @@ describe("[orgs]", function() {
         client.orgs.deleteTeam(
             {
                 id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /teams/:id/members/:user (deleteTeamMember)",  function(next) {
-        client.orgs.deleteTeamMember(
-            {
-                id: "String",
-                user: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -154,6 +170,21 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute PATCH /teams/:id (editTeam)",  function(next) {
+        client.orgs.editTeam(
+            {
+                id: "String",
+                name: "String",
+                description: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /orgs/:org (get)",  function(next) {
         client.orgs.get(
             {
@@ -169,10 +200,9 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/orgs (getFromUser)",  function(next) {
-        client.orgs.getFromUser(
+    it("should successfully execute GET /organizations (getAll)",  function(next) {
+        client.orgs.getAll(
             {
-                user: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -184,11 +214,12 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/members/:user (getMember)",  function(next) {
-        client.orgs.getMember(
+    it("should successfully execute GET /users/:user/orgs (getForUser)",  function(next) {
+        client.orgs.getForUser(
             {
-                org: "String",
-                user: "String"
+                user: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -214,11 +245,24 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/public_members/:user (getPublicMember)",  function(next) {
-        client.orgs.getPublicMember(
+    it("should successfully execute GET /orgs/:org/memberships/:user (getOrganizationMembership)",  function(next) {
+        client.orgs.getOrganizationMembership(
             {
                 org: "String",
                 user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/memberships/orgs (getOrganizationMemberships)",  function(next) {
+        client.orgs.getOrganizationMemberships(
+            {
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -254,20 +298,6 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /teams/:id/members/:user (getTeamMember)",  function(next) {
-        client.orgs.getTeamMember(
-            {
-                id: "String",
-                user: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /teams/:id/members (getTeamMembers)",  function(next) {
         client.orgs.getTeamMembers(
             {
@@ -288,21 +318,6 @@ describe("[orgs]", function() {
             {
                 id: "String",
                 user: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /teams/:id/repos/:user/:repo (getTeamRepo)",  function(next) {
-        client.orgs.getTeamRepo(
-            {
-                id: "String",
-                user: "String",
-                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -384,15 +399,11 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute PATCH /orgs/:org (update)",  function(next) {
-        client.orgs.update(
+    it("should successfully execute DELETE /teams/:id/memberships/:user (removeTeamMembership)",  function(next) {
+        client.orgs.removeTeamMembership(
             {
-                org: "String",
-                billing_email: "String",
-                company: "String",
-                email: "String",
-                location: "String",
-                name: "String"
+                id: "String",
+                user: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -402,12 +413,16 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute PATCH /teams/:id (updateTeam)",  function(next) {
-        client.orgs.updateTeam(
+    it("should successfully execute PATCH /orgs/:org (update)",  function(next) {
+        client.orgs.update(
             {
-                id: "String",
+                org: "String",
+                billing_email: "String",
+                company: "String",
+                email: "String",
+                location: "String",
                 name: "String",
-                permission: "String"
+                description: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

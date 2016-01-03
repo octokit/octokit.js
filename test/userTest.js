@@ -253,6 +253,19 @@ describe("[user]", function() {
         );
     });
 
+    it("should successfully execute GET /user/memberships/orgs/:org (getOrganizationMembership)",  function(next) {
+        client.user.getOrganizationMembership(
+            {
+                org: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/orgs (getOrgs)",  function(next) {
         client.user.getOrgs(
             {

@@ -1828,14 +1828,25 @@
     },
 
     "orgs": {
-        "get-from-user": {
+        "get-all": {
+            "url": "/organizations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all organizations"
+        },
+
+        "get-for-user": {
             "url": "/users/:user/orgs",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List user's organizations"
         },
 
         "get": {
@@ -1845,7 +1856,8 @@
                 "$org": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get an organization"
         },
 
         "update": {
@@ -1865,30 +1877,38 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The company name."
                 },
                 "email": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Publicly visible email address."
+                    "description": "The publicly visible email address."
                 },
                 "location": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The location."
                 },
                 "name": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The shorthand name of the company."
+                },
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The description of the company."
                 }
-            }
+            },
+            "description": "Edit an organization"
         },
 
         "get-members": {
@@ -1908,13 +1928,14 @@
             }
         },
 
-        "get-member": {
+        "check-membership": {
             "url": "/orgs/:org/members/:user",
             "method": "GET",
             "params": {
                 "$org": null,
                 "$user": null
-            }
+            },
+            "description": "Check membership"
         },
 
         "remove-member": {
@@ -1923,7 +1944,8 @@
             "params": {
                 "$org": null,
                 "$user": null
-            }
+            },
+            "description": "Remove a member"
         },
 
         "get-public-members": {
@@ -1931,34 +1953,18 @@
             "method": "GET",
             "params": {
                 "$org": null
-            }
+            },
+            "description": "Public members list"
         },
 
-        "get-public-member": {
+        "check-public-membership": {
             "url": "/orgs/:org/public_members/:user",
             "method": "GET",
             "params": {
                 "$org": null,
                 "$user": null
-            }
-        },
-
-        "add-organization-membership": {
-            "url": "/orgs/:org/memberships/:user",
-            "method": "PUT",
-            "params": {
-                "$org": null,
-                "$user": null
-            }
-        },
-
-        "remove-organization-membership": {
-            "url": "/orgs/:org/memberships/:user",
-            "method": "DELETE",
-            "params": {
-                "$org": null,
-                "$user": null
-            }
+            },
+            "description": "Check public membership"
         },
 
         "publicize-membership": {
@@ -1967,7 +1973,8 @@
             "params": {
                 "$org": null,
                 "$user": null
-            }
+            },
+            "description": "Publicize a user's membership"
         },
 
         "conceal-membership": {
@@ -1976,7 +1983,60 @@
             "params": {
                 "$org": null,
                 "$user": null
-            }
+            },
+            "description": "Conceal a user's membership"
+        },
+
+        "get-organization-membership": {
+            "url": "/orgs/:org/memberships/:user",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$user": null
+            },
+            "description": "Get organization membership"
+        },
+
+        "add-organization-membership": {
+            "url": "/orgs/:org/memberships/:user",
+            "method": "PUT",
+            "params": {
+                "$org": null,
+                "$user": null,
+                "role": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(admin|member)$",
+                    "invalidmsg": "admin, member",
+                    "description": "admin, member"
+                }
+            },
+            "description": "Add or update organization membership"
+        },
+
+        "remove-organization-membership": {
+            "url": "/orgs/:org/memberships/:user",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$user": null
+            },
+            "description": "Remove organization membership"
+        },
+
+        "get-organization-memberships": {
+            "url": "/user/memberships/orgs",
+            "method": "GET",
+            "params": {
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(active|pending|)$",
+                    "invalidmsg": "active, pending, ",
+                    "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned."
+                }
+            },
+            "description": "List your organization memberships"
         },
 
         "get-teams": {
@@ -1986,7 +2046,8 @@
                 "$org": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List teams"
         },
 
         "get-team": {
@@ -1994,7 +2055,8 @@
             "method": "GET",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Get team"
         },
 
         "create-team": {
@@ -2003,25 +2065,39 @@
             "params": {
                 "$org": null,
                 "$name": null,
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The description of the team."
+                },
                 "repo_names": {
                     "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Array of strings"
-                },
-                "$permission": null
-            }
+                    "description": "The repositories to add the team to."
+                }
+            },
+            "description": "Create team"
         },
 
-        "update-team": {
+        "edit-team": {
             "url": "/teams/:id",
             "method": "PATCH",
             "params": {
                 "$id": null,
                 "$name": null,
-                "$permission": null
-            }
+                "description": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The description of the team."
+                }
+            },
+            "description": "Edit team"
         },
 
         "delete-team": {
@@ -2042,31 +2118,14 @@
             }
         },
 
-        "get-team-member": {
-            "url": "/teams/:id/members/:user",
+        "get-team-membership": {
+            "url": "/teams/:id/memberships/:user",
             "method": "GET",
             "params": {
                 "$id": null,
                 "$user": null
-            }
-        },
-
-        "add-team-member": {
-            "url": "/teams/:id/members/:user",
-            "method": "PUT",
-            "params": {
-                "$id": null,
-                "$user": null
-            }
-        },
-
-        "delete-team-member": {
-            "url": "/teams/:id/members/:user",
-            "method": "DELETE",
-            "params": {
-                "$id": null,
-                "$user": null
-            }
+            },
+            "description": "Get team membership"
         },
 
         "add-team-membership": {
@@ -2075,16 +2134,18 @@
             "params": {
                 "$id": null,
                 "$user": null
-            }
+            },
+            "description": "Add team membership"
         },
 
-        "get-team-membership": {
+        "remove-team-membership": {
             "url": "/teams/:id/memberships/:user",
-            "method": "GET",
+            "method": "DELETE",
             "params": {
                 "$id": null,
                 "$user": null
-            }
+            },
+            "description": "Remove team membership"
         },
 
         "get-team-repos": {
@@ -2094,17 +2155,19 @@
                 "$id": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get team repos"
         },
 
-        "get-team-repo": {
+        "check-team-repo": {
             "url": "/teams/:id/repos/:user/:repo",
             "method": "GET",
             "params": {
                 "$id": null,
                 "$user": null,
                 "$repo": null
-            }
+            },
+            "description": "Check if a team manages a repository"
         },
 
         "add-team-repo": {
@@ -2114,7 +2177,8 @@
                 "$id": null,
                 "$user": null,
                 "$repo": null
-            }
+            },
+            "description": "Add team repository"
         },
 
         "delete-team-repo": {
@@ -2124,7 +2188,8 @@
                 "$id": null,
                 "$user": null,
                 "$repo": null
-            }
+            },
+            "description": "Remove team repository"
         }
     },
 
@@ -3745,6 +3810,15 @@
             }
         },
 
+        "get-organization-membership": {
+            "url": "/user/memberships/orgs/:org",
+            "method": "GET",
+            "params": {
+                "$org": null
+            },
+            "description": "Get your organization membership"
+        },
+
         "edit-organization-membership": {
             "url": "/user/memberships/orgs/:org",
             "method": "PATCH",
@@ -3757,7 +3831,8 @@
                     "invalidmsg": "",
                     "description": ""
                 }
-            }
+            },
+            "description": "Edit your organization membership"
         },
 
         "get-teams": {
