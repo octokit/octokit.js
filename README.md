@@ -1,6 +1,6 @@
 ##### NOTE: [mikedeboer/node-github](https://github.com/mikedeboer/node-github) seems to no longer be maintained so I forked it here and am working on applying PRs and issues from that repo. See progress [here](https://github.com/kaizensoze/github4/wiki/Transition-from-upstream).
 
-# Github4
+# Node-github
 
 A Node.js wrapper for GitHub API.
 
@@ -17,14 +17,14 @@ or
 Install via git clone
 
 ```bash
-$ git clone git@github.com:kaizensoze/github4.git
+$ git clone git@github.com:kaizensoze/node-github.git
 $ cd node-github
 $ npm install
 ```
 
 ## Documentation
 
-Client API: [https://kaizensoze.github.io/github4/](https://kaizensoze.github.io/github4/)  
+Client API: [https://kaizensoze.github.io/node-github/](https://kaizensoze.github.io/node-github/)  
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Test auth file
