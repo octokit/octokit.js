@@ -144,7 +144,7 @@ github.events.getForUser({ ... });
 /**
  * @api {get} /users/:user/events/orgs/:org getForUserOrg
  * @apiName getForUserOrg
- * @apiDescription List events for an organization
+ * @apiDescription List events for a user's organization
  * @apiGroup events
  *
  * @apiParam {String} user   

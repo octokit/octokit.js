@@ -468,7 +468,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List events for an organization"
+            "description": "List events for a user's organization"
         }
     },
 
