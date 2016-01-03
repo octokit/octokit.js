@@ -25,6 +25,22 @@ describe("[issues]", function() {
         });
     });
 
+    it("should successfully execute POST /repos/:user/:repo/issues/:number/labels (addLabels)",  function(next) {
+        client.issues.addLabels(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                body: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/assignees/:assignee (checkAssignee)",  function(next) {
         client.issues.checkAssignee(
             {
@@ -215,24 +231,6 @@ describe("[issues]", function() {
                 sort: "String",
                 direction: "String",
                 since: "Date",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/milestones (getAllMilestones)",  function(next) {
-        client.issues.getAllMilestones(
-            {
-                user: "String",
-                repo: "String",
-                state: "String",
-                sort: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -483,7 +481,88 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/labels/:name (updateLabel)",  function(next) {
+    it("should successfully execute GET /repos/:user/:repo/milestones/:number/labels (getMilestoneLabels)",  function(next) {
+        client.issues.getMilestoneLabels(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/milestones (getMilestones)",  function(next) {
+        client.issues.getMilestones(
+            {
+                user: "String",
+                repo: "String",
+                state: "String",
+                sort: "String",
+                direction: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/labels (removeAllLabels)",  function(next) {
+        client.issues.removeAllLabels(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/labels/:name (removeLabel)",  function(next) {
+        client.issues.removeLabel(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                name: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/issues/:number/labels (replaceAllLabels)",  function(next) {
+        client.issues.replaceAllLabels(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                body: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/labels/:name (updateLabel)",  function(next) {
         client.issues.updateLabel(
             {
                 user: "String",

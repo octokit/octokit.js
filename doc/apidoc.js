@@ -653,6 +653,20 @@ github.gitignore.templates({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/issues/:number/labels addLabels
+ * @apiName addLabels
+ * @apiDescription Add labels to an issue
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiParam {Array} body   
+ * @apiExample {js} ex:
+github.issues.addLabels({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/assignees/:assignee checkAssignee
  * @apiName checkAssignee
  * @apiDescription Check assignee
@@ -699,7 +713,7 @@ github.issues.createComment({ ... });
 /**
  * @api {post} /repos/:user/:repo/labels createLabel
  * @apiName createLabel
- * @apiDescription undefined
+ * @apiDescription Create a label
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -713,7 +727,7 @@ github.issues.createLabel({ ... });
 /**
  * @api {post} /repos/:user/:repo/milestones createMilestone
  * @apiName createMilestone
- * @apiDescription undefined
+ * @apiDescription Create a milestone
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -742,7 +756,7 @@ github.issues.deleteComment({ ... });
 /**
  * @api {delete} /repos/:user/:repo/labels/:name deleteLabel
  * @apiName deleteLabel
- * @apiDescription undefined
+ * @apiDescription Delete a label
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -755,7 +769,7 @@ github.issues.deleteLabel({ ... });
 /**
  * @api {delete} /repos/:user/:repo/milestones/:number deleteMilestone
  * @apiName deleteMilestone
- * @apiDescription undefined
+ * @apiDescription Delete a milestone
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -827,22 +841,6 @@ github.issues.get({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.issues.getAll({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/milestones getAllMilestones
- * @apiName getAllMilestones
- * @apiDescription undefined
- * @apiGroup issues
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} [state]  Optional 
- * @apiParam {String} [sort]  Optional due_date, completeness, default: due_date
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.issues.getAllMilestones({ ... });
  */
 
 /**
@@ -1006,7 +1004,7 @@ github.issues.getForUser({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/labels getIssueLabels
  * @apiName getIssueLabels
- * @apiDescription undefined
+ * @apiDescription List labels on an issue
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -1019,7 +1017,7 @@ github.issues.getIssueLabels({ ... });
 /**
  * @api {get} /repos/:user/:repo/labels/:name getLabel
  * @apiName getLabel
- * @apiDescription undefined
+ * @apiDescription Get a single label
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -1032,7 +1030,7 @@ github.issues.getLabel({ ... });
 /**
  * @api {get} /repos/:user/:repo/labels getLabels
  * @apiName getLabels
- * @apiDescription undefined
+ * @apiDescription List all labels for this repository
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -1046,7 +1044,7 @@ github.issues.getLabels({ ... });
 /**
  * @api {get} /repos/:user/:repo/milestones/:number getMilestone
  * @apiName getMilestone
- * @apiDescription undefined
+ * @apiDescription Get a single milestone
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -1057,9 +1055,80 @@ github.issues.getMilestone({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/labels/:name updateLabel
+ * @api {get} /repos/:user/:repo/milestones/:number/labels getMilestoneLabels
+ * @apiName getMilestoneLabels
+ * @apiDescription Get labels for every issue in a milestone
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.getMilestoneLabels({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/milestones getMilestones
+ * @apiName getMilestones
+ * @apiDescription List milestones for a repository
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [state]  Optional 
+ * @apiParam {String} [sort]  Optional due_date, completeness, default: due_date
+ * @apiParam {String} [direction]  Optional 
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getMilestones({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/issues/:number/labels removeAllLabels
+ * @apiName removeAllLabels
+ * @apiDescription Remove all labels from an issue
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiExample {js} ex:
+github.issues.removeAllLabels({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/issues/:number/labels/:name removeLabel
+ * @apiName removeLabel
+ * @apiDescription Remove a label from an issue
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiParam {String} name   
+ * @apiExample {js} ex:
+github.issues.removeLabel({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/issues/:number/labels replaceAllLabels
+ * @apiName replaceAllLabels
+ * @apiDescription Replace all labels for an issue
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiParam {Array} body   Sending an empty array ([]) will remove all Labels from the Issue.
+ * @apiExample {js} ex:
+github.issues.replaceAllLabels({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/labels/:name updateLabel
  * @apiName updateLabel
- * @apiDescription undefined
+ * @apiDescription Update a label
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -1073,7 +1142,7 @@ github.issues.updateLabel({ ... });
 /**
  * @api {patch} /repos/:user/:repo/milestones/:number updateMilestone
  * @apiName updateMilestone
- * @apiDescription undefined
+ * @apiDescription Update a milestone
  * @apiGroup issues
  *
  * @apiParam {String} user   

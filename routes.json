@@ -139,8 +139,8 @@
             "state": {
                 "type": "String",
                 "required": false,
-                "validation": "^(open|closed)$",
-                "invalidmsg": "open, closed, default: open",
+                "validation": "^(open|closed|all)$",
+                "invalidmsg": "open, closed, all, default: open",
                 "description": ""
             },
             "color": {
@@ -1404,7 +1404,8 @@
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List all labels for this repository"
         },
 
         "get-label": {
@@ -1414,7 +1415,8 @@
                 "$user": null,
                 "$repo": null,
                 "$name": null
-            }
+            },
+            "description": "Get a single label"
         },
 
         "create-label": {
@@ -1425,18 +1427,20 @@
                 "$repo": null,
                 "$name": null,
                 "$color": null
-            }
+            },
+            "description": "Create a label"
         },
 
         "update-label": {
             "url": "/repos/:user/:repo/labels/:name",
-            "method": "POST",
+            "method": "PATCH",
             "params": {
                 "$user": null,
                 "$repo": null,
                 "$name": null,
                 "$color": null
-            }
+            },
+            "description": "Update a label"
         },
 
         "delete-label": {
@@ -1446,7 +1450,8 @@
                 "$user": null,
                 "$repo": null,
                 "$name": null
-            }
+            },
+            "description": "Delete a label"
         },
 
         "get-issue-labels": {
@@ -1456,10 +1461,87 @@
                 "$user": null,
                 "$repo": null,
                 "$number": null
-            }
+            },
+            "description": "List labels on an issue"
         },
 
-        "get-all-milestones": {
+        "add-labels": {
+            "url": "/repos/:user/:repo/issues/:number/labels",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "body": {
+                    "type": "Array",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            },
+            "description": "Add labels to an issue"
+        },
+
+        "remove-label": {
+            "url": "/repos/:user/:repo/issues/:number/labels/:name",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            },
+            "description": "Remove a label from an issue"
+        },
+
+        "replace-all-labels": {
+            "url": "/repos/:user/:repo/issues/:number/labels",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "body": {
+                    "type": "Array",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Sending an empty array ([]) will remove all Labels from the Issue."
+                }
+            },
+            "description": "Replace all labels for an issue"
+        },
+
+        "remove-all-labels": {
+            "url": "/repos/:user/:repo/issues/:number/labels",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Remove all labels from an issue"
+        },
+
+        "get-milestone-labels": {
+            "url": "/repos/:user/:repo/milestones/:number/labels",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Get labels for every issue in a milestone"
+        },
+
+        "get-milestones": {
             "url": "/repos/:user/:repo/milestones",
             "method": "GET",
             "params": {
@@ -1473,9 +1555,17 @@
                     "invalidmsg": "due_date, completeness, default: due_date",
                     "description": "due_date, completeness, default: due_date"
                 },
+                "direction": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(asc|desc)$",
+                    "invalidmsg": "asc or desc, default: asc.",
+                    "description": ""
+                },
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List milestones for a repository"
         },
 
         "get-milestone": {
@@ -1485,7 +1575,8 @@
                 "$user": null,
                 "$repo": null,
                 "$number": null
-            }
+            },
+            "description": "Get a single milestone"
         },
 
         "create-milestone": {
@@ -1510,7 +1601,8 @@
                     "invalidmsg": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
                     "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
                 }
-            }
+            },
+            "description": "Create a milestone"
         },
 
         "update-milestone": {
@@ -1536,7 +1628,8 @@
                     "invalidmsg": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
                     "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
                 }
-            }
+            },
+            "description": "Update a milestone"
         },
 
         "delete-milestone": {
@@ -1546,7 +1639,8 @@
                 "$user": null,
                 "$repo": null,
                 "$number": null
-            }
+            },
+            "description": "Delete a milestone"
         }
     },
 
