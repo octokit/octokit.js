@@ -2302,6 +2302,297 @@
         }
     },
 
+    "pull-requests": {
+        "get-all": {
+            "url": "/repos/:user/:repo/pulls",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed|all)$",
+                    "invalidmsg": "open, closed, all, default: open",
+                    "description": "open, closed, or all"
+                },
+                "head": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Filter pulls by head user and branch name in the format of user:ref-name. Example: github:new-script-format."
+                },
+                "base": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Filter pulls by base branch name. Example: gh-pages."
+                },
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated|popularity|long-running)$",
+                    "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
+                    "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`"
+                },
+                "$direction": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List pull requests"
+        },
+
+        "get": {
+            "url": "/repos/:user/:repo/pulls/:number",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Get a single pull request"
+        },
+
+        "create": {
+            "url": "/repos/:user/:repo/pulls",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "title": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The title of the pull request."
+                },
+                "$head": null,
+                "$base": null,
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The contents of the pull request."
+                }
+            },
+            "description": "Create a pull request"
+        },
+
+        "create-from-issue": {
+            "url": "/repos/:user/:repo/pulls",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "issue": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "^[0-9]+$",
+                    "invalidmsg": "",
+                    "description": "The issue number in this repository to turn into a Pull Request."
+                },
+                "$head": null,
+                "$base": null
+            },
+            "description": "Create a pull request from an existing issue"
+        },
+
+        "update": {
+            "url": "/repos/:user/:repo/pulls/:number",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "title": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The title of the pull request."
+                },
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The contents of the pull request."
+                },
+                "$state": null
+            },
+            "description": "Update a pull request"
+        },
+
+        "get-commits": {
+            "url": "/repos/:user/:repo/pulls/:number/commits",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List commits on a pull request"
+        },
+
+        "get-files": {
+            "url": "/repos/:user/:repo/pulls/:number/files",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List pull requests files"
+        },
+
+        "check-merged": {
+            "url": "/repos/:user/:repo/pulls/:number/merge",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get if a pull request has been merged"
+        },
+
+        "merge": {
+            "url": "/repos/:user/:repo/pulls/:number/merge",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "commit_message": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Extra detail to append to automatic commit message."
+                },
+                "sha": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "SHA that pull request head must match to allow merge"
+                }
+            },
+            "description": "Merge a pull request (Merge Button)"
+        },
+
+        "get-comments": {
+            "url": "/repos/:user/:repo/pulls/:number/comments",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List comments on a pull request"
+        },
+
+        "get-comments-for-repo": {
+            "url": "/repos/:user/:repo/pulls/comments",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated)$",
+                    "invalidmsg": "Possible values are: `created`, `updated`, Default: `created`",
+                    "description": "Possible values are: `created`, `updated`, Default: `created`"
+                },
+                "$direction": null,
+                "$since": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List comments in a repository"
+        },
+
+        "get-comment": {
+            "url": "/repos/:user/:repo/pulls/comments/:number",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Get a single comment"
+        },
+
+        "create-comment": {
+            "url": "/repos/:user/:repo/pulls/:number/comments",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$body": null,
+                "$commit_id": null,
+                "$path": null,
+                "$position": null
+            },
+            "description": "Create a comment"
+        },
+
+        "create-comment-reply": {
+            "url": "/repos/:user/:repo/pulls/:number/comments",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$body": null,
+                "in_reply_to": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The comment id to reply to."
+                }
+            },
+            "description": "Reply to existing pull request comment"
+        },
+
+        "edit-comment": {
+            "url": "/repos/:user/:repo/pulls/comments/:number",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$body": null
+            },
+            "description": "Edit a comment"
+        },
+
+        "delete-comment": {
+            "url": "/repos/:user/:repo/pulls/comments/:number",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Delete a comment"
+        }
+    },
+
     "statuses": {
         "get": {
             "url": "/repos/:user/:repo/commits/:sha/statuses",
@@ -2358,254 +2649,6 @@
                     "invalidmsg": "",
                     "description": "A string label to differentiate this status from the status of other systems."
                 }
-            }
-        }
-    },
-
-    "pull-requests": {
-        "get-all": {
-            "url": "/repos/:user/:repo/pulls",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "state": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(open|closed|all)$",
-                    "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all"
-                },
-                "head": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                },
-                "base": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                },
-                "$page": null,
-                "$per_page": null,
-                "sort": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(created|updated|popularity|long-running)$",
-                    "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
-                    "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`"
-                },
-                "$direction": null
-            }
-        },
-
-        "get": {
-            "url": "/repos/:user/:repo/pulls/:number",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null
-            }
-        },
-
-        "create": {
-            "url": "/repos/:user/:repo/pulls",
-            "method": "POST",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "title": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                },
-                "body": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                },
-                "$base": null,
-                "$head": null
-            }
-        },
-
-        "create-from-issue": {
-            "url": "/repos/:user/:repo/pulls",
-            "method": "POST",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "issue": {
-                    "type": "Number",
-                    "required": true,
-                    "validation": "^[0-9]+$",
-                    "invalidmsg": "",
-                    "description": ""
-                },
-                "$base": null,
-                "$head": null
-            }
-        },
-
-        "update": {
-            "url": "/repos/:user/:repo/pulls/:number",
-            "method": "PATCH",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$state": null,
-                "title": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                },
-                "body": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
-            }
-        },
-
-        "get-commits": {
-            "url": "/repos/:user/:repo/pulls/:number/commits",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-files": {
-            "url": "/repos/:user/:repo/pulls/:number/files",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-merged": {
-            "url": "/repos/:user/:repo/pulls/:number/merge",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "merge": {
-            "url": "/repos/:user/:repo/pulls/:number/merge",
-            "method": "PUT",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "commit_message": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The message that will be used for the merge commit"
-                }
-            }
-        },
-
-        "get-comments": {
-            "url": "/repos/:user/:repo/pulls/:number/comments",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "get-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:number",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null
-            }
-        },
-
-        "create-comment": {
-            "url": "/repos/:user/:repo/pulls/:number/comments",
-            "method": "POST",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$body": null,
-                "$commit_id": null,
-                "$path": null,
-                "$position": null
-            }
-        },
-
-        "create-comment-reply": {
-            "url": "/repos/:user/:repo/pulls/:number/comments",
-            "method": "POST",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$body": null,
-                "in_reply_to": {
-                    "type": "Number",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
-            }
-        },
-
-        "update-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:number",
-            "method": "PATCH",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null,
-                "$body": null
-            }
-        },
-
-        "delete-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:number",
-            "method": "DELETE",
-            "params": {
-                "$user": null,
-                "$repo": null,
-                "$number": null
             }
         }
     },

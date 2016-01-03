@@ -25,15 +25,32 @@ describe("[pullRequests]", function() {
         });
     });
 
+    it("should successfully execute GET /repos/:user/:repo/pulls/:number/merge (checkMerged)",  function(next) {
+        client.pullRequests.checkMerged(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:user/:repo/pulls (create)",  function(next) {
         client.pullRequests.create(
             {
                 user: "String",
                 repo: "String",
                 title: "String",
-                body: "String",
+                head: "String",
                 base: "String",
-                head: "String"
+                body: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -85,8 +102,8 @@ describe("[pullRequests]", function() {
                 user: "String",
                 repo: "String",
                 issue: "Number",
-                base: "String",
-                head: "String"
+                head: "String",
+                base: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -102,6 +119,22 @@ describe("[pullRequests]", function() {
                 user: "String",
                 repo: "String",
                 number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/pulls/comments/:number (editComment)",  function(next) {
+        client.pullRequests.editComment(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                body: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -134,10 +167,10 @@ describe("[pullRequests]", function() {
                 state: "String",
                 head: "String",
                 base: "String",
-                page: "Number",
-                per_page: "Number",
                 sort: "String",
-                direction: "String"
+                direction: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -168,6 +201,25 @@ describe("[pullRequests]", function() {
                 user: "String",
                 repo: "String",
                 number: "Number",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/pulls/comments (getCommentsForRepo)",  function(next) {
+        client.pullRequests.getCommentsForRepo(
+            {
+                user: "String",
+                repo: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
                 page: "Number",
                 per_page: "Number"
             },
@@ -213,30 +265,14 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number/merge (getMerged)",  function(next) {
-        client.pullRequests.getMerged(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute PUT /repos/:user/:repo/pulls/:number/merge (merge)",  function(next) {
         client.pullRequests.merge(
             {
                 user: "String",
                 repo: "String",
                 number: "Number",
-                commit_message: "String"
+                commit_message: "String",
+                sha: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -252,25 +288,9 @@ describe("[pullRequests]", function() {
                 user: "String",
                 repo: "String",
                 number: "Number",
-                state: "String",
                 title: "String",
-                body: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:user/:repo/pulls/comments/:number (updateComment)",  function(next) {
-        client.pullRequests.updateComment(
-            {
-                user: "String",
-                repo: "String",
-                number: "Number",
-                body: "String"
+                body: "String",
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
