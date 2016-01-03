@@ -632,27 +632,6 @@ github.gitdata.updateReference({ ... });
  */
 
 /**
- * @api {get} /gitignore/templates/:name template
- * @apiName template
- * @apiDescription undefined
- * @apiGroup gitignore
- *
- * @apiParam {String} name   The name of the .gitignore template to get
- * @apiExample {js} ex:
-github.gitignore.template({ ... });
- */
-
-/**
- * @api {get} /gitignore/templates templates
- * @apiName templates
- * @apiDescription undefined
- * @apiGroup gitignore
- *
- * @apiExample {js} ex:
-github.gitignore.templates({ ... });
- */
-
-/**
  * @api {post} /repos/:user/:repo/issues/:number/labels addLabels
  * @apiName addLabels
  * @apiDescription Add labels to an issue
@@ -1157,57 +1136,111 @@ github.issues.updateMilestone({ ... });
  */
 
 /**
- * @api {post} /markdown render
- * @apiName render
- * @apiDescription undefined
- * @apiGroup markdown
+ * @api {get} /emojis getEmojis
+ * @apiName getEmojis
+ * @apiDescription Lists all the emojis available to use on GitHub.
+ * @apiGroup misc
+ *
+ * @apiExample {js} ex:
+github.misc.getEmojis({ ... });
+ */
+
+/**
+ * @api {get} /gitignore/templates/:name getGitignoreTemplate
+ * @apiName getGitignoreTemplate
+ * @apiDescription Get a single gitignore template
+ * @apiGroup misc
+ *
+ * @apiParam {String} name   The name of the .gitignore template to get e.g. 'C'
+ * @apiExample {js} ex:
+github.misc.getGitignoreTemplate({ ... });
+ */
+
+/**
+ * @api {get} /gitignore/templates getGitignoreTemplates
+ * @apiName getGitignoreTemplates
+ * @apiDescription Lists available gitignore templates
+ * @apiGroup misc
+ *
+ * @apiExample {js} ex:
+github.misc.getGitignoreTemplates({ ... });
+ */
+
+/**
+ * @api {get} /licenses/:license getLicense
+ * @apiName getLicense
+ * @apiDescription Get an individual license
+ * @apiGroup misc
+ *
+ * @apiParam {String} license   Ex: /licenses/mit
+ * @apiExample {js} ex:
+github.misc.getLicense({ ... });
+ */
+
+/**
+ * @api {get} /licenses getLicenses
+ * @apiName getLicenses
+ * @apiDescription List all licenses
+ * @apiGroup misc
+ *
+ * @apiExample {js} ex:
+github.misc.getLicenses({ ... });
+ */
+
+/**
+ * @api {get} /meta getMeta
+ * @apiName getMeta
+ * @apiDescription This endpoint provides information about GitHub.com, the service. Or, if you access this endpoint on your organization's GitHub Enterprise installation, this endpoint provides information about that installation.
+ * @apiGroup misc
+ *
+ * @apiExample {js} ex:
+github.misc.getMeta({ ... });
+ */
+
+/**
+ * @api {get} /rate_limit getRateLimit
+ * @apiName getRateLimit
+ * @apiDescription Get your current rate limit status
+ * @apiGroup misc
+ *
+ * @apiExample {js} ex:
+github.misc.getRateLimit({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/license getRepoLicense
+ * @apiName getRepoLicense
+ * @apiDescription Get the contents of a repository's license
+ * @apiGroup misc
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.misc.getRepoLicense({ ... });
+ */
+
+/**
+ * @api {post} /markdown renderMarkdown
+ * @apiName renderMarkdown
+ * @apiDescription Render an arbitrary Markdown document
+ * @apiGroup misc
  *
  * @apiParam {String} text   The Markdown text to render
  * @apiParam {String} [mode]  Optional The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.
  * @apiParam {String} [context]  Optional The repository context, only taken into account when rendering as `gfm`
  * @apiExample {js} ex:
-github.markdown.render({ ... });
+github.misc.renderMarkdown({ ... });
  */
 
 /**
- * @api {post} /markdown/raw renderRaw
- * @apiName renderRaw
- * @apiDescription undefined
- * @apiGroup markdown
+ * @api {post} /markdown/raw renderMarkdownRaw
+ * @apiName renderMarkdownRaw
+ * @apiDescription Render a Markdown document in raw mode
+ * @apiGroup misc
  *
  * @apiParam {String} data   Raw data to send as the body of the request
  * @apiExample {js} ex:
-github.markdown.renderRaw({ ... });
- */
-
-/**
- * @api {get} /emojis emojis
- * @apiName emojis
- * @apiDescription undefined
- * @apiGroup misc
- *
- * @apiExample {js} ex:
-github.misc.emojis({ ... });
- */
-
-/**
- * @api {get} /meta meta
- * @apiName meta
- * @apiDescription undefined
- * @apiGroup misc
- *
- * @apiExample {js} ex:
-github.misc.meta({ ... });
- */
-
-/**
- * @api {get} /rate_limit rateLimit
- * @apiName rateLimit
- * @apiDescription undefined
- * @apiGroup misc
- *
- * @apiExample {js} ex:
-github.misc.rateLimit({ ... });
+github.misc.renderMarkdownRaw({ ... });
  */
 
 /**

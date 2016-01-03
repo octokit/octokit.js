@@ -25,8 +25,8 @@ describe("[misc]", function() {
         });
     });
 
-    it("should successfully execute GET /emojis (emojis)",  function(next) {
-        client.misc.emojis(
+    it("should successfully execute GET /emojis (getEmojis)",  function(next) {
+        client.misc.getEmojis(
             {},
             function(err, res) {
                 Assert.equal(err, null);
@@ -36,8 +36,21 @@ describe("[misc]", function() {
         );
     });
 
-    it("should successfully execute GET /meta (meta)",  function(next) {
-        client.misc.meta(
+    it("should successfully execute GET /gitignore/templates/:name (getGitignoreTemplate)",  function(next) {
+        client.misc.getGitignoreTemplate(
+            {
+                name: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /gitignore/templates (getGitignoreTemplates)",  function(next) {
+        client.misc.getGitignoreTemplates(
             {},
             function(err, res) {
                 Assert.equal(err, null);
@@ -47,9 +60,86 @@ describe("[misc]", function() {
         );
     });
 
-    it("should successfully execute GET /rate_limit (rateLimit)",  function(next) {
-        client.misc.rateLimit(
+    it("should successfully execute GET /licenses/:license (getLicense)",  function(next) {
+        client.misc.getLicense(
+            {
+                license: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /licenses (getLicenses)",  function(next) {
+        client.misc.getLicenses(
             {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /meta (getMeta)",  function(next) {
+        client.misc.getMeta(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /rate_limit (getRateLimit)",  function(next) {
+        client.misc.getRateLimit(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/license (getRepoLicense)",  function(next) {
+        client.misc.getRepoLicense(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /markdown (renderMarkdown)",  function(next) {
+        client.misc.renderMarkdown(
+            {
+                text: "String",
+                mode: "String",
+                context: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /markdown/raw (renderMarkdownRaw)",  function(next) {
+        client.misc.renderMarkdownRaw(
+            {
+                data: "String"
+            },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here

@@ -413,7 +413,7 @@
             },
             "description": "Update an existing authorization"
         },
-        
+
         "delete": {
             "url": "/authorizations/:id",
             "method": "DELETE",
@@ -1708,6 +1708,122 @@
                 "$number": null
             },
             "description": "Delete a milestone"
+        }
+    },
+
+    "misc": {
+        "get-emojis": {
+            "url": "/emojis",
+            "method": "GET",
+            "params": { },
+            "description": "Lists all the emojis available to use on GitHub."
+        },
+
+        "get-gitignore-templates": {
+            "url": "/gitignore/templates",
+            "method": "GET",
+            "params": { },
+            "description": "Lists available gitignore templates"
+        },
+
+        "get-gitignore-template": {
+            "url": "/gitignore/templates/:name",
+            "method": "GET",
+            "params": {
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the .gitignore template to get e.g. 'C'"
+                }
+            },
+            "description": "Get a single gitignore template"
+        },
+
+        "get-licenses": {
+            "url": "/licenses",
+            "method": "GET",
+            "params": { },
+            "description": "List all licenses"
+        },
+
+        "get-license": {
+            "url": "/licenses/:license",
+            "method": "GET",
+            "params": {
+                "license": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Ex: /licenses/mit"
+                }
+            },
+            "description": "Get an individual license"
+        },
+
+        "get-repo-license": {
+            "url": "/repos/:user/:repo/license",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "Get the contents of a repository's license"
+        },
+
+        "render-markdown": {
+            "url": "/markdown",
+            "method": "POST",
+            "params": {
+                "text": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The Markdown text to render"
+                },
+                "mode": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(markdown|gfm)$",
+                    "invalidmsg": "",
+                    "description": "The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly."
+                },
+                "context": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The repository context, only taken into account when rendering as `gfm`"
+                }
+            },
+            "description": "Render an arbitrary Markdown document"
+        },
+
+        "render-markdown-raw": {
+            "url": "/markdown/raw",
+            "method": "POST",
+            "requestFormat": "raw",
+            "params": {
+                "$data": null
+            },
+            "description": "Render a Markdown document in raw mode"
+        },
+
+        "get-meta": {
+            "url": "/meta",
+            "method": "GET",
+            "params": { },
+            "description": "This endpoint provides information about GitHub.com, the service. Or, if you access this endpoint on your organization's GitHub Enterprise installation, this endpoint provides information about that installation."
+        },
+
+        "get-rate-limit": {
+            "url": "/rate_limit",
+            "method": "GET",
+            "params": { },
+            "description": "Get your current rate limit status"
         }
     },
 
@@ -4184,84 +4300,6 @@
                     "description": "Email address"
                 }
             }
-        }
-    },
-
-    "markdown": {
-        "render": {
-            "url": "/markdown",
-            "method": "POST",
-            "params": {
-                "text": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The Markdown text to render"
-                },
-                "mode": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(markdown|gfm)$",
-                    "invalidmsg": "",
-                    "description": "The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly."
-                },
-                "context": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The repository context, only taken into account when rendering as `gfm`"
-                }
-            }
-        },
-
-        "render-raw": {
-            "url": "/markdown/raw",
-            "method": "POST",
-            "requestFormat": "raw",
-            "params": {
-                "$data": null
-            }
-        }
-    },
-
-    "gitignore": {
-        "templates": {
-            "url": "/gitignore/templates",
-            "method": "GET",
-            "params": { }
-        },
-        "template": {
-            "url": "/gitignore/templates/:name",
-            "method": "GET",
-            "params": {
-                "name": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The name of the .gitignore template to get"
-                }
-            }
-        }
-    },
-
-    "misc": {
-        "emojis": {
-            "url": "/emojis",
-            "method": "GET",
-            "params": { }
-        },
-        "meta": {
-            "url": "/meta",
-            "method": "GET",
-            "params": { }
-        },
-        "rate-limit": {
-            "url": "/rate_limit",
-            "method": "GET",
-            "params": { }
         }
     }
 }
