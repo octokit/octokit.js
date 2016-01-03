@@ -2190,6 +2190,115 @@
                 "$repo": null
             },
             "description": "Remove team repository"
+        },
+
+        "get-hooks": {
+            "url": "/orgs/:org/hooks",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List hooks"
+        },
+
+        "get-hook": {
+            "url": "/orgs/:org/hooks/:id",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$id": null
+            },
+            "description": "Get single hook"
+        },
+
+        "create-hook": {
+            "url": "/orgs/:org/hooks",
+            "method": "POST",
+            "params": {
+                "$org": null,
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Must be passed as \"web\"."
+                },
+                "config": {
+                    "type": "Json",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Key/value pairs to provide settings for this webhook"
+                },
+                "events": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines what events the hook is triggered for. Default: [\"push\"]."
+                },
+                "active": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines whether the hook is actually triggered on pushes."
+                }
+            },
+            "description": "Create a hook"
+        },
+
+        "edit-hook": {
+            "url": "/orgs/:org/hooks/:id",
+            "method": "PATCH",
+            "params": {
+                "$org": null,
+                "$id": null,
+                "config": {
+                    "type": "Json",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Key/value pairs to provide settings for this webhook"
+                },
+                "events": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines what events the hook is triggered for. Default: [\"push\"]."
+                },
+                "active": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines whether the hook is actually triggered on pushes."
+                }
+            },
+            "description": "Edit a hook"
+        },
+
+        "ping-hook": {
+            "url": "/orgs/:org/hooks/:id/pings",
+            "method": "POST",
+            "params": {
+                "$org": null,
+                "$id": null
+            },
+            "description": "Ping a hook"
+        },
+
+        "delete-hook": {
+            "url": "/orgs/:org/hooks/:id",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$id": null
+            },
+            "description": "Delete a hook"
         }
     },
 
