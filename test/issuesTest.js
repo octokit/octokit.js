@@ -290,6 +290,25 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/issues/comments (getCommentsForRepo)",  function(next) {
+        client.issues.getCommentsForRepo(
+            {
+                user: "String",
+                repo: "String",
+                sort: "String",
+                direction: "String",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/issues/events/:id (getEvent)",  function(next) {
         client.issues.getEvent(
             {
@@ -311,6 +330,22 @@ describe("[issues]", function() {
                 user: "String",
                 repo: "String",
                 number: "Number",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/issues/events (getEventsForRepo)",  function(next) {
+        client.issues.getEventsForRepo(
+            {
+                user: "String",
+                repo: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -439,41 +474,6 @@ describe("[issues]", function() {
                 user: "String",
                 repo: "String",
                 number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/issues/events (getRepoEvents)",  function(next) {
-        client.issues.getRepoEvents(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/issues/comments (repoComments)",  function(next) {
-        client.issues.repoComments(
-            {
-                user: "String",
-                repo: "String",
-                sort: "String",
-                direction: "String",
-                since: "Date",
-                page: "Number",
-                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

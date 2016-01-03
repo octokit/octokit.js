@@ -685,7 +685,7 @@ github.issues.create({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues/:number/comments createComment
  * @apiName createComment
- * @apiDescription undefined
+ * @apiDescription Create a comment
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -729,7 +729,7 @@ github.issues.createMilestone({ ... });
 /**
  * @api {delete} /repos/:user/:repo/issues/comments/:id deleteComment
  * @apiName deleteComment
- * @apiDescription undefined
+ * @apiDescription Delete a comment
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -787,7 +787,7 @@ github.issues.edit({ ... });
 /**
  * @api {patch} /repos/:user/:repo/issues/comments/:id editComment
  * @apiName editComment
- * @apiDescription undefined
+ * @apiDescription Edit a comment
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -860,7 +860,7 @@ github.issues.getAssignees({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/comments/:id getComment
  * @apiName getComment
- * @apiDescription undefined
+ * @apiDescription Get a single comment
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -873,7 +873,7 @@ github.issues.getComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/comments getComments
  * @apiName getComments
- * @apiDescription undefined
+ * @apiDescription List comments on an issue
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -886,9 +886,26 @@ github.issues.getComments({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/issues/comments getCommentsForRepo
+ * @apiName getCommentsForRepo
+ * @apiDescription List comments in a repository
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [sort]  Optional 
+ * @apiParam {String} [direction]  Optional 
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getCommentsForRepo({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/issues/events/:id getEvent
  * @apiName getEvent
- * @apiDescription undefined
+ * @apiDescription Get a single event
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -901,7 +918,7 @@ github.issues.getEvent({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/events getEvents
  * @apiName getEvents
- * @apiDescription undefined
+ * @apiDescription List events for an issue
  * @apiGroup issues
  *
  * @apiParam {String} user   
@@ -911,6 +928,20 @@ github.issues.getEvent({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.issues.getEvents({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/issues/events getEventsForRepo
+ * @apiName getEventsForRepo
+ * @apiDescription List events for a repository
+ * @apiGroup issues
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getEventsForRepo({ ... });
  */
 
 /**
@@ -1023,37 +1054,6 @@ github.issues.getLabels({ ... });
  * @apiParam {Number} number   
  * @apiExample {js} ex:
 github.issues.getMilestone({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/issues/events getRepoEvents
- * @apiName getRepoEvents
- * @apiDescription undefined
- * @apiGroup issues
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.issues.getRepoEvents({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/issues/comments repoComments
- * @apiName repoComments
- * @apiDescription undefined
- * @apiGroup issues
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} [sort]  Optional 
- * @apiParam {String} [direction]  Optional 
- * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.issues.repoComments({ ... });
  */
 
 /**
