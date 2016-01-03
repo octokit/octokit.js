@@ -126,6 +126,23 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute POST /orgs/:org/hooks (createHook)",  function(next) {
+        client.orgs.createHook(
+            {
+                org: "String",
+                name: "String",
+                config: "Json",
+                events: "Array",
+                active: "Boolean"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /orgs/:org/teams (createTeam)",  function(next) {
         client.orgs.createTeam(
             {
@@ -133,6 +150,20 @@ describe("[orgs]", function() {
                 name: "String",
                 description: "String",
                 repo_names: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /orgs/:org/hooks/:id (deleteHook)",  function(next) {
+        client.orgs.deleteHook(
+            {
+                org: "String",
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -161,6 +192,23 @@ describe("[orgs]", function() {
                 id: "String",
                 user: "String",
                 repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /orgs/:org/hooks/:id (editHook)",  function(next) {
+        client.orgs.editHook(
+            {
+                org: "String",
+                id: "String",
+                config: "Json",
+                events: "Array",
+                active: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -218,6 +266,35 @@ describe("[orgs]", function() {
         client.orgs.getForUser(
             {
                 user: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /orgs/:org/hooks/:id (getHook)",  function(next) {
+        client.orgs.getHook(
+            {
+                org: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /orgs/:org/hooks (getHooks)",  function(next) {
+        client.orgs.getHooks(
+            {
+                org: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -348,6 +425,20 @@ describe("[orgs]", function() {
                 org: "String",
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /orgs/:org/hooks/:id/pings (pingHook)",  function(next) {
+        client.orgs.pingHook(
+            {
+                org: "String",
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -1331,6 +1331,21 @@ github.orgs.concealMembership({ ... });
  */
 
 /**
+ * @api {post} /orgs/:org/hooks createHook
+ * @apiName createHook
+ * @apiDescription Create a hook
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} name   Must be passed as "web".
+ * @apiParam {Json} config   Key/value pairs to provide settings for this webhook
+ * @apiParam {Array} [events]  Optional Determines what events the hook is triggered for. Default: ["push"].
+ * @apiParam {Boolean} [active]  Optional Determines whether the hook is actually triggered on pushes.
+ * @apiExample {js} ex:
+github.orgs.createHook({ ... });
+ */
+
+/**
  * @api {post} /orgs/:org/teams createTeam
  * @apiName createTeam
  * @apiDescription Create team
@@ -1342,6 +1357,18 @@ github.orgs.concealMembership({ ... });
  * @apiParam {Array} [repo_names]  Optional The repositories to add the team to.
  * @apiExample {js} ex:
 github.orgs.createTeam({ ... });
+ */
+
+/**
+ * @api {delete} /orgs/:org/hooks/:id deleteHook
+ * @apiName deleteHook
+ * @apiDescription Delete a hook
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.deleteHook({ ... });
  */
 
 /**
@@ -1366,6 +1393,21 @@ github.orgs.deleteTeam({ ... });
  * @apiParam {String} repo   
  * @apiExample {js} ex:
 github.orgs.deleteTeamRepo({ ... });
+ */
+
+/**
+ * @api {patch} /orgs/:org/hooks/:id editHook
+ * @apiName editHook
+ * @apiDescription Edit a hook
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiParam {Json} config   Key/value pairs to provide settings for this webhook
+ * @apiParam {Array} [events]  Optional Determines what events the hook is triggered for. Default: ["push"].
+ * @apiParam {Boolean} [active]  Optional Determines whether the hook is actually triggered on pushes.
+ * @apiExample {js} ex:
+github.orgs.editHook({ ... });
  */
 
 /**
@@ -1417,6 +1459,31 @@ github.orgs.getAll({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.orgs.getForUser({ ... });
+ */
+
+/**
+ * @api {get} /orgs/:org/hooks/:id getHook
+ * @apiName getHook
+ * @apiDescription Get single hook
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.getHook({ ... });
+ */
+
+/**
+ * @api {get} /orgs/:org/hooks getHooks
+ * @apiName getHooks
+ * @apiDescription List hooks
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.getHooks({ ... });
  */
 
 /**
@@ -1527,6 +1594,18 @@ github.orgs.getTeamRepos({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.orgs.getTeams({ ... });
+ */
+
+/**
+ * @api {post} /orgs/:org/hooks/:id/pings pingHook
+ * @apiName pingHook
+ * @apiDescription Ping a hook
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.pingHook({ ... });
  */
 
 /**
