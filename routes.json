@@ -357,6 +357,73 @@
         }
     },
 
+    "authorization": {
+        "get-all": {
+            "url": "/authorizations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List your authorizations"
+        },
+
+        "get": {
+            "url": "/authorizations/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single authorization"
+        },
+
+        "create": {
+            "url": "/authorizations",
+            "method": "POST",
+            "params": {
+                "$scopes": null,
+                "$note": null,
+                "$note_url": null
+            },
+            "description": "Create a new authorization"
+        },
+
+        "update": {
+            "url": "/authorizations/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "$scopes": null,
+                "add_scopes": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A list of scopes to add to this authorization."
+                },
+                "remove_scopes": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A list of scopes to remove from this authorization."
+                },
+                "$note": null,
+                "$note_url": null
+            },
+            "description": "Update an existing authorization"
+        },
+        
+        "delete": {
+            "url": "/authorizations/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete an authorization"
+        }
+    },
+
     "events": {
         "get": {
             "url": "/events",
@@ -1641,64 +1708,6 @@
                 "$number": null
             },
             "description": "Delete a milestone"
-        }
-    },
-
-    "authorization": {
-        "get-all": {
-            "url": "/authorizations",
-            "method": "GET",
-            "params": {
-                "$page": null,
-                "$per_page": null
-            }
-        },
-        "get": {
-            "url": "/authorizations/:id",
-            "method": "GET",
-            "params": {
-                "$id": null
-            }
-        },
-        "create": {
-            "url": "/authorizations",
-            "method": "POST",
-            "params": {
-                "$scopes": null,
-                "$note": null,
-                "$note_url": null
-            }
-        },
-        "update": {
-            "url": "/authorizations/:id",
-            "method": "PATCH",
-            "params": {
-                "$id": null,
-                "$scopes": null,
-                "add_scopes": {
-                    "type": "Array",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "A list of scopes to add to this authorization."
-                },
-                "remove_scopes": {
-                    "type": "Array",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "A list of scopes to remove from this authorization."
-                },
-                "$note": null,
-                "$note_url": null
-            }
-        },
-        "delete": {
-            "url": "/authorizations/:id",
-            "method": "DELETE",
-            "params": {
-                "$id": null
-            }
         }
     },
 

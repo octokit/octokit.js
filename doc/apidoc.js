@@ -1,7 +1,7 @@
 /**
  * @api {post} /authorizations create
  * @apiName create
- * @apiDescription undefined
+ * @apiDescription Create a new authorization
  * @apiGroup authorization
  *
  * @apiParam {Array} [scopes]  Optional A list of scopes that this authorization is in.
@@ -14,7 +14,7 @@ github.authorization.create({ ... });
 /**
  * @api {delete} /authorizations/:id delete
  * @apiName delete
- * @apiDescription undefined
+ * @apiDescription Delete an authorization
  * @apiGroup authorization
  *
  * @apiParam {String} id   
@@ -25,7 +25,7 @@ github.authorization.delete({ ... });
 /**
  * @api {get} /authorizations/:id get
  * @apiName get
- * @apiDescription undefined
+ * @apiDescription Get a single authorization
  * @apiGroup authorization
  *
  * @apiParam {String} id   
@@ -36,7 +36,7 @@ github.authorization.get({ ... });
 /**
  * @api {get} /authorizations getAll
  * @apiName getAll
- * @apiDescription undefined
+ * @apiDescription List your authorizations
  * @apiGroup authorization
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
@@ -48,7 +48,7 @@ github.authorization.getAll({ ... });
 /**
  * @api {patch} /authorizations/:id update
  * @apiName update
- * @apiDescription undefined
+ * @apiDescription Update an existing authorization
  * @apiGroup authorization
  *
  * @apiParam {String} id   
