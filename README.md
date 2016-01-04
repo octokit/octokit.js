@@ -55,7 +55,7 @@ var github = new GitHubApi({
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     }
 });
-github.users.getFollowingFromUser({
+github.users.getFollowingForUser({
     // optional:
     // headers: {
     //     "cookie": "blahblah"
