@@ -1674,17 +1674,32 @@ github.orgs.update({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pulls create
- * @apiName create
- * @apiDescription undefined
+ * @api {get} /repos/:user/:repo/pulls/:number/merge checkMerged
+ * @apiName checkMerged
+ * @apiDescription Get if a pull request has been merged
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
- * @apiParam {String} title   
- * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+ * @apiParam {Number} number   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.checkMerged({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/pulls create
+ * @apiName create
+ * @apiDescription Create a pull request
+ * @apiGroup pullRequests
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} title   The title of the pull request.
  * @apiParam {String} head   The branch (or git ref) where your changes are implemented.
- * @apiParam {String} [body]  Optional 
+ * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+ * @apiParam {String} [body]  Optional The contents of the pull request.
  * @apiExample {js} ex:
 github.pullRequests.create({ ... });
  */
@@ -1692,7 +1707,7 @@ github.pullRequests.create({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls/:number/comments createComment
  * @apiName createComment
- * @apiDescription undefined
+ * @apiDescription Create a comment
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1709,14 +1724,14 @@ github.pullRequests.createComment({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls/:number/comments createCommentReply
  * @apiName createCommentReply
- * @apiDescription undefined
+ * @apiDescription Reply to existing pull request comment
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
  * @apiParam {String} body   
- * @apiParam {Number} in_reply_to   
+ * @apiParam {Number} in_reply_to   The comment id to reply to.
  * @apiExample {js} ex:
 github.pullRequests.createCommentReply({ ... });
  */
@@ -1724,14 +1739,14 @@ github.pullRequests.createCommentReply({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls createFromIssue
  * @apiName createFromIssue
- * @apiDescription undefined
+ * @apiDescription Create a pull request from an existing issue
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
- * @apiParam {Number} issue   
- * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+ * @apiParam {Number} issue   The issue number in this repository to turn into a Pull Request.
  * @apiParam {String} head   The branch (or git ref) where your changes are implemented.
+ * @apiParam {String} base   The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiExample {js} ex:
 github.pullRequests.createFromIssue({ ... });
  */
@@ -1739,7 +1754,7 @@ github.pullRequests.createFromIssue({ ... });
 /**
  * @api {delete} /repos/:user/:repo/pulls/comments/:number deleteComment
  * @apiName deleteComment
- * @apiDescription undefined
+ * @apiDescription Delete a comment
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1750,9 +1765,23 @@ github.pullRequests.deleteComment({ ... });
  */
 
 /**
+ * @api {patch} /repos/:user/:repo/pulls/comments/:number editComment
+ * @apiName editComment
+ * @apiDescription Edit a comment
+ * @apiGroup pullRequests
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} number   
+ * @apiParam {String} body   
+ * @apiExample {js} ex:
+github.pullRequests.editComment({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/pulls/:number get
  * @apiName get
- * @apiDescription undefined
+ * @apiDescription Get a single pull request
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1765,18 +1794,18 @@ github.pullRequests.get({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls getAll
  * @apiName getAll
- * @apiDescription undefined
+ * @apiDescription List pull requests
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} [state]  Optional open, closed, or all
- * @apiParam {String} [head]  Optional 
- * @apiParam {String} [base]  Optional 
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiParam {String} [head]  Optional Filter pulls by head user and branch name in the format of user:ref-name. Example: github:new-script-format.
+ * @apiParam {String} [base]  Optional Filter pulls by base branch name. Example: gh-pages.
  * @apiParam {String} [sort]  Optional Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`
  * @apiParam {String} [direction]  Optional 
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.pullRequests.getAll({ ... });
  */
@@ -1784,7 +1813,7 @@ github.pullRequests.getAll({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/comments/:number getComment
  * @apiName getComment
- * @apiDescription undefined
+ * @apiDescription Get a single comment
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1797,7 +1826,7 @@ github.pullRequests.getComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number/comments getComments
  * @apiName getComments
- * @apiDescription undefined
+ * @apiDescription List comments on a pull request
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1810,9 +1839,26 @@ github.pullRequests.getComments({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/pulls/comments getCommentsForRepo
+ * @apiName getCommentsForRepo
+ * @apiDescription List comments in a repository
+ * @apiGroup pullRequests
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [sort]  Optional Possible values are: `created`, `updated`, Default: `created`
+ * @apiParam {String} [direction]  Optional 
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.getCommentsForRepo({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/pulls/:number/commits getCommits
  * @apiName getCommits
- * @apiDescription undefined
+ * @apiDescription List commits on a pull request
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1827,7 +1873,7 @@ github.pullRequests.getCommits({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/:number/files getFiles
  * @apiName getFiles
- * @apiDescription undefined
+ * @apiDescription List pull requests files
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
@@ -1840,30 +1886,16 @@ github.pullRequests.getFiles({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/:number/merge getMerged
- * @apiName getMerged
- * @apiDescription undefined
- * @apiGroup pullRequests
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} number   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.pullRequests.getMerged({ ... });
- */
-
-/**
  * @api {put} /repos/:user/:repo/pulls/:number/merge merge
  * @apiName merge
- * @apiDescription undefined
+ * @apiDescription Merge a pull request (Merge Button)
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
- * @apiParam {String} [commit_message]  Optional The message that will be used for the merge commit
+ * @apiParam {String} [commit_message]  Optional Extra detail to append to automatic commit message.
+ * @apiParam {String} [sha]  Optional SHA that pull request head must match to allow merge
  * @apiExample {js} ex:
 github.pullRequests.merge({ ... });
  */
@@ -1871,31 +1903,17 @@ github.pullRequests.merge({ ... });
 /**
  * @api {patch} /repos/:user/:repo/pulls/:number update
  * @apiName update
- * @apiDescription undefined
+ * @apiDescription Update a pull request
  * @apiGroup pullRequests
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {Number} number   
+ * @apiParam {String} [title]  Optional The title of the pull request.
+ * @apiParam {String} [body]  Optional The contents of the pull request.
  * @apiParam {String} [state]  Optional 
- * @apiParam {String} [title]  Optional 
- * @apiParam {String} [body]  Optional 
  * @apiExample {js} ex:
 github.pullRequests.update({ ... });
- */
-
-/**
- * @api {patch} /repos/:user/:repo/pulls/comments/:number updateComment
- * @apiName updateComment
- * @apiDescription undefined
- * @apiGroup pullRequests
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} number   
- * @apiParam {String} body   
- * @apiExample {js} ex:
-github.pullRequests.updateComment({ ... });
  */
 
 /**
