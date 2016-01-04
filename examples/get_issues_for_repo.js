@@ -12,6 +12,9 @@ github.authenticate({
     token: testAuth["token"]
 });
 
-github.user.get({}, function(err, res) {
+github.issues.getForRepo({
+    "user": "kaizensoze",
+    "repo": "node-github"
+}, function(err, res) {
     console.log(err, res);
 });
