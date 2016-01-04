@@ -55,7 +55,7 @@ var github = new GitHubApi({
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     }
 });
-github.user.getFollowingFromUser({
+github.users.getFollowingFromUser({
     // optional:
     // headers: {
     //     "cookie": "blahblah"
@@ -99,7 +99,7 @@ credentials for the next request.
 
 Once authenticated you can update a user field like so:
 ```javascript
-github.user.update({
+github.users.update({
     location: "Argentina"
 }, function(err) {
     console.log("done!");

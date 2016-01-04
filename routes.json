@@ -3869,32 +3869,21 @@
         }
     },
 
-    "user": {
-        "get-all": {
-            "url": "/users",
-            "method": "GET",
-            "params": {
-                "since":{
-                    "type": "Number",
-                    "required": false,
-                    "validation": "",
-                    "description": "The integer ID of the last User that you’ve seen."
-                }
-            }
-        },
-
-        "get-from": {
+    "users": {
+        "get-for": {
             "url": "/users/:user",
             "method": "GET",
             "params": {
                 "$user": null
-            }
+            },
+            "description": "Get a single user"
         },
 
         "get": {
             "url": "/user",
             "method": "GET",
-            "params": {}
+            "params": {},
+            "description": "Get the authenticated user"
         },
 
         "update": {
@@ -3906,51 +3895,66 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The new name of the user"
                 },
                 "email": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "Publicly visible email address."
                 },
                 "blog": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The new blog URL of the user."
                 },
                 "company": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The new company of the user."
                 },
                 "location": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The new location of the user."
                 },
                 "hireable": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The new hiring availability of the user."
                 },
                 "bio": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The new short biography of the user."
                 }
-            }
+            },
+            "description": "Update the authenticated user"
+        },
+
+        "get-all": {
+            "url": "/users",
+            "method": "GET",
+            "params": {
+                "since":{
+                    "type": "Number",
+                    "required": false,
+                    "validation": "",
+                    "description": "The integer ID of the last User that you’ve seen."
+                }
+            },
+            "description": "Get all users"
         },
 
         "get-orgs": {
@@ -3959,7 +3963,8 @@
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get your organizations"
         },
 
         "get-organization-membership": {
@@ -3993,7 +3998,8 @@
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get your teams"
         },
 
         "get-emails": {
@@ -4002,39 +4008,43 @@
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List email addresses for a user"
         },
 
         "add-emails": {
             "url": "/user/emails",
             "method": "POST",
-            "params": {}
+            "params": {},
+            "description": "Add email address(es)"
         },
 
         "delete-emails": {
             "url": "/user/emails",
             "method": "DELETE",
-            "params": {}
+            "params": {},
+            "description": "Delete email address(es)"
         },
 
         "get-followers": {
+            "url": "/users/followers",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List the authenticated user's followers"
+        },
+
+        "get-followers-for-user": {
             "url": "/users/:user/followers",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$page": null,
                 "$per_page": null
-            }
-        },
-
-        "get-following-from-user": {
-            "url": "/users/:user/following",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            }
+            },
+            "description": "List a user's followers"
         },
 
         "get-following": {
@@ -4043,17 +4053,44 @@
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List who the authenticated user is following"
         },
 
-        "get-follow-user": {
-            "url": "/user/following/:user",
+        "get-following-for-user": {
+            "url": "/users/:user/following",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List who a user is following"
+        },
+
+        "check-following": {
+            "url": "/user/following/:user",
+            "method": "GET",
+            "params": {
+                "$user": null
+            },
+            "description": "Check if you are following a user"
+        },
+
+        "check-if-one-followers-other": {
+            "url": "/users/:user/following/:other_user",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "other_user": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Other user"
+                }
+            },
+            "description": "Check if one user follows another"
         },
 
         "follow-user": {
@@ -4061,7 +4098,8 @@
             "method": "PUT",
             "params": {
                 "$user": null
-            }
+            },
+            "description": "Follow a user"
         },
 
         "un-follow-user": {
@@ -4069,7 +4107,8 @@
             "method": "DELETE",
             "params": {
                 "$user": null
-            }
+            },
+            "description": "Unfollow a user"
         },
 
         "get-keys": {
@@ -4078,17 +4117,19 @@
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List your public keys"
         },
 
-        "get-keys-from-user": {
+        "get-keys-for-user": {
             "url": "/users/:user/keys",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List public keys for a user"
         },
 
         "get-key": {
@@ -4096,7 +4137,8 @@
             "method": "GET",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Get a single public key"
         },
 
         "create-key": {
@@ -4105,17 +4147,8 @@
             "params": {
                 "$title": null,
                 "$key": null
-            }
-        },
-
-        "update-key": {
-            "url": "/user/keys/:id",
-            "method": "PATCH",
-            "params": {
-                "$id": null,
-                "$title": null,
-                "$key": null
-            }
+            },
+            "description": "Create a public key"
         },
 
         "delete-key": {
@@ -4123,7 +4156,8 @@
             "method": "DELETE",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Delete a public key"
         }
     },
 

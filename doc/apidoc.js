@@ -3234,273 +3234,282 @@ github.statuses.getCombined({ ... });
 /**
  * @api {post} /user/emails addEmails
  * @apiName addEmails
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Add email address(es)
+ * @apiGroup users
  *
  * @apiExample {js} ex:
-github.user.addEmails({ ... });
+github.users.addEmails({ ... });
+ */
+
+/**
+ * @api {get} /user/following/:user checkFollowing
+ * @apiName checkFollowing
+ * @apiDescription Check if you are following a user
+ * @apiGroup users
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.users.checkFollowing({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/following/:other_user checkIfOneFollowersOther
+ * @apiName checkIfOneFollowersOther
+ * @apiDescription Check if one user follows another
+ * @apiGroup users
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} other_user   Other user
+ * @apiExample {js} ex:
+github.users.checkIfOneFollowersOther({ ... });
  */
 
 /**
  * @api {post} /user/keys createKey
  * @apiName createKey
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Create a public key
+ * @apiGroup users
  *
  * @apiParam {String} title   
  * @apiParam {String} key   
  * @apiExample {js} ex:
-github.user.createKey({ ... });
+github.users.createKey({ ... });
  */
 
 /**
  * @api {delete} /user/emails deleteEmails
  * @apiName deleteEmails
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Delete email address(es)
+ * @apiGroup users
  *
  * @apiExample {js} ex:
-github.user.deleteEmails({ ... });
+github.users.deleteEmails({ ... });
  */
 
 /**
  * @api {delete} /user/keys/:id deleteKey
  * @apiName deleteKey
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Delete a public key
+ * @apiGroup users
  *
  * @apiParam {String} id   
  * @apiExample {js} ex:
-github.user.deleteKey({ ... });
+github.users.deleteKey({ ... });
  */
 
 /**
  * @api {patch} /user/memberships/orgs/:org editOrganizationMembership
  * @apiName editOrganizationMembership
  * @apiDescription Edit your organization membership
- * @apiGroup user
+ * @apiGroup users
  *
  * @apiParam {String} org   
  * @apiParam {String} state   
  * @apiExample {js} ex:
-github.user.editOrganizationMembership({ ... });
+github.users.editOrganizationMembership({ ... });
  */
 
 /**
  * @api {put} /user/following/:user followUser
  * @apiName followUser
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Follow a user
+ * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiExample {js} ex:
-github.user.followUser({ ... });
+github.users.followUser({ ... });
  */
 
 /**
  * @api {get} /user get
  * @apiName get
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Get the authenticated user
+ * @apiGroup users
  *
  * @apiExample {js} ex:
-github.user.get({ ... });
+github.users.get({ ... });
  */
 
 /**
  * @api {get} /users getAll
  * @apiName getAll
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Get all users
+ * @apiGroup users
  *
  * @apiParam {Number} [since]  Optional The integer ID of the last User that you’ve seen.
  * @apiExample {js} ex:
-github.user.getAll({ ... });
+github.users.getAll({ ... });
  */
 
 /**
  * @api {get} /user/emails getEmails
  * @apiName getEmails
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription List email addresses for a user
+ * @apiGroup users
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getEmails({ ... });
+github.users.getEmails({ ... });
  */
 
 /**
- * @api {get} /user/following/:user getFollowUser
- * @apiName getFollowUser
- * @apiDescription undefined
- * @apiGroup user
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.user.getFollowUser({ ... });
- */
-
-/**
- * @api {get} /users/:user/followers getFollowers
+ * @api {get} /users/followers getFollowers
  * @apiName getFollowers
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription List the authenticated user's followers
+ * @apiGroup users
+ *
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.users.getFollowers({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/followers getFollowersForUser
+ * @apiName getFollowersForUser
+ * @apiDescription List a user's followers
+ * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getFollowers({ ... });
+github.users.getFollowersForUser({ ... });
  */
 
 /**
  * @api {get} /user/following getFollowing
  * @apiName getFollowing
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription List who the authenticated user is following
+ * @apiGroup users
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getFollowing({ ... });
+github.users.getFollowing({ ... });
  */
 
 /**
- * @api {get} /users/:user/following getFollowingFromUser
- * @apiName getFollowingFromUser
- * @apiDescription undefined
- * @apiGroup user
+ * @api {get} /users/:user/following getFollowingForUser
+ * @apiName getFollowingForUser
+ * @apiDescription List who a user is following
+ * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getFollowingFromUser({ ... });
+github.users.getFollowingForUser({ ... });
  */
 
 /**
- * @api {get} /users/:user getFrom
- * @apiName getFrom
- * @apiDescription undefined
- * @apiGroup user
+ * @api {get} /users/:user getFor
+ * @apiName getFor
+ * @apiDescription Get a single user
+ * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiExample {js} ex:
-github.user.getFrom({ ... });
+github.users.getFor({ ... });
  */
 
 /**
  * @api {get} /user/keys/:id getKey
  * @apiName getKey
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Get a single public key
+ * @apiGroup users
  *
  * @apiParam {String} id   
  * @apiExample {js} ex:
-github.user.getKey({ ... });
+github.users.getKey({ ... });
  */
 
 /**
  * @api {get} /user/keys getKeys
  * @apiName getKeys
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription List your public keys
+ * @apiGroup users
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getKeys({ ... });
+github.users.getKeys({ ... });
  */
 
 /**
- * @api {get} /users/:user/keys getKeysFromUser
- * @apiName getKeysFromUser
- * @apiDescription undefined
- * @apiGroup user
+ * @api {get} /users/:user/keys getKeysForUser
+ * @apiName getKeysForUser
+ * @apiDescription List public keys for a user
+ * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getKeysFromUser({ ... });
+github.users.getKeysForUser({ ... });
  */
 
 /**
  * @api {get} /user/memberships/orgs/:org getOrganizationMembership
  * @apiName getOrganizationMembership
  * @apiDescription Get your organization membership
- * @apiGroup user
+ * @apiGroup users
  *
  * @apiParam {String} org   
  * @apiExample {js} ex:
-github.user.getOrganizationMembership({ ... });
+github.users.getOrganizationMembership({ ... });
  */
 
 /**
  * @api {get} /user/orgs getOrgs
  * @apiName getOrgs
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Get your organizations
+ * @apiGroup users
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getOrgs({ ... });
+github.users.getOrgs({ ... });
  */
 
 /**
  * @api {get} /user/teams getTeams
  * @apiName getTeams
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Get your teams
+ * @apiGroup users
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.user.getTeams({ ... });
+github.users.getTeams({ ... });
  */
 
 /**
  * @api {delete} /user/following/:user unFollowUser
  * @apiName unFollowUser
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Unfollow a user
+ * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiExample {js} ex:
-github.user.unFollowUser({ ... });
+github.users.unFollowUser({ ... });
  */
 
 /**
  * @api {patch} /user update
  * @apiName update
- * @apiDescription undefined
- * @apiGroup user
+ * @apiDescription Update the authenticated user
+ * @apiGroup users
  *
- * @apiParam {String} [name]  Optional 
- * @apiParam {String} [email]  Optional 
- * @apiParam {String} [blog]  Optional 
- * @apiParam {String} [company]  Optional 
- * @apiParam {String} [location]  Optional 
- * @apiParam {Boolean} [hireable]  Optional 
- * @apiParam {String} [bio]  Optional 
+ * @apiParam {String} [name]  Optional The new name of the user
+ * @apiParam {String} [email]  Optional Publicly visible email address.
+ * @apiParam {String} [blog]  Optional The new blog URL of the user.
+ * @apiParam {String} [company]  Optional The new company of the user.
+ * @apiParam {String} [location]  Optional The new location of the user.
+ * @apiParam {Boolean} [hireable]  Optional The new hiring availability of the user.
+ * @apiParam {String} [bio]  Optional The new short biography of the user.
  * @apiExample {js} ex:
-github.user.update({ ... });
- */
-
-/**
- * @api {patch} /user/keys/:id updateKey
- * @apiName updateKey
- * @apiDescription undefined
- * @apiGroup user
- *
- * @apiParam {String} id   
- * @apiParam {String} title   
- * @apiParam {String} key   
- * @apiExample {js} ex:
-github.user.updateKey({ ... });
+github.users.update({ ... });
  */
 
