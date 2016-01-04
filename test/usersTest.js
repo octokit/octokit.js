@@ -13,7 +13,7 @@ var Assert = require("assert");
 var Client = require("./../../index");
 var testAuth = require("./../test_auth.json");
 
-describe("[user]", function() {
+describe("[users]", function() {
     var client;
     var token = testAuth["token"];
 
@@ -26,7 +26,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute POST /user/emails (addEmails)",  function(next) {
-        client.user.addEmails(
+        client.users.addEmails(
             {},
             function(err, res) {
                 Assert.equal(err, null);
@@ -36,8 +36,35 @@ describe("[user]", function() {
         );
     });
 
+    it("should successfully execute GET /user/following/:user (checkFollowing)",  function(next) {
+        client.users.checkFollowing(
+            {
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /users/:user/following/:other_user (checkIfOneFollowersOther)",  function(next) {
+        client.users.checkIfOneFollowersOther(
+            {
+                user: "String",
+                other_user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /user/keys (createKey)",  function(next) {
-        client.user.createKey(
+        client.users.createKey(
             {
                 title: "String",
                 key: "String"
@@ -51,7 +78,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute DELETE /user/emails (deleteEmails)",  function(next) {
-        client.user.deleteEmails(
+        client.users.deleteEmails(
             {},
             function(err, res) {
                 Assert.equal(err, null);
@@ -62,7 +89,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute DELETE /user/keys/:id (deleteKey)",  function(next) {
-        client.user.deleteKey(
+        client.users.deleteKey(
             {
                 id: "String"
             },
@@ -75,7 +102,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute PATCH /user/memberships/orgs/:org (editOrganizationMembership)",  function(next) {
-        client.user.editOrganizationMembership(
+        client.users.editOrganizationMembership(
             {
                 org: "String",
                 state: "String"
@@ -89,7 +116,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute PUT /user/following/:user (followUser)",  function(next) {
-        client.user.followUser(
+        client.users.followUser(
             {
                 user: "String"
             },
@@ -102,7 +129,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user (get)",  function(next) {
-        client.user.get(
+        client.users.get(
             {},
             function(err, res) {
                 Assert.equal(err, null);
@@ -113,7 +140,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /users (getAll)",  function(next) {
-        client.user.getAll(
+        client.users.getAll(
             {
                 since: "Number"
             },
@@ -126,7 +153,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/emails (getEmails)",  function(next) {
-        client.user.getEmails(
+        client.users.getEmails(
             {
                 page: "Number",
                 per_page: "Number"
@@ -139,10 +166,9 @@ describe("[user]", function() {
         );
     });
 
-    it("should successfully execute GET /user/following/:user (getFollowUser)",  function(next) {
-        client.user.getFollowUser(
+    it("should successfully execute GET /users/followers (getFollowers)",  function(next) {
+        client.users.getFollowers(
             {
-                user: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -154,8 +180,8 @@ describe("[user]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/followers (getFollowers)",  function(next) {
-        client.user.getFollowers(
+    it("should successfully execute GET /users/:user/followers (getFollowersForUser)",  function(next) {
+        client.users.getFollowersForUser(
             {
                 user: "String",
                 page: "Number",
@@ -170,7 +196,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/following (getFollowing)",  function(next) {
-        client.user.getFollowing(
+        client.users.getFollowing(
             {
                 page: "Number",
                 per_page: "Number"
@@ -183,8 +209,8 @@ describe("[user]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/following (getFollowingFromUser)",  function(next) {
-        client.user.getFollowingFromUser(
+    it("should successfully execute GET /users/:user/following (getFollowingForUser)",  function(next) {
+        client.users.getFollowingForUser(
             {
                 user: "String",
                 page: "Number",
@@ -198,8 +224,8 @@ describe("[user]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user (getFrom)",  function(next) {
-        client.user.getFrom(
+    it("should successfully execute GET /users/:user (getFor)",  function(next) {
+        client.users.getFor(
             {
                 user: "String"
             },
@@ -212,7 +238,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/keys/:id (getKey)",  function(next) {
-        client.user.getKey(
+        client.users.getKey(
             {
                 id: "String"
             },
@@ -225,7 +251,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/keys (getKeys)",  function(next) {
-        client.user.getKeys(
+        client.users.getKeys(
             {
                 page: "Number",
                 per_page: "Number"
@@ -238,8 +264,8 @@ describe("[user]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/keys (getKeysFromUser)",  function(next) {
-        client.user.getKeysFromUser(
+    it("should successfully execute GET /users/:user/keys (getKeysForUser)",  function(next) {
+        client.users.getKeysForUser(
             {
                 user: "String",
                 page: "Number",
@@ -254,7 +280,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/memberships/orgs/:org (getOrganizationMembership)",  function(next) {
-        client.user.getOrganizationMembership(
+        client.users.getOrganizationMembership(
             {
                 org: "String"
             },
@@ -267,7 +293,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/orgs (getOrgs)",  function(next) {
-        client.user.getOrgs(
+        client.users.getOrgs(
             {
                 page: "Number",
                 per_page: "Number"
@@ -281,7 +307,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute GET /user/teams (getTeams)",  function(next) {
-        client.user.getTeams(
+        client.users.getTeams(
             {
                 page: "Number",
                 per_page: "Number"
@@ -295,7 +321,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute DELETE /user/following/:user (unFollowUser)",  function(next) {
-        client.user.unFollowUser(
+        client.users.unFollowUser(
             {
                 user: "String"
             },
@@ -308,7 +334,7 @@ describe("[user]", function() {
     });
 
     it("should successfully execute PATCH /user (update)",  function(next) {
-        client.user.update(
+        client.users.update(
             {
                 name: "String",
                 email: "String",
@@ -317,21 +343,6 @@ describe("[user]", function() {
                 location: "String",
                 hireable: "Boolean",
                 bio: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /user/keys/:id (updateKey)",  function(next) {
-        client.user.updateKey(
-            {
-                id: "String",
-                title: "String",
-                key: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -12,6 +12,6 @@ github.authenticate({
     token: testAuth["token"]
 });
 
-github.user.get({}, function(err, res) {
+github.users.get({}, function(err, res) {
     console.log(err, res);
 });
