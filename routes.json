@@ -1832,6 +1832,13 @@
             "url": "/organizations",
             "method": "GET",
             "params": {
+                "since": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The integer ID of the last Organization that you've seen."
+                },
                 "$page": null,
                 "$per_page": null
             },
@@ -1916,16 +1923,24 @@
             "method": "GET",
             "params": {
                 "$org": null,
-                "$page": null,
-                "$per_page": null,
                 "filter": {
                     "type": "String",
                     "required": false,
                     "validation": "^(all|2fa_disabled)$",
                     "invalidmsg": "all, 2fa_disabled, default: all",
-                    "description": ""
-                }
-            }
+                    "description": "Filter members returned in the list."
+                },
+                "role": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(all|admin|member)$",
+                    "invalidmsg": "all, admin, member, default: all",
+                    "description": "Filter members returned by their role."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Members list"
         },
 
         "check-membership": {
@@ -2008,7 +2023,7 @@
                     "required": true,
                     "validation": "^(admin|member)$",
                     "invalidmsg": "admin, member",
-                    "description": "admin, member"
+                    "description": "The role to give the user in the organization."
                 }
             },
             "description": "Add or update organization membership"
@@ -2032,7 +2047,7 @@
                     "type": "String",
                     "required": false,
                     "validation": "^(active|pending|)$",
-                    "invalidmsg": "active, pending, ",
+                    "invalidmsg": "active, pending",
                     "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned."
                 }
             },
@@ -3984,9 +3999,9 @@
                 "state": {
                     "type": "String",
                     "required": true,
-                    "validation": "^(open|closed|active)$",
-                    "invalidmsg": "",
-                    "description": ""
+                    "validation": "^(active)$",
+                    "invalidmsg": "active",
+                    "description": "The state that the membership should be in. Only \"active\" will be accepted."
                 }
             },
             "description": "Edit your organization membership"

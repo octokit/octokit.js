@@ -251,6 +251,7 @@ describe("[orgs]", function() {
     it("should successfully execute GET /organizations (getAll)",  function(next) {
         client.orgs.getAll(
             {
+                since: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -310,9 +311,10 @@ describe("[orgs]", function() {
         client.orgs.getMembers(
             {
                 org: "String",
+                filter: "String",
+                role: "String",
                 page: "Number",
-                per_page: "Number",
-                filter: "String"
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
