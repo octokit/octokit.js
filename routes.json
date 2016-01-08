@@ -2251,7 +2251,14 @@
             "method": "PUT",
             "params": {
                 "$id": null,
-                "$user": null
+                "$user": null,
+                "role": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(member|maintainer)$",
+                    "invalidmsg": "member, maintainer, default: member",
+                    "description": "The role that this user should have in the team."
+                }
             },
             "description": "Add team membership"
         },

@@ -44,7 +44,8 @@ describe("[orgs]", function() {
         client.orgs.addTeamMembership(
             {
                 id: "String",
-                user: "String"
+                user: "String",
+                role: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

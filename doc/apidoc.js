@@ -1264,6 +1264,7 @@ github.orgs.addOrganizationMembership({ ... });
  *
  * @apiParam {String} id   
  * @apiParam {String} user   
+ * @apiParam {String} [role]  Optional The role that this user should have in the team.
  * @apiExample {js} ex:
 github.orgs.addTeamMembership({ ... });
  */
