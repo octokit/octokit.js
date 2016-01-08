@@ -1251,7 +1251,7 @@ github.misc.renderMarkdownRaw({ ... });
  *
  * @apiParam {String} org   
  * @apiParam {String} user   
- * @apiParam {String} role   admin, member
+ * @apiParam {String} role   The role to give the user in the organization.
  * @apiExample {js} ex:
 github.orgs.addOrganizationMembership({ ... });
  */
@@ -1442,6 +1442,7 @@ github.orgs.get({ ... });
  * @apiDescription List all organizations
  * @apiGroup orgs
  *
+ * @apiParam {String} [since]  Optional The integer ID of the last Organization that you've seen.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -1489,13 +1490,14 @@ github.orgs.getHooks({ ... });
 /**
  * @api {get} /orgs/:org/members getMembers
  * @apiName getMembers
- * @apiDescription undefined
+ * @apiDescription Members list
  * @apiGroup orgs
  *
  * @apiParam {String} org   
+ * @apiParam {String} [filter]  Optional Filter members returned in the list.
+ * @apiParam {String} [role]  Optional Filter members returned by their role.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiParam {String} [filter]  Optional 
  * @apiExample {js} ex:
 github.orgs.getMembers({ ... });
  */
@@ -3304,7 +3306,7 @@ github.users.deleteKey({ ... });
  * @apiGroup users
  *
  * @apiParam {String} org   
- * @apiParam {String} state   
+ * @apiParam {String} state   The state that the membership should be in. Only "active" will be accepted.
  * @apiExample {js} ex:
 github.users.editOrganizationMembership({ ... });
  */
