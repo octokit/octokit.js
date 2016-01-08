@@ -1372,6 +1372,18 @@ github.orgs.deleteHook({ ... });
  */
 
 /**
+ * @api {delete} /orgs/:org/migrations/:id/archive deleteMigrationArchive
+ * @apiName deleteMigrationArchive
+ * @apiDescription Delete a migration archive
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.deleteMigrationArchive({ ... });
+ */
+
+/**
  * @api {delete} /teams/:id deleteTeam
  * @apiName deleteTeam
  * @apiDescription undefined
@@ -1500,6 +1512,43 @@ github.orgs.getHooks({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.orgs.getMembers({ ... });
+ */
+
+/**
+ * @api {get} /orgs/:org/migrations/:id/archive getMigrationArchive
+ * @apiName getMigrationArchive
+ * @apiDescription Get the URL to a migration archive.
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.getMigrationArchive({ ... });
+ */
+
+/**
+ * @api {get} /orgs/:org/migrations/:id getMigrationStatus
+ * @apiName getMigrationStatus
+ * @apiDescription Get the status of a migration
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.orgs.getMigrationStatus({ ... });
+ */
+
+/**
+ * @api {get} /orgs/:org/migrations getMigrations
+ * @apiName getMigrations
+ * @apiDescription Get a list of migrations
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.orgs.getMigrations({ ... });
  */
 
 /**
@@ -1656,6 +1705,33 @@ github.orgs.removeOrganizationMembership({ ... });
  * @apiParam {String} user   
  * @apiExample {js} ex:
 github.orgs.removeTeamMembership({ ... });
+ */
+
+/**
+ * @api {post} /orgs/:org/migrations startMigration
+ * @apiName startMigration
+ * @apiDescription Start a migration
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {Array} repositories   A list of arrays indicating which repositories should be migrated.
+ * @apiParam {Boolean} [lock_repositories]  Optional Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false.
+ * @apiParam {Boolean} [exclude_attachments]  Optional Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false.
+ * @apiExample {js} ex:
+github.orgs.startMigration({ ... });
+ */
+
+/**
+ * @api {delete} /orgs/:org/migrations/:id/repos/:repo/lock unlockRepoLockedForMigration
+ * @apiName unlockRepoLockedForMigration
+ * @apiDescription Unlock a repository that was locked for migration.
+ * @apiGroup orgs
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} id   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.orgs.unlockRepoLockedForMigration({ ... });
  */
 
 /**
