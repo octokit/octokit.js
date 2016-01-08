@@ -2174,7 +2174,14 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The repositories to add the team to."
+                    "description": "The full name (e.g., \"organization-name/repository-name\") of repositories to add the team to."
+                },
+                "privacy": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(secret|closed)$",
+                    "invalidmsg": "secret, closed, default: secret",
+                    "description": "The level of privacy this team should have."
                 }
             },
             "description": "Create team"
@@ -2192,6 +2199,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The description of the team."
+                },
+                "privacy": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(secret|closed)$",
+                    "invalidmsg": "secret, closed, default: secret",
+                    "description": "The level of privacy this team should have."
                 }
             },
             "description": "Edit team"
@@ -2210,6 +2224,13 @@
             "method": "GET",
             "params": {
                 "$id": null,
+                "role": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(member|maintainer|all)$",
+                    "invalidmsg": "member, maintainer, all, default: all",
+                    "description": "Filters members returned by their role in the team."
+                },
                 "$page": null,
                 "$per_page": null
             }

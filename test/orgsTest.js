@@ -149,7 +149,8 @@ describe("[orgs]", function() {
                 org: "String",
                 name: "String",
                 description: "String",
-                repo_names: "Array"
+                repo_names: "Array",
+                privacy: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -237,7 +238,8 @@ describe("[orgs]", function() {
             {
                 id: "String",
                 name: "String",
-                description: "String"
+                description: "String",
+                privacy: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -438,6 +440,7 @@ describe("[orgs]", function() {
         client.orgs.getTeamMembers(
             {
                 id: "String",
+                role: "String",
                 page: "Number",
                 per_page: "Number"
             },
