@@ -353,6 +353,13 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "Raw data to send as the body of the request"
+            },
+            "privacy": {
+                "type": "String",
+                "required": false,
+                "validation": "^(secret|closed)$",
+                "invalidmsg": "secret, closed, default: secret",
+                "description": "The level of privacy this team should have."
             }
         }
     },
@@ -2176,13 +2183,7 @@
                     "invalidmsg": "",
                     "description": "The full name (e.g., \"organization-name/repository-name\") of repositories to add the team to."
                 },
-                "privacy": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(secret|closed)$",
-                    "invalidmsg": "secret, closed, default: secret",
-                    "description": "The level of privacy this team should have."
-                }
+                "$privacy": null
             },
             "description": "Create team"
         },
@@ -2200,13 +2201,7 @@
                     "invalidmsg": "",
                     "description": "The description of the team."
                 },
-                "privacy": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(secret|closed)$",
-                    "invalidmsg": "secret, closed, default: secret",
-                    "description": "The level of privacy this team should have."
-                }
+                "$privacy": null
             },
             "description": "Edit team"
         },
