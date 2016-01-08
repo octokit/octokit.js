@@ -1354,7 +1354,8 @@ github.orgs.createHook({ ... });
  * @apiParam {String} org   
  * @apiParam {String} name   
  * @apiParam {String} [description]  Optional The description of the team.
- * @apiParam {Array} [repo_names]  Optional The repositories to add the team to.
+ * @apiParam {Array} [repo_names]  Optional The full name (e.g., "organization-name/repository-name") of repositories to add the team to.
+ * @apiParam {String} [privacy]  Optional The level of privacy this team should have.
  * @apiExample {js} ex:
 github.orgs.createTeam({ ... });
  */
@@ -1431,6 +1432,7 @@ github.orgs.editHook({ ... });
  * @apiParam {String} id   
  * @apiParam {String} name   
  * @apiParam {String} [description]  Optional The description of the team.
+ * @apiParam {String} [privacy]  Optional The level of privacy this team should have.
  * @apiExample {js} ex:
 github.orgs.editTeam({ ... });
  */
@@ -1603,6 +1605,7 @@ github.orgs.getTeam({ ... });
  * @apiGroup orgs
  *
  * @apiParam {String} id   
+ * @apiParam {String} [role]  Optional Filters members returned by their role in the team.
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
