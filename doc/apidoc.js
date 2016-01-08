@@ -3486,14 +3486,14 @@ github.users.getFollowingForUser({ ... });
  */
 
 /**
- * @api {get} /users/:user getFor
- * @apiName getFor
+ * @api {get} /users/:user getForUser
+ * @apiName getForUser
  * @apiDescription Get a single user
  * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiExample {js} ex:
-github.users.getFor({ ... });
+github.users.getForUser({ ... });
  */
 
 /**
@@ -3568,14 +3568,14 @@ github.users.getTeams({ ... });
  */
 
 /**
- * @api {delete} /user/following/:user unFollowUser
- * @apiName unFollowUser
+ * @api {delete} /user/following/:user unfollowUser
+ * @apiName unfollowUser
  * @apiDescription Unfollow a user
  * @apiGroup users
  *
  * @apiParam {String} user   
  * @apiExample {js} ex:
-github.users.unFollowUser({ ... });
+github.users.unfollowUser({ ... });
  */
 
 /**

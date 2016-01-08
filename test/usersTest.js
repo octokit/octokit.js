@@ -224,8 +224,8 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user (getFor)",  function(next) {
-        client.users.getFor(
+    it("should successfully execute GET /users/:user (getForUser)",  function(next) {
+        client.users.getForUser(
             {
                 user: "String"
             },
@@ -320,8 +320,8 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/following/:user (unFollowUser)",  function(next) {
-        client.users.unFollowUser(
+    it("should successfully execute DELETE /user/following/:user (unfollowUser)",  function(next) {
+        client.users.unfollowUser(
             {
                 user: "String"
             },

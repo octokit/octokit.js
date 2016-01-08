@@ -3990,20 +3990,20 @@
     },
 
     "users": {
-        "get-for": {
+        "get": {
+            "url": "/user",
+            "method": "GET",
+            "params": {},
+            "description": "Get the authenticated user"
+        },
+
+        "get-for-user": {
             "url": "/users/:user",
             "method": "GET",
             "params": {
                 "$user": null
             },
             "description": "Get a single user"
-        },
-
-        "get": {
-            "url": "/user",
-            "method": "GET",
-            "params": {},
-            "description": "Get the authenticated user"
         },
 
         "update": {
@@ -4222,7 +4222,7 @@
             "description": "Follow a user"
         },
 
-        "un-follow-user": {
+        "unfollow-user": {
             "url": "/user/following/:user",
             "method": "DELETE",
             "params": {
