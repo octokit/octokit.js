@@ -1,4 +1,18 @@
 /**
+ * @api {get} /user/starred/:user/:repo checkStarring
+ * @apiName checkStarring
+ * @apiDescription Check if you are starring a repository
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.checkStarring({ ... });
+ */
+
+/**
  * @api {get} /events getEvents
  * @apiName getEvents
  * @apiDescription List public events
@@ -168,8 +182,8 @@ github.activity.getStarred({ ... });
  */
 
 /**
- * @api {get} /users/:user/starred getStarredFromUser
- * @apiName getStarredFromUser
+ * @api {get} /users/:user/starred getStarredForUser
+ * @apiName getStarredForUser
  * @apiDescription List repositories being starred by a user
  * @apiGroup activity
  *
@@ -177,21 +191,7 @@ github.activity.getStarred({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getStarredFromUser({ ... });
- */
-
-/**
- * @api {get} /user/starred/:user/:repo getStarring
- * @apiName getStarring
- * @apiDescription Check if you are starring a repository
- * @apiGroup activity
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.activity.getStarring({ ... });
+github.activity.getStarredForUser({ ... });
  */
 
 /**
@@ -260,18 +260,6 @@ github.activity.star({ ... });
  */
 
 /**
- * @api {delete} /user/starred/:user/:repo unStar
- * @apiName unStar
- * @apiDescription Unstar a repository
- * @apiGroup activity
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.activity.unStar({ ... });
- */
-
-/**
  * @api {delete} /user/watched/:user/:repo unWatch
  * @apiName unWatch
  * @apiDescription undefined
@@ -281,6 +269,18 @@ github.activity.unStar({ ... });
  * @apiParam {String} repo   
  * @apiExample {js} ex:
 github.activity.unWatch({ ... });
+ */
+
+/**
+ * @api {delete} /user/starred/:user/:repo unstar
+ * @apiName unstar
+ * @apiDescription Unstar a repository
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.activity.unstar({ ... });
  */
 
 /**
@@ -585,14 +585,14 @@ github.gists.star({ ... });
  */
 
 /**
- * @api {delete} /gists/:id/star unStar
- * @apiName unStar
+ * @api {delete} /gists/:id/star unstar
+ * @apiName unstar
  * @apiDescription Unstar a gist
  * @apiGroup gists
  *
  * @apiParam {String} id   
  * @apiExample {js} ex:
-github.gists.unStar({ ... });
+github.gists.unstar({ ... });
  */
 
 /**

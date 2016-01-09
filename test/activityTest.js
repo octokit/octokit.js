@@ -25,6 +25,22 @@ describe("[activity]", function() {
         });
     });
 
+    it("should successfully execute GET /user/starred/:user/:repo (checkStarring)",  function(next) {
+        client.activity.checkStarring(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /events (getEvents)",  function(next) {
         client.activity.getEvents(
             {
@@ -219,26 +235,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/starred (getStarredFromUser)",  function(next) {
-        client.activity.getStarredFromUser(
+    it("should successfully execute GET /users/:user/starred (getStarredForUser)",  function(next) {
+        client.activity.getStarredForUser(
             {
                 user: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /user/starred/:user/:repo (getStarring)",  function(next) {
-        client.activity.getStarring(
-            {
-                user: "String",
-                repo: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -325,8 +325,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/starred/:user/:repo (unStar)",  function(next) {
-        client.activity.unStar(
+    it("should successfully execute DELETE /user/watched/:user/:repo (unWatch)",  function(next) {
+        client.activity.unWatch(
             {
                 user: "String",
                 repo: "String"
@@ -339,8 +339,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/watched/:user/:repo (unWatch)",  function(next) {
-        client.activity.unWatch(
+    it("should successfully execute DELETE /user/starred/:user/:repo (unstar)",  function(next) {
+        client.activity.unstar(
             {
                 user: "String",
                 repo: "String"
