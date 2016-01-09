@@ -289,8 +289,8 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute DELETE /gists/:id/star (unStar)",  function(next) {
-        client.gists.unStar(
+    it("should successfully execute DELETE /gists/:id/star (unstar)",  function(next) {
+        client.gists.unstar(
             {
                 id: "String"
             },

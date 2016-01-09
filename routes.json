@@ -581,7 +581,7 @@
             "description": "List repositories being starred by the authenticated user"
         },
 
-        "get-starred-from-user": {
+        "get-starred-for-user": {
             "url": "/users/:user/starred",
             "method": "GET",
             "params": {
@@ -592,7 +592,7 @@
             "description": "List repositories being starred by a user"
         },
 
-        "get-starring": {
+        "check-starring": {
             "url": "/user/starred/:user/:repo",
             "method": "GET",
             "params": {
@@ -614,7 +614,7 @@
             "description": "Star a repository"
         },
 
-        "un-star": {
+        "unstar": {
             "url": "/user/starred/:user/:repo",
             "method": "DELETE",
             "params": {
@@ -791,7 +791,7 @@
             "description": "Star a gist"
         },
 
-        "un-star": {
+        "unstar": {
             "url": "/gists/:id/star",
             "method": "DELETE",
             "params": {
