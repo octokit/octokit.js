@@ -438,7 +438,7 @@
         }
     },
 
-    "events": {
+    "activity": {
         "get": {
             "url": "/events",
             "method": "GET",

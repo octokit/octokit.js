@@ -1,4 +1,137 @@
 /**
+ * @api {get} /events get
+ * @apiName get
+ * @apiDescription List public events
+ * @apiGroup activity
+ *
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.get({ ... });
+ */
+
+/**
+ * @api {get} /orgs/:org/events getForOrg
+ * @apiName getForOrg
+ * @apiDescription List public events for an organization
+ * @apiGroup activity
+ *
+ * @apiParam {String} org   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForOrg({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/events getForRepo
+ * @apiName getForRepo
+ * @apiDescription List repository events
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForRepo({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/issues/events getForRepoIssues
+ * @apiName getForRepoIssues
+ * @apiDescription List issue events for a repository
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForRepoIssues({ ... });
+ */
+
+/**
+ * @api {get} /networks/:user/:repo/events getForRepoNetwork
+ * @apiName getForRepoNetwork
+ * @apiDescription List public events for a network of repositories
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForRepoNetwork({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/events getForUser
+ * @apiName getForUser
+ * @apiDescription List events performed by a user
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForUser({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/events/orgs/:org getForUserOrg
+ * @apiName getForUserOrg
+ * @apiDescription List events for a user's organization
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} org   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForUserOrg({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/events/public getForUserPublic
+ * @apiName getForUserPublic
+ * @apiDescription List public events performed by a user
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getForUserPublic({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/received_events getReceived
+ * @apiName getReceived
+ * @apiDescription List events that a user has received
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getReceived({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/received_events/public getReceivedPublic
+ * @apiName getReceivedPublic
+ * @apiDescription List public events that a user has received
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getReceivedPublic({ ... });
+ */
+
+/**
  * @api {post} /authorizations create
  * @apiName create
  * @apiDescription Create a new authorization
@@ -59,139 +192,6 @@ github.authorization.getAll({ ... });
  * @apiParam {String} [note_url]  Optional A URL to remind you what app the OAuth token is for.
  * @apiExample {js} ex:
 github.authorization.update({ ... });
- */
-
-/**
- * @api {get} /events get
- * @apiName get
- * @apiDescription List public events
- * @apiGroup events
- *
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.get({ ... });
- */
-
-/**
- * @api {get} /orgs/:org/events getForOrg
- * @apiName getForOrg
- * @apiDescription List public events for an organization
- * @apiGroup events
- *
- * @apiParam {String} org   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForOrg({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/events getForRepo
- * @apiName getForRepo
- * @apiDescription List repository events
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForRepo({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/issues/events getForRepoIssues
- * @apiName getForRepoIssues
- * @apiDescription List issue events for a repository
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForRepoIssues({ ... });
- */
-
-/**
- * @api {get} /networks/:user/:repo/events getForRepoNetwork
- * @apiName getForRepoNetwork
- * @apiDescription List public events for a network of repositories
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForRepoNetwork({ ... });
- */
-
-/**
- * @api {get} /users/:user/events getForUser
- * @apiName getForUser
- * @apiDescription List events performed by a user
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForUser({ ... });
- */
-
-/**
- * @api {get} /users/:user/events/orgs/:org getForUserOrg
- * @apiName getForUserOrg
- * @apiDescription List events for a user's organization
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {String} org   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForUserOrg({ ... });
- */
-
-/**
- * @api {get} /users/:user/events/public getForUserPublic
- * @apiName getForUserPublic
- * @apiDescription List public events performed by a user
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getForUserPublic({ ... });
- */
-
-/**
- * @api {get} /users/:user/received_events getReceived
- * @apiName getReceived
- * @apiDescription List events that a user has received
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getReceived({ ... });
- */
-
-/**
- * @api {get} /users/:user/received_events/public getReceivedPublic
- * @apiName getReceivedPublic
- * @apiDescription List public events that a user has received
- * @apiGroup events
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.events.getReceivedPublic({ ... });
  */
 
 /**
