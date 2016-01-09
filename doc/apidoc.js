@@ -1,6 +1,6 @@
 /**
- * @api {get} /user/starred/:user/:repo checkStarring
- * @apiName checkStarring
+ * @api {get} /user/starred/:user/:repo checkStarringRepo
+ * @apiName checkStarringRepo
  * @apiDescription Check if you are starring a repository
  * @apiGroup activity
  *
@@ -9,7 +9,7 @@
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.checkStarring({ ... });
+github.activity.checkStarringRepo({ ... });
  */
 
 /**
@@ -156,8 +156,22 @@ github.activity.getFeeds({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stargazers getStargazers
- * @apiName getStargazers
+ * @api {get} /repos/:user/:repo/subscription getRepoSubscription
+ * @apiName getRepoSubscription
+ * @apiDescription Get a Repository Subscription.
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getRepoSubscription({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/stargazers getStargazersForRepo
+ * @apiName getStargazersForRepo
  * @apiDescription List Stargazers
  * @apiGroup activity
  *
@@ -166,24 +180,24 @@ github.activity.getFeeds({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getStargazers({ ... });
+github.activity.getStargazersForRepo({ ... });
  */
 
 /**
- * @api {get} /user/starred getStarred
- * @apiName getStarred
+ * @api {get} /user/starred getStarredRepos
+ * @apiName getStarredRepos
  * @apiDescription List repositories being starred by the authenticated user
  * @apiGroup activity
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getStarred({ ... });
+github.activity.getStarredRepos({ ... });
  */
 
 /**
- * @api {get} /users/:user/starred getStarredForUser
- * @apiName getStarredForUser
+ * @api {get} /users/:user/starred getStarredReposForUser
+ * @apiName getStarredReposForUser
  * @apiDescription List repositories being starred by a user
  * @apiGroup activity
  *
@@ -191,52 +205,38 @@ github.activity.getStarred({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getStarredForUser({ ... });
+github.activity.getStarredReposForUser({ ... });
  */
 
 /**
- * @api {get} /user/watched getWatched
- * @apiName getWatched
- * @apiDescription undefined
+ * @api {get} /user/subscriptions getWatchedRepos
+ * @apiName getWatchedRepos
+ * @apiDescription List repositories being watched by the authenticated user.
  * @apiGroup activity
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getWatched({ ... });
+github.activity.getWatchedRepos({ ... });
  */
 
 /**
- * @api {get} /users/:user/watched getWatchedFromUser
- * @apiName getWatchedFromUser
- * @apiDescription undefined
- * @apiGroup activity
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.activity.getWatchedFromUser({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/watchers getWatchers
- * @apiName getWatchers
- * @apiDescription undefined
+ * @api {get} /users/:user/subscriptions getWatchedReposForUser
+ * @apiName getWatchedReposForUser
+ * @apiDescription List repositories being watched by a user.
  * @apiGroup activity
  *
  * @apiParam {String} user   
- * @apiParam {String} repo   
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getWatchers({ ... });
+github.activity.getWatchedReposForUser({ ... });
  */
 
 /**
- * @api {get} /user/watched/:user/:repo getWatching
- * @apiName getWatching
- * @apiDescription undefined
+ * @api {get} /repos/:user/:repo/subscribers getWatchersForRepo
+ * @apiName getWatchersForRepo
+ * @apiDescription Get watchers for repository.
  * @apiGroup activity
  *
  * @apiParam {String} user   
@@ -244,55 +244,57 @@ github.activity.getWatchers({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getWatching({ ... });
+github.activity.getWatchersForRepo({ ... });
  */
 
 /**
- * @api {put} /user/starred/:user/:repo star
- * @apiName star
+ * @api {put} /repos/:user/:repo/subscription setRepoSubscription
+ * @apiName setRepoSubscription
+ * @apiDescription Set a Repository Subscription
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Boolean} [subscribed]  Optional Determines if notifications should be received from this repository.
+ * @apiParam {Boolean} [ignored]  Optional Determines if all notifications should be blocked from this repository.
+ * @apiExample {js} ex:
+github.activity.setRepoSubscription({ ... });
+ */
+
+/**
+ * @api {put} /user/starred/:user/:repo starRepo
+ * @apiName starRepo
  * @apiDescription Star a repository
  * @apiGroup activity
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiExample {js} ex:
-github.activity.star({ ... });
+github.activity.starRepo({ ... });
  */
 
 /**
- * @api {delete} /user/watched/:user/:repo unWatch
- * @apiName unWatch
- * @apiDescription undefined
- * @apiGroup activity
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.activity.unWatch({ ... });
- */
-
-/**
- * @api {delete} /user/starred/:user/:repo unstar
- * @apiName unstar
+ * @api {delete} /user/starred/:user/:repo unstarRepo
+ * @apiName unstarRepo
  * @apiDescription Unstar a repository
  * @apiGroup activity
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiExample {js} ex:
-github.activity.unstar({ ... });
+github.activity.unstarRepo({ ... });
  */
 
 /**
- * @api {put} /user/watched/:user/:repo watch
- * @apiName watch2
- * @apiDescription undefined
+ * @api {delete} /repos/:user/:repo/subscription unwatchRepo
+ * @apiName unwatchRepo
+ * @apiDescription Unwatch a repository.
  * @apiGroup activity
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiExample {js} ex:
-github.activity.watch({ ... });
+github.activity.unwatchRepo({ ... });
  */
 
 /**

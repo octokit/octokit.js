@@ -559,7 +559,7 @@
             "description": "Get all feeds available for the authenticated user."
         },
 
-        "get-stargazers": {
+        "get-stargazers-for-repo": {
             "url": "/repos/:user/:repo/stargazers",
             "method": "GET",
             "params": {
@@ -571,7 +571,7 @@
             "description": "List Stargazers"
         },
 
-        "get-starred": {
+        "get-starred-repos": {
             "url": "/user/starred",
             "method": "GET",
             "params": {
@@ -581,7 +581,7 @@
             "description": "List repositories being starred by the authenticated user"
         },
 
-        "get-starred-for-user": {
+        "get-starred-repos-for-user": {
             "url": "/users/:user/starred",
             "method": "GET",
             "params": {
@@ -592,7 +592,7 @@
             "description": "List repositories being starred by a user"
         },
 
-        "check-starring": {
+        "check-starring-repo": {
             "url": "/user/starred/:user/:repo",
             "method": "GET",
             "params": {
@@ -604,7 +604,7 @@
             "description": "Check if you are starring a repository"
         },
 
-        "star": {
+        "star-repo": {
             "url": "/user/starred/:user/:repo",
             "method": "PUT",
             "params": {
@@ -614,7 +614,7 @@
             "description": "Star a repository"
         },
 
-        "unstar": {
+        "unstar-repo": {
             "url": "/user/starred/:user/:repo",
             "method": "DELETE",
             "params": {
@@ -624,63 +624,83 @@
             "description": "Unstar a repository"
         },
 
-        "get-watchers": {
-            "url": "/repos/:user/:repo/watchers",
+        "get-watchers-for-repo": {
+            "url": "/repos/:user/:repo/subscribers",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get watchers for repository."
         },
 
-        "get-watched": {
-            "url": "/user/watched",
+        "get-watched-repos": {
+            "url": "/user/subscriptions",
             "method": "GET",
             "params": {
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List repositories being watched by the authenticated user."
         },
 
-        "get-watched-from-user": {
-            "url": "/users/:user/watched",
+        "get-watched-repos-for-user": {
+            "url": "/users/:user/subscriptions",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List repositories being watched by a user."
         },
 
-        "get-watching": {
-            "url": "/user/watched/:user/:repo",
+        "get-repo-subscription": {
+            "url": "/repos/:user/:repo/subscription",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Get a Repository Subscription."
         },
 
-        "watch": {
-            "url": "/user/watched/:user/:repo",
+        "set-repo-subscription": {
+            "url": "/repos/:user/:repo/subscription",
             "method": "PUT",
             "params": {
                 "$user": null,
-                "$repo": null
-            }
+                "$repo": null,
+                "subscribed": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines if notifications should be received from this repository."
+                },
+                "ignored": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines if all notifications should be blocked from this repository."
+                }
+            },
+            "description": "Set a Repository Subscription"
         },
 
-        "un-watch": {
-            "url": "/user/watched/:user/:repo",
+        "unwatch-repo": {
+            "url": "/repos/:user/:repo/subscription",
             "method": "DELETE",
             "params": {
                 "$user": null,
                 "$repo": null
-            }
+            },
+            "description": "Unwatch a repository."
         }
     },
 
