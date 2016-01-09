@@ -1,18 +1,18 @@
 /**
- * @api {get} /events get
- * @apiName get
+ * @api {get} /events getEvents
+ * @apiName getEvents
  * @apiDescription List public events
  * @apiGroup activity
  *
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.get({ ... });
+github.activity.getEvents({ ... });
  */
 
 /**
- * @api {get} /orgs/:org/events getForOrg
- * @apiName getForOrg
+ * @api {get} /orgs/:org/events getEventsForOrg
+ * @apiName getEventsForOrg
  * @apiDescription List public events for an organization
  * @apiGroup activity
  *
@@ -20,12 +20,12 @@ github.activity.get({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForOrg({ ... });
+github.activity.getEventsForOrg({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/events getForRepo
- * @apiName getForRepo
+ * @api {get} /repos/:user/:repo/events getEventsForRepo
+ * @apiName getEventsForRepo
  * @apiDescription List repository events
  * @apiGroup activity
  *
@@ -34,12 +34,12 @@ github.activity.getForOrg({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForRepo({ ... });
+github.activity.getEventsForRepo({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/events getForRepoIssues
- * @apiName getForRepoIssues
+ * @api {get} /repos/:user/:repo/issues/events getEventsForRepoIssues
+ * @apiName getEventsForRepoIssues
  * @apiDescription List issue events for a repository
  * @apiGroup activity
  *
@@ -48,12 +48,12 @@ github.activity.getForRepo({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForRepoIssues({ ... });
+github.activity.getEventsForRepoIssues({ ... });
  */
 
 /**
- * @api {get} /networks/:user/:repo/events getForRepoNetwork
- * @apiName getForRepoNetwork
+ * @api {get} /networks/:user/:repo/events getEventsForRepoNetwork
+ * @apiName getEventsForRepoNetwork
  * @apiDescription List public events for a network of repositories
  * @apiGroup activity
  *
@@ -62,12 +62,12 @@ github.activity.getForRepoIssues({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForRepoNetwork({ ... });
+github.activity.getEventsForRepoNetwork({ ... });
  */
 
 /**
- * @api {get} /users/:user/events getForUser
- * @apiName getForUser
+ * @api {get} /users/:user/events getEventsForUser
+ * @apiName getEventsForUser
  * @apiDescription List events performed by a user
  * @apiGroup activity
  *
@@ -75,12 +75,12 @@ github.activity.getForRepoNetwork({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForUser({ ... });
+github.activity.getEventsForUser({ ... });
  */
 
 /**
- * @api {get} /users/:user/events/orgs/:org getForUserOrg
- * @apiName getForUserOrg
+ * @api {get} /users/:user/events/orgs/:org getEventsForUserOrg
+ * @apiName getEventsForUserOrg
  * @apiDescription List events for a user's organization
  * @apiGroup activity
  *
@@ -89,12 +89,12 @@ github.activity.getForUser({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForUserOrg({ ... });
+github.activity.getEventsForUserOrg({ ... });
  */
 
 /**
- * @api {get} /users/:user/events/public getForUserPublic
- * @apiName getForUserPublic
+ * @api {get} /users/:user/events/public getEventsForUserPublic
+ * @apiName getEventsForUserPublic
  * @apiDescription List public events performed by a user
  * @apiGroup activity
  *
@@ -102,12 +102,12 @@ github.activity.getForUserOrg({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getForUserPublic({ ... });
+github.activity.getEventsForUserPublic({ ... });
  */
 
 /**
- * @api {get} /users/:user/received_events getReceived
- * @apiName getReceived
+ * @api {get} /users/:user/received_events getEventsReceived
+ * @apiName getEventsReceived
  * @apiDescription List events that a user has received
  * @apiGroup activity
  *
@@ -115,12 +115,12 @@ github.activity.getForUserPublic({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getReceived({ ... });
+github.activity.getEventsReceived({ ... });
  */
 
 /**
- * @api {get} /users/:user/received_events/public getReceivedPublic
- * @apiName getReceivedPublic
+ * @api {get} /users/:user/received_events/public getEventsReceivedPublic
+ * @apiName getEventsReceivedPublic
  * @apiDescription List public events that a user has received
  * @apiGroup activity
  *
@@ -128,7 +128,171 @@ github.activity.getReceived({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.activity.getReceivedPublic({ ... });
+github.activity.getEventsReceivedPublic({ ... });
+ */
+
+/**
+ * @api {get} /feeds getFeeds
+ * @apiName getFeeds
+ * @apiDescription Get all feeds available for the authenticated user.
+ * @apiGroup activity
+ *
+ * @apiExample {js} ex:
+github.activity.getFeeds({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/stargazers getStargazers
+ * @apiName getStargazers
+ * @apiDescription List Stargazers
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getStargazers({ ... });
+ */
+
+/**
+ * @api {get} /user/starred getStarred
+ * @apiName getStarred
+ * @apiDescription List repositories being starred by the authenticated user
+ * @apiGroup activity
+ *
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getStarred({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/starred getStarredFromUser
+ * @apiName getStarredFromUser
+ * @apiDescription List repositories being starred by a user
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getStarredFromUser({ ... });
+ */
+
+/**
+ * @api {get} /user/starred/:user/:repo getStarring
+ * @apiName getStarring
+ * @apiDescription Check if you are starring a repository
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getStarring({ ... });
+ */
+
+/**
+ * @api {get} /user/watched getWatched
+ * @apiName getWatched
+ * @apiDescription undefined
+ * @apiGroup activity
+ *
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getWatched({ ... });
+ */
+
+/**
+ * @api {get} /users/:user/watched getWatchedFromUser
+ * @apiName getWatchedFromUser
+ * @apiDescription undefined
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getWatchedFromUser({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/watchers getWatchers
+ * @apiName getWatchers
+ * @apiDescription undefined
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getWatchers({ ... });
+ */
+
+/**
+ * @api {get} /user/watched/:user/:repo getWatching
+ * @apiName getWatching
+ * @apiDescription undefined
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.activity.getWatching({ ... });
+ */
+
+/**
+ * @api {put} /user/starred/:user/:repo star
+ * @apiName star
+ * @apiDescription Star a repository
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.activity.star({ ... });
+ */
+
+/**
+ * @api {delete} /user/starred/:user/:repo unStar
+ * @apiName unStar
+ * @apiDescription Unstar a repository
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.activity.unStar({ ... });
+ */
+
+/**
+ * @api {delete} /user/watched/:user/:repo unWatch
+ * @apiName unWatch
+ * @apiDescription undefined
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.activity.unWatch({ ... });
+ */
+
+/**
+ * @api {put} /user/watched/:user/:repo watch
+ * @apiName watch2
+ * @apiDescription undefined
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.activity.watch({ ... });
  */
 
 /**
@@ -2912,59 +3076,6 @@ github.repos.getReleases({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stargazers getStargazers
- * @apiName getStargazers
- * @apiDescription List Stargazers
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getStargazers({ ... });
- */
-
-/**
- * @api {get} /user/starred getStarred
- * @apiName getStarred
- * @apiDescription List repositories being starred by the authenticated user
- * @apiGroup repos
- *
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getStarred({ ... });
- */
-
-/**
- * @api {get} /users/:user/starred getStarredFromUser
- * @apiName getStarredFromUser
- * @apiDescription List repositories being starred by a user
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getStarredFromUser({ ... });
- */
-
-/**
- * @api {get} /user/starred/:user/:repo getStarring
- * @apiName getStarring
- * @apiDescription Check if you are starring a repository
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getStarring({ ... });
- */
-
-/**
  * @api {get} /repos/:user/:repo/stats/code_frequency getStatsCodeFrequency
  * @apiName getStatsCodeFrequency
  * @apiDescription Get the number of additions and deletions per week.
@@ -3066,59 +3177,6 @@ github.repos.getTeams({ ... });
  */
 
 /**
- * @api {get} /user/watched getWatched
- * @apiName getWatched
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getWatched({ ... });
- */
-
-/**
- * @api {get} /users/:user/watched getWatchedFromUser
- * @apiName getWatchedFromUser
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getWatchedFromUser({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/watchers getWatchers
- * @apiName getWatchers
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getWatchers({ ... });
- */
-
-/**
- * @api {get} /user/watched/:user/:repo getWatching
- * @apiName getWatching
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getWatching({ ... });
- */
-
-/**
  * @api {get} /repos/:user/:repo/releases/:id/assets listAssets
  * @apiName listAssets
  * @apiDescription List assets for a release.
@@ -3184,18 +3242,6 @@ github.repos.removeCollaborator({ ... });
  */
 
 /**
- * @api {put} /user/starred/:user/:repo star
- * @apiName star
- * @apiDescription Star a repository
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.repos.star({ ... });
- */
-
-/**
  * @api {post} /repos/:user/:repo/hooks/:id/test testHook
  * @apiName testHook
  * @apiDescription Test a [push] hook.
@@ -3206,30 +3252,6 @@ github.repos.star({ ... });
  * @apiParam {String} id   
  * @apiExample {js} ex:
 github.repos.testHook({ ... });
- */
-
-/**
- * @api {delete} /user/starred/:user/:repo unStar
- * @apiName unStar
- * @apiDescription Unstar a repository
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.repos.unStar({ ... });
- */
-
-/**
- * @api {delete} /user/watched/:user/:repo unWatch
- * @apiName unWatch
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.repos.unWatch({ ... });
  */
 
 /**
@@ -3277,18 +3299,6 @@ github.repos.updateFile({ ... });
  * @apiParam {String} [label]  Optional An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.
  * @apiExample {js} ex:
 github.repos.uploadAsset({ ... });
- */
-
-/**
- * @api {put} /user/watched/:user/:repo watch
- * @apiName watch2
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.repos.watch({ ... });
  */
 
 /**

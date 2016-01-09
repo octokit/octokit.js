@@ -1062,67 +1062,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stargazers (getStargazers)",  function(next) {
-        client.repos.getStargazers(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /user/starred (getStarred)",  function(next) {
-        client.repos.getStarred(
-            {
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /users/:user/starred (getStarredFromUser)",  function(next) {
-        client.repos.getStarredFromUser(
-            {
-                user: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /user/starred/:user/:repo (getStarring)",  function(next) {
-        client.repos.getStarring(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /repos/:user/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
         client.repos.getStatsCodeFrequency(
             {
@@ -1240,67 +1179,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /user/watched (getWatched)",  function(next) {
-        client.repos.getWatched(
-            {
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /users/:user/watched (getWatchedFromUser)",  function(next) {
-        client.repos.getWatchedFromUser(
-            {
-                user: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:user/:repo/watchers (getWatchers)",  function(next) {
-        client.repos.getWatchers(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /user/watched/:user/:repo (getWatching)",  function(next) {
-        client.repos.getWatching(
-            {
-                user: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /repos/:user/:repo/releases/:id/assets (listAssets)",  function(next) {
         client.repos.listAssets(
             {
@@ -1376,54 +1254,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/starred/:user/:repo (star)",  function(next) {
-        client.repos.star(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
         client.repos.testHook(
             {
                 user: "String",
                 repo: "String",
                 id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /user/starred/:user/:repo (unStar)",  function(next) {
-        client.repos.unStar(
-            {
-                user: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /user/watched/:user/:repo (unWatch)",  function(next) {
-        client.repos.unWatch(
-            {
-                user: "String",
-                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1477,20 +1313,6 @@ describe("[repos]", function() {
                 id: "String",
                 name: "String",
                 label: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PUT /user/watched/:user/:repo (watch)",  function(next) {
-        client.repos.watch(
-            {
-                user: "String",
-                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -25,8 +25,8 @@ describe("[activity]", function() {
         });
     });
 
-    it("should successfully execute GET /events (get)",  function(next) {
-        client.activity.get(
+    it("should successfully execute GET /events (getEvents)",  function(next) {
+        client.activity.getEvents(
             {
                 page: "Number",
                 per_page: "Number"
@@ -39,8 +39,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/events (getForOrg)",  function(next) {
-        client.activity.getForOrg(
+    it("should successfully execute GET /orgs/:org/events (getEventsForOrg)",  function(next) {
+        client.activity.getEventsForOrg(
             {
                 org: "String",
                 page: "Number",
@@ -54,8 +54,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/events (getForRepo)",  function(next) {
-        client.activity.getForRepo(
+    it("should successfully execute GET /repos/:user/:repo/events (getEventsForRepo)",  function(next) {
+        client.activity.getEventsForRepo(
             {
                 user: "String",
                 repo: "String",
@@ -70,8 +70,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/events (getForRepoIssues)",  function(next) {
-        client.activity.getForRepoIssues(
+    it("should successfully execute GET /repos/:user/:repo/issues/events (getEventsForRepoIssues)",  function(next) {
+        client.activity.getEventsForRepoIssues(
             {
                 user: "String",
                 repo: "String",
@@ -86,8 +86,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /networks/:user/:repo/events (getForRepoNetwork)",  function(next) {
-        client.activity.getForRepoNetwork(
+    it("should successfully execute GET /networks/:user/:repo/events (getEventsForRepoNetwork)",  function(next) {
+        client.activity.getEventsForRepoNetwork(
             {
                 user: "String",
                 repo: "String",
@@ -102,8 +102,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events (getForUser)",  function(next) {
-        client.activity.getForUser(
+    it("should successfully execute GET /users/:user/events (getEventsForUser)",  function(next) {
+        client.activity.getEventsForUser(
             {
                 user: "String",
                 page: "Number",
@@ -117,8 +117,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events/orgs/:org (getForUserOrg)",  function(next) {
-        client.activity.getForUserOrg(
+    it("should successfully execute GET /users/:user/events/orgs/:org (getEventsForUserOrg)",  function(next) {
+        client.activity.getEventsForUserOrg(
             {
                 user: "String",
                 org: "String",
@@ -133,8 +133,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events/public (getForUserPublic)",  function(next) {
-        client.activity.getForUserPublic(
+    it("should successfully execute GET /users/:user/events/public (getEventsForUserPublic)",  function(next) {
+        client.activity.getEventsForUserPublic(
             {
                 user: "String",
                 page: "Number",
@@ -148,8 +148,8 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/received_events (getReceived)",  function(next) {
-        client.activity.getReceived(
+    it("should successfully execute GET /users/:user/received_events (getEventsReceived)",  function(next) {
+        client.activity.getEventsReceived(
             {
                 user: "String",
                 page: "Number",
@@ -163,12 +163,201 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/received_events/public (getReceivedPublic)",  function(next) {
-        client.activity.getReceivedPublic(
+    it("should successfully execute GET /users/:user/received_events/public (getEventsReceivedPublic)",  function(next) {
+        client.activity.getEventsReceivedPublic(
             {
                 user: "String",
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /feeds (getFeeds)",  function(next) {
+        client.activity.getFeeds(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/stargazers (getStargazers)",  function(next) {
+        client.activity.getStargazers(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/starred (getStarred)",  function(next) {
+        client.activity.getStarred(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /users/:user/starred (getStarredFromUser)",  function(next) {
+        client.activity.getStarredFromUser(
+            {
+                user: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/starred/:user/:repo (getStarring)",  function(next) {
+        client.activity.getStarring(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/watched (getWatched)",  function(next) {
+        client.activity.getWatched(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /users/:user/watched (getWatchedFromUser)",  function(next) {
+        client.activity.getWatchedFromUser(
+            {
+                user: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/watchers (getWatchers)",  function(next) {
+        client.activity.getWatchers(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/watched/:user/:repo (getWatching)",  function(next) {
+        client.activity.getWatching(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /user/starred/:user/:repo (star)",  function(next) {
+        client.activity.star(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/starred/:user/:repo (unStar)",  function(next) {
+        client.activity.unStar(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/watched/:user/:repo (unWatch)",  function(next) {
+        client.activity.unWatch(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /user/watched/:user/:repo (watch)",  function(next) {
+        client.activity.watch(
+            {
+                user: "String",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
