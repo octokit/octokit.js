@@ -1518,15 +1518,15 @@ github.orgs.getMembers({ ... });
  */
 
 /**
- * @api {get} /orgs/:org/migrations/:id/archive getMigrationArchive
- * @apiName getMigrationArchive
+ * @api {get} /orgs/:org/migrations/:id/archive getMigrationArchiveLink
+ * @apiName getMigrationArchiveLink
  * @apiDescription Get the URL to a migration archive.
  * @apiGroup orgs
  *
  * @apiParam {String} org   
  * @apiParam {String} id   
  * @apiExample {js} ex:
-github.orgs.getMigrationArchive({ ... });
+github.orgs.getMigrationArchiveLink({ ... });
  */
 
 /**
@@ -1999,166 +1999,9 @@ github.pullRequests.update({ ... });
  */
 
 /**
- * @api {post} /repos/:owner/:repo/releases createRelease
- * @apiName createRelease
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {String} repo   
- * @apiParam {String} tag_name   String of the tag
- * @apiParam {String} [target_commitish]  Optional Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
- * @apiParam {String} [name]  Optional 
- * @apiParam {String} [body]  Optional 
- * @apiParam {Boolean} [draft]  Optional true to create a draft (unpublished) release, false to create a published one. Default: false
- * @apiParam {Boolean} [prerelease]  Optional true to identify the release as a prerelease. false to identify the release as a full release. Default: false
- * @apiExample {js} ex:
-github.releases.createRelease({ ... });
- */
-
-/**
- * @api {delete} /repos/:owner/:repo/releases/assets/:id deleteAsset
- * @apiName deleteAsset
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.releases.deleteAsset({ ... });
- */
-
-/**
- * @api {delete} /repos/:owner/:repo/releases/:id deleteRelease
- * @apiName deleteRelease
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.releases.deleteRelease({ ... });
- */
-
-/**
- * @api {patch} /repos/:owner/:repo/releases/assets/:id editAsset
- * @apiName editAsset
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiParam {String} name   
- * @apiParam {String} [label]  Optional An alternate short description of the asset. Used in place of the filename.
- * @apiExample {js} ex:
-github.releases.editAsset({ ... });
- */
-
-/**
- * @api {patch} /repos/:owner/:repo/releases/:id editRelease
- * @apiName editRelease
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiParam {String} tag_name   String of the tag
- * @apiParam {String} [target_commitish]  Optional Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
- * @apiParam {String} [name]  Optional 
- * @apiParam {String} [body]  Optional 
- * @apiParam {Boolean} [draft]  Optional true to create a draft (unpublished) release, false to create a published one. Default: false
- * @apiParam {Boolean} [prerelease]  Optional true to identify the release as a prerelease. false to identify the release as a full release. Default: false
- * @apiExample {js} ex:
-github.releases.editRelease({ ... });
- */
-
-/**
- * @api {get} /repos/:owner/:repo/releases/assets/:id getAsset
- * @apiName getAsset
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.releases.getAsset({ ... });
- */
-
-/**
- * @api {get} /repos/:owner/:repo/releases/latest getLatestRelease
- * @apiName getLatestRelease
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.releases.getLatestRelease({ ... });
- */
-
-/**
- * @api {get} /repos/:owner/:repo/releases/:id getRelease
- * @apiName getRelease
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.releases.getRelease({ ... });
- */
-
-/**
- * @api {get} /repos/:owner/:repo/releases/:id/assets listAssets
- * @apiName listAssets
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiExample {js} ex:
-github.releases.listAssets({ ... });
- */
-
-/**
- * @api {get} /repos/:owner/:repo/releases listReleases
- * @apiName listReleases
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {String} repo   
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.releases.listReleases({ ... });
- */
-
-/**
- * @api {post} /repos/:owner/:repo/releases/:id/assets uploadAsset
- * @apiName uploadAsset
- * @apiDescription undefined
- * @apiGroup releases
- *
- * @apiParam {String} owner   
- * @apiParam {Number} id   
- * @apiParam {String} repo   
- * @apiParam {String} name   the file name of the asset
- * @apiExample {js} ex:
-github.releases.uploadAsset({ ... });
- */
-
-/**
  * @api {put} /repos/:user/:repo/collaborators/:collabuser addCollaborator
  * @apiName addCollaborator
- * @apiDescription undefined
+ * @apiDescription Add user as a collaborator
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2169,9 +2012,22 @@ github.repos.addCollaborator({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/collaborators/:collabuser checkCollaborator
+ * @apiName checkCollaborator
+ * @apiDescription Check if user is a collaborator.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} collabuser   
+ * @apiExample {js} ex:
+github.repos.checkCollaborator({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/compare/:base...:head compareCommits
  * @apiName compareCommits
- * @apiDescription undefined
+ * @apiDescription Compare two commits.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2185,7 +2041,7 @@ github.repos.compareCommits({ ... });
 /**
  * @api {post} /user/repos create
  * @apiName create
- * @apiDescription undefined
+ * @apiDescription Create a new repository for the authenticated user.
  * @apiGroup repos
  *
  * @apiParam {String} name   
@@ -2197,6 +2053,7 @@ github.repos.compareCommits({ ... });
  * @apiParam {Boolean} [has_downloads]  Optional True to enable downloads for this repository, false to disable them. Default is true.
  * @apiParam {Boolean} [auto_init]  Optional True to create an initial commit with empty README. Default is false
  * @apiParam {String} [gitignore_template]  Optional Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
+ * @apiParam {String} [license_template]  Optional Desired LICENSE template to apply. Use the name of the template without the extension. For example, "mit" or "mozilla".
  * @apiExample {js} ex:
 github.repos.create({ ... });
  */
@@ -2204,47 +2061,30 @@ github.repos.create({ ... });
 /**
  * @api {post} /repos/:user/:repo/commits/:sha/comments createCommitComment
  * @apiName createCommitComment
- * @apiDescription undefined
+ * @apiDescription Create a commit comment.
  * @apiGroup repos
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} sha   
  * @apiParam {String} body   
- * @apiParam {String} commit_id   Sha of the commit to comment on.
  * @apiParam {String} [path]  Optional Relative path of the file to comment on.
  * @apiParam {Number} [position]  Optional Line index in the diff to comment on.
- * @apiParam {Number} [line]  Optional Line number in the file to comment on. Defaults to 1.
+ * @apiParam {Number} [line]  Optional Deprecated. Use position parameter instead. Line number in the file to comment on.
  * @apiExample {js} ex:
 github.repos.createCommitComment({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/contents/:path createContent
- * @apiName createContent
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} [content]  Optional 
- * @apiParam {String} [message]  Optional 
- * @apiParam {String} [path]  Optional The content path.
- * @apiParam {String} [ref]  Optional The String name of the Commit/Branch/Tag. Defaults to master.
- * @apiExample {js} ex:
-github.repos.createContent({ ... });
- */
-
-/**
  * @api {post} /repos/:user/:repo/deployments createDeployment
  * @apiName createDeployment
- * @apiDescription undefined
+ * @apiDescription Create a deployment.
  * @apiGroup repos
  *
- * @apiParam {String} ref   The ref to deploy. This can be a branch, tag, or sha.
- * @apiParam {String} task   The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
  * @apiParam {String} user   
  * @apiParam {String} repo   
+ * @apiParam {String} ref   The ref to deploy. This can be a branch, tag, or sha.
+ * @apiParam {String} task   The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
  * @apiParam {Boolean} [auto_merge]  Optional Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true
  * @apiParam {Array} [required_contexts]  Optional Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
  * @apiParam {String} [payload]  Optional Optional JSON payload with extra information about the deployment. Default: ''
@@ -2257,7 +2097,7 @@ github.repos.createDeployment({ ... });
 /**
  * @api {post} /repos/:user/:repo/deployments/:id/statuses createDeploymentStatus
  * @apiName createDeploymentStatus
- * @apiDescription undefined
+ * @apiDescription Create a deployment status.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2273,7 +2113,7 @@ github.repos.createDeploymentStatus({ ... });
 /**
  * @api {put} /repos/:user/:repo/contents/:path createFile
  * @apiName createFile
- * @apiDescription undefined
+ * @apiDescription Create a new file in the given repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2282,16 +2122,15 @@ github.repos.createDeploymentStatus({ ... });
  * @apiParam {String} message   The commit message.
  * @apiParam {String} content   The new file content, Base64 encoded.
  * @apiParam {String} [branch]  Optional The branch name. If not provided, uses the repository’s default branch (usually master).
- * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
  * @apiExample {js} ex:
 github.repos.createFile({ ... });
  */
 
 /**
- * @api {post} /orgs/:org/repos createFromOrg
- * @apiName createFromOrg
- * @apiDescription undefined
+ * @api {post} /orgs/:org/repos createForOrg
+ * @apiName createForOrg
+ * @apiDescription Create a new repository for an organization.
  * @apiGroup repos
  *
  * @apiParam {String} org   
@@ -2299,20 +2138,21 @@ github.repos.createFile({ ... });
  * @apiParam {String} [description]  Optional 
  * @apiParam {String} [homepage]  Optional 
  * @apiParam {Boolean} [private]  Optional True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
- * @apiParam {Number} [team_id]  Optional The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.
- * @apiParam {Boolean} [has_wiki]  Optional True to enable the wiki for this repository, false to disable it. Default is true.
+ * @apiParam {Boolean} [has_issues]  Optional True to enable issues for this repository, false to disable them. Default is true.
+ * @apiParam {String} [license_template]  Optional Desired LICENSE template to apply. Use the name of the template without the extension. For example, "mit" or "mozilla".
  * @apiParam {Boolean} [has_downloads]  Optional True to enable downloads for this repository, false to disable them. Default is true.
+ * @apiParam {Number} [team_id]  Optional The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization.
  * @apiParam {Boolean} [auto_init]  Optional True to create an initial commit with empty README. Default is false
  * @apiParam {String} [gitignore_template]  Optional Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
- * @apiParam {Boolean} [has_issues]  Optional True to enable issues for this repository, false to disable them. Default is true.
+ * @apiParam {Boolean} [has_wiki]  Optional True to enable the wiki for this repository, false to disable it. Default is true.
  * @apiExample {js} ex:
-github.repos.createFromOrg({ ... });
+github.repos.createForOrg({ ... });
  */
 
 /**
  * @api {post} /repos/:user/:repo/hooks createHook
  * @apiName createHook
- * @apiDescription undefined
+ * @apiDescription Create a hook.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2328,21 +2168,57 @@ github.repos.createHook({ ... });
 /**
  * @api {post} /repos/:user/:repo/keys createKey
  * @apiName createKey
- * @apiDescription undefined
+ * @apiDescription Add a new deploy key.
  * @apiGroup repos
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} title   
  * @apiParam {String} key   
+ * @apiParam {Boolean} [read_only]  Optional If true, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.
  * @apiExample {js} ex:
 github.repos.createKey({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/releases createRelease
+ * @apiName createRelease
+ * @apiDescription Create a release.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} tag_name   String of the tag
+ * @apiParam {String} [target_commitish]  Optional Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
+ * @apiParam {String} [name]  Optional 
+ * @apiParam {String} [body]  Optional 
+ * @apiParam {Boolean} [draft]  Optional true to create a draft (unpublished) release, false to create a published one. Default: false
+ * @apiParam {Boolean} [prerelease]  Optional true to identify the release as a prerelease. false to identify the release as a full release. Default: false
+ * @apiExample {js} ex:
+github.repos.createRelease({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/statuses/:sha createStatus
+ * @apiName createStatus
+ * @apiDescription Create a status.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} sha   
+ * @apiParam {String} state   State of the status - can be one of pending, success, error, or failure.
+ * @apiParam {String} [target_url]  Optional Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
+ * @apiParam {String} [description]  Optional Short description of the status.
+ * @apiParam {String} [context]  Optional A string label to differentiate this status from the status of other systems.
+ * @apiExample {js} ex:
+github.repos.createStatus({ ... });
+ */
+
+/**
  * @api {delete} /repos/:user/:repo delete
  * @apiName delete
- * @apiDescription undefined
+ * @apiDescription Delete a repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2352,9 +2228,22 @@ github.repos.delete({ ... });
  */
 
 /**
+ * @api {delete} /repos/:user/:repo/releases/assets/:id deleteAsset
+ * @apiName deleteAsset
+ * @apiDescription Delete a release asset.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.deleteAsset({ ... });
+ */
+
+/**
  * @api {delete} /repos/:user/:repo/comments/:id deleteCommitComment
  * @apiName deleteCommitComment
- * @apiDescription undefined
+ * @apiDescription Delete a commit comment.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2367,7 +2256,7 @@ github.repos.deleteCommitComment({ ... });
 /**
  * @api {delete} /repos/:user/:repo/downloads/:id deleteDownload
  * @apiName deleteDownload
- * @apiDescription undefined
+ * @apiDescription Delete a download.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2380,7 +2269,7 @@ github.repos.deleteDownload({ ... });
 /**
  * @api {delete} /repos/:user/:repo/contents/:path deleteFile
  * @apiName deleteFile
- * @apiDescription undefined
+ * @apiDescription Delete a file.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2389,7 +2278,6 @@ github.repos.deleteDownload({ ... });
  * @apiParam {String} message   The commit message.
  * @apiParam {String} sha   The blob SHA of the file being removed.
  * @apiParam {String} [branch]  Optional The branch name. If not provided, uses the repository’s default branch (usually master).
- * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
  * @apiExample {js} ex:
 github.repos.deleteFile({ ... });
@@ -2398,7 +2286,7 @@ github.repos.deleteFile({ ... });
 /**
  * @api {delete} /repos/:user/:repo/hooks/:id deleteHook
  * @apiName deleteHook
- * @apiDescription undefined
+ * @apiDescription Deleate a hook.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2411,7 +2299,7 @@ github.repos.deleteHook({ ... });
 /**
  * @api {delete} /repos/:user/:repo/keys/:id deleteKey
  * @apiName deleteKey
- * @apiDescription undefined
+ * @apiDescription Remove a deploy key.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2422,14 +2310,100 @@ github.repos.deleteKey({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/forks fork
- * @apiName fork
- * @apiDescription undefined
+ * @api {delete} /repos/:user/:repo/releases/:id deleteRelease
+ * @apiName deleteRelease
+ * @apiDescription Delete a release
  * @apiGroup repos
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
- * @apiParam {String} [organization]  Optional Organization login. The repository will be forked into this organization.
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.deleteRelease({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo edit
+ * @apiName edit
+ * @apiDescription Update a repo.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} name   
+ * @apiParam {String} [description]  Optional 
+ * @apiParam {String} [homepage]  Optional 
+ * @apiParam {Boolean} [private]  Optional True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
+ * @apiParam {Boolean} [has_issues]  Optional True to enable issues for this repository, false to disable them. Default is true.
+ * @apiParam {Boolean} [has_wiki]  Optional True to enable the wiki for this repository, false to disable it. Default is true.
+ * @apiParam {Boolean} [has_downloads]  Optional True to enable downloads for this repository, false to disable them. Default is true.
+ * @apiParam {String} [default_branch]  Optional Updates the default branch for this repository.
+ * @apiExample {js} ex:
+github.repos.edit({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/releases/assets/:id editAsset
+ * @apiName editAsset
+ * @apiDescription Edit a release asset.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiParam {String} name   
+ * @apiParam {String} [label]  Optional An alternate short description of the asset. Used in place of the filename.
+ * @apiExample {js} ex:
+github.repos.editAsset({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/hooks/:id editHook
+ * @apiName editHook
+ * @apiDescription Edit a hook.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiParam {String} name   
+ * @apiParam {Json} config   A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
+ * @apiParam {Array} [events]  Optional Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`.
+ * @apiParam {Array} [add_events]  Optional Determines a list of events to be added to the list of events that the Hook triggers for.
+ * @apiParam {Array} [remove_events]  Optional Determines a list of events to be removed from the list of events that the Hook triggers for.
+ * @apiParam {Boolean} [active]  Optional Determines whether the hook is actually triggered on pushes.
+ * @apiExample {js} ex:
+github.repos.editHook({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/releases/:id editRelease
+ * @apiName editRelease
+ * @apiDescription Edit a release.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiParam {String} tag_name   String of the tag
+ * @apiParam {String} [target_commitish]  Optional Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
+ * @apiParam {String} [name]  Optional 
+ * @apiParam {String} [body]  Optional 
+ * @apiParam {Boolean} [draft]  Optional true to create a draft (unpublished) release, false to create a published one. Default: false
+ * @apiParam {Boolean} [prerelease]  Optional true to identify the release as a prerelease. false to identify the release as a full release. Default: false
+ * @apiExample {js} ex:
+github.repos.editRelease({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/forks fork
+ * @apiName fork
+ * @apiDescription Create a fork.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [organization]  Optional Optional parameter to specify the organization name if forking into an organization.
  * @apiExample {js} ex:
 github.repos.fork({ ... });
  */
@@ -2437,7 +2411,7 @@ github.repos.fork({ ... });
 /**
  * @api {get} /repos/:user/:repo get
  * @apiName get
- * @apiDescription undefined
+ * @apiDescription Get a repo for a user.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2449,9 +2423,11 @@ github.repos.get({ ... });
 /**
  * @api {get} /user/repos getAll
  * @apiName getAll
- * @apiDescription undefined
+ * @apiDescription List your repositories
  * @apiGroup repos
  *
+ * @apiParam {String} [visibility]  Optional Can be one of `all`, `public`, or `private`. Default: `all`.
+ * @apiParam {String} [affiliation]  Optional Comma-separated list of values. Can include: `owner`, `collaborator`, `organization_member`.
  * @apiParam {String} [type]  Optional Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.
  * @apiParam {String} [sort]  Optional Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.
  * @apiParam {String} [direction]  Optional 
@@ -2464,7 +2440,7 @@ github.repos.getAll({ ... });
 /**
  * @api {get} /repos/:user/:repo/comments getAllCommitComments
  * @apiName getAllCommitComments
- * @apiDescription undefined
+ * @apiDescription List commit comments for a repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2478,21 +2454,34 @@ github.repos.getAllCommitComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/:archive_format/:ref getArchiveLink
  * @apiName getArchiveLink
- * @apiDescription undefined
+ * @apiDescription Get archive link.
  * @apiGroup repos
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
- * @apiParam {String} archive_format   Either tarball or zipball
+ * @apiParam {String} archive_format   Either tarball or zipball, Deafult: tarball.
  * @apiParam {String} [ref]  Optional String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/releases/assets/:id getAsset
+ * @apiName getAsset
+ * @apiDescription Get a single release asset.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getAsset({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/branches/:branch getBranch
  * @apiName getBranch
- * @apiDescription undefined
+ * @apiDescription Get a branch
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2507,7 +2496,7 @@ github.repos.getBranch({ ... });
 /**
  * @api {get} /repos/:user/:repo/branches getBranches
  * @apiName getBranches
- * @apiDescription undefined
+ * @apiDescription Get branches for the specified repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2519,22 +2508,9 @@ github.repos.getBranches({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/collaborators/:collabuser getCollaborator
- * @apiName getCollaborator
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} collabuser   
- * @apiExample {js} ex:
-github.repos.getCollaborator({ ... });
- */
-
-/**
  * @api {get} /repos/:user/:repo/collaborators getCollaborators
  * @apiName getCollaborators
- * @apiDescription undefined
+ * @apiDescription List collaborators
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2546,9 +2522,22 @@ github.repos.getCollaborators({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/commits/:sha/status getCombinedStatus
+ * @apiName getCombinedStatus
+ * @apiDescription Get the combined status for a specific ref.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.repos.getCombinedStatus({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/commits/:sha getCommit
  * @apiName getCommit
- * @apiDescription undefined
+ * @apiDescription Get a single commit.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2561,7 +2550,7 @@ github.repos.getCommit({ ... });
 /**
  * @api {get} /repos/:user/:repo/comments/:id getCommitComment
  * @apiName getCommitComment
- * @apiDescription undefined
+ * @apiDescription Get a single commit comment.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2574,7 +2563,7 @@ github.repos.getCommitComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits/:sha/comments getCommitComments
  * @apiName getCommitComments
- * @apiDescription undefined
+ * @apiDescription List comments for a single commit.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2589,7 +2578,7 @@ github.repos.getCommitComments({ ... });
 /**
  * @api {get} /repos/:user/:repo/commits getCommits
  * @apiName getCommits
- * @apiDescription undefined
+ * @apiDescription List commits on a repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2597,10 +2586,10 @@ github.repos.getCommitComments({ ... });
  * @apiParam {String} [sha]  Optional Sha or branch to start listing commits from.
  * @apiParam {String} [path]  Optional Only commits containing this file path will be returned.
  * @apiParam {String} [author]  Optional GitHub login or email address by which to filter by commit author.
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {Date} [until]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.repos.getCommits({ ... });
  */
@@ -2608,7 +2597,7 @@ github.repos.getCommits({ ... });
 /**
  * @api {get} /repos/:user/:repo/contents/:path getContent
  * @apiName getContent
- * @apiDescription undefined
+ * @apiDescription Get the contents of a file or directory in a repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2622,7 +2611,7 @@ github.repos.getContent({ ... });
 /**
  * @api {get} /repos/:user/:repo/contributors getContributors
  * @apiName getContributors
- * @apiDescription undefined
+ * @apiDescription Get contributors for the specified repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2637,7 +2626,7 @@ github.repos.getContributors({ ... });
 /**
  * @api {get} /repos/:user/:repo/deployments/:id/statuses getDeploymentStatuses
  * @apiName getDeploymentStatuses
- * @apiDescription undefined
+ * @apiDescription List deployment statuses.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2650,7 +2639,7 @@ github.repos.getDeploymentStatuses({ ... });
 /**
  * @api {get} /repos/:user/:repo/deployments getDeployments
  * @apiName getDeployments
- * @apiDescription undefined
+ * @apiDescription List deployments.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2668,7 +2657,7 @@ github.repos.getDeployments({ ... });
 /**
  * @api {get} /repos/:user/:repo/downloads/:id getDownload
  * @apiName getDownload
- * @apiDescription undefined
+ * @apiDescription Get a single download.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2681,7 +2670,7 @@ github.repos.getDownload({ ... });
 /**
  * @api {get} /repos/:user/:repo/downloads getDownloads
  * @apiName getDownloads
- * @apiDescription undefined
+ * @apiDescription List downloads for repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2693,24 +2682,9 @@ github.repos.getDownloads({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/forks getForks
- * @apiName getForks
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} [sort]  Optional Possible values: `newest`, `oldest`, `watchers`, default: `newest`.
- * @apiParam {Number} [page]  Optional Page number of the results to fetch.
- * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.repos.getForks({ ... });
- */
-
-/**
- * @api {get} /orgs/:org/repos getFromOrg
- * @apiName getFromOrg
- * @apiDescription undefined
+ * @api {get} /orgs/:org/repos getForOrg
+ * @apiName getForOrg
+ * @apiDescription List repositories for the specified org.
  * @apiGroup repos
  *
  * @apiParam {String} org   
@@ -2718,13 +2692,13 @@ github.repos.getForks({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.repos.getFromOrg({ ... });
+github.repos.getForOrg({ ... });
  */
 
 /**
- * @api {get} /users/:user/repos getFromUser
- * @apiName getFromUser
- * @apiDescription undefined
+ * @api {get} /users/:user/repos getForUser
+ * @apiName getForUser
+ * @apiDescription List public repositories for the specified user.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2734,13 +2708,28 @@ github.repos.getFromOrg({ ... });
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
-github.repos.getFromUser({ ... });
+github.repos.getForUser({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/forks getForks
+ * @apiName getForks
+ * @apiDescription List forks.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [sort]  Optional Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getForks({ ... });
  */
 
 /**
  * @api {get} /repos/:user/:repo/hooks/:id getHook
  * @apiName getHook
- * @apiDescription undefined
+ * @apiDescription Get single hook.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2753,7 +2742,7 @@ github.repos.getHook({ ... });
 /**
  * @api {get} /repos/:user/:repo/hooks getHooks
  * @apiName getHooks
- * @apiDescription undefined
+ * @apiDescription List hooks.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2767,7 +2756,7 @@ github.repos.getHooks({ ... });
 /**
  * @api {get} /repos/:user/:repo/keys/:id getKey
  * @apiName getKey
- * @apiDescription undefined
+ * @apiDescription Get a deploy key.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2780,7 +2769,7 @@ github.repos.getKey({ ... });
 /**
  * @api {get} /repos/:user/:repo/keys getKeys
  * @apiName getKeys
- * @apiDescription undefined
+ * @apiDescription List deploy keys.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2794,7 +2783,7 @@ github.repos.getKeys({ ... });
 /**
  * @api {get} /repos/:user/:repo/languages getLanguages
  * @apiName getLanguages
- * @apiDescription undefined
+ * @apiDescription Get languages for the specified repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2806,16 +2795,120 @@ github.repos.getLanguages({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/readme getReadme
- * @apiName getReadme
- * @apiDescription undefined
+ * @api {get} /repos/:user/:repo/pages/builds/latest getLatestPagesBuild
+ * @apiName getLatestPagesBuild
+ * @apiDescription Get latest Pages build
  * @apiGroup repos
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
- * @apiParam {String} [ref]  Optional The String name of the Commit/Branch/Tag. Defaults to master.
+ * @apiExample {js} ex:
+github.repos.getLatestPagesBuild({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/releases/latest getLatestRelease
+ * @apiName getLatestRelease
+ * @apiDescription Get the latest release.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiExample {js} ex:
+github.repos.getLatestRelease({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/pages getPages
+ * @apiName getPages
+ * @apiDescription Get information about a Pages site
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getPages({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/pages/builds getPagesBuilds
+ * @apiName getPagesBuilds
+ * @apiDescription List Pages builds
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getPagesBuilds({ ... });
+ */
+
+/**
+ * @api {get} /repositories getPublic
+ * @apiName getPublic
+ * @apiDescription List all public repositories
+ * @apiGroup repos
+ *
+ * @apiParam {String} org   
+ * @apiParam {String} [since]  Optional The integer ID of the last Repository that you've seen.
+ * @apiExample {js} ex:
+github.repos.getPublic({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/readme getReadme
+ * @apiName getReadme
+ * @apiDescription Get the README for the given repository.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} [ref]  Optional The name of the commit/branch/tag. Default: the repository’s default branch (usually master)
  * @apiExample {js} ex:
 github.repos.getReadme({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/releases/:id getRelease
+ * @apiName getRelease
+ * @apiDescription Get a single release.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.getRelease({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/releases/tags/:tag getReleaseByTag
+ * @apiName getReleaseByTag
+ * @apiDescription Get a release by tag name.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} tag   String of the tag
+ * @apiExample {js} ex:
+github.repos.getReleaseByTag({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/releases getReleases
+ * @apiName getReleases
+ * @apiDescription List releases for a repository.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Number} [page]  Optional Page number of the results to fetch.
+ * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getReleases({ ... });
  */
 
 /**
@@ -2874,7 +2967,7 @@ github.repos.getStarring({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/code_frequency getStatsCodeFrequency
  * @apiName getStatsCodeFrequency
- * @apiDescription undefined
+ * @apiDescription Get the number of additions and deletions per week.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2886,7 +2979,7 @@ github.repos.getStatsCodeFrequency({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/commit_activity getStatsCommitActivity
  * @apiName getStatsCommitActivity
- * @apiDescription undefined
+ * @apiDescription Get the last year of commit activity data.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2898,7 +2991,7 @@ github.repos.getStatsCommitActivity({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/contributors getStatsContributors
  * @apiName getStatsContributors
- * @apiDescription undefined
+ * @apiDescription Get contributors list with additions, deletions, and commit counts.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2910,7 +3003,7 @@ github.repos.getStatsContributors({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/participation getStatsParticipation
  * @apiName getStatsParticipation
- * @apiDescription undefined
+ * @apiDescription Get the weekly commit count for the repository owner and everyone else.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2922,7 +3015,7 @@ github.repos.getStatsParticipation({ ... });
 /**
  * @api {get} /repos/:user/:repo/stats/punch_card getStatsPunchCard
  * @apiName getStatsPunchCard
- * @apiDescription undefined
+ * @apiDescription Get the number of commits per hour in each day.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2932,9 +3025,22 @@ github.repos.getStatsPunchCard({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/commits/:sha/statuses getStatuses
+ * @apiName getStatuses
+ * @apiDescription Get status for a specfic ref.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} sha   
+ * @apiExample {js} ex:
+github.repos.getStatuses({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/tags getTags
  * @apiName getTags
- * @apiDescription undefined
+ * @apiDescription Get tags for the specified repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -2948,7 +3054,7 @@ github.repos.getTags({ ... });
 /**
  * @api {get} /repos/:user/:repo/teams getTeams
  * @apiName getTeams
- * @apiDescription undefined
+ * @apiDescription Get teams for the specified repository.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -3013,9 +3119,22 @@ github.repos.getWatching({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/releases/:id/assets listAssets
+ * @apiName listAssets
+ * @apiDescription List assets for a release.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.listAssets({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/merges merge
  * @apiName merge
- * @apiDescription undefined
+ * @apiDescription Perform a merge.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -3030,7 +3149,7 @@ github.repos.merge({ ... });
 /**
  * @api {get} /repositories/:id one
  * @apiName one
- * @apiDescription undefined
+ * @apiDescription Get a specific repo.
  * @apiGroup repos
  *
  * @apiParam {String} id   
@@ -3039,9 +3158,22 @@ github.repos.one({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/hooks/:id/pings pingHook
+ * @apiName pingHook
+ * @apiDescription Ping a hook.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.repos.pingHook({ ... });
+ */
+
+/**
  * @api {delete} /repos/:user/:repo/collaborators/:collabuser removeCollaborator
  * @apiName removeCollaborator
- * @apiDescription undefined
+ * @apiDescription Remove user as a collaborator.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -3066,7 +3198,7 @@ github.repos.star({ ... });
 /**
  * @api {post} /repos/:user/:repo/hooks/:id/test testHook
  * @apiName testHook
- * @apiDescription undefined
+ * @apiDescription Test a [push] hook.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -3101,29 +3233,9 @@ github.repos.unWatch({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo update
- * @apiName update
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} name   
- * @apiParam {String} [description]  Optional 
- * @apiParam {String} [homepage]  Optional 
- * @apiParam {Boolean} [private]  Optional True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
- * @apiParam {Boolean} [has_issues]  Optional True to enable issues for this repository, false to disable them. Default is true.
- * @apiParam {Boolean} [has_wiki]  Optional True to enable the wiki for this repository, false to disable it. Default is true.
- * @apiParam {Boolean} [has_downloads]  Optional True to enable downloads for this repository, false to disable them. Default is true.
- * @apiParam {String} [default_branch]  Optional Updates the default branch for this repository.
- * @apiExample {js} ex:
-github.repos.update({ ... });
- */
-
-/**
  * @api {patch} /repos/:user/:repo/comments/:id updateCommitComment
  * @apiName updateCommitComment
- * @apiDescription undefined
+ * @apiDescription Update a commit comment.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -3137,7 +3249,7 @@ github.repos.updateCommitComment({ ... });
 /**
  * @api {put} /repos/:user/:repo/contents/:path updateFile
  * @apiName updateFile
- * @apiDescription undefined
+ * @apiDescription Update a file.
  * @apiGroup repos
  *
  * @apiParam {String} user   
@@ -3147,44 +3259,24 @@ github.repos.updateCommitComment({ ... });
  * @apiParam {String} content   The updated file content, Base64 encoded.
  * @apiParam {String} sha   The blob SHA of the file being replaced.
  * @apiParam {String} [branch]  Optional The branch name. If not provided, uses the repository’s default branch (usually master).
- * @apiParam {Json} [author]  Optional 
  * @apiParam {Json} [committer]  Optional 
  * @apiExample {js} ex:
 github.repos.updateFile({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/hooks/:id updateHook
- * @apiName updateHook
- * @apiDescription undefined
+ * @api {post} /repos/:user/:repo/releases/:id/assets uploadAsset
+ * @apiName uploadAsset
+ * @apiDescription Upload a release asset.
  * @apiGroup repos
  *
  * @apiParam {String} user   
  * @apiParam {String} repo   
  * @apiParam {String} id   
- * @apiParam {String} name   
- * @apiParam {Json} config   A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
- * @apiParam {Array} [events]  Optional Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`.
- * @apiParam {Array} [add_events]  Optional Determines a list of events to be added to the list of events that the Hook triggers for.
- * @apiParam {Array} [remove_events]  Optional Determines a list of events to be removed from the list of events that the Hook triggers for.
- * @apiParam {Boolean} [active]  Optional Determines whether the hook is actually triggered on pushes.
+ * @apiParam {String} name   The file name of the asset. This should be set in a URI query parameter.
+ * @apiParam {String} [label]  Optional An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.
  * @apiExample {js} ex:
-github.repos.updateHook({ ... });
- */
-
-/**
- * @api {put} /repos/:user/:repo/keys/:id updateKey
- * @apiName updateKey
- * @apiDescription undefined
- * @apiGroup repos
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} id   
- * @apiParam {String} title   
- * @apiParam {String} key   
- * @apiExample {js} ex:
-github.repos.updateKey({ ... });
+github.repos.uploadAsset({ ... });
  */
 
 /**
@@ -3268,49 +3360,6 @@ github.search.repos({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.search.users({ ... });
- */
-
-/**
- * @api {post} /repos/:user/:repo/statuses/:sha create
- * @apiName create
- * @apiDescription undefined
- * @apiGroup statuses
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} sha   
- * @apiParam {String} state   State of the status - can be one of pending, success, error, or failure.
- * @apiParam {String} [target_url]  Optional Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status.
- * @apiParam {String} [description]  Optional Short description of the status.
- * @apiParam {String} [context]  Optional A string label to differentiate this status from the status of other systems.
- * @apiExample {js} ex:
-github.statuses.create({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/commits/:sha/statuses get
- * @apiName get
- * @apiDescription undefined
- * @apiGroup statuses
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} sha   
- * @apiExample {js} ex:
-github.statuses.get({ ... });
- */
-
-/**
- * @api {get} /repos/:user/:repo/commits/:sha/status getCombined
- * @apiName getCombined
- * @apiDescription undefined
- * @apiGroup statuses
- *
- * @apiParam {String} user   
- * @apiParam {String} repo   
- * @apiParam {String} sha   
- * @apiExample {js} ex:
-github.statuses.getCombined({ ... });
  */
 
 /**

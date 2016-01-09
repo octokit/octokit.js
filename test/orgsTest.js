@@ -341,8 +341,8 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/migrations/:id/archive (getMigrationArchive)",  function(next) {
-        client.orgs.getMigrationArchive(
+    it("should successfully execute GET /orgs/:org/migrations/:id/archive (getMigrationArchiveLink)",  function(next) {
+        client.orgs.getMigrationArchiveLink(
             {
                 org: "String",
                 id: "String"
