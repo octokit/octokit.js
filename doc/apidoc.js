@@ -1,4 +1,15 @@
 /**
+ * @api {get} /notifications/threads/:id/subscription checkNotificationThreadSubscription
+ * @apiName checkNotificationThreadSubscription
+ * @apiDescription Check to see if the current user is subscribed to a thread.
+ * @apiGroup activity
+ *
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.activity.checkNotificationThreadSubscription({ ... });
+ */
+
+/**
  * @api {get} /user/starred/:user/:repo checkStarringRepo
  * @apiName checkStarringRepo
  * @apiDescription Check if you are starring a repository
@@ -10,6 +21,17 @@
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.activity.checkStarringRepo({ ... });
+ */
+
+/**
+ * @api {delete} /notifications/threads/:id/subscription deleteNotificationThreadSubscription
+ * @apiName deleteNotificationThreadSubscription
+ * @apiDescription Delete a notification thread subscription.
+ * @apiGroup activity
+ *
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.activity.deleteNotificationThreadSubscription({ ... });
  */
 
 /**
@@ -156,6 +178,47 @@ github.activity.getFeeds({ ... });
  */
 
 /**
+ * @api {get} /notifications/threads/:id getNotificationThread
+ * @apiName getNotificationThread
+ * @apiDescription View a single notification thread.
+ * @apiGroup activity
+ *
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.activity.getNotificationThread({ ... });
+ */
+
+/**
+ * @api {get} /notifications getNotifications
+ * @apiName getNotifications
+ * @apiDescription Get all notifications for the current user, grouped by repository.
+ * @apiGroup activity
+ *
+ * @apiParam {Boolean} [all]  Optional If true, show notifications marked as read. Default: false
+ * @apiParam {Boolean} [participating]  Optional If true, only shows notifications in which the user is directly participating or mentioned. Default: false
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {String} [before]  Optional Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+ * @apiExample {js} ex:
+github.activity.getNotifications({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/notifications getNotificationsForUser
+ * @apiName getNotificationsForUser
+ * @apiDescription Get all notifications for the given user.
+ * @apiGroup activity
+ *
+ * @apiParam {String} user   
+ * @apiParam {String} repo   
+ * @apiParam {Boolean} [all]  Optional If true, show notifications marked as read. Default: false
+ * @apiParam {Boolean} [participating]  Optional If true, only shows notifications in which the user is directly participating or mentioned. Default: false
+ * @apiParam {Date} [since]  Optional Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+ * @apiParam {String} [before]  Optional Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+ * @apiExample {js} ex:
+github.activity.getNotificationsForUser({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/subscription getRepoSubscription
  * @apiName getRepoSubscription
  * @apiDescription Get a Repository Subscription.
@@ -245,6 +308,52 @@ github.activity.getWatchedReposForUser({ ... });
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.activity.getWatchersForRepo({ ... });
+ */
+
+/**
+ * @api {patch} /notifications/threads/:id markNotificationThreadAsRead
+ * @apiName markNotificationThreadAsRead
+ * @apiDescription Mark a notification thread as read.
+ * @apiGroup activity
+ *
+ * @apiParam {String} id   
+ * @apiExample {js} ex:
+github.activity.markNotificationThreadAsRead({ ... });
+ */
+
+/**
+ * @api {put} /notifications markNotificationsAsRead
+ * @apiName markNotificationsAsRead
+ * @apiDescription Mark notifications as read for authenticated user.
+ * @apiGroup activity
+ *
+ * @apiParam {String} [last_read_at]  Optional Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now
+ * @apiExample {js} ex:
+github.activity.markNotificationsAsRead({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/notifications markNotificationsAsReadForRepo
+ * @apiName markNotificationsAsReadForRepo
+ * @apiDescription Mark notifications in a repo as read.
+ * @apiGroup activity
+ *
+ * @apiParam {String} [last_read_at]  Optional Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now
+ * @apiExample {js} ex:
+github.activity.markNotificationsAsReadForRepo({ ... });
+ */
+
+/**
+ * @api {put} /notifications/threads/:id/subscription setNotificationThreadSubscription
+ * @apiName setNotificationThreadSubscription
+ * @apiDescription This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get @mentioned once more).
+ * @apiGroup activity
+ *
+ * @apiParam {String} id   
+ * @apiParam {Boolean} [subscribed]  Optional Determines if notifications should be received from this thread
+ * @apiParam {Boolean} [ignored]  Optional Determines if all notifications should be blocked from this thread
+ * @apiExample {js} ex:
+github.activity.setNotificationThreadSubscription({ ... });
  */
 
 /**

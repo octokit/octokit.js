@@ -559,6 +559,157 @@
             "description": "Get all feeds available for the authenticated user."
         },
 
+        "get-notifications": {
+            "url": "/notifications",
+            "method": "GET",
+            "params": {
+                "all": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If true, show notifications marked as read. Default: false"
+                },
+                "participating": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false"
+                },
+                "$since": null,
+                "before": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
+                }
+            },
+            "description": "Get all notifications for the current user, grouped by repository."
+        },
+
+        "get-notifications-for-user": {
+            "url": "/repos/:user/:repo/notifications",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "all": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If true, show notifications marked as read. Default: false"
+                },
+                "participating": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false"
+                },
+                "$since": null,
+                "before": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
+                }
+            },
+            "description": "Get all notifications for the given user."
+        },
+
+        "mark-notifications-as-read": {
+            "url": "/notifications",
+            "method": "PUT",
+            "params": {
+                "last_read_at": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now"
+                }
+            },
+            "description": "Mark notifications as read for authenticated user."
+        },
+
+        "mark-notifications-as-read-for-repo": {
+            "url": "/repos/:user/:repo/notifications",
+            "method": "PUT",
+            "params": {
+                "last_read_at": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now"
+                }
+            },
+            "description": "Mark notifications in a repo as read."
+        },
+
+        "get-notification-thread": {
+            "url": "/notifications/threads/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "View a single notification thread."
+        },
+
+        "mark-notification-thread-as-read": {
+            "url": "/notifications/threads/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null
+            },
+            "description": "Mark a notification thread as read."
+        },
+
+        "check-notification-thread-subscription": {
+            "url": "/notifications/threads/:id/subscription",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Check to see if the current user is subscribed to a thread."
+        },
+
+        "set-notification-thread-subscription": {
+            "url": "/notifications/threads/:id/subscription",
+            "method": "PUT",
+            "params": {
+                "$id": null,
+                "subscribed": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines if notifications should be received from this thread"
+                },
+                "ignored": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Determines if all notifications should be blocked from this thread"
+                }
+            },
+            "description": "This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get @mentioned once more)."
+        },
+
+        "delete-notification-thread-subscription": {
+            "url": "/notifications/threads/:id/subscription",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a notification thread subscription."
+        },
+
         "get-stargazers-for-repo": {
             "url": "/repos/:user/:repo/stargazers",
             "method": "GET",

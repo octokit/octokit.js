@@ -25,6 +25,19 @@ describe("[activity]", function() {
         });
     });
 
+    it("should successfully execute GET /notifications/threads/:id/subscription (checkNotificationThreadSubscription)",  function(next) {
+        client.activity.checkNotificationThreadSubscription(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/starred/:user/:repo (checkStarringRepo)",  function(next) {
         client.activity.checkStarringRepo(
             {
@@ -32,6 +45,19 @@ describe("[activity]", function() {
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /notifications/threads/:id/subscription (deleteNotificationThreadSubscription)",  function(next) {
+        client.activity.deleteNotificationThreadSubscription(
+            {
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -205,6 +231,53 @@ describe("[activity]", function() {
         );
     });
 
+    it("should successfully execute GET /notifications/threads/:id (getNotificationThread)",  function(next) {
+        client.activity.getNotificationThread(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /notifications (getNotifications)",  function(next) {
+        client.activity.getNotifications(
+            {
+                all: "Boolean",
+                participating: "Boolean",
+                since: "Date",
+                before: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/notifications (getNotificationsForUser)",  function(next) {
+        client.activity.getNotificationsForUser(
+            {
+                user: "String",
+                repo: "String",
+                all: "Boolean",
+                participating: "Boolean",
+                since: "Date",
+                before: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/subscription (getRepoSubscription)",  function(next) {
         client.activity.getRepoSubscription(
             {
@@ -302,6 +375,60 @@ describe("[activity]", function() {
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /notifications/threads/:id (markNotificationThreadAsRead)",  function(next) {
+        client.activity.markNotificationThreadAsRead(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /notifications (markNotificationsAsRead)",  function(next) {
+        client.activity.markNotificationsAsRead(
+            {
+                last_read_at: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/notifications (markNotificationsAsReadForRepo)",  function(next) {
+        client.activity.markNotificationsAsReadForRepo(
+            {
+                last_read_at: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /notifications/threads/:id/subscription (setNotificationThreadSubscription)",  function(next) {
+        client.activity.setNotificationThreadSubscription(
+            {
+                id: "String",
+                subscribed: "Boolean",
+                ignored: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
