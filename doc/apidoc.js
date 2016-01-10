@@ -470,6 +470,84 @@ github.authorization.update({ ... });
  */
 
 /**
+ * @api {post} /admin/organizations createOrg
+ * @apiName createOrg
+ * @apiDescription Create an organization
+ * @apiGroup enterprise
+ *
+ * @apiParam {String} login   The organization's username.
+ * @apiParam {String} admin   The login of the user who will manage this organization.
+ * @apiParam {String} [profile_name]  Optional The organization's display name.
+ * @apiExample {js} ex:
+github.enterprise.createOrg({ ... });
+ */
+
+/**
+ * @api {get} /enterprise/settings/license getLicense
+ * @apiName getLicense
+ * @apiDescription Get license information
+ * @apiGroup enterprise
+ *
+ * @apiExample {js} ex:
+github.enterprise.getLicense({ ... });
+ */
+
+/**
+ * @api {get} /enterprise/stats/:type stats
+ * @apiName stats
+ * @apiDescription Get statistics.
+ * @apiGroup enterprise
+ *
+ * @apiParam {String} type   Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.
+ * @apiExample {js} ex:
+github.enterprise.stats({ ... });
+ */
+
+/**
+ * @api {post} /admin/ldap/teams/:team_id/sync syncLdapForTeam
+ * @apiName syncLdapForTeam
+ * @apiDescription Sync LDAP mapping for a team.
+ * @apiGroup enterprise
+ *
+ * @apiParam {Number} [team_id]  Optional 
+ * @apiExample {js} ex:
+github.enterprise.syncLdapForTeam({ ... });
+ */
+
+/**
+ * @api {post} /admin/ldap/users/:user/sync syncLdapForUser
+ * @apiName syncLdapForUser
+ * @apiDescription Sync LDAP mapping for a user.
+ * @apiGroup enterprise
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.enterprise.syncLdapForUser({ ... });
+ */
+
+/**
+ * @api {patch} /admin/ldap/teams/:team_id/mapping updateLdapForTeam
+ * @apiName updateLdapForTeam
+ * @apiDescription Update LDAP mapping for a team.
+ * @apiGroup enterprise
+ *
+ * @apiParam {Number} [team_id]  Optional 
+ * @apiExample {js} ex:
+github.enterprise.updateLdapForTeam({ ... });
+ */
+
+/**
+ * @api {patch} /admin/ldap/users/:user/mapping updateLdapForUser
+ * @apiName updateLdapForUser
+ * @apiDescription Update LDAP mapping for a user.
+ * @apiGroup enterprise
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.enterprise.updateLdapForUser({ ... });
+ */
+
+/**
  * @api {get} /gists/:id/star checkStar
  * @apiName checkStar
  * @apiDescription Check if a gist is starred
