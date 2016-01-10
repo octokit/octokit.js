@@ -4887,5 +4887,106 @@
             },
             "description": "Delete a public key"
         }
+    },
+
+    "enterprise": {
+        "stats": {
+            "url": "/enterprise/stats/:type",
+            "method": "GET",
+            "params": {
+                "type": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(issues|hooks|milestones|orgs|comments|pages|users|gists|pulls|repos|all)$",
+                    "invalidmsg": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
+                    "description": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all."
+                }
+            },
+            "description": "Get statistics."
+        },
+
+        "update-ldap-for-user": {
+            "url": "/admin/ldap/users/:user/mapping",
+            "method": "PATCH",
+            "params": {
+                "$user": null
+            },
+            "description": "Update LDAP mapping for a user."
+        },
+
+        "sync-ldap-for-user": {
+            "url": "/admin/ldap/users/:user/sync",
+            "method": "POST",
+            "params": {
+                "$user": null
+            },
+            "description": "Sync LDAP mapping for a user."
+        },
+
+        "update-ldap-for-team": {
+            "url": "/admin/ldap/teams/:team_id/mapping",
+            "method": "PATCH",
+            "params": {
+                "team_id": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "^[0-9]+$",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            },
+            "description": "Update LDAP mapping for a team."
+        },
+
+        "sync-ldap-for-team": {
+            "url": "/admin/ldap/teams/:team_id/sync",
+            "method": "POST",
+            "params": {
+                "team_id": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "^[0-9]+$",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            },
+            "description": "Sync LDAP mapping for a team."
+        },
+
+        "get-license": {
+            "url": "/enterprise/settings/license",
+            "method": "GET",
+            "params": {},
+            "description": "Get license information"
+        },
+
+        "create-org": {
+            "url": "/admin/organizations",
+            "method": "POST",
+            "params": {
+                "login": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The organization's username."
+                },
+                "admin": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The login of the user who will manage this organization."
+                },
+                "profile_name": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The organization's display name."
+                }
+            },
+            "description": "Create an organization"
+        }
     }
 }
