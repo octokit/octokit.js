@@ -4505,42 +4505,6 @@
     },
 
     "search": {
-        "code": {
-            "url": "/search/code",
-            "method": "GET",
-            "params": {
-                "$q": null,
-                "sort": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^indexed$",
-                    "invalidmsg": "indexed only",
-                    "description": "indexed only"
-                },
-                "$order": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
-        "issues": {
-            "url": "/search/issues",
-            "method": "GET",
-            "params": {
-                "$q": null,
-                "sort": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(comments|created|updated)$",
-                    "invalidmsg": "comments, created, or updated",
-                    "description": "comments, created, or updated"
-                },
-                "$order": null,
-                "$page": null,
-                "$per_page": null
-            }
-        },
-
         "repos": {
             "url": "/search/repositories",
             "method": "GET",
@@ -4556,7 +4520,46 @@
                 "$order": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Search repositories."
+        },
+
+        "code": {
+            "url": "/search/code",
+            "method": "GET",
+            "params": {
+                "$q": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^indexed$",
+                    "invalidmsg": "indexed only",
+                    "description": "The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match."
+                },
+                "$order": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Search code."
+        },
+
+        "issues": {
+            "url": "/search/issues",
+            "method": "GET",
+            "params": {
+                "$q": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(comments|created|updated)$",
+                    "invalidmsg": "comments, created, or updated",
+                    "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match."
+                },
+                "$order": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Search issues."
         },
 
         "users": {
@@ -4569,12 +4572,13 @@
                     "required": false,
                     "validation": "^(followers|repositories|joined)$",
                     "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
-                    "description": "followers, repositories, or joined"
+                    "description": "The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match."
                 },
                 "$order": null,
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "Search users."
         },
 
         "email": {
@@ -4586,9 +4590,10 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Email address"
+                    "description": "The email address"
                 }
-            }
+            },
+            "description": "Search against public email addresses."
         }
     },
 
