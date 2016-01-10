@@ -4886,6 +4886,42 @@
                 "$id": null
             },
             "description": "Delete a public key"
+        },
+
+        "promote": {
+            "url": "/users/:user/site_admin",
+            "method": "PUT",
+            "params": {
+                "$user": null
+            },
+            "description": "Promote an ordinary user to a site administrator"
+        },
+
+        "demote": {
+            "url": "/users/:user/site_admin",
+            "method": "DELETE",
+            "params": {
+                "$user": null
+            },
+            "description": "Demote a site administrator to an ordinary user"
+        },
+
+        "suspend": {
+            "url": "/users/:user/suspended",
+            "method": "PUT",
+            "params": {
+                "$user": null
+            },
+            "description": "Suspend a user"
+        },
+
+        "unsuspend": {
+            "url": "/users/:user/suspended",
+            "method": "DELETE",
+            "params": {
+                "$user": null
+            },
+            "description": "Unsuspend a user"
         }
     },
 
