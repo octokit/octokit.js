@@ -3415,11 +3415,11 @@ github.repos.uploadAsset({ ... });
 /**
  * @api {get} /search/code code
  * @apiName code
- * @apiDescription undefined
+ * @apiDescription Search code.
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
- * @apiParam {String} [sort]  Optional indexed only
+ * @apiParam {String} [sort]  Optional The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match.
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
@@ -3430,10 +3430,10 @@ github.search.code({ ... });
 /**
  * @api {get} /legacy/user/email/:email email
  * @apiName email
- * @apiDescription undefined
+ * @apiDescription Search against public email addresses.
  * @apiGroup search
  *
- * @apiParam {String} email   Email address
+ * @apiParam {String} email   The email address
  * @apiExample {js} ex:
 github.search.email({ ... });
  */
@@ -3441,11 +3441,11 @@ github.search.email({ ... });
 /**
  * @api {get} /search/issues issues
  * @apiName issues
- * @apiDescription undefined
+ * @apiDescription Search issues.
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
- * @apiParam {String} [sort]  Optional comments, created, or updated
+ * @apiParam {String} [sort]  Optional The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
@@ -3456,7 +3456,7 @@ github.search.issues({ ... });
 /**
  * @api {get} /search/repositories repos
  * @apiName repos
- * @apiDescription undefined
+ * @apiDescription Search repositories.
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
@@ -3471,11 +3471,11 @@ github.search.repos({ ... });
 /**
  * @api {get} /search/users users
  * @apiName users
- * @apiDescription undefined
+ * @apiDescription Search users.
  * @apiGroup search
  *
  * @apiParam {String} q   Search Term
- * @apiParam {String} [sort]  Optional followers, repositories, or joined
+ * @apiParam {String} [sort]  Optional The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match.
  * @apiParam {String} [order]  Optional asc or desc
  * @apiParam {Number} [page]  Optional Page number of the results to fetch.
  * @apiParam {Number} [per_page]  Optional A custom page size up to 100. Default is 30.
