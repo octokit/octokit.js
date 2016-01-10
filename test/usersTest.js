@@ -101,6 +101,19 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute DELETE /users/:user/site_admin (demote)",  function(next) {
+        client.users.demote(
+            {
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PATCH /user/memberships/orgs/:org (editOrganizationMembership)",  function(next) {
         client.users.editOrganizationMembership(
             {
@@ -320,8 +333,47 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute PUT /users/:user/site_admin (promote)",  function(next) {
+        client.users.promote(
+            {
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /users/:user/suspended (suspend)",  function(next) {
+        client.users.suspend(
+            {
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /user/following/:user (unfollowUser)",  function(next) {
         client.users.unfollowUser(
+            {
+                user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /users/:user/suspended (unsuspend)",  function(next) {
+        client.users.unsuspend(
             {
                 user: "String"
             },

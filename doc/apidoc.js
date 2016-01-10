@@ -3628,6 +3628,17 @@ github.users.deleteKey({ ... });
  */
 
 /**
+ * @api {delete} /users/:user/site_admin demote
+ * @apiName demote
+ * @apiDescription Demote a site administrator to an ordinary user
+ * @apiGroup users
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.users.demote({ ... });
+ */
+
+/**
  * @api {patch} /user/memberships/orgs/:org editOrganizationMembership
  * @apiName editOrganizationMembership
  * @apiDescription Edit your organization membership
@@ -3816,6 +3827,28 @@ github.users.getTeams({ ... });
  */
 
 /**
+ * @api {put} /users/:user/site_admin promote
+ * @apiName promote
+ * @apiDescription Promote an ordinary user to a site administrator
+ * @apiGroup users
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.users.promote({ ... });
+ */
+
+/**
+ * @api {put} /users/:user/suspended suspend
+ * @apiName suspend
+ * @apiDescription Suspend a user
+ * @apiGroup users
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.users.suspend({ ... });
+ */
+
+/**
  * @api {delete} /user/following/:user unfollowUser
  * @apiName unfollowUser
  * @apiDescription Unfollow a user
@@ -3824,6 +3857,17 @@ github.users.getTeams({ ... });
  * @apiParam {String} user   
  * @apiExample {js} ex:
 github.users.unfollowUser({ ... });
+ */
+
+/**
+ * @api {delete} /users/:user/suspended unsuspend
+ * @apiName unsuspend
+ * @apiDescription Unsuspend a user
+ * @apiGroup users
+ *
+ * @apiParam {String} user   
+ * @apiExample {js} ex:
+github.users.unsuspend({ ... });
  */
 
 /**
