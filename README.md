@@ -144,19 +144,16 @@ $ apidoc -i doc/ -o apidoc/
 
 ## Tests
 
-Install mocha
-```bash
-$ npm install mocha -g
-```
-
 Run all tests
+
 ```bash
-$ mocha
+$ npm test
 ```
 
 Or run a specific test
+
 ```bash
-$ mocha test/issuesTest.js
+$ npm test test/issuesTest.js
 ```
 
 ## LICENSE
