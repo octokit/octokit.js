@@ -120,7 +120,8 @@
                 "required": false,
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "asc or desc, default: desc.",
-                "description": ""
+                "description": "",
+                "default": "desc"
             },
             "since": {
                 "type": "Date",
@@ -141,7 +142,8 @@
                 "required": false,
                 "validation": "^(open|closed|all)$",
                 "invalidmsg": "open, closed, all, default: open",
-                "description": ""
+                "description": "",
+                "default": "open"
             },
             "color": {
                 "type": "String",
@@ -155,7 +157,8 @@
                 "required": false,
                 "validation": "^(pull|push|admin)$",
                 "invalidmsg": "",
-                "description": "`pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories."
+                "description": "`pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.",
+                "default": "pull"
             },
             "base": {
                 "type": "String",
@@ -218,28 +221,32 @@
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false."
+                "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.",
+                "default": "false"
             },
             "has_issues": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "True to enable issues for this repository, false to disable them. Default is true."
+                "description": "True to enable issues for this repository, false to disable them. Default is true.",
+                "default": "true"
             },
             "has_wiki": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "True to enable the wiki for this repository, false to disable it. Default is true."
+                "description": "True to enable the wiki for this repository, false to disable it. Default is true.",
+                "default": "true"
             },
             "has_downloads": {
                 "type": "Boolean",
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "True to enable downloads for this repository, false to disable them. Default is true."
+                "description": "True to enable downloads for this repository, false to disable them. Default is true.",
+                "default": "true"
             },
             "default_branch": {
                 "type": "String",
@@ -281,7 +288,8 @@
                 "required": false,
                 "validation": "^[0-9]+$",
                 "invalidmsg": "",
-                "description": "A custom page size up to 100. Default is 30."
+                "description": "A custom page size up to 100. Default is 30.",
+                "default": "30"
             },
             "scopes": {
                 "type": "Array",
@@ -309,7 +317,8 @@
                 "required": false,
                 "validation": "",
                 "invalidmsg": "",
-                "description": "True to create an initial commit with empty README. Default is false"
+                "description": "True to create an initial commit with empty README. Default is false",
+                "default": "false"
             },
             "gitignore_template": {
                 "type": "String",
@@ -344,7 +353,8 @@
                 "required": false,
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
-                "description": "asc or desc"
+                "description": "asc or desc",
+                "default": "desc"
             },
             "q": {
                 "type": "String",
@@ -366,7 +376,8 @@
                 "required": false,
                 "validation": "^(secret|closed)$",
                 "invalidmsg": "secret, closed, default: secret",
-                "description": "The level of privacy this team should have."
+                "description": "The level of privacy this team should have.",
+                "default": "secret"
             }
         }
     },
@@ -568,14 +579,16 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "If true, show notifications marked as read. Default: false"
+                    "description": "If true, show notifications marked as read. Default: false",
+                    "default": "false"
                 },
                 "participating": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false"
+                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false",
+                    "default": "false"
                 },
                 "$since": null,
                 "before": {
@@ -600,14 +613,16 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "If true, show notifications marked as read. Default: false"
+                    "description": "If true, show notifications marked as read. Default: false",
+                    "default": "false"
                 },
                 "participating": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false"
+                    "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false",
+                    "default": "false"
                 },
                 "$since": null,
                 "before": {
@@ -630,7 +645,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now"
+                    "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now",
+                    "default": "Time.now"
                 }
             },
             "description": "Mark notifications as read for authenticated user."
@@ -645,7 +661,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now"
+                    "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now",
+                    "default": "Time.now"
                 }
             },
             "description": "Mark notifications in a repo as read."
@@ -1215,7 +1232,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work."
+                    "description": "Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.",
+                    "default": "false"
                 }
             },
             "description": "Update a Reference"
@@ -1348,7 +1366,8 @@
                     "required": false,
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all"
+                    "description": "open, closed, or all",
+                    "default": "open"
                 },
                 "labels": {
                     "type": "String",
@@ -1362,7 +1381,8 @@
                     "required": false,
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
-                    "description": ""
+                    "description": "",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$since": null,
@@ -1388,7 +1408,8 @@
                     "required": false,
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all"
+                    "description": "open, closed, or all",
+                    "default": "open"
                 },
                 "labels": {
                     "type": "String",
@@ -1402,7 +1423,8 @@
                     "required": false,
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
-                    "description": ""
+                    "description": "",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$since": null,
@@ -1428,7 +1450,8 @@
                     "required": false,
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all"
+                    "description": "open, closed, or all",
+                    "default": "open"
                 },
                 "labels": {
                     "type": "String",
@@ -1442,7 +1465,8 @@
                     "required": false,
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
-                    "description": ""
+                    "description": "",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$since": null,
@@ -1470,7 +1494,8 @@
                     "required": false,
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all"
+                    "description": "open, closed, or all",
+                    "default": "open"
                 },
                 "assignee": {
                     "type": "String",
@@ -1505,7 +1530,8 @@
                     "required": false,
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
-                    "description": ""
+                    "description": "",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$since": null,
@@ -1618,7 +1644,8 @@
                     "required": false,
                     "validation": "^(open|closed)$",
                     "invalidmsg": "open, closed, default: open",
-                    "description": "open or closed"
+                    "description": "open or closed",
+                    "default": "open"
                 }
             },
             "description": "Edit an issue"
@@ -1675,7 +1702,8 @@
                     "required": false,
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created, updated, default: created.",
-                    "description": ""
+                    "description": "",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$since": null,
@@ -1934,16 +1962,18 @@
                 "sort": {
                     "type": "String",
                     "required": false,
-                    "validation": "^(due_date|completeness)$",
-                    "invalidmsg": "due_date, completeness, default: due_date",
-                    "description": "due_date, completeness, default: due_date"
+                    "validation": "^(due_on|completeness)$",
+                    "invalidmsg": "due_on, completeness, default: due_on",
+                    "description": "due_on, completeness, default: due_on",
+                    "default": "due_on"
                 },
                 "direction": {
                     "type": "String",
                     "required": false,
                     "validation": "^(asc|desc)$",
                     "invalidmsg": "asc or desc, default: asc.",
-                    "description": ""
+                    "description": "",
+                    "default": "asc"
                 },
                 "$page": null,
                 "$per_page": null
@@ -2244,14 +2274,16 @@
                     "required": false,
                     "validation": "^(all|2fa_disabled)$",
                     "invalidmsg": "all, 2fa_disabled, default: all",
-                    "description": "Filter members returned in the list."
+                    "description": "Filter members returned in the list.",
+                    "default": "all"
                 },
                 "role": {
                     "type": "String",
                     "required": false,
                     "validation": "^(all|admin|member)$",
                     "invalidmsg": "all, admin, member, default: all",
-                    "description": "Filter members returned by their role."
+                    "description": "Filter members returned by their role.",
+                    "default": "all"
                 },
                 "$page": null,
                 "$per_page": null
@@ -2387,14 +2419,16 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false."
+                    "description": "Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false.",
+                    "default": "false"
                 },
                 "exclude_attachments": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false."
+                    "description": "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false.",
+                    "default": "false"
                 }
             },
             "description": "Start a migration"
@@ -2533,7 +2567,8 @@
                     "required": false,
                     "validation": "^(member|maintainer|all)$",
                     "invalidmsg": "member, maintainer, all, default: all",
-                    "description": "Filters members returned by their role in the team."
+                    "description": "Filters members returned by their role in the team.",
+                    "default": "all"
                 },
                 "$page": null,
                 "$per_page": null
@@ -2561,7 +2596,8 @@
                     "required": false,
                     "validation": "^(member|maintainer)$",
                     "invalidmsg": "member, maintainer, default: member",
-                    "description": "The role that this user should have in the team."
+                    "description": "The role that this user should have in the team.",
+                    "default": "member"
                 }
             },
             "description": "Add team membership"
@@ -2666,7 +2702,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Determines what events the hook is triggered for. Default: [\"push\"]."
+                    "description": "Determines what events the hook is triggered for. Default: [\"push\"].",
+                    "default": "[\"push\"]"
                 },
                 "active": {
                     "type": "Boolean",
@@ -2697,7 +2734,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Determines what events the hook is triggered for. Default: [\"push\"]."
+                    "description": "Determines what events the hook is triggered for. Default: [\"push\"].",
+                    "default": "[\"push\"]"
                 },
                 "active": {
                     "type": "Boolean",
@@ -2743,7 +2781,8 @@
                     "required": false,
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all"
+                    "description": "open, closed, or all",
+                    "default": "open"
                 },
                 "head": {
                     "type": "String",
@@ -2764,7 +2803,8 @@
                     "required": false,
                     "validation": "^(created|updated|popularity|long-running)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
-                    "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`"
+                    "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$page": null,
@@ -2943,7 +2983,8 @@
                     "required": false,
                     "validation": "^(created|updated)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, Default: `created`",
-                    "description": "Possible values are: `created`, `updated`, Default: `created`"
+                    "description": "Possible values are: `created`, `updated`, Default: `created`",
+                    "default": "created"
                 },
                 "$direction": null,
                 "$since": null,
@@ -3032,28 +3073,32 @@
                     "required": false,
                     "validation": "^(all|public|private)$",
                     "invalidmsg": "Possible values: `all`, `public`, `private`, Default: `all`.",
-                    "description": "Can be one of `all`, `public`, or `private`. Default: `all`."
+                    "description": "Can be one of `all`, `public`, or `private`. Default: `all`.",
+                    "default": "all"
                 },
                 "affiliation": {
                     "type": "String",
                     "required": false,
                     "validation": "^(owner|collaborator|organization_member)$",
                     "invalidmsg": "Possible values: `owner`, `collaborator`, `organization_member`, Default: `owner,collaborator,organization_member`.",
-                    "description": "Comma-separated list of values. Can include: `owner`, `collaborator`, `organization_member`."
+                    "description": "Comma-separated list of values. Can include: `owner`, `collaborator`, `organization_member`.",
+                    "default": "owner,collaborator,organization_member"
                 },
                 "type": {
                     "type": "String",
                     "required": false,
                     "validation": "^(all|owner|public|private|member)$",
                     "invalidmsg": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
-                    "description": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`."
+                    "description": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
+                    "default": "all"
                 },
                 "sort": {
                     "type": "String",
                     "required": false,
                     "validation": "^(created|updated|pushed|full_name)$",
                     "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
-                    "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`."
+                    "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
+                    "default": "full_name"
                 },
                 "$direction": null,
                 "$page": null,
@@ -3072,14 +3117,16 @@
                     "required": false,
                     "validation": "^(all|owner|member)$",
                     "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
-                    "description": "Possible values: `all`, `owner`, `member`. Default: `owner`."
+                    "description": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
+                    "default": "owner"
                 },
                 "sort": {
                     "type": "String",
                     "required": false,
                     "validation": "^(created|updated|pushed|full_name)$",
                     "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
-                    "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`."
+                    "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
+                    "default": "full_name"
                 },
                 "$direction": null,
                 "$page": null,
@@ -3098,7 +3145,8 @@
                     "required": false,
                     "validation": "^(all|public|private|forks|sources|member)$",
                     "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
-                    "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`."
+                    "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
+                    "default": "all"
                 },
                 "$page": null,
                 "$per_page": null
@@ -3682,7 +3730,8 @@
                     "required": true,
                     "validation": "^(tarball|zipball)$",
                     "invalidmsg": "Either tarball or zipball, Default: tarball.",
-                    "description": "Either tarball or zipball, Deafult: tarball."
+                    "description": "Either tarball or zipball, Deafult: tarball.",
+                    "default": "tarball"
                 },
                 "ref": {
                     "type": "String",
@@ -3759,28 +3808,32 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The short or long sha that was recorded at creation time. Default: none."
+                    "description": "The short or long sha that was recorded at creation time. Default: none.",
+                    "default": "none"
                 },
                 "ref": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The name of the ref. This can be a branch, tag, or sha. Default: none."
+                    "description": "The name of the ref. This can be a branch, tag, or sha. Default: none.",
+                    "default": "none"
                 },
                 "task": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The name of the task for the deployment. e.g. deploy or deploy:migrations. Default: none."
+                    "description": "The name of the task for the deployment. e.g. deploy or deploy:migrations. Default: none.",
+                    "default": "none"
                 },
                 "environment": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none."
+                    "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none.",
+                    "default": "none"
                 },
                 "$page": null,
                 "$per_page": null
@@ -3806,14 +3859,16 @@
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The named task to execute. e.g. deploy or deploy:migrations. Default: deploy"
+                    "description": "The named task to execute. e.g. deploy or deploy:migrations. Default: deploy",
+                    "default": "deploy"
                 },
                 "auto_merge": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true"
+                    "description": "Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true",
+                    "default": "true"
                 },
                 "required_contexts": {
                     "type": "Array",
@@ -3827,21 +3882,24 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional JSON payload with extra information about the deployment. Default: ''"
+                    "description": "Optional JSON payload with extra information about the deployment. Default: \"\"",
+                    "default": "\"\""
                 },
                 "environment": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none."
+                    "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none.",
+                    "default": "none"
                 },
                 "description": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Optional short description. Default: ''"
+                    "description": "Optional short description. Default: \"\"",
+                    "default": "\"\""
                 }
             },
             "description": "Create a deployment."
@@ -3877,14 +3935,16 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: ''"
+                    "description": "The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: \"\"",
+                    "default": "\"\""
                 },
                 "description": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "A short description of the status. Default: ''"
+                    "description": "A short description of the status. Default: \"\"",
+                    "default": "\"\""
                 }
             },
             "description": "Create a deployment status."
@@ -3935,7 +3995,8 @@
                     "required": false,
                     "validation": "^(newest|oldest|stargazers)$",
                     "invalidmsg": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
-                    "description": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`."
+                    "description": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
+                    "default": "newest"
                 },
                 "$page": null,
                 "$per_page": null
@@ -4101,13 +4162,15 @@
                     "type": "Boolean",
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "true to create a draft (unpublished) release, false to create a published one. Default: false"
+                    "description": "true to create a draft (unpublished) release, false to create a published one. Default: false",
+                    "default": "false"
                 },
                 "prerelease": {
                     "type": "Boolean",
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false"
+                    "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false",
+                    "default": "false"
                 }
             },
             "description": "Create a release."
@@ -4153,14 +4216,16 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "true to create a draft (unpublished) release, false to create a published one. Default: false"
+                    "description": "true to create a draft (unpublished) release, false to create a published one. Default: false",
+                    "default": "false"
                 },
                 "prerelease": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false"
+                    "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false",
+                    "default": "false"
                 }
             },
             "description": "Edit a release."
@@ -4410,7 +4475,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Determines what events the hook is triggered for. Default: `['push']`."
+                    "description": "Determines what events the hook is triggered for. Default: `['push']`.",
+                    "default": "[\"push\"]"
                 },
                 "active": {
                     "type": "Boolean",
@@ -4443,7 +4509,8 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`."
+                    "description": "Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`.",
+                    "default": "[\"push\"]"
                 },
                 "add_events": {
                     "type": "Array",
