@@ -125,15 +125,21 @@ var main = module.exports = function() {
             var paramRequired = paramInfo['required'];
             var paramType = paramInfo['type'];
             var paramDescription = paramInfo['description'];
+            var paramDefaultVal = paramInfo['default'];
 
             var paramLabel = cleanParam;
+
+            // add default value if there is one
+            if (typeof paramDefaultVal !== "undefined") {
+                paramLabel += '=' + paramDefaultVal
+            }
+
+            // show param as either required or optional
             if (!paramRequired) {
                 paramLabel = "[" + paramLabel + "]";
             }
 
-            var optionalLabel = !paramRequired ? "Optional " : " ";
-
-            commentLines.push(" * @apiParam {" + paramType + "} " + paramLabel + "  " + optionalLabel + paramDescription);
+            commentLines.push(" * @apiParam {" + paramType + "} " + paramLabel + "  " + paramDescription);
         });
 
         commentLines.push(" * @apiExample {js} ex:\ngithub." + section + "." + funcName + "({ ... });");
