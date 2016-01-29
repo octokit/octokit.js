@@ -1267,6 +1267,15 @@
                 "$note_url": null
             }
         },
+        "get-or-create": {
+            "url": "/authorizations/clients/:client_id",
+            "method": "PUT",
+            "params": {
+                "$scopes": null,
+                "$note": null,
+                "$note_url": null
+            }
+        },
         "update": {
             "url": "/authorizations/:id",
             "method": "PATCH",
