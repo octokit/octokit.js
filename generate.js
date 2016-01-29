@@ -349,10 +349,16 @@ function searchSectionUrl(url, needle) {
         return null;
 
     var subDoc = doc.substr(0, idx);
-    // Search for the first header with an ID attribute.
+    // Search for the first header with a <a> element with an ID attribute.
     var headerIdx = -1;
     for (var i = 2; i >= 1 && headerIdx == -1; --i) {
-        headerIdx = subDoc.lastIndexOf("<h" + i + " id=");
+        let headerRe = new RegExp("<h" + i + "[^>]*>", "g");
+        var headerMatch;
+        while ((headerMatch = headerRe.exec(subDoc)) !== null) {
+            if (headerIdx < headerMatch.index) {
+                headerIdx = headerMatch.index;
+            }
+        }
     }
 
     // We tried.
