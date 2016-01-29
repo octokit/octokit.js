@@ -164,6 +164,55 @@ var authorization = module.exports = {
     };
 
     /** section: github
+     *  authorization#getOrCreate(msg, callback) -> null
+     *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
+     *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
+     *
+     *  ##### Params on the `msg` object:
+     *
+     *  - headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
+     *  - scopes (Array): Optional. A list of scopes that this authorization is in.
+     *  - note (String): Optional. A note to remind you what the OAuth token is for.
+     *  - note_url (String): Optional. A URL to remind you what app the OAuth token is for.
+     *
+     * https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app
+     **/
+    this.getOrCreate = function(msg, block, callback) {
+        var self = this;
+        this.client.httpSend(msg, block, function(err, res) {
+            if (err)
+                return self.sendError(err, null, msg, callback);
+
+            var ret;
+            try {
+                ret = res.data;
+                var contentType = res.headers["content-type"];
+                if (contentType && contentType.indexOf("application/json") !== -1)
+                    ret = JSON.parse(ret);
+            }
+            catch (ex) {
+                if (callback)
+                    callback(new error.InternalServerError(ex.message), res);
+                return;
+            }
+
+            if (!ret)
+                ret = {};
+            if (typeof ret == "object") {
+                if (!ret.meta)
+                    ret.meta = {};
+                ["x-ratelimit-limit", "x-ratelimit-remaining", "x-ratelimit-reset", "x-oauth-scopes", "link", "location", "last-modified", "etag", "status"].forEach(function(header) {
+                    if (res.headers[header])
+                        ret.meta[header] = res.headers[header];
+                });
+            }
+
+            if (callback)
+                callback(null, ret);
+        });
+    };
+
+    /** section: github
      *  authorization#update(msg, callback) -> null
      *      - msg (Object): Object that contains the parameters and their values to be sent to the server.
      *      - callback (Function): function to call when the request is finished with an error as first argument and result data as second argument.
