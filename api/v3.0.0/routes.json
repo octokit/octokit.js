@@ -3101,12 +3101,12 @@
                     "type": "Number",
                     "required": false,
                     "validation": "",
-                    "description": "The integer ID of the last User that you’ve seen." 
+                    "description": "The integer ID of the last User that you’ve seen."
                 }
             }
-            
+
         },
-        
+
         "get-from": {
             "url": "/users/:user",
             "method": "GET",
@@ -3476,6 +3476,20 @@
                 },
                 "id": {
                     "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "$repo": null
+            }
+        },
+        "get-latest": {
+            "url": "/repos/:owner/:repo/releases/latest",
+            "method": "GET",
+            "params": {
+                "owner": {
+                    "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
