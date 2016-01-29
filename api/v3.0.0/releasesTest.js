@@ -76,6 +76,24 @@ describe("[releases]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/releases/latest (getLatest)",  function(next) {
+        if (!releaseId) {
+            next();
+            return;
+        }
+        client.releases.getRelease(
+            {
+                owner: owner,
+                repo: repo
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                Assert.equal(res.id, releaseId);
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
         if (!haveWriteAccess) {
           next();
