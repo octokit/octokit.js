@@ -1,4 +1,4 @@
-##### NOTE: [mikedeboer/node-github](https://github.com/mikedeboer/node-github) seems to no longer be maintained. For a list of PRs applied from upstream, see [here](https://github.com/kaizensoze/github4/wiki/Transition-from-upstream).
+##### NOTE: [mikedeboer/node-github](https://github.com/mikedeboer/node-github) is no longer maintained. See [here](https://github.com/kaizensoze/node-github/wiki/Transition-from-upstream) for a list of PRs applied from upstream.
 
 # Node-github
 
@@ -6,7 +6,7 @@ A Node.js wrapper for GitHub API.
 
 ## Installation
 
-Install via [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github4.svg)
+Install via npm ![NPM version](https://badge.fury.io/js/github4.svg)
 
 ```bash
 $ npm install github4
