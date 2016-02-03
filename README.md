@@ -1,4 +1,4 @@
-##### NOTE: [mikedeboer/node-github](https://github.com/mikedeboer/node-github) is no longer maintained. See [here](https://github.com/kaizensoze/node-github/wiki/Transition-from-upstream) for a list of PRs applied from upstream.
+##### NOTE: See [here](https://github.com/kaizensoze/node-github/wiki/Transition-from-upstream) for a list of PRs applied from the now defunct [mikedeboer/node-github](https://github.com/mikedeboer/node-github).
 
 # Node-github
 
