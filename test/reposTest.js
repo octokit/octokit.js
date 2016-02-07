@@ -10,7 +10,7 @@
 "use strict";
 
 var Assert = require("assert");
-var Client = require("./../index");
+var Client = require("./../lib/index");
 var testAuth = require("./../test_auth.json");
 
 describe("[repos]", function() {

@@ -132,7 +132,7 @@ github.authorization.create({
 ## Update docs/tests
 
 ```bash
-$ node generate.js
+$ node lib/generate.js
 ```
 
 Dev note for updating apidoc for github pages:
