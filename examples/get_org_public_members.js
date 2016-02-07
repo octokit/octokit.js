@@ -1,6 +1,6 @@
 "use strict";
 
-var Client = require("./../index");
+var Client = require("./../lib/index");
 var testAuth = require("./../test_auth.json");
 
 var github = new Client({
