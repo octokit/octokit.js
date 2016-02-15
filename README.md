@@ -6,7 +6,7 @@ A Node.js wrapper for GitHub API.
 
 ## Installation
 
-Install via npm ![NPM version](https://badge.fury.io/js/github4.svg)
+Install via [npm](https://www.npmjs.com/package/github4) ![NPM version](https://badge.fury.io/js/github4.svg)
 
 ```bash
 $ npm install github4
