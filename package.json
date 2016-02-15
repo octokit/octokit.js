@@ -33,7 +33,7 @@
   "devDependencies": {
     "mocha": "~1.13.0"
   },
-  "main": ".",
+  "main": "lib",
   "scripts": {
     "test": "mocha"
   },
