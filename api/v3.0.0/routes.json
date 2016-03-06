@@ -1559,7 +1559,8 @@
             "params": {
                 "$id": null,
                 "$user": null,
-                "$repo": null
+                "$repo": null,
+                "$permission": null
             }
         },
 
