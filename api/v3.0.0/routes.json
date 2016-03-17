@@ -2135,6 +2135,17 @@
             }
         },
 
+        "get-labels": {
+            "url": "/repos/:user/:repo/labels",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            }
+        },
+
         "get-collaborator": {
             "url": "/repos/:user/:repo/collaborators/:collabuser",
             "method": "GET",
