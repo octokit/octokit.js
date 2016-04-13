@@ -1885,6 +1885,7 @@
                 "$number": null,
                 "body": {
                     "type": "Array",
+                    "sendValueAsBody": true,
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
@@ -1921,6 +1922,7 @@
                 "$number": null,
                 "body": {
                     "type": "Array",
+                    "sendValueAsBody": true,
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
