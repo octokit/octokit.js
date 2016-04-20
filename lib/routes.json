@@ -4683,6 +4683,15 @@
             "description": "Get a single user"
         },
 
+        "get-by-id": {
+            "url": "/user/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single user by GitHub ID"
+        },
+
         "update": {
             "url": "/user",
             "method": "PATCH",

@@ -3683,6 +3683,17 @@ github.users.getAll({ ... });
  */
 
 /**
+ * @api {get} /user/:id getById
+ * @apiName getById
+ * @apiDescription Get a single user by GitHub ID
+ * @apiGroup users
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.users.getById({ ... });
+ */
+
+/**
  * @api {get} /user/emails getEmails
  * @apiName getEmails
  * @apiDescription List email addresses for a user

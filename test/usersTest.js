@@ -165,6 +165,19 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute GET /user/:id (getById)",  function(next) {
+        client.users.getById(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/emails (getEmails)",  function(next) {
         client.users.getEmails(
             {
