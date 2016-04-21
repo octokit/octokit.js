@@ -26,12 +26,14 @@ describe("[all_pages]", function() {
     });
 
     it("should receive all the data of a given list",  function(next) {
+        this.timeout(8000)
         client.getAllPages(client.orgs.getTeamMembers, {
             id: '1660004'
         }, function (err, res) {
             Assert.equal(err, null);
             Assert.ok(Array.isArray(res))
-            Assert.ok(res.length > 100)
+            console.log(res.length)
+            Assert.ok(res.length > 200)
             next();
         })
     });
