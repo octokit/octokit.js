@@ -27,6 +27,6 @@ function getRepos(err, res) {
 }
 
 function outputStarredRepos() {
-    console.log('starred repos: ' + starredRepos.length);
     console.log(starredRepos.map(function(repo) { return repo['full_name']; }));
+    console.log('starred repos: ' + starredRepos.length);
 }
