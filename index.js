@@ -175,6 +175,10 @@ var Url = require("url");
  *      }
  **/
 var Client = module.exports = function(config) {
+    if (!(this instanceof Client)) {
+        return new Client(config);
+    }
+
     config.headers = config.headers || {};
     this.config = config;
     this.debug = Util.isTrue(config.debug);
