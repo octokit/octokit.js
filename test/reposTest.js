@@ -990,7 +990,6 @@ describe("[repos]", function() {
     it("should successfully execute GET /repositories (getPublic)",  function(next) {
         client.repos.getPublic(
             {
-                org: "String",
                 since: "String"
             },
             function(err, res) {
