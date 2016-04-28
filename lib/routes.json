@@ -3160,7 +3160,6 @@
             "url": "/repositories",
             "method": "GET",
             "params": {
-                "$org": null,
                 "since": {
                     "type": "String",
                     "required": false,

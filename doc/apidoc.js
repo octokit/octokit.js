@@ -3205,7 +3205,6 @@ github.repos.getPagesBuilds({ ... });
  * @apiDescription List all public repositories
  * @apiGroup repos
  *
- * @apiParam {String} org  
  * @apiParam {String} [since]  The integer ID of the last Repository that you've seen.
  * @apiExample {js} ex:
 github.repos.getPublic({ ... });
