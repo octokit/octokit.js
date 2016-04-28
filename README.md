@@ -32,7 +32,7 @@ GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 Create test auth file for running tests/examples.
 
 ```bash
-$ > test_auth.json
+$ > testAuth.json
 {
     "token": "<TOKEN>"
 }

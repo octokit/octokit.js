@@ -11,7 +11,7 @@
 
 var Assert = require("assert");
 var Client = require("./../lib/index");
-var testAuth = require("./../test_auth.json");
+var testAuth = require("./../testAuth.json");
 
 describe("[users]", function() {
     var client;
