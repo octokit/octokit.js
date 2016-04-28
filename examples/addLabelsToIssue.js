@@ -1,7 +1,7 @@
 "use strict";
 
 var Client = require("./../lib/index");
-var testAuth = require("./../test_auth.json");
+var testAuth = require("./../testAuth.json");
 
 var github = new Client({
     debug: true
@@ -12,6 +12,11 @@ github.authenticate({
     token: testAuth["token"]
 });
 
-github.users.get({}, function(err, res) {
+github.issues.addLabels({
+    user: "kaizensoze",
+    repo: "node-github",
+    number: "101",
+    body: ["invalid", "bug", "duplicate"]
+}, function(err, res) {
     console.log(err, res);
 });
