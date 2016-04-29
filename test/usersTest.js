@@ -27,7 +27,9 @@ describe("[users]", function() {
 
     it("should successfully execute POST /user/emails (addEmails)",  function(next) {
         client.users.addEmails(
-            {},
+            {
+                body: "Array"
+            },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
@@ -79,7 +81,9 @@ describe("[users]", function() {
 
     it("should successfully execute DELETE /user/emails (deleteEmails)",  function(next) {
         client.users.deleteEmails(
-            {},
+            {
+                body: "Array"
+            },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
