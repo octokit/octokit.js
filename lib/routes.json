@@ -4820,14 +4820,32 @@
         "add-emails": {
             "url": "/user/emails",
             "method": "POST",
-            "params": {},
+            "params": {
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "You can post a single email address or an array of addresses."
+                }
+            },
             "description": "Add email address(es)"
         },
 
         "delete-emails": {
             "url": "/user/emails",
             "method": "DELETE",
-            "params": {},
+            "params": {
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "You can post a single email address or an array of addresses."
+                }
+            },
             "description": "Delete email address(es)"
         },
 
