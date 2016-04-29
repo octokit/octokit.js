@@ -3566,6 +3566,7 @@ github.search.users({ ... });
  * @apiDescription Add email address(es)
  * @apiGroup users
  *
+ * @apiParam {Array} body  You can post a single email address or an array of addresses.
  * @apiExample {js} ex:
 github.users.addEmails({ ... });
  */
@@ -3611,6 +3612,7 @@ github.users.createKey({ ... });
  * @apiDescription Delete email address(es)
  * @apiGroup users
  *
+ * @apiParam {Array} body  You can post a single email address or an array of addresses.
  * @apiExample {js} ex:
 github.users.deleteEmails({ ... });
  */
