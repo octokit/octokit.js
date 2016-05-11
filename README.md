@@ -104,7 +104,7 @@ github.authenticate({
     secret: "clientSecret"
 })
 
-// Deprecated Gihub API token (seems not to be working with the v3 API)
+// Deprecated GitHub API token (seems not to be working with the v3 API)
 github.authenticate({
     type: "token",
     token: token
