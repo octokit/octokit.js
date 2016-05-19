@@ -156,6 +156,22 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /teams/:id/repos/:org/:repo (updateTeam)",  function(next) {
+        client.repos.updateTeam(
+            {
+                id: "Number",
+                org: "String",
+                repo: "String",
+                permission: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:user/:repo (delete)",  function(next) {
         client.repos.delete(
             {
