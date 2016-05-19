@@ -2023,6 +2023,17 @@
             }
         },
 
+        "update-team": {
+            "url": "/teams/:id/repos/:org/:repo",
+            "method": "PUT",
+            "params": {
+                "$id": null,
+                "$org": null,
+                "$repo": null,
+                "$permission": null
+            }
+        },
+
         "delete": {
             "url": "/repos/:user/:repo",
             "method": "DELETE",
@@ -3101,12 +3112,12 @@
                     "type": "Number",
                     "required": false,
                     "validation": "",
-                    "description": "The integer ID of the last User that you’ve seen." 
+                    "description": "The integer ID of the last User that you’ve seen."
                 }
             }
-            
+
         },
-        
+
         "get-from": {
             "url": "/users/:user",
             "method": "GET",
