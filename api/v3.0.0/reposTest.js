@@ -429,17 +429,30 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/commits/:sha/comments (createCommitComment)",  function(next) {
-        client.repos.createCommitComment(
+    it("should successfully execute GET /repos/:user/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
+        client.repos.getCommitComments(
             {
                 user: "String",
                 repo: "String",
                 sha: "String",
-                body: "String",
-                commit_id: "String",
-                path: "String",
-                position: "Number",
-                line: "Number"
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /teams/:id/repos/:org/:repo (updateTeam)",  function(next) {
+        client.repos.updateTeam(
+            {
+                id: "Number",
+                org: "String",
+                repo: "String",
+                permission: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
