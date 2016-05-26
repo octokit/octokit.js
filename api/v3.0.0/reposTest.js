@@ -881,7 +881,7 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /user/watched (getWatched)",  function(next) {
+    it("should successfully execute GET /user/subscriptions (getWatched)",  function(next) {
         client.repos.getWatched(
             {
                 page: "Number",
@@ -895,7 +895,7 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/watched (getWatchedFromUser)",  function(next) {
+    it("should successfully execute GET /users/:user/subscriptions (getWatchedFromUser)",  function(next) {
         client.repos.getWatchedFromUser(
             {
                 user: "String",
@@ -926,7 +926,7 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/watched/:user/:repo (watch)",  function(next) {
+    it("should successfully execute PUT /user/subscriptions/:user/:repo (watch)",  function(next) {
         client.repos.watch(
             {
                 user: "String",
@@ -940,7 +940,7 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/watched/:user/:repo (unWatch)",  function(next) {
+    it("should successfully execute DELETE /user/subscriptions/:user/:repo (unWatch)",  function(next) {
         client.repos.unWatch(
             {
                 user: "String",

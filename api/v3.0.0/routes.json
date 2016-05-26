@@ -2743,7 +2743,7 @@
         },
 
         "get-watched": {
-            "url": "/user/watched",
+            "url": "/user/subscriptions",
             "method": "GET",
             "params": {
                 "$page": null,
@@ -2752,7 +2752,7 @@
         },
 
         "get-watched-from-user": {
-            "url": "/users/:user/watched",
+            "url": "/users/:user/subscriptions",
             "method": "GET",
             "params": {
                 "$user": null,
@@ -2762,7 +2762,7 @@
         },
 
         "get-watching": {
-            "url": "/user/watched/:user/:repo",
+            "url": "/user/subscriptions/:user/:repo",
             "method": "GET",
             "params": {
                 "$user": null,
@@ -2773,7 +2773,7 @@
         },
 
         "watch": {
-            "url": "/user/watched/:user/:repo",
+            "url": "/user/subscriptions/:user/:repo",
             "method": "PUT",
             "params": {
                 "$user": null,
@@ -2782,7 +2782,7 @@
         },
 
         "un-watch": {
-            "url": "/user/watched/:user/:repo",
+            "url": "/user/subscriptions/:user/:repo",
             "method": "DELETE",
             "params": {
                 "$user": null,
@@ -3101,12 +3101,12 @@
                     "type": "Number",
                     "required": false,
                     "validation": "",
-                    "description": "The integer ID of the last User that you’ve seen." 
+                    "description": "The integer ID of the last User that you’ve seen."
                 }
             }
-            
+
         },
-        
+
         "get-from": {
             "url": "/users/:user",
             "method": "GET",
