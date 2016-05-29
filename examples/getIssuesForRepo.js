@@ -13,7 +13,7 @@ github.authenticate({
 });
 
 github.issues.getForRepo({
-    user: "kaizensoze",
+    user: "mikedeboer",
     repo: "node-github"
 }, function(err, res) {
     if (err) {

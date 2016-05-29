@@ -1,5 +1,5 @@
 {
-  "name": "github4",
+  "name": "github",
   "version": "1.1.0",
   "description": "NodeJS wrapper for the GitHub API",
   "author": "Mike de Boer <info@mikedeboer.nl>",
@@ -17,10 +17,10 @@
       "email": "joe@brassafrax.com"
     }
   ],
-  "homepage": "https://github.com/kaizensoze/node-github",
+  "homepage": "https://github.com/mikedeboer/node-github",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaizensoze/node-github.git"
+    "url": "https://github.com/mikedeboer/node-github.git"
   },
   "engine": {
     "node": ">=0.4.0"

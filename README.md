@@ -1,15 +1,13 @@
-##### NOTE: See [here](https://github.com/kaizensoze/node-github/wiki/Transition-from-upstream) for a list of PRs applied from the now defunct [mikedeboer/node-github](https://github.com/mikedeboer/node-github).
-
 # Node-github
 
 A Node.js wrapper for GitHub API.
 
 ## Installation
 
-Install via [npm](https://www.npmjs.com/package/github4) ![NPM version](https://badge.fury.io/js/github4.svg)
+Install via [npm](https://www.npmjs.com/package/github) ![NPM version](https://badge.fury.io/js/github.svg)
 
 ```bash
-$ npm install github4
+$ npm install github
 ```
 
 or
@@ -17,14 +15,14 @@ or
 Install via git clone
 
 ```bash
-$ git clone git@github.com:kaizensoze/node-github.git
+$ git clone https://github.com/mikedeboer/node-github.git
 $ cd node-github
 $ npm install
 ```
 
 ## Documentation
 
-Client API: [https://kaizensoze.github.io/node-github/](https://kaizensoze.github.io/node-github/)  
+Client API: [https://mikedeboer.github.io/node-github/](https://mikedeboer.github.io/node-github/)  
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Test auth file
@@ -42,7 +40,7 @@ $ > testAuth.json
 
 Get all followers for user "defunkt":
 ```javascript
-var GitHubApi = require("github4");
+var GitHubApi = require("github");
 
 var github = new GitHubApi({
     // optional
