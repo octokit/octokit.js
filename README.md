@@ -1,37 +1,48 @@
-# JavaScript GitHub API for Node.JS
+# Node-github
 
-A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.
+A Node.js wrapper for GitHub API.
 
 ## Installation
 
-  Install with the Node.JS package manager [npm](http://npmjs.org/) ![NPM version](https://badge.fury.io/js/github.svg):
+Install via [npm](https://www.npmjs.com/package/github) ![NPM version](https://badge.fury.io/js/github.svg)
 
-      $ npm install github
+```bash
+$ npm install github
+```
 
 or
 
-  Install via git clone:
+Install via git clone
 
-      $ git clone git://github.com/mikedeboer/node-github.git
-      $ cd node-github
-      $ npm install
+```bash
+$ git clone https://github.com/mikedeboer/node-github.git
+$ cd node-github
+$ npm install
+```
 
 ## Documentation
 
-You can find the docs for the API of this client at [http://mikedeboer.github.com/node-github/](http://mikedeboer.github.com/node-github/)
+Client API: [https://mikedeboer.github.io/node-github/](https://mikedeboer.github.io/node-github/)  
+GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
-Additionally, the [official Github documentation](https://developer.github.com/v3/)
-is a very useful resource.
+## Test auth file
+
+Create test auth file for running tests/examples.
+
+```bash
+$ > testAuth.json
+{
+    "token": "<TOKEN>"
+}
+```
 
 ## Example
 
-Print all followers of the user "mikedeboer" to the console.
+Get all followers for user "defunkt":
 ```javascript
 var GitHubApi = require("github");
 
 var github = new GitHubApi({
-    // required
-    version: "3.0.0",
     // optional
     debug: true,
     protocol: "https",
@@ -42,77 +53,59 @@ var github = new GitHubApi({
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     }
 });
-github.user.getFollowingFromUser({
+github.users.getFollowingForUser({
     // optional:
     // headers: {
     //     "cookie": "blahblah"
     // },
-    user: "mikedeboer"
+    user: "defunkt"
 }, function(err, res) {
     console.log(JSON.stringify(res));
 });
 ```
 
-First the _GitHubApi_ class is imported from the _node-github_ module. This class provides
-access to all of GitHub's APIs (e.g. user, issues or repo APIs). The _getFollowingFromUser_
-method lists all followers of a given GitHub user. Is is part of the user API. It
-takes the user name as first argument and a callback as last argument. Once the
-follower list is returned from the server, the callback is called.
-
-Like in Node.JS, callbacks are always the last argument. If the functions fails an
-error object is passed as first argument to the callback.
-
 ## Authentication
 
-Most GitHub API calls don't require authentication. As a rule of thumb: If you
-can see the information by visiting the site without being logged in, you don't
-have to be authenticated to retrieve the same information through the API. Of
-course calls, which change data or read sensitive information have to be authenticated.
+Most GitHub API calls don't require authentication. As a rule of thumb: If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API. Of course calls, which change data or read sensitive information have to be authenticated.
 
-You need the GitHub user name and the API key for authentication. The API key can
-be found in the user's _Account Settings_ page.
+You need the GitHub user name and the API key for authentication. The API key can be found in the user's _Account Settings_.
 
-This example shows how to authenticate and then change _location_ field of the
-account settings to _Argentina_:
 ```javascript
+// basic
 github.authenticate({
     type: "basic",
-    username: username,
-    password: password
+    username: USERNAME,
+    password: PASSWORD
 });
-github.user.update({
-    location: "Argentina"
-}, function(err) {
-    console.log("done!");
-});
-```
-Note that the _authenticate_ method is synchronous because it only stores the
-credentials for the next request.
 
-Other examples for the various authentication methods:
-```javascript
 // OAuth2
 github.authenticate({
     type: "oauth",
-    token: token
+    token: AUTH_TOKEN
 });
 
 // OAuth2 Key/Secret
 github.authenticate({
     type: "oauth",
-    key: "clientID",
-    secret: "clientSecret"
+    key: CLIENT_ID,
+    secret: CLIENT_SECRET
 })
+```
 
-// Deprecated Gihub API token (seems not to be working with the v3 API)
-github.authenticate({
-    type: "token",
-    token: token
+Note: `authenticate` is synchronous because it only stores the
+credentials for the next request.
+
+Once authenticated you can update a user field like so:
+```javascript
+github.users.update({
+    location: "Argentina"
+}, function(err) {
+    console.log("done!");
 });
 ```
 
 ### Creating tokens for your application
-[Create a new authorization](http://developer.github.com/v3/oauth/#create-a-new-authorization) for your application giving it access to the wanted scopes you need instead of relying on username / password and is the way to go if you have [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) on.
+[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization) for your application giving it access to the wanted scopes you need instead of relying on username / password and is the way to go if you have [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) on.
 
 For example:
 
@@ -134,39 +127,32 @@ github.authorization.create({
 });
 ```
 
-## Implemented GitHub APIs
+## Update docs/tests
 
-* Gists: 100%
-* Git Data: 100%
-* Issues: 100%
-* Orgs: 100%
-* Pull Requests: 100%
-* Repos: 100%
-* Users: 100%
-* Events: 100%
-* Search: 100%
-* Markdown: 100%
-* Rate Limit: 100%
-* Releases: 100%
-* Gitignore: 100%
-* Meta: 100%
-* Emojis: 100%
-
-## Running the Tests
-
-The unit tests are based on the [mocha](http://visionmedia.github.com/mocha/)
-module, which may be installed via npm. To run the tests make sure that the
-npm dependencies are installed by running `npm install` from the project directory.
-
-Before running unit tests:
-```shell
-npm install mocha -g
+```bash
+$ node lib/generate.js
 ```
-At the moment, test classes can only be run separately. This will e.g. run the Issues Api test:
-```shell
-mocha api/v3.0.0/issuesTest.js
+
+Dev note for updating apidoc for github pages:
+
+```bash
+$ npm install apidoc -g
+$ apidoc -i doc/ -o apidoc/
 ```
-Note that a connection to the internet is required to run the tests.
+
+## Tests
+
+Run all tests
+
+```bash
+$ npm test
+```
+
+Or run a specific test
+
+```bash
+$ npm test test/issuesTest.js
+```
 
 ## LICENSE
 

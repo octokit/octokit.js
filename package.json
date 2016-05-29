@@ -1,36 +1,54 @@
 {
-    "name" : "github",
-    "version" : "0.2.4",
-    "description" : "NodeJS wrapper for the GitHub API",
-    "author": "Mike de Boer <info@mikedeboer.nl>",
-    "contributors": [
-        { "name": "Mike de Boer", "email": "info@mikedeboer.nl" },
-        { "name": "Fabian Jakobs", "email": "fabian@c9.io" }
-    ],
-    "homepage": "http://github.com/mikedeboer/node-github",
-    "repository" : {
-        "type" : "git",
-        "url" : "http://github.com/mikedeboer/node-github.git"
+  "name": "github",
+  "version": "1.1.0",
+  "description": "NodeJS wrapper for the GitHub API",
+  "author": "Mike de Boer <info@mikedeboer.nl>",
+  "contributors": [
+    {
+      "name": "Mike de Boer",
+      "email": "info@mikedeboer.nl"
     },
-    "engine" : {
-        "node": ">=0.4.0"
+    {
+      "name": "Fabian Jakobs",
+      "email": "fabian@c9.io"
     },
-    "dependencies": {
-      "mime": "^1.2.11"
-    },
-    "devDependencies": {
-        "async": "^0.9.0",
-        "oauth": "~0.9.7",
-        "optimist": "~0.6.0",
-        "mocha": "~1.13.0"
-    },
-    "main" : ".",
-    "scripts": {
-        "test": "node ./test/all.js"
-    },
-    "license": "MIT",
-    "licenses": [{
-        "type": "The MIT License",
-        "url": "http://www.opensource.org/licenses/mit-license.php"
-    }]
+    {
+      "name": "Joe Gallo",
+      "email": "joe@brassafrax.com"
+    }
+  ],
+  "homepage": "https://github.com/mikedeboer/node-github",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikedeboer/node-github.git"
+  },
+  "engine": {
+    "node": ">=0.4.0"
+  },
+  "dependencies": {
+    "follow-redirects": "0.0.7",
+    "https-proxy-agent": "^1.0.0",
+    "mime": "^1.2.11"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0"
+  },
+  "main": "lib",
+  "scripts": {
+    "test": "mocha"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "The MIT License",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "apidoc": {
+    "title": "node-github",
+    "name": "node-github",
+    "template": {
+      "withCompare": false
+    }
+  }
 }
