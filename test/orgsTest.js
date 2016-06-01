@@ -55,12 +55,13 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute PUT /teams/:id/repos/:user/:repo (addTeamRepo)",  function(next) {
+    it("should successfully execute PUT /teams/:id/repos/:org/:repo (addTeamRepo)",  function(next) {
         client.orgs.addTeamRepo(
             {
                 id: "String",
-                user: "String",
-                repo: "String"
+                org: "String",
+                repo: "String",
+                permission: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
