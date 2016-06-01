@@ -1623,14 +1623,15 @@ github.orgs.addTeamMembership({ ... });
  */
 
 /**
- * @api {put} /teams/:id/repos/:user/:repo addTeamRepo
+ * @api {put} /teams/:id/repos/:org/:repo addTeamRepo
  * @apiName addTeamRepo
  * @apiDescription Add team repository
  * @apiGroup orgs
  *
  * @apiParam {String} id  
- * @apiParam {String} user  
+ * @apiParam {String} org  
  * @apiParam {String} repo  
+ * @apiParam {String} [permission=pull]  `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.
  * @apiExample {js} ex:
 github.orgs.addTeamRepo({ ... });
  */

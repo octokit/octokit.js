@@ -2638,12 +2638,13 @@
         },
 
         "add-team-repo": {
-            "url": "/teams/:id/repos/:user/:repo",
+            "url": "/teams/:id/repos/:org/:repo",
             "method": "PUT",
             "params": {
                 "$id": null,
-                "$user": null,
-                "$repo": null
+                "$org": null,
+                "$repo": null,
+                "$permission": null
             },
             "description": "Add team repository"
         },
