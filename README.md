@@ -51,7 +51,9 @@ var github = new GitHubApi({
     timeout: 5000,
     headers: {
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
-    }
+    },
+    followRedirects: false // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
+    
 });
 github.users.getFollowingForUser({
     // optional:
