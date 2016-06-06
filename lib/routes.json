@@ -4419,7 +4419,9 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "$sha": null
+                "$sha": null,
+                "$page": null,
+                "$per_page": null
             },
             "description": "Get status for a specfic ref."
         },
@@ -4430,7 +4432,9 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "$sha": null
+                "$sha": null,
+                "$page": null,
+                "$per_page": null
             },
             "description": "Get the combined status for a specific ref."
         },
