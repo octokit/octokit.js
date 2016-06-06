@@ -2884,6 +2884,8 @@ github.repos.getCollaborators({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.repos.getCombinedStatus({ ... });
  */
@@ -3333,6 +3335,8 @@ github.repos.getStatsPunchCard({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.repos.getStatuses({ ... });
  */

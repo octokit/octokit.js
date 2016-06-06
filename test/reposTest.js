@@ -621,7 +621,9 @@ describe("[repos]", function() {
             {
                 user: "String",
                 repo: "String",
-                sha: "String"
+                sha: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1136,7 +1138,9 @@ describe("[repos]", function() {
             {
                 user: "String",
                 repo: "String",
-                sha: "String"
+                sha: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
