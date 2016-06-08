@@ -3488,6 +3488,7 @@ github.repos.updateFile({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} id  
+ * @apiParam {String} filePath  The file path of the asset.
  * @apiParam {String} name  The file name of the asset. This should be set in a URI query parameter.
  * @apiParam {String} [label]  An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.
  * @apiExample {js} ex:

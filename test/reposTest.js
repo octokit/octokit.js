@@ -1314,6 +1314,7 @@ describe("[repos]", function() {
                 user: "String",
                 repo: "String",
                 id: "String",
+                filePath: "String",
                 name: "String",
                 label: "String"
             },

@@ -4276,6 +4276,13 @@
                 "$user": null,
                 "$repo": null,
                 "$id": null,
+                "filePath": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The file path of the asset."
+                },
                 "name": {
                     "type": "String",
                     "required": true,
