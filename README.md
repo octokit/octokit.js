@@ -66,6 +66,18 @@ github.users.getFollowingForUser({
 });
 ```
 
+## Pagination
+
+There are a few pagination-related methods: 
+
+```
+hasFirstPage(), hasPreviousPage(), hasNextPage(), hasLastPage()
+getFirstPage(), getPreviousPage(), getNextPage(), getLastPage()
+getAllPages()
+```
+
+See [here](https://github.com/mikedeboer/node-github/blob/master/examples/getStarred.js) and [here](https://github.com/mikedeboer/node-github/blob/master/examples/getAllPages.js) for examples.
+
 ## Authentication
 
 Most GitHub API calls don't require authentication. As a rule of thumb: If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API. Of course calls, which change data or read sensitive information have to be authenticated.
