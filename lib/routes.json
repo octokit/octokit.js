@@ -3171,6 +3171,15 @@
             },
             "description": "List all public repositories"
         },
+        
+        "get-by-id": {
+            "url": "/repositories/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single repo by id."
+        },
 
         "create": {
             "url": "/user/repos",

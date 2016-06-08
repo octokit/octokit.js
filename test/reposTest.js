@@ -600,6 +600,19 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repositories/:id (getById)",  function(next) {
+        client.repos.getById(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
         client.repos.getCollaborators(
             {

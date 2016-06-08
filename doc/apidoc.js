@@ -2862,6 +2862,17 @@ github.repos.getBranches({ ... });
  */
 
 /**
+ * @api {get} /repositories/:id getById
+ * @apiName getById
+ * @apiDescription Get a single repo by id.
+ * @apiGroup repos
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.getById({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/collaborators getCollaborators
  * @apiName getCollaborators
  * @apiDescription List collaborators
