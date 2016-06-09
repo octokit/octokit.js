@@ -1602,6 +1602,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Array of strings - Labels to associate with this issue."
+                },
+                "assignees": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. Requires includePreview: true in config."
                 }
             },
             "description": "Create an issue"
@@ -1635,6 +1642,14 @@
                     "invalidmsg": "",
                     "description": "Login for the user that this issue should be assigned to."
                 },
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(open|closed)$",
+                    "invalidmsg": "open, closed, default: open",
+                    "description": "open or closed",
+                    "default": "open"
+                },
                 "milestone": {
                     "type": "Number",
                     "required": false,
@@ -1649,13 +1664,12 @@
                     "invalidmsg": "",
                     "description": "Array of strings - Labels to associate with this issue."
                 },
-                "state": {
-                    "type": "String",
+                "assignees": {
+                    "type": "Array",
                     "required": false,
-                    "validation": "^(open|closed)$",
-                    "invalidmsg": "open, closed, default: open",
-                    "description": "open or closed",
-                    "default": "open"
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. Requires includePreview: true in config."
                 }
             },
             "description": "Edit an issue"

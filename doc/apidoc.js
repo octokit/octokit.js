@@ -1024,6 +1024,7 @@ github.issues.checkAssignee({ ... });
  * @apiParam {String} [assignee]  Login for the user that this issue should be assigned to.
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. Requires includePreview: true in config.
  * @apiExample {js} ex:
 github.issues.create({ ... });
  */
@@ -1123,9 +1124,10 @@ github.issues.deleteMilestone({ ... });
  * @apiParam {String} [title]  
  * @apiParam {String} [body]  
  * @apiParam {String} [assignee]  Login for the user that this issue should be assigned to.
+ * @apiParam {String} [state=open]  open or closed
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
- * @apiParam {String} [state=open]  open or closed
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. Requires includePreview: true in config.
  * @apiExample {js} ex:
 github.issues.edit({ ... });
  */
