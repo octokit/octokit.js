@@ -3572,7 +3572,7 @@
                 "$repo": null,
                 "path": {
                     "type": "String",
-                    "required": false,
+                    "required": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The content path."

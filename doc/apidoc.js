@@ -2969,7 +2969,7 @@ github.repos.getCommits({ ... });
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} [path]  The content path.
+ * @apiParam {String} path  The content path.
  * @apiParam {String} [ref]  The String name of the Commit/Branch/Tag. Defaults to master.
  * @apiExample {js} ex:
 github.repos.getContent({ ... });
