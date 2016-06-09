@@ -1419,6 +1419,19 @@ github.issues.getMilestones({ ... });
  */
 
 /**
+ * @api {put} /repos/:user/:repo/issues/:number/lock lock
+ * @apiName lock
+ * @apiDescription Users with push access can lock an issue's conversation.
+ * @apiGroup issues
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiExample {js} ex:
+github.issues.lock({ ... });
+ */
+
+/**
  * @api {delete} /repos/:user/:repo/issues/:number/labels removeAllLabels
  * @apiName removeAllLabels
  * @apiDescription Remove all labels from an issue
@@ -1457,6 +1470,19 @@ github.issues.removeLabel({ ... });
  * @apiParam {Array} body  Sending an empty array ([]) will remove all Labels from the Issue.
  * @apiExample {js} ex:
 github.issues.replaceAllLabels({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/issues/:number/lock unlock
+ * @apiName unlock
+ * @apiDescription Users with push access can unlock an issue's conversation.
+ * @apiGroup issues
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiExample {js} ex:
+github.issues.unlock({ ... });
  */
 
 /**
