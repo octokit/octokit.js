@@ -52,8 +52,8 @@ var github = new GitHubApi({
     headers: {
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     },
-    followRedirects: false // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
-    
+    followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
+    includePreview: true // default: false; includes accept headers to allow use of stuff under preview period
 });
 github.users.getFollowingForUser({
     // optional:
