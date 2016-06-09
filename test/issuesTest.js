@@ -65,7 +65,8 @@ describe("[issues]", function() {
                 body: "String",
                 assignee: "String",
                 milestone: "Number",
-                labels: "Json"
+                labels: "Json",
+                assignees: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -179,9 +180,10 @@ describe("[issues]", function() {
                 title: "String",
                 body: "String",
                 assignee: "String",
+                state: "String",
                 milestone: "Number",
                 labels: "Json",
-                state: "String"
+                assignees: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
