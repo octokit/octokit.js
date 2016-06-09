@@ -517,6 +517,21 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute PUT /repos/:user/:repo/issues/:number/lock (lock)",  function(next) {
+        client.issues.lock(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:user/:repo/issues/:number/labels (removeAllLabels)",  function(next) {
         client.issues.removeAllLabels(
             {
@@ -555,6 +570,21 @@ describe("[issues]", function() {
                 repo: "String",
                 number: "Number",
                 body: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/lock (unlock)",  function(next) {
+        client.issues.unlock(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

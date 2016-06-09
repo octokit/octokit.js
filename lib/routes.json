@@ -1676,6 +1676,28 @@
             "description": "Edit an issue"
         },
 
+        "lock": {
+            "url": "/repos/:user/:repo/issues/:number/lock",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Users with push access can lock an issue's conversation."
+        },
+        
+        "unlock": {
+            "url": "/repos/:user/:repo/issues/:number/lock",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Users with push access can unlock an issue's conversation."
+        },
+
         "get-assignees": {
             "url": "/repos/:user/:repo/assignees",
             "method": "GET",
