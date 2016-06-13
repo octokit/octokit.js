@@ -3004,6 +3004,20 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "SHA that pull request head must match to allow merge"
+                },
+                "commit_title": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Title for the automatic commit message. Requires includePreview: true in config."
+                },
+                "squash": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Commit a single commit to the head branch. Requires includePreview: true in config."
                 }
             },
             "description": "Merge a pull request (Merge Button)"

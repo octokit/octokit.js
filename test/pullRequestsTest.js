@@ -272,7 +272,9 @@ describe("[pullRequests]", function() {
                 repo: "String",
                 number: "Number",
                 commit_message: "String",
-                sha: "String"
+                sha: "String",
+                commit_title: "String",
+                squash: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
