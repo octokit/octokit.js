@@ -13,7 +13,7 @@ var Assert = require("assert");
 var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
-describe("[<%sectionName%>]", function() {
+describe("[all_pages]", function() {
     var client;
     var token = testAuth["token"];
 
@@ -25,5 +25,16 @@ describe("[<%sectionName%>]", function() {
         });
     });
 
-<%testBody%>
+    it("should receive all the data of a given list",  function(next) {
+        this.timeout(8000)
+        client.getAllPages(client.orgs.getTeamMembers, {
+            id: '1660004'
+        }, function (err, res) {
+            Assert.equal(err, null);
+            Assert.ok(Array.isArray(res))
+            console.log(res.length)
+            Assert.ok(res.length > 200)
+            next();
+        })
+    });
 });
