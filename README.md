@@ -76,7 +76,7 @@ getFirstPage(), getPreviousPage(), getNextPage(), getLastPage()
 getAllPages()
 ```
 
-See [here](https://github.com/mikedeboer/node-github/blob/master/examples/getStarred.js) and [here](https://github.com/mikedeboer/node-github/blob/master/examples/getAllPages.js) for examples.
+See [here](https://github.com/mikedeboer/node-github/blob/master/examples/paginationCustomHeaders.js), [here](https://github.com/mikedeboer/node-github/blob/master/examples/getStarred.js), and [here](https://github.com/mikedeboer/node-github/blob/master/examples/getAllPages.js) for examples.
 
 ## Authentication
 
