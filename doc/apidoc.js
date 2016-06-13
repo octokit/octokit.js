@@ -2360,6 +2360,8 @@ github.pullRequests.getFiles({ ... });
  * @apiParam {Number} number  
  * @apiParam {String} [commit_message]  Extra detail to append to automatic commit message.
  * @apiParam {String} [sha]  SHA that pull request head must match to allow merge
+ * @apiParam {String} [commit_title]  Title for the automatic commit message. Requires includePreview: true in config.
+ * @apiParam {Boolean} [squash]  Commit a single commit to the head branch. Requires includePreview: true in config.
  * @apiExample {js} ex:
 github.pullRequests.merge({ ... });
  */
