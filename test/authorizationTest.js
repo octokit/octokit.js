@@ -125,6 +125,24 @@ describe("[authorization]", function() {
         );
     });
 
+    it("should successfully execute PUT /authorizations/clients/:client_id (getOrCreateAuthorizationForApp)",  function(next) {
+        client.authorization.getOrCreateAuthorizationForApp(
+            {
+                client_id: "String",
+                client_secret: "String",
+                scopes: "Array",
+                note: "String",
+                note_url: "String",
+                fingerprint: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PATCH /authorizations/:id (update)",  function(next) {
         client.authorization.update(
             {

@@ -397,13 +397,6 @@
                 "invalidmsg": "",
                 "description": "The 20 character OAuth app client key for which to create the token."
             },
-            "client_secret": {
-                "type": "String",
-                "required": false,
-                "validation": "",
-                "invalidmsg": "",
-                "description": "The 40 character OAuth app client secret for which to create the token."
-            },
             "fingerprint": {
                 "type": "String",
                 "required": false,
@@ -472,10 +465,36 @@
                 "$note": null,
                 "$note_url": null,
                 "$client_id": null,
-                "$client_secret": null,
+                "client_secret": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The 40 character OAuth app client secret for which to create the token."
+                },
                 "$fingerprint": null
             },
             "description": "Create a new authorization"
+        },
+        
+        "get-or-create-authorization-for-app": {
+            "url": "/authorizations/clients/:client_id",
+            "method": "PUT",
+            "params": {
+                "$client_id": null,
+                "client_secret": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The 40 character OAuth app client secret associated with the client ID specified in the URL."
+                },
+                "$scopes": null,
+                "$note": null,
+                "$note_url": null,
+                "$fingerprint": null
+            },
+            "description": "Get or create an authorization for a specific app"
         },
 
         "update": {

@@ -493,6 +493,22 @@ github.authorization.getGrants({ ... });
  */
 
 /**
+ * @api {put} /authorizations/clients/:client_id getOrCreateAuthorizationForApp
+ * @apiName getOrCreateAuthorizationForApp
+ * @apiDescription Get or create an authorization for a specific app
+ * @apiGroup authorization
+ *
+ * @apiParam {String} client_secret  The 40 character OAuth app client secret associated with the client ID specified in the URL.
+ * @apiParam {String} [client_id]  The 20 character OAuth app client key for which to create the token.
+ * @apiParam {Array} [scopes]  A list of scopes that this authorization is in.
+ * @apiParam {String} [note]  A note to remind you what the OAuth token is for.
+ * @apiParam {String} [note_url]  A URL to remind you what app the OAuth token is for.
+ * @apiParam {String} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
+ * @apiExample {js} ex:
+github.authorization.getOrCreateAuthorizationForApp({ ... });
+ */
+
+/**
  * @api {patch} /authorizations/:id update
  * @apiName update
  * @apiDescription Update an existing authorization
