@@ -537,6 +537,18 @@ github.authorization.getOrCreateAuthorizationForAppAndFingerprint({ ... });
  */
 
 /**
+ * @api {post} /applications/:client_id/tokens/:access_token reset
+ * @apiName reset
+ * @apiDescription Reset an authorization
+ * @apiGroup authorization
+ *
+ * @apiParam {String} access_token  OAuth token
+ * @apiParam {String} [client_id]  The 20 character OAuth app client key for which to create the token.
+ * @apiExample {js} ex:
+github.authorization.reset({ ... });
+ */
+
+/**
  * @api {patch} /authorizations/:id update
  * @apiName update
  * @apiDescription Update an existing authorization

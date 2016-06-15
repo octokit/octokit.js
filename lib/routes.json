@@ -567,6 +567,16 @@
                 "$access_token": null
             },
             "description": "Check an authorization"
+        },
+        
+        "reset": {
+            "url": "/applications/:client_id/tokens/:access_token",
+            "method": "POST",
+            "params": {
+                "$client_id": null,
+                "$access_token": null
+            },
+            "description": "Reset an authorization"
         }
     },
 

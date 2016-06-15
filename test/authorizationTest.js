@@ -175,6 +175,20 @@ describe("[authorization]", function() {
         );
     });
 
+    it("should successfully execute POST /applications/:client_id/tokens/:access_token (reset)",  function(next) {
+        client.authorization.reset(
+            {
+                client_id: "String",
+                access_token: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PATCH /authorizations/:id (update)",  function(next) {
         client.authorization.update(
             {
