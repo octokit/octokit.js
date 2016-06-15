@@ -389,6 +389,27 @@
                 "invalidmsg": "secret, closed, default: secret",
                 "description": "The level of privacy this team should have.",
                 "default": "secret"
+            },
+            "client_id": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "The 20 character OAuth app client key for which to create the token."
+            },
+            "client_secret": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "The 40 character OAuth app client secret for which to create the token."
+            },
+            "fingerprint": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
             }
         }
     },
@@ -449,7 +470,10 @@
             "params": {
                 "$scopes": null,
                 "$note": null,
-                "$note_url": null
+                "$note_url": null,
+                "$client_id": null,
+                "$client_secret": null,
+                "$fingerprint": null
             },
             "description": "Create a new authorization"
         },

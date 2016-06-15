@@ -30,7 +30,10 @@ describe("[authorization]", function() {
             {
                 scopes: "Array",
                 note: "String",
-                note_url: "String"
+                note_url: "String",
+                client_id: "String",
+                client_secret: "String",
+                fingerprint: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

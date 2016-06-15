@@ -415,6 +415,9 @@ github.activity.unwatchRepo({ ... });
  * @apiParam {Array} [scopes]  A list of scopes that this authorization is in.
  * @apiParam {String} [note]  A note to remind you what the OAuth token is for.
  * @apiParam {String} [note_url]  A URL to remind you what app the OAuth token is for.
+ * @apiParam {String} [client_id]  The 20 character OAuth app client key for which to create the token.
+ * @apiParam {String} [client_secret]  The 40 character OAuth app client secret for which to create the token.
+ * @apiParam {String} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
  * @apiExample {js} ex:
 github.authorization.create({ ... });
  */
