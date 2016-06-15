@@ -496,6 +496,26 @@
             },
             "description": "Get or create an authorization for a specific app"
         },
+        
+        "get-or-create-authorization-for-app-and-fingerprint": {
+            "url": "/authorizations/clients/:client_id/:fingerprint",
+            "method": "PUT",
+            "params": {
+                "$client_id": null,
+                "$fingerprint": null,
+                "client_secret": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The 40 character OAuth app client secret associated with the client ID specified in the URL."
+                },
+                "$scopes": null,
+                "$note": null,
+                "$note_url": null
+            },
+            "description": "Get or create an authorization for a specific app and fingerprint"
+        },
 
         "update": {
             "url": "/authorizations/:id",

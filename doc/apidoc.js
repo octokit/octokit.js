@@ -509,6 +509,22 @@ github.authorization.getOrCreateAuthorizationForApp({ ... });
  */
 
 /**
+ * @api {put} /authorizations/clients/:client_id/:fingerprint getOrCreateAuthorizationForAppAndFingerprint
+ * @apiName getOrCreateAuthorizationForAppAndFingerprint
+ * @apiDescription Get or create an authorization for a specific app and fingerprint
+ * @apiGroup authorization
+ *
+ * @apiParam {String} client_secret  The 40 character OAuth app client secret associated with the client ID specified in the URL.
+ * @apiParam {String} [client_id]  The 20 character OAuth app client key for which to create the token.
+ * @apiParam {String} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
+ * @apiParam {Array} [scopes]  A list of scopes that this authorization is in.
+ * @apiParam {String} [note]  A note to remind you what the OAuth token is for.
+ * @apiParam {String} [note_url]  A URL to remind you what app the OAuth token is for.
+ * @apiExample {js} ex:
+github.authorization.getOrCreateAuthorizationForAppAndFingerprint({ ... });
+ */
+
+/**
  * @api {patch} /authorizations/:id update
  * @apiName update
  * @apiDescription Update an existing authorization
