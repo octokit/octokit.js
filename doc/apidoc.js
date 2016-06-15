@@ -407,6 +407,18 @@ github.activity.unwatchRepo({ ... });
  */
 
 /**
+ * @api {get} /applications/:client_id/tokens/:access_token check
+ * @apiName check
+ * @apiDescription Check an authorization
+ * @apiGroup authorization
+ *
+ * @apiParam {String} access_token  OAuth token
+ * @apiParam {String} [client_id]  The 20 character OAuth app client key for which to create the token.
+ * @apiExample {js} ex:
+github.authorization.check({ ... });
+ */
+
+/**
  * @api {post} /authorizations create
  * @apiName create
  * @apiDescription Create a new authorization

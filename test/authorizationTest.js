@@ -25,6 +25,20 @@ describe("[authorization]", function() {
         });
     });
 
+    it("should successfully execute GET /applications/:client_id/tokens/:access_token (check)",  function(next) {
+        client.authorization.check(
+            {
+                client_id: "String",
+                access_token: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /authorizations (create)",  function(next) {
         client.authorization.create(
             {

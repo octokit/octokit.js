@@ -403,6 +403,13 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
+            },
+            "access_token": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "OAuth token"
             }
         }
     },
@@ -550,6 +557,16 @@
                 "$id": null
             },
             "description": "Delete an authorization"
+        },
+        
+        "check": {
+            "url": "/applications/:client_id/tokens/:access_token",
+            "method": "GET",
+            "params": {
+                "$client_id": null,
+                "$access_token": null
+            },
+            "description": "Check an authorization"
         }
     },
 
