@@ -454,6 +454,18 @@ github.authorization.getAll({ ... });
  */
 
 /**
+ * @api {get} /applications/grants getGrants
+ * @apiName getGrants
+ * @apiDescription List your grants
+ * @apiGroup authorization
+ *
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.authorization.getGrants({ ... });
+ */
+
+/**
  * @api {patch} /authorizations/:id update
  * @apiName update
  * @apiDescription Update an existing authorization

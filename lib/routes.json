@@ -394,6 +394,16 @@
     },
 
     "authorization": {
+        "get-grants": {
+            "url": "/applications/grants",
+            "method": "GET",
+            "params": { 
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List your grants"
+        },
+        
         "get-all": {
             "url": "/authorizations",
             "method": "GET",
