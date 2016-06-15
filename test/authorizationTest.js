@@ -53,6 +53,19 @@ describe("[authorization]", function() {
         );
     });
 
+    it("should successfully execute DELETE /applications/grants/:id (deleteGrant)",  function(next) {
+        client.authorization.deleteGrant(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /authorizations/:id (get)",  function(next) {
         client.authorization.get(
             {

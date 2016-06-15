@@ -431,6 +431,17 @@ github.authorization.delete({ ... });
  */
 
 /**
+ * @api {delete} /applications/grants/:id deleteGrant
+ * @apiName deleteGrant
+ * @apiDescription Delete a grant. Requires includePreview: true in config.
+ * @apiGroup authorization
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.authorization.deleteGrant({ ... });
+ */
+
+/**
  * @api {get} /authorizations/:id get
  * @apiName get
  * @apiDescription Get a single authorization

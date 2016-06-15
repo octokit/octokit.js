@@ -415,6 +415,15 @@
             "description": "Get a single grant. Requires includePreview: true in config."
         },
         
+        "delete-grant": {
+            "url": "/applications/grants/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a grant. Requires includePreview: true in config."
+        },
+        
         "get-all": {
             "url": "/authorizations",
             "method": "GET",
