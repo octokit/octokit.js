@@ -577,6 +577,16 @@
                 "$access_token": null
             },
             "description": "Reset an authorization"
+        },
+        
+        "revoke": {
+            "url": "/applications/:client_id/tokens/:access_token",
+            "method": "DELETE",
+            "params": {
+                "$client_id": null,
+                "$access_token": null
+            },
+            "description": "Revoke an authorization for an application"
         }
     },
 

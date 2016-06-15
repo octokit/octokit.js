@@ -549,6 +549,18 @@ github.authorization.reset({ ... });
  */
 
 /**
+ * @api {delete} /applications/:client_id/tokens/:access_token revoke
+ * @apiName revoke
+ * @apiDescription Revoke an authorization for an application
+ * @apiGroup authorization
+ *
+ * @apiParam {String} access_token  OAuth token
+ * @apiParam {String} [client_id]  The 20 character OAuth app client key for which to create the token.
+ * @apiExample {js} ex:
+github.authorization.revoke({ ... });
+ */
+
+/**
  * @api {patch} /authorizations/:id update
  * @apiName update
  * @apiDescription Update an existing authorization
