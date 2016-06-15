@@ -401,7 +401,18 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List your grants"
+            "description": "List your grants. Requires includePreview: true in config."
+        },
+        
+        "get-grant": {
+            "url": "/applications/grants/:id",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get a single grant. Requires includePreview: true in config."
         },
         
         "get-all": {

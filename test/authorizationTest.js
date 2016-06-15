@@ -80,6 +80,21 @@ describe("[authorization]", function() {
         );
     });
 
+    it("should successfully execute GET /applications/grants/:id (getGrant)",  function(next) {
+        client.authorization.getGrant(
+            {
+                id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /applications/grants (getGrants)",  function(next) {
         client.authorization.getGrants(
             {

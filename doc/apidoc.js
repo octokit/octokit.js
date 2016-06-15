@@ -454,9 +454,22 @@ github.authorization.getAll({ ... });
  */
 
 /**
+ * @api {get} /applications/grants/:id getGrant
+ * @apiName getGrant
+ * @apiDescription Get a single grant. Requires includePreview: true in config.
+ * @apiGroup authorization
+ *
+ * @apiParam {String} id  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.authorization.getGrant({ ... });
+ */
+
+/**
  * @api {get} /applications/grants getGrants
  * @apiName getGrants
- * @apiDescription List your grants
+ * @apiDescription List your grants. Requires includePreview: true in config.
  * @apiGroup authorization
  *
  * @apiParam {Number} [page]  Page number of the results to fetch.
