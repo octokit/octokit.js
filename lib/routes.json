@@ -1960,6 +1960,19 @@
             },
             "description": "List events for an issue"
         },
+        
+        "get-events-timeline": {
+            "url": "/repos/:user/:repo/issues/:number/timeline",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List events for an issue. Requires includePreview: true in config."
+        },
 
         "get-events-for-repo": {
             "url": "/repos/:user/:repo/issues/events",

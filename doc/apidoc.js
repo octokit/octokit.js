@@ -1384,6 +1384,21 @@ github.issues.getEventsForRepo({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/issues/:number/timeline getEventsTimeline
+ * @apiName getEventsTimeline
+ * @apiDescription List events for an issue. Requires includePreview: true in config.
+ * @apiGroup issues
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.issues.getEventsTimeline({ ... });
+ */
+
+/**
  * @api {get} /orgs/:org/issues getForOrg
  * @apiName getForOrg
  * @apiDescription List all issues for a given organization for the authenticated user

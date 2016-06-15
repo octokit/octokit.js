@@ -357,6 +357,23 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/issues/:number/timeline (getEventsTimeline)",  function(next) {
+        client.issues.getEventsTimeline(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /orgs/:org/issues (getForOrg)",  function(next) {
         client.issues.getForOrg(
             {
