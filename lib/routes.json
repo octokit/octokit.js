@@ -34,7 +34,7 @@
             "Status"
         ],
         "request-headers": [
-            "authorization",
+            "Authorization",
             "If-Modified-Since",
             "If-None-Match",
             "Cookie",
