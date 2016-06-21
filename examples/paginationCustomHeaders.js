@@ -4,8 +4,7 @@ var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
 var github = new Client({
-    debug: true,
-    includePreview: true
+    debug: true
 });
 
 github.authenticate({
