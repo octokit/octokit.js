@@ -53,7 +53,6 @@ var github = new GitHubApi({
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     },
     followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
-    includePreview: true // default: false; includes accept headers to allow use of stuff under preview period
 });
 github.users.getFollowingForUser({
     // optional:
@@ -150,6 +149,10 @@ github.authorization.create({
     }
 });
 ```
+
+## Preview
+
+Some endpoints are in a preview period and require a custom `Accept` header. See https://developer.github.com/changes/ or [routes.json](https://github.com/mikedeboer/node-github/blob/master/lib/routes.json#L13).
 
 ## Update docs/tests
 
