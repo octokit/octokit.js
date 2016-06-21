@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.3.0
+
+Features:
+  * Add reaction endpoints.
+
+Bugfixes:
+  * Fix custom headers not being used.
+  * Fix includePreview config flag not working properly. (Removed and need to use custom headers.)
+
 ## 1.2.1
 
 Bugfixes:
