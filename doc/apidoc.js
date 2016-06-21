@@ -3887,6 +3887,17 @@ github.users.checkIfOneFollowersOther({ ... });
  */
 
 /**
+ * @api {post} /user/gpg_keys createGpgKey
+ * @apiName createGpgKey
+ * @apiDescription Create a GPG key
+ * @apiGroup users
+ *
+ * @apiParam {String} armored_public_key  GPG key contents
+ * @apiExample {js} ex:
+github.users.createGpgKey({ ... });
+ */
+
+/**
  * @api {post} /user/keys createKey
  * @apiName createKey
  * @apiDescription Create a public key
@@ -3907,6 +3918,17 @@ github.users.createKey({ ... });
  * @apiParam {Array} body  You can post a single email address or an array of addresses.
  * @apiExample {js} ex:
 github.users.deleteEmails({ ... });
+ */
+
+/**
+ * @api {delete} /user/gpg_keys/:id deleteGpgKey
+ * @apiName deleteGpgKey
+ * @apiDescription Delete a GPG key
+ * @apiGroup users
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.users.deleteGpgKey({ ... });
  */
 
 /**
@@ -4057,6 +4079,29 @@ github.users.getFollowingForUser({ ... });
  * @apiParam {String} user  
  * @apiExample {js} ex:
 github.users.getForUser({ ... });
+ */
+
+/**
+ * @api {get} /user/gpg_keys/:id getGpgKey
+ * @apiName getGpgKey
+ * @apiDescription Get a single GPG key
+ * @apiGroup users
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.users.getGpgKey({ ... });
+ */
+
+/**
+ * @api {get} /user/gpg_keys getGpgKeys
+ * @apiName getGpgKeys
+ * @apiDescription List your GPG keys
+ * @apiGroup users
+ *
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.users.getGpgKeys({ ... });
  */
 
 /**
