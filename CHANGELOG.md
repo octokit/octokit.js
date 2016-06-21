@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.1
+
+Bugfixes:
+  * Allow empty string for path param for getContent.
+
 ## 1.2.0
 
 Features:
