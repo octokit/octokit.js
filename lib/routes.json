@@ -3778,6 +3778,7 @@
                 "path": {
                     "type": "String",
                     "required": true,
+                    "allow-empty": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The content path."
