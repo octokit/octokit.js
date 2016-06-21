@@ -5365,6 +5365,49 @@
             "description": "Delete a public key"
         },
 
+        "get-gpg-keys": {
+            "url": "/user/gpg_keys",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List your GPG keys"
+        },
+        
+        "get-gpg-key": {
+            "url": "/user/gpg_keys/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single GPG key"
+        },
+        
+        "create-gpg-key": {
+            "url": "/user/gpg_keys",
+            "method": "POST",
+            "params": {
+                "armored_public_key": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "GPG key contents"
+                }
+            },
+            "description": "Create a GPG key"
+        },
+        
+        "delete-gpg-key": {
+            "url": "/user/gpg_keys/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a GPG key"
+        },
+
         "promote": {
             "url": "/users/:user/site_admin",
             "method": "PUT",

@@ -65,6 +65,19 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute POST /user/gpg_keys (createGpgKey)",  function(next) {
+        client.users.createGpgKey(
+            {
+                armored_public_key: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /user/keys (createKey)",  function(next) {
         client.users.createKey(
             {
@@ -83,6 +96,19 @@ describe("[users]", function() {
         client.users.deleteEmails(
             {
                 body: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/gpg_keys/:id (deleteGpgKey)",  function(next) {
+        client.users.deleteGpgKey(
+            {
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -258,6 +284,33 @@ describe("[users]", function() {
         client.users.getForUser(
             {
                 user: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/gpg_keys/:id (getGpgKey)",  function(next) {
+        client.users.getGpgKey(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/gpg_keys (getGpgKeys)",  function(next) {
+        client.users.getGpgKeys(
+            {
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
