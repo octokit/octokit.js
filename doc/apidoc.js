@@ -2505,6 +2505,129 @@ github.pullRequests.update({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/comments/:id/reactions createForCommitComment
+ * @apiName createForCommitComment
+ * @apiDescription Create reaction for a commit comment.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} content  The reaction type.
+ * @apiExample {js} ex:
+github.reactions.createForCommitComment({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/issues/:number/reactions createForIssue
+ * @apiName createForIssue
+ * @apiDescription Create reaction for an issue.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {String} content  The reaction type.
+ * @apiExample {js} ex:
+github.reactions.createForIssue({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/issues/comments/:id/reactions createForIssueComment
+ * @apiName createForIssueComment
+ * @apiDescription Create reaction for an issue comment.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} content  The reaction type.
+ * @apiExample {js} ex:
+github.reactions.createForIssueComment({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/pulls/comments/:id/reactions createForPullRequestReviewComment
+ * @apiName createForPullRequestReviewComment
+ * @apiDescription Create reaction for a pull request review comment.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} content  The reaction type.
+ * @apiExample {js} ex:
+github.reactions.createForPullRequestReviewComment({ ... });
+ */
+
+/**
+ * @api {delete} /reactions/:id delete
+ * @apiName delete
+ * @apiDescription Delete a reaction.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.reactions.delete({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/comments/:id/reactions getForCommitComment
+ * @apiName getForCommitComment
+ * @apiDescription List reactions for a commit comment.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} [content]  Indicates which type of reaction to return.
+ * @apiExample {js} ex:
+github.reactions.getForCommitComment({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/issues/:number/reactions getForIssue
+ * @apiName getForIssue
+ * @apiDescription List reactions for an issue.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {String} [content]  Indicates which type of reaction to return.
+ * @apiExample {js} ex:
+github.reactions.getForIssue({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/issues/comments/:id/reactions getForIssueComment
+ * @apiName getForIssueComment
+ * @apiDescription List reactions for an issue comment.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} [content]  Indicates which type of reaction to return.
+ * @apiExample {js} ex:
+github.reactions.getForIssueComment({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/pulls/comments/:id/reactions getForPullRequestReviewComment
+ * @apiName getForPullRequestReviewComment
+ * @apiDescription List reactions for a pull request review comment.
+ * @apiGroup reactions
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} [content]  Indicates which type of reaction to return.
+ * @apiExample {js} ex:
+github.reactions.getForPullRequestReviewComment({ ... });
+ */
+
+/**
  * @api {put} /repos/:user/:repo/collaborators/:collabuser addCollaborator
  * @apiName addCollaborator
  * @apiDescription Add user as a collaborator

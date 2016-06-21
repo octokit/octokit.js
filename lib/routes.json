@@ -3270,6 +3270,161 @@
             "description": "Delete a comment"
         }
     },
+    
+    "reactions": {
+        "get-for-commit-comment": {
+            "url": "/repos/:user/:repo/comments/:id/reactions",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "Indicates which type of reaction to return."
+                }
+            },
+            "description": "List reactions for a commit comment."
+        },
+        
+        "create-for-commit-comment": {
+            "url": "/repos/:user/:repo/comments/:id/reactions",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "The reaction type."
+                }
+            },
+            "description": "Create reaction for a commit comment."
+        },
+        
+        "get-for-issue": {
+            "url": "/repos/:user/:repo/issues/:number/reactions",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "content": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "Indicates which type of reaction to return."
+                }
+            },
+            "description": "List reactions for an issue."
+        },
+        
+        "create-for-issue": {
+            "url": "/repos/:user/:repo/issues/:number/reactions",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "content": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "The reaction type."
+                }
+            },
+            "description": "Create reaction for an issue."
+        },
+        
+        "get-for-issue-comment": {
+            "url": "/repos/:user/:repo/issues/comments/:id/reactions",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "Indicates which type of reaction to return."
+                }
+            },
+            "description": "List reactions for an issue comment."
+        },
+        
+        "create-for-issue-comment": {
+            "url": "/repos/:user/:repo/issues/comments/:id/reactions",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "The reaction type."
+                }
+            },
+            "description": "Create reaction for an issue comment."
+        },
+        
+        "get-for-pull-request-review-comment": {
+            "url": "/repos/:user/:repo/pulls/comments/:id/reactions",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "Indicates which type of reaction to return."
+                }
+            },
+            "description": "List reactions for a pull request review comment."
+        },
+        
+        "create-for-pull-request-review-comment": {
+            "url": "/repos/:user/:repo/pulls/comments/:id/reactions",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "content": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(+1|-1|laugh|confused|heart|hooray)$",
+                    "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
+                    "description": "The reaction type."
+                }
+            },
+            "description": "Create reaction for a pull request review comment."
+        },
+        
+        "delete": {
+            "url": "/reactions/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a reaction."
+        }
+    },
 
     "repos": {
         "get-all": {
