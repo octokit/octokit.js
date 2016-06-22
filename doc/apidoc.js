@@ -2927,6 +2927,18 @@ github.repos.deleteHook({ ... });
  */
 
 /**
+ * @api {delete} /repositories/:repo/invitations/:id deleteInvite
+ * @apiName deleteInvite
+ * @apiDescription Delete a repository invitation.
+ * @apiGroup repos
+ *
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.deleteInvite({ ... });
+ */
+
+/**
  * @api {delete} /repos/:user/:repo/keys/:id deleteKey
  * @apiName deleteKey
  * @apiDescription Remove a deploy key.
@@ -3397,6 +3409,17 @@ github.repos.getHooks({ ... });
  */
 
 /**
+ * @api {get} /repositories/:repo/invitations getInvites
+ * @apiName getInvites
+ * @apiDescription List invitations for a repository.
+ * @apiGroup repos
+ *
+ * @apiParam {String} repo  
+ * @apiExample {js} ex:
+github.repos.getInvites({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/keys/:id getKey
  * @apiName getKey
  * @apiDescription Get a deploy key.
@@ -3767,6 +3790,19 @@ github.repos.updateFile({ ... });
  */
 
 /**
+ * @api {patch} /repositories/:repo/invitations/:id updateInvite
+ * @apiName updateInvite
+ * @apiDescription Update a repository invitation.
+ * @apiGroup repos
+ *
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} [permission]  The permissions that the associated user will have on the repository. Valid values are read, write, and admin.
+ * @apiExample {js} ex:
+github.repos.updateInvite({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/releases/:id/assets uploadAsset
  * @apiName uploadAsset
  * @apiDescription Upload a release asset.
@@ -3854,6 +3890,17 @@ github.search.users({ ... });
  */
 
 /**
+ * @api {patch} /user/repository_invitations/:id acceptRepoInvite
+ * @apiName acceptRepoInvite
+ * @apiDescription Accept a repository invitation
+ * @apiGroup users
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.users.acceptRepoInvite({ ... });
+ */
+
+/**
  * @api {post} /user/emails addEmails
  * @apiName addEmails
  * @apiDescription Add email address(es)
@@ -3908,6 +3955,17 @@ github.users.createGpgKey({ ... });
  * @apiParam {String} key  
  * @apiExample {js} ex:
 github.users.createKey({ ... });
+ */
+
+/**
+ * @api {delete} /user/repository_invitations/:id declineRepoInvite
+ * @apiName declineRepoInvite
+ * @apiDescription Decline a repository invitation
+ * @apiGroup users
+ *
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.users.declineRepoInvite({ ... });
  */
 
 /**
@@ -4162,6 +4220,16 @@ github.users.getOrganizationMembership({ ... });
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.users.getOrgs({ ... });
+ */
+
+/**
+ * @api {get} /user/repository_invitations getRepoInvites
+ * @apiName getRepoInvites
+ * @apiDescription List a user's repository invitations
+ * @apiGroup users
+ *
+ * @apiExample {js} ex:
+github.users.getRepoInvites({ ... });
  */
 
 /**

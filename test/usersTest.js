@@ -25,6 +25,19 @@ describe("[users]", function() {
         });
     });
 
+    it("should successfully execute PATCH /user/repository_invitations/:id (acceptRepoInvite)",  function(next) {
+        client.users.acceptRepoInvite(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /user/emails (addEmails)",  function(next) {
         client.users.addEmails(
             {
@@ -83,6 +96,19 @@ describe("[users]", function() {
             {
                 title: "String",
                 key: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/repository_invitations/:id (declineRepoInvite)",  function(next) {
+        client.users.declineRepoInvite(
+            {
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -381,6 +407,17 @@ describe("[users]", function() {
                 page: "Number",
                 per_page: "Number"
             },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/repository_invitations (getRepoInvites)",  function(next) {
+        client.users.getRepoInvites(
+            {},
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
