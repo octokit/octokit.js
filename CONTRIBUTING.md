@@ -16,10 +16,9 @@ Before you create a new Issue:
 
 * Create a topic branch from the master branch.
 * Check for unnecessary whitespace / changes with `git diff --check` before committing.
+* If modifying `lib/routes.json`, be sure to run `node lib/generate.js` followed by `apidoc -i doc/ -o apidoc/` to generate/update docs/tests/apidoc.
 * Keep git commit messages clear and appropriate
 	* Please "squash" your commits down to one commit.
-* run `node lib/generate.js` and commit any files that appear. This will generate documentation and corresponding tests.
-
 
 ## Submitting the Pull Request
 
