@@ -152,7 +152,7 @@ github.authorization.create({
 
 ## Preview
 
-Some endpoints are in a preview period and require a custom `Accept` header. See https://developer.github.com/changes/ or [routes.json](https://github.com/mikedeboer/node-github/blob/master/lib/routes.json#L13).
+Some endpoints are in a preview period and require a custom `Accept` header. See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example. For updates on endpoints under preview, see https://developer.github.com/changes/.
 
 ## Update docs/tests
 
