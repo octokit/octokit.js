@@ -3741,7 +3741,8 @@
             "params": {
                 "$user": null,
                 "$repo": null,
-                "$collabuser": null
+                "$collabuser": null,
+                "$permission": null
             },
             "description": "Add user as a collaborator"
         },

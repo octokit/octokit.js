@@ -30,7 +30,8 @@ describe("[repos]", function() {
             {
                 user: "String",
                 repo: "String",
-                collabuser: "String"
+                collabuser: "String",
+                permission: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
