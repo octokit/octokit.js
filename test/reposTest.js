@@ -362,6 +362,20 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repositories/:repo/invitations/:id (deleteInvite)",  function(next) {
+        client.repos.deleteInvite(
+            {
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:user/:repo/keys/:id (deleteKey)",  function(next) {
         client.repos.deleteKey(
             {
@@ -896,6 +910,19 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repositories/:repo/invitations (getInvites)",  function(next) {
+        client.repos.getInvites(
+            {
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/keys/:id (getKey)",  function(next) {
         client.repos.getKey(
             {
@@ -1313,6 +1340,21 @@ describe("[repos]", function() {
                 sha: "String",
                 branch: "String",
                 committer: "Json"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repositories/:repo/invitations/:id (updateInvite)",  function(next) {
+        client.repos.updateInvite(
+            {
+                repo: "String",
+                id: "String",
+                permission: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

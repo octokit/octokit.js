@@ -4393,7 +4393,43 @@
             },
             "description": "Create a fork."
         },
-
+        
+        "get-invites": {
+            "url": "/repositories/:repo/invitations",
+            "method": "GET",
+            "params": {
+                "$repo": null
+            },
+            "description": "List invitations for a repository."
+        },
+        
+        "delete-invite": {
+            "url": "/repositories/:repo/invitations/:id",
+            "method": "DELETE",
+            "params": {
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Delete a repository invitation."
+        },
+        
+        "update-invite": {
+            "url": "/repositories/:repo/invitations/:id",
+            "method": "PATCH",
+            "params": {
+                "$repo": null,
+                "$id": null,
+                "permission": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(read|write|admin)$",
+                    "invalidmsg": "Read, write, or admin.",
+                    "description": "The permissions that the associated user will have on the repository. Valid values are read, write, and admin."
+                }
+            },
+            "description": "Update a repository invitation."
+        },
+        
         "merge": {
             "url": "/repos/:user/:repo/merges",
             "method": "POST",
@@ -5443,6 +5479,32 @@
                 "$user": null
             },
             "description": "Unsuspend a user"
+        },
+        
+        "get-repo-invites": {
+            "url": "/user/repository_invitations",
+            "method": "GET",
+            "params": {
+            },
+            "description": "List a user's repository invitations"
+        },
+        
+        "accept-repo-invite": {
+            "url": "/user/repository_invitations/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null
+            },
+            "description": "Accept a repository invitation"
+        },
+        
+        "decline-repo-invite": {
+            "url": "/user/repository_invitations/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Decline a repository invitation"
         }
     },
 
