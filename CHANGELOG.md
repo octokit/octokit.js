@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.4.0
+
+Features:
+  * Add repo invite endpoints.
+  * Add permission param to add-collaborator.
+  * Add GPG endpoints.
+
 ## 1.3.0
 
 Features:
