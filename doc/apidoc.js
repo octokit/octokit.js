@@ -2636,6 +2636,7 @@ github.reactions.getForPullRequestReviewComment({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} collabuser  
+ * @apiParam {String} [permission=pull]  `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.
  * @apiExample {js} ex:
 github.repos.addCollaborator({ ... });
  */
