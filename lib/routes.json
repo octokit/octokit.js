@@ -423,7 +423,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List your grants. In preview period. See README."
+            "description": "List your grants. (In preview period. See README.)"
         },
         
         "get-grant": {
@@ -434,7 +434,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get a single grant. In preview period. See README."
+            "description": "Get a single grant. (In preview period. See README.)"
         },
         
         "delete-grant": {
@@ -443,7 +443,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete a grant. In preview period. See README."
+            "description": "Delete a grant. (In preview period. See README.)"
         },
         
         "get-all": {
@@ -1740,7 +1740,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. In preview period. See README."
+                    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)"
                 }
             },
             "description": "Create an issue"
@@ -1801,7 +1801,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. In preview period. See README."
+                    "description": "Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)"
                 }
             },
             "description": "Edit an issue"
@@ -1972,7 +1972,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List events for an issue. In preview period. See README."
+            "description": "List events for an issue. (In preview period. See README.)"
         },
 
         "get-events-for-repo": {
@@ -3154,14 +3154,14 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Title for the automatic commit message. In preview period. See README."
+                    "description": "Title for the automatic commit message. (In preview period. See README.)"
                 },
                 "squash": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Commit a single commit to the head branch. In preview period. See README."
+                    "description": "Commit a single commit to the head branch. (In preview period. See README.)"
                 }
             },
             "description": "Merge a pull request (Merge Button)"
@@ -3287,7 +3287,7 @@
                     "description": "Indicates which type of reaction to return."
                 }
             },
-            "description": "List reactions for a commit comment. In preview period. See README."
+            "description": "List reactions for a commit comment. (In preview period. See README.)"
         },
         
         "create-for-commit-comment": {
@@ -3305,7 +3305,7 @@
                     "description": "The reaction type."
                 }
             },
-            "description": "Create reaction for a commit comment. In preview period. See README."
+            "description": "Create reaction for a commit comment. (In preview period. See README.)"
         },
         
         "get-for-issue": {
@@ -3323,7 +3323,7 @@
                     "description": "Indicates which type of reaction to return."
                 }
             },
-            "description": "List reactions for an issue. In preview period. See README."
+            "description": "List reactions for an issue. (In preview period. See README.)"
         },
         
         "create-for-issue": {
@@ -3341,7 +3341,7 @@
                     "description": "The reaction type."
                 }
             },
-            "description": "Create reaction for an issue. In preview period. See README."
+            "description": "Create reaction for an issue. (In preview period. See README.)"
         },
         
         "get-for-issue-comment": {
@@ -3359,7 +3359,7 @@
                     "description": "Indicates which type of reaction to return."
                 }
             },
-            "description": "List reactions for an issue comment. In preview period. See README."
+            "description": "List reactions for an issue comment. (In preview period. See README.)"
         },
         
         "create-for-issue-comment": {
@@ -3377,7 +3377,7 @@
                     "description": "The reaction type."
                 }
             },
-            "description": "Create reaction for an issue comment. In preview period. See README."
+            "description": "Create reaction for an issue comment. (In preview period. See README.)"
         },
         
         "get-for-pull-request-review-comment": {
@@ -3395,7 +3395,7 @@
                     "description": "Indicates which type of reaction to return."
                 }
             },
-            "description": "List reactions for a pull request review comment. In preview period. See README."
+            "description": "List reactions for a pull request review comment. (In preview period. See README.)"
         },
         
         "create-for-pull-request-review-comment": {
@@ -3413,7 +3413,7 @@
                     "description": "The reaction type."
                 }
             },
-            "description": "Create reaction for a pull request review comment. In preview period. See README."
+            "description": "Create reaction for a pull request review comment. (In preview period. See README.)"
         },
         
         "delete": {
@@ -3422,7 +3422,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete a reaction. In preview period. See README."
+            "description": "Delete a reaction. (In preview period. See README.)"
         }
     },
 
@@ -5373,7 +5373,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List your GPG keys"
+            "description": "List your GPG keys. (In preview period. See README.)"
         },
         
         "get-gpg-key": {
@@ -5382,7 +5382,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Get a single GPG key"
+            "description": "Get a single GPG key. (In preview period. See README.)"
         },
         
         "create-gpg-key": {
@@ -5397,7 +5397,7 @@
                     "description": "GPG key contents"
                 }
             },
-            "description": "Create a GPG key"
+            "description": "Create a GPG key. (In preview period. See README.)"
         },
         
         "delete-gpg-key": {
@@ -5406,7 +5406,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete a GPG key"
+            "description": "Delete a GPG key. (In preview period. See README.)"
         },
 
         "promote": {

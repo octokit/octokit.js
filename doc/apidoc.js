@@ -448,7 +448,7 @@ github.authorization.delete({ ... });
 /**
  * @api {delete} /applications/grants/:id deleteGrant
  * @apiName deleteGrant
- * @apiDescription Delete a grant. In preview period. See README.
+ * @apiDescription Delete a grant. (In preview period. See README.)
  * @apiGroup authorization
  *
  * @apiParam {String} id  
@@ -482,7 +482,7 @@ github.authorization.getAll({ ... });
 /**
  * @api {get} /applications/grants/:id getGrant
  * @apiName getGrant
- * @apiDescription Get a single grant. In preview period. See README.
+ * @apiDescription Get a single grant. (In preview period. See README.)
  * @apiGroup authorization
  *
  * @apiParam {String} id  
@@ -495,7 +495,7 @@ github.authorization.getGrant({ ... });
 /**
  * @api {get} /applications/grants getGrants
  * @apiName getGrants
- * @apiDescription List your grants. In preview period. See README.
+ * @apiDescription List your grants. (In preview period. See README.)
  * @apiGroup authorization
  *
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -1131,7 +1131,7 @@ github.issues.checkAssignee({ ... });
  * @apiParam {String} [assignee]  Login for the user that this issue should be assigned to.
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
- * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. In preview period. See README.
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)
  * @apiExample {js} ex:
 github.issues.create({ ... });
  */
@@ -1234,7 +1234,7 @@ github.issues.deleteMilestone({ ... });
  * @apiParam {String} [state=open]  open or closed
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
- * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. In preview period. See README.
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)
  * @apiExample {js} ex:
 github.issues.edit({ ... });
  */
@@ -1386,7 +1386,7 @@ github.issues.getEventsForRepo({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/timeline getEventsTimeline
  * @apiName getEventsTimeline
- * @apiDescription List events for an issue. In preview period. See README.
+ * @apiDescription List events for an issue. (In preview period. See README.)
  * @apiGroup issues
  *
  * @apiParam {String} user  
@@ -2482,8 +2482,8 @@ github.pullRequests.getFiles({ ... });
  * @apiParam {Number} number  
  * @apiParam {String} [commit_message]  Extra detail to append to automatic commit message.
  * @apiParam {String} [sha]  SHA that pull request head must match to allow merge
- * @apiParam {String} [commit_title]  Title for the automatic commit message. In preview period. See README.
- * @apiParam {Boolean} [squash]  Commit a single commit to the head branch. In preview period. See README.
+ * @apiParam {String} [commit_title]  Title for the automatic commit message. (In preview period. See README.)
+ * @apiParam {Boolean} [squash]  Commit a single commit to the head branch. (In preview period. See README.)
  * @apiExample {js} ex:
 github.pullRequests.merge({ ... });
  */
@@ -2507,7 +2507,7 @@ github.pullRequests.update({ ... });
 /**
  * @api {post} /repos/:user/:repo/comments/:id/reactions createForCommitComment
  * @apiName createForCommitComment
- * @apiDescription Create reaction for a commit comment. In preview period. See README.
+ * @apiDescription Create reaction for a commit comment. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2521,7 +2521,7 @@ github.reactions.createForCommitComment({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues/:number/reactions createForIssue
  * @apiName createForIssue
- * @apiDescription Create reaction for an issue. In preview period. See README.
+ * @apiDescription Create reaction for an issue. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2535,7 +2535,7 @@ github.reactions.createForIssue({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues/comments/:id/reactions createForIssueComment
  * @apiName createForIssueComment
- * @apiDescription Create reaction for an issue comment. In preview period. See README.
+ * @apiDescription Create reaction for an issue comment. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2549,7 +2549,7 @@ github.reactions.createForIssueComment({ ... });
 /**
  * @api {post} /repos/:user/:repo/pulls/comments/:id/reactions createForPullRequestReviewComment
  * @apiName createForPullRequestReviewComment
- * @apiDescription Create reaction for a pull request review comment. In preview period. See README.
+ * @apiDescription Create reaction for a pull request review comment. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2563,7 +2563,7 @@ github.reactions.createForPullRequestReviewComment({ ... });
 /**
  * @api {delete} /reactions/:id delete
  * @apiName delete
- * @apiDescription Delete a reaction. In preview period. See README.
+ * @apiDescription Delete a reaction. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} id  
@@ -2574,7 +2574,7 @@ github.reactions.delete({ ... });
 /**
  * @api {get} /repos/:user/:repo/comments/:id/reactions getForCommitComment
  * @apiName getForCommitComment
- * @apiDescription List reactions for a commit comment. In preview period. See README.
+ * @apiDescription List reactions for a commit comment. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2588,7 +2588,7 @@ github.reactions.getForCommitComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/:number/reactions getForIssue
  * @apiName getForIssue
- * @apiDescription List reactions for an issue. In preview period. See README.
+ * @apiDescription List reactions for an issue. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2602,7 +2602,7 @@ github.reactions.getForIssue({ ... });
 /**
  * @api {get} /repos/:user/:repo/issues/comments/:id/reactions getForIssueComment
  * @apiName getForIssueComment
- * @apiDescription List reactions for an issue comment. In preview period. See README.
+ * @apiDescription List reactions for an issue comment. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -2616,7 +2616,7 @@ github.reactions.getForIssueComment({ ... });
 /**
  * @api {get} /repos/:user/:repo/pulls/comments/:id/reactions getForPullRequestReviewComment
  * @apiName getForPullRequestReviewComment
- * @apiDescription List reactions for a pull request review comment. In preview period. See README.
+ * @apiDescription List reactions for a pull request review comment. (In preview period. See README.)
  * @apiGroup reactions
  *
  * @apiParam {String} user  
@@ -3890,7 +3890,7 @@ github.users.checkIfOneFollowersOther({ ... });
 /**
  * @api {post} /user/gpg_keys createGpgKey
  * @apiName createGpgKey
- * @apiDescription Create a GPG key
+ * @apiDescription Create a GPG key. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiParam {String} armored_public_key  GPG key contents
@@ -3924,7 +3924,7 @@ github.users.deleteEmails({ ... });
 /**
  * @api {delete} /user/gpg_keys/:id deleteGpgKey
  * @apiName deleteGpgKey
- * @apiDescription Delete a GPG key
+ * @apiDescription Delete a GPG key. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiParam {String} id  
@@ -4085,7 +4085,7 @@ github.users.getForUser({ ... });
 /**
  * @api {get} /user/gpg_keys/:id getGpgKey
  * @apiName getGpgKey
- * @apiDescription Get a single GPG key
+ * @apiDescription Get a single GPG key. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiParam {String} id  
@@ -4096,7 +4096,7 @@ github.users.getGpgKey({ ... });
 /**
  * @api {get} /user/gpg_keys getGpgKeys
  * @apiName getGpgKeys
- * @apiDescription List your GPG keys
+ * @apiDescription List your GPG keys. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiParam {Number} [page]  Page number of the results to fetch.
