@@ -4400,7 +4400,7 @@
             "params": {
                 "$repo": null
             },
-            "description": "List invitations for a repository."
+            "description": "List invitations for a repository. (In preview period. See README.)"
         },
         
         "delete-invite": {
@@ -4410,7 +4410,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "Delete a repository invitation."
+            "description": "Delete a repository invitation. (In preview period. See README.)"
         },
         
         "update-invite": {
@@ -4427,7 +4427,7 @@
                     "description": "The permissions that the associated user will have on the repository. Valid values are read, write, and admin."
                 }
             },
-            "description": "Update a repository invitation."
+            "description": "Update a repository invitation. (In preview period. See README.)"
         },
         
         "merge": {
@@ -5486,7 +5486,7 @@
             "method": "GET",
             "params": {
             },
-            "description": "List a user's repository invitations"
+            "description": "List a user's repository invitations. (In preview period. See README.)"
         },
         
         "accept-repo-invite": {
@@ -5495,7 +5495,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Accept a repository invitation"
+            "description": "Accept a repository invitation. (In preview period. See README.)"
         },
         
         "decline-repo-invite": {
@@ -5504,7 +5504,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Decline a repository invitation"
+            "description": "Decline a repository invitation. (In preview period. See README.)"
         }
     },
 

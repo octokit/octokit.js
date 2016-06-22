@@ -2929,7 +2929,7 @@ github.repos.deleteHook({ ... });
 /**
  * @api {delete} /repositories/:repo/invitations/:id deleteInvite
  * @apiName deleteInvite
- * @apiDescription Delete a repository invitation.
+ * @apiDescription Delete a repository invitation. (In preview period. See README.)
  * @apiGroup repos
  *
  * @apiParam {String} repo  
@@ -3411,7 +3411,7 @@ github.repos.getHooks({ ... });
 /**
  * @api {get} /repositories/:repo/invitations getInvites
  * @apiName getInvites
- * @apiDescription List invitations for a repository.
+ * @apiDescription List invitations for a repository. (In preview period. See README.)
  * @apiGroup repos
  *
  * @apiParam {String} repo  
@@ -3792,7 +3792,7 @@ github.repos.updateFile({ ... });
 /**
  * @api {patch} /repositories/:repo/invitations/:id updateInvite
  * @apiName updateInvite
- * @apiDescription Update a repository invitation.
+ * @apiDescription Update a repository invitation. (In preview period. See README.)
  * @apiGroup repos
  *
  * @apiParam {String} repo  
@@ -3892,7 +3892,7 @@ github.search.users({ ... });
 /**
  * @api {patch} /user/repository_invitations/:id acceptRepoInvite
  * @apiName acceptRepoInvite
- * @apiDescription Accept a repository invitation
+ * @apiDescription Accept a repository invitation. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiParam {String} id  
@@ -3960,7 +3960,7 @@ github.users.createKey({ ... });
 /**
  * @api {delete} /user/repository_invitations/:id declineRepoInvite
  * @apiName declineRepoInvite
- * @apiDescription Decline a repository invitation
+ * @apiDescription Decline a repository invitation. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiParam {String} id  
@@ -4225,7 +4225,7 @@ github.users.getOrgs({ ... });
 /**
  * @api {get} /user/repository_invitations getRepoInvites
  * @apiName getRepoInvites
- * @apiDescription List a user's repository invitations
+ * @apiDescription List a user's repository invitations. (In preview period. See README.)
  * @apiGroup users
  *
  * @apiExample {js} ex:
