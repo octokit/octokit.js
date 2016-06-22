@@ -156,6 +156,8 @@ Some endpoints are in a preview period and require a custom `Accept` header. See
 
 ## Update docs/tests
 
+When updating routes.json, you'll want to update/generate docs/tests:
+
 ```bash
 $ node lib/generate.js
 ```
