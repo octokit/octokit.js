@@ -24,9 +24,11 @@ github.issues.getForRepo({
     showIssueIds(res);
     console.log('END of PAGE 1');
     
-    github.getNextPage(res, customHeaders, function(err, res) {
-        showIssueIds(res);
-    });
+    if (github.hasNextPage(res)) {
+        github.getNextPage(res, customHeaders, function(err, res) {
+            showIssueIds(res);
+        });
+    }
 });
 
 function showIssueIds(res) {
