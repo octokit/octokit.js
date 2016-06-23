@@ -80,12 +80,10 @@ getPreviousPage(link, headers, callback)
 getFirstPage(link, headers, callback)
 getLastPage(link, headers, callback)
 
-getAllPages(method, options, callback)
-
 NOTE: link is the response object or the contents of the Link header
 ```
 
-See [here](https://github.com/mikedeboer/node-github/blob/master/examples/paginationCustomHeaders.js), [here](https://github.com/mikedeboer/node-github/blob/master/examples/getStarred.js), and [here](https://github.com/mikedeboer/node-github/blob/master/examples/getAllPages.js) for examples.
+See [here](https://github.com/mikedeboer/node-github/blob/master/examples/paginationCustomHeaders.js) and [here](https://github.com/mikedeboer/node-github/blob/master/examples/getStarred.js) for examples.
 
 ## Authentication
 
