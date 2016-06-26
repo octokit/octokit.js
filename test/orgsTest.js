@@ -176,20 +176,6 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute DELETE /orgs/:org/migrations/:id/archive (deleteMigrationArchive)",  function(next) {
-        client.orgs.deleteMigrationArchive(
-            {
-                org: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute DELETE /teams/:id (deleteTeam)",  function(next) {
         client.orgs.deleteTeam(
             {
@@ -331,49 +317,6 @@ describe("[orgs]", function() {
                 org: "String",
                 filter: "String",
                 role: "String",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /orgs/:org/migrations/:id/archive (getMigrationArchiveLink)",  function(next) {
-        client.orgs.getMigrationArchiveLink(
-            {
-                org: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /orgs/:org/migrations/:id (getMigrationStatus)",  function(next) {
-        client.orgs.getMigrationStatus(
-            {
-                org: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /orgs/:org/migrations (getMigrations)",  function(next) {
-        client.orgs.getMigrations(
-            {
-                org: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -559,37 +502,6 @@ describe("[orgs]", function() {
             {
                 id: "String",
                 user: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /orgs/:org/migrations (startMigration)",  function(next) {
-        client.orgs.startMigration(
-            {
-                org: "String",
-                repositories: "Array",
-                lock_repositories: "Boolean",
-                exclude_attachments: "Boolean"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /orgs/:org/migrations/:id/repos/:repo/lock (unlockRepoLockedForMigration)",  function(next) {
-        client.orgs.unlockRepoLockedForMigration(
-            {
-                org: "String",
-                id: "String",
-                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

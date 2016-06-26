@@ -152,6 +152,8 @@ github.authorization.create({
 
 Some endpoints are in a preview period and require a custom `Accept` header. See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example. For updates on endpoints under preview, see https://developer.github.com/changes/.
 
+Relatedly, the Migrations api requires an `Accept` header value of `application/vnd.github.wyandotte-preview+json`.
+
 ## Update docs/tests
 
 When updating routes.json, you'll want to update/generate docs/tests:

@@ -2250,6 +2250,92 @@
         }
     },
 
+    "migrations": {
+        "start-migration": {
+            "url": "/orgs/:org/migrations",
+            "method": "POST",
+            "params": {
+                "$org": null,
+                "repositories": {
+                    "type": "Array",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A list of arrays indicating which repositories should be migrated."
+                },
+                "lock_repositories": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false.",
+                    "default": "false"
+                },
+                "exclude_attachments": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false.",
+                    "default": "false"
+                }
+            },
+            "description": "Start a migration."
+        },
+        
+        "get-migrations": {
+            "url": "/orgs/:org/migrations",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get a list of migrations"
+        },
+        
+        "get-migration-status": {
+            "url": "/orgs/:org/migrations/:id",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$id": null
+            },
+            "description": "Get the status of a migration"
+        },
+        
+        "get-migration-archive-link": {
+            "url": "/orgs/:org/migrations/:id/archive",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$id": null
+            },
+            "description": "Get the URL to a migration archive."
+        },
+
+        "delete-migration-archive": {
+            "url": "/orgs/:org/migrations/:id/archive",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$id": null
+            },
+            "description": "Delete a migration archive"
+        },
+
+        "unlock-repo-locked-for-migration": {
+            "url": "/orgs/:org/migrations/:id/repos/:repo/lock",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$id": null,
+                "$repo": null
+            },
+            "description": "Unlock a repository that was locked for migration."
+        }
+    },
+
     "misc": {
         "get-emojis": {
             "url": "/emojis",
@@ -2593,90 +2679,6 @@
                 }
             },
             "description": "List your organization memberships"
-        },
-
-        "start-migration": {
-            "url": "/orgs/:org/migrations",
-            "method": "POST",
-            "params": {
-                "$org": null,
-                "repositories": {
-                    "type": "Array",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "A list of arrays indicating which repositories should be migrated."
-                },
-                "lock_repositories": {
-                    "type": "Boolean",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false.",
-                    "default": "false"
-                },
-                "exclude_attachments": {
-                    "type": "Boolean",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false.",
-                    "default": "false"
-                }
-            },
-            "description": "Start a migration"
-        },
-
-        "get-migrations": {
-            "url": "/orgs/:org/migrations",
-            "method": "GET",
-            "params": {
-                "$org": null,
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "Get a list of migrations"
-        },
-
-        "get-migration-status": {
-            "url": "/orgs/:org/migrations/:id",
-            "method": "GET",
-            "params": {
-                "$org": null,
-                "$id": null
-            },
-            "description": "Get the status of a migration"
-        },
-
-        "get-migration-archive-link": {
-            "url": "/orgs/:org/migrations/:id/archive",
-            "method": "GET",
-            "params": {
-                "$org": null,
-                "$id": null
-            },
-            "description": "Get the URL to a migration archive."
-        },
-
-        "delete-migration-archive": {
-            "url": "/orgs/:org/migrations/:id/archive",
-            "method": "DELETE",
-            "params": {
-                "$org": null,
-                "$id": null
-            },
-            "description": "Delete a migration archive"
-        },
-
-        "unlock-repo-locked-for-migration": {
-            "url": "/orgs/:org/migrations/:id/repos/:repo/lock",
-            "method": "DELETE",
-            "params": {
-                "$org": null,
-                "$id": null,
-                "$repo": null
-            },
-            "description": "Unlock a repository that was locked for migration."
         },
 
         "get-teams": {
