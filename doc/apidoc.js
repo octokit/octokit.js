@@ -600,6 +600,17 @@ github.enterprise.getLicense({ ... });
  */
 
 /**
+ * @api {post} /staff/indexing_jobs queueIndexingJob
+ * @apiName queueIndexingJob
+ * @apiDescription Queue an indexing job
+ * @apiGroup enterprise
+ *
+ * @apiParam {String} target  A string representing the item to index.
+ * @apiExample {js} ex:
+github.enterprise.queueIndexingJob({ ... });
+ */
+
+/**
  * @api {get} /enterprise/stats/:type stats
  * @apiName stats
  * @apiDescription Get statistics.
