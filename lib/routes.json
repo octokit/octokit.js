@@ -2333,6 +2333,163 @@
                 "$repo": null
             },
             "description": "Unlock a repository that was locked for migration."
+        },
+        
+        "start-import": {
+            "url": "/repos/:user/:repo/import",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "vcs_url": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The URL of the originating repository."
+                },
+                "vcs": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(subversion|git|mercurial|tfvc)$",
+                    "invalidmsg": "subversion, git, mercurial, tfvc",
+                    "description": "The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response."
+                },
+                "vcs_username": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If authentication is required, the username to provide to vcs_url."
+                },
+                "vcs_password": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "If authentication is required, the password to provide to vcs_url."
+                },
+                "tfvc_project": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "For a tfvc import, the name of the project that is being imported."
+                }
+            },
+            "description": "Start an import. (In preview period. See README.)"
+        },
+        
+        "get-import-progress": {
+            "url": "/repos/:user/:repo/import",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "Get import progress. (In preview period. See README.)"
+        },
+        
+        "update-import": {
+            "url": "/repos/:user/:repo/import",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "vcs_username": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "The username to provide to the originating repository."
+            },
+            "vcs_password": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "The password to provide to the originating repository."
+            },
+            "description": "Update existing import. (In preview period. See README.)"
+        },
+        
+        "get-import-commit-authors": {
+            "url": "/repos/:user/:repo/import/authors",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "since": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Only authors found after this id are returned. Provide the highest author ID you've seen so far. New authors may be added to the list at any point while the importer is performing the raw step."
+                }
+            },
+            "description": "Get import commit authors. (In preview period. See README.)"
+        },
+        
+        "map-import-commit-author": {
+            "url": "/repos/:user/:repo/import/authors/:author_id",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "author_id": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The commit author id."
+                },
+                "email": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The new Git author email."
+                },
+                "name": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The new Git author name."
+                }
+            },
+            "description": "Map a commit author. (In preview period. See README.)"
+        },
+        
+        "set-import-lfs-preference": {
+            "url": "/:user/:name/import/lfs",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$name": null
+            },
+            "description": "Set import LFS preference. (In preview period. See README.)"
+        },
+        
+        "get-large-import-files": {
+            "url": "/:user/:name/import/large_files",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$name": null
+            },
+            "description": "List files larger than 100MB found during the import. (In preview period. See README.)"
+        },
+        
+        "cancel-import": {
+            "url": "/repos/:user/:repo/import",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "Cancel an import. (In preview period. See README.)"
         }
     },
 

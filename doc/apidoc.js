@@ -1639,6 +1639,18 @@ github.issues.updateMilestone({ ... });
  */
 
 /**
+ * @api {delete} /repos/:user/:repo/import cancelImport
+ * @apiName cancelImport
+ * @apiDescription Cancel an import. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiExample {js} ex:
+github.migrations.cancelImport({ ... });
+ */
+
+/**
  * @api {delete} /orgs/:org/migrations/:id/archive deleteMigrationArchive
  * @apiName deleteMigrationArchive
  * @apiDescription Delete a migration archive
@@ -1648,6 +1660,43 @@ github.issues.updateMilestone({ ... });
  * @apiParam {String} id  
  * @apiExample {js} ex:
 github.migrations.deleteMigrationArchive({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/import/authors getImportCommitAuthors
+ * @apiName getImportCommitAuthors
+ * @apiDescription Get import commit authors. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} [since]  Only authors found after this id are returned. Provide the highest author ID you've seen so far. New authors may be added to the list at any point while the importer is performing the raw step.
+ * @apiExample {js} ex:
+github.migrations.getImportCommitAuthors({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/import getImportProgress
+ * @apiName getImportProgress
+ * @apiDescription Get import progress. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiExample {js} ex:
+github.migrations.getImportProgress({ ... });
+ */
+
+/**
+ * @api {get} /:user/:name/import/large_files getLargeImportFiles
+ * @apiName getLargeImportFiles
+ * @apiDescription List files larger than 100MB found during the import. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} name  
+ * @apiExample {js} ex:
+github.migrations.getLargeImportFiles({ ... });
  */
 
 /**
@@ -1688,6 +1737,50 @@ github.migrations.getMigrations({ ... });
  */
 
 /**
+ * @api {patch} /repos/:user/:repo/import/authors/:author_id mapImportCommitAuthor
+ * @apiName mapImportCommitAuthor
+ * @apiDescription Map a commit author. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} author_id  The commit author id.
+ * @apiParam {String} [email]  The new Git author email.
+ * @apiParam {String} [name]  The new Git author name.
+ * @apiExample {js} ex:
+github.migrations.mapImportCommitAuthor({ ... });
+ */
+
+/**
+ * @api {patch} /:user/:name/import/lfs setImportLfsPreference
+ * @apiName setImportLfsPreference
+ * @apiDescription Set import LFS preference. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} name  
+ * @apiExample {js} ex:
+github.migrations.setImportLfsPreference({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/import startImport
+ * @apiName startImport
+ * @apiDescription Start an import. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} vcs_url  The URL of the originating repository.
+ * @apiParam {String} [vcs]  The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.
+ * @apiParam {String} [vcs_username]  If authentication is required, the username to provide to vcs_url.
+ * @apiParam {String} [vcs_password]  If authentication is required, the password to provide to vcs_url.
+ * @apiParam {String} [tfvc_project]  For a tfvc import, the name of the project that is being imported.
+ * @apiExample {js} ex:
+github.migrations.startImport({ ... });
+ */
+
+/**
  * @api {post} /orgs/:org/migrations startMigration
  * @apiName startMigration
  * @apiDescription Start a migration.
@@ -1712,6 +1805,18 @@ github.migrations.startMigration({ ... });
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.migrations.unlockRepoLockedForMigration({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/import updateImport
+ * @apiName updateImport
+ * @apiDescription Update existing import. (In preview period. See README.)
+ * @apiGroup migrations
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiExample {js} ex:
+github.migrations.updateImport({ ... });
  */
 
 /**
