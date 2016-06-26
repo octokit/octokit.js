@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.0.0
+
+Breaking changes:
+  * Remove getAllPages utility method.
+  * Move migration-related endpoints to its own section.
+
+Features:
+  * Add source import endpoints.
+  * Add enterprise search indexing endpoint.
+
 ## 1.4.0
 
 Features:
