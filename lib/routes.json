@@ -5737,6 +5737,21 @@
             "params": {},
             "description": "Get license information"
         },
+        
+        "queue-indexing-job": {
+            "url": "/staff/indexing_jobs",
+            "method": "POST",
+            "params": {
+                "target": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A string representing the item to index."
+                }
+            },
+            "description": "Queue an indexing job"
+        },
 
         "create-org": {
             "url": "/admin/organizations",

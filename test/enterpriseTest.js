@@ -51,6 +51,19 @@ describe("[enterprise]", function() {
         );
     });
 
+    it("should successfully execute POST /staff/indexing_jobs (queueIndexingJob)",  function(next) {
+        client.enterprise.queueIndexingJob(
+            {
+                target: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /enterprise/stats/:type (stats)",  function(next) {
         client.enterprise.stats(
             {
