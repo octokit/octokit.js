@@ -4388,7 +4388,7 @@
                 },
                 "task": {
                     "type": "String",
-                    "required": true,
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The named task to execute. e.g. deploy or deploy:migrations. Default: deploy",
