@@ -2830,7 +2830,7 @@ github.repos.createCommitComment({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} ref  The ref to deploy. This can be a branch, tag, or sha.
- * @apiParam {String} task=deploy  The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
+ * @apiParam {String} [task=deploy]  The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
  * @apiParam {Boolean} [auto_merge=true]  Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true
  * @apiParam {Array} [required_contexts]  Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
  * @apiParam {String} [payload=""]  Optional JSON payload with extra information about the deployment. Default: ""
