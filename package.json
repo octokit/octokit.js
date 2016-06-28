@@ -26,7 +26,6 @@
     "node": ">=0.4.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.1",
     "follow-redirects": "0.0.7",
     "https-proxy-agent": "^1.0.0",
     "mime": "^1.2.11"
