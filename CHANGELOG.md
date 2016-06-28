@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.0.1
+
+Features:
+  * Add get raw blob example.
+
+Bugfixes:
+  * Make createDeployment task param optional.
+  * Add missing org param for issues.getForOrg.
+
 ## 2.0.0
 
 Breaking changes:
