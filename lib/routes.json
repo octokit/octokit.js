@@ -1580,6 +1580,7 @@
             "url": "/orgs/:org/issues",
             "method": "GET",
             "params": {
+                "$org": null,
                 "filter": {
                     "type": "String",
                     "required": false,

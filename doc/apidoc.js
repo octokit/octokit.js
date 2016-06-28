@@ -1415,6 +1415,7 @@ github.issues.getEventsTimeline({ ... });
  * @apiDescription List all issues for a given organization for the authenticated user
  * @apiGroup issues
  *
+ * @apiParam {String} org  
  * @apiParam {String} [filter]  
  * @apiParam {String} [state=open]  open, closed, or all
  * @apiParam {String} [labels]  String list of comma separated Label names. Example: bug,ui,@high

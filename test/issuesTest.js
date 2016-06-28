@@ -377,6 +377,7 @@ describe("[issues]", function() {
     it("should successfully execute GET /orgs/:org/issues (getForOrg)",  function(next) {
         client.issues.getForOrg(
             {
+                org: "String",
                 filter: "String",
                 state: "String",
                 labels: "String",
