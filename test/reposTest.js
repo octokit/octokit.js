@@ -142,7 +142,10 @@ describe("[repos]", function() {
                 id: "String",
                 state: "String",
                 target_url: "String",
-                description: "String"
+                log_url: "String",
+                description: "String",
+                environment_url: "String",
+                auto_inactive: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -2852,7 +2852,10 @@ github.repos.createDeployment({ ... });
  * @apiParam {String} id  
  * @apiParam {String} [state]  The state of the status. Can be one of pending, success, error, or failure.
  * @apiParam {String} [target_url=""]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: ""
+ * @apiParam {String} [log_url=""]  Functionally equivalent to target_url. Default: "". (In preview period. See README.)
  * @apiParam {String} [description=""]  A short description of the status. Default: ""
+ * @apiParam {String} [environment_url=""]  URL for accessing the deployment environment. Default: "". (In preview period. See README.)
+ * @apiParam {Boolean} [auto_inactive=true]  When true the new `inactive` status is added to all other all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment.. Default: true. (In preview period. See README.)
  * @apiExample {js} ex:
 github.repos.createDeploymentStatus({ ... });
  */
