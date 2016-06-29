@@ -5,7 +5,7 @@ var Promise = require("bluebird");  // NOTE: install manually to test: npm i -S 
 
 var github = new Client({
     debug: false,
-    // Promise: Promise
+    Promise: Promise
 });
 
 github.orgs.getAll({
