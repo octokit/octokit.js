@@ -124,7 +124,9 @@ describe("[repos]", function() {
                 required_contexts: "Array",
                 payload: "String",
                 environment: "String",
-                description: "String"
+                description: "String",
+                transient_environment: "Boolean",
+                production_environment: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);

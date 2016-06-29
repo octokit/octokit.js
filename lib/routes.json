@@ -4433,6 +4433,21 @@
                     "invalidmsg": "",
                     "description": "Optional short description. Default: \"\"",
                     "default": "\"\""
+                },
+                "transient_environment": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: false. (In preview period. See README.)",
+                    "default": false
+                },
+                "production_environment": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Specifies if the given environment is a one that end-users directly interact with. Default: true when environment is `production` and false otherwise. (In preview period. See README.)"
                 }
             },
             "description": "Create a deployment."
@@ -4500,7 +4515,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "When true the new `inactive` status is added to all other all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment.. Default: true. (In preview period. See README.)",
+                    "description": "When true the new `inactive` status is added to all other non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. Default: true. (In preview period. See README.)",
                     "default": true
                 }
             },
