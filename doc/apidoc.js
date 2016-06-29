@@ -2829,14 +2829,16 @@ github.repos.createCommitComment({ ... });
  * @apiGroup repos
  *
  * @apiParam {String} user  
- * @apiParam {String} repo  
  * @apiParam {String} ref  The ref to deploy. This can be a branch, tag, or sha.
+ * @apiParam {String} repo  
  * @apiParam {String} [task=deploy]  The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
  * @apiParam {Boolean} [auto_merge=true]  Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true
- * @apiParam {Array} [required_contexts]  Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
+ * @apiParam {Boolean} [production_environment]  Specifies if the given environment is a one that end-users directly interact with. Default: true when environment is `production` and false otherwise. (In preview period. See README.)
  * @apiParam {String} [payload=""]  Optional JSON payload with extra information about the deployment. Default: ""
  * @apiParam {String} [environment=none]  The name of the environment that was deployed to. e.g. staging or production. Default: none.
  * @apiParam {String} [description=""]  Optional short description. Default: ""
+ * @apiParam {Boolean} [transient_environment=false]  Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: false. (In preview period. See README.)
+ * @apiParam {Array} [required_contexts]  Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
  * @apiExample {js} ex:
 github.repos.createDeployment({ ... });
  */
@@ -2855,7 +2857,7 @@ github.repos.createDeployment({ ... });
  * @apiParam {String} [log_url=""]  Functionally equivalent to target_url. Default: "". (In preview period. See README.)
  * @apiParam {String} [description=""]  A short description of the status. Default: ""
  * @apiParam {String} [environment_url=""]  URL for accessing the deployment environment. Default: "". (In preview period. See README.)
- * @apiParam {Boolean} [auto_inactive=true]  When true the new `inactive` status is added to all other all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment.. Default: true. (In preview period. See README.)
+ * @apiParam {Boolean} [auto_inactive=true]  When true the new `inactive` status is added to all other non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. Default: true. (In preview period. See README.)
  * @apiExample {js} ex:
 github.repos.createDeploymentStatus({ ... });
  */
