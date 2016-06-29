@@ -4470,6 +4470,14 @@
                     "description": "The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: \"\"",
                     "default": "\"\""
                 },
+                "log_url": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Functionally equivalent to target_url. Default: \"\". (In preview period. See README.)",
+                    "default": "\"\""
+                },
                 "description": {
                     "type": "String",
                     "required": false,
@@ -4477,6 +4485,22 @@
                     "invalidmsg": "",
                     "description": "A short description of the status. Default: \"\"",
                     "default": "\"\""
+                },
+                "environment_url": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "URL for accessing the deployment environment. Default: \"\". (In preview period. See README.)",
+                    "default": "\"\""
+                },
+                "auto_inactive": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "When true the new `inactive` status is added to all other all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment.. Default: true. (In preview period. See README.)",
+                    "default": true
                 }
             },
             "description": "Create a deployment status."
