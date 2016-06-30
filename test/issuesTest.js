@@ -25,6 +25,22 @@ describe("[issues]", function() {
         });
     });
 
+    it("should successfully execute POST /repos/:user/:repo/issues/:number/assignees (addAssigneesToIssue)",  function(next) {
+        client.issues.addAssigneesToIssue(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                assignees: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:user/:repo/issues/:number/labels (addLabels)",  function(next) {
         client.issues.addLabels(
             {
@@ -556,6 +572,22 @@ describe("[issues]", function() {
                 user: "String",
                 repo: "String",
                 number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/assignees (removeAssigneesFromIssue)",  function(next) {
+        client.issues.removeAssigneesFromIssue(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                assignees: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);

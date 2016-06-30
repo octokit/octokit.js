@@ -1879,6 +1879,42 @@
             },
             "description": "Check assignee"
         },
+        
+        "add-assignees-to-issue": {
+            "url": "/repos/:user/:repo/issues/:number/assignees",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "assignees": {
+                    "type": "Array",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Logins for the users that should be added to the issue."
+                }
+            },
+            "description": "Add assignees to an issue. (In preview period. See README.)"
+        },
+        
+        "remove-assignees-from-issue": {
+            "url": "/repos/:user/:repo/issues/:number/assignees",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "assignees": {
+                    "type": "Array",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Logins for the users that should be removed from the issue."
+                }
+            },
+            "description": "Remove assignees from an issue. (In preview period. See README.)"
+        },
 
         "get-comments": {
             "url": "/repos/:user/:repo/issues/:number/comments",
