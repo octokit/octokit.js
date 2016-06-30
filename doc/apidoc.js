@@ -1020,6 +1020,19 @@ github.gitdata.getCommit({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/git/commits/:sha getCommitSignatureVerification
+ * @apiName getCommitSignatureVerification
+ * @apiDescription Get a Commit Signature Verification. (In preview period. See README.)
+ * @apiGroup gitdata
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} sha  
+ * @apiExample {js} ex:
+github.gitdata.getCommitSignatureVerification({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/git/refs/:ref getReference
  * @apiName getReference
  * @apiDescription Get a Reference

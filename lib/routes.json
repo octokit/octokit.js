@@ -1314,6 +1314,17 @@
             "description": "Create a Commit"
         },
 
+        "get-commit-signature-verification": {
+            "url": "/repos/:user/:repo/git/commits/:sha",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$sha": null
+            },
+            "description": "Get a Commit Signature Verification. (In preview period. See README.)"
+        },
+
         "get-reference": {
             "url": "/repos/:user/:repo/git/refs/:ref",
             "method": "GET",
