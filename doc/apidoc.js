@@ -1891,7 +1891,7 @@ github.misc.getGitignoreTemplates({ ... });
 /**
  * @api {get} /licenses/:license getLicense
  * @apiName getLicense
- * @apiDescription Get an individual license
+ * @apiDescription Get an individual license. (In preview period. See README.)
  * @apiGroup misc
  *
  * @apiParam {String} license  Ex: /licenses/mit
@@ -1902,7 +1902,7 @@ github.misc.getLicense({ ... });
 /**
  * @api {get} /licenses getLicenses
  * @apiName getLicenses
- * @apiDescription List all licenses
+ * @apiDescription List all licenses. (In preview period. See README.)
  * @apiGroup misc
  *
  * @apiExample {js} ex:
@@ -1932,7 +1932,7 @@ github.misc.getRateLimit({ ... });
 /**
  * @api {get} /repos/:user/:repo/license getRepoLicense
  * @apiName getRepoLicense
- * @apiDescription Get the contents of a repository's license
+ * @apiDescription Get the contents of a repository's license. (In preview period. See README.)
  * @apiGroup misc
  *
  * @apiParam {String} user  

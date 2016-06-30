@@ -19,7 +19,8 @@
                 "application/vnd.github.damage-preview",
                 "application/vnd.github.ant-man-preview+json",
                 "application/vnd.github.cryptographer-preview",
-                "application/vnd.github.polaris-preview"
+                "application/vnd.github.polaris-preview",
+                "application/vnd.github.drax-preview+json"
             ]
         },
         "response-headers": [
@@ -2550,7 +2551,7 @@
             "url": "/licenses",
             "method": "GET",
             "params": { },
-            "description": "List all licenses"
+            "description": "List all licenses. (In preview period. See README.)"
         },
 
         "get-license": {
@@ -2565,7 +2566,7 @@
                     "description": "Ex: /licenses/mit"
                 }
             },
-            "description": "Get an individual license"
+            "description": "Get an individual license. (In preview period. See README.)"
         },
 
         "get-repo-license": {
@@ -2575,7 +2576,7 @@
                 "$user": null,
                 "$repo": null
             },
-            "description": "Get the contents of a repository's license"
+            "description": "Get the contents of a repository's license. (In preview period. See README.)"
         },
 
         "render-markdown": {
