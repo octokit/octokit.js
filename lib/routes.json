@@ -1458,6 +1458,17 @@
             },
             "description": "Create a Tag Object"
         },
+        
+        "get-tag-signature-verification": {
+            "url": "/repos/:user/:repo/git/tags/:sha",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$sha": null
+            },
+            "description": "Get a Tag Signature Verification. (In preview period. See README.)"
+        },
 
         "get-tree": {
             "url": "/repos/:user/:repo/git/trees/:sha",

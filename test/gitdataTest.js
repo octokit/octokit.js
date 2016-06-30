@@ -219,6 +219,21 @@ describe("[gitdata]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/git/tags/:sha (getTagSignatureVerification)",  function(next) {
+        client.gitdata.getTagSignatureVerification(
+            {
+                user: "String",
+                repo: "String",
+                sha: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/git/refs/tags (getTags)",  function(next) {
         client.gitdata.getTags(
             {
