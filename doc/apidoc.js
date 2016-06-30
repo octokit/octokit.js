@@ -1129,6 +1129,20 @@ github.gitdata.updateReference({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/issues/:number/assignees addAssigneesToIssue
+ * @apiName addAssigneesToIssue
+ * @apiDescription Add assignees to an issue. (In preview period. See README.)
+ * @apiGroup issues
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {Array} assignees  Logins for the users that should be added to the issue.
+ * @apiExample {js} ex:
+github.issues.addAssigneesToIssue({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/issues/:number/labels addLabels
  * @apiName addLabels
  * @apiDescription Add labels to an issue
@@ -1602,6 +1616,20 @@ github.issues.lock({ ... });
  * @apiParam {Number} number  
  * @apiExample {js} ex:
 github.issues.removeAllLabels({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/issues/:number/assignees removeAssigneesFromIssue
+ * @apiName removeAssigneesFromIssue
+ * @apiDescription Remove assignees from an issue. (In preview period. See README.)
+ * @apiGroup issues
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {Array} assignees  Logins for the users that should be removed from the issue.
+ * @apiExample {js} ex:
+github.issues.removeAssigneesFromIssue({ ... });
  */
 
 /**
