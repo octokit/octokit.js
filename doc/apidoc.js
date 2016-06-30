@@ -1073,6 +1073,19 @@ github.gitdata.getTag({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/git/tags/:sha getTagSignatureVerification
+ * @apiName getTagSignatureVerification
+ * @apiDescription Get a Tag Signature Verification. (In preview period. See README.)
+ * @apiGroup gitdata
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} sha  
+ * @apiExample {js} ex:
+github.gitdata.getTagSignatureVerification({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/git/refs/tags getTags
  * @apiName getTags
  * @apiDescription Get all tag References
