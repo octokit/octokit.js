@@ -158,6 +158,21 @@ describe("[gitdata]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/git/commits/:sha (getCommitSignatureVerification)",  function(next) {
+        client.gitdata.getCommitSignatureVerification(
+            {
+                user: "String",
+                repo: "String",
+                sha: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/git/refs/:ref (getReference)",  function(next) {
         client.gitdata.getReference(
             {
