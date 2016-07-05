@@ -1109,6 +1109,21 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/commits/:ref (getShaOfCommitRef)",  function(next) {
+        client.repos.getShaOfCommitRef(
+            {
+                user: "String",
+                repo: "String",
+                ref: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
         client.repos.getStatsCodeFrequency(
             {

@@ -4115,6 +4115,17 @@
             "description": "Get a single commit."
         },
 
+        "get-sha-of-commit-ref": {
+            "url": "/repos/:user/:repo/commits/:ref",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$ref": null
+            },
+            "description": "Get the SHA-1 of a commit reference."
+        },
+
         "compare-commits": {
             "url": "/repos/:user/:repo/compare/:base...:head",
             "method": "GET",

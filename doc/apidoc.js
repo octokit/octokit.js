@@ -3753,6 +3753,19 @@ github.repos.getReleases({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/commits/:ref getShaOfCommitRef
+ * @apiName getShaOfCommitRef
+ * @apiDescription Get the SHA-1 of a commit reference.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiExample {js} ex:
+github.repos.getShaOfCommitRef({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/stats/code_frequency getStatsCodeFrequency
  * @apiName getStatsCodeFrequency
  * @apiDescription Get the number of additions and deletions per week.
