@@ -3661,7 +3661,7 @@
                 "affiliation": {
                     "type": "String",
                     "required": false,
-                    "validation": "^(owner|collaborator|organization_member)$",
+                    "validation": "",
                     "invalidmsg": "Possible values: `owner`, `collaborator`, `organization_member`, Default: `owner,collaborator,organization_member`.",
                     "description": "Comma-separated list of values. Can include: `owner`, `collaborator`, `organization_member`.",
                     "default": "owner,collaborator,organization_member"
