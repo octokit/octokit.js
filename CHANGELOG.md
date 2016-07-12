@@ -1,15 +1,23 @@
 # CHANGELOG
 
+## 2.2.0
+
+Features:
+  * Add repos.getShaOfCommitRef.
+
+Bugfixes:
+  * Remove repos.getAll affiliation regex validation.
+
 ## 2.1.0
 
 Features:
-  Add add-assignees-to-issue, remove-assignees-from-issue endpoints.
-  Add note that licenses api is in preview period.
-  Add get-tag-signature-verification endpoint.
-  Add commit-signature-verification endpoint.
-  Add params for create-deployment-status, create-deployment endpoints.
-  Allow lazy instantiation.
-  Add promise support.
+  * Add add-assignees-to-issue, remove-assignees-from-issue endpoints.
+  * Add note that licenses api is in preview period.
+  * Add get-tag-signature-verification endpoint.
+  * Add commit-signature-verification endpoint.
+  * Add params for create-deployment-status, create-deployment endpoints.
+  * Allow lazy instantiation.
+  * Add promise support.
 
 ## 2.0.1
 
