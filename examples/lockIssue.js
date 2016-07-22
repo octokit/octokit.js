@@ -4,10 +4,7 @@ var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
 var github = new Client({
-    debug: true,
-    headers: {
-        "Accept": "application/vnd.github.the-key-preview"
-    }
+    debug: true
 });
 
 github.authenticate({

@@ -11,7 +11,6 @@
             "requestFormat": "json",
             "requestMedia": "application/vnd.github.v3+json",
             "previewRequestMedia": [
-                "application/vnd.github.the-key-preview+json",
                 "application/vnd.github.mockingbird-preview",
                 "application/vnd.github.squirrel-girl-preview",
                 "application/vnd.github.barred-rock-preview",
