@@ -41,6 +41,60 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (addProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+        client.repos.addProtectedBranchRequiredStatusChecksContexts(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Array",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/branches/:branch/protection/restrictions/teams (addProtectedBranchTeamRestrictions)",  function(next) {
+        client.repos.addProtectedBranchTeamRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Array",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/branches/:branch/protection/restrictions/users (addProtectedBranchUserRestrictions)",  function(next) {
+        client.repos.addProtectedBranchUserRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Array",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/collaborators/:collabuser (checkCollaborator)",  function(next) {
         client.repos.checkCollaborator(
             {
@@ -604,11 +658,29 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection (getBranchProtection)",  function(next) {
+        client.repos.getBranchProtection(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/branches (getBranches)",  function(next) {
         client.repos.getBranches(
             {
                 user: "String",
                 repo: "String",
+                protected: "Boolean",
                 page: "Number",
                 per_page: "Number"
             },
@@ -1035,6 +1107,91 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
+        client.repos.getProtectedBranchRequiredStatusChecks(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (getProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+        client.repos.getProtectedBranchRequiredStatusChecksContexts(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/restrictions (getProtectedBranchRestrictions)",  function(next) {
+        client.repos.getProtectedBranchRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/restrictions/teams (getProtectedBranchTeamRestrictions)",  function(next) {
+        client.repos.getProtectedBranchTeamRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/restrictions/users (getProtectedBranchUserRestrictions)",  function(next) {
+        client.repos.getProtectedBranchUserRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repositories (getPublic)",  function(next) {
         client.repos.getPublic(
             {
@@ -1303,6 +1460,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection (removeBranchProtection)",  function(next) {
+        client.repos.removeBranchProtection(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:user/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
         client.repos.removeCollaborator(
             {
@@ -1318,12 +1492,170 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/required_status_checks (removeProtectedBranchRequiredStatusChecks)",  function(next) {
+        client.repos.removeProtectedBranchRequiredStatusChecks(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (removeProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+        client.repos.removeProtectedBranchRequiredStatusChecksContexts(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/restrictions (removeProtectedBranchRestrictions)",  function(next) {
+        client.repos.removeProtectedBranchRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/restrictions/teams (removeProtectedBranchTeamRestrictions)",  function(next) {
+        client.repos.removeProtectedBranchTeamRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/restrictions/users (removeProtectedBranchUserRestrictions)",  function(next) {
+        client.repos.removeProtectedBranchUserRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (replaceProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+        client.repos.replaceProtectedBranchRequiredStatusChecksContexts(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Array",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection/restrictions/teams (replaceProtectedBranchTeamRestrictions)",  function(next) {
+        client.repos.replaceProtectedBranchTeamRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Array",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection/restrictions/users (replaceProtectedBranchUserRestrictions)",  function(next) {
+        client.repos.replaceProtectedBranchUserRestrictions(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Array",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
         client.repos.testHook(
             {
                 user: "String",
                 repo: "String",
                 id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection (updateBranchProtection)",  function(next) {
+        client.repos.updateBranchProtection(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                required_status_checks: "Json",
+                restrictions: "Json",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1375,6 +1707,24 @@ describe("[repos]", function() {
                 repo: "String",
                 id: "String",
                 permission: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/branches/:branch/protection/required_status_checks (updateProtectedBranchRequiredStatusChecks)",  function(next) {
+        client.repos.updateProtectedBranchRequiredStatusChecks(
+            {
+                user: "String",
+                repo: "String",
+                branch: "String",
+                body: "Json",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
