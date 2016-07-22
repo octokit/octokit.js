@@ -11,7 +11,6 @@
             "requestFormat": "json",
             "requestMedia": "application/vnd.github.v3+json",
             "previewRequestMedia": [
-                "application/vnd.github.cerberus-preview",
                 "application/vnd.github.the-key-preview+json",
                 "application/vnd.github.mockingbird-preview",
                 "application/vnd.github.squirrel-girl-preview",
@@ -1765,7 +1764,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)"
+                    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
                 }
             },
             "description": "Create an issue"
@@ -1826,7 +1825,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)"
+                    "description": "Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
                 }
             },
             "description": "Edit an issue"
@@ -1896,7 +1895,7 @@
                     "description": "Logins for the users that should be added to the issue."
                 }
             },
-            "description": "Add assignees to an issue. (In preview period. See README.)"
+            "description": "Add assignees to an issue."
         },
         
         "remove-assignees-from-issue": {
@@ -1914,7 +1913,7 @@
                     "description": "Logins for the users that should be removed from the issue."
                 }
             },
-            "description": "Remove assignees from an issue. (In preview period. See README.)"
+            "description": "Remove assignees from an issue."
         },
 
         "get-comments": {

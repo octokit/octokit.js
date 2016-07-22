@@ -1131,7 +1131,7 @@ github.gitdata.updateReference({ ... });
 /**
  * @api {post} /repos/:user/:repo/issues/:number/assignees addAssigneesToIssue
  * @apiName addAssigneesToIssue
- * @apiDescription Add assignees to an issue. (In preview period. See README.)
+ * @apiDescription Add assignees to an issue.
  * @apiGroup issues
  *
  * @apiParam {String} user  
@@ -1182,7 +1182,7 @@ github.issues.checkAssignee({ ... });
  * @apiParam {String} [assignee]  Login for the user that this issue should be assigned to.
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
- * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} ex:
 github.issues.create({ ... });
  */
@@ -1285,7 +1285,7 @@ github.issues.deleteMilestone({ ... });
  * @apiParam {String} [state=open]  open or closed
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
  * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
- * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise. (In preview period. See README.)
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} ex:
 github.issues.edit({ ... });
  */
@@ -1621,7 +1621,7 @@ github.issues.removeAllLabels({ ... });
 /**
  * @api {delete} /repos/:user/:repo/issues/:number/assignees removeAssigneesFromIssue
  * @apiName removeAssigneesFromIssue
- * @apiDescription Remove assignees from an issue. (In preview period. See README.)
+ * @apiDescription Remove assignees from an issue.
  * @apiGroup issues
  *
  * @apiParam {String} user  
