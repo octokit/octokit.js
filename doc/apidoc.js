@@ -2813,6 +2813,54 @@ github.repos.addCollaborator({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts addProtectedBranchRequiredStatusChecksContexts
+ * @apiName addProtectedBranchRequiredStatusChecksContexts
+ * @apiDescription Add required status checks contexts of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.addProtectedBranchRequiredStatusChecksContexts({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/branches/:branch/protection/restrictions/teams addProtectedBranchTeamRestrictions
+ * @apiName addProtectedBranchTeamRestrictions
+ * @apiDescription Add team restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.addProtectedBranchTeamRestrictions({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/branches/:branch/protection/restrictions/users addProtectedBranchUserRestrictions
+ * @apiName addProtectedBranchUserRestrictions
+ * @apiDescription Add user restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.addProtectedBranchUserRestrictions({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/collaborators/:collabuser checkCollaborator
  * @apiName checkCollaborator
  * @apiDescription Check if user is a collaborator.
@@ -3299,7 +3347,7 @@ github.repos.getAsset({ ... });
 /**
  * @api {get} /repos/:user/:repo/branches/:branch getBranch
  * @apiName getBranch
- * @apiDescription Get a branch
+ * @apiDescription Get branch. (In preview period. See README.)
  * @apiGroup repos
  *
  * @apiParam {String} user  
@@ -3312,13 +3360,29 @@ github.repos.getBranch({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches getBranches
- * @apiName getBranches
- * @apiDescription Get branches for the specified repository.
+ * @api {get} /repos/:user/:repo/branches/:branch/protection getBranchProtection
+ * @apiName getBranchProtection
+ * @apiDescription Get branch protection. (In preview period. See README.)
  * @apiGroup repos
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getBranchProtection({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/branches getBranches
+ * @apiName getBranches
+ * @apiDescription List branches. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Boolean} [protected]  Set to true to only return protected branches
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -3689,6 +3753,81 @@ github.repos.getPagesBuilds({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
+ * @apiName getProtectedBranchRequiredStatusChecks
+ * @apiDescription Get required status checks of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getProtectedBranchRequiredStatusChecks({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts getProtectedBranchRequiredStatusChecksContexts
+ * @apiName getProtectedBranchRequiredStatusChecksContexts
+ * @apiDescription List required status checks contexts of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getProtectedBranchRequiredStatusChecksContexts({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/branches/:branch/protection/restrictions getProtectedBranchRestrictions
+ * @apiName getProtectedBranchRestrictions
+ * @apiDescription Get restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getProtectedBranchRestrictions({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/branches/:branch/protection/restrictions/teams getProtectedBranchTeamRestrictions
+ * @apiName getProtectedBranchTeamRestrictions
+ * @apiDescription List team restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getProtectedBranchTeamRestrictions({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/branches/:branch/protection/restrictions/users getProtectedBranchUserRestrictions
+ * @apiName getProtectedBranchUserRestrictions
+ * @apiDescription List user restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getProtectedBranchUserRestrictions({ ... });
+ */
+
+/**
  * @api {get} /repositories getPublic
  * @apiName getPublic
  * @apiDescription List all public repositories
@@ -3921,6 +4060,21 @@ github.repos.pingHook({ ... });
  */
 
 /**
+ * @api {delete} /repos/:user/:repo/branches/:branch/protection removeBranchProtection
+ * @apiName removeBranchProtection
+ * @apiDescription Remove branch protection. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.removeBranchProtection({ ... });
+ */
+
+/**
  * @api {delete} /repos/:user/:repo/collaborators/:collabuser removeCollaborator
  * @apiName removeCollaborator
  * @apiDescription Remove user as a collaborator.
@@ -3934,6 +4088,129 @@ github.repos.removeCollaborator({ ... });
  */
 
 /**
+ * @api {delete} /repos/:user/:repo/branches/:branch/protection/required_status_checks removeProtectedBranchRequiredStatusChecks
+ * @apiName removeProtectedBranchRequiredStatusChecks
+ * @apiDescription Remove required status checks of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.removeProtectedBranchRequiredStatusChecks({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts removeProtectedBranchRequiredStatusChecksContexts
+ * @apiName removeProtectedBranchRequiredStatusChecksContexts
+ * @apiDescription Remove required status checks contexts of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.removeProtectedBranchRequiredStatusChecksContexts({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/branches/:branch/protection/restrictions removeProtectedBranchRestrictions
+ * @apiName removeProtectedBranchRestrictions
+ * @apiDescription Remove restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.removeProtectedBranchRestrictions({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/branches/:branch/protection/restrictions/teams removeProtectedBranchTeamRestrictions
+ * @apiName removeProtectedBranchTeamRestrictions
+ * @apiDescription Remove team restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.removeProtectedBranchTeamRestrictions({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/branches/:branch/protection/restrictions/users removeProtectedBranchUserRestrictions
+ * @apiName removeProtectedBranchUserRestrictions
+ * @apiDescription Remove user restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.removeProtectedBranchUserRestrictions({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts replaceProtectedBranchRequiredStatusChecksContexts
+ * @apiName replaceProtectedBranchRequiredStatusChecksContexts
+ * @apiDescription Replace required status checks contexts of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.replaceProtectedBranchRequiredStatusChecksContexts({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/branches/:branch/protection/restrictions/teams replaceProtectedBranchTeamRestrictions
+ * @apiName replaceProtectedBranchTeamRestrictions
+ * @apiDescription Replace team restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.replaceProtectedBranchTeamRestrictions({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/branches/:branch/protection/restrictions/users replaceProtectedBranchUserRestrictions
+ * @apiName replaceProtectedBranchUserRestrictions
+ * @apiDescription Replace user restrictions of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.replaceProtectedBranchUserRestrictions({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/hooks/:id/test testHook
  * @apiName testHook
  * @apiDescription Test a [push] hook.
@@ -3944,6 +4221,23 @@ github.repos.removeCollaborator({ ... });
  * @apiParam {String} id  
  * @apiExample {js} ex:
 github.repos.testHook({ ... });
+ */
+
+/**
+ * @api {put} /repos/:user/:repo/branches/:branch/protection updateBranchProtection
+ * @apiName updateBranchProtection
+ * @apiDescription Update branch protection. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Json} required_status_checks  JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled.
+ * @apiParam {Json} restrictions  JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled.
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.updateBranchProtection({ ... });
  */
 
 /**
@@ -3989,6 +4283,22 @@ github.repos.updateFile({ ... });
  * @apiParam {String} [permission]  The permissions that the associated user will have on the repository. Valid values are read, write, and admin.
  * @apiExample {js} ex:
 github.repos.updateInvite({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/branches/:branch/protection/required_status_checks updateProtectedBranchRequiredStatusChecks
+ * @apiName updateProtectedBranchRequiredStatusChecks
+ * @apiDescription Update required status checks of protected branch. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} branch  
+ * @apiParam {Json} body  JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch.
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.updateProtectedBranchRequiredStatusChecks({ ... });
  */
 
 /**

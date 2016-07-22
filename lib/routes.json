@@ -20,7 +20,8 @@
                 "application/vnd.github.ant-man-preview+json",
                 "application/vnd.github.cryptographer-preview",
                 "application/vnd.github.polaris-preview",
-                "application/vnd.github.drax-preview+json"
+                "application/vnd.github.drax-preview+json",
+                "application/vnd.github.loki-preview+json"
             ]
         },
         "response-headers": [
@@ -3896,18 +3897,35 @@
             "description": "Get tags for the specified repository."
         },
 
+        "delete": {
+            "url": "/repos/:user/:repo",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "Delete a repository."
+        },
+
         "get-branches": {
             "url": "/repos/:user/:repo/branches",
             "method": "GET",
             "params": {
                 "$user": null,
                 "$repo": null,
+                "protected": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Set to true to only return protected branches"
+                },
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get branches for the specified repository."
+            "description": "List branches. (In preview period. See README.)"
         },
-
+        
         "get-branch": {
             "url": "/repos/:user/:repo/branches/:branch",
             "method": "GET",
@@ -3918,17 +3936,337 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get a branch"
+            "description": "Get branch. (In preview period. See README.)"
         },
-
-        "delete": {
-            "url": "/repos/:user/:repo",
+        
+        "get-branch-protection": {
+            "url": "/repos/:user/:repo/branches/:branch/protection",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get branch protection. (In preview period. See README.)"
+        },
+        
+        "update-branch-protection": {
+            "url": "/repos/:user/:repo/branches/:branch/protection",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "required_status_checks": {
+                    "type": "Json",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled."
+                },
+                "restrictions": {
+                    "type": "Json",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Update branch protection. (In preview period. See README.)"
+        },
+        
+        "remove-branch-protection": {
+            "url": "/repos/:user/:repo/branches/:branch/protection",
             "method": "DELETE",
             "params": {
                 "$user": null,
-                "$repo": null
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
             },
-            "description": "Delete a repository."
+            "description": "Remove branch protection. (In preview period. See README.)"
+        },
+        
+        "get-protected-branch-required-status-checks": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get required status checks of protected branch. (In preview period. See README.)"
+        },
+        
+        "update-protected-branch-required-status-checks": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Json",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Update required status checks of protected branch. (In preview period. See README.)"
+        },
+        
+        "remove-protected-branch-required-status-checks": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove required status checks of protected branch. (In preview period. See README.)"
+        },
+        
+        "get-protected-branch-required-status-checks-contexts": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List required status checks contexts of protected branch. (In preview period. See README.)"
+        },
+        
+        "replace-protected-branch-required-status-checks-contexts": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Replace required status checks contexts of protected branch. (In preview period. See README.)"
+        },
+        
+        "add-protected-branch-required-status-checks-contexts": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Add required status checks contexts of protected branch. (In preview period. See README.)"
+        },
+        
+        "remove-protected-branch-required-status-checks-contexts": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove required status checks contexts of protected branch. (In preview period. See README.)"
+        },
+        
+        "get-protected-branch-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "remove-protected-branch-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "get-protected-branch-team-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List team restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "replace-protected-branch-team-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs (e.g. justice-league)."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Replace team restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "add-protected-branch-team-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs (e.g. justice-league)."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Add team restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "remove-protected-branch-team-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove team restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "get-protected-branch-user-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List user restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "replace-protected-branch-user-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "method": "PUT",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs (e.g. justice-league)."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Replace user restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "add-protected-branch-user-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs (e.g. justice-league)."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Add user restrictions of protected branch. (In preview period. See README.)"
+        },
+        
+        "remove-protected-branch-user-restrictions": {
+            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove user restrictions of protected branch. (In preview period. See README.)"
         },
 
         "get-collaborators": {
