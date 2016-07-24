@@ -19,7 +19,8 @@
                 "application/vnd.github.cryptographer-preview",
                 "application/vnd.github.polaris-preview",
                 "application/vnd.github.drax-preview+json",
-                "application/vnd.github.loki-preview+json"
+                "application/vnd.github.loki-preview+json",
+                "application/vnd.github.wyandotte-preview+json"
             ]
         },
         "response-headers": [
