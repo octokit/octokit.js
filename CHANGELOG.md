@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.3.0
+
+Features:
+  * Remove preview notes for multiple assignees api.
+  * Remove preview notes for issue locking/unlocking api.
+  * Add protected branch api endpoints.
+  * Destroy socket on timeout.
+
 ## 2.2.0
 
 Features:
