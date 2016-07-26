@@ -3727,7 +3727,7 @@ github.repos.getLatestRelease({ ... });
 /**
  * @api {get} /repos/:user/:repo/pages getPages
  * @apiName getPages
- * @apiDescription Get information about a Pages site
+ * @apiDescription Get information about a Pages site. (Use preview header to include additional info.)
  * @apiGroup repos
  *
  * @apiParam {String} user  
@@ -4208,6 +4208,18 @@ github.repos.replaceProtectedBranchTeamRestrictions({ ... });
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.repos.replaceProtectedBranchUserRestrictions({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/pages/builds requestPageBuild
+ * @apiName requestPageBuild
+ * @apiDescription Request a page build. (In preview period. See README.)
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiExample {js} ex:
+github.repos.requestPageBuild({ ... });
  */
 
 /**

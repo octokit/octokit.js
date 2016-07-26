@@ -9,19 +9,7 @@
             "documentation": "https://developer.github.com/v3",
             "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
             "requestFormat": "json",
-            "requestMedia": "application/vnd.github.v3+json",
-            "previewRequestMedia": [
-                "application/vnd.github.mockingbird-preview",
-                "application/vnd.github.squirrel-girl-preview",
-                "application/vnd.github.barred-rock-preview",
-                "application/vnd.github.damage-preview",
-                "application/vnd.github.ant-man-preview+json",
-                "application/vnd.github.cryptographer-preview",
-                "application/vnd.github.polaris-preview",
-                "application/vnd.github.drax-preview+json",
-                "application/vnd.github.loki-preview+json",
-                "application/vnd.github.wyandotte-preview+json"
-            ]
+            "requestMedia": "application/vnd.github.v3+json"
         },
         "response-headers": [
             "X-RateLimit-Limit",
@@ -5064,7 +5052,17 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get information about a Pages site"
+            "description": "Get information about a Pages site. (Use preview header to include additional info.)"
+        },
+
+        "request-page-build": {
+            "url": "/repos/:user/:repo/pages/builds",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "Request a page build. (In preview period. See README.)"
         },
 
         "get-pages-builds": {
