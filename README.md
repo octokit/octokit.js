@@ -151,7 +151,9 @@ github.authorization.create({
 
 ## Preview APIs
 
-Some APIs are in a preview period and require a custom `Accept` header. See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example. For updates on endpoints under preview, see https://developer.github.com/changes/.
+Some APIs are in a preview period and require a custom `Accept` header.  
+See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example.  
+For updates on endpoints under preview, see https://developer.github.com/changes/.
 
 | Preview API         | Accept header val                               |
 | ------------------- | ----------------------------------------------- |
