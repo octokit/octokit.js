@@ -1631,6 +1631,20 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:user/:repo/pages/builds (requestPageBuild)",  function(next) {
+        client.repos.requestPageBuild(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
         client.repos.testHook(
             {
