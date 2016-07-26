@@ -149,11 +149,23 @@ github.authorization.create({
 });
 ```
 
-## Preview
+## Preview APIs
 
-Some endpoints are in a preview period and require a custom `Accept` header. See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example. For updates on endpoints under preview, see https://developer.github.com/changes/.
+Some APIs are in a preview period and require a custom `Accept` header. See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example. For updates on endpoints under preview, see https://developer.github.com/changes/.
 
-Relatedly, the Migrations api requires an `Accept` header value of `application/vnd.github.wyandotte-preview+json`.
+| Preview API         | Accept header val                               |
+| ------------------- | ----------------------------------------------- |
+| Deployment          | application/vnd.github.ant-man-preview+json     |
+| Git signing         | application/vnd.github.cryptographer-preview    |
+| Imports             | application/vnd.github.barred-rock-preview      |
+| License             | application/vnd.github.drax-preview+json        |
+| Migrations          | application/vnd.github.wyandotte-preview+json   |
+| OAuth grants        | application/vnd.github.damage-preview           |
+| Pages               | application/vnd.github.mister-fantastic-preview |
+| Protected Branches  | application/vnd.github.loki-preview+json        |
+| Pull Request Squash | application/vnd.github.polaris-preview          |
+| Reactions           | application/vnd.github.squirrel-girl-preview    |
+| Timeline            | application/vnd.github.mockingbird-preview      |
 
 ## Update docs/tests
 
