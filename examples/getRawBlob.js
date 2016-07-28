@@ -29,5 +29,5 @@ github.gitdata.getBlob({
     repo: "node-github",
     sha: "b361f529df9b49f2a6b5748b5d71b792c8383e5e"
 }, function(err, res) {
-    console.log(res['data']);
+    console.log(err, res['data']);
 });
