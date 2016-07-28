@@ -1976,8 +1976,8 @@ github.misc.getRepoLicense({ ... });
  * @apiGroup misc
  *
  * @apiParam {String} text  The Markdown text to render
- * @apiParam {String} [mode]  The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.
- * @apiParam {String} [context]  The repository context, only taken into account when rendering as `gfm`
+ * @apiParam {String} [mode=markdown]  The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.
+ * @apiParam {String} [context]  The repository context. Only taken into account when rendering as `gfm`
  * @apiExample {js} ex:
 github.misc.renderMarkdown({ ... });
  */
