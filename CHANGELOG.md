@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.4.0
+
+Features:
+  * Add github pages preview endpoints.
+  * Add preview apis section to readme.
+
+Bugfixes:
+  * Avoid parsing non json data. (Fixes renderMarkdown, getRawBlob)
+
 ## 2.3.0
 
 Features:
