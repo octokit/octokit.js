@@ -3950,6 +3950,7 @@
                 "required_status_checks": {
                     "type": "Json",
                     "required": true,
+                    "allow-null": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled."
@@ -3957,6 +3958,7 @@
                 "restrictions": {
                     "type": "Json",
                     "required": true,
+                    "allow-null": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled."
