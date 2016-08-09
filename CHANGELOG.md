@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.4.1
+
+Bugfixes:
+  * Allow for passing some required parameters as null
+
 ## 2.4.0
 
 Features:
