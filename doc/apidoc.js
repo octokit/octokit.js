@@ -3401,6 +3401,20 @@ github.repos.getById({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/traffic/clones getClones
+ * @apiName getClones
+ * @apiDescription Get the total number of clones and breakdown per day or week for the last 14 days.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getClones({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/collaborators getCollaborators
  * @apiName getCollaborators
  * @apiDescription List collaborators
@@ -3753,6 +3767,20 @@ github.repos.getPagesBuilds({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/traffic/popular/paths getPaths
+ * @apiName getPaths
+ * @apiDescription Get the top 10 popular contents over the last 14 days.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getPaths({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
  * @apiName getProtectedBranchRequiredStatusChecks
  * @apiDescription Get required status checks of protected branch. (In preview period. See README.)
@@ -3849,6 +3877,20 @@ github.repos.getPublic({ ... });
  * @apiParam {String} [ref]  The name of the commit/branch/tag. Default: the repository’s default branch (usually master)
  * @apiExample {js} ex:
 github.repos.getReadme({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/traffic/popular/referrers getReferrers
+ * @apiName getReferrers
+ * @apiDescription Get the top 10 referrers over the last 14 days.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getReferrers({ ... });
  */
 
 /**
@@ -4005,6 +4047,20 @@ github.repos.getTags({ ... });
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.repos.getTeams({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/traffic/views getViews
+ * @apiName getViews
+ * @apiDescription Get the total number of views and breakdown per day or week for the last 14 days.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.repos.getViews({ ... });
  */
 
 /**
