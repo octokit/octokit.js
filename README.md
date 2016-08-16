@@ -167,6 +167,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Protected Branches  | application/vnd.github.loki-preview+json        |
 | Pull Request Squash | application/vnd.github.polaris-preview          |
 | Reactions           | application/vnd.github.squirrel-girl-preview    |
+| Repository Traffic  | application/vnd.github.spiderman-preview        |
 | Timeline            | application/vnd.github.mockingbird-preview      |
 
 ## Update docs/tests

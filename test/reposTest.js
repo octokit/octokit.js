@@ -705,6 +705,22 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/traffic/clones (getClones)",  function(next) {
+        client.repos.getClones(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
         client.repos.getCollaborators(
             {
@@ -1107,6 +1123,22 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/traffic/popular/paths (getPaths)",  function(next) {
+        client.repos.getPaths(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.getProtectedBranchRequiredStatusChecks(
             {
@@ -1211,6 +1243,22 @@ describe("[repos]", function() {
                 user: "String",
                 repo: "String",
                 ref: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/traffic/popular/referrers (getReferrers)",  function(next) {
+        client.repos.getReferrers(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1386,6 +1434,22 @@ describe("[repos]", function() {
 
     it("should successfully execute GET /repos/:user/:repo/teams (getTeams)",  function(next) {
         client.repos.getTeams(
+            {
+                user: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/traffic/views (getViews)",  function(next) {
+        client.repos.getViews(
             {
                 user: "String",
                 repo: "String",

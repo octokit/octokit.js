@@ -5459,6 +5459,54 @@
             },
             "description": "Get the combined status for a specific ref."
         },
+        
+        "get-referrers": {
+            "url": "/repos/:user/:repo/traffic/popular/referrers",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get the top 10 referrers over the last 14 days."
+        },
+        
+        "get-paths": {
+            "url": "/repos/:user/:repo/traffic/popular/paths",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get the top 10 popular contents over the last 14 days."
+        },
+        
+        "get-views": {
+            "url": "/repos/:user/:repo/traffic/views",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get the total number of views and breakdown per day or week for the last 14 days."
+        },
+        
+        "get-clones": {
+            "url": "/repos/:user/:repo/traffic/clones",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get the total number of clones and breakdown per day or week for the last 14 days."
+        },
 
         "get-hooks": {
             "url": "/repos/:user/:repo/hooks",
