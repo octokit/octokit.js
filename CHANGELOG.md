@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.5.1
+
+Features:
+  * Add repository traffic api
+
 ## 2.4.1
 
 Bugfixes:
