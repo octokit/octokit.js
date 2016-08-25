@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.5.2
+
+Bugfixes:
+  * Fix reactions validation regex.
+
 ## 2.5.1
 
 Features:
