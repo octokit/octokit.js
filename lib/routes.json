@@ -16,6 +16,7 @@
             "X-RateLimit-Remaining",
             "X-RateLimit-Reset",
             "X-Oauth-Scopes",
+            "X-Poll-Interval",
             "Link",
             "Location",
             "Last-Modified",
