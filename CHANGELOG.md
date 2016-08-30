@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.6.0
+
+Features:
+  * Add X-Poll-Interval header for events API.
+
 ## 2.5.2
 
 Bugfixes:
