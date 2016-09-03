@@ -2206,7 +2206,7 @@ github.orgs.getAll({ ... });
 /**
  * @api {get} /users/:user/orgs getForUser
  * @apiName getForUser
- * @apiDescription List user's organizations
+ * @apiDescription List public organization memberships for the specified user.
  * @apiGroup orgs
  *
  * @apiParam {String} user  
@@ -4780,7 +4780,7 @@ github.users.getOrganizationMembership({ ... });
 /**
  * @api {get} /user/orgs getOrgs
  * @apiName getOrgs
- * @apiDescription Get your organizations
+ * @apiDescription List organizations for the authenticated user.
  * @apiGroup users
  *
  * @apiParam {Number} [page]  Page number of the results to fetch.
