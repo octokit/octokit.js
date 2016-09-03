@@ -2685,7 +2685,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List user's organizations"
+            "description": "List public organization memberships for the specified user."
         },
 
         "get": {
@@ -5844,7 +5844,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get your organizations"
+            "description": "List organizations for the authenticated user."
         },
 
         "get-organization-membership": {
