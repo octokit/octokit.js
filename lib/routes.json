@@ -2678,7 +2678,7 @@
         },
 
         "get-for-user": {
-            "url": "/users/:user/orgs",
+            "url": "/user/orgs",
             "method": "GET",
             "params": {
                 "$user": null,
