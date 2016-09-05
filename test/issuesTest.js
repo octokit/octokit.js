@@ -644,11 +644,12 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/labels/:name (updateLabel)",  function(next) {
+    it("should successfully execute PATCH /repos/:user/:repo/labels/:oldname (updateLabel)",  function(next) {
         client.issues.updateLabel(
             {
                 user: "String",
                 repo: "String",
+                oldname: "String",
                 name: "String",
                 color: "String"
             },

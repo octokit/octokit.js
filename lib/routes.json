@@ -2083,12 +2083,25 @@
         },
 
         "update-label": {
-            "url": "/repos/:user/:repo/labels/:name",
+            "url": "/repos/:user/:repo/labels/:oldname",
             "method": "PATCH",
             "params": {
                 "$user": null,
                 "$repo": null,
-                "$name": null,
+                "oldname": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The old name of the label."
+                },
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The new name of the label."
+                },
                 "$color": null
             },
             "description": "Update a label"
