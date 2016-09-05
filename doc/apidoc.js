@@ -1674,14 +1674,15 @@ github.issues.unlock({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/labels/:name updateLabel
+ * @api {patch} /repos/:user/:repo/labels/:oldname updateLabel
  * @apiName updateLabel
  * @apiDescription Update a label
  * @apiGroup issues
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} name  
+ * @apiParam {String} oldname  The old name of the label.
+ * @apiParam {String} name  The new name of the label.
  * @apiParam {String} color  6 character hex code, without a leading #.
  * @apiExample {js} ex:
 github.issues.updateLabel({ ... });
