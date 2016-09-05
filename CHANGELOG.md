@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.0
+
+Breaking changes:
+  * Fix issues.updateLabel endpoint. Change first `name` param to `oldname` and add new `name` param.
+
 ## 2.6.0
 
 Features:
