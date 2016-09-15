@@ -3754,6 +3754,19 @@ github.repos.getPages({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/pages/builds/:id getPagesBuild
+ * @apiName getPagesBuild
+ * @apiDescription Get a specific Pages build
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.getPagesBuild({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/pages/builds getPagesBuilds
  * @apiName getPagesBuilds
  * @apiDescription List Pages builds

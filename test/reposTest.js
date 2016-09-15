@@ -1107,6 +1107,21 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/pages/builds/:id (getPagesBuild)",  function(next) {
+        client.repos.getPagesBuild(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/pages/builds (getPagesBuilds)",  function(next) {
         client.repos.getPagesBuilds(
             {

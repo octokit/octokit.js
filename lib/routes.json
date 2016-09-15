@@ -5103,6 +5103,17 @@
             },
             "description": "Get latest Pages build"
         },
+        
+        "get-pages-build": {
+            "url": "/repos/:user/:repo/pages/builds/:id",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Get a specific Pages build"
+        },
 
         "get-releases": {
             "url": "/repos/:user/:repo/releases",
