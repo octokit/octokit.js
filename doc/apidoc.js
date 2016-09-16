@@ -1129,6 +1129,18 @@ github.gitdata.updateReference({ ... });
  */
 
 /**
+ * @api {post} /installations/:installation_id/access_tokens create
+ * @apiName create
+ * @apiDescription Create a new access token
+ * @apiGroup installations
+ *
+ * @apiParam {Number} installation_id  The id of the installation for this integration.
+ * @apiParam {Number} [user_id]  The id of the user for whom the integration is acting on behalf of.
+ * @apiExample {js} ex:
+github.installations.create({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/issues/:number/assignees addAssigneesToIssue
  * @apiName addAssigneesToIssue
  * @apiDescription Add assignees to an issue.

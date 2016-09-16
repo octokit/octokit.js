@@ -20,7 +20,7 @@ describe("[<%sectionName%>]", function() {
     beforeEach(function() {
         client = new Client();
         client.authenticate({
-            type: "oauth",
+            type: "<%sectionAuthType%>",
             token: token
         });
     });
