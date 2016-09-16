@@ -3036,6 +3036,50 @@ github.repos.createKey({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/projects createProject
+ * @apiName createProject
+ * @apiDescription Create a project.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} name  
+ * @apiParam {String} body  
+ * @apiExample {js} ex:
+github.repos.createProject({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/projects/columns/:id/cards createProjectCard
+ * @apiName createProjectCard
+ * @apiDescription Create a project card.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} [note]  The note of the card.
+ * @apiParam {String} [content_id]  The id of the Issue or Pull Request to associate with this card.
+ * @apiParam {String} [content_type]  The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'.
+ * @apiExample {js} ex:
+github.repos.createProjectCard({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/projects/:number/columns createProjectColumn
+ * @apiName createProjectColumn
+ * @apiDescription Create a project column.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {String} name  
+ * @apiExample {js} ex:
+github.repos.createProjectColumn({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/releases createRelease
  * @apiName createRelease
  * @apiDescription Create a release.
@@ -3174,6 +3218,45 @@ github.repos.deleteInvite({ ... });
  * @apiParam {String} id  
  * @apiExample {js} ex:
 github.repos.deleteKey({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/projects/:number deleteProject
+ * @apiName deleteProject
+ * @apiDescription Delete a project.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiExample {js} ex:
+github.repos.deleteProject({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/projects/columns/cards/:id deleteProjectCard
+ * @apiName deleteProjectCard
+ * @apiDescription Delete a project card.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.deleteProjectCard({ ... });
+ */
+
+/**
+ * @api {delete} /repos/:user/:repo/projects/columns/:id deleteProjectColumn
+ * @apiName deleteProjectColumn
+ * @apiDescription Delete a project column.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.deleteProjectColumn({ ... });
  */
 
 /**
@@ -3795,6 +3878,83 @@ github.repos.getPaths({ ... });
  */
 
 /**
+ * @api {get} /repos/:user/:repo/projects/:number getProject
+ * @apiName getProject
+ * @apiDescription List a project.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiExample {js} ex:
+github.repos.getProject({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/projects/columns/cards/:id getProjectCard
+ * @apiName getProjectCard
+ * @apiDescription Get project card.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.getProjectCard({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/projects/columns/:id/cards getProjectCards
+ * @apiName getProjectCards
+ * @apiDescription List project cards.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.getProjectCards({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/projects/columns/:id getProjectColumn
+ * @apiName getProjectColumn
+ * @apiDescription Get a project column.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiExample {js} ex:
+github.repos.getProjectColumn({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/projects/:number/columns getProjectColumns
+ * @apiName getProjectColumns
+ * @apiDescription List a project's columns.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiExample {js} ex:
+github.repos.getProjectColumns({ ... });
+ */
+
+/**
+ * @api {get} /repos/:user/:repo/projects getProjects
+ * @apiName getProjects
+ * @apiDescription List projects.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiExample {js} ex:
+github.repos.getProjects({ ... });
+ */
+
+/**
  * @api {get} /repos/:user/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
  * @apiName getProtectedBranchRequiredStatusChecks
  * @apiDescription Get required status checks of protected branch. (In preview period. See README.)
@@ -4106,6 +4266,35 @@ github.repos.merge({ ... });
  */
 
 /**
+ * @api {post} /repos/:user/:repo/projects/columns/cards/:id/moves moveProjectCard
+ * @apiName moveProjectCard
+ * @apiDescription Move a project card.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} position  Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project.
+ * @apiParam {String} [column_id]  The id value of a column in the same project.
+ * @apiExample {js} ex:
+github.repos.moveProjectCard({ ... });
+ */
+
+/**
+ * @api {post} /repos/:user/:repo/projects/columns/:id/moves moveProjectColumn
+ * @apiName moveProjectColumn
+ * @apiDescription Move a project column.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} position  Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project.
+ * @apiExample {js} ex:
+github.repos.moveProjectColumn({ ... });
+ */
+
+/**
  * @api {get} /repositories/:id one
  * @apiName one
  * @apiDescription Get a specific repo.
@@ -4365,6 +4554,49 @@ github.repos.updateFile({ ... });
  * @apiParam {String} [permission]  The permissions that the associated user will have on the repository. Valid values are read, write, and admin.
  * @apiExample {js} ex:
 github.repos.updateInvite({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/projects/:number updateProject
+ * @apiName updateProject
+ * @apiDescription Update a project.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {String} name  
+ * @apiParam {String} body  
+ * @apiExample {js} ex:
+github.repos.updateProject({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/projects/columns/cards/:id updateProjectCard
+ * @apiName updateProjectCard
+ * @apiDescription Update a project card.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} [note]  The note of the card.
+ * @apiExample {js} ex:
+github.repos.updateProjectCard({ ... });
+ */
+
+/**
+ * @api {patch} /repos/:user/:repo/projects/columns/:id updateProjectColumn
+ * @apiName updateProjectColumn
+ * @apiDescription Update a project column.
+ * @apiGroup repos
+ *
+ * @apiParam {String} user  
+ * @apiParam {String} repo  
+ * @apiParam {String} id  
+ * @apiParam {String} name  
+ * @apiExample {js} ex:
+github.repos.updateProjectColumn({ ... });
  */
 
 /**
