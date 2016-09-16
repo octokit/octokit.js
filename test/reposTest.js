@@ -289,6 +289,56 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:user/:repo/projects (createProject)",  function(next) {
+        client.repos.createProject(
+            {
+                user: "String",
+                repo: "String",
+                name: "String",
+                body: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/projects/columns/:id/cards (createProjectCard)",  function(next) {
+        client.repos.createProjectCard(
+            {
+                user: "String",
+                repo: "String",
+                id: "String",
+                note: "String",
+                content_id: "String",
+                content_type: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/projects/:number/columns (createProjectColumn)",  function(next) {
+        client.repos.createProjectColumn(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                name: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:user/:repo/releases (createRelease)",  function(next) {
         client.repos.createRelease(
             {
@@ -437,6 +487,51 @@ describe("[repos]", function() {
 
     it("should successfully execute DELETE /repos/:user/:repo/keys/:id (deleteKey)",  function(next) {
         client.repos.deleteKey(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/projects/:number (deleteProject)",  function(next) {
+        client.repos.deleteProject(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/projects/columns/cards/:id (deleteProjectCard)",  function(next) {
+        client.repos.deleteProjectCard(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:user/:repo/projects/columns/:id (deleteProjectColumn)",  function(next) {
+        client.repos.deleteProjectColumn(
             {
                 user: "String",
                 repo: "String",
@@ -1154,6 +1249,95 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:user/:repo/projects/:number (getProject)",  function(next) {
+        client.repos.getProject(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/projects/columns/cards/:id (getProjectCard)",  function(next) {
+        client.repos.getProjectCard(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/projects/columns/:id/cards (getProjectCards)",  function(next) {
+        client.repos.getProjectCards(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/projects/columns/:id (getProjectColumn)",  function(next) {
+        client.repos.getProjectColumn(
+            {
+                user: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/projects/:number/columns (getProjectColumns)",  function(next) {
+        client.repos.getProjectColumns(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:user/:repo/projects (getProjects)",  function(next) {
+        client.repos.getProjects(
+            {
+                user: "String",
+                repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.getProtectedBranchRequiredStatusChecks(
             {
@@ -1511,6 +1695,39 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:user/:repo/projects/columns/cards/:id/moves (moveProjectCard)",  function(next) {
+        client.repos.moveProjectCard(
+            {
+                user: "String",
+                repo: "String",
+                id: "String",
+                position: "String",
+                column_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:user/:repo/projects/columns/:id/moves (moveProjectColumn)",  function(next) {
+        client.repos.moveProjectColumn(
+            {
+                user: "String",
+                repo: "String",
+                id: "String",
+                position: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repositories/:id (one)",  function(next) {
         client.repos.one(
             {
@@ -1800,6 +2017,55 @@ describe("[repos]", function() {
                 repo: "String",
                 id: "String",
                 permission: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/projects/:number (updateProject)",  function(next) {
+        client.repos.updateProject(
+            {
+                user: "String",
+                repo: "String",
+                number: "Number",
+                name: "String",
+                body: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/projects/columns/cards/:id (updateProjectCard)",  function(next) {
+        client.repos.updateProjectCard(
+            {
+                user: "String",
+                repo: "String",
+                id: "String",
+                note: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:user/:repo/projects/columns/:id (updateProjectColumn)",  function(next) {
+        client.repos.updateProjectColumn(
+            {
+                user: "String",
+                repo: "String",
+                id: "String",
+                name: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

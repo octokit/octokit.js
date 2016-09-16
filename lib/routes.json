@@ -5114,7 +5114,247 @@
             },
             "description": "Get a specific Pages build"
         },
-
+        
+        "get-projects": {
+            "url": "/repos/:user/:repo/projects",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null
+            },
+            "description": "List projects."
+        },
+        
+        "get-project": {
+            "url": "/repos/:user/:repo/projects/:number",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "List a project."
+        },
+        
+        "create-project": {
+            "url": "/repos/:user/:repo/projects",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$name": null,
+                "$body": null
+            },
+            "description": "Create a project."
+        },
+        
+        "update-project": {
+            "url": "/repos/:user/:repo/projects/:number",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$name": null,
+                "$body": null
+            },
+            "description": "Update a project."
+        },
+        
+        "delete-project": {
+            "url": "/repos/:user/:repo/projects/:number",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "Delete a project."
+        },
+        
+        "get-project-columns": {
+            "url": "/repos/:user/:repo/projects/:number/columns",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null
+            },
+            "description": "List a project's columns."
+        },
+        
+        "get-project-column": {
+            "url": "/repos/:user/:repo/projects/columns/:id",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Get a project column."
+        },
+        
+        "create-project-column": {
+            "url": "/repos/:user/:repo/projects/:number/columns",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$number": null,
+                "$name": null
+            },
+            "description": "Create a project column."
+        },
+        
+        "update-project-column": {
+            "url": "/repos/:user/:repo/projects/columns/:id",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "$name": null
+            },
+            "description": "Update a project column."
+        },
+        
+        "delete-project-column": {
+            "url": "/repos/:user/:repo/projects/columns/:id",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Delete a project column."
+        },
+        
+        "move-project-column": {
+            "url": "/repos/:user/:repo/projects/columns/:id/moves",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "position": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(first|last|after:\\d)$",
+                    "invalidmsg": "",
+                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
+                }
+            },
+            "description": "Move a project column."
+        },
+        
+        "get-project-cards": {
+            "url": "/repos/:user/:repo/projects/columns/:id/cards",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "List project cards."
+        },
+        
+        "get-project-card": {
+            "url": "/repos/:user/:repo/projects/columns/cards/:id",
+            "method": "GET",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Get project card."
+        },
+        
+        "create-project-card": {
+            "url": "/repos/:user/:repo/projects/columns/:id/cards",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "note": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The note of the card."
+                },
+                "content_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id of the Issue or Pull Request to associate with this card."
+                },
+                "content_type": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'."
+                }
+            },
+            "description": "Create a project card."
+        },
+        
+        "update-project-card": {
+            "url": "/repos/:user/:repo/projects/columns/cards/:id",
+            "method": "PATCH",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "note": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The note of the card."
+                }
+            },
+            "description": "Update a project card."
+        },
+        
+        "delete-project-card": {
+            "url": "/repos/:user/:repo/projects/columns/cards/:id",
+            "method": "DELETE",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Delete a project card."
+        },
+        
+        "move-project-card": {
+            "url": "/repos/:user/:repo/projects/columns/cards/:id/moves",
+            "method": "POST",
+            "params": {
+                "$user": null,
+                "$repo": null,
+                "$id": null,
+                "position": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(first|last|after:\\d)$",
+                    "invalidmsg": "",
+                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
+                },
+                "column_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id value of a column in the same project."
+                }
+            },
+            "description": "Move a project card."
+        },
+        
         "get-releases": {
             "url": "/repos/:user/:repo/releases",
             "method": "GET",

@@ -164,6 +164,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Migrations          | application/vnd.github.wyandotte-preview+json   |
 | OAuth grants        | application/vnd.github.damage-preview           |
 | Pages               | application/vnd.github.mister-fantastic-preview |
+| Projects            | application/vnd.github.inertia-preview+json     |
 | Protected Branches  | application/vnd.github.loki-preview+json        |
 | Pull Request Squash | application/vnd.github.polaris-preview          |
 | Reactions           | application/vnd.github.squirrel-girl-preview    |
