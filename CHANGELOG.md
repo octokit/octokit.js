@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.1.0
+
+Features:
+  * Add projects api.
+
 ## 3.0.0
 
 Breaking changes:
