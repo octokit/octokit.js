@@ -25,17 +25,6 @@ $ npm install
 Client API: [https://mikedeboer.github.io/node-github/](https://mikedeboer.github.io/node-github/)  
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
-## Test auth file
-
-Create test auth file for running tests/examples.
-
-```bash
-$ > testAuth.json
-{
-    "token": "<TOKEN>"
-}
-```
-
 ## Example
 
 Get all followers for user "defunkt":
@@ -43,7 +32,7 @@ Get all followers for user "defunkt":
 var GitHubApi = require("github");
 
 var github = new GitHubApi({
-    // optional
+    // optional args
     debug: true,
     protocol: "https",
     host: "github.my-GHE-enabled-company.com", // should be api.github.com for GitHub
@@ -55,6 +44,9 @@ var github = new GitHubApi({
     followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
     timeout: 5000
 });
+
+// TODO: optional authentication here depending on desired endpoints. See below in README.
+
 github.users.getFollowingForUser({
     // optional:
     // headers: {
@@ -129,21 +121,10 @@ github.authenticate({
 Note: `authenticate` is synchronous because it only stores the
 credentials for the next request.
 
-Once authenticated you can update a user field like so:
-```javascript
-github.users.update({
-    location: "Argentina"
-}, function(err) {
-    console.log("done!");
-});
-```
+### Creating a token for your application
+[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization).
 
-### Creating tokens for your application
-[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization) for your application giving it access to the wanted scopes you need instead of relying on username / password and is the way to go if you have [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) on.
-
-For example:
-
-1. Use github.authenticate() to auth with GitHub using your username / password
+1. Use github.authenticate() to authenticate with GitHub using your username / password.
 2. Create an application token programmatically with the scopes you need and, if you use two-factor authentication send the `X-GitHub-OTP` header with the one-time-password you get on your token device.
 
 ```javascript
@@ -159,6 +140,31 @@ github.authorization.create({
         //save and use res.token as in the Oauth process above from now on
     }
 });
+```
+
+## Create test auth file
+
+Create test auth file for running tests/examples.
+
+```bash
+$ > testAuth.json
+{
+    "token": "<TOKEN>"
+}
+```
+
+## Tests
+
+Run all tests
+
+```bash
+$ npm test
+```
+
+Or run a specific test
+
+```bash
+$ npm test test/issuesTest.js
 ```
 
 ## Preview APIs
@@ -183,33 +189,19 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Repository Traffic  | application/vnd.github.spiderman-preview        |
 | Timeline            | application/vnd.github.mockingbird-preview      |
 
-## Update docs/tests
+## Dev notes
 
-When updating routes.json, you'll want to update/generate docs/tests:
+When updating routes.json, you'll want to update the generated docs/tests:
 
 ```bash
 $ node lib/generate.js
 ```
 
-Dev note for updating apidoc for github pages:
+To update the apidoc for github pages:
 
 ```bash
 $ npm install apidoc -g
 $ apidoc -i doc/ -o apidoc/
-```
-
-## Tests
-
-Run all tests
-
-```bash
-$ npm test
-```
-
-Or run a specific test
-
-```bash
-$ npm test test/issuesTest.js
 ```
 
 ## LICENSE
