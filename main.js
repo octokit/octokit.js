@@ -742,5 +742,18 @@ require([
         });
         return results;
     }
-
+    
+    // custom filter
+    $('#custom-filter').on('input', function(e) {
+        var newVal = e.target.value;
+        
+        // hide all sidenav endpoints
+        $('ul.sidenav > li:not(.nav-header)').hide();
+        
+        // show matches
+        $('ul.sidenav > li:not(.nav-header)').filter(function(idx, el) {
+            var name = $(el).data('name');
+            return name.toUpperCase().includes(newVal.toUpperCase());
+        }).show();
+    });
 });
