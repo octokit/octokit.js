@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.1.1
+
+Bugfixes:
+  * Fix permissions param.
+
 ## 3.1.0
 
 Features:
