@@ -2029,7 +2029,7 @@ github.orgs.addTeamMembership({ ... });
  * @apiParam {String} id  
  * @apiParam {String} org  
  * @apiParam {String} repo  
- * @apiParam {String} [permission=pull]  `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.
+ * @apiParam {String} [permission]  `pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository.
  * @apiExample {js} ex:
 github.orgs.addTeamRepo({ ... });
  */
@@ -2808,7 +2808,7 @@ github.reactions.getForPullRequestReviewComment({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} collabuser  
- * @apiParam {String} [permission=pull]  `pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.
+ * @apiParam {String} [permission=push]  `pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.
  * @apiExample {js} ex:
 github.repos.addCollaborator({ ... });
  */
@@ -4551,7 +4551,7 @@ github.repos.updateFile({ ... });
  *
  * @apiParam {String} repo  
  * @apiParam {String} id  
- * @apiParam {String} [permission]  The permissions that the associated user will have on the repository. Valid values are read, write, and admin.
+ * @apiParam {String} [permission]  The permissions that the associated user will have on the repository.
  * @apiExample {js} ex:
 github.repos.updateInvite({ ... });
  */

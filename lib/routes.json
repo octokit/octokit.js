@@ -154,14 +154,6 @@
                 "invalidmsg": "6 character hex code, without a leading #.",
                 "description": "6 character hex code, without a leading #."
             },
-            "permission": {
-                "type": "String",
-                "required": false,
-                "validation": "^(pull|push|admin)$",
-                "invalidmsg": "",
-                "description": "`pull` - team members can pull, but not push or administer this repositories (Default), `push` - team members can pull and push, but not administer this repositores, `admin` - team members can pull, push and administer these repositories.",
-                "default": "pull"
-            },
             "base": {
                 "type": "String",
                 "required": true,
@@ -3057,7 +3049,13 @@
                 "$id": null,
                 "$org": null,
                 "$repo": null,
-                "$permission": null
+                "permission": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(pull|push|admin)$",
+                    "invalidmsg": "",
+                    "description": "`pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository."
+                }
             },
             "description": "Add team repository"
         },
@@ -4303,7 +4301,14 @@
                 "$user": null,
                 "$repo": null,
                 "$collabuser": null,
-                "$permission": null
+                "permission": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(pull|push|admin)$",
+                    "invalidmsg": "",
+                    "description": "`pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.",
+                    "default": "push"
+                }
             },
             "description": "Add user as a collaborator"
         },
@@ -5035,7 +5040,7 @@
                     "required": false,
                     "validation": "^(read|write|admin)$",
                     "invalidmsg": "Read, write, or admin.",
-                    "description": "The permissions that the associated user will have on the repository. Valid values are read, write, and admin."
+                    "description": "The permissions that the associated user will have on the repository."
                 }
             },
             "description": "Update a repository invitation. (In preview period. See README.)"
