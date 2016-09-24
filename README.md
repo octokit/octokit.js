@@ -100,18 +100,30 @@ github.authenticate({
     password: PASSWORD
 });
 
-// OAuth2
+// oauth
 github.authenticate({
     type: "oauth",
     token: AUTH_TOKEN
 });
 
-// OAuth2 Key/Secret (to get a token)
+// oauth key/secret (to get a token)
 github.authenticate({
     type: "oauth",
     key: CLIENT_ID,
     secret: CLIENT_SECRET
 })
+
+// user token
+github.authenticate({
+    type: "token",
+    token: "userToken",
+});
+
+// integration (jwt)
+github.authenticate({
+    type: "integration",
+    token: "jwt",
+});
 ```
 
 Note: `authenticate` is synchronous because it only stores the

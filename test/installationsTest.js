@@ -23,7 +23,6 @@ describe("[installations]", function() {
             type: "integration",
             token: token
         });
-        client.debug = true
     });
 
     it("should successfully execute POST /installations/:installation_id/access_tokens (create)",  function(next) {
