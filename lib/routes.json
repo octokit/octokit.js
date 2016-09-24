@@ -401,13 +401,13 @@
         "get-grants": {
             "url": "/applications/grants",
             "method": "GET",
-            "params": { 
+            "params": {
                 "$page": null,
                 "$per_page": null
             },
             "description": "List your grants. (In preview period. See README.)"
         },
-        
+
         "get-grant": {
             "url": "/applications/grants/:id",
             "method": "GET",
@@ -418,7 +418,7 @@
             },
             "description": "Get a single grant. (In preview period. See README.)"
         },
-        
+
         "delete-grant": {
             "url": "/applications/grants/:id",
             "method": "DELETE",
@@ -427,7 +427,7 @@
             },
             "description": "Delete a grant. (In preview period. See README.)"
         },
-        
+
         "get-all": {
             "url": "/authorizations",
             "method": "GET",
@@ -466,7 +466,7 @@
             },
             "description": "Create a new authorization"
         },
-        
+
         "get-or-create-authorization-for-app": {
             "url": "/authorizations/clients/:client_id",
             "method": "PUT",
@@ -486,7 +486,7 @@
             },
             "description": "Get or create an authorization for a specific app"
         },
-        
+
         "get-or-create-authorization-for-app-and-fingerprint": {
             "url": "/authorizations/clients/:client_id/:fingerprint",
             "method": "PUT",
@@ -541,7 +541,7 @@
             },
             "description": "Delete an authorization"
         },
-        
+
         "check": {
             "url": "/applications/:client_id/tokens/:access_token",
             "method": "GET",
@@ -551,7 +551,7 @@
             },
             "description": "Check an authorization"
         },
-        
+
         "reset": {
             "url": "/applications/:client_id/tokens/:access_token",
             "method": "POST",
@@ -561,7 +561,7 @@
             },
             "description": "Reset an authorization"
         },
-        
+
         "revoke": {
             "url": "/applications/:client_id/tokens/:access_token",
             "method": "DELETE",
@@ -570,6 +570,30 @@
                 "$access_token": null
             },
             "description": "Revoke an authorization for an application"
+        }
+    },
+
+    "installations": {
+        "create": {
+            "url": "/installations/:installation_id/access_tokens",
+            "method": "POST",
+            "params": {
+              "installation_id": {
+                  "type": "Number",
+                  "required": true,
+                  "validation": "^[0-9]+$",
+                  "invalidmsg": "",
+                  "description": "The id of the installation for this integration."
+              },
+              "user_id": {
+                  "type": "Number",
+                  "required": false,
+                  "validation": "^[0-9]+$",
+                  "invalidmsg": "",
+                  "description": "The id of the user for whom the integration is acting on behalf of."
+              }
+            },
+            "description": "Create a new access token"
         }
     },
 
@@ -1440,7 +1464,7 @@
             },
             "description": "Create a Tag Object"
         },
-        
+
         "get-tag-signature-verification": {
             "url": "/repos/:user/:repo/git/tags/:sha",
             "method": "GET",
@@ -1822,7 +1846,7 @@
             },
             "description": "Users with push access can lock an issue's conversation."
         },
-        
+
         "unlock": {
             "url": "/repos/:user/:repo/issues/:number/lock",
             "method": "DELETE",
@@ -1860,7 +1884,7 @@
             },
             "description": "Check assignee"
         },
-        
+
         "add-assignees-to-issue": {
             "url": "/repos/:user/:repo/issues/:number/assignees",
             "method": "POST",
@@ -1878,7 +1902,7 @@
             },
             "description": "Add assignees to an issue."
         },
-        
+
         "remove-assignees-from-issue": {
             "url": "/repos/:user/:repo/issues/:number/assignees",
             "method": "DELETE",
@@ -2002,7 +2026,7 @@
             },
             "description": "List events for an issue"
         },
-        
+
         "get-events-timeline": {
             "url": "/repos/:user/:repo/issues/:number/timeline",
             "method": "GET",
@@ -2336,7 +2360,7 @@
             },
             "description": "Start a migration."
         },
-        
+
         "get-migrations": {
             "url": "/orgs/:org/migrations",
             "method": "GET",
@@ -2347,7 +2371,7 @@
             },
             "description": "Get a list of migrations"
         },
-        
+
         "get-migration-status": {
             "url": "/orgs/:org/migrations/:id",
             "method": "GET",
@@ -2357,7 +2381,7 @@
             },
             "description": "Get the status of a migration"
         },
-        
+
         "get-migration-archive-link": {
             "url": "/orgs/:org/migrations/:id/archive",
             "method": "GET",
@@ -2388,7 +2412,7 @@
             },
             "description": "Unlock a repository that was locked for migration."
         },
-        
+
         "start-import": {
             "url": "/repos/:user/:repo/import",
             "method": "PUT",
@@ -2433,7 +2457,7 @@
             },
             "description": "Start an import. (In preview period. See README.)"
         },
-        
+
         "get-import-progress": {
             "url": "/repos/:user/:repo/import",
             "method": "GET",
@@ -2443,7 +2467,7 @@
             },
             "description": "Get import progress. (In preview period. See README.)"
         },
-        
+
         "update-import": {
             "url": "/repos/:user/:repo/import",
             "method": "PATCH",
@@ -2467,7 +2491,7 @@
             },
             "description": "Update existing import. (In preview period. See README.)"
         },
-        
+
         "get-import-commit-authors": {
             "url": "/repos/:user/:repo/import/authors",
             "method": "GET",
@@ -2484,7 +2508,7 @@
             },
             "description": "Get import commit authors. (In preview period. See README.)"
         },
-        
+
         "map-import-commit-author": {
             "url": "/repos/:user/:repo/import/authors/:author_id",
             "method": "PATCH",
@@ -2515,7 +2539,7 @@
             },
             "description": "Map a commit author. (In preview period. See README.)"
         },
-        
+
         "set-import-lfs-preference": {
             "url": "/:user/:name/import/lfs",
             "method": "PATCH",
@@ -2525,7 +2549,7 @@
             },
             "description": "Set import LFS preference. (In preview period. See README.)"
         },
-        
+
         "get-large-import-files": {
             "url": "/:user/:name/import/large_files",
             "method": "GET",
@@ -2535,7 +2559,7 @@
             },
             "description": "List files larger than 100MB found during the import. (In preview period. See README.)"
         },
-        
+
         "cancel-import": {
             "url": "/repos/:user/:repo/import",
             "method": "DELETE",
@@ -3490,7 +3514,7 @@
             "description": "Delete a comment"
         }
     },
-    
+
     "reactions": {
         "get-for-commit-comment": {
             "url": "/repos/:user/:repo/comments/:id/reactions",
@@ -3509,7 +3533,7 @@
             },
             "description": "List reactions for a commit comment. (In preview period. See README.)"
         },
-        
+
         "create-for-commit-comment": {
             "url": "/repos/:user/:repo/comments/:id/reactions",
             "method": "POST",
@@ -3527,7 +3551,7 @@
             },
             "description": "Create reaction for a commit comment. (In preview period. See README.)"
         },
-        
+
         "get-for-issue": {
             "url": "/repos/:user/:repo/issues/:number/reactions",
             "method": "GET",
@@ -3545,7 +3569,7 @@
             },
             "description": "List reactions for an issue. (In preview period. See README.)"
         },
-        
+
         "create-for-issue": {
             "url": "/repos/:user/:repo/issues/:number/reactions",
             "method": "POST",
@@ -3563,7 +3587,7 @@
             },
             "description": "Create reaction for an issue. (In preview period. See README.)"
         },
-        
+
         "get-for-issue-comment": {
             "url": "/repos/:user/:repo/issues/comments/:id/reactions",
             "method": "GET",
@@ -3581,7 +3605,7 @@
             },
             "description": "List reactions for an issue comment. (In preview period. See README.)"
         },
-        
+
         "create-for-issue-comment": {
             "url": "/repos/:user/:repo/issues/comments/:id/reactions",
             "method": "POST",
@@ -3599,7 +3623,7 @@
             },
             "description": "Create reaction for an issue comment. (In preview period. See README.)"
         },
-        
+
         "get-for-pull-request-review-comment": {
             "url": "/repos/:user/:repo/pulls/comments/:id/reactions",
             "method": "GET",
@@ -3617,7 +3641,7 @@
             },
             "description": "List reactions for a pull request review comment. (In preview period. See README.)"
         },
-        
+
         "create-for-pull-request-review-comment": {
             "url": "/repos/:user/:repo/pulls/comments/:id/reactions",
             "method": "POST",
@@ -3635,7 +3659,7 @@
             },
             "description": "Create reaction for a pull request review comment. (In preview period. See README.)"
         },
-        
+
         "delete": {
             "url": "/reactions/:id",
             "method": "DELETE",
@@ -3751,7 +3775,7 @@
             },
             "description": "List all public repositories"
         },
-        
+
         "get-by-id": {
             "url": "/repositories/:id",
             "method": "GET",
@@ -3925,7 +3949,7 @@
             },
             "description": "List branches. (In preview period. See README.)"
         },
-        
+
         "get-branch": {
             "url": "/repos/:user/:repo/branches/:branch",
             "method": "GET",
@@ -3938,7 +3962,7 @@
             },
             "description": "Get branch. (In preview period. See README.)"
         },
-        
+
         "get-branch-protection": {
             "url": "/repos/:user/:repo/branches/:branch/protection",
             "method": "GET",
@@ -3951,7 +3975,7 @@
             },
             "description": "Get branch protection. (In preview period. See README.)"
         },
-        
+
         "update-branch-protection": {
             "url": "/repos/:user/:repo/branches/:branch/protection",
             "method": "PUT",
@@ -3980,7 +4004,7 @@
             },
             "description": "Update branch protection. (In preview period. See README.)"
         },
-        
+
         "remove-branch-protection": {
             "url": "/repos/:user/:repo/branches/:branch/protection",
             "method": "DELETE",
@@ -3993,7 +4017,7 @@
             },
             "description": "Remove branch protection. (In preview period. See README.)"
         },
-        
+
         "get-protected-branch-required-status-checks": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
             "method": "GET",
@@ -4006,7 +4030,7 @@
             },
             "description": "Get required status checks of protected branch. (In preview period. See README.)"
         },
-        
+
         "update-protected-branch-required-status-checks": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
             "method": "PATCH",
@@ -4027,7 +4051,7 @@
             },
             "description": "Update required status checks of protected branch. (In preview period. See README.)"
         },
-        
+
         "remove-protected-branch-required-status-checks": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
             "method": "DELETE",
@@ -4040,7 +4064,7 @@
             },
             "description": "Remove required status checks of protected branch. (In preview period. See README.)"
         },
-        
+
         "get-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "GET",
@@ -4053,7 +4077,7 @@
             },
             "description": "List required status checks contexts of protected branch. (In preview period. See README.)"
         },
-        
+
         "replace-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "PUT",
@@ -4074,7 +4098,7 @@
             },
             "description": "Replace required status checks contexts of protected branch. (In preview period. See README.)"
         },
-        
+
         "add-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "POST",
@@ -4095,7 +4119,7 @@
             },
             "description": "Add required status checks contexts of protected branch. (In preview period. See README.)"
         },
-        
+
         "remove-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "DELETE",
@@ -4108,7 +4132,7 @@
             },
             "description": "Remove required status checks contexts of protected branch. (In preview period. See README.)"
         },
-        
+
         "get-protected-branch-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions",
             "method": "GET",
@@ -4121,7 +4145,7 @@
             },
             "description": "Get restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "remove-protected-branch-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions",
             "method": "DELETE",
@@ -4134,7 +4158,7 @@
             },
             "description": "Remove restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "get-protected-branch-team-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
             "method": "GET",
@@ -4147,7 +4171,7 @@
             },
             "description": "List team restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "replace-protected-branch-team-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
             "method": "PUT",
@@ -4168,7 +4192,7 @@
             },
             "description": "Replace team restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "add-protected-branch-team-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
             "method": "POST",
@@ -4189,7 +4213,7 @@
             },
             "description": "Add team restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "remove-protected-branch-team-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
             "method": "DELETE",
@@ -4202,7 +4226,7 @@
             },
             "description": "Remove team restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "get-protected-branch-user-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
             "method": "GET",
@@ -4215,7 +4239,7 @@
             },
             "description": "List user restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "replace-protected-branch-user-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
             "method": "PUT",
@@ -4236,7 +4260,7 @@
             },
             "description": "Replace user restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "add-protected-branch-user-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
             "method": "POST",
@@ -4257,7 +4281,7 @@
             },
             "description": "Add user restrictions of protected branch. (In preview period. See README.)"
         },
-        
+
         "remove-protected-branch-user-restrictions": {
             "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
             "method": "DELETE",
@@ -5009,7 +5033,7 @@
             },
             "description": "Create a fork."
         },
-        
+
         "get-invites": {
             "url": "/repositories/:repo/invitations",
             "method": "GET",
@@ -5018,7 +5042,7 @@
             },
             "description": "List invitations for a repository. (In preview period. See README.)"
         },
-        
+
         "delete-invite": {
             "url": "/repositories/:repo/invitations/:id",
             "method": "DELETE",
@@ -5028,7 +5052,7 @@
             },
             "description": "Delete a repository invitation. (In preview period. See README.)"
         },
-        
+
         "update-invite": {
             "url": "/repositories/:repo/invitations/:id",
             "method": "PATCH",
@@ -5045,7 +5069,7 @@
             },
             "description": "Update a repository invitation. (In preview period. See README.)"
         },
-        
+
         "merge": {
             "url": "/repos/:user/:repo/merges",
             "method": "POST",
@@ -5108,7 +5132,7 @@
             },
             "description": "Get latest Pages build"
         },
-        
+
         "get-pages-build": {
             "url": "/repos/:user/:repo/pages/builds/:id",
             "method": "GET",
@@ -5119,7 +5143,7 @@
             },
             "description": "Get a specific Pages build"
         },
-        
+
         "get-projects": {
             "url": "/repos/:user/:repo/projects",
             "method": "GET",
@@ -5129,7 +5153,7 @@
             },
             "description": "List projects."
         },
-        
+
         "get-project": {
             "url": "/repos/:user/:repo/projects/:number",
             "method": "GET",
@@ -5140,7 +5164,7 @@
             },
             "description": "List a project."
         },
-        
+
         "create-project": {
             "url": "/repos/:user/:repo/projects",
             "method": "POST",
@@ -5152,7 +5176,7 @@
             },
             "description": "Create a project."
         },
-        
+
         "update-project": {
             "url": "/repos/:user/:repo/projects/:number",
             "method": "PATCH",
@@ -5165,7 +5189,7 @@
             },
             "description": "Update a project."
         },
-        
+
         "delete-project": {
             "url": "/repos/:user/:repo/projects/:number",
             "method": "DELETE",
@@ -5176,7 +5200,7 @@
             },
             "description": "Delete a project."
         },
-        
+
         "get-project-columns": {
             "url": "/repos/:user/:repo/projects/:number/columns",
             "method": "GET",
@@ -5187,7 +5211,7 @@
             },
             "description": "List a project's columns."
         },
-        
+
         "get-project-column": {
             "url": "/repos/:user/:repo/projects/columns/:id",
             "method": "GET",
@@ -5198,7 +5222,7 @@
             },
             "description": "Get a project column."
         },
-        
+
         "create-project-column": {
             "url": "/repos/:user/:repo/projects/:number/columns",
             "method": "POST",
@@ -5210,7 +5234,7 @@
             },
             "description": "Create a project column."
         },
-        
+
         "update-project-column": {
             "url": "/repos/:user/:repo/projects/columns/:id",
             "method": "PATCH",
@@ -5222,7 +5246,7 @@
             },
             "description": "Update a project column."
         },
-        
+
         "delete-project-column": {
             "url": "/repos/:user/:repo/projects/columns/:id",
             "method": "DELETE",
@@ -5233,7 +5257,7 @@
             },
             "description": "Delete a project column."
         },
-        
+
         "move-project-column": {
             "url": "/repos/:user/:repo/projects/columns/:id/moves",
             "method": "POST",
@@ -5251,7 +5275,7 @@
             },
             "description": "Move a project column."
         },
-        
+
         "get-project-cards": {
             "url": "/repos/:user/:repo/projects/columns/:id/cards",
             "method": "GET",
@@ -5262,7 +5286,7 @@
             },
             "description": "List project cards."
         },
-        
+
         "get-project-card": {
             "url": "/repos/:user/:repo/projects/columns/cards/:id",
             "method": "GET",
@@ -5273,7 +5297,7 @@
             },
             "description": "Get project card."
         },
-        
+
         "create-project-card": {
             "url": "/repos/:user/:repo/projects/columns/:id/cards",
             "method": "POST",
@@ -5305,7 +5329,7 @@
             },
             "description": "Create a project card."
         },
-        
+
         "update-project-card": {
             "url": "/repos/:user/:repo/projects/columns/cards/:id",
             "method": "PATCH",
@@ -5323,7 +5347,7 @@
             },
             "description": "Update a project card."
         },
-        
+
         "delete-project-card": {
             "url": "/repos/:user/:repo/projects/columns/cards/:id",
             "method": "DELETE",
@@ -5334,7 +5358,7 @@
             },
             "description": "Delete a project card."
         },
-        
+
         "move-project-card": {
             "url": "/repos/:user/:repo/projects/columns/cards/:id/moves",
             "method": "POST",
@@ -5359,7 +5383,7 @@
             },
             "description": "Move a project card."
         },
-        
+
         "get-releases": {
             "url": "/repos/:user/:repo/releases",
             "method": "GET",
@@ -5729,7 +5753,7 @@
             },
             "description": "Get the combined status for a specific ref."
         },
-        
+
         "get-referrers": {
             "url": "/repos/:user/:repo/traffic/popular/referrers",
             "method": "GET",
@@ -5741,7 +5765,7 @@
             },
             "description": "Get the top 10 referrers over the last 14 days."
         },
-        
+
         "get-paths": {
             "url": "/repos/:user/:repo/traffic/popular/paths",
             "method": "GET",
@@ -5753,7 +5777,7 @@
             },
             "description": "Get the top 10 popular contents over the last 14 days."
         },
-        
+
         "get-views": {
             "url": "/repos/:user/:repo/traffic/views",
             "method": "GET",
@@ -5765,7 +5789,7 @@
             },
             "description": "Get the total number of views and breakdown per day or week for the last 14 days."
         },
-        
+
         "get-clones": {
             "url": "/repos/:user/:repo/traffic/clones",
             "method": "GET",
@@ -6336,7 +6360,7 @@
             },
             "description": "List your GPG keys. (In preview period. See README.)"
         },
-        
+
         "get-gpg-key": {
             "url": "/user/gpg_keys/:id",
             "method": "GET",
@@ -6345,7 +6369,7 @@
             },
             "description": "Get a single GPG key. (In preview period. See README.)"
         },
-        
+
         "create-gpg-key": {
             "url": "/user/gpg_keys",
             "method": "POST",
@@ -6360,7 +6384,7 @@
             },
             "description": "Create a GPG key. (In preview period. See README.)"
         },
-        
+
         "delete-gpg-key": {
             "url": "/user/gpg_keys/:id",
             "method": "DELETE",
@@ -6405,7 +6429,7 @@
             },
             "description": "Unsuspend a user"
         },
-        
+
         "get-repo-invites": {
             "url": "/user/repository_invitations",
             "method": "GET",
@@ -6413,7 +6437,7 @@
             },
             "description": "List a user's repository invitations. (In preview period. See README.)"
         },
-        
+
         "accept-repo-invite": {
             "url": "/user/repository_invitations/:id",
             "method": "PATCH",
@@ -6422,7 +6446,7 @@
             },
             "description": "Accept a repository invitation. (In preview period. See README.)"
         },
-        
+
         "decline-repo-invite": {
             "url": "/user/repository_invitations/:id",
             "method": "DELETE",
@@ -6503,7 +6527,7 @@
             "params": {},
             "description": "Get license information"
         },
-        
+
         "queue-indexing-job": {
             "url": "/staff/indexing_jobs",
             "method": "POST",
