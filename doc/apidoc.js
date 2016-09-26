@@ -2907,15 +2907,18 @@ github.repos.compareCommits({ ... });
  * @apiGroup repos
  *
  * @apiParam {String} name  
- * @apiParam {String} [description]  
+ * @apiParam {Boolean} [allow_rebase_merge=true]  Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)
  * @apiParam {String} [homepage]  
  * @apiParam {Boolean} [private=false]  True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
  * @apiParam {Boolean} [has_issues=true]  True to enable issues for this repository, false to disable them. Default is true.
  * @apiParam {Boolean} [has_wiki=true]  True to enable the wiki for this repository, false to disable it. Default is true.
- * @apiParam {Boolean} [has_downloads=true]  True to enable downloads for this repository, false to disable them. Default is true.
+ * @apiParam {String} [description]  
  * @apiParam {Boolean} [auto_init=false]  True to create an initial commit with empty README. Default is false
  * @apiParam {String} [gitignore_template]  Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided.
  * @apiParam {String} [license_template]  Desired LICENSE template to apply. Use the name of the template without the extension. For example, "mit" or "mozilla".
+ * @apiParam {Boolean} [allow_squash_merge=true]  Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)
+ * @apiParam {Boolean} [allow_merge_commit=true]  Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)
+ * @apiParam {Boolean} [has_downloads=true]  True to enable downloads for this repository, false to disable them. Default is true.
  * @apiExample {js} ex:
 github.repos.create({ ... });
  */

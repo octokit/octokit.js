@@ -138,7 +138,10 @@ describe("[repos]", function() {
                 has_downloads: "Boolean",
                 auto_init: "Boolean",
                 gitignore_template: "String",
-                license_template: "String"
+                license_template: "String",
+                allow_squash_merge: "Boolean",
+                allow_merge_commit: "Boolean",
+                allow_rebase_merge: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
