@@ -3849,7 +3849,31 @@
                 },
                 "$auto_init": null,
                 "$gitignore_template": null,
-                "$license_template": null
+                "$license_template": null,
+                "allow_squash_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
+                    "default": "true"
+                },
+                "allow_merge_commit": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
+                    "default": "true"
+                },
+                "allow_rebase_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
+                    "default": "true"
+                }
             },
             "description": "Create a new repository for an organization."
         },
