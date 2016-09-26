@@ -2664,10 +2664,10 @@ github.pullRequests.getFiles({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
+ * @apiParam {String} [commit_title]  Title for the automatic commit message. (In preview period. See README.)
  * @apiParam {String} [commit_message]  Extra detail to append to automatic commit message.
  * @apiParam {String} [sha]  SHA that pull request head must match to allow merge
- * @apiParam {String} [commit_title]  Title for the automatic commit message. (In preview period. See README.)
- * @apiParam {Boolean} [squash]  Commit a single commit to the head branch. (In preview period. See README.)
+ * @apiParam {String} [merge_method=merge]  Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)
  * @apiExample {js} ex:
 github.pullRequests.merge({ ... });
  */
