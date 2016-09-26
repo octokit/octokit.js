@@ -3379,6 +3379,13 @@
                 "$user": null,
                 "$repo": null,
                 "$number": null,
+                "commit_title": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Title for the automatic commit message. (In preview period. See README.)"
+                },
                 "commit_message": {
                     "type": "String",
                     "required": false,
@@ -3393,19 +3400,13 @@
                     "invalidmsg": "",
                     "description": "SHA that pull request head must match to allow merge"
                 },
-                "commit_title": {
+                "merge_method": {
                     "type": "String",
                     "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Title for the automatic commit message. (In preview period. See README.)"
-                },
-                "squash": {
-                    "type": "Boolean",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Commit a single commit to the head branch. (In preview period. See README.)"
+                    "validation": "^(merge|squash|rebase)$",
+                    "invalidmsg": "Possible values are: `merge`, `squash`, `rebase` Default: `merge`",
+                    "description": "Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)",
+                    "default": "merge"
                 }
             },
             "description": "Merge a pull request (Merge Button)"
