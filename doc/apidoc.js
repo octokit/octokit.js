@@ -3297,15 +3297,18 @@ github.repos.deleteRelease({ ... });
  * @apiGroup repos
  *
  * @apiParam {String} user  
- * @apiParam {String} repo  
  * @apiParam {String} name  
+ * @apiParam {String} repo  
  * @apiParam {String} [description]  
  * @apiParam {String} [homepage]  
  * @apiParam {Boolean} [private=false]  True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.
- * @apiParam {Boolean} [has_issues=true]  True to enable issues for this repository, false to disable them. Default is true.
+ * @apiParam {Boolean} [allow_rebase_merge=true]  Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)
  * @apiParam {Boolean} [has_wiki=true]  True to enable the wiki for this repository, false to disable it. Default is true.
  * @apiParam {Boolean} [has_downloads=true]  True to enable downloads for this repository, false to disable them. Default is true.
  * @apiParam {String} [default_branch]  Updates the default branch for this repository.
+ * @apiParam {Boolean} [allow_squash_merge=true]  Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)
+ * @apiParam {Boolean} [allow_merge_commit=true]  Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)
+ * @apiParam {Boolean} [has_issues=true]  True to enable issues for this repository, false to disable them. Default is true.
  * @apiExample {js} ex:
 github.repos.edit({ ... });
  */

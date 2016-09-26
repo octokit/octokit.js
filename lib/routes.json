@@ -3910,7 +3910,31 @@
                 "$has_issues": null,
                 "$has_wiki": null,
                 "$has_downloads": null,
-                "$default_branch": null
+                "$default_branch": null,
+                "allow_squash_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
+                    "default": "true"
+                },
+                "allow_merge_commit": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
+                    "default": "true"
+                },
+                "allow_rebase_merge": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
+                    "default": "true"
+                }
             },
             "description": "Update a repo."
         },

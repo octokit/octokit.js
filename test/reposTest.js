@@ -578,7 +578,10 @@ describe("[repos]", function() {
                 has_issues: "Boolean",
                 has_wiki: "Boolean",
                 has_downloads: "Boolean",
-                default_branch: "String"
+                default_branch: "String",
+                allow_squash_merge: "Boolean",
+                allow_merge_commit: "Boolean",
+                allow_rebase_merge: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
