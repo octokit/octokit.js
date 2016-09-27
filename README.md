@@ -1,4 +1,4 @@
-**NOTE**: The `node-github` npm package is deprecated. You want the `github` npm package (see Installation).
+**The `node-github` npm package is deprecated. You want the `github` npm package (see Installation).**
 
 # Node-github
 
