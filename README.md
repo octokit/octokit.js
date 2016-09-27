@@ -1,3 +1,5 @@
+**NOTE**: The `node-github` npm package is deprecated. You want the `github` npm package (see Installation).
+
 # Node-github
 
 A Node.js wrapper for GitHub API.
