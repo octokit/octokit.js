@@ -2,11 +2,13 @@
 
 # Node-github
 
+[![npm](https://img.shields.io/npm/v/github.svg?maxAge=2592000)](https://www.npmjs.com/package/github)
+
 A Node.js wrapper for GitHub API.
 
 ## Installation
 
-Install via [npm](https://www.npmjs.com/package/github) ![NPM version](https://badge.fury.io/js/github.svg)
+Install via npm.
 
 ```bash
 $ npm install github
