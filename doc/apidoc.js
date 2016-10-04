@@ -1141,6 +1141,18 @@ github.installations.create({ ... });
  */
 
 /**
+ * @api {get} /integration/installations getInstallations
+ * @apiName getInstallations
+ * @apiDescription List the integration's installations
+ * @apiGroup integrations
+ *
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.integrations.getInstallations({ ... });
+ */
+
+/**
  * @api {post} /repos/:user/:repo/issues/:number/assignees addAssigneesToIssue
  * @apiName addAssigneesToIssue
  * @apiDescription Add assignees to an issue.
