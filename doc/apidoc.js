@@ -1143,7 +1143,7 @@ github.installations.create({ ... });
 /**
  * @api {get} /integration/installations getInstallations
  * @apiName getInstallations
- * @apiDescription List the integration's installations
+ * @apiDescription List the integration's installations. (In preview period. See README.)
  * @apiGroup integrations
  *
  * @apiParam {Number} [page]  Page number of the results to fetch.

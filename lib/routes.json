@@ -605,7 +605,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List the integration's installations"
+            "description": "List the integration's installations. (In preview period. See README.)"
         }
     },
 
