@@ -597,6 +597,18 @@
         }
     },
 
+    "integrations": {
+        "get-installations": {
+            "url": "/integration/installations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List the integration's installations"
+        }
+    },
+
     "activity": {
         "get-events": {
             "url": "/events",
