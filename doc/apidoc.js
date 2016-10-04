@@ -1129,15 +1129,15 @@ github.gitdata.updateReference({ ... });
  */
 
 /**
- * @api {post} /installations/:installation_id/access_tokens create
- * @apiName create
- * @apiDescription Create a new access token
- * @apiGroup installations
+ * @api {post} /installations/:installation_id/access_tokens createInstallationToken
+ * @apiName createInstallationToken
+ * @apiDescription Create a new installation token. (In preview period. See README.)
+ * @apiGroup integrations
  *
  * @apiParam {Number} installation_id  The id of the installation for this integration.
  * @apiParam {Number} [user_id]  The id of the user for whom the integration is acting on behalf of.
  * @apiExample {js} ex:
-github.installations.create({ ... });
+github.integrations.createInstallationToken({ ... });
  */
 
 /**
@@ -1150,6 +1150,17 @@ github.installations.create({ ... });
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
 github.integrations.getInstallations({ ... });
+ */
+
+/**
+ * @api {post} /integration/identity/user getUserIdentity
+ * @apiName getUserIdentity
+ * @apiDescription Request identity of user. (In preview period. See README.)
+ * @apiGroup integrations
+ *
+ * @apiParam {String} [nonce]  
+ * @apiExample {js} ex:
+github.integrations.getUserIdentity({ ... });
  */
 
 /**

@@ -572,9 +572,19 @@
             "description": "Revoke an authorization for an application"
         }
     },
-
-    "installations": {
-        "create": {
+    
+    "integrations": {
+        "get-installations": {
+            "url": "/integration/installations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List the integration's installations. (In preview period. See README.)"
+        },
+        
+        "create-installation-token": {
             "url": "/installations/:installation_id/access_tokens",
             "method": "POST",
             "params": {
@@ -593,19 +603,22 @@
                   "description": "The id of the user for whom the integration is acting on behalf of."
               }
             },
-            "description": "Create a new access token"
-        }
-    },
-
-    "integrations": {
-        "get-installations": {
-            "url": "/integration/installations",
-            "method": "GET",
+            "description": "Create a new installation token. (In preview period. See README.)"
+        },
+        
+        "get-user-identity": {
+            "url": "/integration/identity/user",
+            "method": "POST",
             "params": {
-                "$page": null,
-                "$per_page": null
+                "nonce": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
-            "description": "List the integration's installations. (In preview period. See README.)"
+            "description": "Request identity of user. (In preview period. See README.)"
         }
     },
 

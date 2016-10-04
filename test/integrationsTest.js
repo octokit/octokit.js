@@ -25,11 +25,38 @@ describe("[integrations]", function() {
         });
     });
 
+    it("should successfully execute POST /installations/:installation_id/access_tokens (createInstallationToken)",  function(next) {
+        client.integrations.createInstallationToken(
+            {
+                installation_id: "Number",
+                user_id: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /integration/installations (getInstallations)",  function(next) {
         client.integrations.getInstallations(
             {
                 page: "Number",
                 per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /integration/identity/user (getUserIdentity)",  function(next) {
+        client.integrations.getUserIdentity(
+            {
+                nonce: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
