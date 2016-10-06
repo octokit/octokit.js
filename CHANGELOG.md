@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 4.0.0
+
+Breaking changes:
+  * Merge button squash boolean param has been renamed to merge_method string param.
+
+Features:
+  * Add some integration-related endpoints.
+  * Add support for integration authentication.
+  * Add preview merge params to edit user repo endpoint.
+  * Add preview merge params to org repos endpoint.
+  * Add preview merge params to user repos endpoint.
+  * Add filter to apidoc.
+  * Add basic getNextPage example.
+
 ## 3.1.1
 
 Bugfixes:
