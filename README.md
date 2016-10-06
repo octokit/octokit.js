@@ -183,6 +183,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Deployment          | application/vnd.github.ant-man-preview+json     |
 | Git signing         | application/vnd.github.cryptographer-preview    |
 | Imports             | application/vnd.github.barred-rock-preview      |
+| Integrations        | application/vnd.github.machine-man-preview      |
 | License             | application/vnd.github.drax-preview+json        |
 | Migrations          | application/vnd.github.wyandotte-preview+json   |
 | OAuth grants        | application/vnd.github.damage-preview           |
