@@ -209,6 +209,8 @@ $ npm install apidoc -g
 $ apidoc -i doc/ -o apidoc/
 ```
 
+Just a reminder, since an ad-hoc filter was added to the apidoc, don't overwrite index.html, main.js.
+
 ## LICENSE
 
 MIT license. See the LICENSE file for details.
