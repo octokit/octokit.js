@@ -397,32 +397,32 @@
         },
         "acceptTree": {
             "application/vnd.github.mockingbird-preview": [
-                "/repos/:owner/:repo/issues/:issue_number/timeline"
+                "/repos/:user/:repo/issues/:issue_number/timeline"
             ],
 
             "application/vnd.github.spiderman-preview": [
-                "/repos/:owner/:repo/traffic/popular/referrers",
-                "/repos/:owner/:repo/traffic/popular/paths",
-                "/repos/:owner/:repo/traffic/views",
-                "/repos/:owner/:repo/traffic/clones"
+                "/repos/:user/:repo/traffic/popular/referrers",
+                "/repos/:user/:repo/traffic/popular/paths",
+                "/repos/:user/:repo/traffic/views",
+                "/repos/:user/:repo/traffic/clones"
             ],
 
             "application/vnd.github.squirrel-girl-preview": [
-                "/repos/:owner/:repo/comments/:id/reactions",
-                "/repos/:owner/:repo/issues/:number/reactions",
-                "/repos/:owner/:repo/issues/comments/:id/reactions",
-                "/repos/:owner/:repo/pulls/comments/:id/reactions",
+                "/repos/:user/:repo/comments/:id/reactions",
+                "/repos/:user/:repo/issues/:number/reactions",
+                "/repos/:user/:repo/issues/comments/:id/reactions",
+                "/repos/:user/:repo/pulls/comments/:id/reactions",
                 "/reactions/:id"
             ],
 
             "application/vnd.github.polaris-preview": [
-                "/repos/:owner/:repo/pulls/:number/merge"
+                "/repos/:user/:repo/pulls/:number/merge"
             ],
 
             "application/vnd.github.loki-preview+json": [
-                "/repos/:owner/:repo/branches",
-                "/repos/:owner/:repo/branches/:branch",
-                "/repos/:owner/:repo/branches/:branch/protection",
+                "/repos/:user/:repo/branches",
+                "/repos/:user/:repo/branches/:branch",
+                "/repos/:user/:repo/branches/:branch/protection",
                 "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
                 "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
                 "/repos/:user/:repo/branches/:branch/protection/restrictions",
@@ -431,12 +431,22 @@
             ],
 
             "application/vnd.github.inertia-preview+json": [
-                "/repos/:owner/:repo/projects"
+                "/repos/:user/:repo/projects",
+                "/repos/:user/:repo/projects/:number",
+                "/repos/:user/:repo/projects/:number/columns",
+                "/repos/:user/:repo/projects/columns/:id",
+                "/repos/:user/:repo/projects/columns/:id/moves",
+                "/repos/:user/:repo/projects/columns/:id/cards",
+                "/repos/:user/:repo/projects/columns/cards/:id",
+                "/repos/:user/:repo/projects/columns/:id/cards",
+                "/repos/:user/:repo/projects/columns/cards/:id/moves"
             ],
 
             "application/vnd.github.mister-fantastic-preview+json": [
-                "/repos/:owner/:repo/pages",
-                "/repos/:owner/:repo/pages/builds"
+                "/repos/:user/:repo/pages",
+                "/repos/:user/:repo/pages/builds",
+                "/repos/:user/:repo/pages/builds/latest",
+                "/repos/:user/:repo/pages/builds/:id"
             ],
 
             "application/vnd.github.damage-preview": [
@@ -449,8 +459,8 @@
             ],
 
             "application/vnd.github.ant-man-preview+json": [
-                "/repos/:owner/:repo/deployments",
-                "/repos/:owner/:repo/deployments/:id/statuses"
+                "/repos/:user/:repo/deployments",
+                "/repos/:user/:repo/deployments/:id/statuses"
             ],
 
             "application/vnd.github.cryptographer-preview": [
@@ -459,11 +469,11 @@
             ],
 
             "application/vnd.github.barred-rock-preview": [
-                "/repos/:owner/:repo/import/authors",
-                "/repos/:owner/:repo/import/authors/:author_id",
-                "/:owner/:name/import/lfs",
-                "/:owner/:name/import/large_files",
-                "/repos/:owner/:repo/import"
+                "/repos/:user/:repo/import/authors",
+                "/repos/:user/:repo/import/authors/:author_id",
+                "/:user/:name/import/lfs",
+                "/:user/:name/import/large_files",
+                "/repos/:user/:repo/import"
             ],
 
             "application/vnd.github.machine-man-preview": [
@@ -475,8 +485,8 @@
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
                 "/licenses/:license",
-                "/repos/:owner/:repo",
-                "/repos/:owner/:repo/license"
+                "/repos/:user/:repo",
+                "/repos/:user/:repo/license"
             ],
 
             "application/vnd.github.wyandotte-preview+json": [
