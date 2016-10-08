@@ -174,8 +174,8 @@ $ npm test test/issuesTest.js
 
 ## Preview APIs
 
-Some APIs are in a preview period and require a custom `Accept` header.  
-See [examples/getReactionsForIssue.js](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example.  
+Accept headers for the preview APIs should be taken care of behind the scenes, but in the event a preview endpoint isn't working, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/getReactionsForIssue.js) for an example on how to add the required custom accept header.
+
 For updates on endpoints under preview, see https://developer.github.com/changes/.
 
 | Preview API         | Accept header val                               |
