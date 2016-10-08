@@ -1662,7 +1662,7 @@ github.issues.removeAllLabels({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
- * @apiParam {Array} assignees  Logins for the users that should be removed from the issue.
+ * @apiParam {Json} body  JSON object that contains assignees array of logins for the users that should be removed from the issue.
  * @apiExample {js} ex:
 github.issues.removeAssigneesFromIssue({ ... });
  */
