@@ -2036,12 +2036,13 @@
                 "$user": null,
                 "$repo": null,
                 "$number": null,
-                "assignees": {
-                    "type": "Array",
+                "body": {
+                    "type": "Json",
+                    "sendValueAsBody": true,
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Logins for the users that should be removed from the issue."
+                    "description": "JSON object that contains assignees array of logins for the users that should be removed from the issue."
                 }
             },
             "description": "Remove assignees from an issue."
