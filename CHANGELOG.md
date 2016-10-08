@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 4.1.0
+
+Features:
+  * Take care of accept headers for preview APIs in the library so there's no need to manually provide it on a per-request basis.
+
+Bugfixes:
+  * Change removeAssigneesFromIssue assignees param to body json input.
+
 ## 4.0.0
 
 Breaking changes:
