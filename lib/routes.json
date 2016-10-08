@@ -422,7 +422,12 @@
             "application/vnd.github.loki-preview+json": [
                 "/repos/:owner/:repo/branches",
                 "/repos/:owner/:repo/branches/:branch",
-                "/repos/:owner/:repo/branches/:branch/protection"
+                "/repos/:owner/:repo/branches/:branch/protection",
+                "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+                "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+                "/repos/:user/:repo/branches/:branch/protection/restrictions",
+                "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+                "/repos/:user/:repo/branches/:branch/protection/restrictions/users"
             ],
 
             "application/vnd.github.inertia-preview+json": [
