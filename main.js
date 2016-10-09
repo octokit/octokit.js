@@ -756,4 +756,5 @@ require([
             return name.toUpperCase().includes(newVal.toUpperCase());
         }).show();
     });
+
 });
