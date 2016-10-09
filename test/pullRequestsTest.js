@@ -25,10 +25,10 @@ describe("[pullRequests]", function() {
         });
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number/merge (checkMerged)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/merge (checkMerged)",  function(next) {
         client.pullRequests.checkMerged(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -42,10 +42,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/pulls (create)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/pulls (create)",  function(next) {
         client.pullRequests.create(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 title: "String",
                 head: "String",
@@ -60,10 +60,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createComment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/comments (createComment)",  function(next) {
         client.pullRequests.createComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "String",
@@ -79,10 +79,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/pulls/:number/comments (createCommentReply)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/comments (createCommentReply)",  function(next) {
         client.pullRequests.createCommentReply(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "String",
@@ -96,10 +96,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/pulls (createFromIssue)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/pulls (createFromIssue)",  function(next) {
         client.pullRequests.createFromIssue(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 issue: "Number",
                 head: "String",
@@ -113,10 +113,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/pulls/comments/:number (deleteComment)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/pulls/comments/:number (deleteComment)",  function(next) {
         client.pullRequests.deleteComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -128,10 +128,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/pulls/comments/:number (editComment)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/pulls/comments/:number (editComment)",  function(next) {
         client.pullRequests.editComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "String"
@@ -144,10 +144,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number (get)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number (get)",  function(next) {
         client.pullRequests.get(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -159,10 +159,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls (getAll)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls (getAll)",  function(next) {
         client.pullRequests.getAll(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 state: "String",
                 head: "String",
@@ -180,10 +180,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/comments/:number (getComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/comments/:number (getComment)",  function(next) {
         client.pullRequests.getComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -195,10 +195,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number/comments (getComments)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/comments (getComments)",  function(next) {
         client.pullRequests.getComments(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -212,10 +212,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/comments (getCommentsForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/comments (getCommentsForRepo)",  function(next) {
         client.pullRequests.getCommentsForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sort: "String",
                 direction: "String",
@@ -231,10 +231,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number/commits (getCommits)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/commits (getCommits)",  function(next) {
         client.pullRequests.getCommits(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -248,10 +248,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/:number/files (getFiles)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/files (getFiles)",  function(next) {
         client.pullRequests.getFiles(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -265,10 +265,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/pulls/:number/merge (merge)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/pulls/:number/merge (merge)",  function(next) {
         client.pullRequests.merge(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 commit_title: "String",
@@ -284,10 +284,10 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/pulls/:number (update)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/pulls/:number (update)",  function(next) {
         client.pullRequests.update(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 title: "String",

@@ -25,10 +25,10 @@ describe("[repos]", function() {
         });
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/collaborators/:collabuser (addCollaborator)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/collaborators/:collabuser (addCollaborator)",  function(next) {
         client.repos.addCollaborator(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 collabuser: "String",
                 permission: "String"
@@ -41,10 +41,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (addProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts (addProtectedBranchRequiredStatusChecksContexts)",  function(next) {
         client.repos.addProtectedBranchRequiredStatusChecksContexts(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Array",
@@ -59,10 +59,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/branches/:branch/protection/restrictions/teams (addProtectedBranchTeamRestrictions)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/restrictions/teams (addProtectedBranchTeamRestrictions)",  function(next) {
         client.repos.addProtectedBranchTeamRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Array",
@@ -77,10 +77,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/branches/:branch/protection/restrictions/users (addProtectedBranchUserRestrictions)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/restrictions/users (addProtectedBranchUserRestrictions)",  function(next) {
         client.repos.addProtectedBranchUserRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Array",
@@ -95,10 +95,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/collaborators/:collabuser (checkCollaborator)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/collaborators/:collabuser (checkCollaborator)",  function(next) {
         client.repos.checkCollaborator(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 collabuser: "String"
             },
@@ -110,10 +110,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/compare/:base...:head (compareCommits)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/compare/:base...:head (compareCommits)",  function(next) {
         client.repos.compareCommits(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 base: "String",
                 head: "String"
@@ -151,10 +151,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/commits/:sha/comments (createCommitComment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/commits/:sha/comments (createCommitComment)",  function(next) {
         client.repos.createCommitComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 body: "String",
@@ -170,10 +170,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/deployments (createDeployment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/deployments (createDeployment)",  function(next) {
         client.repos.createDeployment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String",
                 task: "String",
@@ -193,10 +193,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/deployments/:id/statuses (createDeploymentStatus)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/deployments/:id/statuses (createDeploymentStatus)",  function(next) {
         client.repos.createDeploymentStatus(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 state: "String",
@@ -214,10 +214,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/contents/:path (createFile)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/contents/:path (createFile)",  function(next) {
         client.repos.createFile(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 path: "String",
                 message: "String",
@@ -260,10 +260,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/hooks (createHook)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/hooks (createHook)",  function(next) {
         client.repos.createHook(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 name: "String",
                 config: "Json",
@@ -278,10 +278,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/keys (createKey)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/keys (createKey)",  function(next) {
         client.repos.createKey(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 title: "String",
                 key: "String",
@@ -295,10 +295,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/projects (createProject)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/projects (createProject)",  function(next) {
         client.repos.createProject(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 name: "String",
                 body: "String"
@@ -311,10 +311,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/projects/columns/:id/cards (createProjectCard)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/projects/columns/:id/cards (createProjectCard)",  function(next) {
         client.repos.createProjectCard(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 note: "String",
@@ -329,10 +329,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/projects/:number/columns (createProjectColumn)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/projects/:number/columns (createProjectColumn)",  function(next) {
         client.repos.createProjectColumn(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 name: "String"
@@ -345,10 +345,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/releases (createRelease)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
         client.repos.createRelease(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 tag_name: "String",
                 target_commitish: "String",
@@ -365,10 +365,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/statuses/:sha (createStatus)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/statuses/:sha (createStatus)",  function(next) {
         client.repos.createStatus(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 state: "String",
@@ -384,10 +384,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo (delete)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo (delete)",  function(next) {
         client.repos.delete(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -398,10 +398,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/releases/assets/:id (deleteAsset)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/releases/assets/:id (deleteAsset)",  function(next) {
         client.repos.deleteAsset(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -413,10 +413,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/comments/:id (deleteCommitComment)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/comments/:id (deleteCommitComment)",  function(next) {
         client.repos.deleteCommitComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -428,10 +428,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/downloads/:id (deleteDownload)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/downloads/:id (deleteDownload)",  function(next) {
         client.repos.deleteDownload(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -443,10 +443,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/contents/:path (deleteFile)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/contents/:path (deleteFile)",  function(next) {
         client.repos.deleteFile(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 path: "String",
                 message: "String",
@@ -462,10 +462,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/hooks/:id (deleteHook)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/hooks/:id (deleteHook)",  function(next) {
         client.repos.deleteHook(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -491,10 +491,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/keys/:id (deleteKey)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/keys/:id (deleteKey)",  function(next) {
         client.repos.deleteKey(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -506,10 +506,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/projects/:number (deleteProject)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/projects/:number (deleteProject)",  function(next) {
         client.repos.deleteProject(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -521,10 +521,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/projects/columns/cards/:id (deleteProjectCard)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/projects/columns/cards/:id (deleteProjectCard)",  function(next) {
         client.repos.deleteProjectCard(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -536,10 +536,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/projects/columns/:id (deleteProjectColumn)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/projects/columns/:id (deleteProjectColumn)",  function(next) {
         client.repos.deleteProjectColumn(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -551,10 +551,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/releases/:id (deleteRelease)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/releases/:id (deleteRelease)",  function(next) {
         client.repos.deleteRelease(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -566,10 +566,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo (edit)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo (edit)",  function(next) {
         client.repos.edit(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 name: "String",
                 description: "String",
@@ -591,10 +591,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/releases/assets/:id (editAsset)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/releases/assets/:id (editAsset)",  function(next) {
         client.repos.editAsset(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 name: "String",
@@ -608,10 +608,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/hooks/:id (editHook)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/hooks/:id (editHook)",  function(next) {
         client.repos.editHook(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 name: "String",
@@ -629,10 +629,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/releases/:id (editRelease)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/releases/:id (editRelease)",  function(next) {
         client.repos.editRelease(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 tag_name: "String",
@@ -650,10 +650,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/forks (fork)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/forks (fork)",  function(next) {
         client.repos.fork(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 organization: "String"
             },
@@ -665,10 +665,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo (get)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo (get)",  function(next) {
         client.repos.get(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -698,10 +698,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/comments (getAllCommitComments)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/comments (getAllCommitComments)",  function(next) {
         client.repos.getAllCommitComments(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -714,10 +714,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/:archive_format/:ref (getArchiveLink)",  function(next) {
         client.repos.getArchiveLink(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 archive_format: "String",
                 ref: "String"
@@ -730,10 +730,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/releases/assets/:id (getAsset)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/releases/assets/:id (getAsset)",  function(next) {
         client.repos.getAsset(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -745,10 +745,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch (getBranch)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch (getBranch)",  function(next) {
         client.repos.getBranch(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -762,10 +762,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection (getBranchProtection)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection (getBranchProtection)",  function(next) {
         client.repos.getBranchProtection(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -779,10 +779,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches (getBranches)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches (getBranches)",  function(next) {
         client.repos.getBranches(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 protected: "Boolean",
                 page: "Number",
@@ -809,10 +809,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/traffic/clones (getClones)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/traffic/clones (getClones)",  function(next) {
         client.repos.getClones(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -825,10 +825,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/collaborators (getCollaborators)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/collaborators (getCollaborators)",  function(next) {
         client.repos.getCollaborators(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -841,10 +841,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/status (getCombinedStatus)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:sha/status (getCombinedStatus)",  function(next) {
         client.repos.getCombinedStatus(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 page: "Number",
@@ -858,10 +858,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha (getCommit)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:sha (getCommit)",  function(next) {
         client.repos.getCommit(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String"
             },
@@ -873,10 +873,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/comments/:id (getCommitComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/comments/:id (getCommitComment)",  function(next) {
         client.repos.getCommitComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -888,10 +888,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
         client.repos.getCommitComments(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 page: "Number",
@@ -905,10 +905,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits (getCommits)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits (getCommits)",  function(next) {
         client.repos.getCommits(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 path: "String",
@@ -926,10 +926,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/contents/:path (getContent)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/contents/:path (getContent)",  function(next) {
         client.repos.getContent(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 path: "String",
                 ref: "String"
@@ -942,10 +942,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/contributors (getContributors)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/contributors (getContributors)",  function(next) {
         client.repos.getContributors(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 anon: "Boolean",
                 page: "Number",
@@ -959,10 +959,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
         client.repos.getDeploymentStatuses(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -974,10 +974,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/deployments (getDeployments)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/deployments (getDeployments)",  function(next) {
         client.repos.getDeployments(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 ref: "String",
@@ -994,10 +994,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/downloads/:id (getDownload)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/downloads/:id (getDownload)",  function(next) {
         client.repos.getDownload(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1009,10 +1009,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/downloads (getDownloads)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/downloads (getDownloads)",  function(next) {
         client.repos.getDownloads(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1059,10 +1059,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/forks (getForks)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/forks (getForks)",  function(next) {
         client.repos.getForks(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sort: "String",
                 page: "Number",
@@ -1076,10 +1076,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/hooks/:id (getHook)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/hooks/:id (getHook)",  function(next) {
         client.repos.getHook(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1091,10 +1091,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/hooks (getHooks)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/hooks (getHooks)",  function(next) {
         client.repos.getHooks(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1120,10 +1120,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/keys/:id (getKey)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/keys/:id (getKey)",  function(next) {
         client.repos.getKey(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1135,10 +1135,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/keys (getKeys)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/keys (getKeys)",  function(next) {
         client.repos.getKeys(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1151,10 +1151,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/languages (getLanguages)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/languages (getLanguages)",  function(next) {
         client.repos.getLanguages(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1167,10 +1167,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pages/builds/latest (getLatestPagesBuild)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pages/builds/latest (getLatestPagesBuild)",  function(next) {
         client.repos.getLatestPagesBuild(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1181,10 +1181,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/releases/latest (getLatestRelease)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/releases/latest (getLatestRelease)",  function(next) {
         client.repos.getLatestRelease(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1195,10 +1195,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pages (getPages)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pages (getPages)",  function(next) {
         client.repos.getPages(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1211,10 +1211,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pages/builds/:id (getPagesBuild)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pages/builds/:id (getPagesBuild)",  function(next) {
         client.repos.getPagesBuild(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1226,10 +1226,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pages/builds (getPagesBuilds)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pages/builds (getPagesBuilds)",  function(next) {
         client.repos.getPagesBuilds(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1242,10 +1242,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/traffic/popular/paths (getPaths)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/traffic/popular/paths (getPaths)",  function(next) {
         client.repos.getPaths(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1258,10 +1258,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/projects/:number (getProject)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/projects/:number (getProject)",  function(next) {
         client.repos.getProject(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -1273,10 +1273,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/projects/columns/cards/:id (getProjectCard)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/projects/columns/cards/:id (getProjectCard)",  function(next) {
         client.repos.getProjectCard(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1288,10 +1288,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/projects/columns/:id/cards (getProjectCards)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/projects/columns/:id/cards (getProjectCards)",  function(next) {
         client.repos.getProjectCards(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1303,10 +1303,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/projects/columns/:id (getProjectColumn)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/projects/columns/:id (getProjectColumn)",  function(next) {
         client.repos.getProjectColumn(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1318,10 +1318,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/projects/:number/columns (getProjectColumns)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/projects/:number/columns (getProjectColumns)",  function(next) {
         client.repos.getProjectColumns(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -1333,10 +1333,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/projects (getProjects)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/projects (getProjects)",  function(next) {
         client.repos.getProjects(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1347,10 +1347,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.getProtectedBranchRequiredStatusChecks(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1364,10 +1364,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (getProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts (getProtectedBranchRequiredStatusChecksContexts)",  function(next) {
         client.repos.getProtectedBranchRequiredStatusChecksContexts(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1381,10 +1381,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/restrictions (getProtectedBranchRestrictions)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/restrictions (getProtectedBranchRestrictions)",  function(next) {
         client.repos.getProtectedBranchRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1398,10 +1398,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/restrictions/teams (getProtectedBranchTeamRestrictions)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/restrictions/teams (getProtectedBranchTeamRestrictions)",  function(next) {
         client.repos.getProtectedBranchTeamRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1415,10 +1415,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/branches/:branch/protection/restrictions/users (getProtectedBranchUserRestrictions)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/restrictions/users (getProtectedBranchUserRestrictions)",  function(next) {
         client.repos.getProtectedBranchUserRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1445,10 +1445,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/readme (getReadme)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/readme (getReadme)",  function(next) {
         client.repos.getReadme(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String"
             },
@@ -1460,10 +1460,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/traffic/popular/referrers (getReferrers)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/traffic/popular/referrers (getReferrers)",  function(next) {
         client.repos.getReferrers(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1476,10 +1476,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/releases/:id (getRelease)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/releases/:id (getRelease)",  function(next) {
         client.repos.getRelease(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1491,10 +1491,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/releases/tags/:tag (getReleaseByTag)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/releases/tags/:tag (getReleaseByTag)",  function(next) {
         client.repos.getReleaseByTag(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 tag: "String"
             },
@@ -1506,10 +1506,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/releases (getReleases)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/releases (getReleases)",  function(next) {
         client.repos.getReleases(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1522,10 +1522,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:ref (getShaOfCommitRef)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:ref (getShaOfCommitRef)",  function(next) {
         client.repos.getShaOfCommitRef(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String"
             },
@@ -1537,10 +1537,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/stats/code_frequency (getStatsCodeFrequency)",  function(next) {
         client.repos.getStatsCodeFrequency(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1551,10 +1551,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/commit_activity (getStatsCommitActivity)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/stats/commit_activity (getStatsCommitActivity)",  function(next) {
         client.repos.getStatsCommitActivity(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1565,10 +1565,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/contributors (getStatsContributors)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/stats/contributors (getStatsContributors)",  function(next) {
         client.repos.getStatsContributors(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1579,10 +1579,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/participation (getStatsParticipation)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/stats/participation (getStatsParticipation)",  function(next) {
         client.repos.getStatsParticipation(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1593,10 +1593,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stats/punch_card (getStatsPunchCard)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/stats/punch_card (getStatsPunchCard)",  function(next) {
         client.repos.getStatsPunchCard(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1607,10 +1607,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/commits/:sha/statuses (getStatuses)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:sha/statuses (getStatuses)",  function(next) {
         client.repos.getStatuses(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 page: "Number",
@@ -1624,10 +1624,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/tags (getTags)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/tags (getTags)",  function(next) {
         client.repos.getTags(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1640,10 +1640,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/teams (getTeams)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/teams (getTeams)",  function(next) {
         client.repos.getTeams(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1656,10 +1656,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/traffic/views (getViews)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/traffic/views (getViews)",  function(next) {
         client.repos.getViews(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -1672,10 +1672,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/releases/:id/assets (listAssets)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/releases/:id/assets (listAssets)",  function(next) {
         client.repos.listAssets(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1687,10 +1687,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/merges (merge)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/merges (merge)",  function(next) {
         client.repos.merge(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 base: "String",
                 head: "String",
@@ -1704,10 +1704,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/projects/columns/cards/:id/moves (moveProjectCard)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/projects/columns/cards/:id/moves (moveProjectCard)",  function(next) {
         client.repos.moveProjectCard(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 position: "String",
@@ -1721,10 +1721,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/projects/columns/:id/moves (moveProjectColumn)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/projects/columns/:id/moves (moveProjectColumn)",  function(next) {
         client.repos.moveProjectColumn(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 position: "String"
@@ -1750,10 +1750,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/hooks/:id/pings (pingHook)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/hooks/:id/pings (pingHook)",  function(next) {
         client.repos.pingHook(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1765,10 +1765,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection (removeBranchProtection)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection (removeBranchProtection)",  function(next) {
         client.repos.removeBranchProtection(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1782,10 +1782,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
         client.repos.removeCollaborator(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 collabuser: "String"
             },
@@ -1797,10 +1797,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/required_status_checks (removeProtectedBranchRequiredStatusChecks)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/required_status_checks (removeProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.removeProtectedBranchRequiredStatusChecks(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1814,10 +1814,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (removeProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts (removeProtectedBranchRequiredStatusChecksContexts)",  function(next) {
         client.repos.removeProtectedBranchRequiredStatusChecksContexts(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1831,10 +1831,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/restrictions (removeProtectedBranchRestrictions)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions (removeProtectedBranchRestrictions)",  function(next) {
         client.repos.removeProtectedBranchRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1848,10 +1848,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/restrictions/teams (removeProtectedBranchTeamRestrictions)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/teams (removeProtectedBranchTeamRestrictions)",  function(next) {
         client.repos.removeProtectedBranchTeamRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1865,10 +1865,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/branches/:branch/protection/restrictions/users (removeProtectedBranchUserRestrictions)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users (removeProtectedBranchUserRestrictions)",  function(next) {
         client.repos.removeProtectedBranchUserRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 page: "Number",
@@ -1882,10 +1882,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts (replaceProtectedBranchRequiredStatusChecksContexts)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts (replaceProtectedBranchRequiredStatusChecksContexts)",  function(next) {
         client.repos.replaceProtectedBranchRequiredStatusChecksContexts(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Array",
@@ -1900,10 +1900,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection/restrictions/teams (replaceProtectedBranchTeamRestrictions)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/teams (replaceProtectedBranchTeamRestrictions)",  function(next) {
         client.repos.replaceProtectedBranchTeamRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Array",
@@ -1918,10 +1918,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection/restrictions/users (replaceProtectedBranchUserRestrictions)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/users (replaceProtectedBranchUserRestrictions)",  function(next) {
         client.repos.replaceProtectedBranchUserRestrictions(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Array",
@@ -1936,10 +1936,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/pages/builds (requestPageBuild)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/pages/builds (requestPageBuild)",  function(next) {
         client.repos.requestPageBuild(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -1950,10 +1950,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/hooks/:id/test (testHook)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/hooks/:id/test (testHook)",  function(next) {
         client.repos.testHook(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -1965,10 +1965,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/branches/:branch/protection (updateBranchProtection)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/branches/:branch/protection (updateBranchProtection)",  function(next) {
         client.repos.updateBranchProtection(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 required_status_checks: "Json",
@@ -1984,10 +1984,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/comments/:id (updateCommitComment)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/comments/:id (updateCommitComment)",  function(next) {
         client.repos.updateCommitComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 body: "String"
@@ -2000,10 +2000,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/contents/:path (updateFile)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/contents/:path (updateFile)",  function(next) {
         client.repos.updateFile(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 path: "String",
                 message: "String",
@@ -2035,10 +2035,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/projects/:number (updateProject)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/projects/:number (updateProject)",  function(next) {
         client.repos.updateProject(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 name: "String",
@@ -2052,10 +2052,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/projects/columns/cards/:id (updateProjectCard)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/projects/columns/cards/:id (updateProjectCard)",  function(next) {
         client.repos.updateProjectCard(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 note: "String"
@@ -2068,10 +2068,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/projects/columns/:id (updateProjectColumn)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/projects/columns/:id (updateProjectColumn)",  function(next) {
         client.repos.updateProjectColumn(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 name: "String"
@@ -2084,10 +2084,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/branches/:branch/protection/required_status_checks (updateProtectedBranchRequiredStatusChecks)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/branches/:branch/protection/required_status_checks (updateProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.updateProtectedBranchRequiredStatusChecks(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 branch: "String",
                 body: "Json",
@@ -2102,10 +2102,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/releases/:id/assets (uploadAsset)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/releases/:id/assets (uploadAsset)",  function(next) {
         client.repos.uploadAsset(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 filePath: "String",

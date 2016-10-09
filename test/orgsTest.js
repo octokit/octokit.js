@@ -71,11 +71,11 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /orgs/:org/members/:user (checkMembership)",  function(next) {
+    it("should successfully execute GET /orgs/:org/members/:owner (checkMembership)",  function(next) {
         client.orgs.checkMembership(
             {
                 org: "String",
-                user: "String"
+                owner: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -99,11 +99,11 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /teams/:id/repos/:user/:repo (checkTeamRepo)",  function(next) {
+    it("should successfully execute GET /teams/:id/repos/:owner/:repo (checkTeamRepo)",  function(next) {
         client.orgs.checkTeamRepo(
             {
                 id: "String",
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -189,11 +189,11 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute DELETE /teams/:id/repos/:user/:repo (deleteTeamRepo)",  function(next) {
+    it("should successfully execute DELETE /teams/:id/repos/:owner/:repo (deleteTeamRepo)",  function(next) {
         client.orgs.deleteTeamRepo(
             {
                 id: "String",
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -267,10 +267,10 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/orgs (getForUser)",  function(next) {
+    it("should successfully execute GET /users/:owner/orgs (getForUser)",  function(next) {
         client.orgs.getForUser(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },

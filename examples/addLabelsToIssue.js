@@ -13,7 +13,7 @@ github.authenticate({
 });
 
 github.issues.addLabels({
-    user: "kaizensoze",
+    owner: "kaizensoze",
     repo: "node-github",
     number: "101",
     body: ["invalid", "bug", "duplicate"]

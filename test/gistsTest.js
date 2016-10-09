@@ -205,10 +205,10 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/gists (getForUser)",  function(next) {
+    it("should successfully execute GET /users/:owner/gists (getForUser)",  function(next) {
         client.gists.getForUser(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number",
                 since: "Date"

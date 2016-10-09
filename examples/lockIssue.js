@@ -13,7 +13,7 @@ github.authenticate({
 });
 
 github.issues.lock({
-    user: "kaizensoze",
+    owner: "kaizensoze",
     repo: "test2",
     number: 3
 }, function(err, res) {

@@ -25,10 +25,10 @@ describe("[issues]", function() {
         });
     });
 
-    it("should successfully execute POST /repos/:user/:repo/issues/:number/assignees (addAssigneesToIssue)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/issues/:number/assignees (addAssigneesToIssue)",  function(next) {
         client.issues.addAssigneesToIssue(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 assignees: "Array"
@@ -41,10 +41,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/issues/:number/labels (addLabels)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/issues/:number/labels (addLabels)",  function(next) {
         client.issues.addLabels(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "Array"
@@ -57,10 +57,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/assignees/:assignee (checkAssignee)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/assignees/:assignee (checkAssignee)",  function(next) {
         client.issues.checkAssignee(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 assignee: "String"
             },
@@ -72,10 +72,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/issues (create)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/issues (create)",  function(next) {
         client.issues.create(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 title: "String",
                 body: "String",
@@ -92,10 +92,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/issues/:number/comments (createComment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/issues/:number/comments (createComment)",  function(next) {
         client.issues.createComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "String"
@@ -108,10 +108,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/labels (createLabel)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/labels (createLabel)",  function(next) {
         client.issues.createLabel(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 name: "String",
                 color: "String"
@@ -124,10 +124,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/milestones (createMilestone)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/milestones (createMilestone)",  function(next) {
         client.issues.createMilestone(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 title: "String",
                 state: "String",
@@ -142,10 +142,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/issues/comments/:id (deleteComment)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/issues/comments/:id (deleteComment)",  function(next) {
         client.issues.deleteComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -157,10 +157,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/labels/:name (deleteLabel)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/labels/:name (deleteLabel)",  function(next) {
         client.issues.deleteLabel(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 name: "String"
             },
@@ -172,10 +172,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/milestones/:number (deleteMilestone)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/milestones/:number (deleteMilestone)",  function(next) {
         client.issues.deleteMilestone(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -187,10 +187,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/issues/:number (edit)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/issues/:number (edit)",  function(next) {
         client.issues.edit(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 title: "String",
@@ -209,10 +209,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/issues/comments/:id (editComment)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/issues/comments/:id (editComment)",  function(next) {
         client.issues.editComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 body: "String"
@@ -225,10 +225,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number (get)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number (get)",  function(next) {
         client.issues.get(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -260,10 +260,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/assignees (getAssignees)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/assignees (getAssignees)",  function(next) {
         client.issues.getAssignees(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -274,10 +274,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/comments/:id (getComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/comments/:id (getComment)",  function(next) {
         client.issues.getComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -289,10 +289,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number/comments (getComments)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number/comments (getComments)",  function(next) {
         client.issues.getComments(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -306,10 +306,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/comments (getCommentsForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/comments (getCommentsForRepo)",  function(next) {
         client.issues.getCommentsForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sort: "String",
                 direction: "String",
@@ -325,10 +325,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/events/:id (getEvent)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/events/:id (getEvent)",  function(next) {
         client.issues.getEvent(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String"
             },
@@ -340,10 +340,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number/events (getEvents)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number/events (getEvents)",  function(next) {
         client.issues.getEvents(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -357,10 +357,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/events (getEventsForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/events (getEventsForRepo)",  function(next) {
         client.issues.getEventsForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -373,10 +373,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number/timeline (getEventsTimeline)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number/timeline (getEventsTimeline)",  function(next) {
         client.issues.getEventsTimeline(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 page: "Number",
@@ -411,10 +411,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues (getForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues (getForRepo)",  function(next) {
         client.issues.getForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 milestone: "String",
                 state: "String",
@@ -456,10 +456,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number/labels (getIssueLabels)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number/labels (getIssueLabels)",  function(next) {
         client.issues.getIssueLabels(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -471,10 +471,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/labels/:name (getLabel)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/labels/:name (getLabel)",  function(next) {
         client.issues.getLabel(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 name: "String"
             },
@@ -486,10 +486,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/labels (getLabels)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/labels (getLabels)",  function(next) {
         client.issues.getLabels(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -502,10 +502,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/milestones/:number (getMilestone)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/milestones/:number (getMilestone)",  function(next) {
         client.issues.getMilestone(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -517,10 +517,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/milestones/:number/labels (getMilestoneLabels)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/milestones/:number/labels (getMilestoneLabels)",  function(next) {
         client.issues.getMilestoneLabels(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -532,10 +532,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/milestones (getMilestones)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/milestones (getMilestones)",  function(next) {
         client.issues.getMilestones(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 state: "String",
                 sort: "String",
@@ -551,10 +551,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/issues/:number/lock (lock)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/issues/:number/lock (lock)",  function(next) {
         client.issues.lock(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -566,10 +566,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/labels (removeAllLabels)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/issues/:number/labels (removeAllLabels)",  function(next) {
         client.issues.removeAllLabels(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -581,10 +581,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/assignees (removeAssigneesFromIssue)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/issues/:number/assignees (removeAssigneesFromIssue)",  function(next) {
         client.issues.removeAssigneesFromIssue(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "Json"
@@ -597,10 +597,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/labels/:name (removeLabel)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/issues/:number/labels/:name (removeLabel)",  function(next) {
         client.issues.removeLabel(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 name: "String"
@@ -613,10 +613,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/issues/:number/labels (replaceAllLabels)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/issues/:number/labels (replaceAllLabels)",  function(next) {
         client.issues.replaceAllLabels(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 body: "Array"
@@ -629,10 +629,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/issues/:number/lock (unlock)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/issues/:number/lock (unlock)",  function(next) {
         client.issues.unlock(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number"
             },
@@ -644,10 +644,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/labels/:oldname (updateLabel)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/labels/:oldname (updateLabel)",  function(next) {
         client.issues.updateLabel(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 oldname: "String",
                 name: "String",
@@ -661,10 +661,10 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/milestones/:number (updateMilestone)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/milestones/:number (updateMilestone)",  function(next) {
         client.issues.updateMilestone(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 title: "String",

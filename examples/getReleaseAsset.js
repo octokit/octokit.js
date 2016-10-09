@@ -13,12 +13,12 @@ github.authenticate({
 });
 
 var testRepo = {
-    user: "aktau",
+    owner: "aktau",
     repo: "github-release"
 };
 
 github.repos.getReleases({
-    user: testRepo.user,
+    owner: testRepo.owner,
     repo: testRepo.repo
 }, function(err, res) {
     var releases = res;
@@ -30,7 +30,7 @@ github.repos.getReleases({
     console.log(release);
     
     github.repos.listAssets({
-        user: testRepo.user,
+        owner: testRepo.owner,
         repo: testRepo.repo,
         id: releaseId
     }, function(err, res) {
@@ -43,7 +43,7 @@ github.repos.getReleases({
         console.log(asset);
         
         github.repos.getAsset({
-            user: testRepo.user,
+            owner: testRepo.owner,
             repo: testRepo.repo,
             id: assetId,
             // headers: {

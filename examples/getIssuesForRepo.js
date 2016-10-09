@@ -16,7 +16,7 @@ github.authenticate({
 });
 
 github.issues.getForRepo({
-    user: "mikedeboer",
+    owner: "mikedeboer",
     repo: "node-github"
 }, function(err, res) {
     if (err) {

@@ -10,12 +10,12 @@ github.activity.checkNotificationThreadSubscription({ ... });
  */
 
 /**
- * @api {get} /user/starred/:user/:repo checkStarringRepo
+ * @api {get} /user/starred/:owner/:repo checkStarringRepo
  * @apiName checkStarringRepo
  * @apiDescription Check if you are starring a repository
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -60,12 +60,12 @@ github.activity.getEventsForOrg({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/events getEventsForRepo
+ * @api {get} /repos/:owner/:repo/events getEventsForRepo
  * @apiName getEventsForRepo
  * @apiDescription List repository events
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -74,12 +74,12 @@ github.activity.getEventsForRepo({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/events getEventsForRepoIssues
+ * @api {get} /repos/:owner/:repo/issues/events getEventsForRepoIssues
  * @apiName getEventsForRepoIssues
  * @apiDescription List issue events for a repository
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -88,12 +88,12 @@ github.activity.getEventsForRepoIssues({ ... });
  */
 
 /**
- * @api {get} /networks/:user/:repo/events getEventsForRepoNetwork
+ * @api {get} /networks/:owner/:repo/events getEventsForRepoNetwork
  * @apiName getEventsForRepoNetwork
  * @apiDescription List public events for a network of repositories
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -102,12 +102,12 @@ github.activity.getEventsForRepoNetwork({ ... });
  */
 
 /**
- * @api {get} /users/:user/events getEventsForUser
+ * @api {get} /users/:owner/events getEventsForUser
  * @apiName getEventsForUser
  * @apiDescription List events performed by a user
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -115,12 +115,12 @@ github.activity.getEventsForUser({ ... });
  */
 
 /**
- * @api {get} /users/:user/events/orgs/:org getEventsForUserOrg
+ * @api {get} /users/:owner/events/orgs/:org getEventsForUserOrg
  * @apiName getEventsForUserOrg
  * @apiDescription List events for a user's organization
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} org  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -129,12 +129,12 @@ github.activity.getEventsForUserOrg({ ... });
  */
 
 /**
- * @api {get} /users/:user/events/public getEventsForUserPublic
+ * @api {get} /users/:owner/events/public getEventsForUserPublic
  * @apiName getEventsForUserPublic
  * @apiDescription List public events performed by a user
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -142,12 +142,12 @@ github.activity.getEventsForUserPublic({ ... });
  */
 
 /**
- * @api {get} /users/:user/received_events getEventsReceived
+ * @api {get} /users/:owner/received_events getEventsReceived
  * @apiName getEventsReceived
  * @apiDescription List events that a user has received
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -155,12 +155,12 @@ github.activity.getEventsReceived({ ... });
  */
 
 /**
- * @api {get} /users/:user/received_events/public getEventsReceivedPublic
+ * @api {get} /users/:owner/received_events/public getEventsReceivedPublic
  * @apiName getEventsReceivedPublic
  * @apiDescription List public events that a user has received
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -203,12 +203,12 @@ github.activity.getNotifications({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/notifications getNotificationsForUser
+ * @api {get} /repos/:owner/:repo/notifications getNotificationsForUser
  * @apiName getNotificationsForUser
  * @apiDescription Get all notifications for the given user.
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Boolean} [all=false]  If true, show notifications marked as read. Default: false
  * @apiParam {Boolean} [participating=false]  If true, only shows notifications in which the user is directly participating or mentioned. Default: false
@@ -219,12 +219,12 @@ github.activity.getNotificationsForUser({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/subscription getRepoSubscription
+ * @api {get} /repos/:owner/:repo/subscription getRepoSubscription
  * @apiName getRepoSubscription
  * @apiDescription Get a Repository Subscription.
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -233,12 +233,12 @@ github.activity.getRepoSubscription({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stargazers getStargazersForRepo
+ * @api {get} /repos/:owner/:repo/stargazers getStargazersForRepo
  * @apiName getStargazersForRepo
  * @apiDescription List Stargazers
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -259,12 +259,12 @@ github.activity.getStarredRepos({ ... });
  */
 
 /**
- * @api {get} /users/:user/starred getStarredReposForUser
+ * @api {get} /users/:owner/starred getStarredReposForUser
  * @apiName getStarredReposForUser
  * @apiDescription List repositories being starred by a user
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -284,12 +284,12 @@ github.activity.getWatchedRepos({ ... });
  */
 
 /**
- * @api {get} /users/:user/subscriptions getWatchedReposForUser
+ * @api {get} /users/:owner/subscriptions getWatchedReposForUser
  * @apiName getWatchedReposForUser
  * @apiDescription List repositories being watched by a user.
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -297,12 +297,12 @@ github.activity.getWatchedReposForUser({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/subscribers getWatchersForRepo
+ * @api {get} /repos/:owner/:repo/subscribers getWatchersForRepo
  * @apiName getWatchersForRepo
  * @apiDescription Get watchers for repository.
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -333,11 +333,13 @@ github.activity.markNotificationsAsRead({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/notifications markNotificationsAsReadForRepo
+ * @api {put} /repos/:owner/:repo/notifications markNotificationsAsReadForRepo
  * @apiName markNotificationsAsReadForRepo
  * @apiDescription Mark notifications in a repo as read.
  * @apiGroup activity
  *
+ * @apiParam {String} owner  
+ * @apiParam {String} repo  
  * @apiParam {String} [last_read_at=Time.now]  Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now
  * @apiExample {js} ex:
 github.activity.markNotificationsAsReadForRepo({ ... });
@@ -357,12 +359,12 @@ github.activity.setNotificationThreadSubscription({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/subscription setRepoSubscription
+ * @api {put} /repos/:owner/:repo/subscription setRepoSubscription
  * @apiName setRepoSubscription
  * @apiDescription Set a Repository Subscription
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Boolean} [subscribed]  Determines if notifications should be received from this repository.
  * @apiParam {Boolean} [ignored]  Determines if all notifications should be blocked from this repository.
@@ -371,36 +373,36 @@ github.activity.setRepoSubscription({ ... });
  */
 
 /**
- * @api {put} /user/starred/:user/:repo starRepo
+ * @api {put} /user/starred/:owner/:repo starRepo
  * @apiName starRepo
  * @apiDescription Star a repository
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.activity.starRepo({ ... });
  */
 
 /**
- * @api {delete} /user/starred/:user/:repo unstarRepo
+ * @api {delete} /user/starred/:owner/:repo unstarRepo
  * @apiName unstarRepo
  * @apiDescription Unstar a repository
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.activity.unstarRepo({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/subscription unwatchRepo
+ * @api {delete} /repos/:owner/:repo/subscription unwatchRepo
  * @apiName unwatchRepo
  * @apiDescription Unwatch a repository.
  * @apiGroup activity
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.activity.unwatchRepo({ ... });
@@ -820,12 +822,12 @@ github.gists.getCommits({ ... });
  */
 
 /**
- * @api {get} /users/:user/gists getForUser
+ * @api {get} /users/:owner/gists getForUser
  * @apiName getForUser
  * @apiDescription List a user's gists
  * @apiGroup gists
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiParam {Date} [since]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
@@ -903,12 +905,12 @@ github.gists.unstar({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/git/blobs createBlob
+ * @api {post} /repos/:owner/:repo/git/blobs createBlob
  * @apiName createBlob
  * @apiDescription Create a Blob
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} content  
  * @apiParam {String} encoding  
@@ -917,12 +919,12 @@ github.gitdata.createBlob({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/git/commits createCommit
+ * @api {post} /repos/:owner/:repo/git/commits createCommit
  * @apiName createCommit
  * @apiDescription Create a Commit
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} message  String of the commit message
  * @apiParam {String} tree  String of the SHA of the tree object this commit points to
@@ -934,12 +936,12 @@ github.gitdata.createCommit({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/git/refs createReference
+ * @api {post} /repos/:owner/:repo/git/refs createReference
  * @apiName createReference
  * @apiDescription Create a Reference
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiParam {String} sha  
@@ -948,12 +950,12 @@ github.gitdata.createReference({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/git/tags createTag
+ * @api {post} /repos/:owner/:repo/git/tags createTag
  * @apiName createTag
  * @apiDescription Create a Tag Object
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} tag  String of the tag
  * @apiParam {String} message  String of the tag message
@@ -965,12 +967,12 @@ github.gitdata.createTag({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/git/trees createTree
+ * @api {post} /repos/:owner/:repo/git/trees createTree
  * @apiName createTree
  * @apiDescription Create a Tree
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Json} tree  Array of Hash objects (of path, mode, type and sha) specifying a tree structure
  * @apiParam {String} [base_tree]  String of the SHA1 of the tree you want to update with new data
@@ -979,12 +981,12 @@ github.gitdata.createTree({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/git/refs/:ref deleteReference
+ * @api {delete} /repos/:owner/:repo/git/refs/:ref deleteReference
  * @apiName deleteReference
  * @apiDescription Delete a Reference
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} ex:
@@ -992,12 +994,12 @@ github.gitdata.deleteReference({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/blobs/:sha getBlob
+ * @api {get} /repos/:owner/:repo/git/blobs/:sha getBlob
  * @apiName getBlob
  * @apiDescription Get a Blob
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -1007,12 +1009,12 @@ github.gitdata.getBlob({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/commits/:sha getCommit
+ * @api {get} /repos/:owner/:repo/git/commits/:sha getCommit
  * @apiName getCommit
  * @apiDescription Get a Commit
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiExample {js} ex:
@@ -1020,12 +1022,12 @@ github.gitdata.getCommit({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/commits/:sha getCommitSignatureVerification
+ * @api {get} /repos/:owner/:repo/git/commits/:sha getCommitSignatureVerification
  * @apiName getCommitSignatureVerification
  * @apiDescription Get a Commit Signature Verification. (In preview period. See README.)
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiExample {js} ex:
@@ -1033,12 +1035,12 @@ github.gitdata.getCommitSignatureVerification({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/refs/:ref getReference
+ * @api {get} /repos/:owner/:repo/git/refs/:ref getReference
  * @apiName getReference
  * @apiDescription Get a Reference
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} ex:
@@ -1046,12 +1048,12 @@ github.gitdata.getReference({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/refs getReferences
+ * @api {get} /repos/:owner/:repo/git/refs getReferences
  * @apiName getReferences
  * @apiDescription Get all References
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -1060,12 +1062,12 @@ github.gitdata.getReferences({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/tags/:sha getTag
+ * @api {get} /repos/:owner/:repo/git/tags/:sha getTag
  * @apiName getTag
  * @apiDescription Get a Tag
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiExample {js} ex:
@@ -1073,12 +1075,12 @@ github.gitdata.getTag({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/tags/:sha getTagSignatureVerification
+ * @api {get} /repos/:owner/:repo/git/tags/:sha getTagSignatureVerification
  * @apiName getTagSignatureVerification
  * @apiDescription Get a Tag Signature Verification. (In preview period. See README.)
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiExample {js} ex:
@@ -1086,12 +1088,12 @@ github.gitdata.getTagSignatureVerification({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/refs/tags getTags
+ * @api {get} /repos/:owner/:repo/git/refs/tags getTags
  * @apiName getTags
  * @apiDescription Get all tag References
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -1100,12 +1102,12 @@ github.gitdata.getTags({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/git/trees/:sha getTree
+ * @api {get} /repos/:owner/:repo/git/trees/:sha getTree
  * @apiName getTree
  * @apiDescription Get a Tree
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {Boolean} [recursive]  
@@ -1114,12 +1116,12 @@ github.gitdata.getTree({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/git/refs/:ref updateReference
+ * @api {patch} /repos/:owner/:repo/git/refs/:ref updateReference
  * @apiName updateReference
  * @apiDescription Update a Reference
  * @apiGroup gitdata
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiParam {String} sha  
@@ -1164,12 +1166,12 @@ github.integrations.getUserIdentity({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/issues/:number/assignees addAssigneesToIssue
+ * @api {post} /repos/:owner/:repo/issues/:number/assignees addAssigneesToIssue
  * @apiName addAssigneesToIssue
  * @apiDescription Add assignees to an issue.
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Array} assignees  Logins for the users that should be added to the issue.
@@ -1178,12 +1180,12 @@ github.issues.addAssigneesToIssue({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/issues/:number/labels addLabels
+ * @api {post} /repos/:owner/:repo/issues/:number/labels addLabels
  * @apiName addLabels
  * @apiDescription Add labels to an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Array} body  
@@ -1192,12 +1194,12 @@ github.issues.addLabels({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/assignees/:assignee checkAssignee
+ * @api {get} /repos/:owner/:repo/assignees/:assignee checkAssignee
  * @apiName checkAssignee
  * @apiDescription Check assignee
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} assignee  Login for the user that this issue should be assigned to.
  * @apiExample {js} ex:
@@ -1205,12 +1207,12 @@ github.issues.checkAssignee({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/issues create
+ * @api {post} /repos/:owner/:repo/issues create
  * @apiName create
  * @apiDescription Create an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} title  
  * @apiParam {String} [body]  
@@ -1223,12 +1225,12 @@ github.issues.create({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/issues/:number/comments createComment
+ * @api {post} /repos/:owner/:repo/issues/:number/comments createComment
  * @apiName createComment
  * @apiDescription Create a comment
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} body  
@@ -1237,12 +1239,12 @@ github.issues.createComment({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/labels createLabel
+ * @api {post} /repos/:owner/:repo/labels createLabel
  * @apiName createLabel
  * @apiDescription Create a label
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} name  
  * @apiParam {String} color  6 character hex code, without a leading #.
@@ -1251,12 +1253,12 @@ github.issues.createLabel({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/milestones createMilestone
+ * @api {post} /repos/:owner/:repo/milestones createMilestone
  * @apiName createMilestone
  * @apiDescription Create a milestone
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} title  
  * @apiParam {String} [state=open]  
@@ -1267,12 +1269,12 @@ github.issues.createMilestone({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/issues/comments/:id deleteComment
+ * @api {delete} /repos/:owner/:repo/issues/comments/:id deleteComment
  * @apiName deleteComment
  * @apiDescription Delete a comment
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -1280,12 +1282,12 @@ github.issues.deleteComment({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/labels/:name deleteLabel
+ * @api {delete} /repos/:owner/:repo/labels/:name deleteLabel
  * @apiName deleteLabel
  * @apiDescription Delete a label
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} name  
  * @apiExample {js} ex:
@@ -1293,12 +1295,12 @@ github.issues.deleteLabel({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/milestones/:number deleteMilestone
+ * @api {delete} /repos/:owner/:repo/milestones/:number deleteMilestone
  * @apiName deleteMilestone
  * @apiDescription Delete a milestone
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1306,12 +1308,12 @@ github.issues.deleteMilestone({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/issues/:number edit
+ * @api {patch} /repos/:owner/:repo/issues/:number edit
  * @apiName edit
  * @apiDescription Edit an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} [title]  
@@ -1326,12 +1328,12 @@ github.issues.edit({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/issues/comments/:id editComment
+ * @api {patch} /repos/:owner/:repo/issues/comments/:id editComment
  * @apiName editComment
  * @apiDescription Edit a comment
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} body  
@@ -1340,12 +1342,12 @@ github.issues.editComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number get
+ * @api {get} /repos/:owner/:repo/issues/:number get
  * @apiName get
  * @apiDescription Get a single issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1371,24 +1373,24 @@ github.issues.getAll({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/assignees getAssignees
+ * @api {get} /repos/:owner/:repo/assignees getAssignees
  * @apiName getAssignees
  * @apiDescription List assignees
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.issues.getAssignees({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/comments/:id getComment
+ * @api {get} /repos/:owner/:repo/issues/comments/:id getComment
  * @apiName getComment
  * @apiDescription Get a single comment
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -1396,12 +1398,12 @@ github.issues.getComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number/comments getComments
+ * @api {get} /repos/:owner/:repo/issues/:number/comments getComments
  * @apiName getComments
  * @apiDescription List comments on an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -1411,12 +1413,12 @@ github.issues.getComments({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/comments getCommentsForRepo
+ * @api {get} /repos/:owner/:repo/issues/comments getCommentsForRepo
  * @apiName getCommentsForRepo
  * @apiDescription List comments in a repository
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [sort=created]  
  * @apiParam {String} [direction=desc]  
@@ -1428,12 +1430,12 @@ github.issues.getCommentsForRepo({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/events/:id getEvent
+ * @api {get} /repos/:owner/:repo/issues/events/:id getEvent
  * @apiName getEvent
  * @apiDescription Get a single event
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -1441,12 +1443,12 @@ github.issues.getEvent({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number/events getEvents
+ * @api {get} /repos/:owner/:repo/issues/:number/events getEvents
  * @apiName getEvents
  * @apiDescription List events for an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -1456,12 +1458,12 @@ github.issues.getEvents({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/events getEventsForRepo
+ * @api {get} /repos/:owner/:repo/issues/events getEventsForRepo
  * @apiName getEventsForRepo
  * @apiDescription List events for a repository
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -1470,12 +1472,12 @@ github.issues.getEventsForRepo({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number/timeline getEventsTimeline
+ * @api {get} /repos/:owner/:repo/issues/:number/timeline getEventsTimeline
  * @apiName getEventsTimeline
  * @apiDescription List events for an issue. (In preview period. See README.)
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -1504,12 +1506,12 @@ github.issues.getForOrg({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues getForRepo
+ * @api {get} /repos/:owner/:repo/issues getForRepo
  * @apiName getForRepo
  * @apiDescription List issues for a repository
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [milestone]  
  * @apiParam {String} [state=open]  open, closed, or all
@@ -1545,12 +1547,12 @@ github.issues.getForUser({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number/labels getIssueLabels
+ * @api {get} /repos/:owner/:repo/issues/:number/labels getIssueLabels
  * @apiName getIssueLabels
  * @apiDescription List labels on an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1558,12 +1560,12 @@ github.issues.getIssueLabels({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/labels/:name getLabel
+ * @api {get} /repos/:owner/:repo/labels/:name getLabel
  * @apiName getLabel
  * @apiDescription Get a single label
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} name  
  * @apiExample {js} ex:
@@ -1571,12 +1573,12 @@ github.issues.getLabel({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/labels getLabels
+ * @api {get} /repos/:owner/:repo/labels getLabels
  * @apiName getLabels
  * @apiDescription List all labels for this repository
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -1585,12 +1587,12 @@ github.issues.getLabels({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/milestones/:number getMilestone
+ * @api {get} /repos/:owner/:repo/milestones/:number getMilestone
  * @apiName getMilestone
  * @apiDescription Get a single milestone
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1598,12 +1600,12 @@ github.issues.getMilestone({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/milestones/:number/labels getMilestoneLabels
+ * @api {get} /repos/:owner/:repo/milestones/:number/labels getMilestoneLabels
  * @apiName getMilestoneLabels
  * @apiDescription Get labels for every issue in a milestone
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1611,12 +1613,12 @@ github.issues.getMilestoneLabels({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/milestones getMilestones
+ * @api {get} /repos/:owner/:repo/milestones getMilestones
  * @apiName getMilestones
  * @apiDescription List milestones for a repository
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [state=open]  
  * @apiParam {String} [sort=due_on]  due_on, completeness, default: due_on
@@ -1628,12 +1630,12 @@ github.issues.getMilestones({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/issues/:number/lock lock
+ * @api {put} /repos/:owner/:repo/issues/:number/lock lock
  * @apiName lock
  * @apiDescription Users with push access can lock an issue's conversation.
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1641,12 +1643,12 @@ github.issues.lock({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/issues/:number/labels removeAllLabels
+ * @api {delete} /repos/:owner/:repo/issues/:number/labels removeAllLabels
  * @apiName removeAllLabels
  * @apiDescription Remove all labels from an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1654,12 +1656,12 @@ github.issues.removeAllLabels({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/issues/:number/assignees removeAssigneesFromIssue
+ * @api {delete} /repos/:owner/:repo/issues/:number/assignees removeAssigneesFromIssue
  * @apiName removeAssigneesFromIssue
  * @apiDescription Remove assignees from an issue.
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Json} body  JSON object that contains assignees array of logins for the users that should be removed from the issue.
@@ -1668,12 +1670,12 @@ github.issues.removeAssigneesFromIssue({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/issues/:number/labels/:name removeLabel
+ * @api {delete} /repos/:owner/:repo/issues/:number/labels/:name removeLabel
  * @apiName removeLabel
  * @apiDescription Remove a label from an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} name  
@@ -1682,12 +1684,12 @@ github.issues.removeLabel({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/issues/:number/labels replaceAllLabels
+ * @api {put} /repos/:owner/:repo/issues/:number/labels replaceAllLabels
  * @apiName replaceAllLabels
  * @apiDescription Replace all labels for an issue
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Array} body  Sending an empty array ([]) will remove all Labels from the Issue.
@@ -1696,12 +1698,12 @@ github.issues.replaceAllLabels({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/issues/:number/lock unlock
+ * @api {delete} /repos/:owner/:repo/issues/:number/lock unlock
  * @apiName unlock
  * @apiDescription Users with push access can unlock an issue's conversation.
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -1709,12 +1711,12 @@ github.issues.unlock({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/labels/:oldname updateLabel
+ * @api {patch} /repos/:owner/:repo/labels/:oldname updateLabel
  * @apiName updateLabel
  * @apiDescription Update a label
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} oldname  The old name of the label.
  * @apiParam {String} name  The new name of the label.
@@ -1724,12 +1726,12 @@ github.issues.updateLabel({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/milestones/:number updateMilestone
+ * @api {patch} /repos/:owner/:repo/milestones/:number updateMilestone
  * @apiName updateMilestone
  * @apiDescription Update a milestone
  * @apiGroup issues
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} title  
@@ -1741,12 +1743,12 @@ github.issues.updateMilestone({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/import cancelImport
+ * @api {delete} /repos/:owner/:repo/import cancelImport
  * @apiName cancelImport
  * @apiDescription Cancel an import. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.migrations.cancelImport({ ... });
@@ -1765,12 +1767,12 @@ github.migrations.deleteMigrationArchive({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/import/authors getImportCommitAuthors
+ * @api {get} /repos/:owner/:repo/import/authors getImportCommitAuthors
  * @apiName getImportCommitAuthors
  * @apiDescription Get import commit authors. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [since]  Only authors found after this id are returned. Provide the highest author ID you've seen so far. New authors may be added to the list at any point while the importer is performing the raw step.
  * @apiExample {js} ex:
@@ -1778,24 +1780,24 @@ github.migrations.getImportCommitAuthors({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/import getImportProgress
+ * @api {get} /repos/:owner/:repo/import getImportProgress
  * @apiName getImportProgress
  * @apiDescription Get import progress. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.migrations.getImportProgress({ ... });
  */
 
 /**
- * @api {get} /:user/:name/import/large_files getLargeImportFiles
+ * @api {get} /:owner/:name/import/large_files getLargeImportFiles
  * @apiName getLargeImportFiles
  * @apiDescription List files larger than 100MB found during the import. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} name  
  * @apiExample {js} ex:
 github.migrations.getLargeImportFiles({ ... });
@@ -1839,12 +1841,12 @@ github.migrations.getMigrations({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/import/authors/:author_id mapImportCommitAuthor
+ * @api {patch} /repos/:owner/:repo/import/authors/:author_id mapImportCommitAuthor
  * @apiName mapImportCommitAuthor
  * @apiDescription Map a commit author. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} author_id  The commit author id.
  * @apiParam {String} [email]  The new Git author email.
@@ -1854,24 +1856,24 @@ github.migrations.mapImportCommitAuthor({ ... });
  */
 
 /**
- * @api {patch} /:user/:name/import/lfs setImportLfsPreference
+ * @api {patch} /:owner/:name/import/lfs setImportLfsPreference
  * @apiName setImportLfsPreference
  * @apiDescription Set import LFS preference. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} name  
  * @apiExample {js} ex:
 github.migrations.setImportLfsPreference({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/import startImport
+ * @api {put} /repos/:owner/:repo/import startImport
  * @apiName startImport
  * @apiDescription Start an import. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} vcs_url  The URL of the originating repository.
  * @apiParam {String} [vcs]  The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.
@@ -1910,12 +1912,12 @@ github.migrations.unlockRepoLockedForMigration({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/import updateImport
+ * @api {patch} /repos/:owner/:repo/import updateImport
  * @apiName updateImport
  * @apiDescription Update existing import. (In preview period. See README.)
  * @apiGroup migrations
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.migrations.updateImport({ ... });
@@ -1994,12 +1996,12 @@ github.misc.getRateLimit({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/license getRepoLicense
+ * @api {get} /repos/:owner/:repo/license getRepoLicense
  * @apiName getRepoLicense
  * @apiDescription Get the contents of a repository's license. (In preview period. See README.)
  * @apiGroup misc
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.misc.getRepoLicense({ ... });
@@ -2070,13 +2072,13 @@ github.orgs.addTeamRepo({ ... });
  */
 
 /**
- * @api {get} /orgs/:org/members/:user checkMembership
+ * @api {get} /orgs/:org/members/:owner checkMembership
  * @apiName checkMembership
  * @apiDescription Check membership
  * @apiGroup orgs
  *
  * @apiParam {String} org  
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiExample {js} ex:
 github.orgs.checkMembership({ ... });
  */
@@ -2094,13 +2096,13 @@ github.orgs.checkPublicMembership({ ... });
  */
 
 /**
- * @api {get} /teams/:id/repos/:user/:repo checkTeamRepo
+ * @api {get} /teams/:id/repos/:owner/:repo checkTeamRepo
  * @apiName checkTeamRepo
  * @apiDescription Check if a team manages a repository
  * @apiGroup orgs
  *
  * @apiParam {String} id  
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.orgs.checkTeamRepo({ ... });
@@ -2172,13 +2174,13 @@ github.orgs.deleteTeam({ ... });
  */
 
 /**
- * @api {delete} /teams/:id/repos/:user/:repo deleteTeamRepo
+ * @api {delete} /teams/:id/repos/:owner/:repo deleteTeamRepo
  * @apiName deleteTeamRepo
  * @apiDescription Remove team repository
  * @apiGroup orgs
  *
  * @apiParam {String} id  
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.orgs.deleteTeamRepo({ ... });
@@ -2240,12 +2242,12 @@ github.orgs.getAll({ ... });
  */
 
 /**
- * @api {get} /users/:user/orgs getForUser
+ * @api {get} /users/:owner/orgs getForUser
  * @apiName getForUser
  * @apiDescription List public organization memberships for the specified user.
  * @apiGroup orgs
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} ex:
@@ -2467,12 +2469,12 @@ github.orgs.update({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/:number/merge checkMerged
+ * @api {get} /repos/:owner/:repo/pulls/:number/merge checkMerged
  * @apiName checkMerged
  * @apiDescription Get if a pull request has been merged
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -2482,12 +2484,12 @@ github.pullRequests.checkMerged({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pulls create
+ * @api {post} /repos/:owner/:repo/pulls create
  * @apiName create
  * @apiDescription Create a pull request
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} title  The title of the pull request.
  * @apiParam {String} head  The branch (or git ref) where your changes are implemented.
@@ -2498,12 +2500,12 @@ github.pullRequests.create({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pulls/:number/comments createComment
+ * @api {post} /repos/:owner/:repo/pulls/:number/comments createComment
  * @apiName createComment
  * @apiDescription Create a comment
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} body  
@@ -2515,12 +2517,12 @@ github.pullRequests.createComment({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pulls/:number/comments createCommentReply
+ * @api {post} /repos/:owner/:repo/pulls/:number/comments createCommentReply
  * @apiName createCommentReply
  * @apiDescription Reply to existing pull request comment
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} body  
@@ -2530,12 +2532,12 @@ github.pullRequests.createCommentReply({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pulls createFromIssue
+ * @api {post} /repos/:owner/:repo/pulls createFromIssue
  * @apiName createFromIssue
  * @apiDescription Create a pull request from an existing issue
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} issue  The issue number in this repository to turn into a Pull Request.
  * @apiParam {String} head  The branch (or git ref) where your changes are implemented.
@@ -2545,12 +2547,12 @@ github.pullRequests.createFromIssue({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/pulls/comments/:number deleteComment
+ * @api {delete} /repos/:owner/:repo/pulls/comments/:number deleteComment
  * @apiName deleteComment
  * @apiDescription Delete a comment
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -2558,12 +2560,12 @@ github.pullRequests.deleteComment({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/pulls/comments/:number editComment
+ * @api {patch} /repos/:owner/:repo/pulls/comments/:number editComment
  * @apiName editComment
  * @apiDescription Edit a comment
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} body  
@@ -2572,12 +2574,12 @@ github.pullRequests.editComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/:number get
+ * @api {get} /repos/:owner/:repo/pulls/:number get
  * @apiName get
  * @apiDescription Get a single pull request
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -2585,12 +2587,12 @@ github.pullRequests.get({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls getAll
+ * @api {get} /repos/:owner/:repo/pulls getAll
  * @apiName getAll
  * @apiDescription List pull requests
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [state=open]  open, closed, or all
  * @apiParam {String} [head]  Filter pulls by head user and branch name in the format of user:ref-name. Example: github:new-script-format.
@@ -2604,12 +2606,12 @@ github.pullRequests.getAll({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/comments/:number getComment
+ * @api {get} /repos/:owner/:repo/pulls/comments/:number getComment
  * @apiName getComment
  * @apiDescription Get a single comment
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -2617,12 +2619,12 @@ github.pullRequests.getComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/:number/comments getComments
+ * @api {get} /repos/:owner/:repo/pulls/:number/comments getComments
  * @apiName getComments
  * @apiDescription List comments on a pull request
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -2632,12 +2634,12 @@ github.pullRequests.getComments({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/comments getCommentsForRepo
+ * @api {get} /repos/:owner/:repo/pulls/comments getCommentsForRepo
  * @apiName getCommentsForRepo
  * @apiDescription List comments in a repository
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [sort=created]  Possible values are: `created`, `updated`, Default: `created`
  * @apiParam {String} [direction=desc]  
@@ -2649,12 +2651,12 @@ github.pullRequests.getCommentsForRepo({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/:number/commits getCommits
+ * @api {get} /repos/:owner/:repo/pulls/:number/commits getCommits
  * @apiName getCommits
  * @apiDescription List commits on a pull request
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -2664,12 +2666,12 @@ github.pullRequests.getCommits({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/:number/files getFiles
+ * @api {get} /repos/:owner/:repo/pulls/:number/files getFiles
  * @apiName getFiles
  * @apiDescription List pull requests files
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -2679,12 +2681,12 @@ github.pullRequests.getFiles({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/pulls/:number/merge merge
+ * @api {put} /repos/:owner/:repo/pulls/:number/merge merge
  * @apiName merge
  * @apiDescription Merge a pull request (Merge Button)
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} [commit_title]  Title for the automatic commit message. (In preview period. See README.)
@@ -2696,12 +2698,12 @@ github.pullRequests.merge({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/pulls/:number update
+ * @api {patch} /repos/:owner/:repo/pulls/:number update
  * @apiName update
  * @apiDescription Update a pull request
  * @apiGroup pullRequests
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} [title]  The title of the pull request.
@@ -2712,12 +2714,12 @@ github.pullRequests.update({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/comments/:id/reactions createForCommitComment
+ * @api {post} /repos/:owner/:repo/comments/:id/reactions createForCommitComment
  * @apiName createForCommitComment
  * @apiDescription Create reaction for a commit comment. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} content  The reaction type.
@@ -2726,12 +2728,12 @@ github.reactions.createForCommitComment({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/issues/:number/reactions createForIssue
+ * @api {post} /repos/:owner/:repo/issues/:number/reactions createForIssue
  * @apiName createForIssue
  * @apiDescription Create reaction for an issue. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} content  The reaction type.
@@ -2740,12 +2742,12 @@ github.reactions.createForIssue({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/issues/comments/:id/reactions createForIssueComment
+ * @api {post} /repos/:owner/:repo/issues/comments/:id/reactions createForIssueComment
  * @apiName createForIssueComment
  * @apiDescription Create reaction for an issue comment. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} content  The reaction type.
@@ -2754,12 +2756,12 @@ github.reactions.createForIssueComment({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pulls/comments/:id/reactions createForPullRequestReviewComment
+ * @api {post} /repos/:owner/:repo/pulls/comments/:id/reactions createForPullRequestReviewComment
  * @apiName createForPullRequestReviewComment
  * @apiDescription Create reaction for a pull request review comment. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} content  The reaction type.
@@ -2779,12 +2781,12 @@ github.reactions.delete({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/comments/:id/reactions getForCommitComment
+ * @api {get} /repos/:owner/:repo/comments/:id/reactions getForCommitComment
  * @apiName getForCommitComment
  * @apiDescription List reactions for a commit comment. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} [content]  Indicates which type of reaction to return.
@@ -2793,12 +2795,12 @@ github.reactions.getForCommitComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/:number/reactions getForIssue
+ * @api {get} /repos/:owner/:repo/issues/:number/reactions getForIssue
  * @apiName getForIssue
  * @apiDescription List reactions for an issue. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} [content]  Indicates which type of reaction to return.
@@ -2807,12 +2809,12 @@ github.reactions.getForIssue({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/issues/comments/:id/reactions getForIssueComment
+ * @api {get} /repos/:owner/:repo/issues/comments/:id/reactions getForIssueComment
  * @apiName getForIssueComment
  * @apiDescription List reactions for an issue comment. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} [content]  Indicates which type of reaction to return.
@@ -2821,12 +2823,12 @@ github.reactions.getForIssueComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pulls/comments/:id/reactions getForPullRequestReviewComment
+ * @api {get} /repos/:owner/:repo/pulls/comments/:id/reactions getForPullRequestReviewComment
  * @apiName getForPullRequestReviewComment
  * @apiDescription List reactions for a pull request review comment. (In preview period. See README.)
  * @apiGroup reactions
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} [content]  Indicates which type of reaction to return.
@@ -2835,12 +2837,12 @@ github.reactions.getForPullRequestReviewComment({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/collaborators/:collabuser addCollaborator
+ * @api {put} /repos/:owner/:repo/collaborators/:collabuser addCollaborator
  * @apiName addCollaborator
  * @apiDescription Add user as a collaborator
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} collabuser  
  * @apiParam {String} [permission=push]  `pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.
@@ -2849,12 +2851,12 @@ github.repos.addCollaborator({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts addProtectedBranchRequiredStatusChecksContexts
+ * @api {post} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts addProtectedBranchRequiredStatusChecksContexts
  * @apiName addProtectedBranchRequiredStatusChecksContexts
  * @apiDescription Add required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
@@ -2865,12 +2867,12 @@ github.repos.addProtectedBranchRequiredStatusChecksContexts({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/branches/:branch/protection/restrictions/teams addProtectedBranchTeamRestrictions
+ * @api {post} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams addProtectedBranchTeamRestrictions
  * @apiName addProtectedBranchTeamRestrictions
  * @apiDescription Add team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
@@ -2881,12 +2883,12 @@ github.repos.addProtectedBranchTeamRestrictions({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/branches/:branch/protection/restrictions/users addProtectedBranchUserRestrictions
+ * @api {post} /repos/:owner/:repo/branches/:branch/protection/restrictions/users addProtectedBranchUserRestrictions
  * @apiName addProtectedBranchUserRestrictions
  * @apiDescription Add user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
@@ -2897,12 +2899,12 @@ github.repos.addProtectedBranchUserRestrictions({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/collaborators/:collabuser checkCollaborator
+ * @api {get} /repos/:owner/:repo/collaborators/:collabuser checkCollaborator
  * @apiName checkCollaborator
  * @apiDescription Check if user is a collaborator.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} collabuser  
  * @apiExample {js} ex:
@@ -2910,12 +2912,12 @@ github.repos.checkCollaborator({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/compare/:base...:head compareCommits
+ * @api {get} /repos/:owner/:repo/compare/:base...:head compareCommits
  * @apiName compareCommits
  * @apiDescription Compare two commits.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} base  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {String} head  The branch (or git ref) where your changes are implemented.
@@ -2947,12 +2949,12 @@ github.repos.create({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/commits/:sha/comments createCommitComment
+ * @api {post} /repos/:owner/:repo/commits/:sha/comments createCommitComment
  * @apiName createCommitComment
  * @apiDescription Create a commit comment.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {String} body  
@@ -2964,12 +2966,12 @@ github.repos.createCommitComment({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/deployments createDeployment
+ * @api {post} /repos/:owner/:repo/deployments createDeployment
  * @apiName createDeployment
  * @apiDescription Create a deployment.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} ref  The ref to deploy. This can be a branch, tag, or sha.
  * @apiParam {String} repo  
  * @apiParam {String} [task=deploy]  The named task to execute. e.g. deploy or deploy:migrations. Default: deploy
@@ -2985,12 +2987,12 @@ github.repos.createDeployment({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/deployments/:id/statuses createDeploymentStatus
+ * @api {post} /repos/:owner/:repo/deployments/:id/statuses createDeploymentStatus
  * @apiName createDeploymentStatus
  * @apiDescription Create a deployment status.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} [state]  The state of the status. Can be one of pending, success, error, or failure.
@@ -3004,12 +3006,12 @@ github.repos.createDeploymentStatus({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/contents/:path createFile
+ * @api {put} /repos/:owner/:repo/contents/:path createFile
  * @apiName createFile
  * @apiDescription Create a new file in the given repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} path  The content path.
  * @apiParam {String} message  The commit message.
@@ -3046,12 +3048,12 @@ github.repos.createForOrg({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/hooks createHook
+ * @api {post} /repos/:owner/:repo/hooks createHook
  * @apiName createHook
  * @apiDescription Create a hook.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} name  
  * @apiParam {Json} config  A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically.
@@ -3062,12 +3064,12 @@ github.repos.createHook({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/keys createKey
+ * @api {post} /repos/:owner/:repo/keys createKey
  * @apiName createKey
  * @apiDescription Add a new deploy key.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} title  
  * @apiParam {String} key  
@@ -3077,12 +3079,12 @@ github.repos.createKey({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/projects createProject
+ * @api {post} /repos/:owner/:repo/projects createProject
  * @apiName createProject
  * @apiDescription Create a project.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} name  
  * @apiParam {String} body  
@@ -3091,12 +3093,12 @@ github.repos.createProject({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/projects/columns/:id/cards createProjectCard
+ * @api {post} /repos/:owner/:repo/projects/columns/:id/cards createProjectCard
  * @apiName createProjectCard
  * @apiDescription Create a project card.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} [note]  The note of the card.
@@ -3107,12 +3109,12 @@ github.repos.createProjectCard({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/projects/:number/columns createProjectColumn
+ * @api {post} /repos/:owner/:repo/projects/:number/columns createProjectColumn
  * @apiName createProjectColumn
  * @apiDescription Create a project column.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} name  
@@ -3121,12 +3123,12 @@ github.repos.createProjectColumn({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/releases createRelease
+ * @api {post} /repos/:owner/:repo/releases createRelease
  * @apiName createRelease
  * @apiDescription Create a release.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} tag_name  String of the tag
  * @apiParam {String} [target_commitish]  Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master).
@@ -3139,12 +3141,12 @@ github.repos.createRelease({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/statuses/:sha createStatus
+ * @api {post} /repos/:owner/:repo/statuses/:sha createStatus
  * @apiName createStatus
  * @apiDescription Create a status.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {String} state  State of the status - can be one of pending, success, error, or failure.
@@ -3156,24 +3158,24 @@ github.repos.createStatus({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo delete
+ * @api {delete} /repos/:owner/:repo delete
  * @apiName delete
  * @apiDescription Delete a repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.delete({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/releases/assets/:id deleteAsset
+ * @api {delete} /repos/:owner/:repo/releases/assets/:id deleteAsset
  * @apiName deleteAsset
  * @apiDescription Delete a release asset.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3181,12 +3183,12 @@ github.repos.deleteAsset({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/comments/:id deleteCommitComment
+ * @api {delete} /repos/:owner/:repo/comments/:id deleteCommitComment
  * @apiName deleteCommitComment
  * @apiDescription Delete a commit comment.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3194,12 +3196,12 @@ github.repos.deleteCommitComment({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/downloads/:id deleteDownload
+ * @api {delete} /repos/:owner/:repo/downloads/:id deleteDownload
  * @apiName deleteDownload
  * @apiDescription Delete a download.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3207,12 +3209,12 @@ github.repos.deleteDownload({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/contents/:path deleteFile
+ * @api {delete} /repos/:owner/:repo/contents/:path deleteFile
  * @apiName deleteFile
  * @apiDescription Delete a file.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} path  The content path.
  * @apiParam {String} message  The commit message.
@@ -3224,12 +3226,12 @@ github.repos.deleteFile({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/hooks/:id deleteHook
+ * @api {delete} /repos/:owner/:repo/hooks/:id deleteHook
  * @apiName deleteHook
  * @apiDescription Deleate a hook.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3249,12 +3251,12 @@ github.repos.deleteInvite({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/keys/:id deleteKey
+ * @api {delete} /repos/:owner/:repo/keys/:id deleteKey
  * @apiName deleteKey
  * @apiDescription Remove a deploy key.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3262,12 +3264,12 @@ github.repos.deleteKey({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/projects/:number deleteProject
+ * @api {delete} /repos/:owner/:repo/projects/:number deleteProject
  * @apiName deleteProject
  * @apiDescription Delete a project.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -3275,12 +3277,12 @@ github.repos.deleteProject({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/projects/columns/cards/:id deleteProjectCard
+ * @api {delete} /repos/:owner/:repo/projects/columns/cards/:id deleteProjectCard
  * @apiName deleteProjectCard
  * @apiDescription Delete a project card.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3288,12 +3290,12 @@ github.repos.deleteProjectCard({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/projects/columns/:id deleteProjectColumn
+ * @api {delete} /repos/:owner/:repo/projects/columns/:id deleteProjectColumn
  * @apiName deleteProjectColumn
  * @apiDescription Delete a project column.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3301,12 +3303,12 @@ github.repos.deleteProjectColumn({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/releases/:id deleteRelease
+ * @api {delete} /repos/:owner/:repo/releases/:id deleteRelease
  * @apiName deleteRelease
  * @apiDescription Delete a release
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3314,12 +3316,12 @@ github.repos.deleteRelease({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo edit
+ * @api {patch} /repos/:owner/:repo edit
  * @apiName edit
  * @apiDescription Update a repo.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} name  
  * @apiParam {String} repo  
  * @apiParam {String} [description]  
@@ -3337,12 +3339,12 @@ github.repos.edit({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/releases/assets/:id editAsset
+ * @api {patch} /repos/:owner/:repo/releases/assets/:id editAsset
  * @apiName editAsset
  * @apiDescription Edit a release asset.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} name  
@@ -3352,12 +3354,12 @@ github.repos.editAsset({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/hooks/:id editHook
+ * @api {patch} /repos/:owner/:repo/hooks/:id editHook
  * @apiName editHook
  * @apiDescription Edit a hook.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} name  
@@ -3371,12 +3373,12 @@ github.repos.editHook({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/releases/:id editRelease
+ * @api {patch} /repos/:owner/:repo/releases/:id editRelease
  * @apiName editRelease
  * @apiDescription Edit a release.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} tag_name  String of the tag
@@ -3390,12 +3392,12 @@ github.repos.editRelease({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/forks fork
+ * @api {post} /repos/:owner/:repo/forks fork
  * @apiName fork
  * @apiDescription Create a fork.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [organization]  Optional parameter to specify the organization name if forking into an organization.
  * @apiExample {js} ex:
@@ -3403,12 +3405,12 @@ github.repos.fork({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo get
+ * @api {get} /repos/:owner/:repo get
  * @apiName get
  * @apiDescription Get a repo for a user.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.get({ ... });
@@ -3432,12 +3434,12 @@ github.repos.getAll({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/comments getAllCommitComments
+ * @api {get} /repos/:owner/:repo/comments getAllCommitComments
  * @apiName getAllCommitComments
  * @apiDescription List commit comments for a repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3446,12 +3448,12 @@ github.repos.getAllCommitComments({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/:archive_format/:ref getArchiveLink
+ * @api {get} /repos/:owner/:repo/:archive_format/:ref getArchiveLink
  * @apiName getArchiveLink
  * @apiDescription Get archive link.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
  * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
@@ -3460,12 +3462,12 @@ github.repos.getArchiveLink({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/releases/assets/:id getAsset
+ * @api {get} /repos/:owner/:repo/releases/assets/:id getAsset
  * @apiName getAsset
  * @apiDescription Get a single release asset.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3473,12 +3475,12 @@ github.repos.getAsset({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch getBranch
+ * @api {get} /repos/:owner/:repo/branches/:branch getBranch
  * @apiName getBranch
  * @apiDescription Get branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3488,12 +3490,12 @@ github.repos.getBranch({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch/protection getBranchProtection
+ * @api {get} /repos/:owner/:repo/branches/:branch/protection getBranchProtection
  * @apiName getBranchProtection
  * @apiDescription Get branch protection. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3503,12 +3505,12 @@ github.repos.getBranchProtection({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches getBranches
+ * @api {get} /repos/:owner/:repo/branches getBranches
  * @apiName getBranches
  * @apiDescription List branches. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Boolean} [protected]  Set to true to only return protected branches
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3529,12 +3531,12 @@ github.repos.getById({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/traffic/clones getClones
+ * @api {get} /repos/:owner/:repo/traffic/clones getClones
  * @apiName getClones
  * @apiDescription Get the total number of clones and breakdown per day or week for the last 14 days.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3543,12 +3545,12 @@ github.repos.getClones({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/collaborators getCollaborators
+ * @api {get} /repos/:owner/:repo/collaborators getCollaborators
  * @apiName getCollaborators
  * @apiDescription List collaborators
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3557,12 +3559,12 @@ github.repos.getCollaborators({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/commits/:sha/status getCombinedStatus
+ * @api {get} /repos/:owner/:repo/commits/:sha/status getCombinedStatus
  * @apiName getCombinedStatus
  * @apiDescription Get the combined status for a specific ref.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3572,12 +3574,12 @@ github.repos.getCombinedStatus({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/commits/:sha getCommit
+ * @api {get} /repos/:owner/:repo/commits/:sha getCommit
  * @apiName getCommit
  * @apiDescription Get a single commit.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiExample {js} ex:
@@ -3585,12 +3587,12 @@ github.repos.getCommit({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/comments/:id getCommitComment
+ * @api {get} /repos/:owner/:repo/comments/:id getCommitComment
  * @apiName getCommitComment
  * @apiDescription Get a single commit comment.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3598,12 +3600,12 @@ github.repos.getCommitComment({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/commits/:sha/comments getCommitComments
+ * @api {get} /repos/:owner/:repo/commits/:sha/comments getCommitComments
  * @apiName getCommitComments
  * @apiDescription List comments for a single commit.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3613,12 +3615,12 @@ github.repos.getCommitComments({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/commits getCommits
+ * @api {get} /repos/:owner/:repo/commits getCommits
  * @apiName getCommits
  * @apiDescription List commits on a repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [sha]  Sha or branch to start listing commits from.
  * @apiParam {String} [path]  Only commits containing this file path will be returned.
@@ -3632,12 +3634,12 @@ github.repos.getCommits({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/contents/:path getContent
+ * @api {get} /repos/:owner/:repo/contents/:path getContent
  * @apiName getContent
  * @apiDescription Get the contents of a file or directory in a repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} path  The content path.
  * @apiParam {String} [ref]  The String name of the Commit/Branch/Tag. Defaults to master.
@@ -3646,12 +3648,12 @@ github.repos.getContent({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/contributors getContributors
+ * @api {get} /repos/:owner/:repo/contributors getContributors
  * @apiName getContributors
  * @apiDescription Get contributors for the specified repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Boolean} [anon]  Set to 1 or true to include anonymous contributors in results.
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3661,12 +3663,12 @@ github.repos.getContributors({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/deployments/:id/statuses getDeploymentStatuses
+ * @api {get} /repos/:owner/:repo/deployments/:id/statuses getDeploymentStatuses
  * @apiName getDeploymentStatuses
  * @apiDescription List deployment statuses.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3674,12 +3676,12 @@ github.repos.getDeploymentStatuses({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/deployments getDeployments
+ * @api {get} /repos/:owner/:repo/deployments getDeployments
  * @apiName getDeployments
  * @apiDescription List deployments.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [sha=none]  The short or long sha that was recorded at creation time. Default: none.
  * @apiParam {String} [ref=none]  The name of the ref. This can be a branch, tag, or sha. Default: none.
@@ -3692,12 +3694,12 @@ github.repos.getDeployments({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/downloads/:id getDownload
+ * @api {get} /repos/:owner/:repo/downloads/:id getDownload
  * @apiName getDownload
  * @apiDescription Get a single download.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3705,12 +3707,12 @@ github.repos.getDownload({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/downloads getDownloads
+ * @api {get} /repos/:owner/:repo/downloads getDownloads
  * @apiName getDownloads
  * @apiDescription List downloads for repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3749,12 +3751,12 @@ github.repos.getForUser({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/forks getForks
+ * @api {get} /repos/:owner/:repo/forks getForks
  * @apiName getForks
  * @apiDescription List forks.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [sort=newest]  Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -3764,12 +3766,12 @@ github.repos.getForks({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/hooks/:id getHook
+ * @api {get} /repos/:owner/:repo/hooks/:id getHook
  * @apiName getHook
  * @apiDescription Get single hook.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3777,12 +3779,12 @@ github.repos.getHook({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/hooks getHooks
+ * @api {get} /repos/:owner/:repo/hooks getHooks
  * @apiName getHooks
  * @apiDescription List hooks.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3802,12 +3804,12 @@ github.repos.getInvites({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/keys/:id getKey
+ * @api {get} /repos/:owner/:repo/keys/:id getKey
  * @apiName getKey
  * @apiDescription Get a deploy key.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3815,12 +3817,12 @@ github.repos.getKey({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/keys getKeys
+ * @api {get} /repos/:owner/:repo/keys getKeys
  * @apiName getKeys
  * @apiDescription List deploy keys.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3829,12 +3831,12 @@ github.repos.getKeys({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/languages getLanguages
+ * @api {get} /repos/:owner/:repo/languages getLanguages
  * @apiName getLanguages
  * @apiDescription Get languages for the specified repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3843,36 +3845,36 @@ github.repos.getLanguages({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pages/builds/latest getLatestPagesBuild
+ * @api {get} /repos/:owner/:repo/pages/builds/latest getLatestPagesBuild
  * @apiName getLatestPagesBuild
  * @apiDescription Get latest Pages build
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getLatestPagesBuild({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/releases/latest getLatestRelease
+ * @api {get} /repos/:owner/:repo/releases/latest getLatestRelease
  * @apiName getLatestRelease
  * @apiDescription Get the latest release.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getLatestRelease({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pages getPages
+ * @api {get} /repos/:owner/:repo/pages getPages
  * @apiName getPages
  * @apiDescription Get information about a Pages site. (Use preview header to include additional info.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3881,12 +3883,12 @@ github.repos.getPages({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pages/builds/:id getPagesBuild
+ * @api {get} /repos/:owner/:repo/pages/builds/:id getPagesBuild
  * @apiName getPagesBuild
  * @apiDescription Get a specific Pages build
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3894,12 +3896,12 @@ github.repos.getPagesBuild({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/pages/builds getPagesBuilds
+ * @api {get} /repos/:owner/:repo/pages/builds getPagesBuilds
  * @apiName getPagesBuilds
  * @apiDescription List Pages builds
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3908,12 +3910,12 @@ github.repos.getPagesBuilds({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/traffic/popular/paths getPaths
+ * @api {get} /repos/:owner/:repo/traffic/popular/paths getPaths
  * @apiName getPaths
  * @apiDescription Get the top 10 popular contents over the last 14 days.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -3922,12 +3924,12 @@ github.repos.getPaths({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/projects/:number getProject
+ * @api {get} /repos/:owner/:repo/projects/:number getProject
  * @apiName getProject
  * @apiDescription List a project.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -3935,12 +3937,12 @@ github.repos.getProject({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/projects/columns/cards/:id getProjectCard
+ * @api {get} /repos/:owner/:repo/projects/columns/cards/:id getProjectCard
  * @apiName getProjectCard
  * @apiDescription Get project card.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3948,12 +3950,12 @@ github.repos.getProjectCard({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/projects/columns/:id/cards getProjectCards
+ * @api {get} /repos/:owner/:repo/projects/columns/:id/cards getProjectCards
  * @apiName getProjectCards
  * @apiDescription List project cards.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3961,12 +3963,12 @@ github.repos.getProjectCards({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/projects/columns/:id getProjectColumn
+ * @api {get} /repos/:owner/:repo/projects/columns/:id getProjectColumn
  * @apiName getProjectColumn
  * @apiDescription Get a project column.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -3974,12 +3976,12 @@ github.repos.getProjectColumn({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/projects/:number/columns getProjectColumns
+ * @api {get} /repos/:owner/:repo/projects/:number/columns getProjectColumns
  * @apiName getProjectColumns
  * @apiDescription List a project's columns.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiExample {js} ex:
@@ -3987,24 +3989,24 @@ github.repos.getProjectColumns({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/projects getProjects
+ * @api {get} /repos/:owner/:repo/projects getProjects
  * @apiName getProjects
  * @apiDescription List projects.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getProjects({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
+ * @api {get} /repos/:owner/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
  * @apiName getProtectedBranchRequiredStatusChecks
  * @apiDescription Get required status checks of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4014,12 +4016,12 @@ github.repos.getProtectedBranchRequiredStatusChecks({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts getProtectedBranchRequiredStatusChecksContexts
+ * @api {get} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts getProtectedBranchRequiredStatusChecksContexts
  * @apiName getProtectedBranchRequiredStatusChecksContexts
  * @apiDescription List required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4029,12 +4031,12 @@ github.repos.getProtectedBranchRequiredStatusChecksContexts({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch/protection/restrictions getProtectedBranchRestrictions
+ * @api {get} /repos/:owner/:repo/branches/:branch/protection/restrictions getProtectedBranchRestrictions
  * @apiName getProtectedBranchRestrictions
  * @apiDescription Get restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4044,12 +4046,12 @@ github.repos.getProtectedBranchRestrictions({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch/protection/restrictions/teams getProtectedBranchTeamRestrictions
+ * @api {get} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams getProtectedBranchTeamRestrictions
  * @apiName getProtectedBranchTeamRestrictions
  * @apiDescription List team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4059,12 +4061,12 @@ github.repos.getProtectedBranchTeamRestrictions({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/branches/:branch/protection/restrictions/users getProtectedBranchUserRestrictions
+ * @api {get} /repos/:owner/:repo/branches/:branch/protection/restrictions/users getProtectedBranchUserRestrictions
  * @apiName getProtectedBranchUserRestrictions
  * @apiDescription List user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4085,12 +4087,12 @@ github.repos.getPublic({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/readme getReadme
+ * @api {get} /repos/:owner/:repo/readme getReadme
  * @apiName getReadme
  * @apiDescription Get the README for the given repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} [ref]  The name of the commit/branch/tag. Default: the repository’s default branch (usually master)
  * @apiExample {js} ex:
@@ -4098,12 +4100,12 @@ github.repos.getReadme({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/traffic/popular/referrers getReferrers
+ * @api {get} /repos/:owner/:repo/traffic/popular/referrers getReferrers
  * @apiName getReferrers
  * @apiDescription Get the top 10 referrers over the last 14 days.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -4112,12 +4114,12 @@ github.repos.getReferrers({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/releases/:id getRelease
+ * @api {get} /repos/:owner/:repo/releases/:id getRelease
  * @apiName getRelease
  * @apiDescription Get a single release.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -4125,12 +4127,12 @@ github.repos.getRelease({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/releases/tags/:tag getReleaseByTag
+ * @api {get} /repos/:owner/:repo/releases/tags/:tag getReleaseByTag
  * @apiName getReleaseByTag
  * @apiDescription Get a release by tag name.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} tag  String of the tag
  * @apiExample {js} ex:
@@ -4138,12 +4140,12 @@ github.repos.getReleaseByTag({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/releases getReleases
+ * @api {get} /repos/:owner/:repo/releases getReleases
  * @apiName getReleases
  * @apiDescription List releases for a repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -4152,12 +4154,12 @@ github.repos.getReleases({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/commits/:ref getShaOfCommitRef
+ * @api {get} /repos/:owner/:repo/commits/:ref getShaOfCommitRef
  * @apiName getShaOfCommitRef
  * @apiDescription Get the SHA-1 of a commit reference.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} ex:
@@ -4165,72 +4167,72 @@ github.repos.getShaOfCommitRef({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stats/code_frequency getStatsCodeFrequency
+ * @api {get} /repos/:owner/:repo/stats/code_frequency getStatsCodeFrequency
  * @apiName getStatsCodeFrequency
  * @apiDescription Get the number of additions and deletions per week.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getStatsCodeFrequency({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stats/commit_activity getStatsCommitActivity
+ * @api {get} /repos/:owner/:repo/stats/commit_activity getStatsCommitActivity
  * @apiName getStatsCommitActivity
  * @apiDescription Get the last year of commit activity data.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getStatsCommitActivity({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stats/contributors getStatsContributors
+ * @api {get} /repos/:owner/:repo/stats/contributors getStatsContributors
  * @apiName getStatsContributors
  * @apiDescription Get contributors list with additions, deletions, and commit counts.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getStatsContributors({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stats/participation getStatsParticipation
+ * @api {get} /repos/:owner/:repo/stats/participation getStatsParticipation
  * @apiName getStatsParticipation
  * @apiDescription Get the weekly commit count for the repository owner and everyone else.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getStatsParticipation({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/stats/punch_card getStatsPunchCard
+ * @api {get} /repos/:owner/:repo/stats/punch_card getStatsPunchCard
  * @apiName getStatsPunchCard
  * @apiDescription Get the number of commits per hour in each day.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.getStatsPunchCard({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/commits/:sha/statuses getStatuses
+ * @api {get} /repos/:owner/:repo/commits/:sha/statuses getStatuses
  * @apiName getStatuses
  * @apiDescription Get status for a specfic ref.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} sha  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4240,12 +4242,12 @@ github.repos.getStatuses({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/tags getTags
+ * @api {get} /repos/:owner/:repo/tags getTags
  * @apiName getTags
  * @apiDescription Get tags for the specified repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -4254,12 +4256,12 @@ github.repos.getTags({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/teams getTeams
+ * @api {get} /repos/:owner/:repo/teams getTeams
  * @apiName getTeams
  * @apiDescription Get teams for the specified repository.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -4268,12 +4270,12 @@ github.repos.getTeams({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/traffic/views getViews
+ * @api {get} /repos/:owner/:repo/traffic/views getViews
  * @apiName getViews
  * @apiDescription Get the total number of views and breakdown per day or week for the last 14 days.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} [page]  Page number of the results to fetch.
  * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
@@ -4282,12 +4284,12 @@ github.repos.getViews({ ... });
  */
 
 /**
- * @api {get} /repos/:user/:repo/releases/:id/assets listAssets
+ * @api {get} /repos/:owner/:repo/releases/:id/assets listAssets
  * @apiName listAssets
  * @apiDescription List assets for a release.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -4295,12 +4297,12 @@ github.repos.listAssets({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/merges merge
+ * @api {post} /repos/:owner/:repo/merges merge
  * @apiName merge
  * @apiDescription Perform a merge.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} base  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {String} head  The branch (or git ref) where your changes are implemented.
@@ -4310,12 +4312,12 @@ github.repos.merge({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/projects/columns/cards/:id/moves moveProjectCard
+ * @api {post} /repos/:owner/:repo/projects/columns/cards/:id/moves moveProjectCard
  * @apiName moveProjectCard
  * @apiDescription Move a project card.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} position  Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project.
@@ -4325,12 +4327,12 @@ github.repos.moveProjectCard({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/projects/columns/:id/moves moveProjectColumn
+ * @api {post} /repos/:owner/:repo/projects/columns/:id/moves moveProjectColumn
  * @apiName moveProjectColumn
  * @apiDescription Move a project column.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} position  Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project.
@@ -4350,12 +4352,12 @@ github.repos.one({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/hooks/:id/pings pingHook
+ * @api {post} /repos/:owner/:repo/hooks/:id/pings pingHook
  * @apiName pingHook
  * @apiDescription Ping a hook.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -4363,12 +4365,12 @@ github.repos.pingHook({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/branches/:branch/protection removeBranchProtection
+ * @api {delete} /repos/:owner/:repo/branches/:branch/protection removeBranchProtection
  * @apiName removeBranchProtection
  * @apiDescription Remove branch protection. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4378,12 +4380,12 @@ github.repos.removeBranchProtection({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/collaborators/:collabuser removeCollaborator
+ * @api {delete} /repos/:owner/:repo/collaborators/:collabuser removeCollaborator
  * @apiName removeCollaborator
  * @apiDescription Remove user as a collaborator.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} collabuser  
  * @apiExample {js} ex:
@@ -4391,12 +4393,12 @@ github.repos.removeCollaborator({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/branches/:branch/protection/required_status_checks removeProtectedBranchRequiredStatusChecks
+ * @api {delete} /repos/:owner/:repo/branches/:branch/protection/required_status_checks removeProtectedBranchRequiredStatusChecks
  * @apiName removeProtectedBranchRequiredStatusChecks
  * @apiDescription Remove required status checks of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4406,12 +4408,12 @@ github.repos.removeProtectedBranchRequiredStatusChecks({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts removeProtectedBranchRequiredStatusChecksContexts
+ * @api {delete} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts removeProtectedBranchRequiredStatusChecksContexts
  * @apiName removeProtectedBranchRequiredStatusChecksContexts
  * @apiDescription Remove required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4421,12 +4423,12 @@ github.repos.removeProtectedBranchRequiredStatusChecksContexts({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/branches/:branch/protection/restrictions removeProtectedBranchRestrictions
+ * @api {delete} /repos/:owner/:repo/branches/:branch/protection/restrictions removeProtectedBranchRestrictions
  * @apiName removeProtectedBranchRestrictions
  * @apiDescription Remove restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4436,12 +4438,12 @@ github.repos.removeProtectedBranchRestrictions({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/branches/:branch/protection/restrictions/teams removeProtectedBranchTeamRestrictions
+ * @api {delete} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams removeProtectedBranchTeamRestrictions
  * @apiName removeProtectedBranchTeamRestrictions
  * @apiDescription Remove team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4451,12 +4453,12 @@ github.repos.removeProtectedBranchTeamRestrictions({ ... });
  */
 
 /**
- * @api {delete} /repos/:user/:repo/branches/:branch/protection/restrictions/users removeProtectedBranchUserRestrictions
+ * @api {delete} /repos/:owner/:repo/branches/:branch/protection/restrictions/users removeProtectedBranchUserRestrictions
  * @apiName removeProtectedBranchUserRestrictions
  * @apiDescription Remove user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Number} [page]  Page number of the results to fetch.
@@ -4466,12 +4468,12 @@ github.repos.removeProtectedBranchUserRestrictions({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts replaceProtectedBranchRequiredStatusChecksContexts
+ * @api {put} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts replaceProtectedBranchRequiredStatusChecksContexts
  * @apiName replaceProtectedBranchRequiredStatusChecksContexts
  * @apiDescription Replace required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
@@ -4482,12 +4484,12 @@ github.repos.replaceProtectedBranchRequiredStatusChecksContexts({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/branches/:branch/protection/restrictions/teams replaceProtectedBranchTeamRestrictions
+ * @api {put} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams replaceProtectedBranchTeamRestrictions
  * @apiName replaceProtectedBranchTeamRestrictions
  * @apiDescription Replace team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
@@ -4498,12 +4500,12 @@ github.repos.replaceProtectedBranchTeamRestrictions({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/branches/:branch/protection/restrictions/users replaceProtectedBranchUserRestrictions
+ * @api {put} /repos/:owner/:repo/branches/:branch/protection/restrictions/users replaceProtectedBranchUserRestrictions
  * @apiName replaceProtectedBranchUserRestrictions
  * @apiDescription Replace user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
@@ -4514,24 +4516,24 @@ github.repos.replaceProtectedBranchUserRestrictions({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/pages/builds requestPageBuild
+ * @api {post} /repos/:owner/:repo/pages/builds requestPageBuild
  * @apiName requestPageBuild
  * @apiDescription Request a page build. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiExample {js} ex:
 github.repos.requestPageBuild({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/hooks/:id/test testHook
+ * @api {post} /repos/:owner/:repo/hooks/:id/test testHook
  * @apiName testHook
  * @apiDescription Test a [push] hook.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -4539,12 +4541,12 @@ github.repos.testHook({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/branches/:branch/protection updateBranchProtection
+ * @api {put} /repos/:owner/:repo/branches/:branch/protection updateBranchProtection
  * @apiName updateBranchProtection
  * @apiDescription Update branch protection. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Json} required_status_checks  JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled.
@@ -4556,12 +4558,12 @@ github.repos.updateBranchProtection({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/comments/:id updateCommitComment
+ * @api {patch} /repos/:owner/:repo/comments/:id updateCommitComment
  * @apiName updateCommitComment
  * @apiDescription Update a commit comment.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} body  
@@ -4570,12 +4572,12 @@ github.repos.updateCommitComment({ ... });
  */
 
 /**
- * @api {put} /repos/:user/:repo/contents/:path updateFile
+ * @api {put} /repos/:owner/:repo/contents/:path updateFile
  * @apiName updateFile
  * @apiDescription Update a file.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} path  The content path.
  * @apiParam {String} message  The commit message.
@@ -4601,12 +4603,12 @@ github.repos.updateInvite({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/projects/:number updateProject
+ * @api {patch} /repos/:owner/:repo/projects/:number updateProject
  * @apiName updateProject
  * @apiDescription Update a project.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} name  
@@ -4616,12 +4618,12 @@ github.repos.updateProject({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/projects/columns/cards/:id updateProjectCard
+ * @api {patch} /repos/:owner/:repo/projects/columns/cards/:id updateProjectCard
  * @apiName updateProjectCard
  * @apiDescription Update a project card.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} [note]  The note of the card.
@@ -4630,12 +4632,12 @@ github.repos.updateProjectCard({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/projects/columns/:id updateProjectColumn
+ * @api {patch} /repos/:owner/:repo/projects/columns/:id updateProjectColumn
  * @apiName updateProjectColumn
  * @apiDescription Update a project column.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} name  
@@ -4644,12 +4646,12 @@ github.repos.updateProjectColumn({ ... });
  */
 
 /**
- * @api {patch} /repos/:user/:repo/branches/:branch/protection/required_status_checks updateProtectedBranchRequiredStatusChecks
+ * @api {patch} /repos/:owner/:repo/branches/:branch/protection/required_status_checks updateProtectedBranchRequiredStatusChecks
  * @apiName updateProtectedBranchRequiredStatusChecks
  * @apiDescription Update required status checks of protected branch. (In preview period. See README.)
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
  * @apiParam {Json} body  JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch.
@@ -4660,12 +4662,12 @@ github.repos.updateProtectedBranchRequiredStatusChecks({ ... });
  */
 
 /**
- * @api {post} /repos/:user/:repo/releases/:id/assets uploadAsset
+ * @api {post} /repos/:owner/:repo/releases/:id/assets uploadAsset
  * @apiName uploadAsset
  * @apiDescription Upload a release asset.
  * @apiGroup repos
  *
- * @apiParam {String} user  
+ * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} id  
  * @apiParam {String} filePath  The file path of the asset.

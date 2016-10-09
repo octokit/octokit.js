@@ -13,7 +13,7 @@ github.authenticate({
 });
 
 github.issues.updateLabel({
-    user: "kaizensoze",
+    owner: "kaizensoze",
     repo: "test2",
     oldname: "labelA",
     name: "labelB",

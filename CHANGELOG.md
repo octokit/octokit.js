@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.0.0
+
+Breaking changes:
+  * Replace user with owner in endpoints
+
 ## 4.1.0
 
 Features:

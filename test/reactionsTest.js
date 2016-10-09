@@ -25,10 +25,10 @@ describe("[reactions]", function() {
         });
     });
 
-    it("should successfully execute POST /repos/:user/:repo/comments/:id/reactions (createForCommitComment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/comments/:id/reactions (createForCommitComment)",  function(next) {
         client.reactions.createForCommitComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 content: "String"
@@ -41,10 +41,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/issues/:number/reactions (createForIssue)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/issues/:number/reactions (createForIssue)",  function(next) {
         client.reactions.createForIssue(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 content: "String"
@@ -57,10 +57,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/issues/comments/:id/reactions (createForIssueComment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/issues/comments/:id/reactions (createForIssueComment)",  function(next) {
         client.reactions.createForIssueComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 content: "String"
@@ -73,10 +73,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/pulls/comments/:id/reactions (createForPullRequestReviewComment)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/pulls/comments/:id/reactions (createForPullRequestReviewComment)",  function(next) {
         client.reactions.createForPullRequestReviewComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 content: "String"
@@ -102,10 +102,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/comments/:id/reactions (getForCommitComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/comments/:id/reactions (getForCommitComment)",  function(next) {
         client.reactions.getForCommitComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 content: "String"
@@ -118,10 +118,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/:number/reactions (getForIssue)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number/reactions (getForIssue)",  function(next) {
         client.reactions.getForIssue(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 number: "Number",
                 content: "String"
@@ -134,10 +134,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/comments/:id/reactions (getForIssueComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/comments/:id/reactions (getForIssueComment)",  function(next) {
         client.reactions.getForIssueComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 content: "String"
@@ -150,10 +150,10 @@ describe("[reactions]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/pulls/comments/:id/reactions (getForPullRequestReviewComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/comments/:id/reactions (getForPullRequestReviewComment)",  function(next) {
         client.reactions.getForPullRequestReviewComment(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 id: "String",
                 content: "String"
