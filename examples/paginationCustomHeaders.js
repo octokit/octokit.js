@@ -17,7 +17,7 @@ var customHeaders = {
 };
 
 github.issues.getForRepo({
-    user: "mikedeboer",
+    owner: "mikedeboer",
     repo: "node-github",
     headers: customHeaders
 }, function(err, res) {

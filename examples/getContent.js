@@ -7,7 +7,7 @@ var github = new Client({
 });
 
 github.repos.getContent({
-    user: "mikedeboer",
+    owner: "mikedeboer",
     repo: "node-github",
     path: ""
 }, function(err, res) {

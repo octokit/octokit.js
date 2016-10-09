@@ -25,10 +25,10 @@ describe("[gitdata]", function() {
         });
     });
 
-    it("should successfully execute POST /repos/:user/:repo/git/blobs (createBlob)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/git/blobs (createBlob)",  function(next) {
         client.gitdata.createBlob(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 content: "String",
                 encoding: "String"
@@ -41,10 +41,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/git/commits (createCommit)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/git/commits (createCommit)",  function(next) {
         client.gitdata.createCommit(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 message: "String",
                 tree: "String",
@@ -60,10 +60,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/git/refs (createReference)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/git/refs (createReference)",  function(next) {
         client.gitdata.createReference(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String",
                 sha: "String"
@@ -76,10 +76,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/git/tags (createTag)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/git/tags (createTag)",  function(next) {
         client.gitdata.createTag(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 tag: "String",
                 message: "String",
@@ -95,10 +95,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:user/:repo/git/trees (createTree)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/git/trees (createTree)",  function(next) {
         client.gitdata.createTree(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 tree: "Json",
                 base_tree: "String"
@@ -111,10 +111,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/git/refs/:ref (deleteReference)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/git/refs/:ref (deleteReference)",  function(next) {
         client.gitdata.deleteReference(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String"
             },
@@ -126,10 +126,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/blobs/:sha (getBlob)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/blobs/:sha (getBlob)",  function(next) {
         client.gitdata.getBlob(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 page: "Number",
@@ -143,10 +143,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/commits/:sha (getCommit)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/commits/:sha (getCommit)",  function(next) {
         client.gitdata.getCommit(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String"
             },
@@ -158,10 +158,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/commits/:sha (getCommitSignatureVerification)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/commits/:sha (getCommitSignatureVerification)",  function(next) {
         client.gitdata.getCommitSignatureVerification(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String"
             },
@@ -173,10 +173,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/refs/:ref (getReference)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/refs/:ref (getReference)",  function(next) {
         client.gitdata.getReference(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String"
             },
@@ -188,10 +188,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/refs (getReferences)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/refs (getReferences)",  function(next) {
         client.gitdata.getReferences(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -204,10 +204,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/tags/:sha (getTag)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/tags/:sha (getTag)",  function(next) {
         client.gitdata.getTag(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String"
             },
@@ -219,10 +219,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/tags/:sha (getTagSignatureVerification)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/tags/:sha (getTagSignatureVerification)",  function(next) {
         client.gitdata.getTagSignatureVerification(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String"
             },
@@ -234,10 +234,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/refs/tags (getTags)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/refs/tags (getTags)",  function(next) {
         client.gitdata.getTags(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -250,10 +250,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/git/trees/:sha (getTree)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/trees/:sha (getTree)",  function(next) {
         client.gitdata.getTree(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 sha: "String",
                 recursive: "Boolean"
@@ -266,10 +266,10 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/git/refs/:ref (updateReference)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/git/refs/:ref (updateReference)",  function(next) {
         client.gitdata.updateReference(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 ref: "String",
                 sha: "String",

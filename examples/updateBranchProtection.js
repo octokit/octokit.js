@@ -16,7 +16,7 @@ github.authenticate({
 });
 
 github.repos.updateBranchProtection({
-    user: "kaizensoze",
+    owner: "kaizensoze",
     repo: "test2",
     branch: "a",
     required_status_checks: null,

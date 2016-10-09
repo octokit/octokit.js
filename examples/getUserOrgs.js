@@ -19,7 +19,7 @@ var github = new Client({
 // });
 
 github.orgs.getForUser({
-    user: "tj",
+    owner: "tj",
     per_page: 100
 }, function(err, res) {
     console.log(err, res);

@@ -38,10 +38,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /user/starred/:user/:repo (checkStarringRepo)",  function(next) {
+    it("should successfully execute GET /user/starred/:owner/:repo (checkStarringRepo)",  function(next) {
         client.activity.checkStarringRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -96,10 +96,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/events (getEventsForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/events (getEventsForRepo)",  function(next) {
         client.activity.getEventsForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -112,10 +112,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/issues/events (getEventsForRepoIssues)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/events (getEventsForRepoIssues)",  function(next) {
         client.activity.getEventsForRepoIssues(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -128,10 +128,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /networks/:user/:repo/events (getEventsForRepoNetwork)",  function(next) {
+    it("should successfully execute GET /networks/:owner/:repo/events (getEventsForRepoNetwork)",  function(next) {
         client.activity.getEventsForRepoNetwork(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -144,10 +144,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events (getEventsForUser)",  function(next) {
+    it("should successfully execute GET /users/:owner/events (getEventsForUser)",  function(next) {
         client.activity.getEventsForUser(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -159,10 +159,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events/orgs/:org (getEventsForUserOrg)",  function(next) {
+    it("should successfully execute GET /users/:owner/events/orgs/:org (getEventsForUserOrg)",  function(next) {
         client.activity.getEventsForUserOrg(
             {
-                user: "String",
+                owner: "String",
                 org: "String",
                 page: "Number",
                 per_page: "Number"
@@ -175,10 +175,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/events/public (getEventsForUserPublic)",  function(next) {
+    it("should successfully execute GET /users/:owner/events/public (getEventsForUserPublic)",  function(next) {
         client.activity.getEventsForUserPublic(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -190,10 +190,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/received_events (getEventsReceived)",  function(next) {
+    it("should successfully execute GET /users/:owner/received_events (getEventsReceived)",  function(next) {
         client.activity.getEventsReceived(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -205,10 +205,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/received_events/public (getEventsReceivedPublic)",  function(next) {
+    it("should successfully execute GET /users/:owner/received_events/public (getEventsReceivedPublic)",  function(next) {
         client.activity.getEventsReceivedPublic(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -260,10 +260,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/notifications (getNotificationsForUser)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/notifications (getNotificationsForUser)",  function(next) {
         client.activity.getNotificationsForUser(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 all: "Boolean",
                 participating: "Boolean",
@@ -278,10 +278,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/subscription (getRepoSubscription)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/subscription (getRepoSubscription)",  function(next) {
         client.activity.getRepoSubscription(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -294,10 +294,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/stargazers (getStargazersForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/stargazers (getStargazersForRepo)",  function(next) {
         client.activity.getStargazersForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -324,10 +324,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/starred (getStarredReposForUser)",  function(next) {
+    it("should successfully execute GET /users/:owner/starred (getStarredReposForUser)",  function(next) {
         client.activity.getStarredReposForUser(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -353,10 +353,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/subscriptions (getWatchedReposForUser)",  function(next) {
+    it("should successfully execute GET /users/:owner/subscriptions (getWatchedReposForUser)",  function(next) {
         client.activity.getWatchedReposForUser(
             {
-                user: "String",
+                owner: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -368,10 +368,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/subscribers (getWatchersForRepo)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/subscribers (getWatchersForRepo)",  function(next) {
         client.activity.getWatchersForRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
@@ -410,9 +410,11 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/notifications (markNotificationsAsReadForRepo)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/notifications (markNotificationsAsReadForRepo)",  function(next) {
         client.activity.markNotificationsAsReadForRepo(
             {
+                owner: "String",
+                repo: "String",
                 last_read_at: "String"
             },
             function(err, res) {
@@ -438,10 +440,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/subscription (setRepoSubscription)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/subscription (setRepoSubscription)",  function(next) {
         client.activity.setRepoSubscription(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 subscribed: "Boolean",
                 ignored: "Boolean"
@@ -454,10 +456,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/starred/:user/:repo (starRepo)",  function(next) {
+    it("should successfully execute PUT /user/starred/:owner/:repo (starRepo)",  function(next) {
         client.activity.starRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -468,10 +470,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/starred/:user/:repo (unstarRepo)",  function(next) {
+    it("should successfully execute DELETE /user/starred/:owner/:repo (unstarRepo)",  function(next) {
         client.activity.unstarRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -482,10 +484,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/subscription (unwatchRepo)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/subscription (unwatchRepo)",  function(next) {
         client.activity.unwatchRepo(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {

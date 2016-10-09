@@ -13,7 +13,7 @@ github.authenticate({
 });
 
 github.repos.addCollaborator({
-    user: "brassafrax", // needs to be an org
+    owner: "brassafrax", // needs to be an org
     repo: "test",
     collabuser: "first9890"
 }, function(err, res) {

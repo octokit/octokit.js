@@ -40,6 +40,13 @@
                 "invalidmsg": "",
                 "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
             },
+            "owner": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
             "user": {
                 "type": "String",
                 "required": true,
@@ -397,56 +404,56 @@
         },
         "acceptTree": {
             "application/vnd.github.mockingbird-preview": [
-                "/repos/:user/:repo/issues/:issue_number/timeline"
+                "/repos/:owner/:repo/issues/:issue_number/timeline"
             ],
 
             "application/vnd.github.spiderman-preview": [
-                "/repos/:user/:repo/traffic/popular/referrers",
-                "/repos/:user/:repo/traffic/popular/paths",
-                "/repos/:user/:repo/traffic/views",
-                "/repos/:user/:repo/traffic/clones"
+                "/repos/:owner/:repo/traffic/popular/referrers",
+                "/repos/:owner/:repo/traffic/popular/paths",
+                "/repos/:owner/:repo/traffic/views",
+                "/repos/:owner/:repo/traffic/clones"
             ],
 
             "application/vnd.github.squirrel-girl-preview": [
-                "/repos/:user/:repo/comments/:id/reactions",
-                "/repos/:user/:repo/issues/:number/reactions",
-                "/repos/:user/:repo/issues/comments/:id/reactions",
-                "/repos/:user/:repo/pulls/comments/:id/reactions",
+                "/repos/:owner/:repo/comments/:id/reactions",
+                "/repos/:owner/:repo/issues/:number/reactions",
+                "/repos/:owner/:repo/issues/comments/:id/reactions",
+                "/repos/:owner/:repo/pulls/comments/:id/reactions",
                 "/reactions/:id"
             ],
 
             "application/vnd.github.polaris-preview": [
-                "/repos/:user/:repo/pulls/:number/merge"
+                "/repos/:owner/:repo/pulls/:number/merge"
             ],
 
             "application/vnd.github.loki-preview+json": [
-                "/repos/:user/:repo/branches",
-                "/repos/:user/:repo/branches/:branch",
-                "/repos/:user/:repo/branches/:branch/protection",
-                "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
-                "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
-                "/repos/:user/:repo/branches/:branch/protection/restrictions",
-                "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
-                "/repos/:user/:repo/branches/:branch/protection/restrictions/users"
+                "/repos/:owner/:repo/branches",
+                "/repos/:owner/:repo/branches/:branch",
+                "/repos/:owner/:repo/branches/:branch/protection",
+                "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+                "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+                "/repos/:owner/:repo/branches/:branch/protection/restrictions",
+                "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+                "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
             ],
 
             "application/vnd.github.inertia-preview+json": [
-                "/repos/:user/:repo/projects",
-                "/repos/:user/:repo/projects/:number",
-                "/repos/:user/:repo/projects/:number/columns",
-                "/repos/:user/:repo/projects/columns/:id",
-                "/repos/:user/:repo/projects/columns/:id/moves",
-                "/repos/:user/:repo/projects/columns/:id/cards",
-                "/repos/:user/:repo/projects/columns/cards/:id",
-                "/repos/:user/:repo/projects/columns/:id/cards",
-                "/repos/:user/:repo/projects/columns/cards/:id/moves"
+                "/repos/:owner/:repo/projects",
+                "/repos/:owner/:repo/projects/:number",
+                "/repos/:owner/:repo/projects/:number/columns",
+                "/repos/:owner/:repo/projects/columns/:id",
+                "/repos/:owner/:repo/projects/columns/:id/moves",
+                "/repos/:owner/:repo/projects/columns/:id/cards",
+                "/repos/:owner/:repo/projects/columns/cards/:id",
+                "/repos/:owner/:repo/projects/columns/:id/cards",
+                "/repos/:owner/:repo/projects/columns/cards/:id/moves"
             ],
 
             "application/vnd.github.mister-fantastic-preview+json": [
-                "/repos/:user/:repo/pages",
-                "/repos/:user/:repo/pages/builds",
-                "/repos/:user/:repo/pages/builds/latest",
-                "/repos/:user/:repo/pages/builds/:id"
+                "/repos/:owner/:repo/pages",
+                "/repos/:owner/:repo/pages/builds",
+                "/repos/:owner/:repo/pages/builds/latest",
+                "/repos/:owner/:repo/pages/builds/:id"
             ],
 
             "application/vnd.github.damage-preview": [
@@ -459,8 +466,8 @@
             ],
 
             "application/vnd.github.ant-man-preview+json": [
-                "/repos/:user/:repo/deployments",
-                "/repos/:user/:repo/deployments/:id/statuses"
+                "/repos/:owner/:repo/deployments",
+                "/repos/:owner/:repo/deployments/:id/statuses"
             ],
 
             "application/vnd.github.cryptographer-preview": [
@@ -469,11 +476,11 @@
             ],
 
             "application/vnd.github.barred-rock-preview": [
-                "/repos/:user/:repo/import/authors",
-                "/repos/:user/:repo/import/authors/:author_id",
-                "/:user/:name/import/lfs",
-                "/:user/:name/import/large_files",
-                "/repos/:user/:repo/import"
+                "/repos/:owner/:repo/import/authors",
+                "/repos/:owner/:repo/import/authors/:author_id",
+                "/:owner/:name/import/lfs",
+                "/:owner/:name/import/large_files",
+                "/repos/:owner/:repo/import"
             ],
 
             "application/vnd.github.machine-man-preview": [
@@ -485,8 +492,8 @@
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
                 "/licenses/:license",
-                "/repos/:user/:repo",
-                "/repos/:user/:repo/license"
+                "/repos/:owner/:repo",
+                "/repos/:owner/:repo/license"
             ],
 
             "application/vnd.github.wyandotte-preview+json": [
@@ -735,10 +742,10 @@
         },
 
         "get-events-for-repo": {
-            "url": "/repos/:user/:repo/events",
+            "url": "/repos/:owner/:repo/events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -747,10 +754,10 @@
         },
 
         "get-events-for-repo-issues": {
-            "url": "/repos/:user/:repo/issues/events",
+            "url": "/repos/:owner/:repo/issues/events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -759,10 +766,10 @@
         },
 
         "get-events-for-repo-network": {
-            "url": "/networks/:user/:repo/events",
+            "url": "/networks/:owner/:repo/events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -782,10 +789,10 @@
         },
 
         "get-events-received": {
-            "url": "/users/:user/received_events",
+            "url": "/users/:owner/received_events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -793,10 +800,10 @@
         },
 
         "get-events-received-public": {
-            "url": "/users/:user/received_events/public",
+            "url": "/users/:owner/received_events/public",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -804,10 +811,10 @@
         },
 
         "get-events-for-user": {
-            "url": "/users/:user/events",
+            "url": "/users/:owner/events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -815,10 +822,10 @@
         },
 
         "get-events-for-user-public": {
-            "url": "/users/:user/events/public",
+            "url": "/users/:owner/events/public",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -826,10 +833,10 @@
         },
 
         "get-events-for-user-org": {
-            "url": "/users/:user/events/orgs/:org",
+            "url": "/users/:owner/events/orgs/:org",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$org": null,
                 "$page": null,
                 "$per_page": null
@@ -877,10 +884,10 @@
         },
 
         "get-notifications-for-user": {
-            "url": "/repos/:user/:repo/notifications",
+            "url": "/repos/:owner/:repo/notifications",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "all": {
                     "type": "Boolean",
@@ -927,9 +934,11 @@
         },
 
         "mark-notifications-as-read-for-repo": {
-            "url": "/repos/:user/:repo/notifications",
+            "url": "/repos/:owner/:repo/notifications",
             "method": "PUT",
             "params": {
+                "$owner": null,
+                "$repo": null,
                 "last_read_at": {
                     "type": "String",
                     "required": false,
@@ -1002,10 +1011,10 @@
         },
 
         "get-stargazers-for-repo": {
-            "url": "/repos/:user/:repo/stargazers",
+            "url": "/repos/:owner/:repo/stargazers",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -1024,10 +1033,10 @@
         },
 
         "get-starred-repos-for-user": {
-            "url": "/users/:user/starred",
+            "url": "/users/:owner/starred",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -1035,10 +1044,10 @@
         },
 
         "check-starring-repo": {
-            "url": "/user/starred/:user/:repo",
+            "url": "/user/starred/:owner/:repo",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -1047,30 +1056,30 @@
         },
 
         "star-repo": {
-            "url": "/user/starred/:user/:repo",
+            "url": "/user/starred/:owner/:repo",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Star a repository"
         },
 
         "unstar-repo": {
-            "url": "/user/starred/:user/:repo",
+            "url": "/user/starred/:owner/:repo",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Unstar a repository"
         },
 
         "get-watchers-for-repo": {
-            "url": "/repos/:user/:repo/subscribers",
+            "url": "/repos/:owner/:repo/subscribers",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -1089,10 +1098,10 @@
         },
 
         "get-watched-repos-for-user": {
-            "url": "/users/:user/subscriptions",
+            "url": "/users/:owner/subscriptions",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -1100,10 +1109,10 @@
         },
 
         "get-repo-subscription": {
-            "url": "/repos/:user/:repo/subscription",
+            "url": "/repos/:owner/:repo/subscription",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -1112,10 +1121,10 @@
         },
 
         "set-repo-subscription": {
-            "url": "/repos/:user/:repo/subscription",
+            "url": "/repos/:owner/:repo/subscription",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "subscribed": {
                     "type": "Boolean",
@@ -1136,10 +1145,10 @@
         },
 
         "unwatch-repo": {
-            "url": "/repos/:user/:repo/subscription",
+            "url": "/repos/:owner/:repo/subscription",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Unwatch a repository."
@@ -1159,10 +1168,10 @@
         },
 
         "get-for-user": {
-            "url": "/users/:user/gists",
+            "url": "/users/:owner/gists",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null,
                 "$since": null
@@ -1353,10 +1362,10 @@
 
     "gitdata": {
         "get-blob": {
-            "url": "/repos/:user/:repo/git/blobs/:sha",
+            "url": "/repos/:owner/:repo/git/blobs/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "$page": null,
@@ -1366,10 +1375,10 @@
         },
 
         "create-blob": {
-            "url": "/repos/:user/:repo/git/blobs",
+            "url": "/repos/:owner/:repo/git/blobs",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "content": {
                     "type": "String",
@@ -1391,10 +1400,10 @@
         },
 
         "get-commit": {
-            "url": "/repos/:user/:repo/git/commits/:sha",
+            "url": "/repos/:owner/:repo/git/commits/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null
             },
@@ -1402,10 +1411,10 @@
         },
 
         "create-commit": {
-            "url": "/repos/:user/:repo/git/commits",
+            "url": "/repos/:owner/:repo/git/commits",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "message": {
                     "type": "String",
@@ -1447,10 +1456,10 @@
         },
 
         "get-commit-signature-verification": {
-            "url": "/repos/:user/:repo/git/commits/:sha",
+            "url": "/repos/:owner/:repo/git/commits/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null
             },
@@ -1458,10 +1467,10 @@
         },
 
         "get-reference": {
-            "url": "/repos/:user/:repo/git/refs/:ref",
+            "url": "/repos/:owner/:repo/git/refs/:ref",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$ref": null
             },
@@ -1469,10 +1478,10 @@
         },
 
         "get-references": {
-            "url": "/repos/:user/:repo/git/refs",
+            "url": "/repos/:owner/:repo/git/refs",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -1481,10 +1490,10 @@
         },
 
         "get-tags": {
-            "url": "/repos/:user/:repo/git/refs/tags",
+            "url": "/repos/:owner/:repo/git/refs/tags",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -1493,10 +1502,10 @@
         },
 
         "create-reference": {
-            "url": "/repos/:user/:repo/git/refs",
+            "url": "/repos/:owner/:repo/git/refs",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$ref": null,
                 "$sha": null
@@ -1505,10 +1514,10 @@
         },
 
         "update-reference": {
-            "url": "/repos/:user/:repo/git/refs/:ref",
+            "url": "/repos/:owner/:repo/git/refs/:ref",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$ref": null,
                 "$sha": null,
@@ -1525,10 +1534,10 @@
         },
 
         "delete-reference": {
-            "url": "/repos/:user/:repo/git/refs/:ref",
+            "url": "/repos/:owner/:repo/git/refs/:ref",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$ref": null
             },
@@ -1536,10 +1545,10 @@
         },
 
         "get-tag": {
-            "url": "/repos/:user/:repo/git/tags/:sha",
+            "url": "/repos/:owner/:repo/git/tags/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null
             },
@@ -1547,10 +1556,10 @@
         },
 
         "create-tag": {
-            "url": "/repos/:user/:repo/git/tags",
+            "url": "/repos/:owner/:repo/git/tags",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "tag": {
                     "type": "String",
@@ -1592,10 +1601,10 @@
         },
 
         "get-tag-signature-verification": {
-            "url": "/repos/:user/:repo/git/tags/:sha",
+            "url": "/repos/:owner/:repo/git/tags/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null
             },
@@ -1603,10 +1612,10 @@
         },
 
         "get-tree": {
-            "url": "/repos/:user/:repo/git/trees/:sha",
+            "url": "/repos/:owner/:repo/git/trees/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "recursive": {
@@ -1621,10 +1630,10 @@
         },
 
         "create-tree": {
-            "url": "/repos/:user/:repo/git/trees",
+            "url": "/repos/:owner/:repo/git/trees",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "tree": {
                     "type": "Json",
@@ -1774,10 +1783,10 @@
         },
 
         "get-for-repo": {
-            "url": "/repos/:user/:repo/issues",
+            "url": "/repos/:owner/:repo/issues",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "milestone": {
                     "type": "String",
@@ -1839,10 +1848,10 @@
         },
 
         "get": {
-            "url": "/repos/:user/:repo/issues/:number",
+            "url": "/repos/:owner/:repo/issues/:number",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -1850,10 +1859,10 @@
         },
 
         "create": {
-            "url": "/repos/:user/:repo/issues",
+            "url": "/repos/:owner/:repo/issues",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "title": {
                     "type": "String",
@@ -1902,10 +1911,10 @@
         },
 
         "edit": {
-            "url": "/repos/:user/:repo/issues/:number",
+            "url": "/repos/:owner/:repo/issues/:number",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "title": {
@@ -1963,10 +1972,10 @@
         },
 
         "lock": {
-            "url": "/repos/:user/:repo/issues/:number/lock",
+            "url": "/repos/:owner/:repo/issues/:number/lock",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -1974,10 +1983,10 @@
         },
 
         "unlock": {
-            "url": "/repos/:user/:repo/issues/:number/lock",
+            "url": "/repos/:owner/:repo/issues/:number/lock",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -1985,20 +1994,20 @@
         },
 
         "get-assignees": {
-            "url": "/repos/:user/:repo/assignees",
+            "url": "/repos/:owner/:repo/assignees",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "List assignees"
         },
 
         "check-assignee": {
-            "url": "/repos/:user/:repo/assignees/:assignee",
+            "url": "/repos/:owner/:repo/assignees/:assignee",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "assignee": {
                     "type": "String",
@@ -2012,10 +2021,10 @@
         },
 
         "add-assignees-to-issue": {
-            "url": "/repos/:user/:repo/issues/:number/assignees",
+            "url": "/repos/:owner/:repo/issues/:number/assignees",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "assignees": {
@@ -2030,10 +2039,10 @@
         },
 
         "remove-assignees-from-issue": {
-            "url": "/repos/:user/:repo/issues/:number/assignees",
+            "url": "/repos/:owner/:repo/issues/:number/assignees",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "body": {
@@ -2049,10 +2058,10 @@
         },
 
         "get-comments": {
-            "url": "/repos/:user/:repo/issues/:number/comments",
+            "url": "/repos/:owner/:repo/issues/:number/comments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -2062,10 +2071,10 @@
         },
 
         "get-comments-for-repo": {
-            "url": "/repos/:user/:repo/issues/comments",
+            "url": "/repos/:owner/:repo/issues/comments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "sort": {
                     "type": "String",
@@ -2084,10 +2093,10 @@
         },
 
         "get-comment": {
-            "url": "/repos/:user/:repo/issues/comments/:id",
+            "url": "/repos/:owner/:repo/issues/comments/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -2095,10 +2104,10 @@
         },
 
         "create-comment": {
-            "url": "/repos/:user/:repo/issues/:number/comments",
+            "url": "/repos/:owner/:repo/issues/:number/comments",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "body": {
@@ -2113,10 +2122,10 @@
         },
 
         "edit-comment": {
-            "url": "/repos/:user/:repo/issues/comments/:id",
+            "url": "/repos/:owner/:repo/issues/comments/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "body": {
@@ -2131,10 +2140,10 @@
         },
 
         "delete-comment": {
-            "url": "/repos/:user/:repo/issues/comments/:id",
+            "url": "/repos/:owner/:repo/issues/comments/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -2142,10 +2151,10 @@
         },
 
         "get-events": {
-            "url": "/repos/:user/:repo/issues/:number/events",
+            "url": "/repos/:owner/:repo/issues/:number/events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -2155,10 +2164,10 @@
         },
 
         "get-events-timeline": {
-            "url": "/repos/:user/:repo/issues/:number/timeline",
+            "url": "/repos/:owner/:repo/issues/:number/timeline",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -2168,10 +2177,10 @@
         },
 
         "get-events-for-repo": {
-            "url": "/repos/:user/:repo/issues/events",
+            "url": "/repos/:owner/:repo/issues/events",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -2180,10 +2189,10 @@
         },
 
         "get-event": {
-            "url": "/repos/:user/:repo/issues/events/:id",
+            "url": "/repos/:owner/:repo/issues/events/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -2191,10 +2200,10 @@
         },
 
         "get-labels": {
-            "url": "/repos/:user/:repo/labels",
+            "url": "/repos/:owner/:repo/labels",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -2203,10 +2212,10 @@
         },
 
         "get-label": {
-            "url": "/repos/:user/:repo/labels/:name",
+            "url": "/repos/:owner/:repo/labels/:name",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$name": null
             },
@@ -2214,10 +2223,10 @@
         },
 
         "create-label": {
-            "url": "/repos/:user/:repo/labels",
+            "url": "/repos/:owner/:repo/labels",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$name": null,
                 "$color": null
@@ -2226,10 +2235,10 @@
         },
 
         "update-label": {
-            "url": "/repos/:user/:repo/labels/:oldname",
+            "url": "/repos/:owner/:repo/labels/:oldname",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "oldname": {
                     "type": "String",
@@ -2251,10 +2260,10 @@
         },
 
         "delete-label": {
-            "url": "/repos/:user/:repo/labels/:name",
+            "url": "/repos/:owner/:repo/labels/:name",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$name": null
             },
@@ -2262,10 +2271,10 @@
         },
 
         "get-issue-labels": {
-            "url": "/repos/:user/:repo/issues/:number/labels",
+            "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -2273,10 +2282,10 @@
         },
 
         "add-labels": {
-            "url": "/repos/:user/:repo/issues/:number/labels",
+            "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "body": {
@@ -2292,10 +2301,10 @@
         },
 
         "remove-label": {
-            "url": "/repos/:user/:repo/issues/:number/labels/:name",
+            "url": "/repos/:owner/:repo/issues/:number/labels/:name",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "name": {
@@ -2310,10 +2319,10 @@
         },
 
         "replace-all-labels": {
-            "url": "/repos/:user/:repo/issues/:number/labels",
+            "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "body": {
@@ -2329,10 +2338,10 @@
         },
 
         "remove-all-labels": {
-            "url": "/repos/:user/:repo/issues/:number/labels",
+            "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -2340,10 +2349,10 @@
         },
 
         "get-milestone-labels": {
-            "url": "/repos/:user/:repo/milestones/:number/labels",
+            "url": "/repos/:owner/:repo/milestones/:number/labels",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -2351,10 +2360,10 @@
         },
 
         "get-milestones": {
-            "url": "/repos/:user/:repo/milestones",
+            "url": "/repos/:owner/:repo/milestones",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$state": null,
                 "sort": {
@@ -2380,10 +2389,10 @@
         },
 
         "get-milestone": {
-            "url": "/repos/:user/:repo/milestones/:number",
+            "url": "/repos/:owner/:repo/milestones/:number",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -2391,10 +2400,10 @@
         },
 
         "create-milestone": {
-            "url": "/repos/:user/:repo/milestones",
+            "url": "/repos/:owner/:repo/milestones",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "title": {
                     "type": "String",
@@ -2417,10 +2426,10 @@
         },
 
         "update-milestone": {
-            "url": "/repos/:user/:repo/milestones/:number",
+            "url": "/repos/:owner/:repo/milestones/:number",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "title": {
@@ -2444,10 +2453,10 @@
         },
 
         "delete-milestone": {
-            "url": "/repos/:user/:repo/milestones/:number",
+            "url": "/repos/:owner/:repo/milestones/:number",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -2541,10 +2550,10 @@
         },
 
         "start-import": {
-            "url": "/repos/:user/:repo/import",
+            "url": "/repos/:owner/:repo/import",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "vcs_url": {
                     "type": "String",
@@ -2586,20 +2595,20 @@
         },
 
         "get-import-progress": {
-            "url": "/repos/:user/:repo/import",
+            "url": "/repos/:owner/:repo/import",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get import progress. (In preview period. See README.)"
         },
 
         "update-import": {
-            "url": "/repos/:user/:repo/import",
+            "url": "/repos/:owner/:repo/import",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "vcs_username": {
@@ -2620,10 +2629,10 @@
         },
 
         "get-import-commit-authors": {
-            "url": "/repos/:user/:repo/import/authors",
+            "url": "/repos/:owner/:repo/import/authors",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "since": {
                     "type": "String",
@@ -2637,10 +2646,10 @@
         },
 
         "map-import-commit-author": {
-            "url": "/repos/:user/:repo/import/authors/:author_id",
+            "url": "/repos/:owner/:repo/import/authors/:author_id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "author_id": {
                     "type": "String",
@@ -2668,30 +2677,30 @@
         },
 
         "set-import-lfs-preference": {
-            "url": "/:user/:name/import/lfs",
+            "url": "/:owner/:name/import/lfs",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$name": null
             },
             "description": "Set import LFS preference. (In preview period. See README.)"
         },
 
         "get-large-import-files": {
-            "url": "/:user/:name/import/large_files",
+            "url": "/:owner/:name/import/large_files",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$name": null
             },
             "description": "List files larger than 100MB found during the import. (In preview period. See README.)"
         },
 
         "cancel-import": {
-            "url": "/repos/:user/:repo/import",
+            "url": "/repos/:owner/:repo/import",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Cancel an import. (In preview period. See README.)"
@@ -2751,10 +2760,10 @@
         },
 
         "get-repo-license": {
-            "url": "/repos/:user/:repo/license",
+            "url": "/repos/:owner/:repo/license",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get the contents of a repository's license. (In preview period. See README.)"
@@ -2834,10 +2843,10 @@
         },
 
         "get-for-user": {
-            "url": "/users/:user/orgs",
+            "url": "/users/:owner/orgs",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -2934,11 +2943,11 @@
         },
 
         "check-membership": {
-            "url": "/orgs/:org/members/:user",
+            "url": "/orgs/:org/members/:owner",
             "method": "GET",
             "params": {
                 "$org": null,
-                "$user": null
+                "$owner": null
             },
             "description": "Check membership"
         },
@@ -3183,11 +3192,11 @@
         },
 
         "check-team-repo": {
-            "url": "/teams/:id/repos/:user/:repo",
+            "url": "/teams/:id/repos/:owner/:repo",
             "method": "GET",
             "params": {
                 "$id": null,
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Check if a team manages a repository"
@@ -3212,11 +3221,11 @@
         },
 
         "delete-team-repo": {
-            "url": "/teams/:id/repos/:user/:repo",
+            "url": "/teams/:id/repos/:owner/:repo",
             "method": "DELETE",
             "params": {
                 "$id": null,
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Remove team repository"
@@ -3336,10 +3345,10 @@
 
     "pull-requests": {
         "get-all": {
-            "url": "/repos/:user/:repo/pulls",
+            "url": "/repos/:owner/:repo/pulls",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "state": {
                     "type": "String",
@@ -3379,10 +3388,10 @@
         },
 
         "get": {
-            "url": "/repos/:user/:repo/pulls/:number",
+            "url": "/repos/:owner/:repo/pulls/:number",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -3390,10 +3399,10 @@
         },
 
         "create": {
-            "url": "/repos/:user/:repo/pulls",
+            "url": "/repos/:owner/:repo/pulls",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "title": {
                     "type": "String",
@@ -3416,10 +3425,10 @@
         },
 
         "create-from-issue": {
-            "url": "/repos/:user/:repo/pulls",
+            "url": "/repos/:owner/:repo/pulls",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "issue": {
                     "type": "Number",
@@ -3435,10 +3444,10 @@
         },
 
         "update": {
-            "url": "/repos/:user/:repo/pulls/:number",
+            "url": "/repos/:owner/:repo/pulls/:number",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "title": {
@@ -3461,10 +3470,10 @@
         },
 
         "get-commits": {
-            "url": "/repos/:user/:repo/pulls/:number/commits",
+            "url": "/repos/:owner/:repo/pulls/:number/commits",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -3474,10 +3483,10 @@
         },
 
         "get-files": {
-            "url": "/repos/:user/:repo/pulls/:number/files",
+            "url": "/repos/:owner/:repo/pulls/:number/files",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -3487,10 +3496,10 @@
         },
 
         "check-merged": {
-            "url": "/repos/:user/:repo/pulls/:number/merge",
+            "url": "/repos/:owner/:repo/pulls/:number/merge",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -3500,10 +3509,10 @@
         },
 
         "merge": {
-            "url": "/repos/:user/:repo/pulls/:number/merge",
+            "url": "/repos/:owner/:repo/pulls/:number/merge",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "commit_title": {
@@ -3540,10 +3549,10 @@
         },
 
         "get-comments": {
-            "url": "/repos/:user/:repo/pulls/:number/comments",
+            "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$page": null,
@@ -3553,10 +3562,10 @@
         },
 
         "get-comments-for-repo": {
-            "url": "/repos/:user/:repo/pulls/comments",
+            "url": "/repos/:owner/:repo/pulls/comments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "sort": {
                     "type": "String",
@@ -3575,10 +3584,10 @@
         },
 
         "get-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:number",
+            "url": "/repos/:owner/:repo/pulls/comments/:number",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -3586,10 +3595,10 @@
         },
 
         "create-comment": {
-            "url": "/repos/:user/:repo/pulls/:number/comments",
+            "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$body": null,
@@ -3601,10 +3610,10 @@
         },
 
         "create-comment-reply": {
-            "url": "/repos/:user/:repo/pulls/:number/comments",
+            "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$body": null,
@@ -3620,10 +3629,10 @@
         },
 
         "edit-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:number",
+            "url": "/repos/:owner/:repo/pulls/comments/:number",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$body": null
@@ -3632,10 +3641,10 @@
         },
 
         "delete-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:number",
+            "url": "/repos/:owner/:repo/pulls/comments/:number",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -3645,10 +3654,10 @@
 
     "reactions": {
         "get-for-commit-comment": {
-            "url": "/repos/:user/:repo/comments/:id/reactions",
+            "url": "/repos/:owner/:repo/comments/:id/reactions",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "content": {
@@ -3663,10 +3672,10 @@
         },
 
         "create-for-commit-comment": {
-            "url": "/repos/:user/:repo/comments/:id/reactions",
+            "url": "/repos/:owner/:repo/comments/:id/reactions",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "content": {
@@ -3681,10 +3690,10 @@
         },
 
         "get-for-issue": {
-            "url": "/repos/:user/:repo/issues/:number/reactions",
+            "url": "/repos/:owner/:repo/issues/:number/reactions",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "content": {
@@ -3699,10 +3708,10 @@
         },
 
         "create-for-issue": {
-            "url": "/repos/:user/:repo/issues/:number/reactions",
+            "url": "/repos/:owner/:repo/issues/:number/reactions",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "content": {
@@ -3717,10 +3726,10 @@
         },
 
         "get-for-issue-comment": {
-            "url": "/repos/:user/:repo/issues/comments/:id/reactions",
+            "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "content": {
@@ -3735,10 +3744,10 @@
         },
 
         "create-for-issue-comment": {
-            "url": "/repos/:user/:repo/issues/comments/:id/reactions",
+            "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "content": {
@@ -3753,10 +3762,10 @@
         },
 
         "get-for-pull-request-review-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:id/reactions",
+            "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "content": {
@@ -3771,10 +3780,10 @@
         },
 
         "create-for-pull-request-review-comment": {
-            "url": "/repos/:user/:repo/pulls/comments/:id/reactions",
+            "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "content": {
@@ -4006,10 +4015,10 @@
         },
 
         "get": {
-            "url": "/repos/:user/:repo",
+            "url": "/repos/:owner/:repo",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get a repo for a user."
@@ -4025,10 +4034,10 @@
         },
 
         "edit": {
-            "url": "/repos/:user/:repo",
+            "url": "/repos/:owner/:repo",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$name": null,
                 "$description": null,
@@ -4067,10 +4076,10 @@
         },
 
         "get-contributors": {
-            "url": "/repos/:user/:repo/contributors",
+            "url": "/repos/:owner/:repo/contributors",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "anon": {
                     "type": "Boolean",
@@ -4086,10 +4095,10 @@
         },
 
         "get-languages": {
-            "url": "/repos/:user/:repo/languages",
+            "url": "/repos/:owner/:repo/languages",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -4098,10 +4107,10 @@
         },
 
         "get-teams": {
-            "url": "/repos/:user/:repo/teams",
+            "url": "/repos/:owner/:repo/teams",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -4110,10 +4119,10 @@
         },
 
         "get-tags": {
-            "url": "/repos/:user/:repo/tags",
+            "url": "/repos/:owner/:repo/tags",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -4122,20 +4131,20 @@
         },
 
         "delete": {
-            "url": "/repos/:user/:repo",
+            "url": "/repos/:owner/:repo",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Delete a repository."
         },
 
         "get-branches": {
-            "url": "/repos/:user/:repo/branches",
+            "url": "/repos/:owner/:repo/branches",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "protected": {
                     "type": "Boolean",
@@ -4151,10 +4160,10 @@
         },
 
         "get-branch": {
-            "url": "/repos/:user/:repo/branches/:branch",
+            "url": "/repos/:owner/:repo/branches/:branch",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4164,10 +4173,10 @@
         },
 
         "get-branch-protection": {
-            "url": "/repos/:user/:repo/branches/:branch/protection",
+            "url": "/repos/:owner/:repo/branches/:branch/protection",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4177,10 +4186,10 @@
         },
 
         "update-branch-protection": {
-            "url": "/repos/:user/:repo/branches/:branch/protection",
+            "url": "/repos/:owner/:repo/branches/:branch/protection",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "required_status_checks": {
@@ -4206,10 +4215,10 @@
         },
 
         "remove-branch-protection": {
-            "url": "/repos/:user/:repo/branches/:branch/protection",
+            "url": "/repos/:owner/:repo/branches/:branch/protection",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4219,10 +4228,10 @@
         },
 
         "get-protected-branch-required-status-checks": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4232,10 +4241,10 @@
         },
 
         "update-protected-branch-required-status-checks": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4253,10 +4262,10 @@
         },
 
         "remove-protected-branch-required-status-checks": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4266,10 +4275,10 @@
         },
 
         "get-protected-branch-required-status-checks-contexts": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4279,10 +4288,10 @@
         },
 
         "replace-protected-branch-required-status-checks-contexts": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4300,10 +4309,10 @@
         },
 
         "add-protected-branch-required-status-checks-contexts": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4321,10 +4330,10 @@
         },
 
         "remove-protected-branch-required-status-checks-contexts": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/required_status_checks/contexts",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4334,10 +4343,10 @@
         },
 
         "get-protected-branch-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4347,10 +4356,10 @@
         },
 
         "remove-protected-branch-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4360,10 +4369,10 @@
         },
 
         "get-protected-branch-team-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4373,10 +4382,10 @@
         },
 
         "replace-protected-branch-team-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4394,10 +4403,10 @@
         },
 
         "add-protected-branch-team-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4415,10 +4424,10 @@
         },
 
         "remove-protected-branch-team-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/teams",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4428,10 +4437,10 @@
         },
 
         "get-protected-branch-user-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4441,10 +4450,10 @@
         },
 
         "replace-protected-branch-user-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4462,10 +4471,10 @@
         },
 
         "add-protected-branch-user-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "body": {
@@ -4483,10 +4492,10 @@
         },
 
         "remove-protected-branch-user-restrictions": {
-            "url": "/repos/:user/:repo/branches/:branch/protection/restrictions/users",
+            "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$branch": null,
                 "$page": null,
@@ -4496,10 +4505,10 @@
         },
 
         "get-collaborators": {
-            "url": "/repos/:user/:repo/collaborators",
+            "url": "/repos/:owner/:repo/collaborators",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -4508,10 +4517,10 @@
         },
 
         "check-collaborator": {
-            "url": "/repos/:user/:repo/collaborators/:collabuser",
+            "url": "/repos/:owner/:repo/collaborators/:collabuser",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$collabuser": null
             },
@@ -4519,10 +4528,10 @@
         },
 
         "add-collaborator": {
-            "url": "/repos/:user/:repo/collaborators/:collabuser",
+            "url": "/repos/:owner/:repo/collaborators/:collabuser",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$collabuser": null,
                 "permission": {
@@ -4538,10 +4547,10 @@
         },
 
         "remove-collaborator": {
-            "url": "/repos/:user/:repo/collaborators/:collabuser",
+            "url": "/repos/:owner/:repo/collaborators/:collabuser",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$collabuser": null
             },
@@ -4549,10 +4558,10 @@
         },
 
         "get-all-commit-comments": {
-            "url": "/repos/:user/:repo/comments",
+            "url": "/repos/:owner/:repo/comments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -4561,10 +4570,10 @@
         },
 
         "get-commit-comments": {
-            "url": "/repos/:user/:repo/commits/:sha/comments",
+            "url": "/repos/:owner/:repo/commits/:sha/comments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "$page": null,
@@ -4574,10 +4583,10 @@
         },
 
         "create-commit-comment": {
-            "url": "/repos/:user/:repo/commits/:sha/comments",
+            "url": "/repos/:owner/:repo/commits/:sha/comments",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "$body": null,
@@ -4607,10 +4616,10 @@
         },
 
         "get-commit-comment": {
-            "url": "/repos/:user/:repo/comments/:id",
+            "url": "/repos/:owner/:repo/comments/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -4618,10 +4627,10 @@
         },
 
         "update-commit-comment": {
-            "url": "/repos/:user/:repo/comments/:id",
+            "url": "/repos/:owner/:repo/comments/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "$body": null
@@ -4630,10 +4639,10 @@
         },
 
         "delete-commit-comment": {
-            "url": "/repos/:user/:repo/comments/:id",
+            "url": "/repos/:owner/:repo/comments/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -4641,10 +4650,10 @@
         },
 
         "get-commits": {
-            "url": "/repos/:user/:repo/commits",
+            "url": "/repos/:owner/:repo/commits",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "sha": {
                     "type": "String",
@@ -4676,10 +4685,10 @@
         },
 
         "get-commit": {
-            "url": "/repos/:user/:repo/commits/:sha",
+            "url": "/repos/:owner/:repo/commits/:sha",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null
             },
@@ -4687,10 +4696,10 @@
         },
 
         "get-sha-of-commit-ref": {
-            "url": "/repos/:user/:repo/commits/:ref",
+            "url": "/repos/:owner/:repo/commits/:ref",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$ref": null
             },
@@ -4698,10 +4707,10 @@
         },
 
         "compare-commits": {
-            "url": "/repos/:user/:repo/compare/:base...:head",
+            "url": "/repos/:owner/:repo/compare/:base...:head",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$base": null,
                 "$head": null
@@ -4710,10 +4719,10 @@
         },
 
         "get-readme": {
-            "url": "/repos/:user/:repo/readme",
+            "url": "/repos/:owner/:repo/readme",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "ref": {
                     "type": "String",
@@ -4727,10 +4736,10 @@
         },
 
         "get-content": {
-            "url": "/repos/:user/:repo/contents/:path",
+            "url": "/repos/:owner/:repo/contents/:path",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "path": {
                     "type": "String",
@@ -4752,10 +4761,10 @@
         },
 
         "create-file": {
-            "url": "/repos/:user/:repo/contents/:path",
+            "url": "/repos/:owner/:repo/contents/:path",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "path": {
                     "type": "String",
@@ -4797,10 +4806,10 @@
         },
 
         "update-file": {
-            "url": "/repos/:user/:repo/contents/:path",
+            "url": "/repos/:owner/:repo/contents/:path",
             "method": "PUT",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "path": {
                     "type": "String",
@@ -4849,10 +4858,10 @@
         },
 
         "delete-file": {
-            "url": "/repos/:user/:repo/contents/:path",
+            "url": "/repos/:owner/:repo/contents/:path",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "path": {
                     "type": "String",
@@ -4894,10 +4903,10 @@
         },
 
         "get-archive-link": {
-            "url": "/repos/:user/:repo/:archive_format/:ref",
+            "url": "/repos/:owner/:repo/:archive_format/:ref",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "archive_format": {
                     "type": "String",
@@ -4919,10 +4928,10 @@
         },
 
         "get-keys": {
-            "url": "/repos/:user/:repo/keys",
+            "url": "/repos/:owner/:repo/keys",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -4931,10 +4940,10 @@
         },
 
         "get-key": {
-            "url": "/repos/:user/:repo/keys/:id",
+            "url": "/repos/:owner/:repo/keys/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -4942,10 +4951,10 @@
         },
 
         "create-key": {
-            "url": "/repos/:user/:repo/keys",
+            "url": "/repos/:owner/:repo/keys",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$title": null,
                 "$key": null,
@@ -4961,10 +4970,10 @@
         },
 
         "delete-key": {
-            "url": "/repos/:user/:repo/keys/:id",
+            "url": "/repos/:owner/:repo/keys/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -4972,10 +4981,10 @@
         },
 
         "get-deployments": {
-            "url": "/repos/:user/:repo/deployments",
+            "url": "/repos/:owner/:repo/deployments",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "sha": {
                     "type": "String",
@@ -5016,10 +5025,10 @@
         },
 
         "create-deployment": {
-            "url": "/repos/:user/:repo/deployments",
+            "url": "/repos/:owner/:repo/deployments",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "ref": {
                     "type": "String",
@@ -5095,10 +5104,10 @@
         },
 
         "get-deployment-statuses": {
-            "url": "/repos/:user/:repo/deployments/:id/statuses",
+            "url": "/repos/:owner/:repo/deployments/:id/statuses",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5106,10 +5115,10 @@
         },
 
         "create-deployment-status": {
-            "url": "/repos/:user/:repo/deployments/:id/statuses",
+            "url": "/repos/:owner/:repo/deployments/:id/statuses",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "state": {
@@ -5164,10 +5173,10 @@
         },
 
         "get-downloads": {
-            "url": "/repos/:user/:repo/downloads",
+            "url": "/repos/:owner/:repo/downloads",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5176,10 +5185,10 @@
         },
 
         "get-download": {
-            "url": "/repos/:user/:repo/downloads/:id",
+            "url": "/repos/:owner/:repo/downloads/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5187,10 +5196,10 @@
         },
 
         "delete-download": {
-            "url": "/repos/:user/:repo/downloads/:id",
+            "url": "/repos/:owner/:repo/downloads/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5198,10 +5207,10 @@
         },
 
         "get-forks": {
-            "url": "/repos/:user/:repo/forks",
+            "url": "/repos/:owner/:repo/forks",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "sort": {
                     "type": "String",
@@ -5218,10 +5227,10 @@
         },
 
         "fork": {
-            "url": "/repos/:user/:repo/forks",
+            "url": "/repos/:owner/:repo/forks",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "organization": {
                     "type": "String",
@@ -5271,10 +5280,10 @@
         },
 
         "merge": {
-            "url": "/repos/:user/:repo/merges",
+            "url": "/repos/:owner/:repo/merges",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$base": null,
                 "$head": null,
@@ -5290,10 +5299,10 @@
         },
 
         "get-pages": {
-            "url": "/repos/:user/:repo/pages",
+            "url": "/repos/:owner/:repo/pages",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5302,20 +5311,20 @@
         },
 
         "request-page-build": {
-            "url": "/repos/:user/:repo/pages/builds",
+            "url": "/repos/:owner/:repo/pages/builds",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Request a page build. (In preview period. See README.)"
         },
 
         "get-pages-builds": {
-            "url": "/repos/:user/:repo/pages/builds",
+            "url": "/repos/:owner/:repo/pages/builds",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5324,20 +5333,20 @@
         },
 
         "get-latest-pages-build": {
-            "url": "/repos/:user/:repo/pages/builds/latest",
+            "url": "/repos/:owner/:repo/pages/builds/latest",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get latest Pages build"
         },
 
         "get-pages-build": {
-            "url": "/repos/:user/:repo/pages/builds/:id",
+            "url": "/repos/:owner/:repo/pages/builds/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5345,20 +5354,20 @@
         },
 
         "get-projects": {
-            "url": "/repos/:user/:repo/projects",
+            "url": "/repos/:owner/:repo/projects",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "List projects."
         },
 
         "get-project": {
-            "url": "/repos/:user/:repo/projects/:number",
+            "url": "/repos/:owner/:repo/projects/:number",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -5366,10 +5375,10 @@
         },
 
         "create-project": {
-            "url": "/repos/:user/:repo/projects",
+            "url": "/repos/:owner/:repo/projects",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$name": null,
                 "$body": null
@@ -5378,10 +5387,10 @@
         },
 
         "update-project": {
-            "url": "/repos/:user/:repo/projects/:number",
+            "url": "/repos/:owner/:repo/projects/:number",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$name": null,
@@ -5391,10 +5400,10 @@
         },
 
         "delete-project": {
-            "url": "/repos/:user/:repo/projects/:number",
+            "url": "/repos/:owner/:repo/projects/:number",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -5402,10 +5411,10 @@
         },
 
         "get-project-columns": {
-            "url": "/repos/:user/:repo/projects/:number/columns",
+            "url": "/repos/:owner/:repo/projects/:number/columns",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null
             },
@@ -5413,10 +5422,10 @@
         },
 
         "get-project-column": {
-            "url": "/repos/:user/:repo/projects/columns/:id",
+            "url": "/repos/:owner/:repo/projects/columns/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5424,10 +5433,10 @@
         },
 
         "create-project-column": {
-            "url": "/repos/:user/:repo/projects/:number/columns",
+            "url": "/repos/:owner/:repo/projects/:number/columns",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$number": null,
                 "$name": null
@@ -5436,10 +5445,10 @@
         },
 
         "update-project-column": {
-            "url": "/repos/:user/:repo/projects/columns/:id",
+            "url": "/repos/:owner/:repo/projects/columns/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "$name": null
@@ -5448,10 +5457,10 @@
         },
 
         "delete-project-column": {
-            "url": "/repos/:user/:repo/projects/columns/:id",
+            "url": "/repos/:owner/:repo/projects/columns/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5459,10 +5468,10 @@
         },
 
         "move-project-column": {
-            "url": "/repos/:user/:repo/projects/columns/:id/moves",
+            "url": "/repos/:owner/:repo/projects/columns/:id/moves",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "position": {
@@ -5477,10 +5486,10 @@
         },
 
         "get-project-cards": {
-            "url": "/repos/:user/:repo/projects/columns/:id/cards",
+            "url": "/repos/:owner/:repo/projects/columns/:id/cards",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5488,10 +5497,10 @@
         },
 
         "get-project-card": {
-            "url": "/repos/:user/:repo/projects/columns/cards/:id",
+            "url": "/repos/:owner/:repo/projects/columns/cards/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5499,10 +5508,10 @@
         },
 
         "create-project-card": {
-            "url": "/repos/:user/:repo/projects/columns/:id/cards",
+            "url": "/repos/:owner/:repo/projects/columns/:id/cards",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "note": {
@@ -5531,10 +5540,10 @@
         },
 
         "update-project-card": {
-            "url": "/repos/:user/:repo/projects/columns/cards/:id",
+            "url": "/repos/:owner/:repo/projects/columns/cards/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "note": {
@@ -5549,10 +5558,10 @@
         },
 
         "delete-project-card": {
-            "url": "/repos/:user/:repo/projects/columns/cards/:id",
+            "url": "/repos/:owner/:repo/projects/columns/cards/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5560,10 +5569,10 @@
         },
 
         "move-project-card": {
-            "url": "/repos/:user/:repo/projects/columns/cards/:id/moves",
+            "url": "/repos/:owner/:repo/projects/columns/cards/:id/moves",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "position": {
@@ -5585,10 +5594,10 @@
         },
 
         "get-releases": {
-            "url": "/repos/:user/:repo/releases",
+            "url": "/repos/:owner/:repo/releases",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5597,10 +5606,10 @@
         },
 
         "get-release": {
-            "url": "/repos/:user/:repo/releases/:id",
+            "url": "/repos/:owner/:repo/releases/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5608,20 +5617,20 @@
         },
 
         "get-latest-release": {
-            "url": "/repos/:user/:repo/releases/latest",
+            "url": "/repos/:owner/:repo/releases/latest",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get the latest release."
         },
 
         "get-release-by-tag": {
-            "url": "/repos/:user/:repo/releases/tags/:tag",
+            "url": "/repos/:owner/:repo/releases/tags/:tag",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "tag": {
                     "type": "String",
@@ -5635,10 +5644,10 @@
         },
 
         "create-release": {
-            "url": "/repos/:user/:repo/releases",
+            "url": "/repos/:owner/:repo/releases",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "tag_name": {
                     "type": "String",
@@ -5687,10 +5696,10 @@
         },
 
         "edit-release": {
-            "url": "/repos/:user/:repo/releases/:id",
+            "url": "/repos/:owner/:repo/releases/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "tag_name": {
@@ -5742,10 +5751,10 @@
         },
 
         "delete-release": {
-            "url": "/repos/:user/:repo/releases/:id",
+            "url": "/repos/:owner/:repo/releases/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5753,10 +5762,10 @@
         },
 
         "list-assets": {
-            "url": "/repos/:user/:repo/releases/:id/assets",
+            "url": "/repos/:owner/:repo/releases/:id/assets",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5764,10 +5773,10 @@
         },
 
         "get-asset": {
-            "url": "/repos/:user/:repo/releases/assets/:id",
+            "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5775,13 +5784,13 @@
         },
 
         "upload-asset": {
-            "url": "/repos/:user/:repo/releases/:id/assets",
+            "url": "/repos/:owner/:repo/releases/:id/assets",
             "method": "POST",
             "host": "uploads.github.com",
             "hasFileBody": true,
             "timeout": 0,
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "filePath": {
@@ -5810,10 +5819,10 @@
         },
 
         "edit-asset": {
-            "url": "/repos/:user/:repo/releases/assets/:id",
+            "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "$name": null,
@@ -5829,10 +5838,10 @@
         },
 
         "delete-asset": {
-            "url": "/repos/:user/:repo/releases/assets/:id",
+            "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -5840,60 +5849,60 @@
         },
 
         "get-stats-contributors": {
-            "url": "/repos/:user/:repo/stats/contributors",
+            "url": "/repos/:owner/:repo/stats/contributors",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get contributors list with additions, deletions, and commit counts."
         },
 
         "get-stats-commit-activity": {
-            "url": "/repos/:user/:repo/stats/commit_activity",
+            "url": "/repos/:owner/:repo/stats/commit_activity",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get the last year of commit activity data."
         },
 
         "get-stats-code-frequency": {
-            "url": "/repos/:user/:repo/stats/code_frequency",
+            "url": "/repos/:owner/:repo/stats/code_frequency",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get the number of additions and deletions per week."
         },
 
         "get-stats-participation": {
-            "url": "/repos/:user/:repo/stats/participation",
+            "url": "/repos/:owner/:repo/stats/participation",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get the weekly commit count for the repository owner and everyone else."
         },
 
         "get-stats-punch-card": {
-            "url": "/repos/:user/:repo/stats/punch_card",
+            "url": "/repos/:owner/:repo/stats/punch_card",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null
             },
             "description": "Get the number of commits per hour in each day."
         },
 
         "create-status": {
-            "url": "/repos/:user/:repo/statuses/:sha",
+            "url": "/repos/:owner/:repo/statuses/:sha",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "state": {
@@ -5929,10 +5938,10 @@
         },
 
         "get-statuses": {
-            "url": "/repos/:user/:repo/commits/:sha/statuses",
+            "url": "/repos/:owner/:repo/commits/:sha/statuses",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "$page": null,
@@ -5942,10 +5951,10 @@
         },
 
         "get-combined-status": {
-            "url": "/repos/:user/:repo/commits/:sha/status",
+            "url": "/repos/:owner/:repo/commits/:sha/status",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$sha": null,
                 "$page": null,
@@ -5955,10 +5964,10 @@
         },
 
         "get-referrers": {
-            "url": "/repos/:user/:repo/traffic/popular/referrers",
+            "url": "/repos/:owner/:repo/traffic/popular/referrers",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5967,10 +5976,10 @@
         },
 
         "get-paths": {
-            "url": "/repos/:user/:repo/traffic/popular/paths",
+            "url": "/repos/:owner/:repo/traffic/popular/paths",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5979,10 +5988,10 @@
         },
 
         "get-views": {
-            "url": "/repos/:user/:repo/traffic/views",
+            "url": "/repos/:owner/:repo/traffic/views",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -5991,10 +6000,10 @@
         },
 
         "get-clones": {
-            "url": "/repos/:user/:repo/traffic/clones",
+            "url": "/repos/:owner/:repo/traffic/clones",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -6003,10 +6012,10 @@
         },
 
         "get-hooks": {
-            "url": "/repos/:user/:repo/hooks",
+            "url": "/repos/:owner/:repo/hooks",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$page": null,
                 "$per_page": null
@@ -6015,10 +6024,10 @@
         },
 
         "get-hook": {
-            "url": "/repos/:user/:repo/hooks/:id",
+            "url": "/repos/:owner/:repo/hooks/:id",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -6026,10 +6035,10 @@
         },
 
         "create-hook": {
-            "url": "/repos/:user/:repo/hooks",
+            "url": "/repos/:owner/:repo/hooks",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$name": null,
                 "config": {
@@ -6059,10 +6068,10 @@
         },
 
         "edit-hook": {
-            "url": "/repos/:user/:repo/hooks/:id",
+            "url": "/repos/:owner/:repo/hooks/:id",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null,
                 "$name": null,
@@ -6107,10 +6116,10 @@
         },
 
         "test-hook": {
-            "url": "/repos/:user/:repo/hooks/:id/test",
+            "url": "/repos/:owner/:repo/hooks/:id/test",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -6118,10 +6127,10 @@
         },
 
         "ping-hook": {
-            "url": "/repos/:user/:repo/hooks/:id/pings",
+            "url": "/repos/:owner/:repo/hooks/:id/pings",
             "method": "POST",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },
@@ -6129,10 +6138,10 @@
         },
 
         "delete-hook": {
-            "url": "/repos/:user/:repo/hooks/:id",
+            "url": "/repos/:owner/:repo/hooks/:id",
             "method": "DELETE",
             "params": {
-                "$user": null,
+                "$owner": null,
                 "$repo": null,
                 "$id": null
             },

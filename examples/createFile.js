@@ -13,7 +13,7 @@ github.authenticate({
 });
 
 github.repos.createFile({
-    user: "kaizensoze",
+    owner: "kaizensoze",
     repo: "misc-scripts",
     path: "blah.txt",
     message: "blah blah",

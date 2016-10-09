@@ -25,10 +25,10 @@ describe("[migrations]", function() {
         });
     });
 
-    it("should successfully execute DELETE /repos/:user/:repo/import (cancelImport)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/import (cancelImport)",  function(next) {
         client.migrations.cancelImport(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -53,10 +53,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/import/authors (getImportCommitAuthors)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/import/authors (getImportCommitAuthors)",  function(next) {
         client.migrations.getImportCommitAuthors(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 since: "String"
             },
@@ -68,10 +68,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/import (getImportProgress)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/import (getImportProgress)",  function(next) {
         client.migrations.getImportProgress(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
@@ -82,10 +82,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute GET /:user/:name/import/large_files (getLargeImportFiles)",  function(next) {
+    it("should successfully execute GET /:owner/:name/import/large_files (getLargeImportFiles)",  function(next) {
         client.migrations.getLargeImportFiles(
             {
-                user: "String",
+                owner: "String",
                 name: "String"
             },
             function(err, res) {
@@ -139,10 +139,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/import/authors/:author_id (mapImportCommitAuthor)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/import/authors/:author_id (mapImportCommitAuthor)",  function(next) {
         client.migrations.mapImportCommitAuthor(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 author_id: "String",
                 email: "String",
@@ -156,10 +156,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute PATCH /:user/:name/import/lfs (setImportLfsPreference)",  function(next) {
+    it("should successfully execute PATCH /:owner/:name/import/lfs (setImportLfsPreference)",  function(next) {
         client.migrations.setImportLfsPreference(
             {
-                user: "String",
+                owner: "String",
                 name: "String"
             },
             function(err, res) {
@@ -170,10 +170,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute PUT /repos/:user/:repo/import (startImport)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/import (startImport)",  function(next) {
         client.migrations.startImport(
             {
-                user: "String",
+                owner: "String",
                 repo: "String",
                 vcs_url: "String",
                 vcs: "String",
@@ -220,10 +220,10 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:user/:repo/import (updateImport)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/import (updateImport)",  function(next) {
         client.migrations.updateImport(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {

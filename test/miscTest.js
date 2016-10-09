@@ -106,10 +106,10 @@ describe("[misc]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:user/:repo/license (getRepoLicense)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/license (getRepoLicense)",  function(next) {
         client.misc.getRepoLicense(
             {
-                user: "String",
+                owner: "String",
                 repo: "String"
             },
             function(err, res) {
