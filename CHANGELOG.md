@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.0.1
+
+Bugfixes:
+  * Fix for remove assignees from issue.
+
 ## 5.0.0
 
 Breaking changes:
