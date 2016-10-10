@@ -14,9 +14,9 @@ github.authenticate({
 
 github.issues.addLabels({
     owner: "kaizensoze",
-    repo: "node-github",
-    number: "101",
-    body: ["invalid", "bug", "duplicate"]
+    repo: "test2",
+    number: "4",
+    body: ["bug", "help wanted", "question"]
 }, function(err, res) {
     console.log(err, res);
 });
