@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.1.0
+
+Features:
+  * All pagination-related functions now promisified.
+
 ## 5.0.1
 
 Bugfixes:
