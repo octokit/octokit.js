@@ -4245,13 +4245,26 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
-                    "type": "Json",
-                    "sendValueAsBody": true,
-                    "required": true,
+                "include_admins": {
+                    "type": "Boolean",
+                    "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch."
+                    "description": "Enforce required status checks for repository administrators."
+                },
+                "strict": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Require branches to be up to date before merging."
+                },
+                "contexts": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The list of status checks to require in order to merge into this branch."
                 },
                 "$page": null,
                 "$per_page": null

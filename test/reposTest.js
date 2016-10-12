@@ -2077,7 +2077,9 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Json",
+                include_admins: "Boolean",
+                strict: "Boolean",
+                contexts: "Array",
                 page: "Number",
                 per_page: "Number"
             },
