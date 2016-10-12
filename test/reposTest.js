@@ -1937,7 +1937,7 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/hooks/:id/test (testHook)",  function(next) {
+    it("should successfully execute POST /repos/:owner/:repo/hooks/:id/tests (testHook)",  function(next) {
         client.repos.testHook(
             {
                 owner: "String",

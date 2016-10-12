@@ -6109,7 +6109,7 @@
         },
 
         "test-hook": {
-            "url": "/repos/:owner/:repo/hooks/:id/test",
+            "url": "/repos/:owner/:repo/hooks/:id/tests",
             "method": "POST",
             "params": {
                 "$owner": null,
