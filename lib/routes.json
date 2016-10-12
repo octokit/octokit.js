@@ -4026,15 +4026,6 @@
             "description": "Get a repo for a user."
         },
 
-        "one": {
-            "url": "/repositories/:id",
-            "method": "GET",
-            "params": {
-                "$id": null
-            },
-            "description": "Get a specific repo."
-        },
-
         "edit": {
             "url": "/repos/:owner/:repo",
             "method": "PATCH",

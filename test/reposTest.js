@@ -1737,19 +1737,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repositories/:id (one)",  function(next) {
-        client.repos.one(
-            {
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /repos/:owner/:repo/hooks/:id/pings (pingHook)",  function(next) {
         client.repos.pingHook(
             {
