@@ -99,7 +99,9 @@ describe("[gists]", function() {
             {
                 id: "String",
                 description: "String",
-                files: "Json"
+                files: "Json",
+                content: "String",
+                filename: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

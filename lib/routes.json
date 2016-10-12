@@ -1195,7 +1195,21 @@
             "params": {
                 "$id": null,
                 "$description": null,
-                "$files": null
+                "$files": null,
+                "content": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Updated file contents."
+                },
+                "filename": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "New name for this file."
+                }
             },
             "description": "Edit a gist"
         },
