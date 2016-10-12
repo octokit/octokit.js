@@ -6420,7 +6420,7 @@
         },
 
         "get-followers": {
-            "url": "/users/followers",
+            "url": "/user/followers",
             "method": "GET",
             "params": {
                 "$page": null,

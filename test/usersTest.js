@@ -248,7 +248,7 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/followers (getFollowers)",  function(next) {
+    it("should successfully execute GET /user/followers (getFollowers)",  function(next) {
         client.users.getFollowers(
             {
                 page: "Number",
