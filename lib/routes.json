@@ -441,11 +441,6 @@
                 "/orgs/:org/migrations/:id/repos/:repo/lock"
             ],
             
-            "application/vnd.github.damage-preview": [
-                "/applications/grants",
-                "/applications/grants/:id"
-            ],
-            
             "application/vnd.github.mister-fantastic-preview+json": [
                 "/repos/:owner/:repo/pages",
                 "/repos/:owner/:repo/pages/builds",
@@ -518,7 +513,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List your grants. (In preview period. See README.)"
+            "description": "List your grants."
         },
 
         "get-grant": {
@@ -529,7 +524,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get a single grant. (In preview period. See README.)"
+            "description": "Get a single grant."
         },
 
         "delete-grant": {
@@ -538,7 +533,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete a grant. (In preview period. See README.)"
+            "description": "Delete a grant."
         },
 
         "get-all": {
