@@ -4,10 +4,7 @@ var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
 var github = new Client({
-    debug: false,
-    headers: {
-        "Accept": "application/vnd.github.squirrel-girl-preview"
-    }
+    debug: false
 });
 
 github.authenticate({
