@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 5.2.0
+
+Features:
+  * Add pre-receive endpoints.
+  * Add params for editGist endpoint.
+
+Bug fixes:
+  * Adjust params for updateProtectedBranchRequiredStatusChecks.
+  * Use body by default for non head/get/delete requests.
+  * Fix mismatched endpoints in acceptTree object.
+  * Prevent `accept` and `Accept` mixing in headers. 
+  * Adjust getFollowers endpoint url.
+  * Adjust testHook endpoint url.
+
 ## 5.1.0
 
 Features:
