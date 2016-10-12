@@ -680,55 +680,6 @@
             "description": "Revoke an authorization for an application"
         }
     },
-    
-    "integrations": {
-        "get-installations": {
-            "url": "/integration/installations",
-            "method": "GET",
-            "params": {
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List the integration's installations. (In preview period. See README.)"
-        },
-        
-        "create-installation-token": {
-            "url": "/installations/:installation_id/access_tokens",
-            "method": "POST",
-            "params": {
-              "installation_id": {
-                  "type": "Number",
-                  "required": true,
-                  "validation": "^[0-9]+$",
-                  "invalidmsg": "",
-                  "description": "The id of the installation for this integration."
-              },
-              "user_id": {
-                  "type": "Number",
-                  "required": false,
-                  "validation": "^[0-9]+$",
-                  "invalidmsg": "",
-                  "description": "The id of the user for whom the integration is acting on behalf of."
-              }
-            },
-            "description": "Create a new installation token. (In preview period. See README.)"
-        },
-        
-        "get-user-identity": {
-            "url": "/integration/identity/user",
-            "method": "POST",
-            "params": {
-                "nonce": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
-            },
-            "description": "Request identity of user. (In preview period. See README.)"
-        }
-    },
 
     "activity": {
         "get-events": {
@@ -1651,6 +1602,55 @@
                 }
             },
             "description": "Create a Tree"
+        }
+    },
+
+    "integrations": {
+        "get-installations": {
+            "url": "/integration/installations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List the integration's installations. (In preview period. See README.)"
+        },
+        
+        "create-installation-token": {
+            "url": "/installations/:installation_id/access_tokens",
+            "method": "POST",
+            "params": {
+              "installation_id": {
+                  "type": "Number",
+                  "required": true,
+                  "validation": "^[0-9]+$",
+                  "invalidmsg": "",
+                  "description": "The id of the installation for this integration."
+              },
+              "user_id": {
+                  "type": "Number",
+                  "required": false,
+                  "validation": "^[0-9]+$",
+                  "invalidmsg": "",
+                  "description": "The id of the user for whom the integration is acting on behalf of."
+              }
+            },
+            "description": "Create a new installation token. (In preview period. See README.)"
+        },
+        
+        "get-user-identity": {
+            "url": "/integration/identity/user",
+            "method": "POST",
+            "params": {
+                "nonce": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            },
+            "description": "Request identity of user. (In preview period. See README.)"
         }
     },
 
