@@ -443,11 +443,7 @@
             
             "application/vnd.github.damage-preview": [
                 "/applications/grants",
-                "/applications/grants/:id",
-                "/authorizations/:id",
-                "/authorizations",
-                "/authorizations/clients/:client_id/:fingerprint",
-                "/applications/:client_id/tokens/:access_token"
+                "/applications/grants/:id"
             ],
             
             "application/vnd.github.mister-fantastic-preview+json": [
@@ -552,7 +548,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List your authorizations"
+            "description": "List your authorizations."
         },
 
         "get": {
@@ -561,7 +557,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Get a single authorization"
+            "description": "Get a single authorization."
         },
 
         "create": {
@@ -581,7 +577,7 @@
                 },
                 "$fingerprint": null
             },
-            "description": "Create a new authorization"
+            "description": "Create a new authorization."
         },
 
         "get-or-create-authorization-for-app": {
@@ -601,7 +597,7 @@
                 "$note_url": null,
                 "$fingerprint": null
             },
-            "description": "Get or create an authorization for a specific app"
+            "description": "Get or create an authorization for a specific app."
         },
 
         "get-or-create-authorization-for-app-and-fingerprint": {
@@ -621,7 +617,7 @@
                 "$note": null,
                 "$note_url": null
             },
-            "description": "Get or create an authorization for a specific app and fingerprint"
+            "description": "Get or create an authorization for a specific app and fingerprint."
         },
 
         "update": {
@@ -647,7 +643,7 @@
                 "$note": null,
                 "$note_url": null
             },
-            "description": "Update an existing authorization"
+            "description": "Update an existing authorization."
         },
 
         "delete": {
@@ -656,7 +652,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete an authorization"
+            "description": "Delete an authorization."
         },
 
         "check": {
@@ -2503,7 +2499,7 @@
                     "default": "false"
                 }
             },
-            "description": "Start a migration."
+            "description": "Start a migration. (In preview period. See README.)"
         },
 
         "get-migrations": {
@@ -2514,7 +2510,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get a list of migrations"
+            "description": "Get a list of migrations. (In preview period. See README.)"
         },
 
         "get-migration-status": {
@@ -2524,7 +2520,7 @@
                 "$org": null,
                 "$id": null
             },
-            "description": "Get the status of a migration"
+            "description": "Get the status of a migration. (In preview period. See README.)"
         },
 
         "get-migration-archive-link": {
@@ -2534,7 +2530,7 @@
                 "$org": null,
                 "$id": null
             },
-            "description": "Get the URL to a migration archive."
+            "description": "Get the URL to a migration archive. (In preview period. See README.)"
         },
 
         "delete-migration-archive": {
@@ -2544,7 +2540,7 @@
                 "$org": null,
                 "$id": null
             },
-            "description": "Delete a migration archive"
+            "description": "Delete a migration archive. (In preview period. See README.)"
         },
 
         "unlock-repo-locked-for-migration": {
@@ -2555,7 +2551,7 @@
                 "$id": null,
                 "$repo": null
             },
-            "description": "Unlock a repository that was locked for migration."
+            "description": "Unlock a repository that was locked for migration. (In preview period. See README.)"
         },
 
         "start-import": {
@@ -5023,7 +5019,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List deployments."
+            "description": "List deployments. (In preview period. See README.)"
         },
 
         "create-deployment": {
@@ -5102,7 +5098,7 @@
                     "description": "Specifies if the given environment is a one that end-users directly interact with. Default: true when environment is `production` and false otherwise. (In preview period. See README.)"
                 }
             },
-            "description": "Create a deployment."
+            "description": "Create a deployment. (In preview period. See README.)"
         },
 
         "get-deployment-statuses": {
@@ -5113,7 +5109,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "List deployment statuses."
+            "description": "List deployment statuses. (In preview period. See README.)"
         },
 
         "create-deployment-status": {
@@ -5171,7 +5167,7 @@
                     "default": true
                 }
             },
-            "description": "Create a deployment status."
+            "description": "Create a deployment status. (In preview period. See README.)"
         },
 
         "get-downloads": {
@@ -5309,7 +5305,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get information about a Pages site. (Use preview header to include additional info.)"
+            "description": "Get information about a Pages site. (In preview period. See README.)"
         },
 
         "request-page-build": {
@@ -5331,7 +5327,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List Pages builds"
+            "description": "List Pages builds. (In preview period. See README.)"
         },
 
         "get-latest-pages-build": {
@@ -5341,7 +5337,7 @@
                 "$owner": null,
                 "$repo": null
             },
-            "description": "Get latest Pages build"
+            "description": "Get latest Pages build. (In preview period. See README.)"
         },
 
         "get-pages-build": {
@@ -5352,7 +5348,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "Get a specific Pages build"
+            "description": "Get a specific Pages build. (In preview period. See README.)"
         },
 
         "get-projects": {
@@ -5362,7 +5358,7 @@
                 "$owner": null,
                 "$repo": null
             },
-            "description": "List projects."
+            "description": "List projects. (In preview period. See README.)"
         },
 
         "get-project": {
@@ -5373,7 +5369,7 @@
                 "$repo": null,
                 "$number": null
             },
-            "description": "List a project."
+            "description": "List a project. (In preview period. See README.)"
         },
 
         "create-project": {
@@ -5385,7 +5381,7 @@
                 "$name": null,
                 "$body": null
             },
-            "description": "Create a project."
+            "description": "Create a project. (In preview period. See README.)"
         },
 
         "update-project": {
@@ -5398,7 +5394,7 @@
                 "$name": null,
                 "$body": null
             },
-            "description": "Update a project."
+            "description": "Update a project. (In preview period. See README.)"
         },
 
         "delete-project": {
@@ -5409,7 +5405,7 @@
                 "$repo": null,
                 "$number": null
             },
-            "description": "Delete a project."
+            "description": "Delete a project. (In preview period. See README.)"
         },
 
         "get-project-columns": {
@@ -5420,7 +5416,7 @@
                 "$repo": null,
                 "$number": null
             },
-            "description": "List a project's columns."
+            "description": "List a project's columns. (In preview period. See README.)"
         },
 
         "get-project-column": {
@@ -5431,7 +5427,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "Get a project column."
+            "description": "Get a project column. (In preview period. See README.)"
         },
 
         "create-project-column": {
@@ -5443,7 +5439,7 @@
                 "$number": null,
                 "$name": null
             },
-            "description": "Create a project column."
+            "description": "Create a project column. (In preview period. See README.)"
         },
 
         "update-project-column": {
@@ -5455,7 +5451,7 @@
                 "$id": null,
                 "$name": null
             },
-            "description": "Update a project column."
+            "description": "Update a project column. (In preview period. See README.)"
         },
 
         "delete-project-column": {
@@ -5466,7 +5462,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "Delete a project column."
+            "description": "Delete a project column. (In preview period. See README.)"
         },
 
         "move-project-column": {
@@ -5484,7 +5480,7 @@
                     "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
                 }
             },
-            "description": "Move a project column."
+            "description": "Move a project column. (In preview period. See README.)"
         },
 
         "get-project-cards": {
@@ -5495,7 +5491,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "List project cards."
+            "description": "List project cards. (In preview period. See README.)"
         },
 
         "get-project-card": {
@@ -5506,7 +5502,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "Get project card."
+            "description": "Get project card. (In preview period. See README.)"
         },
 
         "create-project-card": {
@@ -5538,7 +5534,7 @@
                     "description": "The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'."
                 }
             },
-            "description": "Create a project card."
+            "description": "Create a project card. (In preview period. See README.)"
         },
 
         "update-project-card": {
@@ -5556,7 +5552,7 @@
                     "description": "The note of the card."
                 }
             },
-            "description": "Update a project card."
+            "description": "Update a project card. (In preview period. See README.)"
         },
 
         "delete-project-card": {
@@ -5567,7 +5563,7 @@
                 "$repo": null,
                 "$id": null
             },
-            "description": "Delete a project card."
+            "description": "Delete a project card. (In preview period. See README.)"
         },
 
         "move-project-card": {
@@ -5592,7 +5588,7 @@
                     "description": "The id value of a column in the same project."
                 }
             },
-            "description": "Move a project card."
+            "description": "Move a project card. (In preview period. See README.)"
         },
 
         "get-releases": {
@@ -5974,7 +5970,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the top 10 referrers over the last 14 days."
+            "description": "Get the top 10 referrers over the last 14 days. (In preview period. See README.)"
         },
 
         "get-paths": {
@@ -5986,7 +5982,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the top 10 popular contents over the last 14 days."
+            "description": "Get the top 10 popular contents over the last 14 days. (In preview period. See README.)"
         },
 
         "get-views": {
@@ -5998,7 +5994,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the total number of views and breakdown per day or week for the last 14 days."
+            "description": "Get the total number of views and breakdown per day or week for the last 14 days. (In preview period. See README.)"
         },
 
         "get-clones": {
@@ -6010,7 +6006,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the total number of clones and breakdown per day or week for the last 14 days."
+            "description": "Get the total number of clones and breakdown per day or week for the last 14 days. (In preview period. See README.)"
         },
 
         "get-hooks": {
@@ -6747,7 +6743,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Get a single pre-receive environment"
+            "description": "Get a single pre-receive environment. (In preview period. See README.)"
         },
         
         "get-pre-receive-environments": {
@@ -6755,7 +6751,7 @@
             "method": "GET",
             "params": {
             },
-            "description": "List pre-receive environments"
+            "description": "List pre-receive environments. (In preview period. See README.)"
         },
         
         "create-pre-receive-environment": {
@@ -6777,7 +6773,7 @@
                     "description": "URL from which to download a tarball of this environment."
                 }
             },
-            "description": "Create a pre-receive environment"
+            "description": "Create a pre-receive environment. (In preview period. See README.)"
         },
         
         "edit-pre-receive-environment": {
@@ -6800,7 +6796,7 @@
                     "description": "URL from which to download a tarball of this environment."
                 }
             },
-            "description": "Create a pre-receive environment"
+            "description": "Create a pre-receive environment. (In preview period. See README.)"
         },
         
         "delete-pre-receive-environment": {
@@ -6809,7 +6805,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete a pre-receive environment"
+            "description": "Delete a pre-receive environment. (In preview period. See README.)"
         },
         
         "get-pre-receive-environment-download-status": {
@@ -6818,7 +6814,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Get a pre-receive environment's download status"
+            "description": "Get a pre-receive environment's download status. (In preview period. See README.)"
         },
         
         "trigger-pre-receive-environment-download": {
@@ -6827,7 +6823,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Trigger a pre-receive environment download"
+            "description": "Trigger a pre-receive environment download. (In preview period. See README.)"
         },
         
         "get-pre-receive-hook": {
@@ -6836,7 +6832,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Get a single pre-receive hook"
+            "description": "Get a single pre-receive hook. (In preview period. See README.)"
         },
         
         "get-pre-receive-hooks": {
@@ -6844,7 +6840,7 @@
             "method": "GET",
             "params": {
             },
-            "description": "List pre-receive hooks"
+            "description": "List pre-receive hooks. (In preview period. See README.)"
         },
         
         "create-pre-receive-hook": {
@@ -6896,7 +6892,7 @@
                     "default": "false"
                 }
             },
-            "description": "Create a pre-receive hook"
+            "description": "Create a pre-receive hook. (In preview period. See README.)"
         },
         
         "edit-pre-receive-hook": {
@@ -6913,7 +6909,7 @@
                     "description": "JSON object that contains pre-receive hook info."
                 }
             },
-            "description": "Edit a pre-receive hook"
+            "description": "Edit a pre-receive hook. (In preview period. See README.)"
         },
         
         "delete-pre-receive-hook": {
@@ -6922,7 +6918,7 @@
             "params": {
                 "$id": null
             },
-            "description": "Delete a pre-receive hook"
+            "description": "Delete a pre-receive hook. (In preview period. See README.)"
         },
 
         "queue-indexing-job": {
