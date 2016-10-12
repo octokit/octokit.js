@@ -3121,7 +3121,8 @@
             "method": "DELETE",
             "params": {
                 "$id": null
-            }
+            },
+            "description": "Delete team"
         },
 
         "get-team-members": {
@@ -3139,7 +3140,8 @@
                 },
                 "$page": null,
                 "$per_page": null
-            }
+            },
+            "description": "List team members"
         },
 
         "get-team-membership": {
