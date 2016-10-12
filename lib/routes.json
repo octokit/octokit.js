@@ -458,7 +458,12 @@
             ],
             
             "application/vnd.github.eye-scream-preview": [
-                
+                "/admin/pre-receive-environments/:id",
+                "/admin/pre_receive_environments",
+                "/admin/pre-receive-environments/:id/downloads/latest",
+                "/admin/pre_receive_environments/:id/downloads",
+                "/admin/pre-receive-hooks/:id",
+                "/admin/pre-receive-hooks"
             ],
             
             "application/vnd.github.inertia-preview+json": [
@@ -6730,8 +6735,194 @@
         "get-license": {
             "url": "/enterprise/settings/license",
             "method": "GET",
-            "params": {},
+            "params": {
+                
+            },
             "description": "Get license information"
+        },
+
+        "get-pre-receive-environment": {
+            "url": "/admin/pre-receive-environments/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single pre-receive environment"
+        },
+        
+        "get-pre-receive-environments": {
+            "url": "/admin/pre_receive_environments",
+            "method": "GET",
+            "params": {
+            },
+            "description": "List pre-receive environments"
+        },
+        
+        "create-pre-receive-environment": {
+            "url": "/admin/pre_receive_environments",
+            "method": "POST",
+            "params": {
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The new pre-receive environment's name."
+                },
+                "image_url": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "URL from which to download a tarball of this environment."
+                }
+            },
+            "description": "Create a pre-receive environment"
+        },
+        
+        "edit-pre-receive-environment": {
+            "url": "/admin/pre_receive_environments/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "This pre-receive environment's new name."
+                },
+                "image_url": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "URL from which to download a tarball of this environment."
+                }
+            },
+            "description": "Create a pre-receive environment"
+        },
+        
+        "delete-pre-receive-environment": {
+            "url": "/admin/pre_receive_environments/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a pre-receive environment"
+        },
+        
+        "get-pre-receive-environment-download-status": {
+            "url": "/admin/pre-receive-environments/:id/downloads/latest",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a pre-receive environment's download status"
+        },
+        
+        "trigger-pre-receive-environment-download": {
+            "url": "/admin/pre_receive_environments/:id/downloads",
+            "method": "POST",
+            "params": {
+                "$id": null
+            },
+            "description": "Trigger a pre-receive environment download"
+        },
+        
+        "get-pre-receive-hook": {
+            "url": "/admin/pre-receive-hooks/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single pre-receive hook"
+        },
+        
+        "get-pre-receive-hooks": {
+            "url": "/admin/pre-receive-hooks",
+            "method": "GET",
+            "params": {
+            },
+            "description": "List pre-receive hooks"
+        },
+        
+        "create-pre-receive-hook": {
+            "url": "/admin/pre-receive-hooks",
+            "method": "POST",
+            "params": {
+                "name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The name of the hook."
+                },
+                "script": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The script that the hook runs."
+                },
+                "script_repository": {
+                    "type": "Json",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The GitHub repository where the script is kept."
+                },
+                "environment": {
+                    "type": "Json",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The pre-receive environment where the script is executed."
+                },
+                "enforcement": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The state of enforcement for this hook. default: disabled",
+                    "default": "disabled"
+                },
+                "allow_downstream_configuration": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Whether enforcement can be overridden at the org or repo level. default: false",
+                    "default": "false"
+                }
+            },
+            "description": "Create a pre-receive hook"
+        },
+        
+        "edit-pre-receive-hook": {
+            "url": "/admin/pre_receive_hooks/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "body": {
+                    "type": "Json",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains pre-receive hook info."
+                }
+            },
+            "description": "Edit a pre-receive hook"
+        },
+        
+        "delete-pre-receive-hook": {
+            "url": "/admin/pre_receive_hooks/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a pre-receive hook"
         },
 
         "queue-indexing-job": {
