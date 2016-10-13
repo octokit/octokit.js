@@ -6706,7 +6706,14 @@
             "url": "/admin/ldap/users/:user/mapping",
             "method": "PATCH",
             "params": {
-                "$user": null
+                "$user": null,
+                "ldap_dn": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "Invalid DN",
+                    "description": "LDAP DN for user"
+                }
             },
             "description": "Update LDAP mapping for a user."
         },
@@ -6730,6 +6737,13 @@
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
                     "description": ""
+                },
+                "ldap_dn": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "Invalid DN",
+                    "description": "LDAP DN for user"
                 }
             },
             "description": "Update LDAP mapping for a team."

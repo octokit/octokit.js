@@ -267,7 +267,8 @@ describe("[enterprise]", function() {
     it("should successfully execute PATCH /admin/ldap/teams/:team_id/mapping (updateLdapForTeam)",  function(next) {
         client.enterprise.updateLdapForTeam(
             {
-                team_id: "Number"
+                team_id: "Number",
+                ldap_dn: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -280,7 +281,8 @@ describe("[enterprise]", function() {
     it("should successfully execute PATCH /admin/ldap/users/:user/mapping (updateLdapForUser)",  function(next) {
         client.enterprise.updateLdapForUser(
             {
-                user: "String"
+                user: "String",
+                ldap_dn: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
