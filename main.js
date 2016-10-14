@@ -747,13 +747,20 @@ require([
     $('#custom-filter').on('input', function(e) {
         var newVal = e.target.value;
         
+        var selectedVersion = $.trim($('#version').text());
+        
         // hide all sidenav endpoints
         $('ul.sidenav > li:not(.nav-header)').hide();
         
         // show matches
         $('ul.sidenav > li:not(.nav-header)').filter(function(idx, el) {
             var name = $(el).data('name');
-            return name.toUpperCase().includes(newVal.toUpperCase());
+            var version = $(el).data('version');
+            
+            var nameMatches = name.toUpperCase().includes(newVal.toUpperCase());
+            var versionMatches = version === selectedVersion;
+            
+            return nameMatches && versionMatches;
         }).show();
     });
 
