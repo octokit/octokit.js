@@ -6733,7 +6733,7 @@
             "params": {
                 "team_id": {
                     "type": "Number",
-                    "required": false,
+                    "required": true,
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
                     "description": ""
@@ -6755,7 +6755,7 @@
             "params": {
                 "team_id": {
                     "type": "Number",
-                    "required": false,
+                    "required": true,
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
                     "description": ""

@@ -17603,7 +17603,7 @@ github.enterprise.stats({ ... });
  * @apiDescription Sync LDAP mapping for a team.
  * @apiGroup enterprise
  *
- * @apiParam {Number} [team_id]  
+ * @apiParam {Number} team_id  
  * @apiExample {js} ex:
 github.enterprise.syncLdapForTeam({ ... });
  */
@@ -17639,8 +17639,8 @@ github.enterprise.triggerPreReceiveEnvironmentDownload({ ... });
  * @apiDescription Update LDAP mapping for a team.
  * @apiGroup enterprise
  *
+ * @apiParam {Number} team_id  
  * @apiParam {String} ldap_dn  LDAP DN for user
- * @apiParam {Number} [team_id]  
  * @apiExample {js} ex:
 github.enterprise.updateLdapForTeam({ ... });
  */
