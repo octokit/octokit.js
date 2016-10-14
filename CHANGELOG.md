@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.2.1
+
+Bug fixes:
+  * Fix enterprise ldap update endpoints by adding `ldap_dn` param.
+
 ## 5.2.0
 
 Features:
