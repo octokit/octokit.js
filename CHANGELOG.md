@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 5.2.2
+
+Bug fixes:
+  * Replace ES6 code so the library runs for versions of node < v4.
+  * Make `team_id` required for update ldap endpoints.
+
 ## 5.2.1
 
 Bug fixes:
