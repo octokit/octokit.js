@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.2.3
+
+Bug fixes:
+  * Reject promise for missing parameters.
+
 ## 5.2.2
 
 Bug fixes:
