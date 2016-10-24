@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.3.3
+
+Features:
+  * Add /installations/repositories endpoint.
+
 ## 5.2.3
 
 Bug fixes:
