@@ -424,7 +424,8 @@
             "application/vnd.github.machine-man-preview": [
                 "/integration/installations",
                 "/installations/:installation_id/access_tokens",
-                "/integration/identity/user"
+                "/integration/identity/user",
+                "/installation/repositories"
             ],
             
             "application/vnd.github.drax-preview+json": [
@@ -1665,6 +1666,21 @@
                 }
             },
             "description": "Request identity of user. (In preview period. See README.)"
+        },
+        
+        "get-installation-repositories": {
+            "url": "/installation/repositories",
+            "method": "GET",
+            "params": {
+                "user_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
+                }
+            },
+            "description": "List repositories that are accessible to the authenticated installation."
         }
     },
 

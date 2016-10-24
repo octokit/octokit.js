@@ -39,6 +39,19 @@ describe("[integrations]", function() {
         );
     });
 
+    it("should successfully execute GET /installation/repositories (getInstallationRepositories)",  function(next) {
+        client.integrations.getInstallationRepositories(
+            {
+                user_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /integration/installations (getInstallations)",  function(next) {
         client.integrations.getInstallations(
             {
