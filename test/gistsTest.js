@@ -155,9 +155,9 @@ describe("[gists]", function() {
     it("should successfully execute GET /gists (getAll)",  function(next) {
         client.gists.getAll(
             {
+                since: "Date",
                 page: "Number",
-                per_page: "Number",
-                since: "Date"
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -207,13 +207,13 @@ describe("[gists]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/gists (getForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/gists (getForUser)",  function(next) {
         client.gists.getForUser(
             {
-                owner: "String",
+                username: "String",
+                since: "Date",
                 page: "Number",
-                per_page: "Number",
-                since: "Date"
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -144,10 +144,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/events (getEventsForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/events (getEventsForUser)",  function(next) {
         client.activity.getEventsForUser(
             {
-                owner: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -159,10 +159,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/events/orgs/:org (getEventsForUserOrg)",  function(next) {
+    it("should successfully execute GET /users/:username/events/orgs/:org (getEventsForUserOrg)",  function(next) {
         client.activity.getEventsForUserOrg(
             {
-                owner: "String",
+                username: "String",
                 org: "String",
                 page: "Number",
                 per_page: "Number"
@@ -175,10 +175,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/events/public (getEventsForUserPublic)",  function(next) {
+    it("should successfully execute GET /users/:username/events/public (getEventsForUserPublic)",  function(next) {
         client.activity.getEventsForUserPublic(
             {
-                owner: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -190,10 +190,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/received_events (getEventsReceived)",  function(next) {
+    it("should successfully execute GET /users/:username/received_events (getEventsReceived)",  function(next) {
         client.activity.getEventsReceived(
             {
-                owner: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -205,10 +205,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/received_events/public (getEventsReceivedPublic)",  function(next) {
+    it("should successfully execute GET /users/:username/received_events/public (getEventsReceivedPublic)",  function(next) {
         client.activity.getEventsReceivedPublic(
             {
-                owner: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -313,6 +313,8 @@ describe("[activity]", function() {
     it("should successfully execute GET /user/starred (getStarredRepos)",  function(next) {
         client.activity.getStarredRepos(
             {
+                sort: "String",
+                direction: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -324,10 +326,12 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/starred (getStarredReposForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/starred (getStarredReposForUser)",  function(next) {
         client.activity.getStarredReposForUser(
             {
-                owner: "String",
+                username: "String",
+                sort: "String",
+                direction: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -353,10 +357,10 @@ describe("[activity]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:owner/subscriptions (getWatchedReposForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/subscriptions (getWatchedReposForUser)",  function(next) {
         client.activity.getWatchedReposForUser(
             {
-                owner: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },

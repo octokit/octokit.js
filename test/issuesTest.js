@@ -340,12 +340,12 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/issues/:number/events (getEvents)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:issue_number/events (getEvents)",  function(next) {
         client.issues.getEvents(
             {
                 owner: "String",
                 repo: "String",
-                number: "Number",
+                issue_number: "Number",
                 page: "Number",
                 per_page: "Number"
             },
@@ -373,12 +373,12 @@ describe("[issues]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/issues/:number/timeline (getEventsTimeline)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/issues/:issue_number/timeline (getEventsTimeline)",  function(next) {
         client.issues.getEventsTimeline(
             {
                 owner: "String",
                 repo: "String",
-                number: "Number",
+                issue_number: "Number",
                 page: "Number",
                 per_page: "Number"
             },

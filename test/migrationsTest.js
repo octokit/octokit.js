@@ -160,7 +160,8 @@ describe("[migrations]", function() {
         client.migrations.setImportLfsPreference(
             {
                 owner: "String",
-                name: "String"
+                name: "String",
+                use_lfs: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -205,12 +206,12 @@ describe("[migrations]", function() {
         );
     });
 
-    it("should successfully execute DELETE /orgs/:org/migrations/:id/repos/:repo/lock (unlockRepoLockedForMigration)",  function(next) {
+    it("should successfully execute DELETE /orgs/:org/migrations/:id/repos/:repo_name/lock (unlockRepoLockedForMigration)",  function(next) {
         client.migrations.unlockRepoLockedForMigration(
             {
                 org: "String",
                 id: "String",
-                repo: "String"
+                repo_name: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

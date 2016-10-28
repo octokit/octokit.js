@@ -54,6 +54,13 @@
                 "invalidmsg": "",
                 "description": ""
             },
+            "username": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
             "org": {
                 "type": "String",
                 "required": true,
@@ -103,6 +110,34 @@
                 "invalidmsg": "",
                 "description": "Id (SHA1 hash) of the gist."
             },
+            "installation_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "repository_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "commit_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "Sha of the commit to comment on.",
+                "description": "Sha of the commit to comment on."
+            },
+            "client_id": {
+                "type": "String",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "The 20 character OAuth app client key for which to create the token."
+            },
             "ref": {
                 "type": "String",
                 "required": true,
@@ -111,6 +146,13 @@
                 "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
             },
             "number": {
+                "type": "Number",
+                "required": true,
+                "validation": "^[0-9]+$",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "issue_number": {
                 "type": "Number",
                 "required": true,
                 "validation": "^[0-9]+$",
@@ -174,13 +216,6 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "The branch (or git ref) where your changes are implemented."
-            },
-            "commit_id": {
-                "type": "String",
-                "required": true,
-                "validation": "",
-                "invalidmsg": "Sha of the commit to comment on.",
-                "description": "Sha of the commit to comment on."
             },
             "line": {
                 "type": "Number",
@@ -379,13 +414,6 @@
                 "invalidmsg": "secret, closed, default: secret",
                 "description": "The level of privacy this team should have.",
                 "default": "secret"
-            },
-            "client_id": {
-                "type": "String",
-                "required": false,
-                "validation": "",
-                "invalidmsg": "",
-                "description": "The 20 character OAuth app client key for which to create the token."
             },
             "fingerprint": {
                 "type": "String",
@@ -742,10 +770,10 @@
         },
 
         "get-events-received": {
-            "url": "/users/:owner/received_events",
+            "url": "/users/:username/received_events",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -753,10 +781,10 @@
         },
 
         "get-events-received-public": {
-            "url": "/users/:owner/received_events/public",
+            "url": "/users/:username/received_events/public",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -764,10 +792,10 @@
         },
 
         "get-events-for-user": {
-            "url": "/users/:owner/events",
+            "url": "/users/:username/events",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -775,10 +803,10 @@
         },
 
         "get-events-for-user-public": {
-            "url": "/users/:owner/events/public",
+            "url": "/users/:username/events/public",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -786,10 +814,10 @@
         },
 
         "get-events-for-user-org": {
-            "url": "/users/:owner/events/orgs/:org",
+            "url": "/users/:username/events/orgs/:org",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
                 "$org": null,
                 "$page": null,
                 "$per_page": null
@@ -975,25 +1003,43 @@
             "description": "List Stargazers"
         },
 
-        "get-starred-repos": {
-            "url": "/user/starred",
-            "method": "GET",
-            "params": {
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List repositories being starred by the authenticated user"
-        },
-
         "get-starred-repos-for-user": {
-            "url": "/users/:owner/starred",
+            "url": "/users/:username/starred",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated)$",
+                    "invalidmsg": "created or updated (when it was last pushed to); default: created.",
+                    "description": "",
+                    "default": "created"
+                },
+                "$direction": null,
                 "$page": null,
                 "$per_page": null
             },
             "description": "List repositories being starred by a user"
+        },
+
+        "get-starred-repos": {
+            "url": "/user/starred",
+            "method": "GET",
+            "params": {
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(created|updated)$",
+                    "invalidmsg": "created or updated (when it was last pushed to); default: created.",
+                    "description": "",
+                    "default": "created"
+                },
+                "$direction": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List repositories being starred by the authenticated user"
         },
 
         "check-starring-repo": {
@@ -1040,6 +1086,17 @@
             "description": "Get watchers for repository."
         },
 
+        "get-watched-repos-for-user": {
+            "url": "/users/:username/subscriptions",
+            "method": "GET",
+            "params": {
+                "$username": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List repositories being watched by a user."
+        },
+
         "get-watched-repos": {
             "url": "/user/subscriptions",
             "method": "GET",
@@ -1048,17 +1105,6 @@
                 "$per_page": null
             },
             "description": "List repositories being watched by the authenticated user."
-        },
-
-        "get-watched-repos-for-user": {
-            "url": "/users/:owner/subscriptions",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List repositories being watched by a user."
         },
 
         "get-repo-subscription": {
@@ -1109,29 +1155,29 @@
     },
 
     "gists": {
+        "get-for-user": {
+            "url": "/users/:username/gists",
+            "method": "GET",
+            "params": {
+                "$username": null,
+                "$since": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List a user's gists"
+        },
+        
         "get-all": {
             "url": "/gists",
             "method": "GET",
             "params": {
+                "$since": null,
                 "$page": null,
-                "$per_page": null,
-                "$since": null
+                "$per_page": null
             },
             "description": "List the authenticated user's gists or if called anonymously, this will return all public gists"
         },
-
-        "get-for-user": {
-            "url": "/users/:owner/gists",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$page": null,
-                "$per_page": null,
-                "$since": null
-            },
-            "description": "List a user's gists"
-        },
-
+        
         "get-public": {
             "url": "/gists/public",
             "method": "GET",
@@ -1636,17 +1682,11 @@
             "url": "/installations/:installation_id/access_tokens",
             "method": "POST",
             "params": {
-              "installation_id": {
-                  "type": "Number",
-                  "required": true,
-                  "validation": "^[0-9]+$",
-                  "invalidmsg": "",
-                  "description": "The id of the installation for this integration."
-              },
+              "$installation_id": null,
               "user_id": {
-                  "type": "Number",
+                  "type": "String",
                   "required": false,
-                  "validation": "^[0-9]+$",
+                  "validation": "",
                   "invalidmsg": "",
                   "description": "The id of the user for whom the integration is acting on behalf of."
               }
@@ -1681,7 +1721,27 @@
                     "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
                 }
             },
-            "description": "List repositories that are accessible to the authenticated installation."
+            "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
+        },
+        
+        "add-repo-to-installation": {
+            "url": "/installations/:installation_id/repositories/:repository_id",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "description": "Add a single repository to an installation. (In preview period. See README.)"
+        },
+        
+        "remove-repo-from-installation": {
+            "url": "/installations/:installation_id/repositories/:repository_id",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "description": "Remove a single repository from an installation. (In preview period. See README.)"
         }
     },
 
@@ -2182,29 +2242,16 @@
         },
 
         "get-events": {
-            "url": "/repos/:owner/:repo/issues/:number/events",
+            "url": "/repos/:owner/:repo/issues/:issue_number/events",
             "method": "GET",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$number": null,
+                "$issue_number": null,
                 "$page": null,
                 "$per_page": null
             },
             "description": "List events for an issue"
-        },
-
-        "get-events-timeline": {
-            "url": "/repos/:owner/:repo/issues/:number/timeline",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null,
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List events for an issue. (In preview period. See README.)"
         },
 
         "get-events-for-repo": {
@@ -2229,7 +2276,7 @@
             },
             "description": "Get a single event"
         },
-
+        
         "get-labels": {
             "url": "/repos/:owner/:repo/labels",
             "method": "GET",
@@ -2492,6 +2539,19 @@
                 "$number": null
             },
             "description": "Delete a milestone"
+        },
+        
+        "get-events-timeline": {
+            "url": "/repos/:owner/:repo/issues/:issue_number/timeline",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$issue_number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List events for an issue. (In preview period. See README.)"
         }
     },
 
@@ -2570,12 +2630,18 @@
         },
 
         "unlock-repo-locked-for-migration": {
-            "url": "/orgs/:org/migrations/:id/repos/:repo/lock",
+            "url": "/orgs/:org/migrations/:id/repos/:repo_name/lock",
             "method": "DELETE",
             "params": {
                 "$org": null,
                 "$id": null,
-                "$repo": null
+                "repo_name": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Unlock a repository that was locked for migration. (In preview period. See README.)"
         },
@@ -2712,7 +2778,14 @@
             "method": "PATCH",
             "params": {
                 "$owner": null,
-                "$name": null
+                "$name": null,
+                "use_lfs": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Can be one of `opt_in` (large files will be stored using Git LFS) or `opt_out` (large files will be removed during the import)."
+                }
             },
             "description": "Set import LFS preference. (In preview period. See README.)"
         },

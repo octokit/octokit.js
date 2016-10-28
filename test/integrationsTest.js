@@ -25,11 +25,25 @@ describe("[integrations]", function() {
         });
     });
 
+    it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (addRepoToInstallation)",  function(next) {
+        client.integrations.addRepoToInstallation(
+            {
+                installation_id: "String",
+                repository_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /installations/:installation_id/access_tokens (createInstallationToken)",  function(next) {
         client.integrations.createInstallationToken(
             {
-                installation_id: "Number",
-                user_id: "Number"
+                installation_id: "String",
+                user_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -70,6 +84,20 @@ describe("[integrations]", function() {
         client.integrations.getUserIdentity(
             {
                 nonce: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (removeRepoFromInstallation)",  function(next) {
+        client.integrations.removeRepoFromInstallation(
+            {
+                installation_id: "String",
+                repository_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
