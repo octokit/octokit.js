@@ -211,7 +211,8 @@ describe("[authorization]", function() {
                 add_scopes: "Array",
                 remove_scopes: "Array",
                 note: "String",
-                note_url: "String"
+                note_url: "String",
+                fingerprint: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

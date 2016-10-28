@@ -637,7 +637,8 @@
                     "description": "A list of scopes to remove from this authorization."
                 },
                 "$note": null,
-                "$note_url": null
+                "$note_url": null,
+                "$fingerprint": null
             },
             "description": "Update an existing authorization."
         },
