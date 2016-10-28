@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 6.0.0
+
+Breaking changes:
+  * Move projects to its own section.
+  * Project endpoint url changes.
+  * Several additional breaking endpoint url changes.
+
+Features:
+  * Add installation repository endpoints.
+  * Add fingerprint param to update-authorization endpoint.
+
 ## 5.3.3
 
 Features:
