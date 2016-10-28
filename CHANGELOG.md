@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.0.1
+
+Bug fixes:
+  * Fix accept header management for updated endpoint urls.
+
 ## 6.0.0
 
 Breaking changes:
