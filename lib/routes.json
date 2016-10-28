@@ -152,6 +152,20 @@
                 "invalidmsg": "",
                 "description": ""
             },
+            "repo_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "invitation_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
             "ref": {
                 "type": "String",
                 "required": true,
@@ -304,13 +318,6 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "Updates the default branch for this repository."
-            },
-            "collabuser": {
-                "type": "String",
-                "required": true,
-                "validation": "",
-                "invalidmsg": "",
-                "description": ""
             },
             "title": {
                 "type": "String",
@@ -3801,7 +3808,8 @@
                     "invalidmsg": "",
                     "description": "The contents of the pull request."
                 },
-                "$state": null
+                "$state": null,
+                "$base": null
             },
             "description": "Update a pull request"
         },
@@ -3921,12 +3929,12 @@
         },
 
         "get-comment": {
-            "url": "/repos/:owner/:repo/pulls/comments/:number",
+            "url": "/repos/:owner/:repo/pulls/comments/:id",
             "method": "GET",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$number": null
+                "$id": null
             },
             "description": "Get a single comment"
         },
@@ -3966,24 +3974,24 @@
         },
 
         "edit-comment": {
-            "url": "/repos/:owner/:repo/pulls/comments/:number",
+            "url": "/repos/:owner/:repo/pulls/comments/:id",
             "method": "PATCH",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$number": null,
+                "$id": null,
                 "$body": null
             },
             "description": "Edit a comment"
         },
 
         "delete-comment": {
-            "url": "/repos/:owner/:repo/pulls/comments/:number",
+            "url": "/repos/:owner/:repo/pulls/comments/:id",
             "method": "DELETE",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$number": null
+                "$id": null
             },
             "description": "Delete a comment"
         }
@@ -4189,10 +4197,10 @@
         },
 
         "get-for-user": {
-            "url": "/users/:user/repos",
+            "url": "/users/:username/repos",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$username": null,
                 "type": {
                     "type": "String",
                     "required": false,
@@ -4270,6 +4278,13 @@
                 "$has_issues": null,
                 "$has_wiki": null,
                 "$has_downloads": null,
+                "team_id": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "^[0-9]+$",
+                    "invalidmsg": "",
+                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+                },
                 "$auto_init": null,
                 "$gitignore_template": null,
                 "$license_template": null,
@@ -4299,6 +4314,16 @@
                 }
             },
             "description": "Create a new repository for the authenticated user."
+        },
+        
+        "get": {
+            "url": "/repos/:owner/:repo",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null
+            },
+            "description": "Get a repo for a user."
         },
 
         "create-for-org": {
@@ -4349,16 +4374,6 @@
                 }
             },
             "description": "Create a new repository for an organization."
-        },
-
-        "get": {
-            "url": "/repos/:owner/:repo",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null
-            },
-            "description": "Get a repo for a user."
         },
 
         "edit": {
@@ -4642,9 +4657,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Replace required status checks contexts of protected branch. (In preview period. See README.)"
         },
@@ -4663,9 +4676,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Add required status checks contexts of protected branch. (In preview period. See README.)"
         },
@@ -4677,8 +4688,14 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "$page": null,
-                "$per_page": null
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
+                }
             },
             "description": "Remove required status checks contexts of protected branch. (In preview period. See README.)"
         },
@@ -4702,9 +4719,7 @@
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$branch": null,
-                "$page": null,
-                "$per_page": null
+                "$branch": null
             },
             "description": "Remove restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4736,9 +4751,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of team slugs (e.g. justice-league)."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Replace team restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4757,9 +4770,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of team slugs (e.g. justice-league)."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Add team restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4771,8 +4782,14 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "$page": null,
-                "$per_page": null
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs (e.g. justice-league)."
+                }
             },
             "description": "Remove team restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4804,9 +4821,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of team slugs (e.g. justice-league)."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Replace user restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4825,9 +4840,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of team slugs (e.g. justice-league)."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Add user restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4839,8 +4852,14 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "$page": null,
-                "$per_page": null
+                "body": {
+                    "type": "Array",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs (e.g. justice-league)."
+                }
             },
             "description": "Remove user restrictions of protected branch. (In preview period. See README.)"
         },
@@ -4858,23 +4877,23 @@
         },
 
         "check-collaborator": {
-            "url": "/repos/:owner/:repo/collaborators/:collabuser",
+            "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "GET",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$collabuser": null
+                "$username": null
             },
             "description": "Check if user is a collaborator."
         },
 
         "add-collaborator": {
-            "url": "/repos/:owner/:repo/collaborators/:collabuser",
+            "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "PUT",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$collabuser": null,
+                "$username": null,
                 "permission": {
                     "type": "String",
                     "required": false,
@@ -4888,12 +4907,12 @@
         },
 
         "remove-collaborator": {
-            "url": "/repos/:owner/:repo/collaborators/:collabuser",
+            "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "DELETE",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$collabuser": null
+                "$username": null
             },
             "description": "Remove user as a collaborator."
         },
@@ -4911,12 +4930,18 @@
         },
 
         "get-commit-comments": {
-            "url": "/repos/:owner/:repo/commits/:sha/comments",
+            "url": "/repos/:owner/:repo/commits/:ref/comments",
             "method": "GET",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$sha": null,
+                "ref": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
                 "$page": null,
                 "$per_page": null
             },
@@ -5585,30 +5610,30 @@
         },
 
         "get-invites": {
-            "url": "/repositories/:repo/invitations",
+            "url": "/repositories/:repo_id/invitations",
             "method": "GET",
             "params": {
-                "$repo": null
+                "$repo_id": null
             },
             "description": "List invitations for a repository. (In preview period. See README.)"
         },
 
         "delete-invite": {
-            "url": "/repositories/:repo/invitations/:id",
+            "url": "/repositories/:repo_id/invitations/:invitation_id",
             "method": "DELETE",
             "params": {
-                "$repo": null,
-                "$id": null
+                "$repo_id": null,
+                "$invitation_id": null
             },
             "description": "Delete a repository invitation. (In preview period. See README.)"
         },
 
         "update-invite": {
-            "url": "/repositories/:repo/invitations/:id",
+            "url": "/repositories/:repo_id/invitations/:invitation_id",
             "method": "PATCH",
             "params": {
-                "$repo": null,
-                "$id": null,
+                "$repo_id": null,
+                "$invitation_id": null,
                 "permission": {
                     "type": "String",
                     "required": false,
@@ -6039,25 +6064,37 @@
         },
 
         "get-statuses": {
-            "url": "/repos/:owner/:repo/commits/:sha/statuses",
+            "url": "/repos/:owner/:repo/commits/:ref/statuses",
             "method": "GET",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$sha": null,
+                "ref": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Ref to list the statuses from. It can be a SHA, a branch name, or a tag name."
+                },
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get status for a specfic ref."
+            "description": "List statuses for a specfic ref."
         },
 
         "get-combined-status": {
-            "url": "/repos/:owner/:repo/commits/:sha/status",
+            "url": "/repos/:owner/:repo/commits/:ref/status",
             "method": "GET",
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$sha": null,
+                "ref": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Ref to fetch the status for. It can be a SHA, a branch name, or a tag name."
+                },
                 "$page": null,
                 "$per_page": null
             },
@@ -6344,22 +6381,15 @@
     },
 
     "users": {
-        "get": {
-            "url": "/user",
-            "method": "GET",
-            "params": {},
-            "description": "Get the authenticated user"
-        },
-
         "get-for-user": {
-            "url": "/users/:user",
+            "url": "/users/:username",
             "method": "GET",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Get a single user"
         },
-
+        
         "get-by-id": {
             "url": "/user/:id",
             "method": "GET",
@@ -6367,6 +6397,13 @@
                 "$id": null
             },
             "description": "Get a single user by GitHub ID"
+        },
+        
+        "get": {
+            "url": "/user",
+            "method": "GET",
+            "params": {},
+            "description": "Get the authenticated user"
         },
 
         "update": {
@@ -6542,6 +6579,17 @@
             "description": "Delete email address(es)"
         },
 
+        "get-followers-for-user": {
+            "url": "/users/:username/followers",
+            "method": "GET",
+            "params": {
+                "$username": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List a user's followers"
+        },
+
         "get-followers": {
             "url": "/user/followers",
             "method": "GET",
@@ -6552,15 +6600,15 @@
             "description": "List the authenticated user's followers"
         },
 
-        "get-followers-for-user": {
-            "url": "/users/:user/followers",
+        "get-following-for-user": {
+            "url": "/users/:username/following",
             "method": "GET",
             "params": {
-                "$user": null,
+                "$username": null,
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List a user's followers"
+            "description": "List who a user is following"
         },
 
         "get-following": {
@@ -6573,58 +6621,58 @@
             "description": "List who the authenticated user is following"
         },
 
-        "get-following-for-user": {
-            "url": "/users/:user/following",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List who a user is following"
-        },
-
         "check-following": {
-            "url": "/user/following/:user",
+            "url": "/user/following/:username",
             "method": "GET",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Check if you are following a user"
         },
 
         "check-if-one-followers-other": {
-            "url": "/users/:user/following/:other_user",
+            "url": "/users/:username/following/:target_user",
             "method": "GET",
             "params": {
-                "$user": null,
-                "other_user": {
+                "$username": null,
+                "target_user": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Other user"
+                    "description": ""
                 }
             },
             "description": "Check if one user follows another"
         },
 
         "follow-user": {
-            "url": "/user/following/:user",
+            "url": "/user/following/:username",
             "method": "PUT",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Follow a user"
         },
 
         "unfollow-user": {
-            "url": "/user/following/:user",
+            "url": "/user/following/:username",
             "method": "DELETE",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Unfollow a user"
+        },
+
+        "get-keys-for-user": {
+            "url": "/users/:username/keys",
+            "method": "GET",
+            "params": {
+                "$username": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public keys for a user"
         },
 
         "get-keys": {
@@ -6635,17 +6683,6 @@
                 "$per_page": null
             },
             "description": "List your public keys"
-        },
-
-        "get-keys-for-user": {
-            "url": "/users/:user/keys",
-            "method": "GET",
-            "params": {
-                "$user": null,
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List public keys for a user"
         },
 
         "get-key": {
@@ -6720,37 +6757,37 @@
         },
 
         "promote": {
-            "url": "/users/:user/site_admin",
+            "url": "/users/:username/site_admin",
             "method": "PUT",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Promote an ordinary user to a site administrator"
         },
 
         "demote": {
-            "url": "/users/:user/site_admin",
+            "url": "/users/:username/site_admin",
             "method": "DELETE",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Demote a site administrator to an ordinary user"
         },
 
         "suspend": {
-            "url": "/users/:user/suspended",
+            "url": "/users/:username/suspended",
             "method": "PUT",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Suspend a user"
         },
 
         "unsuspend": {
-            "url": "/users/:user/suspended",
+            "url": "/users/:username/suspended",
             "method": "DELETE",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Unsuspend a user"
         },
@@ -6764,19 +6801,19 @@
         },
 
         "accept-repo-invite": {
-            "url": "/user/repository_invitations/:id",
+            "url": "/user/repository_invitations/:invitation_id",
             "method": "PATCH",
             "params": {
-                "$id": null
+                "$invitation_id": null
             },
             "description": "Accept a repository invitation. (In preview period. See README.)"
         },
 
         "decline-repo-invite": {
-            "url": "/user/repository_invitations/:id",
+            "url": "/user/repository_invitations/:invitation_id",
             "method": "DELETE",
             "params": {
-                "$id": null
+                "$invitation_id": null
             },
             "description": "Decline a repository invitation. (In preview period. See README.)"
         }
@@ -6799,10 +6836,10 @@
         },
 
         "update-ldap-for-user": {
-            "url": "/admin/ldap/users/:user/mapping",
+            "url": "/admin/ldap/users/:username/mapping",
             "method": "PATCH",
             "params": {
-                "$user": null,
+                "$username": null,
                 "ldap_dn": {
                     "type": "String",
                     "required": true,
@@ -6815,10 +6852,10 @@
         },
 
         "sync-ldap-for-user": {
-            "url": "/admin/ldap/users/:user/sync",
+            "url": "/admin/ldap/users/:username/sync",
             "method": "POST",
             "params": {
-                "$user": null
+                "$username": null
             },
             "description": "Sync LDAP mapping for a user."
         },

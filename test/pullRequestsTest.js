@@ -113,12 +113,12 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:owner/:repo/pulls/comments/:number (deleteComment)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/pulls/comments/:id (deleteComment)",  function(next) {
         client.pullRequests.deleteComment(
             {
                 owner: "String",
                 repo: "String",
-                number: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -128,12 +128,12 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repos/:owner/:repo/pulls/comments/:number (editComment)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/pulls/comments/:id (editComment)",  function(next) {
         client.pullRequests.editComment(
             {
                 owner: "String",
                 repo: "String",
-                number: "Number",
+                id: "String",
                 body: "String"
             },
             function(err, res) {
@@ -180,12 +180,12 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/pulls/comments/:number (getComment)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/comments/:id (getComment)",  function(next) {
         client.pullRequests.getComment(
             {
                 owner: "String",
                 repo: "String",
-                number: "Number"
+                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -292,7 +292,8 @@ describe("[pullRequests]", function() {
                 number: "Number",
                 title: "String",
                 body: "String",
-                state: "String"
+                state: "String",
+                base: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

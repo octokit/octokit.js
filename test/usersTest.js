@@ -25,10 +25,10 @@ describe("[users]", function() {
         });
     });
 
-    it("should successfully execute PATCH /user/repository_invitations/:id (acceptRepoInvite)",  function(next) {
+    it("should successfully execute PATCH /user/repository_invitations/:invitation_id (acceptRepoInvite)",  function(next) {
         client.users.acceptRepoInvite(
             {
-                id: "String"
+                invitation_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -51,10 +51,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /user/following/:user (checkFollowing)",  function(next) {
+    it("should successfully execute GET /user/following/:username (checkFollowing)",  function(next) {
         client.users.checkFollowing(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -64,11 +64,11 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/following/:other_user (checkIfOneFollowersOther)",  function(next) {
+    it("should successfully execute GET /users/:username/following/:target_user (checkIfOneFollowersOther)",  function(next) {
         client.users.checkIfOneFollowersOther(
             {
-                user: "String",
-                other_user: "String"
+                username: "String",
+                target_user: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -105,10 +105,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/repository_invitations/:id (declineRepoInvite)",  function(next) {
+    it("should successfully execute DELETE /user/repository_invitations/:invitation_id (declineRepoInvite)",  function(next) {
         client.users.declineRepoInvite(
             {
-                id: "String"
+                invitation_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -157,10 +157,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute DELETE /users/:user/site_admin (demote)",  function(next) {
+    it("should successfully execute DELETE /users/:username/site_admin (demote)",  function(next) {
         client.users.demote(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -184,10 +184,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute PUT /user/following/:user (followUser)",  function(next) {
+    it("should successfully execute PUT /user/following/:username (followUser)",  function(next) {
         client.users.followUser(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -262,10 +262,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/followers (getFollowersForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/followers (getFollowersForUser)",  function(next) {
         client.users.getFollowersForUser(
             {
-                user: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -291,10 +291,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/following (getFollowingForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/following (getFollowingForUser)",  function(next) {
         client.users.getFollowingForUser(
             {
-                user: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -306,10 +306,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user (getForUser)",  function(next) {
+    it("should successfully execute GET /users/:username (getForUser)",  function(next) {
         client.users.getForUser(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -373,10 +373,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/keys (getKeysForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/keys (getKeysForUser)",  function(next) {
         client.users.getKeysForUser(
             {
-                user: "String",
+                username: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -453,10 +453,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute PUT /users/:user/site_admin (promote)",  function(next) {
+    it("should successfully execute PUT /users/:username/site_admin (promote)",  function(next) {
         client.users.promote(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -466,10 +466,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute PUT /users/:user/suspended (suspend)",  function(next) {
+    it("should successfully execute PUT /users/:username/suspended (suspend)",  function(next) {
         client.users.suspend(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -479,10 +479,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute DELETE /user/following/:user (unfollowUser)",  function(next) {
+    it("should successfully execute DELETE /user/following/:username (unfollowUser)",  function(next) {
         client.users.unfollowUser(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -492,10 +492,10 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute DELETE /users/:user/suspended (unsuspend)",  function(next) {
+    it("should successfully execute DELETE /users/:username/suspended (unsuspend)",  function(next) {
         client.users.unsuspend(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

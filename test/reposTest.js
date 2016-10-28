@@ -25,12 +25,12 @@ describe("[repos]", function() {
         });
     });
 
-    it("should successfully execute PUT /repos/:owner/:repo/collaborators/:collabuser (addCollaborator)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/collaborators/:username (addCollaborator)",  function(next) {
         client.repos.addCollaborator(
             {
                 owner: "String",
                 repo: "String",
-                collabuser: "String",
+                username: "String",
                 permission: "String"
             },
             function(err, res) {
@@ -47,9 +47,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -65,9 +63,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -83,9 +79,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -95,12 +89,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/collaborators/:collabuser (checkCollaborator)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/collaborators/:username (checkCollaborator)",  function(next) {
         client.repos.checkCollaborator(
             {
                 owner: "String",
                 repo: "String",
-                collabuser: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -136,6 +130,7 @@ describe("[repos]", function() {
                 has_issues: "Boolean",
                 has_wiki: "Boolean",
                 has_downloads: "Boolean",
+                team_id: "Number",
                 auto_init: "Boolean",
                 gitignore_template: "String",
                 license_template: "String",
@@ -427,11 +422,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repositories/:repo/invitations/:id (deleteInvite)",  function(next) {
+    it("should successfully execute DELETE /repositories/:repo_id/invitations/:invitation_id (deleteInvite)",  function(next) {
         client.repos.deleteInvite(
             {
-                repo: "String",
-                id: "String"
+                repo_id: "String",
+                invitation_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -746,12 +741,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/commits/:sha/status (getCombinedStatus)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:ref/status (getCombinedStatus)",  function(next) {
         client.repos.getCombinedStatus(
             {
                 owner: "String",
                 repo: "String",
-                sha: "String",
+                ref: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -793,12 +788,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/commits/:sha/comments (getCommitComments)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:ref/comments (getCommitComments)",  function(next) {
         client.repos.getCommitComments(
             {
                 owner: "String",
                 repo: "String",
-                sha: "String",
+                ref: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -946,10 +941,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /users/:user/repos (getForUser)",  function(next) {
+    it("should successfully execute GET /users/:username/repos (getForUser)",  function(next) {
         client.repos.getForUser(
             {
-                user: "String",
+                username: "String",
                 type: "String",
                 sort: "String",
                 direction: "String",
@@ -1012,10 +1007,10 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repositories/:repo/invitations (getInvites)",  function(next) {
+    it("should successfully execute GET /repositories/:repo_id/invitations (getInvites)",  function(next) {
         client.repos.getInvites(
             {
-                repo: "String"
+                repo_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1423,12 +1418,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/commits/:sha/statuses (getStatuses)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/commits/:ref/statuses (getStatuses)",  function(next) {
         client.repos.getStatuses(
             {
                 owner: "String",
                 repo: "String",
-                sha: "String",
+                ref: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -1552,12 +1547,12 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repos/:owner/:repo/collaborators/:collabuser (removeCollaborator)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/collaborators/:username (removeCollaborator)",  function(next) {
         client.repos.removeCollaborator(
             {
                 owner: "String",
                 repo: "String",
-                collabuser: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1590,8 +1585,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1606,9 +1600,7 @@ describe("[repos]", function() {
             {
                 owner: "String",
                 repo: "String",
-                branch: "String",
-                page: "Number",
-                per_page: "Number"
+                branch: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1624,8 +1616,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1641,8 +1632,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1658,9 +1648,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1676,9 +1664,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1694,9 +1680,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array",
-                page: "Number",
-                per_page: "Number"
+                body: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1790,11 +1774,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repositories/:repo/invitations/:id (updateInvite)",  function(next) {
+    it("should successfully execute PATCH /repositories/:repo_id/invitations/:invitation_id (updateInvite)",  function(next) {
         client.repos.updateInvite(
             {
-                repo: "String",
-                id: "String",
+                repo_id: "String",
+                invitation_id: "String",
                 permission: "String"
             },
             function(err, res) {

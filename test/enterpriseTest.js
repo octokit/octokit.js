@@ -238,10 +238,10 @@ describe("[enterprise]", function() {
         );
     });
 
-    it("should successfully execute POST /admin/ldap/users/:user/sync (syncLdapForUser)",  function(next) {
+    it("should successfully execute POST /admin/ldap/users/:username/sync (syncLdapForUser)",  function(next) {
         client.enterprise.syncLdapForUser(
             {
-                user: "String"
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -278,10 +278,10 @@ describe("[enterprise]", function() {
         );
     });
 
-    it("should successfully execute PATCH /admin/ldap/users/:user/mapping (updateLdapForUser)",  function(next) {
+    it("should successfully execute PATCH /admin/ldap/users/:username/mapping (updateLdapForUser)",  function(next) {
         client.enterprise.updateLdapForUser(
             {
-                user: "String",
+                username: "String",
                 ldap_dn: "String"
             },
             function(err, res) {
