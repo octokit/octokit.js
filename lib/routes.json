@@ -138,6 +138,20 @@
                 "invalidmsg": "",
                 "description": "The 20 character OAuth app client key for which to create the token."
             },
+            "column_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
+            "project_id": {
+                "type": "String",
+                "required": true,
+                "validation": "",
+                "invalidmsg": "",
+                "description": ""
+            },
             "ref": {
                 "type": "String",
                 "required": true,
@@ -2947,10 +2961,10 @@
         },
 
         "get-for-user": {
-            "url": "/users/:owner/orgs",
+            "url": "/users/:username/orgs",
             "method": "GET",
             "params": {
-                "$owner": null,
+                "$username": null,
                 "$page": null,
                 "$per_page": null
             },
@@ -3047,21 +3061,21 @@
         },
 
         "check-membership": {
-            "url": "/orgs/:org/members/:owner",
+            "url": "/orgs/:org/members/:username",
             "method": "GET",
             "params": {
                 "$org": null,
-                "$owner": null
+                "$username": null
             },
             "description": "Check membership"
         },
 
         "remove-member": {
-            "url": "/orgs/:org/members/:user",
+            "url": "/orgs/:org/members/:username",
             "method": "DELETE",
             "params": {
                 "$org": null,
-                "$user": null
+                "$username": null
             },
             "description": "Remove a member"
         },
@@ -3076,51 +3090,51 @@
         },
 
         "check-public-membership": {
-            "url": "/orgs/:org/public_members/:user",
+            "url": "/orgs/:org/public_members/:username",
             "method": "GET",
             "params": {
                 "$org": null,
-                "$user": null
+                "$username": null
             },
             "description": "Check public membership"
         },
 
         "publicize-membership": {
-            "url": "/orgs/:org/public_members/:user",
+            "url": "/orgs/:org/public_members/:username",
             "method": "PUT",
             "params": {
                 "$org": null,
-                "$user": null
+                "$username": null
             },
             "description": "Publicize a user's membership"
         },
 
         "conceal-membership": {
-            "url": "/orgs/:org/public_members/:user",
+            "url": "/orgs/:org/public_members/:username",
             "method": "DELETE",
             "params": {
                 "$org": null,
-                "$user": null
+                "$username": null
             },
             "description": "Conceal a user's membership"
         },
 
-        "get-organization-membership": {
-            "url": "/orgs/:org/memberships/:user",
+        "get-org-membership": {
+            "url": "/orgs/:org/memberships/:username",
             "method": "GET",
             "params": {
                 "$org": null,
-                "$user": null
+                "$username": null
             },
             "description": "Get organization membership"
         },
 
-        "add-organization-membership": {
-            "url": "/orgs/:org/memberships/:user",
+        "add-org-membership": {
+            "url": "/orgs/:org/memberships/:username",
             "method": "PUT",
             "params": {
                 "$org": null,
-                "$user": null,
+                "$username": null,
                 "role": {
                     "type": "String",
                     "required": true,
@@ -3132,29 +3146,14 @@
             "description": "Add or update organization membership"
         },
 
-        "remove-organization-membership": {
-            "url": "/orgs/:org/memberships/:user",
+        "remove-org-membership": {
+            "url": "/orgs/:org/memberships/:username",
             "method": "DELETE",
             "params": {
                 "$org": null,
-                "$user": null
+                "$username": null
             },
             "description": "Remove organization membership"
-        },
-
-        "get-organization-memberships": {
-            "url": "/user/memberships/orgs",
-            "method": "GET",
-            "params": {
-                "state": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(active|pending|)$",
-                    "invalidmsg": "active, pending",
-                    "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned."
-                }
-            },
-            "description": "List your organization memberships"
         },
 
         "get-teams": {
@@ -3249,21 +3248,21 @@
         },
 
         "get-team-membership": {
-            "url": "/teams/:id/memberships/:user",
+            "url": "/teams/:id/memberships/:username",
             "method": "GET",
             "params": {
                 "$id": null,
-                "$user": null
+                "$username": null
             },
             "description": "Get team membership"
         },
 
         "add-team-membership": {
-            "url": "/teams/:id/memberships/:user",
+            "url": "/teams/:id/memberships/:username",
             "method": "PUT",
             "params": {
                 "$id": null,
-                "$user": null,
+                "$username": null,
                 "role": {
                     "type": "String",
                     "required": false,
@@ -3277,11 +3276,11 @@
         },
 
         "remove-team-membership": {
-            "url": "/teams/:id/memberships/:user",
+            "url": "/teams/:id/memberships/:username",
             "method": "DELETE",
             "params": {
                 "$id": null,
-                "$user": null
+                "$username": null
             },
             "description": "Remove team membership"
         },
@@ -3446,6 +3445,238 @@
                 "$id": null
             },
             "description": "Delete a hook"
+        }
+    },
+
+    "projects": {
+        "get-repo-projects": {
+            "url": "/repos/:owner/:repo/projects",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null
+            },
+            "description": "List repository projects. (In preview period. See README.)"
+        },
+
+        "get-org-projects": {
+            "url": "/orgs/:org/projects",
+            "method": "GET",
+            "params": {
+                "$org": null
+            },
+            "description": "List organization projects. (In preview period. See README.)"
+        },
+
+        "get-project": {
+            "url": "/projects/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a project. (In preview period. See README.)"
+        },
+
+        "create-repo-project": {
+            "url": "/repos/:owner/:repo/projects",
+            "method": "POST",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$name": null,
+                "$body": null
+            },
+            "description": "Create a repository project. (In preview period. See README.)"
+        },
+        
+        "create-org-project": {
+            "url": "/orgs/:org/projects",
+            "method": "POST",
+            "params": {
+                "$org": null,
+                "$name": null,
+                "$body": null
+            },
+            "description": "Create an organization project. (In preview period. See README.)"
+        },
+
+        "update-project": {
+            "url": "/projects/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "$name": null,
+                "$body": null
+            },
+            "description": "Update a project. (In preview period. See README.)"
+        },
+
+        "delete-project": {
+            "url": "/projects/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a project. (In preview period. See README.)"
+        },
+        
+        "get-project-cards": {
+            "url": "/projects/columns/:column_id/cards",
+            "method": "GET",
+            "params": {
+                "$column_id": null
+            },
+            "description": "List project cards. (In preview period. See README.)"
+        },
+
+        "get-project-card": {
+            "url": "/projects/columns/cards/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get project card. (In preview period. See README.)"
+        },
+
+        "create-project-card": {
+            "url": "/projects/columns/:column_id/cards",
+            "method": "POST",
+            "params": {
+                "$column_id": null,
+                "note": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The note of the card."
+                },
+                "content_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id of the Issue or Pull Request to associate with this card."
+                },
+                "content_type": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'."
+                }
+            },
+            "description": "Create a project card. (In preview period. See README.)"
+        },
+
+        "update-project-card": {
+            "url": "/projects/columns/cards/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "note": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The note of the card."
+                }
+            },
+            "description": "Update a project card. (In preview period. See README.)"
+        },
+
+        "delete-project-card": {
+            "url": "/projects/columns/cards/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a project card. (In preview period. See README.)"
+        },
+
+        "move-project-card": {
+            "url": "/projects/columns/cards/:id/moves",
+            "method": "POST",
+            "params": {
+                "$id": null,
+                "position": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(first|last|after:\\d)$",
+                    "invalidmsg": "",
+                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
+                },
+                "column_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id value of a column in the same project."
+                }
+            },
+            "description": "Move a project card. (In preview period. See README.)"
+        },
+
+        "get-project-columns": {
+            "url": "/projects/:project_id/columns",
+            "method": "GET",
+            "params": {
+                "$project_id": null
+            },
+            "description": "List project columns. (In preview period. See README.)"
+        },
+
+        "get-project-column": {
+            "url": "/projects/columns/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a project column. (In preview period. See README.)"
+        },
+
+        "create-project-column": {
+            "url": "/projects/:project_id/columns",
+            "method": "POST",
+            "params": {
+                "$project_id": null,
+                "$name": null
+            },
+            "description": "Create a project column. (In preview period. See README.)"
+        },
+
+        "update-project-column": {
+            "url": "/projects/columns/:id",
+            "method": "PATCH",
+            "params": {
+                "$id": null,
+                "$name": null
+            },
+            "description": "Update a project column. (In preview period. See README.)"
+        },
+
+        "delete-project-column": {
+            "url": "/projects/columns/:id",
+            "method": "DELETE",
+            "params": {
+                "$id": null
+            },
+            "description": "Delete a project column. (In preview period. See README.)"
+        },
+
+        "move-project-column": {
+            "url": "/projects/columns/:id/moves",
+            "method": "POST",
+            "params": {
+                "$id": null,
+                "position": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "^(first|last|after:\\d)$",
+                    "invalidmsg": "",
+                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
+                }
+            },
+            "description": "Move a project column. (In preview period. See README.)"
         }
     },
 
@@ -5463,246 +5694,6 @@
             "description": "Get a specific Pages build. (In preview period. See README.)"
         },
 
-        "get-projects": {
-            "url": "/repos/:owner/:repo/projects",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null
-            },
-            "description": "List projects. (In preview period. See README.)"
-        },
-
-        "get-project": {
-            "url": "/repos/:owner/:repo/projects/:number",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null
-            },
-            "description": "List a project. (In preview period. See README.)"
-        },
-
-        "create-project": {
-            "url": "/repos/:owner/:repo/projects",
-            "method": "POST",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$name": null,
-                "$body": null
-            },
-            "description": "Create a project. (In preview period. See README.)"
-        },
-
-        "update-project": {
-            "url": "/repos/:owner/:repo/projects/:number",
-            "method": "PATCH",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null,
-                "$name": null,
-                "$body": null
-            },
-            "description": "Update a project. (In preview period. See README.)"
-        },
-
-        "delete-project": {
-            "url": "/repos/:owner/:repo/projects/:number",
-            "method": "DELETE",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null
-            },
-            "description": "Delete a project. (In preview period. See README.)"
-        },
-
-        "get-project-columns": {
-            "url": "/repos/:owner/:repo/projects/:number/columns",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null
-            },
-            "description": "List a project's columns. (In preview period. See README.)"
-        },
-
-        "get-project-column": {
-            "url": "/repos/:owner/:repo/projects/columns/:id",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null
-            },
-            "description": "Get a project column. (In preview period. See README.)"
-        },
-
-        "create-project-column": {
-            "url": "/repos/:owner/:repo/projects/:number/columns",
-            "method": "POST",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null,
-                "$name": null
-            },
-            "description": "Create a project column. (In preview period. See README.)"
-        },
-
-        "update-project-column": {
-            "url": "/repos/:owner/:repo/projects/columns/:id",
-            "method": "PATCH",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null,
-                "$name": null
-            },
-            "description": "Update a project column. (In preview period. See README.)"
-        },
-
-        "delete-project-column": {
-            "url": "/repos/:owner/:repo/projects/columns/:id",
-            "method": "DELETE",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null
-            },
-            "description": "Delete a project column. (In preview period. See README.)"
-        },
-
-        "move-project-column": {
-            "url": "/repos/:owner/:repo/projects/columns/:id/moves",
-            "method": "POST",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null,
-                "position": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "^(first|last|after:\\d)$",
-                    "invalidmsg": "",
-                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
-                }
-            },
-            "description": "Move a project column. (In preview period. See README.)"
-        },
-
-        "get-project-cards": {
-            "url": "/repos/:owner/:repo/projects/columns/:id/cards",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null
-            },
-            "description": "List project cards. (In preview period. See README.)"
-        },
-
-        "get-project-card": {
-            "url": "/repos/:owner/:repo/projects/columns/cards/:id",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null
-            },
-            "description": "Get project card. (In preview period. See README.)"
-        },
-
-        "create-project-card": {
-            "url": "/repos/:owner/:repo/projects/columns/:id/cards",
-            "method": "POST",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null,
-                "note": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The note of the card."
-                },
-                "content_id": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The id of the Issue or Pull Request to associate with this card."
-                },
-                "content_type": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'."
-                }
-            },
-            "description": "Create a project card. (In preview period. See README.)"
-        },
-
-        "update-project-card": {
-            "url": "/repos/:owner/:repo/projects/columns/cards/:id",
-            "method": "PATCH",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null,
-                "note": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The note of the card."
-                }
-            },
-            "description": "Update a project card. (In preview period. See README.)"
-        },
-
-        "delete-project-card": {
-            "url": "/repos/:owner/:repo/projects/columns/cards/:id",
-            "method": "DELETE",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null
-            },
-            "description": "Delete a project card. (In preview period. See README.)"
-        },
-
-        "move-project-card": {
-            "url": "/repos/:owner/:repo/projects/columns/cards/:id/moves",
-            "method": "POST",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null,
-                "position": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "^(first|last|after:\\d)$",
-                    "invalidmsg": "",
-                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
-                },
-                "column_id": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The id value of a column in the same project."
-                }
-            },
-            "description": "Move a project card. (In preview period. See README.)"
-        },
-
         "get-releases": {
             "url": "/repos/:owner/:repo/releases",
             "method": "GET",
@@ -6459,7 +6450,22 @@
             "description": "List organizations for the authenticated user."
         },
 
-        "get-organization-membership": {
+        "get-org-memberships": {
+            "url": "/user/memberships/orgs",
+            "method": "GET",
+            "params": {
+                "state": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(active|pending|)$",
+                    "invalidmsg": "active, pending",
+                    "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned."
+                }
+            },
+            "description": "List your organization memberships"
+        },
+
+        "get-org-membership": {
             "url": "/user/memberships/orgs/:org",
             "method": "GET",
             "params": {
@@ -6468,7 +6474,7 @@
             "description": "Get your organization membership"
         },
 
-        "edit-organization-membership": {
+        "edit-org-membership": {
             "url": "/user/memberships/orgs/:org",
             "method": "PATCH",
             "params": {

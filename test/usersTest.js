@@ -170,8 +170,8 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute PATCH /user/memberships/orgs/:org (editOrganizationMembership)",  function(next) {
-        client.users.editOrganizationMembership(
+    it("should successfully execute PATCH /user/memberships/orgs/:org (editOrgMembership)",  function(next) {
+        client.users.editOrgMembership(
             {
                 org: "String",
                 state: "String"
@@ -388,10 +388,23 @@ describe("[users]", function() {
         );
     });
 
-    it("should successfully execute GET /user/memberships/orgs/:org (getOrganizationMembership)",  function(next) {
-        client.users.getOrganizationMembership(
+    it("should successfully execute GET /user/memberships/orgs/:org (getOrgMembership)",  function(next) {
+        client.users.getOrgMembership(
             {
                 org: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/memberships/orgs (getOrgMemberships)",  function(next) {
+        client.users.getOrgMemberships(
+            {
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

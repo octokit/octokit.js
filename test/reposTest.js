@@ -295,56 +295,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/projects (createProject)",  function(next) {
-        client.repos.createProject(
-            {
-                owner: "String",
-                repo: "String",
-                name: "String",
-                body: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:owner/:repo/projects/columns/:id/cards (createProjectCard)",  function(next) {
-        client.repos.createProjectCard(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String",
-                note: "String",
-                content_id: "String",
-                content_type: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:owner/:repo/projects/:number/columns (createProjectColumn)",  function(next) {
-        client.repos.createProjectColumn(
-            {
-                owner: "String",
-                repo: "String",
-                number: "Number",
-                name: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
         client.repos.createRelease(
             {
@@ -493,51 +443,6 @@ describe("[repos]", function() {
 
     it("should successfully execute DELETE /repos/:owner/:repo/keys/:id (deleteKey)",  function(next) {
         client.repos.deleteKey(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:owner/:repo/projects/:number (deleteProject)",  function(next) {
-        client.repos.deleteProject(
-            {
-                owner: "String",
-                repo: "String",
-                number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:owner/:repo/projects/columns/cards/:id (deleteProjectCard)",  function(next) {
-        client.repos.deleteProjectCard(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:owner/:repo/projects/columns/:id (deleteProjectColumn)",  function(next) {
-        client.repos.deleteProjectColumn(
             {
                 owner: "String",
                 repo: "String",
@@ -1258,95 +1163,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/projects/:number (getProject)",  function(next) {
-        client.repos.getProject(
-            {
-                owner: "String",
-                repo: "String",
-                number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/projects/columns/cards/:id (getProjectCard)",  function(next) {
-        client.repos.getProjectCard(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/projects/columns/:id/cards (getProjectCards)",  function(next) {
-        client.repos.getProjectCards(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/projects/columns/:id (getProjectColumn)",  function(next) {
-        client.repos.getProjectColumn(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/projects/:number/columns (getProjectColumns)",  function(next) {
-        client.repos.getProjectColumns(
-            {
-                owner: "String",
-                repo: "String",
-                number: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/projects (getProjects)",  function(next) {
-        client.repos.getProjects(
-            {
-                owner: "String",
-                repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.getProtectedBranchRequiredStatusChecks(
             {
@@ -1704,39 +1520,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/projects/columns/cards/:id/moves (moveProjectCard)",  function(next) {
-        client.repos.moveProjectCard(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String",
-                position: "String",
-                column_id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /repos/:owner/:repo/projects/columns/:id/moves (moveProjectColumn)",  function(next) {
-        client.repos.moveProjectColumn(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String",
-                position: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /repos/:owner/:repo/hooks/:id/pings (pingHook)",  function(next) {
         client.repos.pingHook(
             {
@@ -2013,55 +1796,6 @@ describe("[repos]", function() {
                 repo: "String",
                 id: "String",
                 permission: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:owner/:repo/projects/:number (updateProject)",  function(next) {
-        client.repos.updateProject(
-            {
-                owner: "String",
-                repo: "String",
-                number: "Number",
-                name: "String",
-                body: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:owner/:repo/projects/columns/cards/:id (updateProjectCard)",  function(next) {
-        client.repos.updateProjectCard(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String",
-                note: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute PATCH /repos/:owner/:repo/projects/columns/:id (updateProjectColumn)",  function(next) {
-        client.repos.updateProjectColumn(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String",
-                name: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
