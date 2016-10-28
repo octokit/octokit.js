@@ -474,7 +474,8 @@
                 "/integration/installations",
                 "/installations/:installation_id/access_tokens",
                 "/integration/identity/user",
-                "/installation/repositories"
+                "/installation/repositories",
+                "/installations/:installation_id/repositories/:repository_id"
             ],
             
             "application/vnd.github.drax-preview+json": [
@@ -488,7 +489,7 @@
                 "/orgs/:org/migrations",
                 "/orgs/:org/migrations/:id",
                 "/orgs/:org/migrations/:id/archive",
-                "/orgs/:org/migrations/:id/repos/:repo/lock"
+                "/orgs/:org/migrations/:id/repos/:repo_name/lock"
             ],
             
             "application/vnd.github.mister-fantastic-preview+json": [
@@ -509,14 +510,14 @@
             
             "application/vnd.github.inertia-preview+json": [
                 "/repos/:owner/:repo/projects",
-                "/repos/:owner/:repo/projects/:number",
-                "/repos/:owner/:repo/projects/:number/columns",
-                "/repos/:owner/:repo/projects/columns/:id",
-                "/repos/:owner/:repo/projects/columns/:id/moves",
-                "/repos/:owner/:repo/projects/columns/:id/cards",
-                "/repos/:owner/:repo/projects/columns/cards/:id",
-                "/repos/:owner/:repo/projects/columns/:id/cards",
-                "/repos/:owner/:repo/projects/columns/cards/:id/moves"
+                "/orgs/:org/projects",
+                "/projects/:id",
+                "/projects/columns/:column_id/cards",
+                "/projects/columns/cards/:id",
+                "/projects/columns/cards/:id/moves",
+                "/projects/:project_id/columns",
+                "/projects/columns/:id",
+                "/projects/columns/:id/moves"
             ],
             
             "application/vnd.github.loki-preview+json": [
@@ -550,7 +551,7 @@
             ],
             
             "application/vnd.github.mockingbird-preview": [
-                "/repos/:owner/:repo/issues/:number/timeline"
+                "/repos/:owner/:repo/issues/:issue_number/timeline"
             ]
         }
     },
