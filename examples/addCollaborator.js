@@ -15,7 +15,7 @@ github.authenticate({
 github.repos.addCollaborator({
     owner: "brassafrax", // needs to be an org
     repo: "test",
-    collabuser: "first9890"
+    username: "first9890"
 }, function(err, res) {
     console.log(err, res);
 });
