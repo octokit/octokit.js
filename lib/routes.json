@@ -6495,7 +6495,7 @@
                 "state": {
                     "type": "String",
                     "required": false,
-                    "validation": "^(active|pending|)$",
+                    "validation": "^(active|pending)$",
                     "invalidmsg": "active, pending",
                     "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned."
                 }
