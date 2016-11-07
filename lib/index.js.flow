@@ -64,7 +64,6 @@ declare module "github" {
 
   declare type Files = { files: string; };
   declare type Owner = { owner: string; };
-  declare type User = { user: string; };
   declare type Username = { username: string; };
   declare type Org = { org: string; };
   declare type Repo = { repo: string; };
@@ -92,7 +91,6 @@ declare module "github" {
   declare type Color = { color: string; };
   declare type Base = { base: string; };
   declare type Head = { head: string; };
-  declare type Line = { line: number; };
   declare type Path = { path: string; };
   declare type Position = { position: number; };
   declare type Body = { body: string[]; };
@@ -112,8 +110,6 @@ declare module "github" {
   declare type AutoInit = { auto_init?: boolean; };
   declare type GitignoreTemplate = { gitignore_template?: string; };
   declare type LicenseTemplate = { license_template?: string; };
-  declare type Content = { content?: string; };
-  declare type Message = { message?: string; };
   declare type Order = { order?: "asc"|"desc"; };
   declare type Q = { q: string; };
   declare type Data = { data: string; };
@@ -811,7 +807,7 @@ declare module "github" {
     & Page
     & PerPage
     & {
-      sort?: string;
+      sort?: "due_on"|"completeness";
       direction?: "asc"|"desc";
     };
   declare type IssuesGetMilestoneParams =
@@ -978,7 +974,7 @@ declare module "github" {
     & Page
     & PerPage
     & {
-      filter?: string;
+      filter?: "all"|"2fa_disabled";
       role?: "all"|"admin"|"member";
     };
   declare type OrgsCheckMembershipParams =
@@ -1208,7 +1204,7 @@ declare module "github" {
       state?: "open"|"closed"|"all";
       head?: string;
       base?: string;
-      sort?: string;
+      sort?: "created"|"updated"|"popularity"|"long-running";
     };
   declare type PullRequestsGetParams =
     & Owner
@@ -1328,56 +1324,56 @@ declare module "github" {
     & Repo
     & Id
     & {
-      content?: string;
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForCommitCommentParams =
     & Owner
     & Repo
     & Id
     & {
-      content: string;
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForIssueParams =
     & Owner
     & Repo
     & Number
     & {
-      content?: string;
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForIssueParams =
     & Owner
     & Repo
     & Number
     & {
-      content: string;
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForIssueCommentParams =
     & Owner
     & Repo
     & Id
     & {
-      content?: string;
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForIssueCommentParams =
     & Owner
     & Repo
     & Id
     & {
-      content: string;
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForPullRequestReviewCommentParams =
     & Owner
     & Repo
     & Id
     & {
-      content?: string;
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForPullRequestReviewCommentParams =
     & Owner
     & Repo
     & Id
     & {
-      content: string;
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsDeleteParams =
     & Id
@@ -1390,7 +1386,7 @@ declare module "github" {
       visibility?: "all"|"public"|"private";
       affiliation?: string;
       type?: "all"|"owner"|"public"|"private"|"member";
-      sort?: string;
+      sort?: "created"|"updated"|"pushed"|"full_name";
     };
   declare type ReposGetForUserParams =
     & Username
@@ -1399,7 +1395,7 @@ declare module "github" {
     & PerPage
     & {
       type?: "all"|"owner"|"member";
-      sort?: string;
+      sort?: "created"|"updated"|"pushed"|"full_name";
     };
   declare type ReposGetForOrgParams =
     & Org
@@ -2156,7 +2152,7 @@ declare module "github" {
     & Page
     & PerPage
     & {
-      sort?: string;
+      sort?: "indexed";
     };
   declare type SearchIssuesParams =
     & Q
