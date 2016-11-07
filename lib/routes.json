@@ -200,6 +200,7 @@
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "asc or desc, default: desc.",
                 "description": "",
+                "enum": ["asc", "desc"],
                 "default": "desc"
             },
             "since": {
@@ -222,6 +223,7 @@
                 "validation": "^(open|closed|all)$",
                 "invalidmsg": "open, closed, all, default: open",
                 "description": "",
+                "enum": ["open", "closed", "all"],
                 "default": "open"
             },
             "color": {
@@ -411,6 +413,7 @@
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
                 "description": "asc or desc",
+                "enum": ["asc", "desc"],
                 "default": "desc"
             },
             "q": {
@@ -434,6 +437,7 @@
                 "validation": "^(secret|closed)$",
                 "invalidmsg": "secret, closed, default: secret",
                 "description": "The level of privacy this team should have.",
+                "enum": ["secret", "closed"],
                 "default": "secret"
             },
             "fingerprint": {
@@ -1036,6 +1040,7 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created or updated (when it was last pushed to); default: created.",
                     "description": "",
+                    "enum": ["created", "updated"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1055,6 +1060,7 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created or updated (when it was last pushed to); default: created.",
                     "description": "",
+                    "enum": ["created", "updated"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1777,7 +1783,8 @@
                     "required": false,
                     "validation": "^(all|assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "",
+                    "enum": ["all", "assigned", "created", "mentioned", "subscribed"]
                 },
                 "state": {
                     "type": "String",
@@ -1785,6 +1792,7 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
+                    "enum": ["open", "closed", "all"],
                     "default": "open"
                 },
                 "labels": {
@@ -1800,6 +1808,7 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
+                    "enum": ["created", "updated", "comments"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1819,7 +1828,8 @@
                     "required": false,
                     "validation": "^(all|assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "",
+                    "enum": ["all", "assigned", "created", "mentioned", "subscribed"]
                 },
                 "state": {
                     "type": "String",
@@ -1827,6 +1837,7 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
+                    "enum": ["open", "closed", "all"],
                     "default": "open"
                 },
                 "labels": {
@@ -1842,6 +1853,7 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
+                    "enum": ["created", "updated", "comments"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1862,7 +1874,8 @@
                     "required": false,
                     "validation": "^(all|assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "",
+                    "enum": ["all", "assigned", "created", "mentioned", "subscribed"]
                 },
                 "state": {
                     "type": "String",
@@ -1870,6 +1883,7 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
+                    "enum": ["open", "closed", "all"],
                     "default": "open"
                 },
                 "labels": {
@@ -1885,6 +1899,7 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
+                    "enum": ["created", "updated", "comments"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1914,6 +1929,7 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
+                    "enum": ["open", "closed", "all"],
                     "default": "open"
                 },
                 "assignee": {
@@ -1950,6 +1966,7 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
+                    "enum": ["created", "updated", "comments"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -2057,6 +2074,7 @@
                     "validation": "^(open|closed)$",
                     "invalidmsg": "open, closed, default: open",
                     "description": "open or closed",
+                    "enum": ["open", "closed"],
                     "default": "open"
                 },
                 "milestone": {
@@ -2195,6 +2213,7 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created, updated, default: created.",
                     "description": "",
+                    "enum": ["created", "updated"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -2472,6 +2491,7 @@
                     "validation": "^(due_on|completeness)$",
                     "invalidmsg": "due_on, completeness, default: due_on",
                     "description": "due_on, completeness, default: due_on",
+                    "enum": ["due_on", "completeness"],
                     "default": "due_on"
                 },
                 "direction": {
@@ -2480,6 +2500,7 @@
                     "validation": "^(asc|desc)$",
                     "invalidmsg": "asc or desc, default: asc.",
                     "description": "",
+                    "enum": ["asc", "desc"],
                     "default": "asc"
                 },
                 "$page": null,
@@ -2686,7 +2707,8 @@
                     "required": false,
                     "validation": "^(subversion|git|mercurial|tfvc)$",
                     "invalidmsg": "subversion, git, mercurial, tfvc",
-                    "description": "The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response."
+                    "description": "The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.",
+                    "enum": ["subversion", "git", "mercurial", "tfvc"]
                 },
                 "vcs_username": {
                     "type": "String",
@@ -2912,6 +2934,7 @@
                     "validation": "^(markdown|gfm)$",
                     "invalidmsg": "",
                     "description": "The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.",
+                    "enum": ["markdown", "gfm"],
                     "default": "markdown"
                 },
                 "context": {
@@ -3052,6 +3075,7 @@
                     "validation": "^(all|2fa_disabled)$",
                     "invalidmsg": "all, 2fa_disabled, default: all",
                     "description": "Filter members returned in the list.",
+                    "enum": ["all", "2fa_disabled"],
                     "default": "all"
                 },
                 "role": {
@@ -3060,6 +3084,7 @@
                     "validation": "^(all|admin|member)$",
                     "invalidmsg": "all, admin, member, default: all",
                     "description": "Filter members returned by their role.",
+                    "enum": ["all", "admin", "member"],
                     "default": "all"
                 },
                 "$page": null,
@@ -3148,7 +3173,8 @@
                     "required": true,
                     "validation": "^(admin|member)$",
                     "invalidmsg": "admin, member",
-                    "description": "The role to give the user in the organization."
+                    "description": "The role to give the user in the organization.",
+                    "enum": ["admin", "member"]
                 }
             },
             "description": "Add or update organization membership"
@@ -3247,6 +3273,7 @@
                     "validation": "^(member|maintainer|all)$",
                     "invalidmsg": "member, maintainer, all, default: all",
                     "description": "Filters members returned by their role in the team.",
+                    "enum": ["member", "maintainer", "all"],
                     "default": "all"
                 },
                 "$page": null,
@@ -3277,6 +3304,7 @@
                     "validation": "^(member|maintainer)$",
                     "invalidmsg": "member, maintainer, default: member",
                     "description": "The role that this user should have in the team.",
+                    "enum": ["member", "maintainer"],
                     "default": "member"
                 }
             },
@@ -3327,7 +3355,8 @@
                     "required": false,
                     "validation": "^(pull|push|admin)$",
                     "invalidmsg": "",
-                    "description": "`pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository."
+                    "description": "`pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository.",
+                    "enum": ["pull", "push", "admin"]
                 }
             },
             "description": "Add team repository"
@@ -3701,6 +3730,7 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
+                    "enum": ["open", "closed", "all"],
                     "default": "open"
                 },
                 "head": {
@@ -3723,6 +3753,7 @@
                     "validation": "^(created|updated|popularity|long-running)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
                     "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
+                    "enum": ["created", "updated", "popularity", "long-running"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -3888,6 +3919,7 @@
                     "validation": "^(merge|squash|rebase)$",
                     "invalidmsg": "Possible values are: `merge`, `squash`, `rebase` Default: `merge`",
                     "description": "Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)",
+                    "enum": ["merge", "squash", "rebase"],
                     "default": "merge"
                 }
             },
@@ -3919,6 +3951,7 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, Default: `created`",
                     "description": "Possible values are: `created`, `updated`, Default: `created`",
+                    "enum": ["created", "updated"],
                     "default": "created"
                 },
                 "$direction": null,
@@ -4011,7 +4044,8 @@
                     "required": false,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "Indicates which type of reaction to return."
+                    "description": "Indicates which type of reaction to return.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "List reactions for a commit comment. (In preview period. See README.)"
@@ -4029,7 +4063,8 @@
                     "required": true,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "The reaction type."
+                    "description": "The reaction type.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "Create reaction for a commit comment. (In preview period. See README.)"
@@ -4047,7 +4082,8 @@
                     "required": false,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "Indicates which type of reaction to return."
+                    "description": "Indicates which type of reaction to return.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "List reactions for an issue. (In preview period. See README.)"
@@ -4065,7 +4101,8 @@
                     "required": true,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "The reaction type."
+                    "description": "The reaction type.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "Create reaction for an issue. (In preview period. See README.)"
@@ -4083,7 +4120,8 @@
                     "required": false,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "Indicates which type of reaction to return."
+                    "description": "Indicates which type of reaction to return.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "List reactions for an issue comment. (In preview period. See README.)"
@@ -4101,7 +4139,8 @@
                     "required": true,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "The reaction type."
+                    "description": "The reaction type.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "Create reaction for an issue comment. (In preview period. See README.)"
@@ -4119,7 +4158,8 @@
                     "required": false,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "Indicates which type of reaction to return."
+                    "description": "Indicates which type of reaction to return.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "List reactions for a pull request review comment. (In preview period. See README.)"
@@ -4137,7 +4177,8 @@
                     "required": true,
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
-                    "description": "The reaction type."
+                    "description": "The reaction type.",
+                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
                 }
             },
             "description": "Create reaction for a pull request review comment. (In preview period. See README.)"
@@ -4164,6 +4205,7 @@
                     "validation": "^(all|public|private)$",
                     "invalidmsg": "Possible values: `all`, `public`, `private`, Default: `all`.",
                     "description": "Can be one of `all`, `public`, or `private`. Default: `all`.",
+                    "enum": ["all", "public", "private"],
                     "default": "all"
                 },
                 "affiliation": {
@@ -4180,6 +4222,7 @@
                     "validation": "^(all|owner|public|private|member)$",
                     "invalidmsg": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
                     "description": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
+                    "enum": ["all", "owner", "public", "private", "member"],
                     "default": "all"
                 },
                 "sort": {
@@ -4188,6 +4231,7 @@
                     "validation": "^(created|updated|pushed|full_name)$",
                     "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
                     "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
+                    "enum": ["created", "updated", "pushed", "full_name"],
                     "default": "full_name"
                 },
                 "$direction": null,
@@ -4208,6 +4252,7 @@
                     "validation": "^(all|owner|member)$",
                     "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
                     "description": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
+                    "enum": ["all", "owner", "member"],
                     "default": "owner"
                 },
                 "sort": {
@@ -4216,6 +4261,7 @@
                     "validation": "^(created|updated|pushed|full_name)$",
                     "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
                     "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
+                    "enum": ["created", "updated", "pushed", "full_name"],
                     "default": "full_name"
                 },
                 "$direction": null,
@@ -4236,6 +4282,7 @@
                     "validation": "^(all|public|private|forks|sources|member)$",
                     "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
                     "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
+                    "enum": ["all", "public", "private", "forks", "sources", "member"],
                     "default": "all"
                 },
                 "$page": null,
@@ -4901,6 +4948,7 @@
                     "validation": "^(pull|push|admin)$",
                     "invalidmsg": "",
                     "description": "`pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.",
+                    "enum": ["pull", "push", "admin"],
                     "default": "push"
                 }
             },
@@ -5281,6 +5329,7 @@
                     "validation": "^(tarball|zipball)$",
                     "invalidmsg": "Either tarball or zipball, Default: tarball.",
                     "description": "Either tarball or zipball, Deafult: tarball.",
+                    "enum": ["tarball", "zipball"],
                     "default": "tarball"
                 },
                 "ref": {
@@ -5585,6 +5634,7 @@
                     "validation": "^(newest|oldest|stargazers)$",
                     "invalidmsg": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
                     "description": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
+                    "enum": ["newest", "oldest", "stargazers"],
                     "default": "newest"
                 },
                 "$page": null,
@@ -5640,7 +5690,8 @@
                     "required": false,
                     "validation": "^(read|write|admin)$",
                     "invalidmsg": "Read, write, or admin.",
-                    "description": "The permissions that the associated user will have on the repository."
+                    "description": "The permissions that the associated user will have on the repository.",
+                    "enum": ["read", "write", "admin"]
                 }
             },
             "description": "Update a repository invitation. (In preview period. See README.)"
@@ -6037,7 +6088,8 @@
                     "required": true,
                     "validation": "^(pending|success|error|failure)$",
                     "invalidmsg": "",
-                    "description": "State of the status - can be one of pending, success, error, or failure."
+                    "description": "State of the status - can be one of pending, success, error, or failure.",
+                    "enum": ["pending", "success", "error", "failure"]
                 },
                 "target_url": {
                     "type": "String",
@@ -6299,7 +6351,8 @@
                     "required": false,
                     "validation": "^(stars|forks|updated)$",
                     "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
-                    "description": "stars, forks, or updated"
+                    "description": "stars, forks, or updated",
+                    "enum": ["stars", "forks", "updated"]
                 },
                 "$order": null,
                 "$page": null,
@@ -6318,7 +6371,8 @@
                     "required": false,
                     "validation": "^indexed$",
                     "invalidmsg": "indexed only",
-                    "description": "The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match."
+                    "description": "The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match.",
+                    "enum": ["indexed"]
                 },
                 "$order": null,
                 "$page": null,
@@ -6337,7 +6391,8 @@
                     "required": false,
                     "validation": "^(comments|created|updated)$",
                     "invalidmsg": "comments, created, or updated",
-                    "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match."
+                    "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match.",
+                    "enum": ["comments", "created", "updated"]
                 },
                 "$order": null,
                 "$page": null,
@@ -6356,7 +6411,8 @@
                     "required": false,
                     "validation": "^(followers|repositories|joined)$",
                     "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
-                    "description": "The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match."
+                    "description": "The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match.",
+                    "enum": ["followers", "repositories", "joined"]
                 },
                 "$order": null,
                 "$page": null,
@@ -6497,7 +6553,8 @@
                     "required": false,
                     "validation": "^(active|pending)$",
                     "invalidmsg": "active, pending",
-                    "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned."
+                    "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned.",
+                    "enum": ["active", "pending"]
                 }
             },
             "description": "List your organization memberships"
@@ -6522,7 +6579,8 @@
                     "required": true,
                     "validation": "^(active)$",
                     "invalidmsg": "active",
-                    "description": "The state that the membership should be in. Only \"active\" will be accepted."
+                    "description": "The state that the membership should be in. Only \"active\" will be accepted.",
+                    "enum": ["active"]
                 }
             },
             "description": "Edit your organization membership"
@@ -6830,7 +6888,8 @@
                     "required": true,
                     "validation": "^(issues|hooks|milestones|orgs|comments|pages|users|gists|pulls|repos|all)$",
                     "invalidmsg": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
-                    "description": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all."
+                    "description": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
+                    "enum": ["issues", "hooks", "milestones", "orgs", "comments", "pages", "users", "gists", "pulls", "repos", "all"]
                 }
             },
             "description": "Get statistics."
