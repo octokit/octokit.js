@@ -5315,7 +5315,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
+                    "description": "A valid Git reference. Default: the repository’s default branch (usually master)."
                 }
             },
             "description": "Get archive link."

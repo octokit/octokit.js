@@ -43643,7 +43643,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String=tarball,zipball} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  A valid Git reference. Default: the repository’s default branch (usually master).
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
