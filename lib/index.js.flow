@@ -487,9 +487,10 @@ declare module "github" {
   declare type GitdataCreateReferenceParams =
     & Owner
     & Repo
-    & Ref
     & Sha
-    ;
+    & {
+      ref: string;
+    };
   declare type GitdataUpdateReferenceParams =
     & Owner
     & Repo

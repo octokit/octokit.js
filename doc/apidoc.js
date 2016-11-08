@@ -40773,7 +40773,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
