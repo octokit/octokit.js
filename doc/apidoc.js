@@ -1017,7 +1017,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -1065,7 +1065,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -1123,7 +1123,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -1210,7 +1210,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -3708,7 +3708,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} user  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -4464,7 +4464,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} user  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -6565,7 +6565,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -6613,7 +6613,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -6671,7 +6671,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -6758,7 +6758,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -9256,7 +9256,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -10012,7 +10012,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -12266,7 +12266,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -12314,7 +12314,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -12372,7 +12372,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -12459,7 +12459,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -14957,7 +14957,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -15713,7 +15713,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -17959,7 +17959,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -18007,7 +18007,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -18065,7 +18065,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -18152,7 +18152,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -20650,7 +20650,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -21406,7 +21406,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -23652,7 +23652,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -23700,7 +23700,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -23758,7 +23758,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -23845,7 +23845,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -26343,7 +26343,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -27099,7 +27099,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -29345,7 +29345,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -29393,7 +29393,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -29451,7 +29451,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -29538,7 +29538,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -32048,7 +32048,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -32804,7 +32804,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -35055,7 +35055,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -35103,7 +35103,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -35161,7 +35161,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -35248,7 +35248,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -37925,7 +37925,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -38598,7 +38598,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
@@ -40773,7 +40773,7 @@ github.gitdata.createCommit({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiExample {js} ex:
 github.gitdata.createReference({ ... });
@@ -40821,7 +40821,7 @@ github.gitdata.createTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.deleteReference({ ... });
  */
@@ -40879,7 +40879,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.gitdata.getReference({ ... });
  */
@@ -40966,7 +40966,7 @@ github.gitdata.getTree({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiParam {String} sha  
  * @apiParam {Boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} ex:
@@ -43643,7 +43643,7 @@ github.repos.getAllCommitComments({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String=tarball,zipball} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
- * @apiParam {String} [ref]  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} [ref]  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getArchiveLink({ ... });
  */
@@ -44316,7 +44316,7 @@ github.repos.getReleases({ ... });
  *
  * @apiParam {String} owner  
  * @apiParam {String} repo  
- * @apiParam {String} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
+ * @apiParam {String} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.
  * @apiExample {js} ex:
 github.repos.getShaOfCommitRef({ ... });
  */
