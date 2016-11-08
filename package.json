@@ -31,7 +31,8 @@
     "mime": "^1.2.11"
   },
   "devDependencies": {
-    "mocha": "~1.13.0"
+    "mocha": "~1.13.0",
+    "mustache": "^2.2.1"
   },
   "main": "lib",
   "scripts": {
