@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.0.3
+
+Bug fixes:
+  * Fix ref params being uri encoded.
+
 ## 6.0.2
 
 Bug fixes:
