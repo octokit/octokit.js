@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.0.4
+
+Bug fixes:
+  * Don't trim endpoint params.
+
 ## 6.0.3
 
 Bug fixes:
