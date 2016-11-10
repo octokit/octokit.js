@@ -188,7 +188,7 @@ describe("[gitdata]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/git/refs (getReferences)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/git/refs/ (getReferences)",  function(next) {
         client.gitdata.getReferences(
             {
                 owner: "String",

@@ -162,6 +162,7 @@
             "ref": {
                 "type": "String",
                 "required": true,
+                "allow-empty": true,
                 "validation": "",
                 "invalidmsg": "",
                 "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
@@ -1491,7 +1492,7 @@
         },
 
         "get-references": {
-            "url": "/repos/:owner/:repo/git/refs",
+            "url": "/repos/:owner/:repo/git/refs/",
             "method": "GET",
             "params": {
                 "$owner": null,
