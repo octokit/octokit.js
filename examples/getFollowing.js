@@ -12,8 +12,7 @@ github.authenticate({
     token: testAuth["token"]
 });
 
-github.users.getFollowingForUser({
-    username: "defunkt"
+github.users.getFollowing({
 }, function(err, res) {
     console.log(err, res);
 });

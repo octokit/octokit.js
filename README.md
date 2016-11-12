@@ -37,7 +37,7 @@ Get all followers for user "defunkt":
 var GitHubApi = require("github");
 
 var github = new GitHubApi({
-    // optional args
+    // optional
     debug: true,
     protocol: "https",
     host: "github.my-GHE-enabled-company.com", // should be api.github.com for GitHub
@@ -53,11 +53,11 @@ var github = new GitHubApi({
 // TODO: optional authentication here depending on desired endpoints. See below in README.
 
 github.users.getFollowingForUser({
-    // optional:
+    // optional
     // headers: {
     //     "cookie": "blahblah"
     // },
-    user: "defunkt"
+    username: "defunkt"
 }, function(err, res) {
     console.log(JSON.stringify(res));
 });

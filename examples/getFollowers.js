@@ -13,7 +13,6 @@ github.authenticate({
 });
 
 github.users.getFollowers({
-    user: "defunkt"
 }, function(err, res) {
     console.log(err, res);
 });
