@@ -17,6 +17,8 @@
             "X-RateLimit-Reset",
             "X-Oauth-Scopes",
             "X-Poll-Interval",
+            "X-GitHub-Request-Id",
+            "Retry-After",
             "Link",
             "Location",
             "Last-Modified",
