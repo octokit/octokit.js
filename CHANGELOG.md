@@ -1,11 +1,24 @@
 # CHANGELOG
 
+## 6.1.0
+
+Features:
+  * Add X-GitHub-RequestId, Retry-After request headers.
+  * Add trailing slash to getReferences url to return all references.
+  * Allow the ref param to be the empty string.
+
+Bug fixes:
+  * Some example fixes.
+
 ## 6.0.4
 
 Bug fixes:
   * Don't trim endpoint params.
 
 ## 6.0.3
+
+Features:
+  * Generate flow-type type definitions.
 
 Bug fixes:
   * Fix ref params being uri encoded.
