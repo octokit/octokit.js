@@ -47,12 +47,18 @@ declare module "github" {
     token: string;
   };
 
+  declare type AuthNetrc = {
+    type: "netrc";
+    token: string;
+  };
+
   declare type Auth =
     | AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
-    | AuthJWT;
+    | AuthJWT
+    | AuthNetrc;
 
   declare type Link =
     | { link: string; }

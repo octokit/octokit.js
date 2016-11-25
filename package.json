@@ -28,7 +28,8 @@
   "dependencies": {
     "follow-redirects": "0.0.7",
     "https-proxy-agent": "^1.0.0",
-    "mime": "^1.2.11"
+    "mime": "^1.2.11",
+    "netrc": "^0.1.4"
   },
   "devDependencies": {
     "mocha": "~1.13.0",

@@ -121,6 +121,11 @@ github.authenticate({
     type: "integration",
     token: "jwt",
 });
+
+// ~/.netrc
+github.authenticate({
+    type: "netrc"
+});
 ```
 
 Note: `authenticate` is synchronous because it only stores the
