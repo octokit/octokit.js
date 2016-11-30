@@ -1,0 +1,19 @@
+"use strict";
+
+var Client = require("./../lib/index");
+var testAuth = require("./../testAuth.json");
+
+var github = new Client({
+    debug: true
+});
+
+github.authenticate({
+    type: "oauth",
+    token: testAuth["token"]
+});
+
+github.orgs.getOutsideCollaborators({
+    org: "facebook"
+}, function(err, res) {
+    console.log(err, res);
+});

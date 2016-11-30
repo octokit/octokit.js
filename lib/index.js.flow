@@ -47,18 +47,12 @@ declare module "github" {
     token: string;
   };
 
-  declare type AuthNetrc = {
-    type: "netrc";
-    token: string;
-  };
-
   declare type Auth =
     | AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
-    | AuthJWT
-    | AuthNetrc;
+    | AuthJWT;
 
   declare type Link =
     | { link: string; }
@@ -975,6 +969,8 @@ declare module "github" {
       location?: string;
       name?: string;
       description?: string;
+      default_repository_permission?: "read"|"write"|"admin"|"none";
+      members_can_create_repositories?: boolean;
     };
   declare type OrgsGetMembersParams =
     & Org
@@ -1021,6 +1017,22 @@ declare module "github" {
     & Org
     & Username
     ;
+  declare type OrgsGetPendingOrgInvitesParams =
+    & Org
+    ;
+  declare type OrgsGetOutsideCollaboratorsParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type OrgsRemoveOutsideCollaboratorParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsConvertMemberToOutsideCollaboratorParams =
+    & Org
+    & Username
+    ;
   declare type OrgsGetTeamsParams =
     & Org
     & Page
@@ -1035,6 +1047,7 @@ declare module "github" {
     & Privacy
     & {
       description?: string;
+      maintainers?: Array;
       repo_names?: string[];
     };
   declare type OrgsEditTeamParams =
@@ -1069,6 +1082,11 @@ declare module "github" {
     & Username
     ;
   declare type OrgsGetTeamReposParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type OrgsGetPendingTeamInvitesParams =
     & Id
     & Page
     & PerPage
@@ -1668,8 +1686,15 @@ declare module "github" {
     & Repo
     & Page
     & PerPage
-    ;
+    & {
+      affiliation?: "outside"|"all";
+    };
   declare type ReposCheckCollaboratorParams =
+    & Owner
+    & Repo
+    & Username
+    ;
+  declare type ReposReviewUserPermissionLevelParams =
     & Owner
     & Repo
     & Username
@@ -2583,6 +2608,10 @@ declare module "github" {
       getOrgMembership(params: OrgsGetOrgMembershipParams, callback?: Callback): Promise<any>;
       addOrgMembership(params: OrgsAddOrgMembershipParams, callback?: Callback): Promise<any>;
       removeOrgMembership(params: OrgsRemoveOrgMembershipParams, callback?: Callback): Promise<any>;
+      getPendingOrgInvites(params: OrgsGetPendingOrgInvitesParams, callback?: Callback): Promise<any>;
+      getOutsideCollaborators(params: OrgsGetOutsideCollaboratorsParams, callback?: Callback): Promise<any>;
+      removeOutsideCollaborator(params: OrgsRemoveOutsideCollaboratorParams, callback?: Callback): Promise<any>;
+      convertMemberToOutsideCollaborator(params: OrgsConvertMemberToOutsideCollaboratorParams, callback?: Callback): Promise<any>;
       getTeams(params: OrgsGetTeamsParams, callback?: Callback): Promise<any>;
       getTeam(params: OrgsGetTeamParams, callback?: Callback): Promise<any>;
       createTeam(params: OrgsCreateTeamParams, callback?: Callback): Promise<any>;
@@ -2593,6 +2622,7 @@ declare module "github" {
       addTeamMembership(params: OrgsAddTeamMembershipParams, callback?: Callback): Promise<any>;
       removeTeamMembership(params: OrgsRemoveTeamMembershipParams, callback?: Callback): Promise<any>;
       getTeamRepos(params: OrgsGetTeamReposParams, callback?: Callback): Promise<any>;
+      getPendingTeamInvites(params: OrgsGetPendingTeamInvitesParams, callback?: Callback): Promise<any>;
       checkTeamRepo(params: OrgsCheckTeamRepoParams, callback?: Callback): Promise<any>;
       addTeamRepo(params: OrgsAddTeamRepoParams, callback?: Callback): Promise<any>;
       deleteTeamRepo(params: OrgsDeleteTeamRepoParams, callback?: Callback): Promise<any>;
@@ -2692,6 +2722,7 @@ declare module "github" {
       removeProtectedBranchUserRestrictions(params: ReposRemoveProtectedBranchUserRestrictionsParams, callback?: Callback): Promise<any>;
       getCollaborators(params: ReposGetCollaboratorsParams, callback?: Callback): Promise<any>;
       checkCollaborator(params: ReposCheckCollaboratorParams, callback?: Callback): Promise<any>;
+      reviewUserPermissionLevel(params: ReposReviewUserPermissionLevelParams, callback?: Callback): Promise<any>;
       addCollaborator(params: ReposAddCollaboratorParams, callback?: Callback): Promise<any>;
       removeCollaborator(params: ReposRemoveCollaboratorParams, callback?: Callback): Promise<any>;
       getAllCommitComments(params: ReposGetAllCommitCommentsParams, callback?: Callback): Promise<any>;

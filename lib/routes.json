@@ -471,6 +471,17 @@
                 "/orgs/:org/migrations/:id/repos/:repo_name/lock"
             ],
             
+            "application/vnd.github.korra-preview+json": [
+                "/orgs/:org",
+                "/orgs/:org/invitations",
+                "/orgs/:org/outside_collaborators",
+                "/orgs/:org/outside_collaborator/:username",
+                "/orgs/:org/teams",
+                "/repos/:owner/:repo/collaborators",
+                "/repos/:owner/:repo/collaborators/:username/permission",
+                "/teams/:id/invitations"
+            ],
+            
             "application/vnd.github.mister-fantastic-preview+json": [
                 "/repos/:owner/:repo/pages",
                 "/repos/:owner/:repo/pages/builds",
@@ -3040,6 +3051,23 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The description of the company."
+                },
+                "default_repository_permission": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(read|write|admin|none)$",
+                    "invalidmsg": "read, write, admin, none, default: read",
+                    "description": "Default permission level members have for organization repositories.",
+                    "enum": ["read", "write", "admin", "none"],
+                    "default": "read"
+                },
+                "members_can_create_repositories": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Toggles ability of non-admin organization members to create repositories.",
+                    "default": true
                 }
             },
             "description": "Edit an organization"
@@ -3170,6 +3198,46 @@
             },
             "description": "Remove organization membership"
         },
+        
+        "get-pending-org-invites": {
+            "url": "/orgs/:org/invitations",
+            "method": "GET",
+            "params": {
+                "$org": null
+            },
+            "description": "List pending organization invites."
+        },
+        
+        "get-outside-collaborators": {
+            "url": "/orgs/:org/outside_collaborators",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all users who are outside collaborators of an organization."
+        },
+        
+        "remove-outside-collaborator": {
+            "url": "/orgs/:org/outside_collaborator/:username",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$username": null
+            },
+            "description": "Remove outside collaborator."
+        },
+        
+        "convert-member-to-outside-collaborator": {
+            "url": "/orgs/:org/outside_collaborator/:username",
+            "method": "PUT",
+            "params": {
+                "$org": null,
+                "$username": null
+            },
+            "description": "Convert member to outside collaborator."
+        },
 
         "get-teams": {
             "url": "/orgs/:org/teams",
@@ -3203,6 +3271,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The description of the team."
+                },
+                "maintainers": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The logins of organization members to add as maintainers of the team."
                 },
                 "repo_names": {
                     "type": "Array",
@@ -3311,6 +3386,17 @@
                 "$per_page": null
             },
             "description": "Get team repos"
+        },
+        
+        "get-pending-team-invites": {
+            "url": "/teams/:id/invitations",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List pending team invitations."
         },
 
         "check-team-repo": {
@@ -4899,6 +4985,15 @@
             "params": {
                 "$owner": null,
                 "$repo": null,
+                "affiliation": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(outside|all)$",
+                    "invalidmsg": "outside, all, default: all",
+                    "description": "Filter collaborators returned by their affiliation.",
+                    "enum": ["outside", "all"],
+                    "default": "all"
+                },
                 "$page": null,
                 "$per_page": null
             },
@@ -4915,7 +5010,18 @@
             },
             "description": "Check if user is a collaborator."
         },
-
+        
+        "review-user-permission-level": {
+            "url": "/repos/:owner/:repo/collaborators/:username/permission",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$username": null
+            },
+            "description": "Review a user's permission level."
+        },
+        
         "add-collaborator": {
             "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "PUT",
