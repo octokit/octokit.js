@@ -183,22 +183,23 @@ Accept headers for the preview APIs should be taken care of behind the scenes, b
 
 For updates on endpoints under preview, see https://developer.github.com/changes/.
 
-| Preview API         | Accept header val                               |
-| ------------------- | ----------------------------------------------- |
-| Deployment          | application/vnd.github.ant-man-preview+json     |
-| Git signing         | application/vnd.github.cryptographer-preview    |
-| Imports             | application/vnd.github.barred-rock-preview      |
-| Integrations        | application/vnd.github.machine-man-preview      |
-| License             | application/vnd.github.drax-preview+json        |
-| Migrations          | application/vnd.github.wyandotte-preview+json   |
-| Pages               | application/vnd.github.mister-fantastic-preview |
-| Pre-receive         | application/vnd.github.eye-scream-preview       |
-| Projects            | application/vnd.github.inertia-preview+json     |
-| Protected Branches  | application/vnd.github.loki-preview+json        |
-| Pull Request Squash | application/vnd.github.polaris-preview          |
-| Reactions           | application/vnd.github.squirrel-girl-preview    |
-| Repository Traffic  | application/vnd.github.spiderman-preview        |
-| Timeline            | application/vnd.github.mockingbird-preview      |
+| Preview API             | Accept header val                               |
+| -------------------     | ----------------------------------------------- |
+| Deployment              | application/vnd.github.ant-man-preview+json     |
+| Git signing             | application/vnd.github.cryptographer-preview    |
+| Imports                 | application/vnd.github.barred-rock-preview      |
+| Integrations            | application/vnd.github.machine-man-preview      |
+| License                 | application/vnd.github.drax-preview+json        |
+| Migrations              | application/vnd.github.wyandotte-preview+json   |
+| Organization Membership | application/vnd.github.korra-preview+json       |
+| Pages                   | application/vnd.github.mister-fantastic-preview |
+| Pre-receive             | application/vnd.github.eye-scream-preview       |
+| Projects                | application/vnd.github.inertia-preview+json     |
+| Protected Branches      | application/vnd.github.loki-preview+json        |
+| Pull Request Squash     | application/vnd.github.polaris-preview          |
+| Reactions               | application/vnd.github.squirrel-girl-preview    |
+| Repository Traffic      | application/vnd.github.spiderman-preview        |
+| Timeline                | application/vnd.github.mockingbird-preview      |
 
 ## Dev notes
 

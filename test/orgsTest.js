@@ -128,6 +128,20 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute PUT /orgs/:org/outside_collaborator/:username (convertMemberToOutsideCollaborator)",  function(next) {
+        client.orgs.convertMemberToOutsideCollaborator(
+            {
+                org: "String",
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /orgs/:org/hooks (createHook)",  function(next) {
         client.orgs.createHook(
             {
@@ -151,6 +165,7 @@ describe("[orgs]", function() {
                 org: "String",
                 name: "String",
                 description: "String",
+                maintainers: "Array",
                 repo_names: "Array",
                 privacy: "String"
             },
@@ -342,6 +357,49 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute GET /orgs/:org/outside_collaborators (getOutsideCollaborators)",  function(next) {
+        client.orgs.getOutsideCollaborators(
+            {
+                org: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /orgs/:org/invitations (getPendingOrgInvites)",  function(next) {
+        client.orgs.getPendingOrgInvites(
+            {
+                org: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /teams/:id/invitations (getPendingTeamInvites)",  function(next) {
+        client.orgs.getPendingTeamInvites(
+            {
+                id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /orgs/:org/public_members (getPublicMembers)",  function(next) {
         client.orgs.getPublicMembers(
             {
@@ -484,6 +542,20 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute DELETE /orgs/:org/outside_collaborator/:username (removeOutsideCollaborator)",  function(next) {
+        client.orgs.removeOutsideCollaborator(
+            {
+                org: "String",
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /teams/:id/memberships/:username (removeTeamMembership)",  function(next) {
         client.orgs.removeTeamMembership(
             {
@@ -507,7 +579,9 @@ describe("[orgs]", function() {
                 email: "String",
                 location: "String",
                 name: "String",
-                description: "String"
+                description: "String",
+                default_repository_permission: "String",
+                members_can_create_repositories: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);

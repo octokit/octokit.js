@@ -730,6 +730,7 @@ describe("[repos]", function() {
             {
                 owner: "String",
                 repo: "String",
+                affiliation: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -1695,6 +1696,21 @@ describe("[repos]", function() {
             {
                 owner: "String",
                 repo: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/collaborators/:username/permission (reviewUserPermissionLevel)",  function(next) {
+        client.repos.reviewUserPermissionLevel(
+            {
+                owner: "String",
+                repo: "String",
+                username: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
