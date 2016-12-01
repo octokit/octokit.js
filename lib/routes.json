@@ -6026,7 +6026,7 @@
             "description": "Delete a release"
         },
 
-        "list-assets": {
+        "get-assets": {
             "url": "/repos/:owner/:repo/releases/:id/assets",
             "method": "GET",
             "params": {

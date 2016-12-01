@@ -29,7 +29,7 @@ github.repos.getReleases({
     var releaseId = release.id;
     console.log(release);
     
-    github.repos.listAssets({
+    github.repos.getAssets({
         owner: testRepo.owner,
         repo: testRepo.repo,
         id: releaseId

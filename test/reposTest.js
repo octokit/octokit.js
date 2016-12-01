@@ -645,6 +645,21 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/releases/:id/assets (getAssets)",  function(next) {
+        client.repos.getAssets(
+            {
+                owner: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/branches/:branch (getBranch)",  function(next) {
         client.repos.getBranch(
             {
@@ -1475,21 +1490,6 @@ describe("[repos]", function() {
                 repo: "String",
                 page: "Number",
                 per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/releases/:id/assets (listAssets)",  function(next) {
-        client.repos.listAssets(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

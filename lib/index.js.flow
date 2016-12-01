@@ -2021,7 +2021,7 @@ declare module "github" {
     & Repo
     & Id
     ;
-  declare type ReposListAssetsParams =
+  declare type ReposGetAssetsParams =
     & Owner
     & Repo
     & Id
@@ -2770,7 +2770,7 @@ declare module "github" {
       createRelease(params: ReposCreateReleaseParams, callback?: Callback): Promise<any>;
       editRelease(params: ReposEditReleaseParams, callback?: Callback): Promise<any>;
       deleteRelease(params: ReposDeleteReleaseParams, callback?: Callback): Promise<any>;
-      listAssets(params: ReposListAssetsParams, callback?: Callback): Promise<any>;
+      getAssets(params: ReposGetAssetsParams, callback?: Callback): Promise<any>;
       getAsset(params: ReposGetAssetParams, callback?: Callback): Promise<any>;
       uploadAsset(params: ReposUploadAssetParams, callback?: Callback): Promise<any>;
       editAsset(params: ReposEditAssetParams, callback?: Callback): Promise<any>;
