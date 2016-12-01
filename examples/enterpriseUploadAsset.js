@@ -4,19 +4,15 @@ var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
 var github = new Client({
-    debug: true
+    debug: true,
+    host: "github.my-GHE-enabled-company.com",
+    pathPrefix: "/api/v3"
 });
 
 github.authenticate({
-    type: "netrc"
+    type: "oauth",
+    token: testAuth["token"]
 });
-
-// github.repos.getReleases({
-//     owner: "kaizensoze",
-//     repo: "test2"
-// }, function(err, res) {
-//     console.log(err, res);
-// });
 
 github.repos.uploadAsset({
     owner: "kaizensoze",
