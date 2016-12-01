@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 7.0.0
+
+Breaking changes:
+  * Rename listAssets() to getAssets() for consistency.
+
+Features:
+  * Add support for .netrc authentication.
+  * Add netrc auth example.
+  * Organization membership API changes.
+
 ## 6.1.0
 
 Features:
