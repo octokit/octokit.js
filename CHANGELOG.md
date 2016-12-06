@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 7.0.1
+
+Bug fixes:
+  * Fix enterprise uploadAsset edge case.
+
 ## 7.0.0
 
 Breaking changes:
