@@ -3705,9 +3705,9 @@
                 "position": {
                     "type": "String",
                     "required": true,
-                    "validation": "^(first|last|after:\\d)$",
+                    "validation": "^(top|bottom|after:\\d)$",
                     "invalidmsg": "",
-                    "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
+                    "description": "Can be one of top, bottom, or after:<column-id>, where <column-id> is the id value of a column in the same project."
                 },
                 "column_id": {
                     "type": "String",
