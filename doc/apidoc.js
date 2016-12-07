@@ -31334,7 +31334,7 @@ github.projects.getRepoProjects({ ... });
  * @apiGroup projects
  *
  * @apiParam {String} id  
- * @apiParam {String} position  Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project.
+ * @apiParam {String} position  Can be one of top, bottom, or after:<column-id>, where <column-id> is the id value of a column in the same project.
  * @apiParam {String} [column_id]  The id value of a column in the same project.
  * @apiExample {js} ex:
 github.projects.moveProjectCard({ ... });
