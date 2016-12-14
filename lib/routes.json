@@ -4658,6 +4658,14 @@
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled."
                 },
+                "required_pull_request_reviews": {
+                    "type": "Json",
+                    "required": true,
+                    "allow-null": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators."
+                },
                 "restrictions": {
                     "type": "Json",
                     "required": true,
@@ -4813,6 +4821,48 @@
                 }
             },
             "description": "Remove required status checks contexts of protected branch. (In preview period. See README.)"
+        },
+
+        "get-protected-branch-pull-request-review-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get pull request review enforcement of protected branch. (In preview period. See README.)"
+        },
+
+        "update-protected-branch-pull-request-review-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+            "method": "PATCH",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "include_admins": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Enforce required status checks for repository administrators."
+                }
+            },
+            "description": "Update pull request review enforcement of protected branch. (In preview period. See README.)"
+        },
+        
+        "remove-protected-branch-pull-request-review-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null
+            },
+            "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
         },
 
         "get-protected-branch-restrictions": {

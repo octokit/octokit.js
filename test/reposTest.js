@@ -1174,6 +1174,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews (getProtectedBranchPullRequestReviewEnforcement)",  function(next) {
+        client.repos.getProtectedBranchPullRequestReviewEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks (getProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.getProtectedBranchRequiredStatusChecks(
             {
@@ -1563,6 +1580,21 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews (removeProtectedBranchPullRequestReviewEnforcement)",  function(next) {
+        client.repos.removeProtectedBranchPullRequestReviewEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/required_status_checks (removeProtectedBranchRequiredStatusChecks)",  function(next) {
         client.repos.removeProtectedBranchRequiredStatusChecks(
             {
@@ -1742,6 +1774,7 @@ describe("[repos]", function() {
                 repo: "String",
                 branch: "String",
                 required_status_checks: "Json",
+                required_pull_request_reviews: "Json",
                 restrictions: "Json",
                 page: "Number",
                 per_page: "Number"
@@ -1796,6 +1829,22 @@ describe("[repos]", function() {
                 repo_id: "String",
                 invitation_id: "String",
                 permission: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PATCH /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews (updateProtectedBranchPullRequestReviewEnforcement)",  function(next) {
+        client.repos.updateProtectedBranchPullRequestReviewEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                include_admins: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
