@@ -1047,7 +1047,7 @@ declare module "github" {
     & Privacy
     & {
       description?: string;
-      maintainers?: Array;
+      maintainers?: string[];
       repo_names?: string[];
     };
   declare type OrgsEditTeamParams =
