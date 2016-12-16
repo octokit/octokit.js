@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 7.1.0
+
+Bug fixes:
+  * Provide correct values for moveProjectsCard "position" parameter.
+
+Features:
+  * Add a TypeScript generator.
+  * Update protected branches api changes.
+
 ## 7.0.1
 
 Bug fixes:
