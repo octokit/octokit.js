@@ -36,6 +36,7 @@
     "mustache": "^2.2.1"
   },
   "main": "lib",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "mocha"
   },
