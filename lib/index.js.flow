@@ -1294,26 +1294,26 @@ declare module "github" {
       sha?: string;
       merge_method?: "merge"|"squash"|"rebase";
     };
-  declare type PullRequestsGetPullRequestReviewsParams =
+  declare type PullRequestsGetReviewsParams =
     & Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
-  declare type PullRequestsGetPullRequestReviewParams =
+  declare type PullRequestsGetReviewParams =
     & Owner
     & Number
     & Id
     ;
-  declare type PullRequestsGetPullRequestReviewsCommentsParams =
+  declare type PullRequestsGetReviewsCommentsParams =
     & Owner
     & Number
     & Id
     & Page
     & PerPage
     ;
-  declare type PullRequestsCreatePullRequestReviewParams =
+  declare type PullRequestsCreateReviewParams =
     & Owner
     & Repo
     & Number
@@ -1324,7 +1324,7 @@ declare module "github" {
       path?: string;
       position?: number;
     };
-  declare type PullRequestsSubmitPullRequestReviewParams =
+  declare type PullRequestsSubmitReviewParams =
     & Owner
     & Repo
     & Number
@@ -1333,7 +1333,7 @@ declare module "github" {
       body?: string[];
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
-  declare type PullRequestsDismissPullRequestReviewParams =
+  declare type PullRequestsDismissReviewParams =
     & Owner
     & Repo
     & Number
@@ -2733,12 +2733,12 @@ declare module "github" {
       getFiles(params: PullRequestsGetFilesParams, callback?: Callback): Promise<any>;
       checkMerged(params: PullRequestsCheckMergedParams, callback?: Callback): Promise<any>;
       merge(params: PullRequestsMergeParams, callback?: Callback): Promise<any>;
-      getPullRequestReviews(params: PullRequestsGetPullRequestReviewsParams, callback?: Callback): Promise<any>;
-      getPullRequestReview(params: PullRequestsGetPullRequestReviewParams, callback?: Callback): Promise<any>;
-      getPullRequestReviewsComments(params: PullRequestsGetPullRequestReviewsCommentsParams, callback?: Callback): Promise<any>;
-      createPullRequestReview(params: PullRequestsCreatePullRequestReviewParams, callback?: Callback): Promise<any>;
-      submitPullRequestReview(params: PullRequestsSubmitPullRequestReviewParams, callback?: Callback): Promise<any>;
-      dismissPullRequestReview(params: PullRequestsDismissPullRequestReviewParams, callback?: Callback): Promise<any>;
+      getReviews(params: PullRequestsGetReviewsParams, callback?: Callback): Promise<any>;
+      getReview(params: PullRequestsGetReviewParams, callback?: Callback): Promise<any>;
+      getReviewsComments(params: PullRequestsGetReviewsCommentsParams, callback?: Callback): Promise<any>;
+      createReview(params: PullRequestsCreateReviewParams, callback?: Callback): Promise<any>;
+      submitReview(params: PullRequestsSubmitReviewParams, callback?: Callback): Promise<any>;
+      dismissReview(params: PullRequestsDismissReviewParams, callback?: Callback): Promise<any>;
       getComments(params: PullRequestsGetCommentsParams, callback?: Callback): Promise<any>;
       getCommentsForRepo(params: PullRequestsGetCommentsForRepoParams, callback?: Callback): Promise<any>;
       getComment(params: PullRequestsGetCommentParams, callback?: Callback): Promise<any>;

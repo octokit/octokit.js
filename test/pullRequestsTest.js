@@ -113,8 +113,8 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/reviews (createPullRequestReview)",  function(next) {
-        client.pullRequests.createPullRequestReview(
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/reviews (createReview)",  function(next) {
+        client.pullRequests.createReview(
             {
                 owner: "String",
                 repo: "String",
@@ -148,8 +148,8 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals (dismissPullRequestReview)",  function(next) {
-        client.pullRequests.dismissPullRequestReview(
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals (dismissReview)",  function(next) {
+        client.pullRequests.dismissReview(
             {
                 owner: "String",
                 repo: "String",
@@ -304,8 +304,8 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id (getPullRequestReview)",  function(next) {
-        client.pullRequests.getPullRequestReview(
+    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id (getReview)",  function(next) {
+        client.pullRequests.getReview(
             {
                 owner: "String",
                 number: "Number",
@@ -319,8 +319,8 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews (getPullRequestReviews)",  function(next) {
-        client.pullRequests.getPullRequestReviews(
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews (getReviews)",  function(next) {
+        client.pullRequests.getReviews(
             {
                 owner: "String",
                 repo: "String",
@@ -336,8 +336,8 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id/comments (getPullRequestReviewsComments)",  function(next) {
-        client.pullRequests.getPullRequestReviewsComments(
+    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id/comments (getReviewsComments)",  function(next) {
+        client.pullRequests.getReviewsComments(
             {
                 owner: "String",
                 number: "Number",
@@ -372,8 +372,8 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/reviews/:id/events (submitPullRequestReview)",  function(next) {
-        client.pullRequests.submitPullRequestReview(
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/reviews/:id/events (submitReview)",  function(next) {
+        client.pullRequests.submitReview(
             {
                 owner: "String",
                 repo: "String",

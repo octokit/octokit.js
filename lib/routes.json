@@ -4001,7 +4001,7 @@
             "description": "Merge a pull request (Merge Button)"
         },
         
-        "get-pull-request-reviews": {
+        "get-reviews": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews",
             "method": "GET",
             "params": {
@@ -4014,7 +4014,7 @@
             "description": "List reviews on a pull request."
         },
         
-        "get-pull-request-review": {
+        "get-review": {
             "url": "/repos/:owner/pulls/:number/reviews/:id",
             "method": "GET",
             "params": {
@@ -4025,7 +4025,7 @@
             "description": "Get a single pull request review."
         },
         
-        "get-pull-request-reviews-comments": {
+        "get-reviews-comments": {
             "url": "/repos/:owner/pulls/:number/reviews/:id/comments",
             "method": "GET",
             "params": {
@@ -4038,7 +4038,7 @@
             "description": "Get a single pull request reviews comments."
         },
         
-        "create-pull-request-review": {
+        "create-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews",
             "method": "POST",
             "params": {
@@ -4086,7 +4086,7 @@
             "description": "Create a pull request review."
         },
         
-        "submit-pull-request-review": {
+        "submit-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
             "method": "POST",
             "params": {
@@ -4114,7 +4114,7 @@
             "description": "Submit a pull request review."
         },
         
-        "dismiss-pull-request-review": {
+        "dismiss-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
             "method": "GET",
             "params": {
