@@ -1393,6 +1393,27 @@ declare module "github" {
     & Repo
     & Id
     ;
+  declare type PullRequestsGetReviewRequestsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsCreateReviewRequestParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      reviewers?: Array;
+    };
+  declare type PullRequestsDeleteReviewRequestParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      reviewers?: Array;
+    };
   declare type ReactionsGetForCommitCommentParams =
     & Owner
     & Repo
@@ -2746,6 +2767,9 @@ declare module "github" {
       createCommentReply(params: PullRequestsCreateCommentReplyParams, callback?: Callback): Promise<any>;
       editComment(params: PullRequestsEditCommentParams, callback?: Callback): Promise<any>;
       deleteComment(params: PullRequestsDeleteCommentParams, callback?: Callback): Promise<any>;
+      getReviewRequests(params: PullRequestsGetReviewRequestsParams, callback?: Callback): Promise<any>;
+      createReviewRequest(params: PullRequestsCreateReviewRequestParams, callback?: Callback): Promise<any>;
+      deleteReviewRequest(params: PullRequestsDeleteReviewRequestParams, callback?: Callback): Promise<any>;
     };
     reactions: {
       getForCommitComment(params: ReactionsGetForCommitCommentParams, callback?: Callback): Promise<any>;

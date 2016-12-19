@@ -549,7 +549,8 @@
                 "/repos/:owner/pulls/:number/reviews/:id",
                 "/repos/:owner/pulls/:number/reviews/:id/comments",
                 "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
-                "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals"
+                "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
+                "/repos/:owner/:repo/pulls/:number/requested_reviewers"
             ]
         }
     },
@@ -4237,6 +4238,55 @@
                 "$id": null
             },
             "description": "Delete a comment"
+        },
+        
+        "get-review-requests": {
+            "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List review requests"
+        },
+        
+        "create-review-request": {
+            "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+            "method": "POST",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "reviewers": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of user logins that will be requested."
+                }
+            },
+            "description": "Create a review request"
+        },
+        
+        "delete-review-request": {
+            "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "reviewers": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of user logins that will be requested."
+                }
+            },
+            "description": "Delete a review request"
         }
     },
 

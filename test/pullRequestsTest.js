@@ -133,12 +133,44 @@ describe("[pullRequests]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/requested_reviewers (createReviewRequest)",  function(next) {
+        client.pullRequests.createReviewRequest(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                reviewers: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:owner/:repo/pulls/comments/:id (deleteComment)",  function(next) {
         client.pullRequests.deleteComment(
             {
                 owner: "String",
                 repo: "String",
                 id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:owner/:repo/pulls/:number/requested_reviewers (deleteReviewRequest)",  function(next) {
+        client.pullRequests.deleteReviewRequest(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                reviewers: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -310,6 +342,23 @@ describe("[pullRequests]", function() {
                 owner: "String",
                 number: "Number",
                 id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/requested_reviewers (getReviewRequests)",  function(next) {
+        client.pullRequests.getReviewRequests(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -1398,6 +1398,27 @@ declare namespace Github {
     & Repo
     & Id
     ;
+  export type PullRequestsGetReviewRequestsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  export type PullRequestsCreateReviewRequestParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      reviewers?: Array;
+    };
+  export type PullRequestsDeleteReviewRequestParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      reviewers?: Array;
+    };
   export type ReactionsGetForCommitCommentParams =
     & Owner
     & Repo
@@ -2761,6 +2782,9 @@ declare class Github {
     createCommentReply(params: Github.PullRequestsCreateCommentReplyParams, callback?: Github.Callback): Promise<any>;
     editComment(params: Github.PullRequestsEditCommentParams, callback?: Github.Callback): Promise<any>;
     deleteComment(params: Github.PullRequestsDeleteCommentParams, callback?: Github.Callback): Promise<any>;
+    getReviewRequests(params: Github.PullRequestsGetReviewRequestsParams, callback?: Github.Callback): Promise<any>;
+    createReviewRequest(params: Github.PullRequestsCreateReviewRequestParams, callback?: Github.Callback): Promise<any>;
+    deleteReviewRequest(params: Github.PullRequestsDeleteReviewRequestParams, callback?: Github.Callback): Promise<any>;
   };
   reactions: {
     getForCommitComment(params: Github.ReactionsGetForCommitCommentParams, callback?: Github.Callback): Promise<any>;
