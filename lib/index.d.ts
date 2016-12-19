@@ -1299,6 +1299,55 @@ declare namespace Github {
       sha?: string;
       merge_method?: "merge"|"squash"|"rebase";
     };
+  export type PullRequestsGetPullRequestReviewsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  export type PullRequestsGetPullRequestReviewParams =
+    & Owner
+    & Number
+    & Id
+    ;
+  export type PullRequestsGetPullRequestReviewsCommentsParams =
+    & Owner
+    & Number
+    & Id
+    & Page
+    & PerPage
+    ;
+  export type PullRequestsCreatePullRequestReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      body?: string[];
+      event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
+      comments?: Array;
+      path?: string;
+      position?: number;
+    };
+  export type PullRequestsSubmitPullRequestReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    & {
+      body?: string[];
+      event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
+    };
+  export type PullRequestsDismissPullRequestReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    & Page
+    & PerPage
+    & {
+      message?: string;
+    };
   export type PullRequestsGetCommentsParams =
     & Owner
     & Repo
@@ -2699,6 +2748,12 @@ declare class Github {
     getFiles(params: Github.PullRequestsGetFilesParams, callback?: Github.Callback): Promise<any>;
     checkMerged(params: Github.PullRequestsCheckMergedParams, callback?: Github.Callback): Promise<any>;
     merge(params: Github.PullRequestsMergeParams, callback?: Github.Callback): Promise<any>;
+    getPullRequestReviews(params: Github.PullRequestsGetPullRequestReviewsParams, callback?: Github.Callback): Promise<any>;
+    getPullRequestReview(params: Github.PullRequestsGetPullRequestReviewParams, callback?: Github.Callback): Promise<any>;
+    getPullRequestReviewsComments(params: Github.PullRequestsGetPullRequestReviewsCommentsParams, callback?: Github.Callback): Promise<any>;
+    createPullRequestReview(params: Github.PullRequestsCreatePullRequestReviewParams, callback?: Github.Callback): Promise<any>;
+    submitPullRequestReview(params: Github.PullRequestsSubmitPullRequestReviewParams, callback?: Github.Callback): Promise<any>;
+    dismissPullRequestReview(params: Github.PullRequestsDismissPullRequestReviewParams, callback?: Github.Callback): Promise<any>;
     getComments(params: Github.PullRequestsGetCommentsParams, callback?: Github.Callback): Promise<any>;
     getCommentsForRepo(params: Github.PullRequestsGetCommentsForRepoParams, callback?: Github.Callback): Promise<any>;
     getComment(params: Github.PullRequestsGetCommentParams, callback?: Github.Callback): Promise<any>;

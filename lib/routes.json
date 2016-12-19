@@ -542,6 +542,14 @@
             
             "application/vnd.github.mockingbird-preview": [
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
+            ],
+            
+            "application/vnd.github.black-cat-preview+json": [
+                "/repos/:owner/:repo/pulls/:number/reviews",
+                "/repos/:owner/pulls/:number/reviews/:id",
+                "/repos/:owner/pulls/:number/reviews/:id/comments",
+                "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
+                "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals"
             ]
         }
     },
@@ -3992,7 +4000,141 @@
             },
             "description": "Merge a pull request (Merge Button)"
         },
-
+        
+        "get-pull-request-reviews": {
+            "url": "/repos/:owner/:repo/pulls/:number/reviews",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List reviews on a pull request."
+        },
+        
+        "get-pull-request-review": {
+            "url": "/repos/:owner/pulls/:number/reviews/:id",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$number": null,
+                "$id": null
+            },
+            "description": "Get a single pull request review."
+        },
+        
+        "get-pull-request-reviews-comments": {
+            "url": "/repos/:owner/pulls/:number/reviews/:id/comments",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$number": null,
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get a single pull request reviews comments."
+        },
+        
+        "create-pull-request-review": {
+            "url": "/repos/:owner/:repo/pulls/:number/reviews",
+            "method": "POST",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The body text of the pull request review."
+                },
+                "event": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(APPROVE|REQUEST_CHANGES|COMMENT|PENDING)$",
+                    "invalidmsg": "Possible values are: `APPROVE`, `REQUEST_CHANGES`, `COMMENT`, `PENDING`. Default: `PENDING`",
+                    "description": "The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.",
+                    "enum": ["APPROVE", "REQUEST_CHANGES", "COMMENT", "PENDING"],
+                    "default": "PENDING"
+                },
+                "comments": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of comments part of the review."
+                },
+                "path": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The path to the file being commented on."
+                },
+                "position": {
+                    "type": "Number",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The position in the file to be commented on."
+                }
+            },
+            "description": "Create a pull request review."
+        },
+        
+        "submit-pull-request-review": {
+            "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
+            "method": "POST",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "$id": null,
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The body text of the pull request review."
+                },
+                "event": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(APPROVE|REQUEST_CHANGES|COMMENT|PENDING)$",
+                    "invalidmsg": "Possible values are: `APPROVE`, `REQUEST_CHANGES`, `COMMENT`, `PENDING`. Default: `PENDING`",
+                    "description": "The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.",
+                    "enum": ["APPROVE", "REQUEST_CHANGES", "COMMENT", "PENDING"],
+                    "default": "PENDING"
+                }
+            },
+            "description": "Submit a pull request review."
+        },
+        
+        "dismiss-pull-request-review": {
+            "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "$id": null,
+                "message": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The message for the pull request review dismissal."
+                },
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Dismiss a pull request review."
+        },
+        
         "get-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "GET",

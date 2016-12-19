@@ -113,12 +113,51 @@ describe("[pullRequests]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/reviews (createPullRequestReview)",  function(next) {
+        client.pullRequests.createPullRequestReview(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                body: "String",
+                event: "String",
+                comments: "Array",
+                path: "String",
+                position: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:owner/:repo/pulls/comments/:id (deleteComment)",  function(next) {
         client.pullRequests.deleteComment(
             {
                 owner: "String",
                 repo: "String",
                 id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals (dismissPullRequestReview)",  function(next) {
+        client.pullRequests.dismissPullRequestReview(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                id: "String",
+                message: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -265,6 +304,55 @@ describe("[pullRequests]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id (getPullRequestReview)",  function(next) {
+        client.pullRequests.getPullRequestReview(
+            {
+                owner: "String",
+                number: "Number",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews (getPullRequestReviews)",  function(next) {
+        client.pullRequests.getPullRequestReviews(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id/comments (getPullRequestReviewsComments)",  function(next) {
+        client.pullRequests.getPullRequestReviewsComments(
+            {
+                owner: "String",
+                number: "Number",
+                id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PUT /repos/:owner/:repo/pulls/:number/merge (merge)",  function(next) {
         client.pullRequests.merge(
             {
@@ -275,6 +363,24 @@ describe("[pullRequests]", function() {
                 commit_message: "String",
                 sha: "String",
                 merge_method: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute POST /repos/:owner/:repo/pulls/:number/reviews/:id/events (submitPullRequestReview)",  function(next) {
+        client.pullRequests.submitPullRequestReview(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                id: "String",
+                body: "String",
+                event: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
