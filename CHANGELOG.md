@@ -1,13 +1,23 @@
 # CHANGELOG
 
-## 7.1.0
+## 7.2.0
+
+Features:
+  Preview Review Requests API.
+  Preview pull request reviews.
+  Traffic api now official.
 
 Bug fixes:
-  * Provide correct values for moveProjectsCard "position" parameter.
+  Fix link for accept header example in README.
+
+## 7.1.0
 
 Features:
   * Add a TypeScript generator.
   * Update protected branches api changes.
+
+Bug fixes:
+  * Provide correct values for moveProjectsCard "position" parameter.
 
 ## 7.0.1
 
