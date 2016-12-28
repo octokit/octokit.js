@@ -533,13 +533,6 @@
                 "/reactions/:id"
             ],
             
-            "application/vnd.github.spiderman-preview": [
-                "/repos/:owner/:repo/traffic/popular/referrers",
-                "/repos/:owner/:repo/traffic/popular/paths",
-                "/repos/:owner/:repo/traffic/views",
-                "/repos/:owner/:repo/traffic/clones"
-            ],
-            
             "application/vnd.github.mockingbird-preview": [
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
             ],
@@ -6492,7 +6485,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the top 10 referrers over the last 14 days. (In preview period. See README.)"
+            "description": "Get the top 10 referrers over the last 14 days."
         },
 
         "get-paths": {
@@ -6504,7 +6497,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the top 10 popular contents over the last 14 days. (In preview period. See README.)"
+            "description": "Get the top 10 popular contents over the last 14 days."
         },
 
         "get-views": {
@@ -6516,7 +6509,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the total number of views and breakdown per day or week for the last 14 days. (In preview period. See README.)"
+            "description": "Get the total number of views and breakdown per day or week for the last 14 days."
         },
 
         "get-clones": {
@@ -6528,7 +6521,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get the total number of clones and breakdown per day or week for the last 14 days. (In preview period. See README.)"
+            "description": "Get the total number of clones and breakdown per day or week for the last 14 days."
         },
 
         "get-hooks": {
