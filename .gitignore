@@ -16,3 +16,5 @@ npm-debug.log*
 testAuth.json
 
 apidoc/
+
+tsconfig.json
