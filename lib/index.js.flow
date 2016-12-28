@@ -1320,7 +1320,7 @@ declare module "github" {
     & {
       body?: string[];
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
-      comments?: Array;
+      comments?: string[];
       path?: string;
       position?: number;
     };
@@ -1405,14 +1405,14 @@ declare module "github" {
     & Repo
     & Number
     & {
-      reviewers?: Array;
+      reviewers?: string[];
     };
   declare type PullRequestsDeleteReviewRequestParams =
     & Owner
     & Repo
     & Number
     & {
-      reviewers?: Array;
+      reviewers?: string[];
     };
   declare type ReactionsGetForCommitCommentParams =
     & Owner

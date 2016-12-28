@@ -1325,7 +1325,7 @@ declare namespace Github {
     & {
       body?: string[];
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
-      comments?: Array;
+      comments?: string[];
       path?: string;
       position?: number;
     };
@@ -1410,14 +1410,14 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      reviewers?: Array;
+      reviewers?: string[];
     };
   export type PullRequestsDeleteReviewRequestParams =
     & Owner
     & Repo
     & Number
     & {
-      reviewers?: Array;
+      reviewers?: string[];
     };
   export type ReactionsGetForCommitCommentParams =
     & Owner
