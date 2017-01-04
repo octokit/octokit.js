@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 7.2.1
+
+Bug fixes:
+  Fix typescript bindings.
+
 ## 7.2.0
 
 Features:
