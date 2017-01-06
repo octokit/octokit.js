@@ -42,6 +42,23 @@ describe("[search]", function() {
         );
     });
 
+    it("should successfully execute GET /search/commits (commits)",  function(next) {
+        client.search.commits(
+            {
+                q: "String",
+                sort: "String",
+                order: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /legacy/user/email/:email (email)",  function(next) {
         client.search.email(
             {

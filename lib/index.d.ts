@@ -2281,6 +2281,14 @@ declare namespace Github {
     & {
       sort?: "indexed";
     };
+  export type SearchCommitsParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "author-date"|"committer-date";
+    };
   export type SearchIssuesParams =
     & Q
     & Order
@@ -2915,6 +2923,7 @@ declare class Github {
   search: {
     repos(params: Github.SearchReposParams, callback?: Github.Callback): Promise<any>;
     code(params: Github.SearchCodeParams, callback?: Github.Callback): Promise<any>;
+    commits(params: Github.SearchCommitsParams, callback?: Github.Callback): Promise<any>;
     issues(params: Github.SearchIssuesParams, callback?: Github.Callback): Promise<any>;
     users(params: Github.SearchUsersParams, callback?: Github.Callback): Promise<any>;
     email(params: Github.SearchEmailParams, callback?: Github.Callback): Promise<any>;

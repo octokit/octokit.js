@@ -2276,6 +2276,14 @@ declare module "github" {
     & {
       sort?: "indexed";
     };
+  declare type SearchCommitsParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "author-date"|"committer-date";
+    };
   declare type SearchIssuesParams =
     & Q
     & Order
@@ -2900,6 +2908,7 @@ declare module "github" {
     search: {
       repos(params: SearchReposParams, callback?: Callback): Promise<any>;
       code(params: SearchCodeParams, callback?: Callback): Promise<any>;
+      commits(params: SearchCommitsParams, callback?: Callback): Promise<any>;
       issues(params: SearchIssuesParams, callback?: Callback): Promise<any>;
       users(params: SearchUsersParams, callback?: Callback): Promise<any>;
       email(params: SearchEmailParams, callback?: Callback): Promise<any>;

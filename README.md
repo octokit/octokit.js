@@ -185,6 +185,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 
 | Preview API             | Accept header val                               |
 | -------------------     | ----------------------------------------------- |
+| Commit Search           | application/vnd.github.cloak-preview+json       |
 | Deployment              | application/vnd.github.ant-man-preview+json     |
 | Git signing             | application/vnd.github.cryptographer-preview    |
 | Imports                 | application/vnd.github.barred-rock-preview      |

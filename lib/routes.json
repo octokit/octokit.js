@@ -6703,6 +6703,26 @@
             "description": "Search code."
         },
 
+        "commits": {
+            "url": "/search/commits",
+            "method": "GET",
+            "params": {
+                "$q": null,
+                "sort": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(author-date|committer-date)$",
+                    "invalidmsg": "author-date or committer-date",
+                    "description": "The sort field. Can be author-date or committer-date. Default: best match.",
+                    "enum": ["author-date", "committer-date"]
+                },
+                "$order": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Search commits. (In preview period. See README.)"
+        },
+
         "issues": {
             "url": "/search/issues",
             "method": "GET",
