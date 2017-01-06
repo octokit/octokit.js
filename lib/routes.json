@@ -431,6 +431,10 @@
             }
         },
         "acceptTree": {
+            "application/vnd.github.cloak-preview+json": [
+                "/search/commits"
+            ],
+            
             "application/vnd.github.ant-man-preview+json": [
                 "/repos/:owner/:repo/deployments",
                 "/repos/:owner/:repo/deployments/:id/statuses"
