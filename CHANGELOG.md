@@ -1,19 +1,24 @@
 # CHANGELOG
 
+## 7.3.1
+
+Features:
+  * Add search commits preview api.
+
 ## 7.2.1
 
 Bug fixes:
-  Fix typescript bindings.
+  * Fix typescript bindings.
 
 ## 7.2.0
 
 Features:
-  Preview Review Requests API.
-  Preview pull request reviews.
-  Traffic api now official.
+  * Preview Review Requests API.
+  * Preview pull request reviews.
+  * Traffic api now official.
 
 Bug fixes:
-  Fix link for accept header example in README.
+  * Fix link for accept header example in README.
 
 ## 7.1.0
 
