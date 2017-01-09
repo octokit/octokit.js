@@ -1258,10 +1258,10 @@ declare module "github" {
     & Repo
     & Number
     & State
-    & Base
     & {
       title?: string;
       body?: string[];
+      base?: string;
     };
   declare type PullRequestsGetCommitsParams =
     & Owner

@@ -1263,10 +1263,10 @@ declare namespace Github {
     & Repo
     & Number
     & State
-    & Base
     & {
       title?: string;
       body?: string[];
+      base?: string;
     };
   export type PullRequestsGetCommitsParams =
     & Owner
