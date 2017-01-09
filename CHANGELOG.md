@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 7.3.2
+
+Bug fixes:
+  * Make base param not required for updating pull request.
+
 ## 7.3.1
 
 Features:
