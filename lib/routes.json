@@ -3914,7 +3914,13 @@
                     "description": "The contents of the pull request."
                 },
                 "$state": null,
-                "$base": null
+                "base": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+                },
             },
             "description": "Update a pull request"
         },
