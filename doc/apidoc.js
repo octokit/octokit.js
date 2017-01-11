@@ -22689,7 +22689,7 @@ github.users.update({ ... });
 
 /**
  * @api {get} /notifications/threads/:id/subscription checkNotificationThreadSubscription
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkNotificationThreadSubscription
  * @apiDescription Check to see if the current user is subscribed to a thread.
  * @apiGroup activity
@@ -22701,7 +22701,7 @@ github.activity.checkNotificationThreadSubscription({ ... });
 
 /**
  * @api {get} /user/starred/:owner/:repo checkStarringRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkStarringRepo
  * @apiDescription Check if you are starring a repository
  * @apiGroup activity
@@ -22716,7 +22716,7 @@ github.activity.checkStarringRepo({ ... });
 
 /**
  * @api {delete} /notifications/threads/:id/subscription deleteNotificationThreadSubscription
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteNotificationThreadSubscription
  * @apiDescription Delete a notification thread subscription.
  * @apiGroup activity
@@ -22728,7 +22728,7 @@ github.activity.deleteNotificationThreadSubscription({ ... });
 
 /**
  * @api {get} /events getEvents
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEvents
  * @apiDescription List public events
  * @apiGroup activity
@@ -22741,7 +22741,7 @@ github.activity.getEvents({ ... });
 
 /**
  * @api {get} /orgs/:org/events getEventsForOrg
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForOrg
  * @apiDescription List public events for an organization
  * @apiGroup activity
@@ -22755,7 +22755,7 @@ github.activity.getEventsForOrg({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/events getEventsForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForRepo
  * @apiDescription List repository events
  * @apiGroup activity
@@ -22770,7 +22770,7 @@ github.activity.getEventsForRepo({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/events getEventsForRepoIssues
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForRepoIssues
  * @apiDescription List issue events for a repository
  * @apiGroup activity
@@ -22785,7 +22785,7 @@ github.activity.getEventsForRepoIssues({ ... });
 
 /**
  * @api {get} /networks/:owner/:repo/events getEventsForRepoNetwork
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForRepoNetwork
  * @apiDescription List public events for a network of repositories
  * @apiGroup activity
@@ -22800,7 +22800,7 @@ github.activity.getEventsForRepoNetwork({ ... });
 
 /**
  * @api {get} /users/:username/events getEventsForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForUser
  * @apiDescription List events performed by a user
  * @apiGroup activity
@@ -22814,7 +22814,7 @@ github.activity.getEventsForUser({ ... });
 
 /**
  * @api {get} /users/:username/events/orgs/:org getEventsForUserOrg
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForUserOrg
  * @apiDescription List events for a user's organization
  * @apiGroup activity
@@ -22829,7 +22829,7 @@ github.activity.getEventsForUserOrg({ ... });
 
 /**
  * @api {get} /users/:username/events/public getEventsForUserPublic
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForUserPublic
  * @apiDescription List public events performed by a user
  * @apiGroup activity
@@ -22843,7 +22843,7 @@ github.activity.getEventsForUserPublic({ ... });
 
 /**
  * @api {get} /users/:username/received_events getEventsReceived
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsReceived
  * @apiDescription List events that a user has received
  * @apiGroup activity
@@ -22857,7 +22857,7 @@ github.activity.getEventsReceived({ ... });
 
 /**
  * @api {get} /users/:username/received_events/public getEventsReceivedPublic
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsReceivedPublic
  * @apiDescription List public events that a user has received
  * @apiGroup activity
@@ -22871,7 +22871,7 @@ github.activity.getEventsReceivedPublic({ ... });
 
 /**
  * @api {get} /feeds getFeeds
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getFeeds
  * @apiDescription Get all feeds available for the authenticated user.
  * @apiGroup activity
@@ -22882,7 +22882,7 @@ github.activity.getFeeds({ ... });
 
 /**
  * @api {get} /notifications/threads/:id getNotificationThread
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getNotificationThread
  * @apiDescription View a single notification thread.
  * @apiGroup activity
@@ -22894,7 +22894,7 @@ github.activity.getNotificationThread({ ... });
 
 /**
  * @api {get} /notifications getNotifications
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getNotifications
  * @apiDescription Get all notifications for the current user, grouped by repository.
  * @apiGroup activity
@@ -22909,7 +22909,7 @@ github.activity.getNotifications({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/notifications getNotificationsForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getNotificationsForUser
  * @apiDescription Get all notifications for the given user.
  * @apiGroup activity
@@ -22926,7 +22926,7 @@ github.activity.getNotificationsForUser({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/subscription getRepoSubscription
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRepoSubscription
  * @apiDescription Get a Repository Subscription.
  * @apiGroup activity
@@ -22941,7 +22941,7 @@ github.activity.getRepoSubscription({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/stargazers getStargazersForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStargazersForRepo
  * @apiDescription List Stargazers
  * @apiGroup activity
@@ -22956,7 +22956,7 @@ github.activity.getStargazersForRepo({ ... });
 
 /**
  * @api {get} /user/starred getStarredRepos
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStarredRepos
  * @apiDescription List repositories being starred by the authenticated user
  * @apiGroup activity
@@ -22971,7 +22971,7 @@ github.activity.getStarredRepos({ ... });
 
 /**
  * @api {get} /users/:username/starred getStarredReposForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStarredReposForUser
  * @apiDescription List repositories being starred by a user
  * @apiGroup activity
@@ -22987,7 +22987,7 @@ github.activity.getStarredReposForUser({ ... });
 
 /**
  * @api {get} /user/subscriptions getWatchedRepos
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getWatchedRepos
  * @apiDescription List repositories being watched by the authenticated user.
  * @apiGroup activity
@@ -23000,7 +23000,7 @@ github.activity.getWatchedRepos({ ... });
 
 /**
  * @api {get} /users/:username/subscriptions getWatchedReposForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getWatchedReposForUser
  * @apiDescription List repositories being watched by a user.
  * @apiGroup activity
@@ -23014,7 +23014,7 @@ github.activity.getWatchedReposForUser({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/subscribers getWatchersForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getWatchersForRepo
  * @apiDescription Get watchers for repository.
  * @apiGroup activity
@@ -23029,7 +23029,7 @@ github.activity.getWatchersForRepo({ ... });
 
 /**
  * @api {patch} /notifications/threads/:id markNotificationThreadAsRead
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName markNotificationThreadAsRead
  * @apiDescription Mark a notification thread as read.
  * @apiGroup activity
@@ -23041,7 +23041,7 @@ github.activity.markNotificationThreadAsRead({ ... });
 
 /**
  * @api {put} /notifications markNotificationsAsRead
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName markNotificationsAsRead
  * @apiDescription Mark notifications as read for authenticated user.
  * @apiGroup activity
@@ -23053,7 +23053,7 @@ github.activity.markNotificationsAsRead({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/notifications markNotificationsAsReadForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName markNotificationsAsReadForRepo
  * @apiDescription Mark notifications in a repo as read.
  * @apiGroup activity
@@ -23067,7 +23067,7 @@ github.activity.markNotificationsAsReadForRepo({ ... });
 
 /**
  * @api {put} /notifications/threads/:id/subscription setNotificationThreadSubscription
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName setNotificationThreadSubscription
  * @apiDescription This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get @mentioned once more).
  * @apiGroup activity
@@ -23081,7 +23081,7 @@ github.activity.setNotificationThreadSubscription({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/subscription setRepoSubscription
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName setRepoSubscription
  * @apiDescription Set a Repository Subscription
  * @apiGroup activity
@@ -23096,7 +23096,7 @@ github.activity.setRepoSubscription({ ... });
 
 /**
  * @api {put} /user/starred/:owner/:repo starRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName starRepo
  * @apiDescription Star a repository
  * @apiGroup activity
@@ -23109,7 +23109,7 @@ github.activity.starRepo({ ... });
 
 /**
  * @api {delete} /user/starred/:owner/:repo unstarRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unstarRepo
  * @apiDescription Unstar a repository
  * @apiGroup activity
@@ -23122,7 +23122,7 @@ github.activity.unstarRepo({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/subscription unwatchRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unwatchRepo
  * @apiDescription Unwatch a repository.
  * @apiGroup activity
@@ -23135,7 +23135,7 @@ github.activity.unwatchRepo({ ... });
 
 /**
  * @api {get} /applications/:client_id/tokens/:access_token check
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName check
  * @apiDescription Check an authorization
  * @apiGroup authorization
@@ -23148,7 +23148,7 @@ github.authorization.check({ ... });
 
 /**
  * @api {post} /authorizations create
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName create
  * @apiDescription Create a new authorization.
  * @apiGroup authorization
@@ -23165,7 +23165,7 @@ github.authorization.create({ ... });
 
 /**
  * @api {delete} /authorizations/:id delete
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName delete
  * @apiDescription Delete an authorization.
  * @apiGroup authorization
@@ -23177,7 +23177,7 @@ github.authorization.delete({ ... });
 
 /**
  * @api {delete} /applications/grants/:id deleteGrant
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteGrant
  * @apiDescription Delete a grant.
  * @apiGroup authorization
@@ -23189,7 +23189,7 @@ github.authorization.deleteGrant({ ... });
 
 /**
  * @api {get} /authorizations/:id get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get a single authorization.
  * @apiGroup authorization
@@ -23201,7 +23201,7 @@ github.authorization.get({ ... });
 
 /**
  * @api {get} /authorizations getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription List your authorizations.
  * @apiGroup authorization
@@ -23214,7 +23214,7 @@ github.authorization.getAll({ ... });
 
 /**
  * @api {get} /applications/grants/:id getGrant
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getGrant
  * @apiDescription Get a single grant.
  * @apiGroup authorization
@@ -23228,7 +23228,7 @@ github.authorization.getGrant({ ... });
 
 /**
  * @api {get} /applications/grants getGrants
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getGrants
  * @apiDescription List your grants.
  * @apiGroup authorization
@@ -23241,7 +23241,7 @@ github.authorization.getGrants({ ... });
 
 /**
  * @api {put} /authorizations/clients/:client_id getOrCreateAuthorizationForApp
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrCreateAuthorizationForApp
  * @apiDescription Get or create an authorization for a specific app.
  * @apiGroup authorization
@@ -23258,7 +23258,7 @@ github.authorization.getOrCreateAuthorizationForApp({ ... });
 
 /**
  * @api {put} /authorizations/clients/:client_id/:fingerprint getOrCreateAuthorizationForAppAndFingerprint
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrCreateAuthorizationForAppAndFingerprint
  * @apiDescription Get or create an authorization for a specific app and fingerprint.
  * @apiGroup authorization
@@ -23275,7 +23275,7 @@ github.authorization.getOrCreateAuthorizationForAppAndFingerprint({ ... });
 
 /**
  * @api {post} /applications/:client_id/tokens/:access_token reset
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName reset
  * @apiDescription Reset an authorization
  * @apiGroup authorization
@@ -23288,7 +23288,7 @@ github.authorization.reset({ ... });
 
 /**
  * @api {delete} /applications/:client_id/tokens/:access_token revoke
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName revoke
  * @apiDescription Revoke an authorization for an application
  * @apiGroup authorization
@@ -23301,7 +23301,7 @@ github.authorization.revoke({ ... });
 
 /**
  * @api {patch} /authorizations/:id update
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName update
  * @apiDescription Update an existing authorization.
  * @apiGroup authorization
@@ -23319,7 +23319,7 @@ github.authorization.update({ ... });
 
 /**
  * @api {post} /admin/organizations createOrg
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createOrg
  * @apiDescription Create an organization
  * @apiGroup enterprise
@@ -23333,7 +23333,7 @@ github.enterprise.createOrg({ ... });
 
 /**
  * @api {post} /admin/pre_receive_environments createPreReceiveEnvironment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createPreReceiveEnvironment
  * @apiDescription Create a pre-receive environment. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23346,7 +23346,7 @@ github.enterprise.createPreReceiveEnvironment({ ... });
 
 /**
  * @api {post} /admin/pre-receive-hooks createPreReceiveHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createPreReceiveHook
  * @apiDescription Create a pre-receive hook. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23363,7 +23363,7 @@ github.enterprise.createPreReceiveHook({ ... });
 
 /**
  * @api {delete} /admin/pre_receive_environments/:id deletePreReceiveEnvironment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deletePreReceiveEnvironment
  * @apiDescription Delete a pre-receive environment. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23375,7 +23375,7 @@ github.enterprise.deletePreReceiveEnvironment({ ... });
 
 /**
  * @api {delete} /admin/pre_receive_hooks/:id deletePreReceiveHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deletePreReceiveHook
  * @apiDescription Delete a pre-receive hook. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23387,7 +23387,7 @@ github.enterprise.deletePreReceiveHook({ ... });
 
 /**
  * @api {patch} /admin/pre_receive_environments/:id editPreReceiveEnvironment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editPreReceiveEnvironment
  * @apiDescription Create a pre-receive environment. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23401,7 +23401,7 @@ github.enterprise.editPreReceiveEnvironment({ ... });
 
 /**
  * @api {patch} /admin/pre_receive_hooks/:id editPreReceiveHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editPreReceiveHook
  * @apiDescription Edit a pre-receive hook. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23414,7 +23414,7 @@ github.enterprise.editPreReceiveHook({ ... });
 
 /**
  * @api {get} /enterprise/settings/license getLicense
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLicense
  * @apiDescription Get license information
  * @apiGroup enterprise
@@ -23425,7 +23425,7 @@ github.enterprise.getLicense({ ... });
 
 /**
  * @api {get} /admin/pre-receive-environments/:id getPreReceiveEnvironment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPreReceiveEnvironment
  * @apiDescription Get a single pre-receive environment. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23437,7 +23437,7 @@ github.enterprise.getPreReceiveEnvironment({ ... });
 
 /**
  * @api {get} /admin/pre-receive-environments/:id/downloads/latest getPreReceiveEnvironmentDownloadStatus
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPreReceiveEnvironmentDownloadStatus
  * @apiDescription Get a pre-receive environment's download status. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23449,7 +23449,7 @@ github.enterprise.getPreReceiveEnvironmentDownloadStatus({ ... });
 
 /**
  * @api {get} /admin/pre_receive_environments getPreReceiveEnvironments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPreReceiveEnvironments
  * @apiDescription List pre-receive environments. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23460,7 +23460,7 @@ github.enterprise.getPreReceiveEnvironments({ ... });
 
 /**
  * @api {get} /admin/pre-receive-hooks/:id getPreReceiveHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPreReceiveHook
  * @apiDescription Get a single pre-receive hook. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23472,7 +23472,7 @@ github.enterprise.getPreReceiveHook({ ... });
 
 /**
  * @api {get} /admin/pre-receive-hooks getPreReceiveHooks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPreReceiveHooks
  * @apiDescription List pre-receive hooks. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23483,7 +23483,7 @@ github.enterprise.getPreReceiveHooks({ ... });
 
 /**
  * @api {post} /staff/indexing_jobs queueIndexingJob
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName queueIndexingJob
  * @apiDescription Queue an indexing job
  * @apiGroup enterprise
@@ -23495,7 +23495,7 @@ github.enterprise.queueIndexingJob({ ... });
 
 /**
  * @api {get} /enterprise/stats/:type stats
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName stats
  * @apiDescription Get statistics.
  * @apiGroup enterprise
@@ -23507,7 +23507,7 @@ github.enterprise.stats({ ... });
 
 /**
  * @api {post} /admin/ldap/teams/:team_id/sync syncLdapForTeam
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName syncLdapForTeam
  * @apiDescription Sync LDAP mapping for a team.
  * @apiGroup enterprise
@@ -23519,7 +23519,7 @@ github.enterprise.syncLdapForTeam({ ... });
 
 /**
  * @api {post} /admin/ldap/users/:username/sync syncLdapForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName syncLdapForUser
  * @apiDescription Sync LDAP mapping for a user.
  * @apiGroup enterprise
@@ -23531,7 +23531,7 @@ github.enterprise.syncLdapForUser({ ... });
 
 /**
  * @api {post} /admin/pre_receive_environments/:id/downloads triggerPreReceiveEnvironmentDownload
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName triggerPreReceiveEnvironmentDownload
  * @apiDescription Trigger a pre-receive environment download. (In preview period. See README.)
  * @apiGroup enterprise
@@ -23543,7 +23543,7 @@ github.enterprise.triggerPreReceiveEnvironmentDownload({ ... });
 
 /**
  * @api {patch} /admin/ldap/teams/:team_id/mapping updateLdapForTeam
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateLdapForTeam
  * @apiDescription Update LDAP mapping for a team.
  * @apiGroup enterprise
@@ -23556,7 +23556,7 @@ github.enterprise.updateLdapForTeam({ ... });
 
 /**
  * @api {patch} /admin/ldap/users/:username/mapping updateLdapForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateLdapForUser
  * @apiDescription Update LDAP mapping for a user.
  * @apiGroup enterprise
@@ -23569,7 +23569,7 @@ github.enterprise.updateLdapForUser({ ... });
 
 /**
  * @api {get} /gists/:id/star checkStar
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkStar
  * @apiDescription Check if a gist is starred
  * @apiGroup gists
@@ -23581,7 +23581,7 @@ github.gists.checkStar({ ... });
 
 /**
  * @api {post} /gists create
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName create
  * @apiDescription Create a gist
  * @apiGroup gists
@@ -23595,7 +23595,7 @@ github.gists.create({ ... });
 
 /**
  * @api {post} /gists/:gist_id/comments createComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createComment
  * @apiDescription Create a comment
  * @apiGroup gists
@@ -23608,7 +23608,7 @@ github.gists.createComment({ ... });
 
 /**
  * @api {delete} /gists/:id delete
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName delete
  * @apiDescription Delete a gist
  * @apiGroup gists
@@ -23620,7 +23620,7 @@ github.gists.delete({ ... });
 
 /**
  * @api {delete} /gists/:gist_id/comments/:id deleteComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteComment
  * @apiDescription Delete a comment
  * @apiGroup gists
@@ -23633,7 +23633,7 @@ github.gists.deleteComment({ ... });
 
 /**
  * @api {patch} /gists/:id edit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName edit
  * @apiDescription Edit a gist
  * @apiGroup gists
@@ -23649,7 +23649,7 @@ github.gists.edit({ ... });
 
 /**
  * @api {patch} /gists/:gist_id/comments/:id editComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editComment
  * @apiDescription Edit a comment
  * @apiGroup gists
@@ -23663,7 +23663,7 @@ github.gists.editComment({ ... });
 
 /**
  * @api {post} /gists/:id/forks fork
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName fork
  * @apiDescription Fork a gist
  * @apiGroup gists
@@ -23675,7 +23675,7 @@ github.gists.fork({ ... });
 
 /**
  * @api {get} /gists/:id get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get a single gist
  * @apiGroup gists
@@ -23687,7 +23687,7 @@ github.gists.get({ ... });
 
 /**
  * @api {get} /gists getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription List the authenticated user's gists or if called anonymously, this will return all public gists
  * @apiGroup gists
@@ -23701,7 +23701,7 @@ github.gists.getAll({ ... });
 
 /**
  * @api {get} /gists/:gist_id/comments/:id getComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getComment
  * @apiDescription Get a single comment
  * @apiGroup gists
@@ -23714,7 +23714,7 @@ github.gists.getComment({ ... });
 
 /**
  * @api {get} /gists/:gist_id/comments getComments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getComments
  * @apiDescription List comments on a gist
  * @apiGroup gists
@@ -23726,7 +23726,7 @@ github.gists.getComments({ ... });
 
 /**
  * @api {get} /gists/:id/commits getCommits
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommits
  * @apiDescription List gist commits
  * @apiGroup gists
@@ -23738,7 +23738,7 @@ github.gists.getCommits({ ... });
 
 /**
  * @api {get} /users/:username/gists getForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForUser
  * @apiDescription List a user's gists
  * @apiGroup gists
@@ -23753,7 +23753,7 @@ github.gists.getForUser({ ... });
 
 /**
  * @api {get} /gists/:id/forks getForks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForks
  * @apiDescription List gist forks
  * @apiGroup gists
@@ -23767,7 +23767,7 @@ github.gists.getForks({ ... });
 
 /**
  * @api {get} /gists/public getPublic
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPublic
  * @apiDescription List all public gists
  * @apiGroup gists
@@ -23779,7 +23779,7 @@ github.gists.getPublic({ ... });
 
 /**
  * @api {get} /gists/:id/:sha getRevision
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRevision
  * @apiDescription Get a specific revision of a gist
  * @apiGroup gists
@@ -23792,7 +23792,7 @@ github.gists.getRevision({ ... });
 
 /**
  * @api {get} /gists/starred getStarred
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStarred
  * @apiDescription List the authenticated user's starred gists
  * @apiGroup gists
@@ -23804,7 +23804,7 @@ github.gists.getStarred({ ... });
 
 /**
  * @api {put} /gists/:id/star star
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName star
  * @apiDescription Star a gist
  * @apiGroup gists
@@ -23816,7 +23816,7 @@ github.gists.star({ ... });
 
 /**
  * @api {delete} /gists/:id/star unstar
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unstar
  * @apiDescription Unstar a gist
  * @apiGroup gists
@@ -23828,7 +23828,7 @@ github.gists.unstar({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/git/blobs createBlob
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createBlob
  * @apiDescription Create a Blob
  * @apiGroup gitdata
@@ -23843,7 +23843,7 @@ github.gitdata.createBlob({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/git/commits createCommit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createCommit
  * @apiDescription Create a Commit
  * @apiGroup gitdata
@@ -23861,7 +23861,7 @@ github.gitdata.createCommit({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/git/refs createReference
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createReference
  * @apiDescription Create a Reference
  * @apiGroup gitdata
@@ -23876,7 +23876,7 @@ github.gitdata.createReference({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/git/tags createTag
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createTag
  * @apiDescription Create a Tag Object
  * @apiGroup gitdata
@@ -23894,7 +23894,7 @@ github.gitdata.createTag({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/git/trees createTree
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createTree
  * @apiDescription Create a Tree
  * @apiGroup gitdata
@@ -23909,7 +23909,7 @@ github.gitdata.createTree({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/git/refs/:ref deleteReference
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteReference
  * @apiDescription Delete a Reference
  * @apiGroup gitdata
@@ -23923,7 +23923,7 @@ github.gitdata.deleteReference({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/blobs/:sha getBlob
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getBlob
  * @apiDescription Get a Blob
  * @apiGroup gitdata
@@ -23939,7 +23939,7 @@ github.gitdata.getBlob({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/commits/:sha getCommit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommit
  * @apiDescription Get a Commit
  * @apiGroup gitdata
@@ -23953,7 +23953,7 @@ github.gitdata.getCommit({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/commits/:sha getCommitSignatureVerification
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommitSignatureVerification
  * @apiDescription Get a Commit Signature Verification. (In preview period. See README.)
  * @apiGroup gitdata
@@ -23967,7 +23967,7 @@ github.gitdata.getCommitSignatureVerification({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/refs/:ref getReference
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReference
  * @apiDescription Get a Reference
  * @apiGroup gitdata
@@ -23981,7 +23981,7 @@ github.gitdata.getReference({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/refs/ getReferences
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReferences
  * @apiDescription Get all References
  * @apiGroup gitdata
@@ -23996,7 +23996,7 @@ github.gitdata.getReferences({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/tags/:sha getTag
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTag
  * @apiDescription Get a Tag
  * @apiGroup gitdata
@@ -24010,7 +24010,7 @@ github.gitdata.getTag({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/tags/:sha getTagSignatureVerification
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTagSignatureVerification
  * @apiDescription Get a Tag Signature Verification. (In preview period. See README.)
  * @apiGroup gitdata
@@ -24024,7 +24024,7 @@ github.gitdata.getTagSignatureVerification({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/refs/tags getTags
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTags
  * @apiDescription Get all tag References
  * @apiGroup gitdata
@@ -24039,7 +24039,7 @@ github.gitdata.getTags({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/git/trees/:sha getTree
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTree
  * @apiDescription Get a Tree
  * @apiGroup gitdata
@@ -24054,7 +24054,7 @@ github.gitdata.getTree({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/git/refs/:ref updateReference
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateReference
  * @apiDescription Update a Reference
  * @apiGroup gitdata
@@ -24070,7 +24070,7 @@ github.gitdata.updateReference({ ... });
 
 /**
  * @api {post} /installations/:installation_id/repositories/:repository_id addRepoToInstallation
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addRepoToInstallation
  * @apiDescription Add a single repository to an installation. (In preview period. See README.)
  * @apiGroup integrations
@@ -24083,7 +24083,7 @@ github.integrations.addRepoToInstallation({ ... });
 
 /**
  * @api {post} /installations/:installation_id/access_tokens createInstallationToken
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createInstallationToken
  * @apiDescription Create a new installation token. (In preview period. See README.)
  * @apiGroup integrations
@@ -24096,7 +24096,7 @@ github.integrations.createInstallationToken({ ... });
 
 /**
  * @api {get} /installation/repositories getInstallationRepositories
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getInstallationRepositories
  * @apiDescription List repositories that are accessible to the authenticated installation. (In preview period. See README.)
  * @apiGroup integrations
@@ -24108,7 +24108,7 @@ github.integrations.getInstallationRepositories({ ... });
 
 /**
  * @api {get} /integration/installations getInstallations
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getInstallations
  * @apiDescription List the integration's installations. (In preview period. See README.)
  * @apiGroup integrations
@@ -24121,7 +24121,7 @@ github.integrations.getInstallations({ ... });
 
 /**
  * @api {post} /integration/identity/user getUserIdentity
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getUserIdentity
  * @apiDescription Request identity of user. (In preview period. See README.)
  * @apiGroup integrations
@@ -24133,7 +24133,7 @@ github.integrations.getUserIdentity({ ... });
 
 /**
  * @api {post} /installations/:installation_id/repositories/:repository_id removeRepoFromInstallation
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeRepoFromInstallation
  * @apiDescription Remove a single repository from an installation. (In preview period. See README.)
  * @apiGroup integrations
@@ -24146,7 +24146,7 @@ github.integrations.removeRepoFromInstallation({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/issues/:number/assignees addAssigneesToIssue
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addAssigneesToIssue
  * @apiDescription Add assignees to an issue.
  * @apiGroup issues
@@ -24161,7 +24161,7 @@ github.issues.addAssigneesToIssue({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/issues/:number/labels addLabels
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addLabels
  * @apiDescription Add labels to an issue
  * @apiGroup issues
@@ -24176,7 +24176,7 @@ github.issues.addLabels({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/assignees/:assignee checkAssignee
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkAssignee
  * @apiDescription Check assignee
  * @apiGroup issues
@@ -24190,7 +24190,7 @@ github.issues.checkAssignee({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/issues create
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName create
  * @apiDescription Create an issue
  * @apiGroup issues
@@ -24209,7 +24209,7 @@ github.issues.create({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/issues/:number/comments createComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createComment
  * @apiDescription Create a comment
  * @apiGroup issues
@@ -24224,7 +24224,7 @@ github.issues.createComment({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/labels createLabel
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createLabel
  * @apiDescription Create a label
  * @apiGroup issues
@@ -24239,7 +24239,7 @@ github.issues.createLabel({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/milestones createMilestone
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createMilestone
  * @apiDescription Create a milestone
  * @apiGroup issues
@@ -24256,7 +24256,7 @@ github.issues.createMilestone({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/issues/comments/:id deleteComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteComment
  * @apiDescription Delete a comment
  * @apiGroup issues
@@ -24270,7 +24270,7 @@ github.issues.deleteComment({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/labels/:name deleteLabel
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteLabel
  * @apiDescription Delete a label
  * @apiGroup issues
@@ -24284,7 +24284,7 @@ github.issues.deleteLabel({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/milestones/:number deleteMilestone
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteMilestone
  * @apiDescription Delete a milestone
  * @apiGroup issues
@@ -24298,7 +24298,7 @@ github.issues.deleteMilestone({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/issues/:number edit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName edit
  * @apiDescription Edit an issue
  * @apiGroup issues
@@ -24319,7 +24319,7 @@ github.issues.edit({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/issues/comments/:id editComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editComment
  * @apiDescription Edit a comment
  * @apiGroup issues
@@ -24334,7 +24334,7 @@ github.issues.editComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/:number get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get a single issue
  * @apiGroup issues
@@ -24348,7 +24348,7 @@ github.issues.get({ ... });
 
 /**
  * @api {get} /issues getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories
  * @apiGroup issues
@@ -24367,7 +24367,7 @@ github.issues.getAll({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/assignees getAssignees
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAssignees
  * @apiDescription List assignees
  * @apiGroup issues
@@ -24380,7 +24380,7 @@ github.issues.getAssignees({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/comments/:id getComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getComment
  * @apiDescription Get a single comment
  * @apiGroup issues
@@ -24394,7 +24394,7 @@ github.issues.getComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/:number/comments getComments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getComments
  * @apiDescription List comments on an issue
  * @apiGroup issues
@@ -24410,7 +24410,7 @@ github.issues.getComments({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/comments getCommentsForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommentsForRepo
  * @apiDescription List comments in a repository
  * @apiGroup issues
@@ -24428,7 +24428,7 @@ github.issues.getCommentsForRepo({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/events/:id getEvent
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEvent
  * @apiDescription Get a single event
  * @apiGroup issues
@@ -24442,7 +24442,7 @@ github.issues.getEvent({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/:issue_number/events getEvents
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEvents
  * @apiDescription List events for an issue
  * @apiGroup issues
@@ -24458,7 +24458,7 @@ github.issues.getEvents({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/events getEventsForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsForRepo
  * @apiDescription List events for a repository
  * @apiGroup issues
@@ -24473,7 +24473,7 @@ github.issues.getEventsForRepo({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/:issue_number/timeline getEventsTimeline
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEventsTimeline
  * @apiDescription List events for an issue. (In preview period. See README.)
  * @apiGroup issues
@@ -24489,7 +24489,7 @@ github.issues.getEventsTimeline({ ... });
 
 /**
  * @api {get} /orgs/:org/issues getForOrg
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForOrg
  * @apiDescription List all issues for a given organization for the authenticated user
  * @apiGroup issues
@@ -24509,7 +24509,7 @@ github.issues.getForOrg({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues getForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForRepo
  * @apiDescription List issues for a repository
  * @apiGroup issues
@@ -24533,7 +24533,7 @@ github.issues.getForRepo({ ... });
 
 /**
  * @api {get} /user/issues getForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForUser
  * @apiDescription List all issues across owned and member repositories for the authenticated user
  * @apiGroup issues
@@ -24552,7 +24552,7 @@ github.issues.getForUser({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/:number/labels getIssueLabels
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getIssueLabels
  * @apiDescription List labels on an issue
  * @apiGroup issues
@@ -24566,7 +24566,7 @@ github.issues.getIssueLabels({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/labels/:name getLabel
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLabel
  * @apiDescription Get a single label
  * @apiGroup issues
@@ -24580,7 +24580,7 @@ github.issues.getLabel({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/labels getLabels
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLabels
  * @apiDescription List all labels for this repository
  * @apiGroup issues
@@ -24595,7 +24595,7 @@ github.issues.getLabels({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/milestones/:number getMilestone
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMilestone
  * @apiDescription Get a single milestone
  * @apiGroup issues
@@ -24609,7 +24609,7 @@ github.issues.getMilestone({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/milestones/:number/labels getMilestoneLabels
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMilestoneLabels
  * @apiDescription Get labels for every issue in a milestone
  * @apiGroup issues
@@ -24623,7 +24623,7 @@ github.issues.getMilestoneLabels({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/milestones getMilestones
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMilestones
  * @apiDescription List milestones for a repository
  * @apiGroup issues
@@ -24641,7 +24641,7 @@ github.issues.getMilestones({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/issues/:number/lock lock
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName lock
  * @apiDescription Users with push access can lock an issue's conversation.
  * @apiGroup issues
@@ -24655,7 +24655,7 @@ github.issues.lock({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/issues/:number/labels removeAllLabels
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeAllLabels
  * @apiDescription Remove all labels from an issue
  * @apiGroup issues
@@ -24669,7 +24669,7 @@ github.issues.removeAllLabels({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/issues/:number/assignees removeAssigneesFromIssue
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeAssigneesFromIssue
  * @apiDescription Remove assignees from an issue.
  * @apiGroup issues
@@ -24684,7 +24684,7 @@ github.issues.removeAssigneesFromIssue({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/issues/:number/labels/:name removeLabel
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeLabel
  * @apiDescription Remove a label from an issue
  * @apiGroup issues
@@ -24699,7 +24699,7 @@ github.issues.removeLabel({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/issues/:number/labels replaceAllLabels
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName replaceAllLabels
  * @apiDescription Replace all labels for an issue
  * @apiGroup issues
@@ -24714,7 +24714,7 @@ github.issues.replaceAllLabels({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/issues/:number/lock unlock
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unlock
  * @apiDescription Users with push access can unlock an issue's conversation.
  * @apiGroup issues
@@ -24728,7 +24728,7 @@ github.issues.unlock({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/labels/:oldname updateLabel
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateLabel
  * @apiDescription Update a label
  * @apiGroup issues
@@ -24744,7 +24744,7 @@ github.issues.updateLabel({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/milestones/:number updateMilestone
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateMilestone
  * @apiDescription Update a milestone
  * @apiGroup issues
@@ -24762,7 +24762,7 @@ github.issues.updateMilestone({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/import cancelImport
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName cancelImport
  * @apiDescription Cancel an import. (In preview period. See README.)
  * @apiGroup migrations
@@ -24775,7 +24775,7 @@ github.migrations.cancelImport({ ... });
 
 /**
  * @api {delete} /orgs/:org/migrations/:id/archive deleteMigrationArchive
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteMigrationArchive
  * @apiDescription Delete a migration archive. (In preview period. See README.)
  * @apiGroup migrations
@@ -24788,7 +24788,7 @@ github.migrations.deleteMigrationArchive({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/import/authors getImportCommitAuthors
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getImportCommitAuthors
  * @apiDescription Get import commit authors. (In preview period. See README.)
  * @apiGroup migrations
@@ -24802,7 +24802,7 @@ github.migrations.getImportCommitAuthors({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/import getImportProgress
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getImportProgress
  * @apiDescription Get import progress. (In preview period. See README.)
  * @apiGroup migrations
@@ -24815,7 +24815,7 @@ github.migrations.getImportProgress({ ... });
 
 /**
  * @api {get} /:owner/:name/import/large_files getLargeImportFiles
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLargeImportFiles
  * @apiDescription List files larger than 100MB found during the import. (In preview period. See README.)
  * @apiGroup migrations
@@ -24828,7 +24828,7 @@ github.migrations.getLargeImportFiles({ ... });
 
 /**
  * @api {get} /orgs/:org/migrations/:id/archive getMigrationArchiveLink
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMigrationArchiveLink
  * @apiDescription Get the URL to a migration archive. (In preview period. See README.)
  * @apiGroup migrations
@@ -24841,7 +24841,7 @@ github.migrations.getMigrationArchiveLink({ ... });
 
 /**
  * @api {get} /orgs/:org/migrations/:id getMigrationStatus
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMigrationStatus
  * @apiDescription Get the status of a migration. (In preview period. See README.)
  * @apiGroup migrations
@@ -24854,7 +24854,7 @@ github.migrations.getMigrationStatus({ ... });
 
 /**
  * @api {get} /orgs/:org/migrations getMigrations
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMigrations
  * @apiDescription Get a list of migrations. (In preview period. See README.)
  * @apiGroup migrations
@@ -24868,7 +24868,7 @@ github.migrations.getMigrations({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/import/authors/:author_id mapImportCommitAuthor
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName mapImportCommitAuthor
  * @apiDescription Map a commit author. (In preview period. See README.)
  * @apiGroup migrations
@@ -24884,7 +24884,7 @@ github.migrations.mapImportCommitAuthor({ ... });
 
 /**
  * @api {patch} /:owner/:name/import/lfs setImportLfsPreference
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName setImportLfsPreference
  * @apiDescription Set import LFS preference. (In preview period. See README.)
  * @apiGroup migrations
@@ -24898,7 +24898,7 @@ github.migrations.setImportLfsPreference({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/import startImport
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName startImport
  * @apiDescription Start an import. (In preview period. See README.)
  * @apiGroup migrations
@@ -24916,7 +24916,7 @@ github.migrations.startImport({ ... });
 
 /**
  * @api {post} /orgs/:org/migrations startMigration
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName startMigration
  * @apiDescription Start a migration. (In preview period. See README.)
  * @apiGroup migrations
@@ -24931,7 +24931,7 @@ github.migrations.startMigration({ ... });
 
 /**
  * @api {delete} /orgs/:org/migrations/:id/repos/:repo_name/lock unlockRepoLockedForMigration
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unlockRepoLockedForMigration
  * @apiDescription Unlock a repository that was locked for migration. (In preview period. See README.)
  * @apiGroup migrations
@@ -24945,7 +24945,7 @@ github.migrations.unlockRepoLockedForMigration({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/import updateImport
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateImport
  * @apiDescription Update existing import. (In preview period. See README.)
  * @apiGroup migrations
@@ -24958,7 +24958,7 @@ github.migrations.updateImport({ ... });
 
 /**
  * @api {get} /emojis getEmojis
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEmojis
  * @apiDescription Lists all the emojis available to use on GitHub.
  * @apiGroup misc
@@ -24969,7 +24969,7 @@ github.misc.getEmojis({ ... });
 
 /**
  * @api {get} /gitignore/templates/:name getGitignoreTemplate
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getGitignoreTemplate
  * @apiDescription Get a single gitignore template
  * @apiGroup misc
@@ -24981,7 +24981,7 @@ github.misc.getGitignoreTemplate({ ... });
 
 /**
  * @api {get} /gitignore/templates getGitignoreTemplates
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getGitignoreTemplates
  * @apiDescription Lists available gitignore templates
  * @apiGroup misc
@@ -24992,7 +24992,7 @@ github.misc.getGitignoreTemplates({ ... });
 
 /**
  * @api {get} /licenses/:license getLicense
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLicense
  * @apiDescription Get an individual license. (In preview period. See README.)
  * @apiGroup misc
@@ -25004,7 +25004,7 @@ github.misc.getLicense({ ... });
 
 /**
  * @api {get} /licenses getLicenses
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLicenses
  * @apiDescription List all licenses. (In preview period. See README.)
  * @apiGroup misc
@@ -25015,7 +25015,7 @@ github.misc.getLicenses({ ... });
 
 /**
  * @api {get} /meta getMeta
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMeta
  * @apiDescription This endpoint provides information about GitHub.com, the service. Or, if you access this endpoint on your organization's GitHub Enterprise installation, this endpoint provides information about that installation.
  * @apiGroup misc
@@ -25026,7 +25026,7 @@ github.misc.getMeta({ ... });
 
 /**
  * @api {get} /rate_limit getRateLimit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRateLimit
  * @apiDescription Get your current rate limit status
  * @apiGroup misc
@@ -25037,7 +25037,7 @@ github.misc.getRateLimit({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/license getRepoLicense
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRepoLicense
  * @apiDescription Get the contents of a repository's license. (In preview period. See README.)
  * @apiGroup misc
@@ -25050,7 +25050,7 @@ github.misc.getRepoLicense({ ... });
 
 /**
  * @api {post} /markdown renderMarkdown
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName renderMarkdown
  * @apiDescription Render an arbitrary Markdown document
  * @apiGroup misc
@@ -25064,7 +25064,7 @@ github.misc.renderMarkdown({ ... });
 
 /**
  * @api {post} /markdown/raw renderMarkdownRaw
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName renderMarkdownRaw
  * @apiDescription Render a Markdown document in raw mode
  * @apiGroup misc
@@ -25076,7 +25076,7 @@ github.misc.renderMarkdownRaw({ ... });
 
 /**
  * @api {put} /orgs/:org/memberships/:username addOrgMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addOrgMembership
  * @apiDescription Add or update organization membership
  * @apiGroup orgs
@@ -25090,7 +25090,7 @@ github.orgs.addOrgMembership({ ... });
 
 /**
  * @api {put} /teams/:id/memberships/:username addTeamMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addTeamMembership
  * @apiDescription Add team membership
  * @apiGroup orgs
@@ -25104,7 +25104,7 @@ github.orgs.addTeamMembership({ ... });
 
 /**
  * @api {put} /teams/:id/repos/:org/:repo addTeamRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addTeamRepo
  * @apiDescription Add team repository
  * @apiGroup orgs
@@ -25119,7 +25119,7 @@ github.orgs.addTeamRepo({ ... });
 
 /**
  * @api {get} /orgs/:org/members/:username checkMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkMembership
  * @apiDescription Check membership
  * @apiGroup orgs
@@ -25132,7 +25132,7 @@ github.orgs.checkMembership({ ... });
 
 /**
  * @api {get} /orgs/:org/public_members/:username checkPublicMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkPublicMembership
  * @apiDescription Check public membership
  * @apiGroup orgs
@@ -25145,7 +25145,7 @@ github.orgs.checkPublicMembership({ ... });
 
 /**
  * @api {get} /teams/:id/repos/:owner/:repo checkTeamRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkTeamRepo
  * @apiDescription Check if a team manages a repository
  * @apiGroup orgs
@@ -25159,7 +25159,7 @@ github.orgs.checkTeamRepo({ ... });
 
 /**
  * @api {delete} /orgs/:org/public_members/:username concealMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName concealMembership
  * @apiDescription Conceal a user's membership
  * @apiGroup orgs
@@ -25172,7 +25172,7 @@ github.orgs.concealMembership({ ... });
 
 /**
  * @api {put} /orgs/:org/outside_collaborator/:username convertMemberToOutsideCollaborator
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName convertMemberToOutsideCollaborator
  * @apiDescription Convert member to outside collaborator.
  * @apiGroup orgs
@@ -25185,7 +25185,7 @@ github.orgs.convertMemberToOutsideCollaborator({ ... });
 
 /**
  * @api {post} /orgs/:org/hooks createHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createHook
  * @apiDescription Create a hook
  * @apiGroup orgs
@@ -25201,7 +25201,7 @@ github.orgs.createHook({ ... });
 
 /**
  * @api {post} /orgs/:org/teams createTeam
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createTeam
  * @apiDescription Create team
  * @apiGroup orgs
@@ -25218,7 +25218,7 @@ github.orgs.createTeam({ ... });
 
 /**
  * @api {delete} /orgs/:org/hooks/:id deleteHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteHook
  * @apiDescription Delete a hook
  * @apiGroup orgs
@@ -25231,7 +25231,7 @@ github.orgs.deleteHook({ ... });
 
 /**
  * @api {delete} /teams/:id deleteTeam
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteTeam
  * @apiDescription Delete team
  * @apiGroup orgs
@@ -25243,7 +25243,7 @@ github.orgs.deleteTeam({ ... });
 
 /**
  * @api {delete} /teams/:id/repos/:owner/:repo deleteTeamRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteTeamRepo
  * @apiDescription Remove team repository
  * @apiGroup orgs
@@ -25257,7 +25257,7 @@ github.orgs.deleteTeamRepo({ ... });
 
 /**
  * @api {patch} /orgs/:org/hooks/:id editHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editHook
  * @apiDescription Edit a hook
  * @apiGroup orgs
@@ -25273,7 +25273,7 @@ github.orgs.editHook({ ... });
 
 /**
  * @api {patch} /teams/:id editTeam
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editTeam
  * @apiDescription Edit team
  * @apiGroup orgs
@@ -25288,7 +25288,7 @@ github.orgs.editTeam({ ... });
 
 /**
  * @api {get} /orgs/:org get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get an organization
  * @apiGroup orgs
@@ -25302,7 +25302,7 @@ github.orgs.get({ ... });
 
 /**
  * @api {get} /organizations getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription List all organizations
  * @apiGroup orgs
@@ -25316,7 +25316,7 @@ github.orgs.getAll({ ... });
 
 /**
  * @api {get} /users/:username/orgs getForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForUser
  * @apiDescription List public organization memberships for the specified user.
  * @apiGroup orgs
@@ -25330,7 +25330,7 @@ github.orgs.getForUser({ ... });
 
 /**
  * @api {get} /orgs/:org/hooks/:id getHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getHook
  * @apiDescription Get single hook
  * @apiGroup orgs
@@ -25343,7 +25343,7 @@ github.orgs.getHook({ ... });
 
 /**
  * @api {get} /orgs/:org/hooks getHooks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getHooks
  * @apiDescription List hooks
  * @apiGroup orgs
@@ -25357,7 +25357,7 @@ github.orgs.getHooks({ ... });
 
 /**
  * @api {get} /orgs/:org/members getMembers
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getMembers
  * @apiDescription Members list
  * @apiGroup orgs
@@ -25373,7 +25373,7 @@ github.orgs.getMembers({ ... });
 
 /**
  * @api {get} /orgs/:org/memberships/:username getOrgMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrgMembership
  * @apiDescription Get organization membership
  * @apiGroup orgs
@@ -25386,7 +25386,7 @@ github.orgs.getOrgMembership({ ... });
 
 /**
  * @api {get} /orgs/:org/outside_collaborators getOutsideCollaborators
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOutsideCollaborators
  * @apiDescription List all users who are outside collaborators of an organization.
  * @apiGroup orgs
@@ -25400,7 +25400,7 @@ github.orgs.getOutsideCollaborators({ ... });
 
 /**
  * @api {get} /orgs/:org/invitations getPendingOrgInvites
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPendingOrgInvites
  * @apiDescription List pending organization invites.
  * @apiGroup orgs
@@ -25412,7 +25412,7 @@ github.orgs.getPendingOrgInvites({ ... });
 
 /**
  * @api {get} /teams/:id/invitations getPendingTeamInvites
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPendingTeamInvites
  * @apiDescription List pending team invitations.
  * @apiGroup orgs
@@ -25426,7 +25426,7 @@ github.orgs.getPendingTeamInvites({ ... });
 
 /**
  * @api {get} /orgs/:org/public_members getPublicMembers
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPublicMembers
  * @apiDescription Public members list
  * @apiGroup orgs
@@ -25438,7 +25438,7 @@ github.orgs.getPublicMembers({ ... });
 
 /**
  * @api {get} /teams/:id getTeam
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeam
  * @apiDescription Get team
  * @apiGroup orgs
@@ -25450,7 +25450,7 @@ github.orgs.getTeam({ ... });
 
 /**
  * @api {get} /teams/:id/members getTeamMembers
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeamMembers
  * @apiDescription List team members
  * @apiGroup orgs
@@ -25465,7 +25465,7 @@ github.orgs.getTeamMembers({ ... });
 
 /**
  * @api {get} /teams/:id/memberships/:username getTeamMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeamMembership
  * @apiDescription Get team membership
  * @apiGroup orgs
@@ -25478,7 +25478,7 @@ github.orgs.getTeamMembership({ ... });
 
 /**
  * @api {get} /teams/:id/repos getTeamRepos
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeamRepos
  * @apiDescription Get team repos
  * @apiGroup orgs
@@ -25492,7 +25492,7 @@ github.orgs.getTeamRepos({ ... });
 
 /**
  * @api {get} /orgs/:org/teams getTeams
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeams
  * @apiDescription List teams
  * @apiGroup orgs
@@ -25506,7 +25506,7 @@ github.orgs.getTeams({ ... });
 
 /**
  * @api {post} /orgs/:org/hooks/:id/pings pingHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName pingHook
  * @apiDescription Ping a hook
  * @apiGroup orgs
@@ -25519,7 +25519,7 @@ github.orgs.pingHook({ ... });
 
 /**
  * @api {put} /orgs/:org/public_members/:username publicizeMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName publicizeMembership
  * @apiDescription Publicize a user's membership
  * @apiGroup orgs
@@ -25532,7 +25532,7 @@ github.orgs.publicizeMembership({ ... });
 
 /**
  * @api {delete} /orgs/:org/members/:username removeMember
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeMember
  * @apiDescription Remove a member
  * @apiGroup orgs
@@ -25545,7 +25545,7 @@ github.orgs.removeMember({ ... });
 
 /**
  * @api {delete} /orgs/:org/memberships/:username removeOrgMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeOrgMembership
  * @apiDescription Remove organization membership
  * @apiGroup orgs
@@ -25558,7 +25558,7 @@ github.orgs.removeOrgMembership({ ... });
 
 /**
  * @api {delete} /orgs/:org/outside_collaborator/:username removeOutsideCollaborator
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeOutsideCollaborator
  * @apiDescription Remove outside collaborator.
  * @apiGroup orgs
@@ -25571,7 +25571,7 @@ github.orgs.removeOutsideCollaborator({ ... });
 
 /**
  * @api {delete} /teams/:id/memberships/:username removeTeamMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeTeamMembership
  * @apiDescription Remove team membership
  * @apiGroup orgs
@@ -25584,7 +25584,7 @@ github.orgs.removeTeamMembership({ ... });
 
 /**
  * @api {patch} /orgs/:org update
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName update
  * @apiDescription Edit an organization
  * @apiGroup orgs
@@ -25604,7 +25604,7 @@ github.orgs.update({ ... });
 
 /**
  * @api {post} /orgs/:org/projects createOrgProject
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createOrgProject
  * @apiDescription Create an organization project. (In preview period. See README.)
  * @apiGroup projects
@@ -25618,7 +25618,7 @@ github.projects.createOrgProject({ ... });
 
 /**
  * @api {post} /projects/columns/:column_id/cards createProjectCard
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createProjectCard
  * @apiDescription Create a project card. (In preview period. See README.)
  * @apiGroup projects
@@ -25633,7 +25633,7 @@ github.projects.createProjectCard({ ... });
 
 /**
  * @api {post} /projects/:project_id/columns createProjectColumn
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createProjectColumn
  * @apiDescription Create a project column. (In preview period. See README.)
  * @apiGroup projects
@@ -25646,7 +25646,7 @@ github.projects.createProjectColumn({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/projects createRepoProject
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createRepoProject
  * @apiDescription Create a repository project. (In preview period. See README.)
  * @apiGroup projects
@@ -25661,7 +25661,7 @@ github.projects.createRepoProject({ ... });
 
 /**
  * @api {delete} /projects/:id deleteProject
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteProject
  * @apiDescription Delete a project. (In preview period. See README.)
  * @apiGroup projects
@@ -25673,7 +25673,7 @@ github.projects.deleteProject({ ... });
 
 /**
  * @api {delete} /projects/columns/cards/:id deleteProjectCard
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteProjectCard
  * @apiDescription Delete a project card. (In preview period. See README.)
  * @apiGroup projects
@@ -25685,7 +25685,7 @@ github.projects.deleteProjectCard({ ... });
 
 /**
  * @api {delete} /projects/columns/:id deleteProjectColumn
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteProjectColumn
  * @apiDescription Delete a project column. (In preview period. See README.)
  * @apiGroup projects
@@ -25697,7 +25697,7 @@ github.projects.deleteProjectColumn({ ... });
 
 /**
  * @api {get} /orgs/:org/projects getOrgProjects
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrgProjects
  * @apiDescription List organization projects. (In preview period. See README.)
  * @apiGroup projects
@@ -25709,7 +25709,7 @@ github.projects.getOrgProjects({ ... });
 
 /**
  * @api {get} /projects/:id getProject
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProject
  * @apiDescription Get a project. (In preview period. See README.)
  * @apiGroup projects
@@ -25721,7 +25721,7 @@ github.projects.getProject({ ... });
 
 /**
  * @api {get} /projects/columns/cards/:id getProjectCard
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProjectCard
  * @apiDescription Get project card. (In preview period. See README.)
  * @apiGroup projects
@@ -25733,7 +25733,7 @@ github.projects.getProjectCard({ ... });
 
 /**
  * @api {get} /projects/columns/:column_id/cards getProjectCards
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProjectCards
  * @apiDescription List project cards. (In preview period. See README.)
  * @apiGroup projects
@@ -25745,7 +25745,7 @@ github.projects.getProjectCards({ ... });
 
 /**
  * @api {get} /projects/columns/:id getProjectColumn
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProjectColumn
  * @apiDescription Get a project column. (In preview period. See README.)
  * @apiGroup projects
@@ -25757,7 +25757,7 @@ github.projects.getProjectColumn({ ... });
 
 /**
  * @api {get} /projects/:project_id/columns getProjectColumns
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProjectColumns
  * @apiDescription List project columns. (In preview period. See README.)
  * @apiGroup projects
@@ -25769,7 +25769,7 @@ github.projects.getProjectColumns({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/projects getRepoProjects
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRepoProjects
  * @apiDescription List repository projects. (In preview period. See README.)
  * @apiGroup projects
@@ -25782,7 +25782,7 @@ github.projects.getRepoProjects({ ... });
 
 /**
  * @api {post} /projects/columns/cards/:id/moves moveProjectCard
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName moveProjectCard
  * @apiDescription Move a project card. (In preview period. See README.)
  * @apiGroup projects
@@ -25796,7 +25796,7 @@ github.projects.moveProjectCard({ ... });
 
 /**
  * @api {post} /projects/columns/:id/moves moveProjectColumn
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName moveProjectColumn
  * @apiDescription Move a project column. (In preview period. See README.)
  * @apiGroup projects
@@ -25809,7 +25809,7 @@ github.projects.moveProjectColumn({ ... });
 
 /**
  * @api {patch} /projects/:id updateProject
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateProject
  * @apiDescription Update a project. (In preview period. See README.)
  * @apiGroup projects
@@ -25823,7 +25823,7 @@ github.projects.updateProject({ ... });
 
 /**
  * @api {patch} /projects/columns/cards/:id updateProjectCard
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateProjectCard
  * @apiDescription Update a project card. (In preview period. See README.)
  * @apiGroup projects
@@ -25836,7 +25836,7 @@ github.projects.updateProjectCard({ ... });
 
 /**
  * @api {patch} /projects/columns/:id updateProjectColumn
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateProjectColumn
  * @apiDescription Update a project column. (In preview period. See README.)
  * @apiGroup projects
@@ -25849,7 +25849,7 @@ github.projects.updateProjectColumn({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number/merge checkMerged
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkMerged
  * @apiDescription Get if a pull request has been merged
  * @apiGroup pullRequests
@@ -25865,7 +25865,7 @@ github.pullRequests.checkMerged({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls create
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName create
  * @apiDescription Create a pull request
  * @apiGroup pullRequests
@@ -25882,7 +25882,7 @@ github.pullRequests.create({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls/:number/comments createComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createComment
  * @apiDescription Create a comment
  * @apiGroup pullRequests
@@ -25900,7 +25900,7 @@ github.pullRequests.createComment({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls/:number/comments createCommentReply
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createCommentReply
  * @apiDescription Reply to existing pull request comment
  * @apiGroup pullRequests
@@ -25916,7 +25916,7 @@ github.pullRequests.createCommentReply({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls createFromIssue
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createFromIssue
  * @apiDescription Create a pull request from an existing issue
  * @apiGroup pullRequests
@@ -25932,9 +25932,9 @@ github.pullRequests.createFromIssue({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls/:number/reviews createReview
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createReview
- * @apiDescription Create a pull request review.
+ * @apiDescription Create a pull request review. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -25951,9 +25951,9 @@ github.pullRequests.createReview({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls/:number/requested_reviewers createReviewRequest
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createReviewRequest
- * @apiDescription Create a review request
+ * @apiDescription Create a review request. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -25966,7 +25966,7 @@ github.pullRequests.createReviewRequest({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/pulls/comments/:id deleteComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteComment
  * @apiDescription Delete a comment
  * @apiGroup pullRequests
@@ -25980,9 +25980,9 @@ github.pullRequests.deleteComment({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/pulls/:number/requested_reviewers deleteReviewRequest
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteReviewRequest
- * @apiDescription Delete a review request
+ * @apiDescription Delete a review request. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -25995,9 +25995,9 @@ github.pullRequests.deleteReviewRequest({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals dismissReview
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName dismissReview
- * @apiDescription Dismiss a pull request review.
+ * @apiDescription Dismiss a pull request review. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -26013,7 +26013,7 @@ github.pullRequests.dismissReview({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/pulls/comments/:id editComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editComment
  * @apiDescription Edit a comment
  * @apiGroup pullRequests
@@ -26028,7 +26028,7 @@ github.pullRequests.editComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get a single pull request
  * @apiGroup pullRequests
@@ -26042,7 +26042,7 @@ github.pullRequests.get({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription List pull requests
  * @apiGroup pullRequests
@@ -26062,7 +26062,7 @@ github.pullRequests.getAll({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/comments/:id getComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getComment
  * @apiDescription Get a single comment
  * @apiGroup pullRequests
@@ -26076,7 +26076,7 @@ github.pullRequests.getComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number/comments getComments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getComments
  * @apiDescription List comments on a pull request
  * @apiGroup pullRequests
@@ -26092,7 +26092,7 @@ github.pullRequests.getComments({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/comments getCommentsForRepo
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommentsForRepo
  * @apiDescription List comments in a repository
  * @apiGroup pullRequests
@@ -26110,7 +26110,7 @@ github.pullRequests.getCommentsForRepo({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number/commits getCommits
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommits
  * @apiDescription List commits on a pull request
  * @apiGroup pullRequests
@@ -26126,7 +26126,7 @@ github.pullRequests.getCommits({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number/files getFiles
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getFiles
  * @apiDescription List pull requests files
  * @apiGroup pullRequests
@@ -26141,13 +26141,14 @@ github.pullRequests.getFiles({ ... });
  */
 
 /**
- * @api {get} /repos/:owner/pulls/:number/reviews/:id getReview
- * @apiVersion 7.3.2
+ * @api {get} /repos/:owner/:repo/pulls/:number/reviews/:id getReview
+ * @apiVersion 8.0.0
  * @apiName getReview
- * @apiDescription Get a single pull request review.
+ * @apiDescription Get a single pull request review. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
+ * @apiParam {String} repo  
  * @apiParam {Number} number  
  * @apiParam {String} id  
  * @apiExample {js} ex:
@@ -26155,10 +26156,27 @@ github.pullRequests.getReview({ ... });
  */
 
 /**
+ * @api {get} /repos/:owner/:repo/pulls/:number/reviews/:id/comments getReviewComments
+ * @apiVersion 8.0.0
+ * @apiName getReviewComments
+ * @apiDescription Get comments for a pull request review. (In preview period. See README.)
+ * @apiGroup pullRequests
+ *
+ * @apiParam {String} owner  
+ * @apiParam {String} repo  
+ * @apiParam {Number} number  
+ * @apiParam {String} id  
+ * @apiParam {Number} [page]  Page number of the results to fetch.
+ * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
+ * @apiExample {js} ex:
+github.pullRequests.getReviewComments({ ... });
+ */
+
+/**
  * @api {get} /repos/:owner/:repo/pulls/:number/requested_reviewers getReviewRequests
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReviewRequests
- * @apiDescription List review requests
+ * @apiDescription List review requests. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -26172,9 +26190,9 @@ github.pullRequests.getReviewRequests({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/:number/reviews getReviews
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReviews
- * @apiDescription List reviews on a pull request.
+ * @apiDescription List reviews on a pull request. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -26187,24 +26205,8 @@ github.pullRequests.getReviews({ ... });
  */
 
 /**
- * @api {get} /repos/:owner/pulls/:number/reviews/:id/comments getReviewsComments
- * @apiVersion 7.3.2
- * @apiName getReviewsComments
- * @apiDescription Get a single pull request reviews comments.
- * @apiGroup pullRequests
- *
- * @apiParam {String} owner  
- * @apiParam {Number} number  
- * @apiParam {String} id  
- * @apiParam {Number} [page]  Page number of the results to fetch.
- * @apiParam {Number} [per_page=30]  A custom page size up to 100. Default is 30.
- * @apiExample {js} ex:
-github.pullRequests.getReviewsComments({ ... });
- */
-
-/**
  * @api {put} /repos/:owner/:repo/pulls/:number/merge merge
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName merge
  * @apiDescription Merge a pull request (Merge Button)
  * @apiGroup pullRequests
@@ -26222,9 +26224,9 @@ github.pullRequests.merge({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls/:number/reviews/:id/events submitReview
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName submitReview
- * @apiDescription Submit a pull request review.
+ * @apiDescription Submit a pull request review. (In preview period. See README.)
  * @apiGroup pullRequests
  *
  * @apiParam {String} owner  
@@ -26239,7 +26241,7 @@ github.pullRequests.submitReview({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/pulls/:number update
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName update
  * @apiDescription Update a pull request
  * @apiGroup pullRequests
@@ -26257,7 +26259,7 @@ github.pullRequests.update({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/comments/:id/reactions createForCommitComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createForCommitComment
  * @apiDescription Create reaction for a commit comment. (In preview period. See README.)
  * @apiGroup reactions
@@ -26272,7 +26274,7 @@ github.reactions.createForCommitComment({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/issues/:number/reactions createForIssue
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createForIssue
  * @apiDescription Create reaction for an issue. (In preview period. See README.)
  * @apiGroup reactions
@@ -26287,7 +26289,7 @@ github.reactions.createForIssue({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/issues/comments/:id/reactions createForIssueComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createForIssueComment
  * @apiDescription Create reaction for an issue comment. (In preview period. See README.)
  * @apiGroup reactions
@@ -26302,7 +26304,7 @@ github.reactions.createForIssueComment({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pulls/comments/:id/reactions createForPullRequestReviewComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createForPullRequestReviewComment
  * @apiDescription Create reaction for a pull request review comment. (In preview period. See README.)
  * @apiGroup reactions
@@ -26317,7 +26319,7 @@ github.reactions.createForPullRequestReviewComment({ ... });
 
 /**
  * @api {delete} /reactions/:id delete
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName delete
  * @apiDescription Delete a reaction. (In preview period. See README.)
  * @apiGroup reactions
@@ -26329,7 +26331,7 @@ github.reactions.delete({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/comments/:id/reactions getForCommitComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForCommitComment
  * @apiDescription List reactions for a commit comment. (In preview period. See README.)
  * @apiGroup reactions
@@ -26344,7 +26346,7 @@ github.reactions.getForCommitComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/:number/reactions getForIssue
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForIssue
  * @apiDescription List reactions for an issue. (In preview period. See README.)
  * @apiGroup reactions
@@ -26359,7 +26361,7 @@ github.reactions.getForIssue({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/issues/comments/:id/reactions getForIssueComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForIssueComment
  * @apiDescription List reactions for an issue comment. (In preview period. See README.)
  * @apiGroup reactions
@@ -26374,7 +26376,7 @@ github.reactions.getForIssueComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pulls/comments/:id/reactions getForPullRequestReviewComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForPullRequestReviewComment
  * @apiDescription List reactions for a pull request review comment. (In preview period. See README.)
  * @apiGroup reactions
@@ -26389,7 +26391,7 @@ github.reactions.getForPullRequestReviewComment({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/collaborators/:username addCollaborator
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addCollaborator
  * @apiDescription Add user as a collaborator
  * @apiGroup repos
@@ -26404,7 +26406,7 @@ github.repos.addCollaborator({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts addProtectedBranchRequiredStatusChecksContexts
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addProtectedBranchRequiredStatusChecksContexts
  * @apiDescription Add required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -26419,7 +26421,7 @@ github.repos.addProtectedBranchRequiredStatusChecksContexts({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams addProtectedBranchTeamRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addProtectedBranchTeamRestrictions
  * @apiDescription Add team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -26434,7 +26436,7 @@ github.repos.addProtectedBranchTeamRestrictions({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/branches/:branch/protection/restrictions/users addProtectedBranchUserRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addProtectedBranchUserRestrictions
  * @apiDescription Add user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -26449,7 +26451,7 @@ github.repos.addProtectedBranchUserRestrictions({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/collaborators/:username checkCollaborator
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkCollaborator
  * @apiDescription Check if user is a collaborator.
  * @apiGroup repos
@@ -26463,7 +26465,7 @@ github.repos.checkCollaborator({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/compare/:base...:head compareCommits
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName compareCommits
  * @apiDescription Compare two commits.
  * @apiGroup repos
@@ -26478,7 +26480,7 @@ github.repos.compareCommits({ ... });
 
 /**
  * @api {post} /user/repos create
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName create
  * @apiDescription Create a new repository for the authenticated user.
  * @apiGroup repos
@@ -26503,7 +26505,7 @@ github.repos.create({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/commits/:sha/comments createCommitComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createCommitComment
  * @apiDescription Create a commit comment.
  * @apiGroup repos
@@ -26521,7 +26523,7 @@ github.repos.createCommitComment({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/deployments createDeployment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createDeployment
  * @apiDescription Create a deployment. (In preview period. See README.)
  * @apiGroup repos
@@ -26543,7 +26545,7 @@ github.repos.createDeployment({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/deployments/:id/statuses createDeploymentStatus
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createDeploymentStatus
  * @apiDescription Create a deployment status. (In preview period. See README.)
  * @apiGroup repos
@@ -26563,7 +26565,7 @@ github.repos.createDeploymentStatus({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/contents/:path createFile
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createFile
  * @apiDescription Create a new file in the given repository.
  * @apiGroup repos
@@ -26581,7 +26583,7 @@ github.repos.createFile({ ... });
 
 /**
  * @api {post} /orgs/:org/repos createForOrg
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createForOrg
  * @apiDescription Create a new repository for an organization.
  * @apiGroup repos
@@ -26607,7 +26609,7 @@ github.repos.createForOrg({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/hooks createHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createHook
  * @apiDescription Create a hook.
  * @apiGroup repos
@@ -26624,7 +26626,7 @@ github.repos.createHook({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/keys createKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createKey
  * @apiDescription Add a new deploy key.
  * @apiGroup repos
@@ -26640,7 +26642,7 @@ github.repos.createKey({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/releases createRelease
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createRelease
  * @apiDescription Create a release.
  * @apiGroup repos
@@ -26659,7 +26661,7 @@ github.repos.createRelease({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/statuses/:sha createStatus
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createStatus
  * @apiDescription Create a status.
  * @apiGroup repos
@@ -26677,7 +26679,7 @@ github.repos.createStatus({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo delete
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName delete
  * @apiDescription Delete a repository.
  * @apiGroup repos
@@ -26690,7 +26692,7 @@ github.repos.delete({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/releases/assets/:id deleteAsset
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteAsset
  * @apiDescription Delete a release asset.
  * @apiGroup repos
@@ -26704,7 +26706,7 @@ github.repos.deleteAsset({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/comments/:id deleteCommitComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteCommitComment
  * @apiDescription Delete a commit comment.
  * @apiGroup repos
@@ -26718,7 +26720,7 @@ github.repos.deleteCommitComment({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/downloads/:id deleteDownload
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteDownload
  * @apiDescription Delete a download.
  * @apiGroup repos
@@ -26732,7 +26734,7 @@ github.repos.deleteDownload({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/contents/:path deleteFile
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteFile
  * @apiDescription Delete a file.
  * @apiGroup repos
@@ -26750,7 +26752,7 @@ github.repos.deleteFile({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/hooks/:id deleteHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteHook
  * @apiDescription Deleate a hook.
  * @apiGroup repos
@@ -26764,7 +26766,7 @@ github.repos.deleteHook({ ... });
 
 /**
  * @api {delete} /repositories/:repo_id/invitations/:invitation_id deleteInvite
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteInvite
  * @apiDescription Delete a repository invitation. (In preview period. See README.)
  * @apiGroup repos
@@ -26777,7 +26779,7 @@ github.repos.deleteInvite({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/keys/:id deleteKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteKey
  * @apiDescription Remove a deploy key.
  * @apiGroup repos
@@ -26791,7 +26793,7 @@ github.repos.deleteKey({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/releases/:id deleteRelease
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteRelease
  * @apiDescription Delete a release
  * @apiGroup repos
@@ -26805,7 +26807,7 @@ github.repos.deleteRelease({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo edit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName edit
  * @apiDescription Update a repo.
  * @apiGroup repos
@@ -26829,7 +26831,7 @@ github.repos.edit({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/releases/assets/:id editAsset
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editAsset
  * @apiDescription Edit a release asset.
  * @apiGroup repos
@@ -26845,7 +26847,7 @@ github.repos.editAsset({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/hooks/:id editHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editHook
  * @apiDescription Edit a hook.
  * @apiGroup repos
@@ -26865,7 +26867,7 @@ github.repos.editHook({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/releases/:id editRelease
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editRelease
  * @apiDescription Edit a release.
  * @apiGroup repos
@@ -26885,7 +26887,7 @@ github.repos.editRelease({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/forks fork
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName fork
  * @apiDescription Create a fork.
  * @apiGroup repos
@@ -26899,7 +26901,7 @@ github.repos.fork({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get a repo for a user.
  * @apiGroup repos
@@ -26912,7 +26914,7 @@ github.repos.get({ ... });
 
 /**
  * @api {get} /user/repos getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription List your repositories
  * @apiGroup repos
@@ -26930,7 +26932,7 @@ github.repos.getAll({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/comments getAllCommitComments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAllCommitComments
  * @apiDescription List commit comments for a repository.
  * @apiGroup repos
@@ -26945,7 +26947,7 @@ github.repos.getAllCommitComments({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/:archive_format/:ref getArchiveLink
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getArchiveLink
  * @apiDescription Get archive link.
  * @apiGroup repos
@@ -26960,7 +26962,7 @@ github.repos.getArchiveLink({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/releases/assets/:id getAsset
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAsset
  * @apiDescription Get a single release asset.
  * @apiGroup repos
@@ -26974,7 +26976,7 @@ github.repos.getAsset({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/releases/:id/assets getAssets
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAssets
  * @apiDescription List assets for a release.
  * @apiGroup repos
@@ -26988,7 +26990,7 @@ github.repos.getAssets({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch getBranch
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getBranch
  * @apiDescription Get branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27004,7 +27006,7 @@ github.repos.getBranch({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection getBranchProtection
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getBranchProtection
  * @apiDescription Get branch protection. (In preview period. See README.)
  * @apiGroup repos
@@ -27020,7 +27022,7 @@ github.repos.getBranchProtection({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches getBranches
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getBranches
  * @apiDescription List branches. (In preview period. See README.)
  * @apiGroup repos
@@ -27036,7 +27038,7 @@ github.repos.getBranches({ ... });
 
 /**
  * @api {get} /repositories/:id getById
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getById
  * @apiDescription Get a single repo by id.
  * @apiGroup repos
@@ -27048,7 +27050,7 @@ github.repos.getById({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/traffic/clones getClones
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getClones
  * @apiDescription Get the total number of clones and breakdown per day or week for the last 14 days.
  * @apiGroup repos
@@ -27063,7 +27065,7 @@ github.repos.getClones({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/collaborators getCollaborators
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCollaborators
  * @apiDescription List collaborators
  * @apiGroup repos
@@ -27079,7 +27081,7 @@ github.repos.getCollaborators({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/commits/:ref/status getCombinedStatus
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCombinedStatus
  * @apiDescription Get the combined status for a specific ref.
  * @apiGroup repos
@@ -27095,7 +27097,7 @@ github.repos.getCombinedStatus({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/commits/:sha getCommit
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommit
  * @apiDescription Get a single commit.
  * @apiGroup repos
@@ -27109,7 +27111,7 @@ github.repos.getCommit({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/comments/:id getCommitComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommitComment
  * @apiDescription Get a single commit comment.
  * @apiGroup repos
@@ -27123,7 +27125,7 @@ github.repos.getCommitComment({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/commits/:ref/comments getCommitComments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommitComments
  * @apiDescription List comments for a single commit.
  * @apiGroup repos
@@ -27139,7 +27141,7 @@ github.repos.getCommitComments({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/commits getCommits
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getCommits
  * @apiDescription List commits on a repository.
  * @apiGroup repos
@@ -27159,7 +27161,7 @@ github.repos.getCommits({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/contents/:path getContent
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getContent
  * @apiDescription Get the contents of a file or directory in a repository.
  * @apiGroup repos
@@ -27174,7 +27176,7 @@ github.repos.getContent({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/contributors getContributors
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getContributors
  * @apiDescription Get contributors for the specified repository.
  * @apiGroup repos
@@ -27190,7 +27192,7 @@ github.repos.getContributors({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/deployments/:id/statuses getDeploymentStatuses
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getDeploymentStatuses
  * @apiDescription List deployment statuses. (In preview period. See README.)
  * @apiGroup repos
@@ -27204,7 +27206,7 @@ github.repos.getDeploymentStatuses({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/deployments getDeployments
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getDeployments
  * @apiDescription List deployments. (In preview period. See README.)
  * @apiGroup repos
@@ -27223,7 +27225,7 @@ github.repos.getDeployments({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/downloads/:id getDownload
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getDownload
  * @apiDescription Get a single download.
  * @apiGroup repos
@@ -27237,7 +27239,7 @@ github.repos.getDownload({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/downloads getDownloads
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getDownloads
  * @apiDescription List downloads for repository.
  * @apiGroup repos
@@ -27252,7 +27254,7 @@ github.repos.getDownloads({ ... });
 
 /**
  * @api {get} /orgs/:org/repos getForOrg
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForOrg
  * @apiDescription List repositories for the specified org.
  * @apiGroup repos
@@ -27267,7 +27269,7 @@ github.repos.getForOrg({ ... });
 
 /**
  * @api {get} /users/:username/repos getForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForUser
  * @apiDescription List public repositories for the specified user.
  * @apiGroup repos
@@ -27284,7 +27286,7 @@ github.repos.getForUser({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/forks getForks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForks
  * @apiDescription List forks.
  * @apiGroup repos
@@ -27300,7 +27302,7 @@ github.repos.getForks({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/hooks/:id getHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getHook
  * @apiDescription Get single hook.
  * @apiGroup repos
@@ -27314,7 +27316,7 @@ github.repos.getHook({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/hooks getHooks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getHooks
  * @apiDescription List hooks.
  * @apiGroup repos
@@ -27329,7 +27331,7 @@ github.repos.getHooks({ ... });
 
 /**
  * @api {get} /repositories/:repo_id/invitations getInvites
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getInvites
  * @apiDescription List invitations for a repository. (In preview period. See README.)
  * @apiGroup repos
@@ -27341,7 +27343,7 @@ github.repos.getInvites({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/keys/:id getKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getKey
  * @apiDescription Get a deploy key.
  * @apiGroup repos
@@ -27355,7 +27357,7 @@ github.repos.getKey({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/keys getKeys
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getKeys
  * @apiDescription List deploy keys.
  * @apiGroup repos
@@ -27370,7 +27372,7 @@ github.repos.getKeys({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/languages getLanguages
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLanguages
  * @apiDescription Get languages for the specified repository.
  * @apiGroup repos
@@ -27385,7 +27387,7 @@ github.repos.getLanguages({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pages/builds/latest getLatestPagesBuild
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLatestPagesBuild
  * @apiDescription Get latest Pages build. (In preview period. See README.)
  * @apiGroup repos
@@ -27398,7 +27400,7 @@ github.repos.getLatestPagesBuild({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/releases/latest getLatestRelease
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getLatestRelease
  * @apiDescription Get the latest release.
  * @apiGroup repos
@@ -27411,7 +27413,7 @@ github.repos.getLatestRelease({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pages getPages
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPages
  * @apiDescription Get information about a Pages site. (In preview period. See README.)
  * @apiGroup repos
@@ -27426,7 +27428,7 @@ github.repos.getPages({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pages/builds/:id getPagesBuild
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPagesBuild
  * @apiDescription Get a specific Pages build. (In preview period. See README.)
  * @apiGroup repos
@@ -27440,7 +27442,7 @@ github.repos.getPagesBuild({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/pages/builds getPagesBuilds
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPagesBuilds
  * @apiDescription List Pages builds. (In preview period. See README.)
  * @apiGroup repos
@@ -27455,7 +27457,7 @@ github.repos.getPagesBuilds({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/traffic/popular/paths getPaths
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPaths
  * @apiDescription Get the top 10 popular contents over the last 14 days.
  * @apiGroup repos
@@ -27470,7 +27472,7 @@ github.repos.getPaths({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews getProtectedBranchPullRequestReviewEnforcement
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProtectedBranchPullRequestReviewEnforcement
  * @apiDescription Get pull request review enforcement of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27486,7 +27488,7 @@ github.repos.getProtectedBranchPullRequestReviewEnforcement({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProtectedBranchRequiredStatusChecks
  * @apiDescription Get required status checks of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27502,7 +27504,7 @@ github.repos.getProtectedBranchRequiredStatusChecks({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts getProtectedBranchRequiredStatusChecksContexts
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProtectedBranchRequiredStatusChecksContexts
  * @apiDescription List required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27518,7 +27520,7 @@ github.repos.getProtectedBranchRequiredStatusChecksContexts({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection/restrictions getProtectedBranchRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProtectedBranchRestrictions
  * @apiDescription Get restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27534,7 +27536,7 @@ github.repos.getProtectedBranchRestrictions({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams getProtectedBranchTeamRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProtectedBranchTeamRestrictions
  * @apiDescription List team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27550,7 +27552,7 @@ github.repos.getProtectedBranchTeamRestrictions({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/branches/:branch/protection/restrictions/users getProtectedBranchUserRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getProtectedBranchUserRestrictions
  * @apiDescription List user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27566,7 +27568,7 @@ github.repos.getProtectedBranchUserRestrictions({ ... });
 
 /**
  * @api {get} /repositories getPublic
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getPublic
  * @apiDescription List all public repositories
  * @apiGroup repos
@@ -27578,7 +27580,7 @@ github.repos.getPublic({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/readme getReadme
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReadme
  * @apiDescription Get the README for the given repository.
  * @apiGroup repos
@@ -27592,7 +27594,7 @@ github.repos.getReadme({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/traffic/popular/referrers getReferrers
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReferrers
  * @apiDescription Get the top 10 referrers over the last 14 days.
  * @apiGroup repos
@@ -27607,7 +27609,7 @@ github.repos.getReferrers({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/releases/:id getRelease
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRelease
  * @apiDescription Get a single release.
  * @apiGroup repos
@@ -27621,7 +27623,7 @@ github.repos.getRelease({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/releases/tags/:tag getReleaseByTag
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReleaseByTag
  * @apiDescription Get a release by tag name.
  * @apiGroup repos
@@ -27635,7 +27637,7 @@ github.repos.getReleaseByTag({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/releases getReleases
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getReleases
  * @apiDescription List releases for a repository.
  * @apiGroup repos
@@ -27650,7 +27652,7 @@ github.repos.getReleases({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/commits/:ref getShaOfCommitRef
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getShaOfCommitRef
  * @apiDescription Get the SHA-1 of a commit reference.
  * @apiGroup repos
@@ -27664,7 +27666,7 @@ github.repos.getShaOfCommitRef({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/stats/code_frequency getStatsCodeFrequency
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStatsCodeFrequency
  * @apiDescription Get the number of additions and deletions per week.
  * @apiGroup repos
@@ -27677,7 +27679,7 @@ github.repos.getStatsCodeFrequency({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/stats/commit_activity getStatsCommitActivity
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStatsCommitActivity
  * @apiDescription Get the last year of commit activity data.
  * @apiGroup repos
@@ -27690,7 +27692,7 @@ github.repos.getStatsCommitActivity({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/stats/contributors getStatsContributors
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStatsContributors
  * @apiDescription Get contributors list with additions, deletions, and commit counts.
  * @apiGroup repos
@@ -27703,7 +27705,7 @@ github.repos.getStatsContributors({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/stats/participation getStatsParticipation
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStatsParticipation
  * @apiDescription Get the weekly commit count for the repository owner and everyone else.
  * @apiGroup repos
@@ -27716,7 +27718,7 @@ github.repos.getStatsParticipation({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/stats/punch_card getStatsPunchCard
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStatsPunchCard
  * @apiDescription Get the number of commits per hour in each day.
  * @apiGroup repos
@@ -27729,7 +27731,7 @@ github.repos.getStatsPunchCard({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/commits/:ref/statuses getStatuses
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getStatuses
  * @apiDescription List statuses for a specfic ref.
  * @apiGroup repos
@@ -27745,7 +27747,7 @@ github.repos.getStatuses({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/tags getTags
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTags
  * @apiDescription Get tags for the specified repository.
  * @apiGroup repos
@@ -27760,7 +27762,7 @@ github.repos.getTags({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/teams getTeams
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeams
  * @apiDescription Get teams for the specified repository.
  * @apiGroup repos
@@ -27775,7 +27777,7 @@ github.repos.getTeams({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/traffic/views getViews
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getViews
  * @apiDescription Get the total number of views and breakdown per day or week for the last 14 days.
  * @apiGroup repos
@@ -27790,7 +27792,7 @@ github.repos.getViews({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/merges merge
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName merge
  * @apiDescription Perform a merge.
  * @apiGroup repos
@@ -27806,7 +27808,7 @@ github.repos.merge({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/hooks/:id/pings pingHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName pingHook
  * @apiDescription Ping a hook.
  * @apiGroup repos
@@ -27820,7 +27822,7 @@ github.repos.pingHook({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection removeBranchProtection
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeBranchProtection
  * @apiDescription Remove branch protection. (In preview period. See README.)
  * @apiGroup repos
@@ -27836,7 +27838,7 @@ github.repos.removeBranchProtection({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/collaborators/:username removeCollaborator
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeCollaborator
  * @apiDescription Remove user as a collaborator.
  * @apiGroup repos
@@ -27850,7 +27852,7 @@ github.repos.removeCollaborator({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews removeProtectedBranchPullRequestReviewEnforcement
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeProtectedBranchPullRequestReviewEnforcement
  * @apiDescription Remove pull request review enforcement of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27864,7 +27866,7 @@ github.repos.removeProtectedBranchPullRequestReviewEnforcement({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection/required_status_checks removeProtectedBranchRequiredStatusChecks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeProtectedBranchRequiredStatusChecks
  * @apiDescription Remove required status checks of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27880,7 +27882,7 @@ github.repos.removeProtectedBranchRequiredStatusChecks({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts removeProtectedBranchRequiredStatusChecksContexts
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeProtectedBranchRequiredStatusChecksContexts
  * @apiDescription Remove required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27895,7 +27897,7 @@ github.repos.removeProtectedBranchRequiredStatusChecksContexts({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection/restrictions removeProtectedBranchRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeProtectedBranchRestrictions
  * @apiDescription Remove restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27909,7 +27911,7 @@ github.repos.removeProtectedBranchRestrictions({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams removeProtectedBranchTeamRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeProtectedBranchTeamRestrictions
  * @apiDescription Remove team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27924,7 +27926,7 @@ github.repos.removeProtectedBranchTeamRestrictions({ ... });
 
 /**
  * @api {delete} /repos/:owner/:repo/branches/:branch/protection/restrictions/users removeProtectedBranchUserRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName removeProtectedBranchUserRestrictions
  * @apiDescription Remove user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27939,7 +27941,7 @@ github.repos.removeProtectedBranchUserRestrictions({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts replaceProtectedBranchRequiredStatusChecksContexts
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName replaceProtectedBranchRequiredStatusChecksContexts
  * @apiDescription Replace required status checks contexts of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27954,7 +27956,7 @@ github.repos.replaceProtectedBranchRequiredStatusChecksContexts({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams replaceProtectedBranchTeamRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName replaceProtectedBranchTeamRestrictions
  * @apiDescription Replace team restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27969,7 +27971,7 @@ github.repos.replaceProtectedBranchTeamRestrictions({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/branches/:branch/protection/restrictions/users replaceProtectedBranchUserRestrictions
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName replaceProtectedBranchUserRestrictions
  * @apiDescription Replace user restrictions of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -27984,7 +27986,7 @@ github.repos.replaceProtectedBranchUserRestrictions({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/pages/builds requestPageBuild
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName requestPageBuild
  * @apiDescription Request a page build. (In preview period. See README.)
  * @apiGroup repos
@@ -27997,7 +27999,7 @@ github.repos.requestPageBuild({ ... });
 
 /**
  * @api {get} /repos/:owner/:repo/collaborators/:username/permission reviewUserPermissionLevel
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName reviewUserPermissionLevel
  * @apiDescription Review a user's permission level.
  * @apiGroup repos
@@ -28011,7 +28013,7 @@ github.repos.reviewUserPermissionLevel({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/hooks/:id/tests testHook
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName testHook
  * @apiDescription Test a [push] hook.
  * @apiGroup repos
@@ -28025,7 +28027,7 @@ github.repos.testHook({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/branches/:branch/protection updateBranchProtection
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateBranchProtection
  * @apiDescription Update branch protection. (In preview period. See README.)
  * @apiGroup repos
@@ -28044,7 +28046,7 @@ github.repos.updateBranchProtection({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/comments/:id updateCommitComment
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateCommitComment
  * @apiDescription Update a commit comment.
  * @apiGroup repos
@@ -28059,7 +28061,7 @@ github.repos.updateCommitComment({ ... });
 
 /**
  * @api {put} /repos/:owner/:repo/contents/:path updateFile
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateFile
  * @apiDescription Update a file.
  * @apiGroup repos
@@ -28078,7 +28080,7 @@ github.repos.updateFile({ ... });
 
 /**
  * @api {patch} /repositories/:repo_id/invitations/:invitation_id updateInvite
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateInvite
  * @apiDescription Update a repository invitation. (In preview period. See README.)
  * @apiGroup repos
@@ -28092,7 +28094,7 @@ github.repos.updateInvite({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews updateProtectedBranchPullRequestReviewEnforcement
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateProtectedBranchPullRequestReviewEnforcement
  * @apiDescription Update pull request review enforcement of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -28107,7 +28109,7 @@ github.repos.updateProtectedBranchPullRequestReviewEnforcement({ ... });
 
 /**
  * @api {patch} /repos/:owner/:repo/branches/:branch/protection/required_status_checks updateProtectedBranchRequiredStatusChecks
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName updateProtectedBranchRequiredStatusChecks
  * @apiDescription Update required status checks of protected branch. (In preview period. See README.)
  * @apiGroup repos
@@ -28126,7 +28128,7 @@ github.repos.updateProtectedBranchRequiredStatusChecks({ ... });
 
 /**
  * @api {post} /repos/:owner/:repo/releases/:id/assets uploadAsset
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName uploadAsset
  * @apiDescription Upload a release asset.
  * @apiGroup repos
@@ -28143,7 +28145,7 @@ github.repos.uploadAsset({ ... });
 
 /**
  * @api {get} /search/code code
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName code
  * @apiDescription Search code.
  * @apiGroup search
@@ -28159,7 +28161,7 @@ github.search.code({ ... });
 
 /**
  * @api {get} /search/commits commits
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName commits
  * @apiDescription Search commits. (In preview period. See README.)
  * @apiGroup search
@@ -28175,7 +28177,7 @@ github.search.commits({ ... });
 
 /**
  * @api {get} /legacy/user/email/:email email
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName email
  * @apiDescription Search against public email addresses.
  * @apiGroup search
@@ -28187,7 +28189,7 @@ github.search.email({ ... });
 
 /**
  * @api {get} /search/issues issues
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName issues
  * @apiDescription Search issues.
  * @apiGroup search
@@ -28203,7 +28205,7 @@ github.search.issues({ ... });
 
 /**
  * @api {get} /search/repositories repos
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName repos
  * @apiDescription Search repositories.
  * @apiGroup search
@@ -28219,7 +28221,7 @@ github.search.repos({ ... });
 
 /**
  * @api {get} /search/users users
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName users
  * @apiDescription Search users.
  * @apiGroup search
@@ -28235,7 +28237,7 @@ github.search.users({ ... });
 
 /**
  * @api {patch} /user/repository_invitations/:invitation_id acceptRepoInvite
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName acceptRepoInvite
  * @apiDescription Accept a repository invitation. (In preview period. See README.)
  * @apiGroup users
@@ -28247,7 +28249,7 @@ github.users.acceptRepoInvite({ ... });
 
 /**
  * @api {post} /user/emails addEmails
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName addEmails
  * @apiDescription Add email address(es)
  * @apiGroup users
@@ -28259,7 +28261,7 @@ github.users.addEmails({ ... });
 
 /**
  * @api {get} /user/following/:username checkFollowing
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkFollowing
  * @apiDescription Check if you are following a user
  * @apiGroup users
@@ -28271,7 +28273,7 @@ github.users.checkFollowing({ ... });
 
 /**
  * @api {get} /users/:username/following/:target_user checkIfOneFollowersOther
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName checkIfOneFollowersOther
  * @apiDescription Check if one user follows another
  * @apiGroup users
@@ -28284,7 +28286,7 @@ github.users.checkIfOneFollowersOther({ ... });
 
 /**
  * @api {post} /user/gpg_keys createGpgKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createGpgKey
  * @apiDescription Create a GPG key. (In preview period. See README.)
  * @apiGroup users
@@ -28296,7 +28298,7 @@ github.users.createGpgKey({ ... });
 
 /**
  * @api {post} /user/keys createKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName createKey
  * @apiDescription Create a public key
  * @apiGroup users
@@ -28309,7 +28311,7 @@ github.users.createKey({ ... });
 
 /**
  * @api {delete} /user/repository_invitations/:invitation_id declineRepoInvite
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName declineRepoInvite
  * @apiDescription Decline a repository invitation. (In preview period. See README.)
  * @apiGroup users
@@ -28321,7 +28323,7 @@ github.users.declineRepoInvite({ ... });
 
 /**
  * @api {delete} /user/emails deleteEmails
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteEmails
  * @apiDescription Delete email address(es)
  * @apiGroup users
@@ -28333,7 +28335,7 @@ github.users.deleteEmails({ ... });
 
 /**
  * @api {delete} /user/gpg_keys/:id deleteGpgKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteGpgKey
  * @apiDescription Delete a GPG key. (In preview period. See README.)
  * @apiGroup users
@@ -28345,7 +28347,7 @@ github.users.deleteGpgKey({ ... });
 
 /**
  * @api {delete} /user/keys/:id deleteKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName deleteKey
  * @apiDescription Delete a public key
  * @apiGroup users
@@ -28357,7 +28359,7 @@ github.users.deleteKey({ ... });
 
 /**
  * @api {delete} /users/:username/site_admin demote
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName demote
  * @apiDescription Demote a site administrator to an ordinary user
  * @apiGroup users
@@ -28369,7 +28371,7 @@ github.users.demote({ ... });
 
 /**
  * @api {patch} /user/memberships/orgs/:org editOrgMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName editOrgMembership
  * @apiDescription Edit your organization membership
  * @apiGroup users
@@ -28382,7 +28384,7 @@ github.users.editOrgMembership({ ... });
 
 /**
  * @api {put} /user/following/:username followUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName followUser
  * @apiDescription Follow a user
  * @apiGroup users
@@ -28394,7 +28396,7 @@ github.users.followUser({ ... });
 
 /**
  * @api {get} /user get
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName get
  * @apiDescription Get the authenticated user
  * @apiGroup users
@@ -28405,7 +28407,7 @@ github.users.get({ ... });
 
 /**
  * @api {get} /users getAll
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getAll
  * @apiDescription Get all users
  * @apiGroup users
@@ -28417,7 +28419,7 @@ github.users.getAll({ ... });
 
 /**
  * @api {get} /user/:id getById
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getById
  * @apiDescription Get a single user by GitHub ID
  * @apiGroup users
@@ -28429,7 +28431,7 @@ github.users.getById({ ... });
 
 /**
  * @api {get} /user/emails getEmails
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getEmails
  * @apiDescription List email addresses for a user
  * @apiGroup users
@@ -28442,7 +28444,7 @@ github.users.getEmails({ ... });
 
 /**
  * @api {get} /user/followers getFollowers
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getFollowers
  * @apiDescription List the authenticated user's followers
  * @apiGroup users
@@ -28455,7 +28457,7 @@ github.users.getFollowers({ ... });
 
 /**
  * @api {get} /users/:username/followers getFollowersForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getFollowersForUser
  * @apiDescription List a user's followers
  * @apiGroup users
@@ -28469,7 +28471,7 @@ github.users.getFollowersForUser({ ... });
 
 /**
  * @api {get} /user/following getFollowing
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getFollowing
  * @apiDescription List who the authenticated user is following
  * @apiGroup users
@@ -28482,7 +28484,7 @@ github.users.getFollowing({ ... });
 
 /**
  * @api {get} /users/:username/following getFollowingForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getFollowingForUser
  * @apiDescription List who a user is following
  * @apiGroup users
@@ -28496,7 +28498,7 @@ github.users.getFollowingForUser({ ... });
 
 /**
  * @api {get} /users/:username getForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getForUser
  * @apiDescription Get a single user
  * @apiGroup users
@@ -28508,7 +28510,7 @@ github.users.getForUser({ ... });
 
 /**
  * @api {get} /user/gpg_keys/:id getGpgKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getGpgKey
  * @apiDescription Get a single GPG key. (In preview period. See README.)
  * @apiGroup users
@@ -28520,7 +28522,7 @@ github.users.getGpgKey({ ... });
 
 /**
  * @api {get} /user/gpg_keys getGpgKeys
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getGpgKeys
  * @apiDescription List your GPG keys. (In preview period. See README.)
  * @apiGroup users
@@ -28533,7 +28535,7 @@ github.users.getGpgKeys({ ... });
 
 /**
  * @api {get} /user/keys/:id getKey
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getKey
  * @apiDescription Get a single public key
  * @apiGroup users
@@ -28545,7 +28547,7 @@ github.users.getKey({ ... });
 
 /**
  * @api {get} /user/keys getKeys
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getKeys
  * @apiDescription List your public keys
  * @apiGroup users
@@ -28558,7 +28560,7 @@ github.users.getKeys({ ... });
 
 /**
  * @api {get} /users/:username/keys getKeysForUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getKeysForUser
  * @apiDescription List public keys for a user
  * @apiGroup users
@@ -28572,7 +28574,7 @@ github.users.getKeysForUser({ ... });
 
 /**
  * @api {get} /user/memberships/orgs/:org getOrgMembership
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrgMembership
  * @apiDescription Get your organization membership
  * @apiGroup users
@@ -28584,7 +28586,7 @@ github.users.getOrgMembership({ ... });
 
 /**
  * @api {get} /user/memberships/orgs getOrgMemberships
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrgMemberships
  * @apiDescription List your organization memberships
  * @apiGroup users
@@ -28596,7 +28598,7 @@ github.users.getOrgMemberships({ ... });
 
 /**
  * @api {get} /user/orgs getOrgs
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getOrgs
  * @apiDescription List organizations for the authenticated user.
  * @apiGroup users
@@ -28609,7 +28611,7 @@ github.users.getOrgs({ ... });
 
 /**
  * @api {get} /user/repository_invitations getRepoInvites
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getRepoInvites
  * @apiDescription List a user's repository invitations. (In preview period. See README.)
  * @apiGroup users
@@ -28620,7 +28622,7 @@ github.users.getRepoInvites({ ... });
 
 /**
  * @api {get} /user/teams getTeams
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName getTeams
  * @apiDescription Get your teams
  * @apiGroup users
@@ -28633,7 +28635,7 @@ github.users.getTeams({ ... });
 
 /**
  * @api {put} /users/:username/site_admin promote
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName promote
  * @apiDescription Promote an ordinary user to a site administrator
  * @apiGroup users
@@ -28645,7 +28647,7 @@ github.users.promote({ ... });
 
 /**
  * @api {put} /users/:username/suspended suspend
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName suspend
  * @apiDescription Suspend a user
  * @apiGroup users
@@ -28657,7 +28659,7 @@ github.users.suspend({ ... });
 
 /**
  * @api {delete} /user/following/:username unfollowUser
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unfollowUser
  * @apiDescription Unfollow a user
  * @apiGroup users
@@ -28669,7 +28671,7 @@ github.users.unfollowUser({ ... });
 
 /**
  * @api {delete} /users/:username/suspended unsuspend
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName unsuspend
  * @apiDescription Unsuspend a user
  * @apiGroup users
@@ -28681,7 +28683,7 @@ github.users.unsuspend({ ... });
 
 /**
  * @api {patch} /user update
- * @apiVersion 7.3.2
+ * @apiVersion 8.0.0
  * @apiName update
  * @apiDescription Update the authenticated user
  * @apiGroup users
