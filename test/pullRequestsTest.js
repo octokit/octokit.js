@@ -336,12 +336,31 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id (getReview)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews/:id (getReview)",  function(next) {
         client.pullRequests.getReview(
             {
                 owner: "String",
+                repo: "String",
                 number: "Number",
                 id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews/:id/comments (getReviewComments)",  function(next) {
+        client.pullRequests.getReviewComments(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                id: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -374,23 +393,6 @@ describe("[pullRequests]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                page: "Number",
-                per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/pulls/:number/reviews/:id/comments (getReviewsComments)",  function(next) {
-        client.pullRequests.getReviewsComments(
-            {
-                owner: "String",
-                number: "Number",
-                id: "String",
                 page: "Number",
                 per_page: "Number"
             },

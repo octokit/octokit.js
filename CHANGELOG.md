@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 8.0.0
+
+Breaking changes:
+  * Changes to pullRequests.getReview, pullRequests.getReviewComments.
+
+Features:
+  * Allow pull request comment endpoints to include reactions.
+  * Add pull request review examples.
+
 ## 7.3.2
 
 Bug fixes:

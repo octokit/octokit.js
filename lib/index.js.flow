@@ -1303,11 +1303,13 @@ declare module "github" {
     ;
   declare type PullRequestsGetReviewParams =
     & Owner
+    & Repo
     & Number
     & Id
     ;
-  declare type PullRequestsGetReviewsCommentsParams =
+  declare type PullRequestsGetReviewCommentsParams =
     & Owner
+    & Repo
     & Number
     & Id
     & Page
@@ -2764,7 +2766,7 @@ declare module "github" {
       merge(params: PullRequestsMergeParams, callback?: Callback): Promise<any>;
       getReviews(params: PullRequestsGetReviewsParams, callback?: Callback): Promise<any>;
       getReview(params: PullRequestsGetReviewParams, callback?: Callback): Promise<any>;
-      getReviewsComments(params: PullRequestsGetReviewsCommentsParams, callback?: Callback): Promise<any>;
+      getReviewComments(params: PullRequestsGetReviewCommentsParams, callback?: Callback): Promise<any>;
       createReview(params: PullRequestsCreateReviewParams, callback?: Callback): Promise<any>;
       submitReview(params: PullRequestsSubmitReviewParams, callback?: Callback): Promise<any>;
       dismissReview(params: PullRequestsDismissReviewParams, callback?: Callback): Promise<any>;

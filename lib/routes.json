@@ -534,7 +534,10 @@
                 "/repos/:owner/:repo/issues/:number/reactions",
                 "/repos/:owner/:repo/issues/comments/:id/reactions",
                 "/repos/:owner/:repo/pulls/comments/:id/reactions",
-                "/reactions/:id"
+                "/reactions/:id",
+                "/repos/:owner/:repo/pulls/:number/comments",
+                "/repos/:owner/:repo/pulls/comments",
+                "/repos/:owner/:repo/pulls/comments/:id"
             ],
             
             "application/vnd.github.mockingbird-preview": [
@@ -543,8 +546,8 @@
             
             "application/vnd.github.black-cat-preview+json": [
                 "/repos/:owner/:repo/pulls/:number/reviews",
-                "/repos/:owner/pulls/:number/reviews/:id",
-                "/repos/:owner/pulls/:number/reviews/:id/comments",
+                "/repos/:owner/:repo/pulls/:number/reviews/:id",
+                "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
                 "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
                 "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
                 "/repos/:owner/:repo/pulls/:number/requested_reviewers"
@@ -4015,31 +4018,33 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List reviews on a pull request."
+            "description": "List reviews on a pull request. (In preview period. See README.)"
         },
         
         "get-review": {
-            "url": "/repos/:owner/pulls/:number/reviews/:id",
+            "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
             "method": "GET",
             "params": {
                 "$owner": null,
+                "$repo": null,
                 "$number": null,
                 "$id": null
             },
-            "description": "Get a single pull request review."
+            "description": "Get a single pull request review. (In preview period. See README.)"
         },
         
-        "get-reviews-comments": {
-            "url": "/repos/:owner/pulls/:number/reviews/:id/comments",
+        "get-review-comments": {
+            "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
             "method": "GET",
             "params": {
                 "$owner": null,
+                "$repo": null,
                 "$number": null,
                 "$id": null,
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get a single pull request reviews comments."
+            "description": "Get comments for a pull request review. (In preview period. See README.)"
         },
         
         "create-review": {
@@ -4087,7 +4092,7 @@
                     "description": "The position in the file to be commented on."
                 }
             },
-            "description": "Create a pull request review."
+            "description": "Create a pull request review. (In preview period. See README.)"
         },
         
         "submit-review": {
@@ -4115,7 +4120,7 @@
                     "default": "PENDING"
                 }
             },
-            "description": "Submit a pull request review."
+            "description": "Submit a pull request review. (In preview period. See README.)"
         },
         
         "dismiss-review": {
@@ -4136,7 +4141,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Dismiss a pull request review."
+            "description": "Dismiss a pull request review. (In preview period. See README.)"
         },
         
         "get-comments": {
@@ -4253,7 +4258,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List review requests"
+            "description": "List review requests. (In preview period. See README.)"
         },
         
         "create-review-request": {
@@ -4271,7 +4276,7 @@
                     "description": "An array of user logins that will be requested."
                 }
             },
-            "description": "Create a review request"
+            "description": "Create a review request. (In preview period. See README.)"
         },
         
         "delete-review-request": {
@@ -4289,7 +4294,7 @@
                     "description": "An array of user logins that will be requested."
                 }
             },
-            "description": "Delete a review request"
+            "description": "Delete a review request. (In preview period. See README.)"
         }
     },
 
