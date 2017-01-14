@@ -98,7 +98,7 @@ declare namespace Github {
   export interface Head { head: string; }
   export interface Path { path: string; }
   export interface Position { position: number; }
-  export interface Body { body: string[]; }
+  export interface Body { body: string; }
   export interface Homepage { homepage?: string; }
   export interface Private { private?: boolean; }
   export interface HasIssues { has_issues?: boolean; }
@@ -628,7 +628,7 @@ declare namespace Github {
     & Repo
     & {
       title: string;
-      body?: string[];
+      body?: string;
       assignee?: string;
       milestone?: number;
       labels?: string;
@@ -640,7 +640,7 @@ declare namespace Github {
     & Number
     & {
       title?: string;
-      body?: string[];
+      body?: string;
       assignee?: string;
       state?: "open"|"closed";
       milestone?: number;
@@ -679,7 +679,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      body: string[];
+      body: string;
     };
   export type IssuesGetCommentsParams =
     & Owner
@@ -707,16 +707,14 @@ declare namespace Github {
     & Owner
     & Repo
     & Number
-    & {
-      body: string[];
-    };
+    & Body
+    ;
   export type IssuesEditCommentParams =
     & Owner
     & Repo
     & Id
-    & {
-      body: string[];
-    };
+    & Body
+    ;
   export type IssuesDeleteCommentParams =
     & Owner
     & Repo
@@ -1160,18 +1158,21 @@ declare namespace Github {
     & Owner
     & Repo
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   export type ProjectsCreateOrgProjectParams =
     & Org
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   export type ProjectsUpdateProjectParams =
     & Id
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   export type ProjectsDeleteProjectParams =
     & Id
     ;
@@ -1248,7 +1249,7 @@ declare namespace Github {
     & Base
     & {
       title: string;
-      body?: string[];
+      body?: string;
       maintainer_can_modify?: boolean;
     };
   export type PullRequestsCreateFromIssueParams =
@@ -1266,7 +1267,7 @@ declare namespace Github {
     & State
     & {
       title?: string;
-      body?: string[];
+      body?: string;
       base?: string;
     };
   export type PullRequestsGetCommitsParams =
@@ -1326,7 +1327,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      body?: string[];
+      body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
       path?: string;
@@ -1338,7 +1339,7 @@ declare namespace Github {
     & Number
     & Id
     & {
-      body?: string[];
+      body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   export type PullRequestsDismissReviewParams =
@@ -1827,8 +1828,8 @@ declare namespace Github {
     & Owner
     & Repo
     & Sha
-    & Body
     & {
+      body: string;
       path?: string;
       position?: number;
       line?: number;
@@ -2098,7 +2099,7 @@ declare namespace Github {
       tag_name: string;
       target_commitish?: string;
       name?: string;
-      body?: string[];
+      body?: string;
       draft?: boolean;
       prerelease?: boolean;
     };
@@ -2110,7 +2111,7 @@ declare namespace Github {
       tag_name: string;
       target_commitish?: string;
       name?: string;
-      body?: string[];
+      body?: string;
       draft?: boolean;
       prerelease?: boolean;
     };
@@ -2506,7 +2507,7 @@ declare namespace Github {
   export type EnterpriseEditPreReceiveHookParams =
     & Id
     & {
-      body: string[];
+      body: string;
     };
   export type EnterpriseDeletePreReceiveHookParams =
     & Id

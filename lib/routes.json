@@ -428,6 +428,13 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "OAuth token"
+            },
+            "body": {
+              "type": "String",
+              "required": true,
+              "validation": "",
+              "invalidmsg": "",
+              "description": ""
             }
         },
         "acceptTree": {
@@ -2243,13 +2250,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "body": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
+                "$body": null
             },
             "description": "Create a comment"
         },
@@ -2261,13 +2262,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$id": null,
-                "body": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
+                "$body": null
             },
             "description": "Edit a comment"
         },
@@ -3597,7 +3592,13 @@
                 "$owner": null,
                 "$repo": null,
                 "$name": null,
-                "$body": null
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Create a repository project. (In preview period. See README.)"
         },
@@ -3608,7 +3609,13 @@
             "params": {
                 "$org": null,
                 "$name": null,
-                "$body": null
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Create an organization project. (In preview period. See README.)"
         },
@@ -3619,7 +3626,13 @@
             "params": {
                 "$id": null,
                 "$name": null,
-                "$body": null
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Update a project. (In preview period. See README.)"
         },
@@ -5347,7 +5360,13 @@
                 "$owner": null,
                 "$repo": null,
                 "$sha": null,
-                "$body": null,
+                "body": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
                 "path": {
                     "type": "String",
                     "required": false,
