@@ -181,7 +181,7 @@ describe("[pullRequests]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals (dismissReview)",  function(next) {
+    it("should successfully execute PUT /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals (dismissReview)",  function(next) {
         client.pullRequests.dismissReview(
             {
                 owner: "String",

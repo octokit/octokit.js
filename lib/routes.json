@@ -4131,7 +4131,7 @@
         
         "dismiss-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
-            "method": "GET",
+            "method": "PUT",
             "params": {
                 "$owner": null,
                 "$repo": null,
