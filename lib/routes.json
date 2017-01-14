@@ -3871,6 +3871,12 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The contents of the pull request."
+                },
+                "maintainer_can_modify": {
+                    "type": "Boolean",
+                    "required": false,
+                    "default": "true",
+                    "description": "Indicates whether maintainers can modify the pull request."
                 }
             },
             "description": "Create a pull request"

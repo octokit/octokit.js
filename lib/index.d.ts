@@ -1249,6 +1249,7 @@ declare namespace Github {
     & {
       title: string;
       body?: string[];
+      maintainer_can_modify?: boolean;
     };
   export type PullRequestsCreateFromIssueParams =
     & Owner

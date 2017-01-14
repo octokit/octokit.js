@@ -1244,6 +1244,7 @@ declare module "github" {
     & {
       title: string;
       body?: string[];
+      maintainer_can_modify?: boolean;
     };
   declare type PullRequestsCreateFromIssueParams =
     & Owner
