@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.1.0
+
+Features:
+  * Add `maintainer_can_modify` flag to create pull request.
+
 ## 8.0.0
 
 Breaking changes:

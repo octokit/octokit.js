@@ -1,6 +1,6 @@
 {
   "name": "github",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "NodeJS wrapper for the GitHub API",
   "author": "Mike de Boer <info@mikedeboer.nl>",
   "contributors": [
@@ -50,7 +50,7 @@
   "apidoc": {
     "title": "node-github",
     "name": "node-github",
-    "version": "8.0.0",
+    "version": "8.1.0",
     "template": {
       "withCompare": true
     }
