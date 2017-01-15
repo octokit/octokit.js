@@ -163,6 +163,11 @@ $ > testAuth.json
 }
 ```
 
+## Promises
+
+For using bluebird, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromise.js).  
+For using Q, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromiseQ.js).
+
 ## Tests
 
 Run all tests
