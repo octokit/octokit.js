@@ -47,7 +47,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                contexts: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -63,7 +63,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                teams: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -79,7 +79,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                users: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1618,7 +1618,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                contexts: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1649,7 +1649,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                teams: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1665,7 +1665,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                users: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1681,7 +1681,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                contexts: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1697,7 +1697,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                teams: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1713,7 +1713,7 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                body: "Array"
+                users: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);

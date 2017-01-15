@@ -47,7 +47,7 @@ describe("[issues]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                body: "Array"
+                labels: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -81,7 +81,7 @@ describe("[issues]", function() {
                 body: "String",
                 assignee: "String",
                 milestone: "Number",
-                labels: "Json",
+                labels: "Array",
                 assignees: "Array"
             },
             function(err, res) {
@@ -198,7 +198,7 @@ describe("[issues]", function() {
                 assignee: "String",
                 state: "String",
                 milestone: "Number",
-                labels: "Json",
+                labels: "Array",
                 assignees: "Array"
             },
             function(err, res) {
@@ -587,7 +587,7 @@ describe("[issues]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                body: "Json"
+                assignees: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -619,7 +619,7 @@ describe("[issues]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                body: "Array"
+                labels: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);

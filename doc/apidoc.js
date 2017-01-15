@@ -718,7 +718,7 @@ github.enterprise.editPreReceiveEnvironment({ ... });
  * @apiGroup enterprise
  *
  * @apiParam {String} id  
- * @apiParam {Json} body  JSON object that contains pre-receive hook info.
+ * @apiParam {Json} hook  JSON object that contains pre-receive hook info.
  * @apiExample {js} ex:
 github.enterprise.editPreReceiveHook({ ... });
  */
@@ -1480,7 +1480,7 @@ github.issues.addAssigneesToIssue({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
- * @apiParam {Array} body  
+ * @apiParam {Array} labels  
  * @apiExample {js} ex:
 github.issues.addLabels({ ... });
  */
@@ -1512,7 +1512,7 @@ github.issues.checkAssignee({ ... });
  * @apiParam {String} [body]  
  * @apiParam {String} [assignee]  Login for the user that this issue should be assigned to.
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
- * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
+ * @apiParam {Array} [labels]  Array of strings - Labels to associate with this issue.
  * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} ex:
 github.issues.create({ ... });
@@ -1622,8 +1622,8 @@ github.issues.deleteMilestone({ ... });
  * @apiParam {String} [assignee]  Login for the user that this issue should be assigned to.
  * @apiParam {String=open,closed} [state=open]  open or closed
  * @apiParam {Number} [milestone]  Milestone to associate this issue with.
- * @apiParam {Json} [labels]  Array of strings - Labels to associate with this issue.
- * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
+ * @apiParam {Array} [labels]  Array of strings - Labels to associate with this issue.
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} ex:
 github.issues.edit({ ... });
  */
@@ -1988,7 +1988,7 @@ github.issues.removeAllLabels({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
- * @apiParam {Json} body  JSON object that contains assignees array of logins for the users that should be removed from the issue.
+ * @apiParam {Array} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} ex:
 github.issues.removeAssigneesFromIssue({ ... });
  */
@@ -2018,7 +2018,7 @@ github.issues.removeLabel({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {Number} number  
- * @apiParam {Array} body  Sending an empty array ([]) will remove all Labels from the Issue.
+ * @apiParam {Array} labels  Sending an empty array ([]) will remove all Labels from the Issue.
  * @apiExample {js} ex:
 github.issues.replaceAllLabels({ ... });
  */
@@ -3726,7 +3726,7 @@ github.repos.addCollaborator({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
+ * @apiParam {Array} contexts  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
  * @apiExample {js} ex:
 github.repos.addProtectedBranchRequiredStatusChecksContexts({ ... });
  */
@@ -3741,7 +3741,7 @@ github.repos.addProtectedBranchRequiredStatusChecksContexts({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Array} teams  An array of team slugs (e.g. justice-league).
  * @apiExample {js} ex:
 github.repos.addProtectedBranchTeamRestrictions({ ... });
  */
@@ -3756,7 +3756,7 @@ github.repos.addProtectedBranchTeamRestrictions({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Array} users  An array of team slugs (e.g. justice-league).
  * @apiExample {js} ex:
 github.repos.addProtectedBranchUserRestrictions({ ... });
  */
@@ -5202,7 +5202,7 @@ github.repos.removeProtectedBranchRequiredStatusChecks({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
+ * @apiParam {Array} contexts  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
  * @apiExample {js} ex:
 github.repos.removeProtectedBranchRequiredStatusChecksContexts({ ... });
  */
@@ -5231,7 +5231,7 @@ github.repos.removeProtectedBranchRestrictions({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Array} teams  An array of team slugs (e.g. justice-league).
  * @apiExample {js} ex:
 github.repos.removeProtectedBranchTeamRestrictions({ ... });
  */
@@ -5246,7 +5246,7 @@ github.repos.removeProtectedBranchTeamRestrictions({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Array} users  An array of team slugs (e.g. justice-league).
  * @apiExample {js} ex:
 github.repos.removeProtectedBranchUserRestrictions({ ... });
  */
@@ -5261,7 +5261,7 @@ github.repos.removeProtectedBranchUserRestrictions({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
+ * @apiParam {Array} contexts  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
  * @apiExample {js} ex:
 github.repos.replaceProtectedBranchRequiredStatusChecksContexts({ ... });
  */
@@ -5276,7 +5276,7 @@ github.repos.replaceProtectedBranchRequiredStatusChecksContexts({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Array} teams  An array of team slugs (e.g. justice-league).
  * @apiExample {js} ex:
 github.repos.replaceProtectedBranchTeamRestrictions({ ... });
  */
@@ -5291,7 +5291,7 @@ github.repos.replaceProtectedBranchTeamRestrictions({ ... });
  * @apiParam {String} owner  
  * @apiParam {String} repo  
  * @apiParam {String} branch  
- * @apiParam {Array} body  An array of team slugs (e.g. justice-league).
+ * @apiParam {Array} users  An array of team slugs (e.g. justice-league).
  * @apiExample {js} ex:
 github.repos.replaceProtectedBranchUserRestrictions({ ... });
  */
@@ -5566,7 +5566,7 @@ github.users.acceptRepoInvite({ ... });
  * @apiDescription Add email address(es)
  * @apiGroup users
  *
- * @apiParam {Array} body  You can post a single email address or an array of addresses.
+ * @apiParam {Array} emails  You can post a single email address or an array of addresses.
  * @apiExample {js} ex:
 github.users.addEmails({ ... });
  */
@@ -5640,7 +5640,7 @@ github.users.declineRepoInvite({ ... });
  * @apiDescription Delete email address(es)
  * @apiGroup users
  *
- * @apiParam {Array} body  You can post a single email address or an array of addresses.
+ * @apiParam {Array} emails  You can post a single email address or an array of addresses.
  * @apiExample {js} ex:
 github.users.deleteEmails({ ... });
  */
