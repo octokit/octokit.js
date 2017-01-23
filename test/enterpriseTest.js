@@ -117,7 +117,7 @@ describe("[enterprise]", function() {
         client.enterprise.editPreReceiveHook(
             {
                 id: "String",
-                body: "Json"
+                hook: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -196,7 +196,10 @@
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "asc or desc, default: desc.",
                 "description": "",
-                "enum": ["asc", "desc"],
+                "enum": [
+                    "asc",
+                    "desc"
+                ],
                 "default": "desc"
             },
             "since": {
@@ -219,7 +222,11 @@
                 "validation": "^(open|closed|all)$",
                 "invalidmsg": "open, closed, all, default: open",
                 "description": "",
-                "enum": ["open", "closed", "all"],
+                "enum": [
+                    "open",
+                    "closed",
+                    "all"
+                ],
                 "default": "open"
             },
             "color": {
@@ -388,7 +395,10 @@
                 "validation": "^(asc|desc)$",
                 "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
                 "description": "asc or desc",
-                "enum": ["asc", "desc"],
+                "enum": [
+                    "asc",
+                    "desc"
+                ],
                 "default": "desc"
             },
             "q": {
@@ -412,7 +422,10 @@
                 "validation": "^(secret|closed)$",
                 "invalidmsg": "secret, closed, default: secret",
                 "description": "The level of privacy this team should have.",
-                "enum": ["secret", "closed"],
+                "enum": [
+                    "secret",
+                    "closed"
+                ],
                 "default": "secret"
             },
             "fingerprint": {
@@ -428,23 +441,27 @@
                 "validation": "",
                 "invalidmsg": "",
                 "description": "OAuth token"
+            },
+            "assignees": {
+                "type": "Array",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
             }
         },
         "acceptTree": {
             "application/vnd.github.cloak-preview+json": [
                 "/search/commits"
             ],
-            
             "application/vnd.github.ant-man-preview+json": [
                 "/repos/:owner/:repo/deployments",
                 "/repos/:owner/:repo/deployments/:id/statuses"
             ],
-            
             "application/vnd.github.cryptographer-preview": [
                 "/user/gpg_keys",
                 "/user/gpg_keys/:id"
             ],
-            
             "application/vnd.github.barred-rock-preview": [
                 "/repos/:owner/:repo/import/authors",
                 "/repos/:owner/:repo/import/authors/:author_id",
@@ -452,7 +469,6 @@
                 "/:owner/:name/import/large_files",
                 "/repos/:owner/:repo/import"
             ],
-            
             "application/vnd.github.machine-man-preview": [
                 "/integration/installations",
                 "/installations/:installation_id/access_tokens",
@@ -460,21 +476,18 @@
                 "/installation/repositories",
                 "/installations/:installation_id/repositories/:repository_id"
             ],
-            
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
                 "/licenses/:license",
                 "/repos/:owner/:repo",
                 "/repos/:owner/:repo/license"
             ],
-            
             "application/vnd.github.wyandotte-preview+json": [
                 "/orgs/:org/migrations",
                 "/orgs/:org/migrations/:id",
                 "/orgs/:org/migrations/:id/archive",
                 "/orgs/:org/migrations/:id/repos/:repo_name/lock"
             ],
-            
             "application/vnd.github.korra-preview+json": [
                 "/orgs/:org",
                 "/orgs/:org/invitations",
@@ -485,14 +498,12 @@
                 "/repos/:owner/:repo/collaborators/:username/permission",
                 "/teams/:id/invitations"
             ],
-            
             "application/vnd.github.mister-fantastic-preview+json": [
                 "/repos/:owner/:repo/pages",
                 "/repos/:owner/:repo/pages/builds",
                 "/repos/:owner/:repo/pages/builds/latest",
                 "/repos/:owner/:repo/pages/builds/:id"
             ],
-            
             "application/vnd.github.eye-scream-preview": [
                 "/admin/pre-receive-environments/:id",
                 "/admin/pre_receive_environments",
@@ -501,7 +512,6 @@
                 "/admin/pre-receive-hooks/:id",
                 "/admin/pre-receive-hooks"
             ],
-            
             "application/vnd.github.inertia-preview+json": [
                 "/repos/:owner/:repo/projects",
                 "/orgs/:org/projects",
@@ -513,7 +523,6 @@
                 "/projects/columns/:id",
                 "/projects/columns/:id/moves"
             ],
-            
             "application/vnd.github.loki-preview+json": [
                 "/repos/:owner/:repo/branches",
                 "/repos/:owner/:repo/branches/:branch",
@@ -524,11 +533,9 @@
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
             ],
-            
             "application/vnd.github.polaris-preview": [
                 "/repos/:owner/:repo/pulls/:number/merge"
             ],
-            
             "application/vnd.github.squirrel-girl-preview": [
                 "/repos/:owner/:repo/comments/:id/reactions",
                 "/repos/:owner/:repo/issues/:number/reactions",
@@ -539,11 +546,9 @@
                 "/repos/:owner/:repo/pulls/comments",
                 "/repos/:owner/:repo/pulls/comments/:id"
             ],
-            
             "application/vnd.github.mockingbird-preview": [
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
             ],
-            
             "application/vnd.github.black-cat-preview+json": [
                 "/repos/:owner/:repo/pulls/:number/reviews",
                 "/repos/:owner/:repo/pulls/:number/reviews/:id",
@@ -554,7 +559,6 @@
             ]
         }
     },
-
     "authorization": {
         "get-grants": {
             "url": "/applications/grants",
@@ -565,7 +569,6 @@
             },
             "description": "List your grants."
         },
-
         "get-grant": {
             "url": "/applications/grants/:id",
             "method": "GET",
@@ -576,7 +579,6 @@
             },
             "description": "Get a single grant."
         },
-
         "delete-grant": {
             "url": "/applications/grants/:id",
             "method": "DELETE",
@@ -585,7 +587,6 @@
             },
             "description": "Delete a grant."
         },
-
         "get-all": {
             "url": "/authorizations",
             "method": "GET",
@@ -595,7 +596,6 @@
             },
             "description": "List your authorizations."
         },
-
         "get": {
             "url": "/authorizations/:id",
             "method": "GET",
@@ -604,7 +604,6 @@
             },
             "description": "Get a single authorization."
         },
-
         "create": {
             "url": "/authorizations",
             "method": "POST",
@@ -624,7 +623,6 @@
             },
             "description": "Create a new authorization."
         },
-
         "get-or-create-authorization-for-app": {
             "url": "/authorizations/clients/:client_id",
             "method": "PUT",
@@ -644,7 +642,6 @@
             },
             "description": "Get or create an authorization for a specific app."
         },
-
         "get-or-create-authorization-for-app-and-fingerprint": {
             "url": "/authorizations/clients/:client_id/:fingerprint",
             "method": "PUT",
@@ -664,7 +661,6 @@
             },
             "description": "Get or create an authorization for a specific app and fingerprint."
         },
-
         "update": {
             "url": "/authorizations/:id",
             "method": "PATCH",
@@ -691,7 +687,6 @@
             },
             "description": "Update an existing authorization."
         },
-
         "delete": {
             "url": "/authorizations/:id",
             "method": "DELETE",
@@ -700,7 +695,6 @@
             },
             "description": "Delete an authorization."
         },
-
         "check": {
             "url": "/applications/:client_id/tokens/:access_token",
             "method": "GET",
@@ -710,7 +704,6 @@
             },
             "description": "Check an authorization"
         },
-
         "reset": {
             "url": "/applications/:client_id/tokens/:access_token",
             "method": "POST",
@@ -720,7 +713,6 @@
             },
             "description": "Reset an authorization"
         },
-
         "revoke": {
             "url": "/applications/:client_id/tokens/:access_token",
             "method": "DELETE",
@@ -731,7 +723,6 @@
             "description": "Revoke an authorization for an application"
         }
     },
-
     "activity": {
         "get-events": {
             "url": "/events",
@@ -742,7 +733,6 @@
             },
             "description": "List public events"
         },
-
         "get-events-for-repo": {
             "url": "/repos/:owner/:repo/events",
             "method": "GET",
@@ -754,7 +744,6 @@
             },
             "description": "List repository events"
         },
-
         "get-events-for-repo-issues": {
             "url": "/repos/:owner/:repo/issues/events",
             "method": "GET",
@@ -766,7 +755,6 @@
             },
             "description": "List issue events for a repository"
         },
-
         "get-events-for-repo-network": {
             "url": "/networks/:owner/:repo/events",
             "method": "GET",
@@ -778,7 +766,6 @@
             },
             "description": "List public events for a network of repositories"
         },
-
         "get-events-for-org": {
             "url": "/orgs/:org/events",
             "method": "GET",
@@ -789,7 +776,6 @@
             },
             "description": "List public events for an organization"
         },
-
         "get-events-received": {
             "url": "/users/:username/received_events",
             "method": "GET",
@@ -800,7 +786,6 @@
             },
             "description": "List events that a user has received"
         },
-
         "get-events-received-public": {
             "url": "/users/:username/received_events/public",
             "method": "GET",
@@ -811,7 +796,6 @@
             },
             "description": "List public events that a user has received"
         },
-
         "get-events-for-user": {
             "url": "/users/:username/events",
             "method": "GET",
@@ -822,7 +806,6 @@
             },
             "description": "List events performed by a user"
         },
-
         "get-events-for-user-public": {
             "url": "/users/:username/events/public",
             "method": "GET",
@@ -833,7 +816,6 @@
             },
             "description": "List public events performed by a user"
         },
-
         "get-events-for-user-org": {
             "url": "/users/:username/events/orgs/:org",
             "method": "GET",
@@ -845,14 +827,12 @@
             },
             "description": "List events for a user's organization"
         },
-
         "get-feeds": {
             "url": "/feeds",
             "method": "GET",
             "params": {},
             "description": "Get all feeds available for the authenticated user."
         },
-
         "get-notifications": {
             "url": "/notifications",
             "method": "GET",
@@ -884,7 +864,6 @@
             },
             "description": "Get all notifications for the current user, grouped by repository."
         },
-
         "get-notifications-for-user": {
             "url": "/repos/:owner/:repo/notifications",
             "method": "GET",
@@ -918,7 +897,6 @@
             },
             "description": "Get all notifications for the given user."
         },
-
         "mark-notifications-as-read": {
             "url": "/notifications",
             "method": "PUT",
@@ -934,7 +912,6 @@
             },
             "description": "Mark notifications as read for authenticated user."
         },
-
         "mark-notifications-as-read-for-repo": {
             "url": "/repos/:owner/:repo/notifications",
             "method": "PUT",
@@ -952,7 +929,6 @@
             },
             "description": "Mark notifications in a repo as read."
         },
-
         "get-notification-thread": {
             "url": "/notifications/threads/:id",
             "method": "GET",
@@ -961,7 +937,6 @@
             },
             "description": "View a single notification thread."
         },
-
         "mark-notification-thread-as-read": {
             "url": "/notifications/threads/:id",
             "method": "PATCH",
@@ -970,7 +945,6 @@
             },
             "description": "Mark a notification thread as read."
         },
-
         "check-notification-thread-subscription": {
             "url": "/notifications/threads/:id/subscription",
             "method": "GET",
@@ -979,7 +953,6 @@
             },
             "description": "Check to see if the current user is subscribed to a thread."
         },
-
         "set-notification-thread-subscription": {
             "url": "/notifications/threads/:id/subscription",
             "method": "PUT",
@@ -1002,7 +975,6 @@
             },
             "description": "This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get @mentioned once more)."
         },
-
         "delete-notification-thread-subscription": {
             "url": "/notifications/threads/:id/subscription",
             "method": "DELETE",
@@ -1011,7 +983,6 @@
             },
             "description": "Delete a notification thread subscription."
         },
-
         "get-stargazers-for-repo": {
             "url": "/repos/:owner/:repo/stargazers",
             "method": "GET",
@@ -1023,7 +994,6 @@
             },
             "description": "List Stargazers"
         },
-
         "get-starred-repos-for-user": {
             "url": "/users/:username/starred",
             "method": "GET",
@@ -1035,7 +1005,10 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created or updated (when it was last pushed to); default: created.",
                     "description": "",
-                    "enum": ["created", "updated"],
+                    "enum": [
+                        "created",
+                        "updated"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1044,7 +1017,6 @@
             },
             "description": "List repositories being starred by a user"
         },
-
         "get-starred-repos": {
             "url": "/user/starred",
             "method": "GET",
@@ -1055,7 +1027,10 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created or updated (when it was last pushed to); default: created.",
                     "description": "",
-                    "enum": ["created", "updated"],
+                    "enum": [
+                        "created",
+                        "updated"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1064,7 +1039,6 @@
             },
             "description": "List repositories being starred by the authenticated user"
         },
-
         "check-starring-repo": {
             "url": "/user/starred/:owner/:repo",
             "method": "GET",
@@ -1076,7 +1050,6 @@
             },
             "description": "Check if you are starring a repository"
         },
-
         "star-repo": {
             "url": "/user/starred/:owner/:repo",
             "method": "PUT",
@@ -1086,7 +1059,6 @@
             },
             "description": "Star a repository"
         },
-
         "unstar-repo": {
             "url": "/user/starred/:owner/:repo",
             "method": "DELETE",
@@ -1096,7 +1068,6 @@
             },
             "description": "Unstar a repository"
         },
-
         "get-watchers-for-repo": {
             "url": "/repos/:owner/:repo/subscribers",
             "method": "GET",
@@ -1108,7 +1079,6 @@
             },
             "description": "Get watchers for repository."
         },
-
         "get-watched-repos-for-user": {
             "url": "/users/:username/subscriptions",
             "method": "GET",
@@ -1119,7 +1089,6 @@
             },
             "description": "List repositories being watched by a user."
         },
-
         "get-watched-repos": {
             "url": "/user/subscriptions",
             "method": "GET",
@@ -1129,7 +1098,6 @@
             },
             "description": "List repositories being watched by the authenticated user."
         },
-
         "get-repo-subscription": {
             "url": "/repos/:owner/:repo/subscription",
             "method": "GET",
@@ -1141,7 +1109,6 @@
             },
             "description": "Get a Repository Subscription."
         },
-
         "set-repo-subscription": {
             "url": "/repos/:owner/:repo/subscription",
             "method": "PUT",
@@ -1165,7 +1132,6 @@
             },
             "description": "Set a Repository Subscription"
         },
-
         "unwatch-repo": {
             "url": "/repos/:owner/:repo/subscription",
             "method": "DELETE",
@@ -1176,7 +1142,6 @@
             "description": "Unwatch a repository."
         }
     },
-
     "gists": {
         "get-for-user": {
             "url": "/users/:username/gists",
@@ -1189,7 +1154,6 @@
             },
             "description": "List a user's gists"
         },
-        
         "get-all": {
             "url": "/gists",
             "method": "GET",
@@ -1200,7 +1164,6 @@
             },
             "description": "List the authenticated user's gists or if called anonymously, this will return all public gists"
         },
-        
         "get-public": {
             "url": "/gists/public",
             "method": "GET",
@@ -1209,7 +1172,6 @@
             },
             "description": "List all public gists"
         },
-
         "get-starred": {
             "url": "/gists/starred",
             "method": "GET",
@@ -1218,7 +1180,6 @@
             },
             "description": "List the authenticated user's starred gists"
         },
-
         "get": {
             "url": "/gists/:id",
             "method": "GET",
@@ -1227,7 +1188,6 @@
             },
             "description": "Get a single gist"
         },
-
         "get-revision": {
             "url": "/gists/:id/:sha",
             "method": "GET",
@@ -1237,7 +1197,6 @@
             },
             "description": "Get a specific revision of a gist"
         },
-
         "create": {
             "url": "/gists",
             "method": "POST",
@@ -1254,7 +1213,6 @@
             },
             "description": "Create a gist"
         },
-
         "edit": {
             "url": "/gists/:id",
             "method": "PATCH",
@@ -1279,7 +1237,6 @@
             },
             "description": "Edit a gist"
         },
-
         "get-commits": {
             "url": "/gists/:id/commits",
             "method": "GET",
@@ -1288,7 +1245,6 @@
             },
             "description": "List gist commits"
         },
-
         "star": {
             "url": "/gists/:id/star",
             "method": "PUT",
@@ -1297,7 +1253,6 @@
             },
             "description": "Star a gist"
         },
-
         "unstar": {
             "url": "/gists/:id/star",
             "method": "DELETE",
@@ -1306,7 +1261,6 @@
             },
             "description": "Unstar a gist"
         },
-
         "check-star": {
             "url": "/gists/:id/star",
             "method": "GET",
@@ -1315,7 +1269,6 @@
             },
             "description": "Check if a gist is starred"
         },
-
         "fork": {
             "url": "/gists/:id/forks",
             "method": "POST",
@@ -1324,7 +1277,6 @@
             },
             "description": "Fork a gist"
         },
-
         "get-forks": {
             "url": "/gists/:id/forks",
             "method": "GET",
@@ -1335,7 +1287,6 @@
             },
             "description": "List gist forks"
         },
-
         "delete": {
             "url": "/gists/:id",
             "method": "DELETE",
@@ -1344,7 +1295,6 @@
             },
             "description": "Delete a gist"
         },
-
         "get-comments": {
             "url": "/gists/:gist_id/comments",
             "method": "GET",
@@ -1353,7 +1303,6 @@
             },
             "description": "List comments on a gist"
         },
-
         "get-comment": {
             "url": "/gists/:gist_id/comments/:id",
             "method": "GET",
@@ -1363,7 +1312,6 @@
             },
             "description": "Get a single comment"
         },
-
         "create-comment": {
             "url": "/gists/:gist_id/comments",
             "method": "POST",
@@ -1373,7 +1321,6 @@
             },
             "description": "Create a comment"
         },
-
         "edit-comment": {
             "url": "/gists/:gist_id/comments/:id",
             "method": "PATCH",
@@ -1384,7 +1331,6 @@
             },
             "description": "Edit a comment"
         },
-
         "delete-comment": {
             "url": "/gists/:gist_id/comments/:id",
             "method": "DELETE",
@@ -1395,7 +1341,6 @@
             "description": "Delete a comment"
         }
     },
-
     "gitdata": {
         "get-blob": {
             "url": "/repos/:owner/:repo/git/blobs/:sha",
@@ -1409,7 +1354,6 @@
             },
             "description": "Get a Blob"
         },
-
         "create-blob": {
             "url": "/repos/:owner/:repo/git/blobs",
             "method": "POST",
@@ -1434,7 +1378,6 @@
             },
             "description": "Create a Blob"
         },
-
         "get-commit": {
             "url": "/repos/:owner/:repo/git/commits/:sha",
             "method": "GET",
@@ -1445,7 +1388,6 @@
             },
             "description": "Get a Commit"
         },
-
         "create-commit": {
             "url": "/repos/:owner/:repo/git/commits",
             "method": "POST",
@@ -1490,7 +1432,6 @@
             },
             "description": "Create a Commit"
         },
-
         "get-commit-signature-verification": {
             "url": "/repos/:owner/:repo/git/commits/:sha",
             "method": "GET",
@@ -1501,7 +1442,6 @@
             },
             "description": "Get a Commit Signature Verification. (In preview period. See README.)"
         },
-
         "get-reference": {
             "url": "/repos/:owner/:repo/git/refs/:ref",
             "method": "GET",
@@ -1512,7 +1452,6 @@
             },
             "description": "Get a Reference"
         },
-
         "get-references": {
             "url": "/repos/:owner/:repo/git/refs/",
             "method": "GET",
@@ -1524,7 +1463,6 @@
             },
             "description": "Get all References"
         },
-
         "get-tags": {
             "url": "/repos/:owner/:repo/git/refs/tags",
             "method": "GET",
@@ -1536,7 +1474,6 @@
             },
             "description": "Get all tag References"
         },
-
         "create-reference": {
             "url": "/repos/:owner/:repo/git/refs",
             "method": "POST",
@@ -1554,7 +1491,6 @@
             },
             "description": "Create a Reference"
         },
-
         "update-reference": {
             "url": "/repos/:owner/:repo/git/refs/:ref",
             "method": "PATCH",
@@ -1574,7 +1510,6 @@
             },
             "description": "Update a Reference"
         },
-
         "delete-reference": {
             "url": "/repos/:owner/:repo/git/refs/:ref",
             "method": "DELETE",
@@ -1585,7 +1520,6 @@
             },
             "description": "Delete a Reference"
         },
-
         "get-tag": {
             "url": "/repos/:owner/:repo/git/tags/:sha",
             "method": "GET",
@@ -1596,7 +1530,6 @@
             },
             "description": "Get a Tag"
         },
-
         "create-tag": {
             "url": "/repos/:owner/:repo/git/tags",
             "method": "POST",
@@ -1641,7 +1574,6 @@
             },
             "description": "Create a Tag Object"
         },
-
         "get-tag-signature-verification": {
             "url": "/repos/:owner/:repo/git/tags/:sha",
             "method": "GET",
@@ -1652,7 +1584,6 @@
             },
             "description": "Get a Tag Signature Verification. (In preview period. See README.)"
         },
-
         "get-tree": {
             "url": "/repos/:owner/:repo/git/trees/:sha",
             "method": "GET",
@@ -1670,7 +1601,6 @@
             },
             "description": "Get a Tree"
         },
-
         "create-tree": {
             "url": "/repos/:owner/:repo/git/trees",
             "method": "POST",
@@ -1695,7 +1625,6 @@
             "description": "Create a Tree"
         }
     },
-
     "integrations": {
         "get-installations": {
             "url": "/integration/installations",
@@ -1706,23 +1635,21 @@
             },
             "description": "List the integration's installations. (In preview period. See README.)"
         },
-        
         "create-installation-token": {
             "url": "/installations/:installation_id/access_tokens",
             "method": "POST",
             "params": {
-              "$installation_id": null,
-              "user_id": {
-                  "type": "String",
-                  "required": false,
-                  "validation": "",
-                  "invalidmsg": "",
-                  "description": "The id of the user for whom the integration is acting on behalf of."
-              }
+                "$installation_id": null,
+                "user_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id of the user for whom the integration is acting on behalf of."
+                }
             },
             "description": "Create a new installation token. (In preview period. See README.)"
         },
-        
         "get-user-identity": {
             "url": "/integration/identity/user",
             "method": "POST",
@@ -1737,7 +1664,6 @@
             },
             "description": "Request identity of user. (In preview period. See README.)"
         },
-        
         "get-installation-repositories": {
             "url": "/installation/repositories",
             "method": "GET",
@@ -1752,7 +1678,6 @@
             },
             "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
         },
-        
         "add-repo-to-installation": {
             "url": "/installations/:installation_id/repositories/:repository_id",
             "method": "POST",
@@ -1762,7 +1687,6 @@
             },
             "description": "Add a single repository to an installation. (In preview period. See README.)"
         },
-        
         "remove-repo-from-installation": {
             "url": "/installations/:installation_id/repositories/:repository_id",
             "method": "POST",
@@ -1773,7 +1697,6 @@
             "description": "Remove a single repository from an installation. (In preview period. See README.)"
         }
     },
-
     "issues": {
         "get-all": {
             "url": "/issues",
@@ -1785,7 +1708,13 @@
                     "validation": "^(all|assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
                     "description": "",
-                    "enum": ["all", "assigned", "created", "mentioned", "subscribed"]
+                    "enum": [
+                        "all",
+                        "assigned",
+                        "created",
+                        "mentioned",
+                        "subscribed"
+                    ]
                 },
                 "state": {
                     "type": "String",
@@ -1793,7 +1722,11 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
-                    "enum": ["open", "closed", "all"],
+                    "enum": [
+                        "open",
+                        "closed",
+                        "all"
+                    ],
                     "default": "open"
                 },
                 "labels": {
@@ -1809,7 +1742,11 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
-                    "enum": ["created", "updated", "comments"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "comments"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1819,7 +1756,6 @@
             },
             "description": "List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories"
         },
-
         "get-for-user": {
             "url": "/user/issues",
             "method": "GET",
@@ -1830,7 +1766,13 @@
                     "validation": "^(all|assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
                     "description": "",
-                    "enum": ["all", "assigned", "created", "mentioned", "subscribed"]
+                    "enum": [
+                        "all",
+                        "assigned",
+                        "created",
+                        "mentioned",
+                        "subscribed"
+                    ]
                 },
                 "state": {
                     "type": "String",
@@ -1838,7 +1780,11 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
-                    "enum": ["open", "closed", "all"],
+                    "enum": [
+                        "open",
+                        "closed",
+                        "all"
+                    ],
                     "default": "open"
                 },
                 "labels": {
@@ -1854,7 +1800,11 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
-                    "enum": ["created", "updated", "comments"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "comments"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1864,7 +1814,6 @@
             },
             "description": "List all issues across owned and member repositories for the authenticated user"
         },
-
         "get-for-org": {
             "url": "/orgs/:org/issues",
             "method": "GET",
@@ -1876,7 +1825,13 @@
                     "validation": "^(all|assigned|created|mentioned|subscribed)$",
                     "invalidmsg": "",
                     "description": "",
-                    "enum": ["all", "assigned", "created", "mentioned", "subscribed"]
+                    "enum": [
+                        "all",
+                        "assigned",
+                        "created",
+                        "mentioned",
+                        "subscribed"
+                    ]
                 },
                 "state": {
                     "type": "String",
@@ -1884,7 +1839,11 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
-                    "enum": ["open", "closed", "all"],
+                    "enum": [
+                        "open",
+                        "closed",
+                        "all"
+                    ],
                     "default": "open"
                 },
                 "labels": {
@@ -1900,7 +1859,11 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
-                    "enum": ["created", "updated", "comments"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "comments"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1910,7 +1873,6 @@
             },
             "description": "List all issues for a given organization for the authenticated user"
         },
-
         "get-for-repo": {
             "url": "/repos/:owner/:repo/issues",
             "method": "GET",
@@ -1930,7 +1892,11 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
-                    "enum": ["open", "closed", "all"],
+                    "enum": [
+                        "open",
+                        "closed",
+                        "all"
+                    ],
                     "default": "open"
                 },
                 "assignee": {
@@ -1967,7 +1933,11 @@
                     "validation": "^(created|updated|comments)$",
                     "invalidmsg": "created, updated, comments, default: created.",
                     "description": "",
-                    "enum": ["created", "updated", "comments"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "comments"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -1977,7 +1947,6 @@
             },
             "description": "List issues for a repository"
         },
-
         "get": {
             "url": "/repos/:owner/:repo/issues/:number",
             "method": "GET",
@@ -1988,7 +1957,6 @@
             },
             "description": "Get a single issue"
         },
-
         "create": {
             "url": "/repos/:owner/:repo/issues",
             "method": "POST",
@@ -2024,23 +1992,16 @@
                     "description": "Milestone to associate this issue with."
                 },
                 "labels": {
-                    "type": "Json",
+                    "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Array of strings - Labels to associate with this issue."
                 },
-                "assignees": {
-                    "type": "Array",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
-                }
+                "$assignees": null
             },
             "description": "Create an issue"
         },
-
         "edit": {
             "url": "/repos/:owner/:repo/issues/:number",
             "method": "PATCH",
@@ -2075,7 +2036,10 @@
                     "validation": "^(open|closed)$",
                     "invalidmsg": "open, closed, default: open",
                     "description": "open or closed",
-                    "enum": ["open", "closed"],
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
                     "default": "open"
                 },
                 "milestone": {
@@ -2086,23 +2050,16 @@
                     "description": "Milestone to associate this issue with."
                 },
                 "labels": {
-                    "type": "Json",
+                    "type": "Array",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Array of strings - Labels to associate with this issue."
                 },
-                "assignees": {
-                    "type": "Array",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Logins for Users to assign to this issue. Pass one or more user logins to replace the set of assignees on this Issue. .Send an empty array ([]) to clear all assignees from the Issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
-                }
+                "$assignees": null
             },
             "description": "Edit an issue"
         },
-
         "lock": {
             "url": "/repos/:owner/:repo/issues/:number/lock",
             "method": "PUT",
@@ -2113,7 +2070,6 @@
             },
             "description": "Users with push access can lock an issue's conversation."
         },
-
         "unlock": {
             "url": "/repos/:owner/:repo/issues/:number/lock",
             "method": "DELETE",
@@ -2124,7 +2080,6 @@
             },
             "description": "Users with push access can unlock an issue's conversation."
         },
-
         "get-assignees": {
             "url": "/repos/:owner/:repo/assignees",
             "method": "GET",
@@ -2134,7 +2089,6 @@
             },
             "description": "List assignees"
         },
-
         "check-assignee": {
             "url": "/repos/:owner/:repo/assignees/:assignee",
             "method": "GET",
@@ -2151,7 +2105,6 @@
             },
             "description": "Check assignee"
         },
-
         "add-assignees-to-issue": {
             "url": "/repos/:owner/:repo/issues/:number/assignees",
             "method": "POST",
@@ -2169,7 +2122,6 @@
             },
             "description": "Add assignees to an issue."
         },
-
         "remove-assignees-from-issue": {
             "url": "/repos/:owner/:repo/issues/:number/assignees",
             "method": "DELETE",
@@ -2177,18 +2129,10 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "body": {
-                    "type": "Json",
-                    "sendValueAsBody": true,
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "JSON object that contains assignees array of logins for the users that should be removed from the issue."
-                }
+                "$assignees": null
             },
             "description": "Remove assignees from an issue."
         },
-
         "get-comments": {
             "url": "/repos/:owner/:repo/issues/:number/comments",
             "method": "GET",
@@ -2201,7 +2145,6 @@
             },
             "description": "List comments on an issue"
         },
-
         "get-comments-for-repo": {
             "url": "/repos/:owner/:repo/issues/comments",
             "method": "GET",
@@ -2214,7 +2157,10 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "created, updated, default: created.",
                     "description": "",
-                    "enum": ["created", "updated"],
+                    "enum": [
+                        "created",
+                        "updated"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -2224,7 +2170,6 @@
             },
             "description": "List comments in a repository"
         },
-
         "get-comment": {
             "url": "/repos/:owner/:repo/issues/comments/:id",
             "method": "GET",
@@ -2235,7 +2180,6 @@
             },
             "description": "Get a single comment"
         },
-
         "create-comment": {
             "url": "/repos/:owner/:repo/issues/:number/comments",
             "method": "POST",
@@ -2243,17 +2187,10 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "body": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
+                "$body": null
             },
             "description": "Create a comment"
         },
-
         "edit-comment": {
             "url": "/repos/:owner/:repo/issues/comments/:id",
             "method": "PATCH",
@@ -2261,17 +2198,10 @@
                 "$owner": null,
                 "$repo": null,
                 "$id": null,
-                "body": {
-                    "type": "String",
-                    "required": true,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
+                "$body": null
             },
             "description": "Edit a comment"
         },
-
         "delete-comment": {
             "url": "/repos/:owner/:repo/issues/comments/:id",
             "method": "DELETE",
@@ -2282,7 +2212,6 @@
             },
             "description": "Delete a comment"
         },
-
         "get-events": {
             "url": "/repos/:owner/:repo/issues/:issue_number/events",
             "method": "GET",
@@ -2295,7 +2224,6 @@
             },
             "description": "List events for an issue"
         },
-
         "get-events-for-repo": {
             "url": "/repos/:owner/:repo/issues/events",
             "method": "GET",
@@ -2307,7 +2235,6 @@
             },
             "description": "List events for a repository"
         },
-
         "get-event": {
             "url": "/repos/:owner/:repo/issues/events/:id",
             "method": "GET",
@@ -2318,7 +2245,6 @@
             },
             "description": "Get a single event"
         },
-        
         "get-labels": {
             "url": "/repos/:owner/:repo/labels",
             "method": "GET",
@@ -2330,7 +2256,6 @@
             },
             "description": "List all labels for this repository"
         },
-
         "get-label": {
             "url": "/repos/:owner/:repo/labels/:name",
             "method": "GET",
@@ -2341,7 +2266,6 @@
             },
             "description": "Get a single label"
         },
-
         "create-label": {
             "url": "/repos/:owner/:repo/labels",
             "method": "POST",
@@ -2353,7 +2277,6 @@
             },
             "description": "Create a label"
         },
-
         "update-label": {
             "url": "/repos/:owner/:repo/labels/:oldname",
             "method": "PATCH",
@@ -2378,7 +2301,6 @@
             },
             "description": "Update a label"
         },
-
         "delete-label": {
             "url": "/repos/:owner/:repo/labels/:name",
             "method": "DELETE",
@@ -2389,7 +2311,6 @@
             },
             "description": "Delete a label"
         },
-
         "get-issue-labels": {
             "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "GET",
@@ -2400,7 +2321,6 @@
             },
             "description": "List labels on an issue"
         },
-
         "add-labels": {
             "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "POST",
@@ -2408,7 +2328,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "body": {
+                "labels": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -2419,7 +2339,6 @@
             },
             "description": "Add labels to an issue"
         },
-
         "remove-label": {
             "url": "/repos/:owner/:repo/issues/:number/labels/:name",
             "method": "DELETE",
@@ -2437,7 +2356,6 @@
             },
             "description": "Remove a label from an issue"
         },
-
         "replace-all-labels": {
             "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "PUT",
@@ -2445,7 +2363,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "body": {
+                "labels": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -2456,7 +2374,6 @@
             },
             "description": "Replace all labels for an issue"
         },
-
         "remove-all-labels": {
             "url": "/repos/:owner/:repo/issues/:number/labels",
             "method": "DELETE",
@@ -2467,7 +2384,6 @@
             },
             "description": "Remove all labels from an issue"
         },
-
         "get-milestone-labels": {
             "url": "/repos/:owner/:repo/milestones/:number/labels",
             "method": "GET",
@@ -2478,7 +2394,6 @@
             },
             "description": "Get labels for every issue in a milestone"
         },
-
         "get-milestones": {
             "url": "/repos/:owner/:repo/milestones",
             "method": "GET",
@@ -2492,7 +2407,10 @@
                     "validation": "^(due_on|completeness)$",
                     "invalidmsg": "due_on, completeness, default: due_on",
                     "description": "due_on, completeness, default: due_on",
-                    "enum": ["due_on", "completeness"],
+                    "enum": [
+                        "due_on",
+                        "completeness"
+                    ],
                     "default": "due_on"
                 },
                 "direction": {
@@ -2501,7 +2419,10 @@
                     "validation": "^(asc|desc)$",
                     "invalidmsg": "asc or desc, default: asc.",
                     "description": "",
-                    "enum": ["asc", "desc"],
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
                     "default": "asc"
                 },
                 "$page": null,
@@ -2509,7 +2430,6 @@
             },
             "description": "List milestones for a repository"
         },
-
         "get-milestone": {
             "url": "/repos/:owner/:repo/milestones/:number",
             "method": "GET",
@@ -2520,7 +2440,6 @@
             },
             "description": "Get a single milestone"
         },
-
         "create-milestone": {
             "url": "/repos/:owner/:repo/milestones",
             "method": "POST",
@@ -2546,7 +2465,6 @@
             },
             "description": "Create a milestone"
         },
-
         "update-milestone": {
             "url": "/repos/:owner/:repo/milestones/:number",
             "method": "PATCH",
@@ -2573,7 +2491,6 @@
             },
             "description": "Update a milestone"
         },
-
         "delete-milestone": {
             "url": "/repos/:owner/:repo/milestones/:number",
             "method": "DELETE",
@@ -2584,7 +2501,6 @@
             },
             "description": "Delete a milestone"
         },
-        
         "get-events-timeline": {
             "url": "/repos/:owner/:repo/issues/:issue_number/timeline",
             "method": "GET",
@@ -2598,7 +2514,6 @@
             "description": "List events for an issue. (In preview period. See README.)"
         }
     },
-
     "migrations": {
         "start-migration": {
             "url": "/orgs/:org/migrations",
@@ -2631,7 +2546,6 @@
             },
             "description": "Start a migration. (In preview period. See README.)"
         },
-
         "get-migrations": {
             "url": "/orgs/:org/migrations",
             "method": "GET",
@@ -2642,7 +2556,6 @@
             },
             "description": "Get a list of migrations. (In preview period. See README.)"
         },
-
         "get-migration-status": {
             "url": "/orgs/:org/migrations/:id",
             "method": "GET",
@@ -2652,7 +2565,6 @@
             },
             "description": "Get the status of a migration. (In preview period. See README.)"
         },
-
         "get-migration-archive-link": {
             "url": "/orgs/:org/migrations/:id/archive",
             "method": "GET",
@@ -2662,7 +2574,6 @@
             },
             "description": "Get the URL to a migration archive. (In preview period. See README.)"
         },
-
         "delete-migration-archive": {
             "url": "/orgs/:org/migrations/:id/archive",
             "method": "DELETE",
@@ -2672,7 +2583,6 @@
             },
             "description": "Delete a migration archive. (In preview period. See README.)"
         },
-
         "unlock-repo-locked-for-migration": {
             "url": "/orgs/:org/migrations/:id/repos/:repo_name/lock",
             "method": "DELETE",
@@ -2689,7 +2599,6 @@
             },
             "description": "Unlock a repository that was locked for migration. (In preview period. See README.)"
         },
-
         "start-import": {
             "url": "/repos/:owner/:repo/import",
             "method": "PUT",
@@ -2709,7 +2618,12 @@
                     "validation": "^(subversion|git|mercurial|tfvc)$",
                     "invalidmsg": "subversion, git, mercurial, tfvc",
                     "description": "The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.",
-                    "enum": ["subversion", "git", "mercurial", "tfvc"]
+                    "enum": [
+                        "subversion",
+                        "git",
+                        "mercurial",
+                        "tfvc"
+                    ]
                 },
                 "vcs_username": {
                     "type": "String",
@@ -2735,7 +2649,6 @@
             },
             "description": "Start an import. (In preview period. See README.)"
         },
-
         "get-import-progress": {
             "url": "/repos/:owner/:repo/import",
             "method": "GET",
@@ -2745,7 +2658,6 @@
             },
             "description": "Get import progress. (In preview period. See README.)"
         },
-
         "update-import": {
             "url": "/repos/:owner/:repo/import",
             "method": "PATCH",
@@ -2769,7 +2681,6 @@
             },
             "description": "Update existing import. (In preview period. See README.)"
         },
-
         "get-import-commit-authors": {
             "url": "/repos/:owner/:repo/import/authors",
             "method": "GET",
@@ -2786,7 +2697,6 @@
             },
             "description": "Get import commit authors. (In preview period. See README.)"
         },
-
         "map-import-commit-author": {
             "url": "/repos/:owner/:repo/import/authors/:author_id",
             "method": "PATCH",
@@ -2817,7 +2727,6 @@
             },
             "description": "Map a commit author. (In preview period. See README.)"
         },
-
         "set-import-lfs-preference": {
             "url": "/:owner/:name/import/lfs",
             "method": "PATCH",
@@ -2834,7 +2743,6 @@
             },
             "description": "Set import LFS preference. (In preview period. See README.)"
         },
-
         "get-large-import-files": {
             "url": "/:owner/:name/import/large_files",
             "method": "GET",
@@ -2844,7 +2752,6 @@
             },
             "description": "List files larger than 100MB found during the import. (In preview period. See README.)"
         },
-
         "cancel-import": {
             "url": "/repos/:owner/:repo/import",
             "method": "DELETE",
@@ -2855,22 +2762,19 @@
             "description": "Cancel an import. (In preview period. See README.)"
         }
     },
-
     "misc": {
         "get-emojis": {
             "url": "/emojis",
             "method": "GET",
-            "params": { },
+            "params": {},
             "description": "Lists all the emojis available to use on GitHub."
         },
-
         "get-gitignore-templates": {
             "url": "/gitignore/templates",
             "method": "GET",
-            "params": { },
+            "params": {},
             "description": "Lists available gitignore templates"
         },
-
         "get-gitignore-template": {
             "url": "/gitignore/templates/:name",
             "method": "GET",
@@ -2885,14 +2789,12 @@
             },
             "description": "Get a single gitignore template"
         },
-
         "get-licenses": {
             "url": "/licenses",
             "method": "GET",
-            "params": { },
+            "params": {},
             "description": "List all licenses. (In preview period. See README.)"
         },
-
         "get-license": {
             "url": "/licenses/:license",
             "method": "GET",
@@ -2907,7 +2809,6 @@
             },
             "description": "Get an individual license. (In preview period. See README.)"
         },
-
         "get-repo-license": {
             "url": "/repos/:owner/:repo/license",
             "method": "GET",
@@ -2917,7 +2818,6 @@
             },
             "description": "Get the contents of a repository's license. (In preview period. See README.)"
         },
-
         "render-markdown": {
             "url": "/markdown",
             "method": "POST",
@@ -2935,7 +2835,10 @@
                     "validation": "^(markdown|gfm)$",
                     "invalidmsg": "",
                     "description": "The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.",
-                    "enum": ["markdown", "gfm"],
+                    "enum": [
+                        "markdown",
+                        "gfm"
+                    ],
                     "default": "markdown"
                 },
                 "context": {
@@ -2948,7 +2851,6 @@
             },
             "description": "Render an arbitrary Markdown document"
         },
-
         "render-markdown-raw": {
             "url": "/markdown/raw",
             "method": "POST",
@@ -2958,22 +2860,19 @@
             },
             "description": "Render a Markdown document in raw mode"
         },
-
         "get-meta": {
             "url": "/meta",
             "method": "GET",
-            "params": { },
+            "params": {},
             "description": "This endpoint provides information about GitHub.com, the service. Or, if you access this endpoint on your organization's GitHub Enterprise installation, this endpoint provides information about that installation."
         },
-
         "get-rate-limit": {
             "url": "/rate_limit",
             "method": "GET",
-            "params": { },
+            "params": {},
             "description": "Get your current rate limit status"
         }
     },
-
     "orgs": {
         "get-all": {
             "url": "/organizations",
@@ -2991,7 +2890,6 @@
             },
             "description": "List all organizations"
         },
-
         "get-for-user": {
             "url": "/users/:username/orgs",
             "method": "GET",
@@ -3002,7 +2900,6 @@
             },
             "description": "List public organization memberships for the specified user."
         },
-
         "get": {
             "url": "/orgs/:org",
             "method": "GET",
@@ -3013,7 +2910,6 @@
             },
             "description": "Get an organization"
         },
-
         "update": {
             "url": "/orgs/:org",
             "method": "PATCH",
@@ -3067,7 +2963,12 @@
                     "validation": "^(read|write|admin|none)$",
                     "invalidmsg": "read, write, admin, none, default: read",
                     "description": "Default permission level members have for organization repositories.",
-                    "enum": ["read", "write", "admin", "none"],
+                    "enum": [
+                        "read",
+                        "write",
+                        "admin",
+                        "none"
+                    ],
                     "default": "read"
                 },
                 "members_can_create_repositories": {
@@ -3081,7 +2982,6 @@
             },
             "description": "Edit an organization"
         },
-
         "get-members": {
             "url": "/orgs/:org/members",
             "method": "GET",
@@ -3093,7 +2993,10 @@
                     "validation": "^(all|2fa_disabled)$",
                     "invalidmsg": "all, 2fa_disabled, default: all",
                     "description": "Filter members returned in the list.",
-                    "enum": ["all", "2fa_disabled"],
+                    "enum": [
+                        "all",
+                        "2fa_disabled"
+                    ],
                     "default": "all"
                 },
                 "role": {
@@ -3102,7 +3005,11 @@
                     "validation": "^(all|admin|member)$",
                     "invalidmsg": "all, admin, member, default: all",
                     "description": "Filter members returned by their role.",
-                    "enum": ["all", "admin", "member"],
+                    "enum": [
+                        "all",
+                        "admin",
+                        "member"
+                    ],
                     "default": "all"
                 },
                 "$page": null,
@@ -3110,7 +3017,6 @@
             },
             "description": "Members list"
         },
-
         "check-membership": {
             "url": "/orgs/:org/members/:username",
             "method": "GET",
@@ -3120,7 +3026,6 @@
             },
             "description": "Check membership"
         },
-
         "remove-member": {
             "url": "/orgs/:org/members/:username",
             "method": "DELETE",
@@ -3130,7 +3035,6 @@
             },
             "description": "Remove a member"
         },
-
         "get-public-members": {
             "url": "/orgs/:org/public_members",
             "method": "GET",
@@ -3139,7 +3043,6 @@
             },
             "description": "Public members list"
         },
-
         "check-public-membership": {
             "url": "/orgs/:org/public_members/:username",
             "method": "GET",
@@ -3149,7 +3052,6 @@
             },
             "description": "Check public membership"
         },
-
         "publicize-membership": {
             "url": "/orgs/:org/public_members/:username",
             "method": "PUT",
@@ -3159,7 +3061,6 @@
             },
             "description": "Publicize a user's membership"
         },
-
         "conceal-membership": {
             "url": "/orgs/:org/public_members/:username",
             "method": "DELETE",
@@ -3169,7 +3070,6 @@
             },
             "description": "Conceal a user's membership"
         },
-
         "get-org-membership": {
             "url": "/orgs/:org/memberships/:username",
             "method": "GET",
@@ -3179,7 +3079,6 @@
             },
             "description": "Get organization membership"
         },
-
         "add-org-membership": {
             "url": "/orgs/:org/memberships/:username",
             "method": "PUT",
@@ -3192,12 +3091,14 @@
                     "validation": "^(admin|member)$",
                     "invalidmsg": "admin, member",
                     "description": "The role to give the user in the organization.",
-                    "enum": ["admin", "member"]
+                    "enum": [
+                        "admin",
+                        "member"
+                    ]
                 }
             },
             "description": "Add or update organization membership"
         },
-
         "remove-org-membership": {
             "url": "/orgs/:org/memberships/:username",
             "method": "DELETE",
@@ -3207,7 +3108,6 @@
             },
             "description": "Remove organization membership"
         },
-        
         "get-pending-org-invites": {
             "url": "/orgs/:org/invitations",
             "method": "GET",
@@ -3216,7 +3116,6 @@
             },
             "description": "List pending organization invites."
         },
-        
         "get-outside-collaborators": {
             "url": "/orgs/:org/outside_collaborators",
             "method": "GET",
@@ -3227,7 +3126,6 @@
             },
             "description": "List all users who are outside collaborators of an organization."
         },
-        
         "remove-outside-collaborator": {
             "url": "/orgs/:org/outside_collaborator/:username",
             "method": "DELETE",
@@ -3237,7 +3135,6 @@
             },
             "description": "Remove outside collaborator."
         },
-        
         "convert-member-to-outside-collaborator": {
             "url": "/orgs/:org/outside_collaborator/:username",
             "method": "PUT",
@@ -3247,7 +3144,6 @@
             },
             "description": "Convert member to outside collaborator."
         },
-
         "get-teams": {
             "url": "/orgs/:org/teams",
             "method": "GET",
@@ -3258,7 +3154,6 @@
             },
             "description": "List teams"
         },
-
         "get-team": {
             "url": "/teams/:id",
             "method": "GET",
@@ -3267,7 +3162,6 @@
             },
             "description": "Get team"
         },
-
         "create-team": {
             "url": "/orgs/:org/teams",
             "method": "POST",
@@ -3299,7 +3193,6 @@
             },
             "description": "Create team"
         },
-
         "edit-team": {
             "url": "/teams/:id",
             "method": "PATCH",
@@ -3317,7 +3210,6 @@
             },
             "description": "Edit team"
         },
-
         "delete-team": {
             "url": "/teams/:id",
             "method": "DELETE",
@@ -3326,7 +3218,6 @@
             },
             "description": "Delete team"
         },
-
         "get-team-members": {
             "url": "/teams/:id/members",
             "method": "GET",
@@ -3338,7 +3229,11 @@
                     "validation": "^(member|maintainer|all)$",
                     "invalidmsg": "member, maintainer, all, default: all",
                     "description": "Filters members returned by their role in the team.",
-                    "enum": ["member", "maintainer", "all"],
+                    "enum": [
+                        "member",
+                        "maintainer",
+                        "all"
+                    ],
                     "default": "all"
                 },
                 "$page": null,
@@ -3346,7 +3241,6 @@
             },
             "description": "List team members"
         },
-
         "get-team-membership": {
             "url": "/teams/:id/memberships/:username",
             "method": "GET",
@@ -3356,7 +3250,6 @@
             },
             "description": "Get team membership"
         },
-
         "add-team-membership": {
             "url": "/teams/:id/memberships/:username",
             "method": "PUT",
@@ -3369,13 +3262,15 @@
                     "validation": "^(member|maintainer)$",
                     "invalidmsg": "member, maintainer, default: member",
                     "description": "The role that this user should have in the team.",
-                    "enum": ["member", "maintainer"],
+                    "enum": [
+                        "member",
+                        "maintainer"
+                    ],
                     "default": "member"
                 }
             },
             "description": "Add team membership"
         },
-
         "remove-team-membership": {
             "url": "/teams/:id/memberships/:username",
             "method": "DELETE",
@@ -3385,7 +3280,6 @@
             },
             "description": "Remove team membership"
         },
-
         "get-team-repos": {
             "url": "/teams/:id/repos",
             "method": "GET",
@@ -3396,7 +3290,6 @@
             },
             "description": "Get team repos"
         },
-        
         "get-pending-team-invites": {
             "url": "/teams/:id/invitations",
             "method": "GET",
@@ -3407,7 +3300,6 @@
             },
             "description": "List pending team invitations."
         },
-
         "check-team-repo": {
             "url": "/teams/:id/repos/:owner/:repo",
             "method": "GET",
@@ -3418,7 +3310,6 @@
             },
             "description": "Check if a team manages a repository"
         },
-
         "add-team-repo": {
             "url": "/teams/:id/repos/:org/:repo",
             "method": "PUT",
@@ -3432,12 +3323,15 @@
                     "validation": "^(pull|push|admin)$",
                     "invalidmsg": "",
                     "description": "`pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository.",
-                    "enum": ["pull", "push", "admin"]
+                    "enum": [
+                        "pull",
+                        "push",
+                        "admin"
+                    ]
                 }
             },
             "description": "Add team repository"
         },
-
         "delete-team-repo": {
             "url": "/teams/:id/repos/:owner/:repo",
             "method": "DELETE",
@@ -3448,7 +3342,6 @@
             },
             "description": "Remove team repository"
         },
-
         "get-hooks": {
             "url": "/orgs/:org/hooks",
             "method": "GET",
@@ -3459,7 +3352,6 @@
             },
             "description": "List hooks"
         },
-
         "get-hook": {
             "url": "/orgs/:org/hooks/:id",
             "method": "GET",
@@ -3469,7 +3361,6 @@
             },
             "description": "Get single hook"
         },
-
         "create-hook": {
             "url": "/orgs/:org/hooks",
             "method": "POST",
@@ -3507,7 +3398,6 @@
             },
             "description": "Create a hook"
         },
-
         "edit-hook": {
             "url": "/orgs/:org/hooks/:id",
             "method": "PATCH",
@@ -3539,7 +3429,6 @@
             },
             "description": "Edit a hook"
         },
-
         "ping-hook": {
             "url": "/orgs/:org/hooks/:id/pings",
             "method": "POST",
@@ -3549,7 +3438,6 @@
             },
             "description": "Ping a hook"
         },
-
         "delete-hook": {
             "url": "/orgs/:org/hooks/:id",
             "method": "DELETE",
@@ -3560,7 +3448,6 @@
             "description": "Delete a hook"
         }
     },
-
     "projects": {
         "get-repo-projects": {
             "url": "/repos/:owner/:repo/projects",
@@ -3571,7 +3458,6 @@
             },
             "description": "List repository projects. (In preview period. See README.)"
         },
-
         "get-org-projects": {
             "url": "/orgs/:org/projects",
             "method": "GET",
@@ -3580,7 +3466,6 @@
             },
             "description": "List organization projects. (In preview period. See README.)"
         },
-
         "get-project": {
             "url": "/projects/:id",
             "method": "GET",
@@ -3589,7 +3474,6 @@
             },
             "description": "Get a project. (In preview period. See README.)"
         },
-
         "create-repo-project": {
             "url": "/repos/:owner/:repo/projects",
             "method": "POST",
@@ -3597,33 +3481,48 @@
                 "$owner": null,
                 "$repo": null,
                 "$name": null,
-                "$body": null
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Create a repository project. (In preview period. See README.)"
         },
-        
         "create-org-project": {
             "url": "/orgs/:org/projects",
             "method": "POST",
             "params": {
                 "$org": null,
                 "$name": null,
-                "$body": null
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Create an organization project. (In preview period. See README.)"
         },
-
         "update-project": {
             "url": "/projects/:id",
             "method": "PATCH",
             "params": {
                 "$id": null,
                 "$name": null,
-                "$body": null
+                "body": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Update a project. (In preview period. See README.)"
         },
-
         "delete-project": {
             "url": "/projects/:id",
             "method": "DELETE",
@@ -3632,7 +3531,6 @@
             },
             "description": "Delete a project. (In preview period. See README.)"
         },
-        
         "get-project-cards": {
             "url": "/projects/columns/:column_id/cards",
             "method": "GET",
@@ -3641,7 +3539,6 @@
             },
             "description": "List project cards. (In preview period. See README.)"
         },
-
         "get-project-card": {
             "url": "/projects/columns/cards/:id",
             "method": "GET",
@@ -3650,7 +3547,6 @@
             },
             "description": "Get project card. (In preview period. See README.)"
         },
-
         "create-project-card": {
             "url": "/projects/columns/:column_id/cards",
             "method": "POST",
@@ -3680,7 +3576,6 @@
             },
             "description": "Create a project card. (In preview period. See README.)"
         },
-
         "update-project-card": {
             "url": "/projects/columns/cards/:id",
             "method": "PATCH",
@@ -3696,7 +3591,6 @@
             },
             "description": "Update a project card. (In preview period. See README.)"
         },
-
         "delete-project-card": {
             "url": "/projects/columns/cards/:id",
             "method": "DELETE",
@@ -3705,7 +3599,6 @@
             },
             "description": "Delete a project card. (In preview period. See README.)"
         },
-
         "move-project-card": {
             "url": "/projects/columns/cards/:id/moves",
             "method": "POST",
@@ -3728,7 +3621,6 @@
             },
             "description": "Move a project card. (In preview period. See README.)"
         },
-
         "get-project-columns": {
             "url": "/projects/:project_id/columns",
             "method": "GET",
@@ -3737,7 +3629,6 @@
             },
             "description": "List project columns. (In preview period. See README.)"
         },
-
         "get-project-column": {
             "url": "/projects/columns/:id",
             "method": "GET",
@@ -3746,7 +3637,6 @@
             },
             "description": "Get a project column. (In preview period. See README.)"
         },
-
         "create-project-column": {
             "url": "/projects/:project_id/columns",
             "method": "POST",
@@ -3756,7 +3646,6 @@
             },
             "description": "Create a project column. (In preview period. See README.)"
         },
-
         "update-project-column": {
             "url": "/projects/columns/:id",
             "method": "PATCH",
@@ -3766,7 +3655,6 @@
             },
             "description": "Update a project column. (In preview period. See README.)"
         },
-
         "delete-project-column": {
             "url": "/projects/columns/:id",
             "method": "DELETE",
@@ -3775,7 +3663,6 @@
             },
             "description": "Delete a project column. (In preview period. See README.)"
         },
-
         "move-project-column": {
             "url": "/projects/columns/:id/moves",
             "method": "POST",
@@ -3792,7 +3679,6 @@
             "description": "Move a project column. (In preview period. See README.)"
         }
     },
-
     "pull-requests": {
         "get-all": {
             "url": "/repos/:owner/:repo/pulls",
@@ -3806,7 +3692,11 @@
                     "validation": "^(open|closed|all)$",
                     "invalidmsg": "open, closed, all, default: open",
                     "description": "open, closed, or all",
-                    "enum": ["open", "closed", "all"],
+                    "enum": [
+                        "open",
+                        "closed",
+                        "all"
+                    ],
                     "default": "open"
                 },
                 "head": {
@@ -3829,7 +3719,12 @@
                     "validation": "^(created|updated|popularity|long-running)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
                     "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
-                    "enum": ["created", "updated", "popularity", "long-running"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "popularity",
+                        "long-running"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -3838,7 +3733,6 @@
             },
             "description": "List pull requests"
         },
-
         "get": {
             "url": "/repos/:owner/:repo/pulls/:number",
             "method": "GET",
@@ -3849,7 +3743,6 @@
             },
             "description": "Get a single pull request"
         },
-
         "create": {
             "url": "/repos/:owner/:repo/pulls",
             "method": "POST",
@@ -3881,7 +3774,6 @@
             },
             "description": "Create a pull request"
         },
-
         "create-from-issue": {
             "url": "/repos/:owner/:repo/pulls",
             "method": "POST",
@@ -3900,7 +3792,6 @@
             },
             "description": "Create a pull request from an existing issue"
         },
-
         "update": {
             "url": "/repos/:owner/:repo/pulls/:number",
             "method": "PATCH",
@@ -3933,7 +3824,6 @@
             },
             "description": "Update a pull request"
         },
-
         "get-commits": {
             "url": "/repos/:owner/:repo/pulls/:number/commits",
             "method": "GET",
@@ -3946,7 +3836,6 @@
             },
             "description": "List commits on a pull request"
         },
-
         "get-files": {
             "url": "/repos/:owner/:repo/pulls/:number/files",
             "method": "GET",
@@ -3959,7 +3848,6 @@
             },
             "description": "List pull requests files"
         },
-
         "check-merged": {
             "url": "/repos/:owner/:repo/pulls/:number/merge",
             "method": "GET",
@@ -3972,7 +3860,6 @@
             },
             "description": "Get if a pull request has been merged"
         },
-
         "merge": {
             "url": "/repos/:owner/:repo/pulls/:number/merge",
             "method": "PUT",
@@ -4007,13 +3894,16 @@
                     "validation": "^(merge|squash|rebase)$",
                     "invalidmsg": "Possible values are: `merge`, `squash`, `rebase` Default: `merge`",
                     "description": "Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)",
-                    "enum": ["merge", "squash", "rebase"],
+                    "enum": [
+                        "merge",
+                        "squash",
+                        "rebase"
+                    ],
                     "default": "merge"
                 }
             },
             "description": "Merge a pull request (Merge Button)"
         },
-        
         "get-reviews": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews",
             "method": "GET",
@@ -4026,7 +3916,6 @@
             },
             "description": "List reviews on a pull request. (In preview period. See README.)"
         },
-        
         "get-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
             "method": "GET",
@@ -4038,7 +3927,6 @@
             },
             "description": "Get a single pull request review. (In preview period. See README.)"
         },
-        
         "get-review-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
             "method": "GET",
@@ -4052,7 +3940,6 @@
             },
             "description": "Get comments for a pull request review. (In preview period. See README.)"
         },
-        
         "create-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews",
             "method": "POST",
@@ -4073,7 +3960,12 @@
                     "validation": "^(APPROVE|REQUEST_CHANGES|COMMENT|PENDING)$",
                     "invalidmsg": "Possible values are: `APPROVE`, `REQUEST_CHANGES`, `COMMENT`, `PENDING`. Default: `PENDING`",
                     "description": "The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.",
-                    "enum": ["APPROVE", "REQUEST_CHANGES", "COMMENT", "PENDING"],
+                    "enum": [
+                        "APPROVE",
+                        "REQUEST_CHANGES",
+                        "COMMENT",
+                        "PENDING"
+                    ],
                     "default": "PENDING"
                 },
                 "comments": {
@@ -4100,7 +3992,6 @@
             },
             "description": "Create a pull request review. (In preview period. See README.)"
         },
-        
         "submit-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
             "method": "POST",
@@ -4122,13 +4013,17 @@
                     "validation": "^(APPROVE|REQUEST_CHANGES|COMMENT|PENDING)$",
                     "invalidmsg": "Possible values are: `APPROVE`, `REQUEST_CHANGES`, `COMMENT`, `PENDING`. Default: `PENDING`",
                     "description": "The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.",
-                    "enum": ["APPROVE", "REQUEST_CHANGES", "COMMENT", "PENDING"],
+                    "enum": [
+                        "APPROVE",
+                        "REQUEST_CHANGES",
+                        "COMMENT",
+                        "PENDING"
+                    ],
                     "default": "PENDING"
                 }
             },
             "description": "Submit a pull request review. (In preview period. See README.)"
         },
-        
         "dismiss-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
             "method": "PUT",
@@ -4149,7 +4044,6 @@
             },
             "description": "Dismiss a pull request review. (In preview period. See README.)"
         },
-        
         "get-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "GET",
@@ -4162,7 +4056,6 @@
             },
             "description": "List comments on a pull request"
         },
-
         "get-comments-for-repo": {
             "url": "/repos/:owner/:repo/pulls/comments",
             "method": "GET",
@@ -4175,7 +4068,10 @@
                     "validation": "^(created|updated)$",
                     "invalidmsg": "Possible values are: `created`, `updated`, Default: `created`",
                     "description": "Possible values are: `created`, `updated`, Default: `created`",
-                    "enum": ["created", "updated"],
+                    "enum": [
+                        "created",
+                        "updated"
+                    ],
                     "default": "created"
                 },
                 "$direction": null,
@@ -4185,7 +4081,6 @@
             },
             "description": "List comments in a repository"
         },
-
         "get-comment": {
             "url": "/repos/:owner/:repo/pulls/comments/:id",
             "method": "GET",
@@ -4196,7 +4091,6 @@
             },
             "description": "Get a single comment"
         },
-
         "create-comment": {
             "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "POST",
@@ -4211,7 +4105,6 @@
             },
             "description": "Create a comment"
         },
-
         "create-comment-reply": {
             "url": "/repos/:owner/:repo/pulls/:number/comments",
             "method": "POST",
@@ -4230,7 +4123,6 @@
             },
             "description": "Reply to existing pull request comment"
         },
-
         "edit-comment": {
             "url": "/repos/:owner/:repo/pulls/comments/:id",
             "method": "PATCH",
@@ -4242,7 +4134,6 @@
             },
             "description": "Edit a comment"
         },
-
         "delete-comment": {
             "url": "/repos/:owner/:repo/pulls/comments/:id",
             "method": "DELETE",
@@ -4253,7 +4144,6 @@
             },
             "description": "Delete a comment"
         },
-        
         "get-review-requests": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
             "method": "GET",
@@ -4266,7 +4156,6 @@
             },
             "description": "List review requests. (In preview period. See README.)"
         },
-        
         "create-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
             "method": "POST",
@@ -4284,7 +4173,6 @@
             },
             "description": "Create a review request. (In preview period. See README.)"
         },
-        
         "delete-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
             "method": "DELETE",
@@ -4303,7 +4191,6 @@
             "description": "Delete a review request. (In preview period. See README.)"
         }
     },
-
     "reactions": {
         "get-for-commit-comment": {
             "url": "/repos/:owner/:repo/comments/:id/reactions",
@@ -4318,12 +4205,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "Indicates which type of reaction to return.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "List reactions for a commit comment. (In preview period. See README.)"
         },
-
         "create-for-commit-comment": {
             "url": "/repos/:owner/:repo/comments/:id/reactions",
             "method": "POST",
@@ -4337,12 +4230,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "The reaction type.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "Create reaction for a commit comment. (In preview period. See README.)"
         },
-
         "get-for-issue": {
             "url": "/repos/:owner/:repo/issues/:number/reactions",
             "method": "GET",
@@ -4356,12 +4255,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "Indicates which type of reaction to return.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "List reactions for an issue. (In preview period. See README.)"
         },
-
         "create-for-issue": {
             "url": "/repos/:owner/:repo/issues/:number/reactions",
             "method": "POST",
@@ -4375,12 +4280,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "The reaction type.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "Create reaction for an issue. (In preview period. See README.)"
         },
-
         "get-for-issue-comment": {
             "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
             "method": "GET",
@@ -4394,12 +4305,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "Indicates which type of reaction to return.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "List reactions for an issue comment. (In preview period. See README.)"
         },
-
         "create-for-issue-comment": {
             "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
             "method": "POST",
@@ -4413,12 +4330,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "The reaction type.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "Create reaction for an issue comment. (In preview period. See README.)"
         },
-
         "get-for-pull-request-review-comment": {
             "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
             "method": "GET",
@@ -4432,12 +4355,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "Indicates which type of reaction to return.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "List reactions for a pull request review comment. (In preview period. See README.)"
         },
-
         "create-for-pull-request-review-comment": {
             "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
             "method": "POST",
@@ -4451,12 +4380,18 @@
                     "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
                     "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
                     "description": "The reaction type.",
-                    "enum": ["+1", "-1", "laugh", "confused", "heart", "hooray"]
+                    "enum": [
+                        "+1",
+                        "-1",
+                        "laugh",
+                        "confused",
+                        "heart",
+                        "hooray"
+                    ]
                 }
             },
             "description": "Create reaction for a pull request review comment. (In preview period. See README.)"
         },
-
         "delete": {
             "url": "/reactions/:id",
             "method": "DELETE",
@@ -4466,7 +4401,6 @@
             "description": "Delete a reaction. (In preview period. See README.)"
         }
     },
-
     "repos": {
         "get-all": {
             "url": "/user/repos",
@@ -4478,7 +4412,11 @@
                     "validation": "^(all|public|private)$",
                     "invalidmsg": "Possible values: `all`, `public`, `private`, Default: `all`.",
                     "description": "Can be one of `all`, `public`, or `private`. Default: `all`.",
-                    "enum": ["all", "public", "private"],
+                    "enum": [
+                        "all",
+                        "public",
+                        "private"
+                    ],
                     "default": "all"
                 },
                 "affiliation": {
@@ -4495,7 +4433,13 @@
                     "validation": "^(all|owner|public|private|member)$",
                     "invalidmsg": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
                     "description": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
-                    "enum": ["all", "owner", "public", "private", "member"],
+                    "enum": [
+                        "all",
+                        "owner",
+                        "public",
+                        "private",
+                        "member"
+                    ],
                     "default": "all"
                 },
                 "sort": {
@@ -4504,7 +4448,12 @@
                     "validation": "^(created|updated|pushed|full_name)$",
                     "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
                     "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
-                    "enum": ["created", "updated", "pushed", "full_name"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "pushed",
+                        "full_name"
+                    ],
                     "default": "full_name"
                 },
                 "$direction": null,
@@ -4513,7 +4462,6 @@
             },
             "description": "List your repositories"
         },
-
         "get-for-user": {
             "url": "/users/:username/repos",
             "method": "GET",
@@ -4525,7 +4473,11 @@
                     "validation": "^(all|owner|member)$",
                     "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
                     "description": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
-                    "enum": ["all", "owner", "member"],
+                    "enum": [
+                        "all",
+                        "owner",
+                        "member"
+                    ],
                     "default": "owner"
                 },
                 "sort": {
@@ -4534,7 +4486,12 @@
                     "validation": "^(created|updated|pushed|full_name)$",
                     "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
                     "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
-                    "enum": ["created", "updated", "pushed", "full_name"],
+                    "enum": [
+                        "created",
+                        "updated",
+                        "pushed",
+                        "full_name"
+                    ],
                     "default": "full_name"
                 },
                 "$direction": null,
@@ -4543,7 +4500,6 @@
             },
             "description": "List public repositories for the specified user."
         },
-
         "get-for-org": {
             "url": "/orgs/:org/repos",
             "method": "GET",
@@ -4555,7 +4511,14 @@
                     "validation": "^(all|public|private|forks|sources|member)$",
                     "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
                     "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
-                    "enum": ["all", "public", "private", "forks", "sources", "member"],
+                    "enum": [
+                        "all",
+                        "public",
+                        "private",
+                        "forks",
+                        "sources",
+                        "member"
+                    ],
                     "default": "all"
                 },
                 "$page": null,
@@ -4563,7 +4526,6 @@
             },
             "description": "List repositories for the specified org."
         },
-
         "get-public": {
             "url": "/repositories",
             "method": "GET",
@@ -4578,7 +4540,6 @@
             },
             "description": "List all public repositories"
         },
-
         "get-by-id": {
             "url": "/repositories/:id",
             "method": "GET",
@@ -4587,7 +4548,6 @@
             },
             "description": "Get a single repo by id."
         },
-
         "create": {
             "url": "/user/repos",
             "method": "POST",
@@ -4636,7 +4596,6 @@
             },
             "description": "Create a new repository for the authenticated user."
         },
-        
         "get": {
             "url": "/repos/:owner/:repo",
             "method": "GET",
@@ -4646,7 +4605,6 @@
             },
             "description": "Get a repo for a user."
         },
-
         "create-for-org": {
             "url": "/orgs/:org/repos",
             "method": "POST",
@@ -4696,7 +4654,6 @@
             },
             "description": "Create a new repository for an organization."
         },
-
         "edit": {
             "url": "/repos/:owner/:repo",
             "method": "PATCH",
@@ -4738,7 +4695,6 @@
             },
             "description": "Update a repo."
         },
-
         "get-contributors": {
             "url": "/repos/:owner/:repo/contributors",
             "method": "GET",
@@ -4757,7 +4713,6 @@
             },
             "description": "Get contributors for the specified repository."
         },
-
         "get-languages": {
             "url": "/repos/:owner/:repo/languages",
             "method": "GET",
@@ -4769,7 +4724,6 @@
             },
             "description": "Get languages for the specified repository."
         },
-
         "get-teams": {
             "url": "/repos/:owner/:repo/teams",
             "method": "GET",
@@ -4781,7 +4735,6 @@
             },
             "description": "Get teams for the specified repository."
         },
-
         "get-tags": {
             "url": "/repos/:owner/:repo/tags",
             "method": "GET",
@@ -4793,7 +4746,6 @@
             },
             "description": "Get tags for the specified repository."
         },
-
         "delete": {
             "url": "/repos/:owner/:repo",
             "method": "DELETE",
@@ -4803,7 +4755,6 @@
             },
             "description": "Delete a repository."
         },
-
         "get-branches": {
             "url": "/repos/:owner/:repo/branches",
             "method": "GET",
@@ -4822,7 +4773,6 @@
             },
             "description": "List branches. (In preview period. See README.)"
         },
-
         "get-branch": {
             "url": "/repos/:owner/:repo/branches/:branch",
             "method": "GET",
@@ -4835,7 +4785,6 @@
             },
             "description": "Get branch. (In preview period. See README.)"
         },
-
         "get-branch-protection": {
             "url": "/repos/:owner/:repo/branches/:branch/protection",
             "method": "GET",
@@ -4848,7 +4797,6 @@
             },
             "description": "Get branch protection. (In preview period. See README.)"
         },
-
         "update-branch-protection": {
             "url": "/repos/:owner/:repo/branches/:branch/protection",
             "method": "PUT",
@@ -4885,7 +4833,6 @@
             },
             "description": "Update branch protection. (In preview period. See README.)"
         },
-
         "remove-branch-protection": {
             "url": "/repos/:owner/:repo/branches/:branch/protection",
             "method": "DELETE",
@@ -4898,7 +4845,6 @@
             },
             "description": "Remove branch protection. (In preview period. See README.)"
         },
-
         "get-protected-branch-required-status-checks": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
             "method": "GET",
@@ -4911,7 +4857,6 @@
             },
             "description": "Get required status checks of protected branch. (In preview period. See README.)"
         },
-
         "update-protected-branch-required-status-checks": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
             "method": "PATCH",
@@ -4945,7 +4890,6 @@
             },
             "description": "Update required status checks of protected branch. (In preview period. See README.)"
         },
-
         "remove-protected-branch-required-status-checks": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
             "method": "DELETE",
@@ -4958,7 +4902,6 @@
             },
             "description": "Remove required status checks of protected branch. (In preview period. See README.)"
         },
-
         "get-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "GET",
@@ -4971,7 +4914,6 @@
             },
             "description": "List required status checks contexts of protected branch. (In preview period. See README.)"
         },
-
         "replace-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "PUT",
@@ -4979,7 +4921,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "contexts": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -4990,7 +4932,6 @@
             },
             "description": "Replace required status checks contexts of protected branch. (In preview period. See README.)"
         },
-
         "add-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "POST",
@@ -4998,7 +4939,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "contexts": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5009,7 +4950,6 @@
             },
             "description": "Add required status checks contexts of protected branch. (In preview period. See README.)"
         },
-
         "remove-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
             "method": "DELETE",
@@ -5017,7 +4957,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "contexts": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5028,7 +4968,6 @@
             },
             "description": "Remove required status checks contexts of protected branch. (In preview period. See README.)"
         },
-
         "get-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
             "method": "GET",
@@ -5041,7 +4980,6 @@
             },
             "description": "Get pull request review enforcement of protected branch. (In preview period. See README.)"
         },
-
         "update-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
             "method": "PATCH",
@@ -5059,7 +4997,6 @@
             },
             "description": "Update pull request review enforcement of protected branch. (In preview period. See README.)"
         },
-        
         "remove-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
             "method": "DELETE",
@@ -5070,7 +5007,6 @@
             },
             "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
         },
-
         "get-protected-branch-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
             "method": "GET",
@@ -5083,7 +5019,6 @@
             },
             "description": "Get restrictions of protected branch. (In preview period. See README.)"
         },
-
         "remove-protected-branch-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
             "method": "DELETE",
@@ -5094,7 +5029,6 @@
             },
             "description": "Remove restrictions of protected branch. (In preview period. See README.)"
         },
-
         "get-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "GET",
@@ -5107,7 +5041,6 @@
             },
             "description": "List team restrictions of protected branch. (In preview period. See README.)"
         },
-
         "replace-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "PUT",
@@ -5115,7 +5048,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "teams": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5126,7 +5059,6 @@
             },
             "description": "Replace team restrictions of protected branch. (In preview period. See README.)"
         },
-
         "add-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "POST",
@@ -5134,7 +5066,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "teams": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5145,7 +5077,6 @@
             },
             "description": "Add team restrictions of protected branch. (In preview period. See README.)"
         },
-
         "remove-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
             "method": "DELETE",
@@ -5153,7 +5084,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "teams": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5164,7 +5095,6 @@
             },
             "description": "Remove team restrictions of protected branch. (In preview period. See README.)"
         },
-
         "get-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "GET",
@@ -5177,7 +5107,6 @@
             },
             "description": "List user restrictions of protected branch. (In preview period. See README.)"
         },
-
         "replace-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "PUT",
@@ -5185,7 +5114,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "users": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5196,7 +5125,6 @@
             },
             "description": "Replace user restrictions of protected branch. (In preview period. See README.)"
         },
-
         "add-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "POST",
@@ -5204,7 +5132,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "users": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5215,7 +5143,6 @@
             },
             "description": "Add user restrictions of protected branch. (In preview period. See README.)"
         },
-
         "remove-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
             "method": "DELETE",
@@ -5223,7 +5150,7 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "body": {
+                "users": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -5234,7 +5161,6 @@
             },
             "description": "Remove user restrictions of protected branch. (In preview period. See README.)"
         },
-
         "get-collaborators": {
             "url": "/repos/:owner/:repo/collaborators",
             "method": "GET",
@@ -5247,7 +5173,10 @@
                     "validation": "^(outside|all)$",
                     "invalidmsg": "outside, all, default: all",
                     "description": "Filter collaborators returned by their affiliation.",
-                    "enum": ["outside", "all"],
+                    "enum": [
+                        "outside",
+                        "all"
+                    ],
                     "default": "all"
                 },
                 "$page": null,
@@ -5255,7 +5184,6 @@
             },
             "description": "List collaborators"
         },
-
         "check-collaborator": {
             "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "GET",
@@ -5266,7 +5194,6 @@
             },
             "description": "Check if user is a collaborator."
         },
-        
         "review-user-permission-level": {
             "url": "/repos/:owner/:repo/collaborators/:username/permission",
             "method": "GET",
@@ -5277,7 +5204,6 @@
             },
             "description": "Review a user's permission level."
         },
-        
         "add-collaborator": {
             "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "PUT",
@@ -5291,13 +5217,16 @@
                     "validation": "^(pull|push|admin)$",
                     "invalidmsg": "",
                     "description": "`pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.",
-                    "enum": ["pull", "push", "admin"],
+                    "enum": [
+                        "pull",
+                        "push",
+                        "admin"
+                    ],
                     "default": "push"
                 }
             },
             "description": "Add user as a collaborator"
         },
-
         "remove-collaborator": {
             "url": "/repos/:owner/:repo/collaborators/:username",
             "method": "DELETE",
@@ -5308,7 +5237,6 @@
             },
             "description": "Remove user as a collaborator."
         },
-
         "get-all-commit-comments": {
             "url": "/repos/:owner/:repo/comments",
             "method": "GET",
@@ -5320,7 +5248,6 @@
             },
             "description": "List commit comments for a repository."
         },
-
         "get-commit-comments": {
             "url": "/repos/:owner/:repo/commits/:ref/comments",
             "method": "GET",
@@ -5339,7 +5266,6 @@
             },
             "description": "List comments for a single commit."
         },
-
         "create-commit-comment": {
             "url": "/repos/:owner/:repo/commits/:sha/comments",
             "method": "POST",
@@ -5372,7 +5298,6 @@
             },
             "description": "Create a commit comment."
         },
-
         "get-commit-comment": {
             "url": "/repos/:owner/:repo/comments/:id",
             "method": "GET",
@@ -5383,7 +5308,6 @@
             },
             "description": "Get a single commit comment."
         },
-
         "update-commit-comment": {
             "url": "/repos/:owner/:repo/comments/:id",
             "method": "PATCH",
@@ -5395,7 +5319,6 @@
             },
             "description": "Update a commit comment."
         },
-
         "delete-commit-comment": {
             "url": "/repos/:owner/:repo/comments/:id",
             "method": "DELETE",
@@ -5406,7 +5329,6 @@
             },
             "description": "Delete a commit comment."
         },
-
         "get-commits": {
             "url": "/repos/:owner/:repo/commits",
             "method": "GET",
@@ -5441,7 +5363,6 @@
             },
             "description": "List commits on a repository."
         },
-
         "get-commit": {
             "url": "/repos/:owner/:repo/commits/:sha",
             "method": "GET",
@@ -5452,7 +5373,6 @@
             },
             "description": "Get a single commit."
         },
-
         "get-sha-of-commit-ref": {
             "url": "/repos/:owner/:repo/commits/:ref",
             "method": "GET",
@@ -5463,7 +5383,6 @@
             },
             "description": "Get the SHA-1 of a commit reference."
         },
-
         "compare-commits": {
             "url": "/repos/:owner/:repo/compare/:base...:head",
             "method": "GET",
@@ -5475,7 +5394,6 @@
             },
             "description": "Compare two commits."
         },
-
         "get-readme": {
             "url": "/repos/:owner/:repo/readme",
             "method": "GET",
@@ -5492,7 +5410,6 @@
             },
             "description": "Get the README for the given repository."
         },
-
         "get-content": {
             "url": "/repos/:owner/:repo/contents/:path",
             "method": "GET",
@@ -5517,7 +5434,6 @@
             },
             "description": "Get the contents of a file or directory in a repository."
         },
-
         "create-file": {
             "url": "/repos/:owner/:repo/contents/:path",
             "method": "PUT",
@@ -5562,7 +5478,6 @@
             },
             "description": "Create a new file in the given repository."
         },
-
         "update-file": {
             "url": "/repos/:owner/:repo/contents/:path",
             "method": "PUT",
@@ -5614,7 +5529,6 @@
             },
             "description": "Update a file."
         },
-
         "delete-file": {
             "url": "/repos/:owner/:repo/contents/:path",
             "method": "DELETE",
@@ -5659,7 +5573,6 @@
             },
             "description": "Delete a file."
         },
-
         "get-archive-link": {
             "url": "/repos/:owner/:repo/:archive_format/:ref",
             "method": "GET",
@@ -5672,7 +5585,10 @@
                     "validation": "^(tarball|zipball)$",
                     "invalidmsg": "Either tarball or zipball, Default: tarball.",
                     "description": "Either tarball or zipball, Deafult: tarball.",
-                    "enum": ["tarball", "zipball"],
+                    "enum": [
+                        "tarball",
+                        "zipball"
+                    ],
                     "default": "tarball"
                 },
                 "ref": {
@@ -5685,7 +5601,6 @@
             },
             "description": "Get archive link."
         },
-
         "get-keys": {
             "url": "/repos/:owner/:repo/keys",
             "method": "GET",
@@ -5697,7 +5612,6 @@
             },
             "description": "List deploy keys."
         },
-
         "get-key": {
             "url": "/repos/:owner/:repo/keys/:id",
             "method": "GET",
@@ -5708,7 +5622,6 @@
             },
             "description": "Get a deploy key."
         },
-
         "create-key": {
             "url": "/repos/:owner/:repo/keys",
             "method": "POST",
@@ -5727,7 +5640,6 @@
             },
             "description": "Add a new deploy key."
         },
-
         "delete-key": {
             "url": "/repos/:owner/:repo/keys/:id",
             "method": "DELETE",
@@ -5738,7 +5650,6 @@
             },
             "description": "Remove a deploy key."
         },
-
         "get-deployments": {
             "url": "/repos/:owner/:repo/deployments",
             "method": "GET",
@@ -5782,7 +5693,6 @@
             },
             "description": "List deployments. (In preview period. See README.)"
         },
-
         "create-deployment": {
             "url": "/repos/:owner/:repo/deployments",
             "method": "POST",
@@ -5861,7 +5771,6 @@
             },
             "description": "Create a deployment. (In preview period. See README.)"
         },
-
         "get-deployment-statuses": {
             "url": "/repos/:owner/:repo/deployments/:id/statuses",
             "method": "GET",
@@ -5872,7 +5781,6 @@
             },
             "description": "List deployment statuses. (In preview period. See README.)"
         },
-
         "create-deployment-status": {
             "url": "/repos/:owner/:repo/deployments/:id/statuses",
             "method": "POST",
@@ -5930,7 +5838,6 @@
             },
             "description": "Create a deployment status. (In preview period. See README.)"
         },
-
         "get-downloads": {
             "url": "/repos/:owner/:repo/downloads",
             "method": "GET",
@@ -5942,7 +5849,6 @@
             },
             "description": "List downloads for repository."
         },
-
         "get-download": {
             "url": "/repos/:owner/:repo/downloads/:id",
             "method": "GET",
@@ -5953,7 +5859,6 @@
             },
             "description": "Get a single download."
         },
-
         "delete-download": {
             "url": "/repos/:owner/:repo/downloads/:id",
             "method": "DELETE",
@@ -5964,7 +5869,6 @@
             },
             "description": "Delete a download."
         },
-
         "get-forks": {
             "url": "/repos/:owner/:repo/forks",
             "method": "GET",
@@ -5977,7 +5881,11 @@
                     "validation": "^(newest|oldest|stargazers)$",
                     "invalidmsg": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
                     "description": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
-                    "enum": ["newest", "oldest", "stargazers"],
+                    "enum": [
+                        "newest",
+                        "oldest",
+                        "stargazers"
+                    ],
                     "default": "newest"
                 },
                 "$page": null,
@@ -5985,7 +5893,6 @@
             },
             "description": "List forks."
         },
-
         "fork": {
             "url": "/repos/:owner/:repo/forks",
             "method": "POST",
@@ -6002,7 +5909,6 @@
             },
             "description": "Create a fork."
         },
-
         "get-invites": {
             "url": "/repositories/:repo_id/invitations",
             "method": "GET",
@@ -6011,7 +5917,6 @@
             },
             "description": "List invitations for a repository. (In preview period. See README.)"
         },
-
         "delete-invite": {
             "url": "/repositories/:repo_id/invitations/:invitation_id",
             "method": "DELETE",
@@ -6021,7 +5926,6 @@
             },
             "description": "Delete a repository invitation. (In preview period. See README.)"
         },
-
         "update-invite": {
             "url": "/repositories/:repo_id/invitations/:invitation_id",
             "method": "PATCH",
@@ -6034,12 +5938,15 @@
                     "validation": "^(read|write|admin)$",
                     "invalidmsg": "Read, write, or admin.",
                     "description": "The permissions that the associated user will have on the repository.",
-                    "enum": ["read", "write", "admin"]
+                    "enum": [
+                        "read",
+                        "write",
+                        "admin"
+                    ]
                 }
             },
             "description": "Update a repository invitation. (In preview period. See README.)"
         },
-
         "merge": {
             "url": "/repos/:owner/:repo/merges",
             "method": "POST",
@@ -6058,7 +5965,6 @@
             },
             "description": "Perform a merge."
         },
-
         "get-pages": {
             "url": "/repos/:owner/:repo/pages",
             "method": "GET",
@@ -6070,7 +5976,6 @@
             },
             "description": "Get information about a Pages site. (In preview period. See README.)"
         },
-
         "request-page-build": {
             "url": "/repos/:owner/:repo/pages/builds",
             "method": "POST",
@@ -6080,7 +5985,6 @@
             },
             "description": "Request a page build. (In preview period. See README.)"
         },
-
         "get-pages-builds": {
             "url": "/repos/:owner/:repo/pages/builds",
             "method": "GET",
@@ -6092,7 +5996,6 @@
             },
             "description": "List Pages builds. (In preview period. See README.)"
         },
-
         "get-latest-pages-build": {
             "url": "/repos/:owner/:repo/pages/builds/latest",
             "method": "GET",
@@ -6102,7 +6005,6 @@
             },
             "description": "Get latest Pages build. (In preview period. See README.)"
         },
-
         "get-pages-build": {
             "url": "/repos/:owner/:repo/pages/builds/:id",
             "method": "GET",
@@ -6113,7 +6015,6 @@
             },
             "description": "Get a specific Pages build. (In preview period. See README.)"
         },
-
         "get-releases": {
             "url": "/repos/:owner/:repo/releases",
             "method": "GET",
@@ -6125,7 +6026,6 @@
             },
             "description": "List releases for a repository."
         },
-
         "get-release": {
             "url": "/repos/:owner/:repo/releases/:id",
             "method": "GET",
@@ -6136,7 +6036,6 @@
             },
             "description": "Get a single release."
         },
-
         "get-latest-release": {
             "url": "/repos/:owner/:repo/releases/latest",
             "method": "GET",
@@ -6146,7 +6045,6 @@
             },
             "description": "Get the latest release."
         },
-
         "get-release-by-tag": {
             "url": "/repos/:owner/:repo/releases/tags/:tag",
             "method": "GET",
@@ -6163,7 +6061,6 @@
             },
             "description": "Get a release by tag name."
         },
-
         "create-release": {
             "url": "/repos/:owner/:repo/releases",
             "method": "POST",
@@ -6215,7 +6112,6 @@
             },
             "description": "Create a release."
         },
-
         "edit-release": {
             "url": "/repos/:owner/:repo/releases/:id",
             "method": "PATCH",
@@ -6270,7 +6166,6 @@
             },
             "description": "Edit a release."
         },
-
         "delete-release": {
             "url": "/repos/:owner/:repo/releases/:id",
             "method": "DELETE",
@@ -6281,7 +6176,6 @@
             },
             "description": "Delete a release"
         },
-
         "get-assets": {
             "url": "/repos/:owner/:repo/releases/:id/assets",
             "method": "GET",
@@ -6292,7 +6186,6 @@
             },
             "description": "List assets for a release."
         },
-
         "get-asset": {
             "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "GET",
@@ -6303,7 +6196,6 @@
             },
             "description": "Get a single release asset."
         },
-
         "upload-asset": {
             "url": "/repos/:owner/:repo/releases/:id/assets",
             "method": "POST",
@@ -6338,7 +6230,6 @@
             },
             "description": "Upload a release asset."
         },
-
         "edit-asset": {
             "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "PATCH",
@@ -6357,7 +6248,6 @@
             },
             "description": "Edit a release asset."
         },
-
         "delete-asset": {
             "url": "/repos/:owner/:repo/releases/assets/:id",
             "method": "DELETE",
@@ -6368,7 +6258,6 @@
             },
             "description": "Delete a release asset."
         },
-
         "get-stats-contributors": {
             "url": "/repos/:owner/:repo/stats/contributors",
             "method": "GET",
@@ -6378,7 +6267,6 @@
             },
             "description": "Get contributors list with additions, deletions, and commit counts."
         },
-
         "get-stats-commit-activity": {
             "url": "/repos/:owner/:repo/stats/commit_activity",
             "method": "GET",
@@ -6388,7 +6276,6 @@
             },
             "description": "Get the last year of commit activity data."
         },
-
         "get-stats-code-frequency": {
             "url": "/repos/:owner/:repo/stats/code_frequency",
             "method": "GET",
@@ -6398,7 +6285,6 @@
             },
             "description": "Get the number of additions and deletions per week."
         },
-
         "get-stats-participation": {
             "url": "/repos/:owner/:repo/stats/participation",
             "method": "GET",
@@ -6408,7 +6294,6 @@
             },
             "description": "Get the weekly commit count for the repository owner and everyone else."
         },
-
         "get-stats-punch-card": {
             "url": "/repos/:owner/:repo/stats/punch_card",
             "method": "GET",
@@ -6418,7 +6303,6 @@
             },
             "description": "Get the number of commits per hour in each day."
         },
-
         "create-status": {
             "url": "/repos/:owner/:repo/statuses/:sha",
             "method": "POST",
@@ -6432,7 +6316,12 @@
                     "validation": "^(pending|success|error|failure)$",
                     "invalidmsg": "",
                     "description": "State of the status - can be one of pending, success, error, or failure.",
-                    "enum": ["pending", "success", "error", "failure"]
+                    "enum": [
+                        "pending",
+                        "success",
+                        "error",
+                        "failure"
+                    ]
                 },
                 "target_url": {
                     "type": "String",
@@ -6458,7 +6347,6 @@
             },
             "description": "Create a status."
         },
-
         "get-statuses": {
             "url": "/repos/:owner/:repo/commits/:ref/statuses",
             "method": "GET",
@@ -6477,7 +6365,6 @@
             },
             "description": "List statuses for a specfic ref."
         },
-
         "get-combined-status": {
             "url": "/repos/:owner/:repo/commits/:ref/status",
             "method": "GET",
@@ -6496,7 +6383,6 @@
             },
             "description": "Get the combined status for a specific ref."
         },
-
         "get-referrers": {
             "url": "/repos/:owner/:repo/traffic/popular/referrers",
             "method": "GET",
@@ -6508,7 +6394,6 @@
             },
             "description": "Get the top 10 referrers over the last 14 days."
         },
-
         "get-paths": {
             "url": "/repos/:owner/:repo/traffic/popular/paths",
             "method": "GET",
@@ -6520,7 +6405,6 @@
             },
             "description": "Get the top 10 popular contents over the last 14 days."
         },
-
         "get-views": {
             "url": "/repos/:owner/:repo/traffic/views",
             "method": "GET",
@@ -6532,7 +6416,6 @@
             },
             "description": "Get the total number of views and breakdown per day or week for the last 14 days."
         },
-
         "get-clones": {
             "url": "/repos/:owner/:repo/traffic/clones",
             "method": "GET",
@@ -6544,7 +6427,6 @@
             },
             "description": "Get the total number of clones and breakdown per day or week for the last 14 days."
         },
-
         "get-hooks": {
             "url": "/repos/:owner/:repo/hooks",
             "method": "GET",
@@ -6556,7 +6438,6 @@
             },
             "description": "List hooks."
         },
-
         "get-hook": {
             "url": "/repos/:owner/:repo/hooks/:id",
             "method": "GET",
@@ -6567,7 +6448,6 @@
             },
             "description": "Get single hook."
         },
-
         "create-hook": {
             "url": "/repos/:owner/:repo/hooks",
             "method": "POST",
@@ -6600,7 +6480,6 @@
             },
             "description": "Create a hook."
         },
-
         "edit-hook": {
             "url": "/repos/:owner/:repo/hooks/:id",
             "method": "PATCH",
@@ -6648,7 +6527,6 @@
             },
             "description": "Edit a hook."
         },
-
         "test-hook": {
             "url": "/repos/:owner/:repo/hooks/:id/tests",
             "method": "POST",
@@ -6659,7 +6537,6 @@
             },
             "description": "Test a [push] hook."
         },
-
         "ping-hook": {
             "url": "/repos/:owner/:repo/hooks/:id/pings",
             "method": "POST",
@@ -6670,7 +6547,6 @@
             },
             "description": "Ping a hook."
         },
-
         "delete-hook": {
             "url": "/repos/:owner/:repo/hooks/:id",
             "method": "DELETE",
@@ -6682,7 +6558,6 @@
             "description": "Deleate a hook."
         }
     },
-
     "search": {
         "repos": {
             "url": "/search/repositories",
@@ -6695,7 +6570,11 @@
                     "validation": "^(stars|forks|updated)$",
                     "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
                     "description": "stars, forks, or updated",
-                    "enum": ["stars", "forks", "updated"]
+                    "enum": [
+                        "stars",
+                        "forks",
+                        "updated"
+                    ]
                 },
                 "$order": null,
                 "$page": null,
@@ -6703,7 +6582,6 @@
             },
             "description": "Search repositories."
         },
-
         "code": {
             "url": "/search/code",
             "method": "GET",
@@ -6715,7 +6593,9 @@
                     "validation": "^indexed$",
                     "invalidmsg": "indexed only",
                     "description": "The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match.",
-                    "enum": ["indexed"]
+                    "enum": [
+                        "indexed"
+                    ]
                 },
                 "$order": null,
                 "$page": null,
@@ -6723,7 +6603,6 @@
             },
             "description": "Search code."
         },
-
         "commits": {
             "url": "/search/commits",
             "method": "GET",
@@ -6735,7 +6614,10 @@
                     "validation": "^(author-date|committer-date)$",
                     "invalidmsg": "author-date or committer-date",
                     "description": "The sort field. Can be author-date or committer-date. Default: best match.",
-                    "enum": ["author-date", "committer-date"]
+                    "enum": [
+                        "author-date",
+                        "committer-date"
+                    ]
                 },
                 "$order": null,
                 "$page": null,
@@ -6743,7 +6625,6 @@
             },
             "description": "Search commits. (In preview period. See README.)"
         },
-
         "issues": {
             "url": "/search/issues",
             "method": "GET",
@@ -6755,7 +6636,11 @@
                     "validation": "^(comments|created|updated)$",
                     "invalidmsg": "comments, created, or updated",
                     "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match.",
-                    "enum": ["comments", "created", "updated"]
+                    "enum": [
+                        "comments",
+                        "created",
+                        "updated"
+                    ]
                 },
                 "$order": null,
                 "$page": null,
@@ -6763,7 +6648,6 @@
             },
             "description": "Search issues."
         },
-
         "users": {
             "url": "/search/users",
             "method": "GET",
@@ -6775,7 +6659,11 @@
                     "validation": "^(followers|repositories|joined)$",
                     "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
                     "description": "The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match.",
-                    "enum": ["followers", "repositories", "joined"]
+                    "enum": [
+                        "followers",
+                        "repositories",
+                        "joined"
+                    ]
                 },
                 "$order": null,
                 "$page": null,
@@ -6783,7 +6671,6 @@
             },
             "description": "Search users."
         },
-
         "email": {
             "url": "/legacy/user/email/:email",
             "method": "GET",
@@ -6799,7 +6686,6 @@
             "description": "Search against public email addresses."
         }
     },
-
     "users": {
         "get-for-user": {
             "url": "/users/:username",
@@ -6809,7 +6695,6 @@
             },
             "description": "Get a single user"
         },
-        
         "get-by-id": {
             "url": "/user/:id",
             "method": "GET",
@@ -6818,14 +6703,12 @@
             },
             "description": "Get a single user by GitHub ID"
         },
-        
         "get": {
             "url": "/user",
             "method": "GET",
             "params": {},
             "description": "Get the authenticated user"
         },
-
         "update": {
             "url": "/user",
             "method": "PATCH",
@@ -6882,12 +6765,11 @@
             },
             "description": "Update the authenticated user"
         },
-
         "get-all": {
             "url": "/users",
             "method": "GET",
             "params": {
-                "since":{
+                "since": {
                     "type": "Number",
                     "required": false,
                     "validation": "",
@@ -6896,7 +6778,6 @@
             },
             "description": "Get all users"
         },
-
         "get-orgs": {
             "url": "/user/orgs",
             "method": "GET",
@@ -6906,7 +6787,6 @@
             },
             "description": "List organizations for the authenticated user."
         },
-
         "get-org-memberships": {
             "url": "/user/memberships/orgs",
             "method": "GET",
@@ -6917,12 +6797,14 @@
                     "validation": "^(active|pending)$",
                     "invalidmsg": "active, pending",
                     "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned.",
-                    "enum": ["active", "pending"]
+                    "enum": [
+                        "active",
+                        "pending"
+                    ]
                 }
             },
             "description": "List your organization memberships"
         },
-
         "get-org-membership": {
             "url": "/user/memberships/orgs/:org",
             "method": "GET",
@@ -6931,7 +6813,6 @@
             },
             "description": "Get your organization membership"
         },
-
         "edit-org-membership": {
             "url": "/user/memberships/orgs/:org",
             "method": "PATCH",
@@ -6943,12 +6824,13 @@
                     "validation": "^(active)$",
                     "invalidmsg": "active",
                     "description": "The state that the membership should be in. Only \"active\" will be accepted.",
-                    "enum": ["active"]
+                    "enum": [
+                        "active"
+                    ]
                 }
             },
             "description": "Edit your organization membership"
         },
-
         "get-teams": {
             "url": "/user/teams",
             "method": "GET",
@@ -6958,7 +6840,6 @@
             },
             "description": "Get your teams"
         },
-
         "get-emails": {
             "url": "/user/emails",
             "method": "GET",
@@ -6968,12 +6849,11 @@
             },
             "description": "List email addresses for a user"
         },
-
         "add-emails": {
             "url": "/user/emails",
             "method": "POST",
             "params": {
-                "body": {
+                "emails": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -6984,12 +6864,11 @@
             },
             "description": "Add email address(es)"
         },
-
         "delete-emails": {
             "url": "/user/emails",
             "method": "DELETE",
             "params": {
-                "body": {
+                "emails": {
                     "type": "Array",
                     "sendValueAsBody": true,
                     "required": true,
@@ -7000,7 +6879,6 @@
             },
             "description": "Delete email address(es)"
         },
-
         "get-followers-for-user": {
             "url": "/users/:username/followers",
             "method": "GET",
@@ -7011,7 +6889,6 @@
             },
             "description": "List a user's followers"
         },
-
         "get-followers": {
             "url": "/user/followers",
             "method": "GET",
@@ -7021,7 +6898,6 @@
             },
             "description": "List the authenticated user's followers"
         },
-
         "get-following-for-user": {
             "url": "/users/:username/following",
             "method": "GET",
@@ -7032,7 +6908,6 @@
             },
             "description": "List who a user is following"
         },
-
         "get-following": {
             "url": "/user/following",
             "method": "GET",
@@ -7042,7 +6917,6 @@
             },
             "description": "List who the authenticated user is following"
         },
-
         "check-following": {
             "url": "/user/following/:username",
             "method": "GET",
@@ -7051,7 +6925,6 @@
             },
             "description": "Check if you are following a user"
         },
-
         "check-if-one-followers-other": {
             "url": "/users/:username/following/:target_user",
             "method": "GET",
@@ -7067,7 +6940,6 @@
             },
             "description": "Check if one user follows another"
         },
-
         "follow-user": {
             "url": "/user/following/:username",
             "method": "PUT",
@@ -7076,7 +6948,6 @@
             },
             "description": "Follow a user"
         },
-
         "unfollow-user": {
             "url": "/user/following/:username",
             "method": "DELETE",
@@ -7085,7 +6956,6 @@
             },
             "description": "Unfollow a user"
         },
-
         "get-keys-for-user": {
             "url": "/users/:username/keys",
             "method": "GET",
@@ -7096,7 +6966,6 @@
             },
             "description": "List public keys for a user"
         },
-
         "get-keys": {
             "url": "/user/keys",
             "method": "GET",
@@ -7106,7 +6975,6 @@
             },
             "description": "List your public keys"
         },
-
         "get-key": {
             "url": "/user/keys/:id",
             "method": "GET",
@@ -7115,7 +6983,6 @@
             },
             "description": "Get a single public key"
         },
-
         "create-key": {
             "url": "/user/keys",
             "method": "POST",
@@ -7125,7 +6992,6 @@
             },
             "description": "Create a public key"
         },
-
         "delete-key": {
             "url": "/user/keys/:id",
             "method": "DELETE",
@@ -7134,7 +7000,6 @@
             },
             "description": "Delete a public key"
         },
-
         "get-gpg-keys": {
             "url": "/user/gpg_keys",
             "method": "GET",
@@ -7144,7 +7009,6 @@
             },
             "description": "List your GPG keys. (In preview period. See README.)"
         },
-
         "get-gpg-key": {
             "url": "/user/gpg_keys/:id",
             "method": "GET",
@@ -7153,7 +7017,6 @@
             },
             "description": "Get a single GPG key. (In preview period. See README.)"
         },
-
         "create-gpg-key": {
             "url": "/user/gpg_keys",
             "method": "POST",
@@ -7168,7 +7031,6 @@
             },
             "description": "Create a GPG key. (In preview period. See README.)"
         },
-
         "delete-gpg-key": {
             "url": "/user/gpg_keys/:id",
             "method": "DELETE",
@@ -7177,7 +7039,6 @@
             },
             "description": "Delete a GPG key. (In preview period. See README.)"
         },
-
         "promote": {
             "url": "/users/:username/site_admin",
             "method": "PUT",
@@ -7186,7 +7047,6 @@
             },
             "description": "Promote an ordinary user to a site administrator"
         },
-
         "demote": {
             "url": "/users/:username/site_admin",
             "method": "DELETE",
@@ -7195,7 +7055,6 @@
             },
             "description": "Demote a site administrator to an ordinary user"
         },
-
         "suspend": {
             "url": "/users/:username/suspended",
             "method": "PUT",
@@ -7204,7 +7063,6 @@
             },
             "description": "Suspend a user"
         },
-
         "unsuspend": {
             "url": "/users/:username/suspended",
             "method": "DELETE",
@@ -7213,15 +7071,12 @@
             },
             "description": "Unsuspend a user"
         },
-
         "get-repo-invites": {
             "url": "/user/repository_invitations",
             "method": "GET",
-            "params": {
-            },
+            "params": {},
             "description": "List a user's repository invitations. (In preview period. See README.)"
         },
-
         "accept-repo-invite": {
             "url": "/user/repository_invitations/:invitation_id",
             "method": "PATCH",
@@ -7230,7 +7085,6 @@
             },
             "description": "Accept a repository invitation. (In preview period. See README.)"
         },
-
         "decline-repo-invite": {
             "url": "/user/repository_invitations/:invitation_id",
             "method": "DELETE",
@@ -7240,7 +7094,6 @@
             "description": "Decline a repository invitation. (In preview period. See README.)"
         }
     },
-
     "enterprise": {
         "stats": {
             "url": "/enterprise/stats/:type",
@@ -7252,12 +7105,23 @@
                     "validation": "^(issues|hooks|milestones|orgs|comments|pages|users|gists|pulls|repos|all)$",
                     "invalidmsg": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
                     "description": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
-                    "enum": ["issues", "hooks", "milestones", "orgs", "comments", "pages", "users", "gists", "pulls", "repos", "all"]
+                    "enum": [
+                        "issues",
+                        "hooks",
+                        "milestones",
+                        "orgs",
+                        "comments",
+                        "pages",
+                        "users",
+                        "gists",
+                        "pulls",
+                        "repos",
+                        "all"
+                    ]
                 }
             },
             "description": "Get statistics."
         },
-
         "update-ldap-for-user": {
             "url": "/admin/ldap/users/:username/mapping",
             "method": "PATCH",
@@ -7273,7 +7137,6 @@
             },
             "description": "Update LDAP mapping for a user."
         },
-
         "sync-ldap-for-user": {
             "url": "/admin/ldap/users/:username/sync",
             "method": "POST",
@@ -7282,7 +7145,6 @@
             },
             "description": "Sync LDAP mapping for a user."
         },
-
         "update-ldap-for-team": {
             "url": "/admin/ldap/teams/:team_id/mapping",
             "method": "PATCH",
@@ -7304,7 +7166,6 @@
             },
             "description": "Update LDAP mapping for a team."
         },
-
         "sync-ldap-for-team": {
             "url": "/admin/ldap/teams/:team_id/sync",
             "method": "POST",
@@ -7319,16 +7180,12 @@
             },
             "description": "Sync LDAP mapping for a team."
         },
-
         "get-license": {
             "url": "/enterprise/settings/license",
             "method": "GET",
-            "params": {
-                
-            },
+            "params": {},
             "description": "Get license information"
         },
-
         "get-pre-receive-environment": {
             "url": "/admin/pre-receive-environments/:id",
             "method": "GET",
@@ -7337,15 +7194,12 @@
             },
             "description": "Get a single pre-receive environment. (In preview period. See README.)"
         },
-        
         "get-pre-receive-environments": {
             "url": "/admin/pre_receive_environments",
             "method": "GET",
-            "params": {
-            },
+            "params": {},
             "description": "List pre-receive environments. (In preview period. See README.)"
         },
-        
         "create-pre-receive-environment": {
             "url": "/admin/pre_receive_environments",
             "method": "POST",
@@ -7367,7 +7221,6 @@
             },
             "description": "Create a pre-receive environment. (In preview period. See README.)"
         },
-        
         "edit-pre-receive-environment": {
             "url": "/admin/pre_receive_environments/:id",
             "method": "PATCH",
@@ -7390,7 +7243,6 @@
             },
             "description": "Create a pre-receive environment. (In preview period. See README.)"
         },
-        
         "delete-pre-receive-environment": {
             "url": "/admin/pre_receive_environments/:id",
             "method": "DELETE",
@@ -7399,7 +7251,6 @@
             },
             "description": "Delete a pre-receive environment. (In preview period. See README.)"
         },
-        
         "get-pre-receive-environment-download-status": {
             "url": "/admin/pre-receive-environments/:id/downloads/latest",
             "method": "GET",
@@ -7408,7 +7259,6 @@
             },
             "description": "Get a pre-receive environment's download status. (In preview period. See README.)"
         },
-        
         "trigger-pre-receive-environment-download": {
             "url": "/admin/pre_receive_environments/:id/downloads",
             "method": "POST",
@@ -7417,7 +7267,6 @@
             },
             "description": "Trigger a pre-receive environment download. (In preview period. See README.)"
         },
-        
         "get-pre-receive-hook": {
             "url": "/admin/pre-receive-hooks/:id",
             "method": "GET",
@@ -7426,15 +7275,12 @@
             },
             "description": "Get a single pre-receive hook. (In preview period. See README.)"
         },
-        
         "get-pre-receive-hooks": {
             "url": "/admin/pre-receive-hooks",
             "method": "GET",
-            "params": {
-            },
+            "params": {},
             "description": "List pre-receive hooks. (In preview period. See README.)"
         },
-        
         "create-pre-receive-hook": {
             "url": "/admin/pre-receive-hooks",
             "method": "POST",
@@ -7486,13 +7332,12 @@
             },
             "description": "Create a pre-receive hook. (In preview period. See README.)"
         },
-        
         "edit-pre-receive-hook": {
             "url": "/admin/pre_receive_hooks/:id",
             "method": "PATCH",
             "params": {
                 "$id": null,
-                "body": {
+                "hook": {
                     "type": "Json",
                     "sendValueAsBody": true,
                     "required": true,
@@ -7503,7 +7348,6 @@
             },
             "description": "Edit a pre-receive hook. (In preview period. See README.)"
         },
-        
         "delete-pre-receive-hook": {
             "url": "/admin/pre_receive_hooks/:id",
             "method": "DELETE",
@@ -7512,7 +7356,6 @@
             },
             "description": "Delete a pre-receive hook. (In preview period. See README.)"
         },
-
         "queue-indexing-job": {
             "url": "/staff/indexing_jobs",
             "method": "POST",
@@ -7527,7 +7370,6 @@
             },
             "description": "Queue an indexing job"
         },
-
         "create-org": {
             "url": "/admin/organizations",
             "method": "POST",

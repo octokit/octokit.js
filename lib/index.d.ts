@@ -98,7 +98,7 @@ declare namespace Github {
   export interface Head { head: string; }
   export interface Path { path: string; }
   export interface Position { position: number; }
-  export interface Body { body: string[]; }
+  export interface Body { body: string; }
   export interface Homepage { homepage?: string; }
   export interface Private { private?: boolean; }
   export interface HasIssues { has_issues?: boolean; }
@@ -121,6 +121,7 @@ declare namespace Github {
   export interface Privacy { privacy?: "secret"|"closed"; }
   export interface Fingerprint { fingerprint?: string; }
   export interface AccessToken { access_token: string; }
+  export interface Assignees { assignees?: string[]; }
 
   export type AuthorizationGetGrantsParams =
     & Page
@@ -626,26 +627,26 @@ declare namespace Github {
   export type IssuesCreateParams =
     & Owner
     & Repo
+    & Assignees
     & {
       title: string;
-      body?: string[];
+      body?: string;
       assignee?: string;
       milestone?: number;
-      labels?: string;
-      assignees?: string[];
+      labels?: string[];
     };
   export type IssuesEditParams =
     & Owner
     & Repo
     & Number
+    & Assignees
     & {
       title?: string;
-      body?: string[];
+      body?: string;
       assignee?: string;
       state?: "open"|"closed";
       milestone?: number;
-      labels?: string;
-      assignees?: string[];
+      labels?: string[];
     };
   export type IssuesLockParams =
     & Owner
@@ -678,9 +679,8 @@ declare namespace Github {
     & Owner
     & Repo
     & Number
-    & {
-      body: string[];
-    };
+    & Assignees
+    ;
   export type IssuesGetCommentsParams =
     & Owner
     & Repo
@@ -707,16 +707,14 @@ declare namespace Github {
     & Owner
     & Repo
     & Number
-    & {
-      body: string[];
-    };
+    & Body
+    ;
   export type IssuesEditCommentParams =
     & Owner
     & Repo
     & Id
-    & {
-      body: string[];
-    };
+    & Body
+    ;
   export type IssuesDeleteCommentParams =
     & Owner
     & Repo
@@ -780,7 +778,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      body: string[];
+      labels: string[];
     };
   export type IssuesRemoveLabelParams =
     & Owner
@@ -794,7 +792,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      body: string[];
+      labels: string[];
     };
   export type IssuesRemoveAllLabelsParams =
     & Owner
@@ -1160,18 +1158,21 @@ declare namespace Github {
     & Owner
     & Repo
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   export type ProjectsCreateOrgProjectParams =
     & Org
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   export type ProjectsUpdateProjectParams =
     & Id
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   export type ProjectsDeleteProjectParams =
     & Id
     ;
@@ -1248,7 +1249,7 @@ declare namespace Github {
     & Base
     & {
       title: string;
-      body?: string[];
+      body?: string;
       maintainer_can_modify?: boolean;
     };
   export type PullRequestsCreateFromIssueParams =
@@ -1266,7 +1267,7 @@ declare namespace Github {
     & State
     & {
       title?: string;
-      body?: string[];
+      body?: string;
       base?: string;
     };
   export type PullRequestsGetCommitsParams =
@@ -1326,7 +1327,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      body?: string[];
+      body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
       path?: string;
@@ -1338,7 +1339,7 @@ declare namespace Github {
     & Number
     & Id
     & {
-      body?: string[];
+      body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   export type PullRequestsDismissReviewParams =
@@ -1676,21 +1677,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      body: string[];
+      contexts: string[];
     };
   export type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      contexts: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      contexts: string[];
     };
   export type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
@@ -1735,21 +1736,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      body: string[];
+      teams: string[];
     };
   export type ReposAddProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      teams: string[];
     };
   export type ReposRemoveProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      teams: string[];
     };
   export type ReposGetProtectedBranchUserRestrictionsParams =
     & Owner
@@ -1763,21 +1764,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      body: string[];
+      users: string[];
     };
   export type ReposAddProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      users: string[];
     };
   export type ReposRemoveProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      users: string[];
     };
   export type ReposGetCollaboratorsParams =
     & Owner
@@ -2098,7 +2099,7 @@ declare namespace Github {
       tag_name: string;
       target_commitish?: string;
       name?: string;
-      body?: string[];
+      body?: string;
       draft?: boolean;
       prerelease?: boolean;
     };
@@ -2110,7 +2111,7 @@ declare namespace Github {
       tag_name: string;
       target_commitish?: string;
       name?: string;
-      body?: string[];
+      body?: string;
       draft?: boolean;
       prerelease?: boolean;
     };
@@ -2358,11 +2359,11 @@ declare namespace Github {
     ;
   export type UsersAddEmailsParams =
     & {
-      body: string[];
+      emails: string[];
     };
   export type UsersDeleteEmailsParams =
     & {
-      body: string[];
+      emails: string[];
     };
   export type UsersGetFollowersForUserParams =
     & Username
@@ -2506,7 +2507,7 @@ declare namespace Github {
   export type EnterpriseEditPreReceiveHookParams =
     & Id
     & {
-      body: string[];
+      hook: string;
     };
   export type EnterpriseDeletePreReceiveHookParams =
     & Id

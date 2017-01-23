@@ -93,7 +93,7 @@ declare module "github" {
   declare type Head = { head: string; };
   declare type Path = { path: string; };
   declare type Position = { position: number; };
-  declare type Body = { body: string[]; };
+  declare type Body = { body: string; };
   declare type Homepage = { homepage?: string; };
   declare type Private = { private?: boolean; };
   declare type HasIssues = { has_issues?: boolean; };
@@ -116,6 +116,7 @@ declare module "github" {
   declare type Privacy = { privacy?: "secret"|"closed"; };
   declare type Fingerprint = { fingerprint?: string; };
   declare type AccessToken = { access_token: string; };
+  declare type Assignees = { assignees?: string[]; };
 
   declare type AuthorizationGetGrantsParams =
     & Page
@@ -621,26 +622,26 @@ declare module "github" {
   declare type IssuesCreateParams =
     & Owner
     & Repo
+    & Assignees
     & {
       title: string;
-      body?: string[];
+      body?: string;
       assignee?: string;
       milestone?: number;
-      labels?: string;
-      assignees?: string[];
+      labels?: string[];
     };
   declare type IssuesEditParams =
     & Owner
     & Repo
     & Number
+    & Assignees
     & {
       title?: string;
-      body?: string[];
+      body?: string;
       assignee?: string;
       state?: "open"|"closed";
       milestone?: number;
-      labels?: string;
-      assignees?: string[];
+      labels?: string[];
     };
   declare type IssuesLockParams =
     & Owner
@@ -673,9 +674,8 @@ declare module "github" {
     & Owner
     & Repo
     & Number
-    & {
-      body: string[];
-    };
+    & Assignees
+    ;
   declare type IssuesGetCommentsParams =
     & Owner
     & Repo
@@ -702,16 +702,14 @@ declare module "github" {
     & Owner
     & Repo
     & Number
-    & {
-      body: string[];
-    };
+    & Body
+    ;
   declare type IssuesEditCommentParams =
     & Owner
     & Repo
     & Id
-    & {
-      body: string[];
-    };
+    & Body
+    ;
   declare type IssuesDeleteCommentParams =
     & Owner
     & Repo
@@ -775,7 +773,7 @@ declare module "github" {
     & Repo
     & Number
     & {
-      body: string[];
+      labels: string[];
     };
   declare type IssuesRemoveLabelParams =
     & Owner
@@ -789,7 +787,7 @@ declare module "github" {
     & Repo
     & Number
     & {
-      body: string[];
+      labels: string[];
     };
   declare type IssuesRemoveAllLabelsParams =
     & Owner
@@ -1155,18 +1153,21 @@ declare module "github" {
     & Owner
     & Repo
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   declare type ProjectsCreateOrgProjectParams =
     & Org
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   declare type ProjectsUpdateProjectParams =
     & Id
     & Name
-    & Body
-    ;
+    & {
+      body?: string;
+    };
   declare type ProjectsDeleteProjectParams =
     & Id
     ;
@@ -1243,7 +1244,7 @@ declare module "github" {
     & Base
     & {
       title: string;
-      body?: string[];
+      body?: string;
       maintainer_can_modify?: boolean;
     };
   declare type PullRequestsCreateFromIssueParams =
@@ -1261,7 +1262,7 @@ declare module "github" {
     & State
     & {
       title?: string;
-      body?: string[];
+      body?: string;
       base?: string;
     };
   declare type PullRequestsGetCommitsParams =
@@ -1321,7 +1322,7 @@ declare module "github" {
     & Repo
     & Number
     & {
-      body?: string[];
+      body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
       path?: string;
@@ -1333,7 +1334,7 @@ declare module "github" {
     & Number
     & Id
     & {
-      body?: string[];
+      body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   declare type PullRequestsDismissReviewParams =
@@ -1671,21 +1672,21 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      body: string[];
+      contexts: string[];
     };
   declare type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      contexts: string[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      contexts: string[];
     };
   declare type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
@@ -1730,21 +1731,21 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      body: string[];
+      teams: string[];
     };
   declare type ReposAddProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      teams: string[];
     };
   declare type ReposRemoveProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      teams: string[];
     };
   declare type ReposGetProtectedBranchUserRestrictionsParams =
     & Owner
@@ -1758,21 +1759,21 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      body: string[];
+      users: string[];
     };
   declare type ReposAddProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      users: string[];
     };
   declare type ReposRemoveProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      body: string[];
+      users: string[];
     };
   declare type ReposGetCollaboratorsParams =
     & Owner
@@ -2093,7 +2094,7 @@ declare module "github" {
       tag_name: string;
       target_commitish?: string;
       name?: string;
-      body?: string[];
+      body?: string;
       draft?: boolean;
       prerelease?: boolean;
     };
@@ -2105,7 +2106,7 @@ declare module "github" {
       tag_name: string;
       target_commitish?: string;
       name?: string;
-      body?: string[];
+      body?: string;
       draft?: boolean;
       prerelease?: boolean;
     };
@@ -2353,11 +2354,11 @@ declare module "github" {
     ;
   declare type UsersAddEmailsParams =
     & {
-      body: string[];
+      emails: string[];
     };
   declare type UsersDeleteEmailsParams =
     & {
-      body: string[];
+      emails: string[];
     };
   declare type UsersGetFollowersForUserParams =
     & Username
@@ -2501,7 +2502,7 @@ declare module "github" {
   declare type EnterpriseEditPreReceiveHookParams =
     & Id
     & {
-      body: string[];
+      hook: string;
     };
   declare type EnterpriseDeletePreReceiveHookParams =
     & Id
