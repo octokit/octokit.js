@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.1.1
+
+Bug fixes:
+  * Typescript: only set generated Array body properties to string[].
+
 ## 8.1.0
 
 Features:
