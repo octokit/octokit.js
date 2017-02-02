@@ -1,7 +1,7 @@
 declare module "github" {
   declare type Header =
     {{#requestHeaders}}
-    | {{{.}}}
+    {{^first}}| {{/first}}{{#first}}  {{/first}}{{{header}}}
     {{/requestHeaders}}
     | string;
 
@@ -47,14 +47,14 @@ declare module "github" {
   };
 
   declare type Auth =
-    | AuthBasic
+      AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
     | AuthJWT;
 
   declare type Link =
-    | { link: string; }
+      { link: string; }
     | { meta: { link: string; }; }
     | string
     | any;
@@ -71,10 +71,10 @@ declare module "github" {
   {{^exclude}}
   declare type {{paramTypeName}} =
     {{#unionTypeNames}}
-    & {{.}}
+    {{^first}}& {{/first}}{{#first}}  {{/first}}{{unionTypeName}}
     {{/unionTypeNames}}
     {{#ownParams}}
-    & {
+    {{^first}}& {{/first}}{
     {{#params}}
       {{key}}{{^required}}?{{/required}}: {{{type}}};
     {{/params}}
