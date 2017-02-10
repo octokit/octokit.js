@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.2.1
+
+Features:
+  * Add community health preview api.
+
 ## 8.1.1
 
 Bug fixes:
