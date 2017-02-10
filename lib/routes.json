@@ -454,6 +454,9 @@
             "application/vnd.github.cloak-preview+json": [
                 "/search/commits"
             ],
+            "application/vnd.github.black-panther-preview+json": [
+                "/repositories/:repo_id/community/profile"
+            ],
             "application/vnd.github.ant-man-preview+json": [
                 "/repos/:owner/:repo/deployments",
                 "/repos/:owner/:repo/deployments/:id/statuses"
@@ -5328,6 +5331,14 @@
                 "$id": null
             },
             "description": "Delete a commit comment."
+        },
+        "get-community-health-metrics": {
+            "url": "/repositories/:repo_id/community/profile",
+            "method": "GET",
+            "params": {
+                "$repo_id": null
+            },
+            "description": "Retrieve community health metrics."
         },
         "get-commits": {
             "url": "/repos/:owner/:repo/commits",

@@ -1845,6 +1845,9 @@ declare module "github" {
     & Repo
     & Id
     ;
+  declare type ReposGetCommunityHealthMetricsParams =
+    & RepoId
+    ;
   declare type ReposGetCommitsParams =
     & Owner
     & Repo
@@ -2845,6 +2848,7 @@ declare module "github" {
       getCommitComment(params: ReposGetCommitCommentParams, callback?: Callback): Promise<any>;
       updateCommitComment(params: ReposUpdateCommitCommentParams, callback?: Callback): Promise<any>;
       deleteCommitComment(params: ReposDeleteCommitCommentParams, callback?: Callback): Promise<any>;
+      getCommunityHealthMetrics(params: ReposGetCommunityHealthMetricsParams, callback?: Callback): Promise<any>;
       getCommits(params: ReposGetCommitsParams, callback?: Callback): Promise<any>;
       getCommit(params: ReposGetCommitParams, callback?: Callback): Promise<any>;
       getShaOfCommitRef(params: ReposGetShaOfCommitRefParams, callback?: Callback): Promise<any>;

@@ -842,6 +842,19 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repositories/:repo_id/community/profile (getCommunityHealthMetrics)",  function(next) {
+        client.repos.getCommunityHealthMetrics(
+            {
+                repo_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/contents/:path (getContent)",  function(next) {
         client.repos.getContent(
             {
