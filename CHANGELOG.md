@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 9.0.0
+
+Breaking changes:
+  * Always return a response as an object with data and meta attributes.
+
+Features:
+  * Add getReference example.
+  * Add note to createReference description.
+
+Bug fixes:
+  * Encode hash in ref param.
+
 ## 8.2.1
 
 Features:
