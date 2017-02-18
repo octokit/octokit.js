@@ -12,7 +12,7 @@ A Node.js wrapper for GitHub API.
 Install via npm.
 
 ```bash
-$ npm install github
+$ npm install github --save
 ```
 
 or
@@ -33,21 +33,21 @@ GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 ## Example
 
 Get all followers for user "defunkt":
-```javascript
-var GitHubApi = require("github");
+```js
+const GitHubApi = require('github');
 
-var github = new GitHubApi({
+const github = new GitHubApi({
     // optional
-    debug: true,
-    protocol: "https",
-    host: "github.my-GHE-enabled-company.com", // should be api.github.com for GitHub
-    pathPrefix: "/api/v3", // for some GHEs; none for GitHub
-    headers: {
-        "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
-    },
-    Promise: require('bluebird'),
-    followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
-    timeout: 5000
+  debug: true,
+  protocol: 'https',
+  host: 'github.my-GHE-enabled-company.com', // should be api.github.com for GitHub
+  pathPrefix: '/api/v3', // for some GHEs; none for GitHub
+  headers: {
+    'user-agent': 'My-Cool-GitHub-App' // GitHub is happy with a unique user agent
+  },
+  Promise: require('bluebird'),
+  followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
+  timeout: 5000
 });
 
 // TODO: optional authentication here depending on desired endpoints. See below in README.
@@ -57,10 +57,11 @@ github.users.getFollowingForUser({
     // headers: {
     //     "cookie": "blahblah"
     // },
-    username: "defunkt"
-}, function(err, res) {
-    console.log(JSON.stringify(res));
+  username: 'defunkt'
+}, (err, res) => {
+  console.log(JSON.stringify(res));
 });
+
 ```
 
 ## Pagination
@@ -90,42 +91,36 @@ Most GitHub API calls don't require authentication. As a rule of thumb: If you c
 You need the GitHub user name and the API key for authentication. The API key can be found in the user's _Account Settings_.
 
 ```javascript
-// basic
-github.authenticate({
-    type: "basic",
-    username: USERNAME,
-    password: PASSWORD
-});
-
 // oauth
 github.authenticate({
-    type: "oauth",
-    token: AUTH_TOKEN
+  type: 'oauth',
+  token: AUTH_TOKEN
 });
 
 // oauth key/secret (to get a token)
 github.authenticate({
-    type: "oauth",
-    key: CLIENT_ID,
-    secret: CLIENT_SECRET
-})
+  type: 'oauth',
+  key: CLIENT_ID,
+  secret: CLIENT_SECRET
+});
 
 // user token
 github.authenticate({
-    type: "token",
-    token: "userToken",
+  type: 'token',
+  token: 'userToken'
 });
 
 // integration (jwt)
 github.authenticate({
-    type: "integration",
-    token: "jwt",
+  type: 'integration',
+  token: 'jwt'
 });
 
 // ~/.netrc
 github.authenticate({
-    type: "netrc"
+  type: 'netrc'
 });
+
 ```
 
 Note: `authenticate` is synchronous because it only stores the
@@ -139,16 +134,16 @@ credentials for the next request.
 
 ```javascript
 github.authorization.create({
-    scopes: ["user", "public_repo", "repo", "repo:status", "gist"],
-    note: "what this auth is for",
-    note_url: "http://url-to-this-auth-app",
-    headers: {
-        "X-GitHub-OTP": "two-factor-code"
-    }
-}, function(err, res) {
-    if (res.token) {
-        //save and use res.token as in the Oauth process above from now on
-    }
+  scopes: ['user', 'public_repo', 'repo', 'repo:status', 'gist'],
+  note: 'what this auth is for',
+  note_url: 'http://url-to-this-auth-app',
+  headers: {
+    'X-GitHub-OTP': 'two-factor-code'
+  }
+}, (err, res) => {
+  if (res.token) {
+        // save and use res.token as in the Oauth process above from now on
+  }
 });
 ```
 
