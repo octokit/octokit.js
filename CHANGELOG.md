@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 9.1.0
+
+Features:
+  * Add User Blocking preview api.
+
 ## 9.0.0
 
 Breaking changes:
