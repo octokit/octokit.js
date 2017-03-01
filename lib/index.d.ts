@@ -2445,6 +2445,15 @@ declare namespace Github {
   export type UsersUnsuspendParams =
     & Username
     ;
+  export type UsersCheckBlockedUserParams =
+    & Username
+    ;
+  export type UsersBlockUserParams =
+    & Username
+    ;
+  export type UsersUnblockUserParams =
+    & Username
+    ;
   export type UsersAcceptRepoInviteParams =
     & InvitationId
     ;
@@ -2971,6 +2980,10 @@ declare class Github {
     demote(params: Github.UsersDemoteParams, callback?: Github.Callback): Promise<any>;
     suspend(params: Github.UsersSuspendParams, callback?: Github.Callback): Promise<any>;
     unsuspend(params: Github.UsersUnsuspendParams, callback?: Github.Callback): Promise<any>;
+    getBlockedUsers(callback?: Github.Callback): Promise<any>;
+    checkBlockedUser(params: Github.UsersCheckBlockedUserParams, callback?: Github.Callback): Promise<any>;
+    blockUser(params: Github.UsersBlockUserParams, callback?: Github.Callback): Promise<any>;
+    unblockUser(params: Github.UsersUnblockUserParams, callback?: Github.Callback): Promise<any>;
     getRepoInvites(callback?: Github.Callback): Promise<any>;
     acceptRepoInvite(params: Github.UsersAcceptRepoInviteParams, callback?: Github.Callback): Promise<any>;
     declineRepoInvite(params: Github.UsersDeclineRepoInviteParams, callback?: Github.Callback): Promise<any>;

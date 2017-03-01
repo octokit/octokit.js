@@ -2440,6 +2440,15 @@ declare module "github" {
   declare type UsersUnsuspendParams =
     & Username
     ;
+  declare type UsersCheckBlockedUserParams =
+    & Username
+    ;
+  declare type UsersBlockUserParams =
+    & Username
+    ;
+  declare type UsersUnblockUserParams =
+    & Username
+    ;
   declare type UsersAcceptRepoInviteParams =
     & InvitationId
     ;
@@ -2956,6 +2965,10 @@ declare module "github" {
       demote(params: UsersDemoteParams, callback?: Callback): Promise<any>;
       suspend(params: UsersSuspendParams, callback?: Callback): Promise<any>;
       unsuspend(params: UsersUnsuspendParams, callback?: Callback): Promise<any>;
+      getBlockedUsers(callback?: Callback): Promise<any>;
+      checkBlockedUser(params: UsersCheckBlockedUserParams, callback?: Callback): Promise<any>;
+      blockUser(params: UsersBlockUserParams, callback?: Callback): Promise<any>;
+      unblockUser(params: UsersUnblockUserParams, callback?: Callback): Promise<any>;
       getRepoInvites(callback?: Callback): Promise<any>;
       acceptRepoInvite(params: UsersAcceptRepoInviteParams, callback?: Callback): Promise<any>;
       declineRepoInvite(params: UsersDeclineRepoInviteParams, callback?: Callback): Promise<any>;

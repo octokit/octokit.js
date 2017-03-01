@@ -51,6 +51,32 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute PUT /user/blocks/:username (blockUser)",  function(next) {
+        client.users.blockUser(
+            {
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/blocks/:username (checkBlockedUser)",  function(next) {
+        client.users.checkBlockedUser(
+            {
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/following/:username (checkFollowing)",  function(next) {
         client.users.checkFollowing(
             {
@@ -213,6 +239,17 @@ describe("[users]", function() {
             {
                 since: "Number"
             },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/blocks (getBlockedUsers)",  function(next) {
+        client.users.getBlockedUsers(
+            {},
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here
@@ -468,6 +505,19 @@ describe("[users]", function() {
 
     it("should successfully execute PUT /users/:username/suspended (suspend)",  function(next) {
         client.users.suspend(
+            {
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/blocks/:username (unblockUser)",  function(next) {
+        client.users.unblockUser(
             {
                 username: "String"
             },

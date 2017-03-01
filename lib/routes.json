@@ -559,6 +559,10 @@
                 "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
                 "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
                 "/repos/:owner/:repo/pulls/:number/requested_reviewers"
+            ],
+            "application/vnd.github.giant-sentry-fist-preview+json": [
+                "/user/blocks",
+                "/user/blocks/:username"
             ]
         }
     },
@@ -7081,6 +7085,36 @@
                 "$username": null
             },
             "description": "Unsuspend a user"
+        },
+        "get-blocked-users": {
+            "url": "/user/blocks",
+            "method": "GET",
+            "params": {},
+            "description": "List blocked users. (In preview period. See README.)"
+        },
+        "check-blocked-user": {
+            "url": "/user/blocks/:username",
+            "method": "GET",
+            "params": {
+                "$username": null
+            },
+            "description": "Check whether you've blocked a user. (In preview period. See README.)"
+        },
+        "block-user": {
+            "url": "/user/blocks/:username",
+            "method": "PUT",
+            "params": {
+                "$username": null
+            },
+            "description": "Block a user. (In preview period. See README.)"
+        },
+        "unblock-user": {
+            "url": "/user/blocks/:username",
+            "method": "DELETE",
+            "params": {
+                "$username": null
+            },
+            "description": "Unblock a user. (In preview period. See README.)"
         },
         "get-repo-invites": {
             "url": "/user/repository_invitations",
