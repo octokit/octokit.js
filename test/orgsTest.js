@@ -71,6 +71,34 @@ describe("[orgs]", function() {
         );
     });
 
+    it("should successfully execute PUT /orgs/:org/blocks/:username (blockUser)",  function(next) {
+        client.orgs.blockUser(
+            {
+                org: "String",
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /orgs/:org/blocks/:username (checkBlockedUser)",  function(next) {
+        client.orgs.checkBlockedUser(
+            {
+                org: "String",
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /orgs/:org/members/:username (checkMembership)",  function(next) {
         client.orgs.checkMembership(
             {
@@ -271,6 +299,21 @@ describe("[orgs]", function() {
         client.orgs.getAll(
             {
                 since: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /orgs/:org/blocks (getBlockedUsers)",  function(next) {
+        client.orgs.getBlockedUsers(
+            {
+                org: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -560,6 +603,20 @@ describe("[orgs]", function() {
         client.orgs.removeTeamMembership(
             {
                 id: "String",
+                username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /orgs/:org/blocks/:username (unblockUser)",  function(next) {
+        client.orgs.unblockUser(
+            {
+                org: "String",
                 username: "String"
             },
             function(err, res) {
