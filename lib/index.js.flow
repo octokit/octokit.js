@@ -1781,7 +1781,7 @@ declare module "github" {
     & Page
     & PerPage
     & {
-      affiliation?: "outside"|"all";
+      affiliation?: "outside"|"all"|"direct";
     };
   declare type ReposCheckCollaboratorParams =
     & Owner

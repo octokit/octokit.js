@@ -5177,12 +5177,13 @@
                 "affiliation": {
                     "type": "String",
                     "required": false,
-                    "validation": "^(outside|all)$",
-                    "invalidmsg": "outside, all, default: all",
+                    "validation": "^(outside|all|direct)$",
+                    "invalidmsg": "outside, all, direct, default: all",
                     "description": "Filter collaborators returned by their affiliation.",
                     "enum": [
                         "outside",
-                        "all"
+                        "all",
+                        "direct"
                     ],
                     "default": "all"
                 },
