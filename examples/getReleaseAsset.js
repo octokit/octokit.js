@@ -21,7 +21,7 @@ github.repos.getReleases({
     owner: testRepo.owner,
     repo: testRepo.repo
 }, function(err, res) {
-    var releases = res;
+    var releases = res.data;
     if (releases.length == 0) {
         return;
     }
@@ -34,7 +34,7 @@ github.repos.getReleases({
         repo: testRepo.repo,
         id: releaseId
     }, function(err, res) {
-        var assets = res;
+        var assets = res.data;
         if (assets.length == 0) {
             return;
         }
