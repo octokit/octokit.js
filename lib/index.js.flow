@@ -1139,6 +1139,23 @@ declare module "github" {
     & Org
     & Id
     ;
+  declare type OrgsGetBlockedUsersParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type OrgsCheckBlockedUserParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsBlockUserParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsUnblockUserParams =
+    & Org
+    & Username
+    ;
   declare type ProjectsGetRepoProjectsParams =
     & Owner
     & Repo
@@ -2746,6 +2763,10 @@ declare module "github" {
       editHook(params: OrgsEditHookParams, callback?: Callback): Promise<any>;
       pingHook(params: OrgsPingHookParams, callback?: Callback): Promise<any>;
       deleteHook(params: OrgsDeleteHookParams, callback?: Callback): Promise<any>;
+      getBlockedUsers(params: OrgsGetBlockedUsersParams, callback?: Callback): Promise<any>;
+      checkBlockedUser(params: OrgsCheckBlockedUserParams, callback?: Callback): Promise<any>;
+      blockUser(params: OrgsBlockUserParams, callback?: Callback): Promise<any>;
+      unblockUser(params: OrgsUnblockUserParams, callback?: Callback): Promise<any>;
     };
     projects: {
       getRepoProjects(params: ProjectsGetRepoProjectsParams, callback?: Callback): Promise<any>;

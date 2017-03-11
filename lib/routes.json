@@ -562,7 +562,9 @@
             ],
             "application/vnd.github.giant-sentry-fist-preview+json": [
                 "/user/blocks",
-                "/user/blocks/:username"
+                "/user/blocks/:username",
+                "/orgs/:org/blocks",
+                "/orgs/:org/blocks/:username"
             ]
         }
     },
@@ -3453,6 +3455,43 @@
                 "$id": null
             },
             "description": "Delete a hook"
+        },
+        "get-blocked-users": {
+            "url": "/orgs/:org/blocks",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List blocked users. (In preview period. See README.)"
+        },
+        "check-blocked-user": {
+            "url": "/orgs/:org/blocks/:username",
+            "method": "GET",
+            "params": {
+                "$org": null,
+                "$username": null
+            },
+            "description": "Check whether you've blocked a user. (In preview period. See README.)"
+        },
+        "block-user": {
+            "url": "/orgs/:org/blocks/:username",
+            "method": "PUT",
+            "params": {
+                "$org": null,
+                "$username": null
+            },
+            "description": "Block a user. (In preview period. See README.)"
+        },
+        "unblock-user": {
+            "url": "/orgs/:org/blocks/:username",
+            "method": "DELETE",
+            "params": {
+                "$org": null,
+                "$username": null
+            },
+            "description": "Unblock a user. (In preview period. See README.)"
         }
     },
     "projects": {

@@ -1144,6 +1144,23 @@ declare namespace Github {
     & Org
     & Id
     ;
+  export type OrgsGetBlockedUsersParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  export type OrgsCheckBlockedUserParams =
+    & Org
+    & Username
+    ;
+  export type OrgsBlockUserParams =
+    & Org
+    & Username
+    ;
+  export type OrgsUnblockUserParams =
+    & Org
+    & Username
+    ;
   export type ProjectsGetRepoProjectsParams =
     & Owner
     & Repo
@@ -2761,6 +2778,10 @@ declare class Github {
     editHook(params: Github.OrgsEditHookParams, callback?: Github.Callback): Promise<any>;
     pingHook(params: Github.OrgsPingHookParams, callback?: Github.Callback): Promise<any>;
     deleteHook(params: Github.OrgsDeleteHookParams, callback?: Github.Callback): Promise<any>;
+    getBlockedUsers(params: Github.OrgsGetBlockedUsersParams, callback?: Github.Callback): Promise<any>;
+    checkBlockedUser(params: Github.OrgsCheckBlockedUserParams, callback?: Github.Callback): Promise<any>;
+    blockUser(params: Github.OrgsBlockUserParams, callback?: Github.Callback): Promise<any>;
+    unblockUser(params: Github.OrgsUnblockUserParams, callback?: Github.Callback): Promise<any>;
   };
   projects: {
     getRepoProjects(params: Github.ProjectsGetRepoProjectsParams, callback?: Github.Callback): Promise<any>;
