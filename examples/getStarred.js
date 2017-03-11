@@ -18,7 +18,7 @@ function getRepos(err, res) {
         return false;
     }
 
-    starredRepos = starredRepos.concat(res);
+    starredRepos = starredRepos.concat(res['data']);
     if (github.hasNextPage(res)) {
         github.getNextPage(res, getRepos)
     } else {
