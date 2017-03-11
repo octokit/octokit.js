@@ -14,11 +14,11 @@ github.repos.getAll({
     "affiliation": "owner,organization_member"
 }, function(err, res) {
     if (github.hasNextPage(res)) {
-        console.log(res.length)
+        console.log(res.data.length)
         github.getNextPage(res, nextFunc)
     }
 });
 
 function nextFunc(err, res) {
-    console.log(res.length);
+    console.log(res.data.length);
 }
