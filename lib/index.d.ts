@@ -1806,7 +1806,7 @@ declare namespace Github {
     & Page
     & PerPage
     & {
-      affiliation?: "outside"|"all";
+      affiliation?: "outside"|"all"|"direct";
     };
   export type ReposCheckCollaboratorParams =
     & Owner
