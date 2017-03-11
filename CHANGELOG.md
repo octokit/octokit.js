@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 9.2.0
+
+Features:
+  * Org blocks
+  * Add direct affiliation option for collaborators preview api.
+  * Set accept header on pagination.
+  * Add org blocking preview api.
+  * Support for operations with empty parameters.
+
+Bug fixes:
+  * Fix some examples.
+
 ## 9.1.0
 
 Features:

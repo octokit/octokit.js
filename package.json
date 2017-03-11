@@ -50,7 +50,7 @@
   "apidoc": {
     "title": "node-github",
     "name": "node-github",
-    "version": "9.1.0",
+    "version": "9.2.0",
     "template": {
       "withCompare": true
     }
