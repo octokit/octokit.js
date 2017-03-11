@@ -13,6 +13,9 @@ declare namespace Github {
     | "X-GitHub-OTP"
     ;
 
+  export interface EmptyParams {
+  }
+  
   export interface Options {
     debug?: boolean;
     protocol?: string;
@@ -2599,7 +2602,7 @@ declare class Github {
     getEventsForUser(params: Github.ActivityGetEventsForUserParams, callback?: Github.Callback): Promise<any>;
     getEventsForUserPublic(params: Github.ActivityGetEventsForUserPublicParams, callback?: Github.Callback): Promise<any>;
     getEventsForUserOrg(params: Github.ActivityGetEventsForUserOrgParams, callback?: Github.Callback): Promise<any>;
-    getFeeds(callback?: Github.Callback): Promise<any>;
+    getFeeds(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getNotifications(params: Github.ActivityGetNotificationsParams, callback?: Github.Callback): Promise<any>;
     getNotificationsForUser(params: Github.ActivityGetNotificationsForUserParams, callback?: Github.Callback): Promise<any>;
     markNotificationsAsRead(params: Github.ActivityMarkNotificationsAsReadParams, callback?: Github.Callback): Promise<any>;
@@ -2728,16 +2731,16 @@ declare class Github {
     cancelImport(params: Github.MigrationsCancelImportParams, callback?: Github.Callback): Promise<any>;
   };
   misc: {
-    getEmojis(callback?: Github.Callback): Promise<any>;
-    getGitignoreTemplates(callback?: Github.Callback): Promise<any>;
+    getEmojis(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
+    getGitignoreTemplates(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getGitignoreTemplate(params: Github.MiscGetGitignoreTemplateParams, callback?: Github.Callback): Promise<any>;
-    getLicenses(callback?: Github.Callback): Promise<any>;
+    getLicenses(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getLicense(params: Github.MiscGetLicenseParams, callback?: Github.Callback): Promise<any>;
     getRepoLicense(params: Github.MiscGetRepoLicenseParams, callback?: Github.Callback): Promise<any>;
     renderMarkdown(params: Github.MiscRenderMarkdownParams, callback?: Github.Callback): Promise<any>;
     renderMarkdownRaw(params: Github.MiscRenderMarkdownRawParams, callback?: Github.Callback): Promise<any>;
-    getMeta(callback?: Github.Callback): Promise<any>;
-    getRateLimit(callback?: Github.Callback): Promise<any>;
+    getMeta(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
+    getRateLimit(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
   };
   orgs: {
     getAll(params: Github.OrgsGetAllParams, callback?: Github.Callback): Promise<any>;
@@ -2969,7 +2972,7 @@ declare class Github {
   users: {
     getForUser(params: Github.UsersGetForUserParams, callback?: Github.Callback): Promise<any>;
     getById(params: Github.UsersGetByIdParams, callback?: Github.Callback): Promise<any>;
-    get(callback?: Github.Callback): Promise<any>;
+    get(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     update(params: Github.UsersUpdateParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.UsersGetAllParams, callback?: Github.Callback): Promise<any>;
     getOrgs(params: Github.UsersGetOrgsParams, callback?: Github.Callback): Promise<any>;
@@ -3001,11 +3004,11 @@ declare class Github {
     demote(params: Github.UsersDemoteParams, callback?: Github.Callback): Promise<any>;
     suspend(params: Github.UsersSuspendParams, callback?: Github.Callback): Promise<any>;
     unsuspend(params: Github.UsersUnsuspendParams, callback?: Github.Callback): Promise<any>;
-    getBlockedUsers(callback?: Github.Callback): Promise<any>;
+    getBlockedUsers(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     checkBlockedUser(params: Github.UsersCheckBlockedUserParams, callback?: Github.Callback): Promise<any>;
     blockUser(params: Github.UsersBlockUserParams, callback?: Github.Callback): Promise<any>;
     unblockUser(params: Github.UsersUnblockUserParams, callback?: Github.Callback): Promise<any>;
-    getRepoInvites(callback?: Github.Callback): Promise<any>;
+    getRepoInvites(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     acceptRepoInvite(params: Github.UsersAcceptRepoInviteParams, callback?: Github.Callback): Promise<any>;
     declineRepoInvite(params: Github.UsersDeclineRepoInviteParams, callback?: Github.Callback): Promise<any>;
   };
@@ -3015,16 +3018,16 @@ declare class Github {
     syncLdapForUser(params: Github.EnterpriseSyncLdapForUserParams, callback?: Github.Callback): Promise<any>;
     updateLdapForTeam(params: Github.EnterpriseUpdateLdapForTeamParams, callback?: Github.Callback): Promise<any>;
     syncLdapForTeam(params: Github.EnterpriseSyncLdapForTeamParams, callback?: Github.Callback): Promise<any>;
-    getLicense(callback?: Github.Callback): Promise<any>;
+    getLicense(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getPreReceiveEnvironment(params: Github.EnterpriseGetPreReceiveEnvironmentParams, callback?: Github.Callback): Promise<any>;
-    getPreReceiveEnvironments(callback?: Github.Callback): Promise<any>;
+    getPreReceiveEnvironments(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     createPreReceiveEnvironment(params: Github.EnterpriseCreatePreReceiveEnvironmentParams, callback?: Github.Callback): Promise<any>;
     editPreReceiveEnvironment(params: Github.EnterpriseEditPreReceiveEnvironmentParams, callback?: Github.Callback): Promise<any>;
     deletePreReceiveEnvironment(params: Github.EnterpriseDeletePreReceiveEnvironmentParams, callback?: Github.Callback): Promise<any>;
     getPreReceiveEnvironmentDownloadStatus(params: Github.EnterpriseGetPreReceiveEnvironmentDownloadStatusParams, callback?: Github.Callback): Promise<any>;
     triggerPreReceiveEnvironmentDownload(params: Github.EnterpriseTriggerPreReceiveEnvironmentDownloadParams, callback?: Github.Callback): Promise<any>;
     getPreReceiveHook(params: Github.EnterpriseGetPreReceiveHookParams, callback?: Github.Callback): Promise<any>;
-    getPreReceiveHooks(callback?: Github.Callback): Promise<any>;
+    getPreReceiveHooks(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     createPreReceiveHook(params: Github.EnterpriseCreatePreReceiveHookParams, callback?: Github.Callback): Promise<any>;
     editPreReceiveHook(params: Github.EnterpriseEditPreReceiveHookParams, callback?: Github.Callback): Promise<any>;
     deletePreReceiveHook(params: Github.EnterpriseDeletePreReceiveHookParams, callback?: Github.Callback): Promise<any>;

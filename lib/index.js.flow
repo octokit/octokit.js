@@ -9,6 +9,9 @@ declare module "github" {
     | "X-GitHub-OTP"
     | string;
 
+  declare type EmptyParams = {
+  };
+
   declare type Options = {
     debug?: boolean;
     protocol?: string;
@@ -19,7 +22,7 @@ declare module "github" {
     followRedirects?: boolean;
     timeout?: number;
   };
-
+  
   declare type AuthBasic = {
     type: "basic";
     username: string;
@@ -2584,7 +2587,7 @@ declare module "github" {
       getEventsForUser(params: ActivityGetEventsForUserParams, callback?: Callback): Promise<any>;
       getEventsForUserPublic(params: ActivityGetEventsForUserPublicParams, callback?: Callback): Promise<any>;
       getEventsForUserOrg(params: ActivityGetEventsForUserOrgParams, callback?: Callback): Promise<any>;
-      getFeeds(callback?: Callback): Promise<any>;
+      getFeeds(params: EmptyParams, callback?: Callback): Promise<any>;
       getNotifications(params: ActivityGetNotificationsParams, callback?: Callback): Promise<any>;
       getNotificationsForUser(params: ActivityGetNotificationsForUserParams, callback?: Callback): Promise<any>;
       markNotificationsAsRead(params: ActivityMarkNotificationsAsReadParams, callback?: Callback): Promise<any>;
@@ -2713,16 +2716,16 @@ declare module "github" {
       cancelImport(params: MigrationsCancelImportParams, callback?: Callback): Promise<any>;
     };
     misc: {
-      getEmojis(callback?: Callback): Promise<any>;
-      getGitignoreTemplates(callback?: Callback): Promise<any>;
+      getEmojis(params: EmptyParams, callback?: Callback): Promise<any>;
+      getGitignoreTemplates(params: EmptyParams, callback?: Callback): Promise<any>;
       getGitignoreTemplate(params: MiscGetGitignoreTemplateParams, callback?: Callback): Promise<any>;
-      getLicenses(callback?: Callback): Promise<any>;
+      getLicenses(params: EmptyParams, callback?: Callback): Promise<any>;
       getLicense(params: MiscGetLicenseParams, callback?: Callback): Promise<any>;
       getRepoLicense(params: MiscGetRepoLicenseParams, callback?: Callback): Promise<any>;
       renderMarkdown(params: MiscRenderMarkdownParams, callback?: Callback): Promise<any>;
       renderMarkdownRaw(params: MiscRenderMarkdownRawParams, callback?: Callback): Promise<any>;
-      getMeta(callback?: Callback): Promise<any>;
-      getRateLimit(callback?: Callback): Promise<any>;
+      getMeta(params: EmptyParams, callback?: Callback): Promise<any>;
+      getRateLimit(params: EmptyParams, callback?: Callback): Promise<any>;
     };
     orgs: {
       getAll(params: OrgsGetAllParams, callback?: Callback): Promise<any>;
@@ -2954,7 +2957,7 @@ declare module "github" {
     users: {
       getForUser(params: UsersGetForUserParams, callback?: Callback): Promise<any>;
       getById(params: UsersGetByIdParams, callback?: Callback): Promise<any>;
-      get(callback?: Callback): Promise<any>;
+      get(params: EmptyParams, callback?: Callback): Promise<any>;
       update(params: UsersUpdateParams, callback?: Callback): Promise<any>;
       getAll(params: UsersGetAllParams, callback?: Callback): Promise<any>;
       getOrgs(params: UsersGetOrgsParams, callback?: Callback): Promise<any>;
@@ -2986,11 +2989,11 @@ declare module "github" {
       demote(params: UsersDemoteParams, callback?: Callback): Promise<any>;
       suspend(params: UsersSuspendParams, callback?: Callback): Promise<any>;
       unsuspend(params: UsersUnsuspendParams, callback?: Callback): Promise<any>;
-      getBlockedUsers(callback?: Callback): Promise<any>;
+      getBlockedUsers(params: EmptyParams, callback?: Callback): Promise<any>;
       checkBlockedUser(params: UsersCheckBlockedUserParams, callback?: Callback): Promise<any>;
       blockUser(params: UsersBlockUserParams, callback?: Callback): Promise<any>;
       unblockUser(params: UsersUnblockUserParams, callback?: Callback): Promise<any>;
-      getRepoInvites(callback?: Callback): Promise<any>;
+      getRepoInvites(params: EmptyParams, callback?: Callback): Promise<any>;
       acceptRepoInvite(params: UsersAcceptRepoInviteParams, callback?: Callback): Promise<any>;
       declineRepoInvite(params: UsersDeclineRepoInviteParams, callback?: Callback): Promise<any>;
     };
@@ -3000,16 +3003,16 @@ declare module "github" {
       syncLdapForUser(params: EnterpriseSyncLdapForUserParams, callback?: Callback): Promise<any>;
       updateLdapForTeam(params: EnterpriseUpdateLdapForTeamParams, callback?: Callback): Promise<any>;
       syncLdapForTeam(params: EnterpriseSyncLdapForTeamParams, callback?: Callback): Promise<any>;
-      getLicense(callback?: Callback): Promise<any>;
+      getLicense(params: EmptyParams, callback?: Callback): Promise<any>;
       getPreReceiveEnvironment(params: EnterpriseGetPreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
-      getPreReceiveEnvironments(callback?: Callback): Promise<any>;
+      getPreReceiveEnvironments(params: EmptyParams, callback?: Callback): Promise<any>;
       createPreReceiveEnvironment(params: EnterpriseCreatePreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
       editPreReceiveEnvironment(params: EnterpriseEditPreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
       deletePreReceiveEnvironment(params: EnterpriseDeletePreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
       getPreReceiveEnvironmentDownloadStatus(params: EnterpriseGetPreReceiveEnvironmentDownloadStatusParams, callback?: Callback): Promise<any>;
       triggerPreReceiveEnvironmentDownload(params: EnterpriseTriggerPreReceiveEnvironmentDownloadParams, callback?: Callback): Promise<any>;
       getPreReceiveHook(params: EnterpriseGetPreReceiveHookParams, callback?: Callback): Promise<any>;
-      getPreReceiveHooks(callback?: Callback): Promise<any>;
+      getPreReceiveHooks(params: EmptyParams, callback?: Callback): Promise<any>;
       createPreReceiveHook(params: EnterpriseCreatePreReceiveHookParams, callback?: Callback): Promise<any>;
       editPreReceiveHook(params: EnterpriseEditPreReceiveHookParams, callback?: Callback): Promise<any>;
       deletePreReceiveHook(params: EnterpriseDeletePreReceiveHookParams, callback?: Callback): Promise<any>;

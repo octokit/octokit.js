@@ -9,6 +9,9 @@ declare namespace Github {
     {{/requestHeaders}}
     ;
 
+  export interface EmptyParams {
+  }
+  
   export interface Options {
     debug?: boolean;
     protocol?: string;
@@ -70,6 +73,7 @@ declare namespace Github {
   {{#namespaces}}
   {{#methods}}
   {{#paramTypeName}}
+  {{^exclude}}
   export type {{paramTypeName}} =
     {{#unionTypeNames}}
     & {{.}}
@@ -84,6 +88,7 @@ declare namespace Github {
     {{^ownParams}}
     ;
     {{/ownParams}}
+  {{/exclude}}
   {{/paramTypeName}}
   {{/methods}}
   {{/namespaces}}

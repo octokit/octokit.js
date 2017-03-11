@@ -5,6 +5,9 @@ declare module "github" {
     {{/requestHeaders}}
     | string;
 
+  declare type EmptyParams = {
+  };
+
   declare type Options = {
     debug?: boolean;
     protocol?: string;
@@ -15,7 +18,7 @@ declare module "github" {
     followRedirects?: boolean;
     timeout?: number;
   };
-
+  
   declare type AuthBasic = {
     type: "basic";
     username: string;
@@ -65,6 +68,7 @@ declare module "github" {
   {{#namespaces}}
   {{#methods}}
   {{#paramTypeName}}
+  {{^exclude}}
   declare type {{paramTypeName}} =
     {{#unionTypeNames}}
     & {{.}}
@@ -79,6 +83,7 @@ declare module "github" {
     {{^ownParams}}
     ;
     {{/ownParams}}
+  {{/exclude}}
   {{/paramTypeName}}
   {{/methods}}
   {{/namespaces}}
