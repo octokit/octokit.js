@@ -4092,7 +4092,7 @@
             "description": "Dismiss a pull request review. (In preview period. See README.)"
         },
         "get-comments": {
-            "url": "/repos/:owner/:repo/pulls/:number/comments",
+            "url": "/repos/:owner/:repo/issues/:number/comments",
             "method": "GET",
             "params": {
                 "$owner": null,
