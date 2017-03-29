@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
 <span class="badge-gratipay"><a href="https://gratipay.com/node-github/"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
 
-A Node.js wrapper for GitHub API.
+A Node.js wrapper for GitHub API. x
 
 ## Installation
 
