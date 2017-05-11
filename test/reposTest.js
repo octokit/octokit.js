@@ -1789,6 +1789,7 @@ describe("[repos]", function() {
                 required_status_checks: "Json",
                 required_pull_request_reviews: "Json",
                 restrictions: "Json",
+                enforce_admins: "Boolean",
                 page: "Number",
                 per_page: "Number"
             },

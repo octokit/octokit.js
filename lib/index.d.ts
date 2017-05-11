@@ -1652,6 +1652,7 @@ declare namespace Github {
       required_status_checks: string;
       required_pull_request_reviews: string;
       restrictions: string;
+      enforce_admins: boolean;
     };
   export type ReposRemoveBranchProtectionParams =
     & Owner

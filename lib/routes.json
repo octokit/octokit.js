@@ -4875,6 +4875,14 @@
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled."
                 },
+                "enforce_admins": {
+                    "type": "Boolean",
+                    "required": true,
+                    "allow-null": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Enforces required status checks for repository administrators."
+                },
                 "$page": null,
                 "$per_page": null
             },

@@ -1647,6 +1647,7 @@ declare module "github" {
       required_status_checks: string;
       required_pull_request_reviews: string;
       restrictions: string;
+      enforce_admins: boolean;
     };
   declare type ReposRemoveBranchProtectionParams =
     & Owner
