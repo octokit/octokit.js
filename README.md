@@ -1,5 +1,3 @@
-**NOTE: The `node-github` npm package is deprecated. You want the `github` npm package (see Installation).**
-
 # Node-github
 
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
