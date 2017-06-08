@@ -27,7 +27,7 @@ $ npm install
 
 ## Documentation
 
-Client API: [https://mikedeboer.github.io/node-github/](https://mikedeboer.github.io/node-github/)  
+Client API: [https://mikedeboer.github.io/node-github/](https://mikedeboer.github.io/node-github/)
 GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
 
 ## Example
@@ -46,6 +46,7 @@ var github = new GitHubApi({
         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
     },
     Promise: require('bluebird'),
+    family: 6,
     followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
     timeout: 5000
 });
@@ -65,7 +66,7 @@ github.users.getFollowingForUser({
 
 ## Pagination
 
-There are a few pagination-related methods: 
+There are a few pagination-related methods:
 
 ```
 hasNextPage(link)
@@ -165,7 +166,7 @@ $ > testAuth.json
 
 ## Promises
 
-For using bluebird, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromise.js).  
+For using bluebird, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromise.js).
 For using Q, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromiseQ.js).
 
 ## Tests
