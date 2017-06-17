@@ -4,7 +4,7 @@
 
 declare namespace Github {
   export type WellKnownHeader =
-    | "Authorization"
+      "Authorization"
     | "If-Modified-Since"
     | "If-None-Match"
     | "Cookie"
@@ -55,14 +55,14 @@ declare namespace Github {
   }
 
   export type Auth =
-    | AuthBasic
+      AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
     | AuthJWT;
 
   export type Link =
-    | { link: string; }
+      { link: string; }
     | { meta: { link: string; }; }
     | string;
 
@@ -127,26 +127,26 @@ declare namespace Github {
   export interface Assignees { assignees?: string[]; }
 
   export type AuthorizationGetGrantsParams =
-    & Page
+      Page
     & PerPage
     ;
   export type AuthorizationGetGrantParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   export type AuthorizationDeleteGrantParams =
-    & Id
+      Id
     ;
   export type AuthorizationGetAllParams =
-    & Page
+      Page
     & PerPage
     ;
   export type AuthorizationGetParams =
-    & Id
+      Id
     ;
   export type AuthorizationCreateParams =
-    & Scopes
+      Scopes
     & Note
     & NoteUrl
     & ClientId
@@ -155,7 +155,7 @@ declare namespace Github {
       client_secret?: string;
     };
   export type AuthorizationGetOrCreateAuthorizationForAppParams =
-    & ClientId
+      ClientId
     & Scopes
     & Note
     & NoteUrl
@@ -164,7 +164,7 @@ declare namespace Github {
       client_secret: string;
     };
   export type AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams =
-    & ClientId
+      ClientId
     & Fingerprint
     & Scopes
     & Note
@@ -173,7 +173,7 @@ declare namespace Github {
       client_secret: string;
     };
   export type AuthorizationUpdateParams =
-    & Id
+      Id
     & Scopes
     & Note
     & NoteUrl
@@ -183,82 +183,82 @@ declare namespace Github {
       remove_scopes?: string[];
     };
   export type AuthorizationDeleteParams =
-    & Id
+      Id
     ;
   export type AuthorizationCheckParams =
-    & ClientId
+      ClientId
     & AccessToken
     ;
   export type AuthorizationResetParams =
-    & ClientId
+      ClientId
     & AccessToken
     ;
   export type AuthorizationRevokeParams =
-    & ClientId
+      ClientId
     & AccessToken
     ;
   export type ActivityGetEventsParams =
-    & Page
+      Page
     & PerPage
     ;
   export type ActivityGetEventsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivityGetEventsForRepoIssuesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivityGetEventsForRepoNetworkParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivityGetEventsForOrgParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type ActivityGetEventsReceivedParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type ActivityGetEventsReceivedPublicParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type ActivityGetEventsForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type ActivityGetEventsForUserPublicParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type ActivityGetEventsForUserOrgParams =
-    & Username
+      Username
     & Org
     & Page
     & PerPage
     ;
   export type ActivityGetNotificationsParams =
-    & Since
+      Since
     & {
       all?: boolean;
       participating?: boolean;
       before?: string;
     };
   export type ActivityGetNotificationsForUserParams =
-    & Owner
+      Owner
     & Repo
     & Since
     & {
@@ -267,41 +267,41 @@ declare namespace Github {
       before?: string;
     };
   export type ActivityMarkNotificationsAsReadParams =
-    & {
+    {
       last_read_at?: string;
     };
   export type ActivityMarkNotificationsAsReadForRepoParams =
-    & Owner
+      Owner
     & Repo
     & {
       last_read_at?: string;
     };
   export type ActivityGetNotificationThreadParams =
-    & Id
+      Id
     ;
   export type ActivityMarkNotificationThreadAsReadParams =
-    & Id
+      Id
     ;
   export type ActivityCheckNotificationThreadSubscriptionParams =
-    & Id
+      Id
     ;
   export type ActivitySetNotificationThreadSubscriptionParams =
-    & Id
+      Id
     & {
       subscribed?: boolean;
       ignored?: boolean;
     };
   export type ActivityDeleteNotificationThreadSubscriptionParams =
-    & Id
+      Id
     ;
   export type ActivityGetStargazersForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivityGetStarredReposForUserParams =
-    & Username
+      Username
     & Direction
     & Page
     & PerPage
@@ -309,90 +309,90 @@ declare namespace Github {
       sort?: "created"|"updated";
     };
   export type ActivityGetStarredReposParams =
-    & Direction
+      Direction
     & Page
     & PerPage
     & {
       sort?: "created"|"updated";
     };
   export type ActivityCheckStarringRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivityStarRepoParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ActivityUnstarRepoParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ActivityGetWatchersForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivityGetWatchedReposForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type ActivityGetWatchedReposParams =
-    & Page
+      Page
     & PerPage
     ;
   export type ActivityGetRepoSubscriptionParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ActivitySetRepoSubscriptionParams =
-    & Owner
+      Owner
     & Repo
     & {
       subscribed?: boolean;
       ignored?: boolean;
     };
   export type ActivityUnwatchRepoParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type GistsGetForUserParams =
-    & Username
+      Username
     & Since
     & Page
     & PerPage
     ;
   export type GistsGetAllParams =
-    & Since
+      Since
     & Page
     & PerPage
     ;
   export type GistsGetPublicParams =
-    & Since
+      Since
     ;
   export type GistsGetStarredParams =
-    & Since
+      Since
     ;
   export type GistsGetParams =
-    & Id
+      Id
     ;
   export type GistsGetRevisionParams =
-    & Id
+      Id
     & Sha
     ;
   export type GistsCreateParams =
-    & Files
+      Files
     & Description
     & {
       public: boolean;
     };
   export type GistsEditParams =
-    & Id
+      Id
     & Description
     & Files
     & {
@@ -400,69 +400,69 @@ declare namespace Github {
       filename?: string;
     };
   export type GistsGetCommitsParams =
-    & Id
+      Id
     ;
   export type GistsStarParams =
-    & Id
+      Id
     ;
   export type GistsUnstarParams =
-    & Id
+      Id
     ;
   export type GistsCheckStarParams =
-    & Id
+      Id
     ;
   export type GistsForkParams =
-    & Id
+      Id
     ;
   export type GistsGetForksParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   export type GistsDeleteParams =
-    & Id
+      Id
     ;
   export type GistsGetCommentsParams =
-    & GistId
+      GistId
     ;
   export type GistsGetCommentParams =
-    & GistId
+      GistId
     & Id
     ;
   export type GistsCreateCommentParams =
-    & GistId
+      GistId
     & Body
     ;
   export type GistsEditCommentParams =
-    & GistId
+      GistId
     & Id
     & Body
     ;
   export type GistsDeleteCommentParams =
-    & GistId
+      GistId
     & Id
     ;
   export type GitdataGetBlobParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & Page
     & PerPage
     ;
   export type GitdataCreateBlobParams =
-    & Owner
+      Owner
     & Repo
     & {
       content: string;
       encoding: string;
     };
   export type GitdataGetCommitParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   export type GitdataCreateCommitParams =
-    & Owner
+      Owner
     & Repo
     & {
       message: string;
@@ -472,36 +472,36 @@ declare namespace Github {
       committer?: string;
     };
   export type GitdataGetCommitSignatureVerificationParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   export type GitdataGetReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     ;
   export type GitdataGetReferencesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type GitdataGetTagsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type GitdataCreateReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & {
       ref: string;
     };
   export type GitdataUpdateReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     & Sha
@@ -509,17 +509,17 @@ declare namespace Github {
       force?: boolean;
     };
   export type GitdataDeleteReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     ;
   export type GitdataGetTagParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   export type GitdataCreateTagParams =
-    & Owner
+      Owner
     & Repo
     & {
       tag: string;
@@ -529,51 +529,51 @@ declare namespace Github {
       tagger: string;
     };
   export type GitdataGetTagSignatureVerificationParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   export type GitdataGetTreeParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & {
       recursive?: boolean;
     };
   export type GitdataCreateTreeParams =
-    & Owner
+      Owner
     & Repo
     & {
       tree: string;
       base_tree?: string;
     };
   export type IntegrationsGetInstallationsParams =
-    & Page
+      Page
     & PerPage
     ;
   export type IntegrationsCreateInstallationTokenParams =
-    & InstallationId
+      InstallationId
     & {
       user_id?: string;
     };
   export type IntegrationsGetUserIdentityParams =
-    & {
+    {
       nonce?: string;
     };
   export type IntegrationsGetInstallationRepositoriesParams =
-    & {
+    {
       user_id?: string;
     };
   export type IntegrationsAddRepoToInstallationParams =
-    & InstallationId
+      InstallationId
     & RepositoryId
     ;
   export type IntegrationsRemoveRepoFromInstallationParams =
-    & InstallationId
+      InstallationId
     & RepositoryId
     ;
   export type IssuesGetAllParams =
-    & Direction
+      Direction
     & Since
     & Page
     & PerPage
@@ -584,7 +584,7 @@ declare namespace Github {
       sort?: "created"|"updated"|"comments";
     };
   export type IssuesGetForUserParams =
-    & Direction
+      Direction
     & Since
     & Page
     & PerPage
@@ -595,7 +595,7 @@ declare namespace Github {
       sort?: "created"|"updated"|"comments";
     };
   export type IssuesGetForOrgParams =
-    & Org
+      Org
     & Direction
     & Since
     & Page
@@ -607,7 +607,7 @@ declare namespace Github {
       sort?: "created"|"updated"|"comments";
     };
   export type IssuesGetForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Since
@@ -623,12 +623,12 @@ declare namespace Github {
       sort?: "created"|"updated"|"comments";
     };
   export type IssuesGetParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesCreateParams =
-    & Owner
+      Owner
     & Repo
     & Assignees
     & {
@@ -639,7 +639,7 @@ declare namespace Github {
       labels?: string[];
     };
   export type IssuesEditParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Assignees
@@ -652,47 +652,47 @@ declare namespace Github {
       labels?: string[];
     };
   export type IssuesLockParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesUnlockParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesGetAssigneesParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type IssuesCheckAssigneeParams =
-    & Owner
+      Owner
     & Repo
     & {
       assignee: string;
     };
   export type IssuesAddAssigneesToIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       assignees: string[];
     };
   export type IssuesRemoveAssigneesFromIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Assignees
     ;
   export type IssuesGetCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type IssuesGetCommentsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Since
@@ -702,64 +702,64 @@ declare namespace Github {
       sort?: "created"|"updated";
     };
   export type IssuesGetCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type IssuesCreateCommentParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Body
     ;
   export type IssuesEditCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Body
     ;
   export type IssuesDeleteCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type IssuesGetEventsParams =
-    & Owner
+      Owner
     & Repo
     & IssueNumber
     & Page
     & PerPage
     ;
   export type IssuesGetEventsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type IssuesGetEventParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type IssuesGetLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type IssuesGetLabelParams =
-    & Owner
+      Owner
     & Repo
     & Name
     ;
   export type IssuesCreateLabelParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & Color
     ;
   export type IssuesUpdateLabelParams =
-    & Owner
+      Owner
     & Repo
     & Color
     & {
@@ -767,48 +767,48 @@ declare namespace Github {
       name: string;
     };
   export type IssuesDeleteLabelParams =
-    & Owner
+      Owner
     & Repo
     & Name
     ;
   export type IssuesGetIssueLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesAddLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       labels: string[];
     };
   export type IssuesRemoveLabelParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       name: string;
     };
   export type IssuesReplaceAllLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       labels: string[];
     };
   export type IssuesRemoveAllLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesGetMilestoneLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesGetMilestonesParams =
-    & Owner
+      Owner
     & Repo
     & State
     & Page
@@ -818,12 +818,12 @@ declare namespace Github {
       direction?: "asc"|"desc";
     };
   export type IssuesGetMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesCreateMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & State
     & Description
@@ -832,7 +832,7 @@ declare namespace Github {
       due_on?: Date;
     };
   export type IssuesUpdateMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & State
@@ -842,49 +842,49 @@ declare namespace Github {
       due_on?: Date;
     };
   export type IssuesDeleteMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type IssuesGetEventsTimelineParams =
-    & Owner
+      Owner
     & Repo
     & IssueNumber
     & Page
     & PerPage
     ;
   export type MigrationsStartMigrationParams =
-    & Org
+      Org
     & {
       repositories: string[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
   export type MigrationsGetMigrationsParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type MigrationsGetMigrationStatusParams =
-    & Org
+      Org
     & Id
     ;
   export type MigrationsGetMigrationArchiveLinkParams =
-    & Org
+      Org
     & Id
     ;
   export type MigrationsDeleteMigrationArchiveParams =
-    & Org
+      Org
     & Id
     ;
   export type MigrationsUnlockRepoLockedForMigrationParams =
-    & Org
+      Org
     & Id
     & {
       repo_name: string;
     };
   export type MigrationsStartImportParams =
-    & Owner
+      Owner
     & Repo
     & {
       vcs_url: string;
@@ -894,21 +894,21 @@ declare namespace Github {
       tfvc_project?: string;
     };
   export type MigrationsGetImportProgressParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type MigrationsUpdateImportParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type MigrationsGetImportCommitAuthorsParams =
-    & Owner
+      Owner
     & Repo
     & {
       since?: string;
     };
   export type MigrationsMapImportCommitAuthorParams =
-    & Owner
+      Owner
     & Repo
     & {
       author_id: string;
@@ -916,58 +916,58 @@ declare namespace Github {
       name?: string;
     };
   export type MigrationsSetImportLfsPreferenceParams =
-    & Owner
+      Owner
     & Name
     & {
       use_lfs: string;
     };
   export type MigrationsGetLargeImportFilesParams =
-    & Owner
+      Owner
     & Name
     ;
   export type MigrationsCancelImportParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type MiscGetGitignoreTemplateParams =
-    & {
+    {
       name: string;
     };
   export type MiscGetLicenseParams =
-    & {
+    {
       license: string;
     };
   export type MiscGetRepoLicenseParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type MiscRenderMarkdownParams =
-    & {
+    {
       text: string;
       mode?: "markdown"|"gfm";
       context?: string;
     };
   export type MiscRenderMarkdownRawParams =
-    & Data
+      Data
     ;
   export type OrgsGetAllParams =
-    & Page
+      Page
     & PerPage
     & {
       since?: string;
     };
   export type OrgsGetForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type OrgsGetParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type OrgsUpdateParams =
-    & Org
+      Org
     & {
       billing_email?: string;
       company?: string;
@@ -979,7 +979,7 @@ declare namespace Github {
       members_can_create_repositories?: boolean;
     };
   export type OrgsGetMembersParams =
-    & Org
+      Org
     & Page
     & PerPage
     & {
@@ -987,68 +987,68 @@ declare namespace Github {
       role?: "all"|"admin"|"member";
     };
   export type OrgsCheckMembershipParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsRemoveMemberParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsGetPublicMembersParams =
-    & Org
+      Org
     ;
   export type OrgsCheckPublicMembershipParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsPublicizeMembershipParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsConcealMembershipParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsGetOrgMembershipParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsAddOrgMembershipParams =
-    & Org
+      Org
     & Username
     & {
       role: "admin"|"member";
     };
   export type OrgsRemoveOrgMembershipParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsGetPendingOrgInvitesParams =
-    & Org
+      Org
     ;
   export type OrgsGetOutsideCollaboratorsParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type OrgsRemoveOutsideCollaboratorParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsConvertMemberToOutsideCollaboratorParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsGetTeamsParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type OrgsGetTeamParams =
-    & Id
+      Id
     ;
   export type OrgsCreateTeamParams =
-    & Org
+      Org
     & Name
     & Privacy
     & {
@@ -1057,74 +1057,74 @@ declare namespace Github {
       repo_names?: string[];
     };
   export type OrgsEditTeamParams =
-    & Id
+      Id
     & Name
     & Privacy
     & {
       description?: string;
     };
   export type OrgsDeleteTeamParams =
-    & Id
+      Id
     ;
   export type OrgsGetTeamMembersParams =
-    & Id
+      Id
     & Page
     & PerPage
     & {
       role?: "member"|"maintainer"|"all";
     };
   export type OrgsGetTeamMembershipParams =
-    & Id
+      Id
     & Username
     ;
   export type OrgsAddTeamMembershipParams =
-    & Id
+      Id
     & Username
     & {
       role?: "member"|"maintainer";
     };
   export type OrgsRemoveTeamMembershipParams =
-    & Id
+      Id
     & Username
     ;
   export type OrgsGetTeamReposParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   export type OrgsGetPendingTeamInvitesParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   export type OrgsCheckTeamRepoParams =
-    & Id
+      Id
     & Owner
     & Repo
     ;
   export type OrgsAddTeamRepoParams =
-    & Id
+      Id
     & Org
     & Repo
     & {
       permission?: "pull"|"push"|"admin";
     };
   export type OrgsDeleteTeamRepoParams =
-    & Id
+      Id
     & Owner
     & Repo
     ;
   export type OrgsGetHooksParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type OrgsGetHookParams =
-    & Org
+      Org
     & Id
     ;
   export type OrgsCreateHookParams =
-    & Org
+      Org
     & {
       name: string;
       config: string;
@@ -1132,7 +1132,7 @@ declare namespace Github {
       active?: boolean;
     };
   export type OrgsEditHookParams =
-    & Org
+      Org
     & Id
     & {
       config: string;
@@ -1140,113 +1140,113 @@ declare namespace Github {
       active?: boolean;
     };
   export type OrgsPingHookParams =
-    & Org
+      Org
     & Id
     ;
   export type OrgsDeleteHookParams =
-    & Org
+      Org
     & Id
     ;
   export type OrgsGetBlockedUsersParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   export type OrgsCheckBlockedUserParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsBlockUserParams =
-    & Org
+      Org
     & Username
     ;
   export type OrgsUnblockUserParams =
-    & Org
+      Org
     & Username
     ;
   export type ProjectsGetRepoProjectsParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ProjectsGetOrgProjectsParams =
-    & Org
+      Org
     ;
   export type ProjectsGetProjectParams =
-    & Id
+      Id
     ;
   export type ProjectsCreateRepoProjectParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & {
       body?: string;
     };
   export type ProjectsCreateOrgProjectParams =
-    & Org
+      Org
     & Name
     & {
       body?: string;
     };
   export type ProjectsUpdateProjectParams =
-    & Id
+      Id
     & Name
     & {
       body?: string;
     };
   export type ProjectsDeleteProjectParams =
-    & Id
+      Id
     ;
   export type ProjectsGetProjectCardsParams =
-    & ColumnId
+      ColumnId
     ;
   export type ProjectsGetProjectCardParams =
-    & Id
+      Id
     ;
   export type ProjectsCreateProjectCardParams =
-    & ColumnId
+      ColumnId
     & {
       note?: string;
       content_id?: string;
       content_type?: string;
     };
   export type ProjectsUpdateProjectCardParams =
-    & Id
+      Id
     & {
       note?: string;
     };
   export type ProjectsDeleteProjectCardParams =
-    & Id
+      Id
     ;
   export type ProjectsMoveProjectCardParams =
-    & Id
+      Id
     & {
       position: string;
       column_id?: string;
     };
   export type ProjectsGetProjectColumnsParams =
-    & ProjectId
+      ProjectId
     ;
   export type ProjectsGetProjectColumnParams =
-    & Id
+      Id
     ;
   export type ProjectsCreateProjectColumnParams =
-    & ProjectId
+      ProjectId
     & Name
     ;
   export type ProjectsUpdateProjectColumnParams =
-    & Id
+      Id
     & Name
     ;
   export type ProjectsDeleteProjectColumnParams =
-    & Id
+      Id
     ;
   export type ProjectsMoveProjectColumnParams =
-    & Id
+      Id
     & {
       position: string;
     };
   export type PullRequestsGetAllParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Page
@@ -1258,12 +1258,12 @@ declare namespace Github {
       sort?: "created"|"updated"|"popularity"|"long-running";
     };
   export type PullRequestsGetParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   export type PullRequestsCreateParams =
-    & Owner
+      Owner
     & Repo
     & Head
     & Base
@@ -1273,7 +1273,7 @@ declare namespace Github {
       maintainer_can_modify?: boolean;
     };
   export type PullRequestsCreateFromIssueParams =
-    & Owner
+      Owner
     & Repo
     & Head
     & Base
@@ -1281,7 +1281,7 @@ declare namespace Github {
       issue: number;
     };
   export type PullRequestsUpdateParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & State
@@ -1291,28 +1291,28 @@ declare namespace Github {
       base?: string;
     };
   export type PullRequestsGetCommitsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type PullRequestsGetFilesParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type PullRequestsCheckMergedParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type PullRequestsMergeParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
@@ -1322,20 +1322,20 @@ declare namespace Github {
       merge_method?: "merge"|"squash"|"rebase";
     };
   export type PullRequestsGetReviewsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type PullRequestsGetReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
     ;
   export type PullRequestsGetReviewCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
@@ -1343,7 +1343,7 @@ declare namespace Github {
     & PerPage
     ;
   export type PullRequestsCreateReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
@@ -1354,7 +1354,7 @@ declare namespace Github {
       position?: number;
     };
   export type PullRequestsSubmitReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
@@ -1363,7 +1363,7 @@ declare namespace Github {
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   export type PullRequestsDismissReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
@@ -1373,14 +1373,14 @@ declare namespace Github {
       message?: string;
     };
   export type PullRequestsGetCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type PullRequestsGetCommentsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Since
@@ -1390,12 +1390,12 @@ declare namespace Github {
       sort?: "created"|"updated";
     };
   export type PullRequestsGetCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type PullRequestsCreateCommentParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Body
@@ -1404,7 +1404,7 @@ declare namespace Github {
     & Position
     ;
   export type PullRequestsCreateCommentReplyParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Body
@@ -1412,98 +1412,98 @@ declare namespace Github {
       in_reply_to: number;
     };
   export type PullRequestsEditCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Body
     ;
   export type PullRequestsDeleteCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type PullRequestsGetReviewRequestsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   export type PullRequestsCreateReviewRequestParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       reviewers?: string[];
     };
   export type PullRequestsDeleteReviewRequestParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       reviewers?: string[];
     };
   export type ReactionsGetForCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsGetForIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsGetForIssueCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForIssueCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsGetForPullRequestReviewCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForPullRequestReviewCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsDeleteParams =
-    & Id
+      Id
     ;
   export type ReposGetAllParams =
-    & Direction
+      Direction
     & Page
     & PerPage
     & {
@@ -1513,7 +1513,7 @@ declare namespace Github {
       sort?: "created"|"updated"|"pushed"|"full_name";
     };
   export type ReposGetForUserParams =
-    & Username
+      Username
     & Direction
     & Page
     & PerPage
@@ -1522,21 +1522,21 @@ declare namespace Github {
       sort?: "created"|"updated"|"pushed"|"full_name";
     };
   export type ReposGetForOrgParams =
-    & Org
+      Org
     & Page
     & PerPage
     & {
       type?: "all"|"public"|"private"|"forks"|"sources"|"member";
     };
   export type ReposGetPublicParams =
-    & {
+    {
       since?: string;
     };
   export type ReposGetByIdParams =
-    & Id
+      Id
     ;
   export type ReposCreateParams =
-    & Name
+      Name
     & Description
     & Homepage
     & Private
@@ -1553,11 +1553,11 @@ declare namespace Github {
       allow_rebase_merge?: boolean;
     };
   export type ReposGetParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposCreateForOrgParams =
-    & Org
+      Org
     & Name
     & Description
     & Homepage
@@ -1575,7 +1575,7 @@ declare namespace Github {
       allow_rebase_merge?: boolean;
     };
   export type ReposEditParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & Description
@@ -1591,7 +1591,7 @@ declare namespace Github {
       allow_rebase_merge?: boolean;
     };
   export type ReposGetContributorsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1599,29 +1599,29 @@ declare namespace Github {
       anon?: boolean;
     };
   export type ReposGetLanguagesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetTeamsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetTagsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposDeleteParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetBranchesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1629,21 +1629,21 @@ declare namespace Github {
       protected?: boolean;
     };
   export type ReposGetBranchParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposGetBranchProtectionParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposUpdateBranchProtectionParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
@@ -1654,21 +1654,21 @@ declare namespace Github {
       restrictions: string;
     };
   export type ReposRemoveBranchProtectionParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposGetProtectedBranchRequiredStatusChecksParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposUpdateProtectedBranchRequiredStatusChecksParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
@@ -1679,129 +1679,129 @@ declare namespace Github {
       contexts?: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       contexts: string[];
     };
   export type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       contexts: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       contexts: string[];
     };
   export type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       include_admins?: boolean;
     };
   export type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     ;
   export type ReposGetProtectedBranchRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposRemoveProtectedBranchRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     ;
   export type ReposGetProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposReplaceProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       teams: string[];
     };
   export type ReposAddProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       teams: string[];
     };
   export type ReposRemoveProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       teams: string[];
     };
   export type ReposGetProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   export type ReposReplaceProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       users: string[];
     };
   export type ReposAddProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       users: string[];
     };
   export type ReposRemoveProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       users: string[];
     };
   export type ReposGetCollaboratorsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1809,35 +1809,35 @@ declare namespace Github {
       affiliation?: "outside"|"all"|"direct";
     };
   export type ReposCheckCollaboratorParams =
-    & Owner
+      Owner
     & Repo
     & Username
     ;
   export type ReposReviewUserPermissionLevelParams =
-    & Owner
+      Owner
     & Repo
     & Username
     ;
   export type ReposAddCollaboratorParams =
-    & Owner
+      Owner
     & Repo
     & Username
     & {
       permission?: "pull"|"push"|"admin";
     };
   export type ReposRemoveCollaboratorParams =
-    & Owner
+      Owner
     & Repo
     & Username
     ;
   export type ReposGetAllCommitCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetCommitCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1845,7 +1845,7 @@ declare namespace Github {
       ref: string;
     };
   export type ReposCreateCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & Body
@@ -1855,26 +1855,26 @@ declare namespace Github {
       line?: number;
     };
   export type ReposGetCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposUpdateCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Body
     ;
   export type ReposDeleteCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetCommunityHealthMetricsParams =
-    & RepoId
+      RepoId
     ;
   export type ReposGetCommitsParams =
-    & Owner
+      Owner
     & Repo
     & Since
     & Until
@@ -1886,36 +1886,36 @@ declare namespace Github {
       author?: string;
     };
   export type ReposGetCommitParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   export type ReposGetShaOfCommitRefParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     ;
   export type ReposCompareCommitsParams =
-    & Owner
+      Owner
     & Repo
     & Base
     & Head
     ;
   export type ReposGetReadmeParams =
-    & Owner
+      Owner
     & Repo
     & {
       ref?: string;
     };
   export type ReposGetContentParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
       ref?: string;
     };
   export type ReposCreateFileParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
@@ -1925,7 +1925,7 @@ declare namespace Github {
       committer?: string;
     };
   export type ReposUpdateFileParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
@@ -1936,7 +1936,7 @@ declare namespace Github {
       committer?: string;
     };
   export type ReposDeleteFileParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
@@ -1946,25 +1946,25 @@ declare namespace Github {
       committer?: string;
     };
   export type ReposGetArchiveLinkParams =
-    & Owner
+      Owner
     & Repo
     & {
       archive_format: "tarball"|"zipball";
       ref?: string;
     };
   export type ReposGetKeysParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetKeyParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposCreateKeyParams =
-    & Owner
+      Owner
     & Repo
     & Title
     & Key
@@ -1972,12 +1972,12 @@ declare namespace Github {
       read_only?: boolean;
     };
   export type ReposDeleteKeyParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetDeploymentsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1988,7 +1988,7 @@ declare namespace Github {
       environment?: string;
     };
   export type ReposCreateDeploymentParams =
-    & Owner
+      Owner
     & Repo
     & {
       ref: string;
@@ -2002,12 +2002,12 @@ declare namespace Github {
       production_environment?: boolean;
     };
   export type ReposGetDeploymentStatusesParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposCreateDeploymentStatusParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
@@ -2019,23 +2019,23 @@ declare namespace Github {
       auto_inactive?: boolean;
     };
   export type ReposGetDownloadsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetDownloadParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposDeleteDownloadParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetForksParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -2043,26 +2043,26 @@ declare namespace Github {
       sort?: "newest"|"oldest"|"stargazers";
     };
   export type ReposForkParams =
-    & Owner
+      Owner
     & Repo
     & {
       organization?: string;
     };
   export type ReposGetInvitesParams =
-    & RepoId
+      RepoId
     ;
   export type ReposDeleteInviteParams =
-    & RepoId
+      RepoId
     & InvitationId
     ;
   export type ReposUpdateInviteParams =
-    & RepoId
+      RepoId
     & InvitationId
     & {
       permission?: "read"|"write"|"admin";
     };
   export type ReposMergeParams =
-    & Owner
+      Owner
     & Repo
     & Base
     & Head
@@ -2070,53 +2070,53 @@ declare namespace Github {
       commit_message?: string;
     };
   export type ReposGetPagesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposRequestPageBuildParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetPagesBuildsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetLatestPagesBuildParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetPagesBuildParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetReleasesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetReleaseParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetLatestReleaseParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetReleaseByTagParams =
-    & Owner
+      Owner
     & Repo
     & {
       tag: string;
     };
   export type ReposCreateReleaseParams =
-    & Owner
+      Owner
     & Repo
     & {
       tag_name: string;
@@ -2127,7 +2127,7 @@ declare namespace Github {
       prerelease?: boolean;
     };
   export type ReposEditReleaseParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
@@ -2139,22 +2139,22 @@ declare namespace Github {
       prerelease?: boolean;
     };
   export type ReposDeleteReleaseParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetAssetsParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposUploadAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
@@ -2163,7 +2163,7 @@ declare namespace Github {
       label?: string;
     };
   export type ReposEditAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Name
@@ -2171,32 +2171,32 @@ declare namespace Github {
       label?: string;
     };
   export type ReposDeleteAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposGetStatsContributorsParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetStatsCommitActivityParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetStatsCodeFrequencyParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetStatsParticipationParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposGetStatsPunchCardParams =
-    & Owner
+      Owner
     & Repo
     ;
   export type ReposCreateStatusParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & {
@@ -2206,7 +2206,7 @@ declare namespace Github {
       context?: string;
     };
   export type ReposGetStatusesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -2214,7 +2214,7 @@ declare namespace Github {
       ref: string;
     };
   export type ReposGetCombinedStatusParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -2222,42 +2222,42 @@ declare namespace Github {
       ref: string;
     };
   export type ReposGetReferrersParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetPathsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetViewsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetClonesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetHooksParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   export type ReposGetHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposCreateHookParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & {
@@ -2266,7 +2266,7 @@ declare namespace Github {
       active?: boolean;
     };
   export type ReposEditHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Name
@@ -2278,22 +2278,22 @@ declare namespace Github {
       active?: boolean;
     };
   export type ReposTestHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposPingHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type ReposDeleteHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   export type SearchReposParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2301,7 +2301,7 @@ declare namespace Github {
       sort?: "stars"|"forks"|"updated";
     };
   export type SearchCodeParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2309,7 +2309,7 @@ declare namespace Github {
       sort?: "indexed";
     };
   export type SearchCommitsParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2317,7 +2317,7 @@ declare namespace Github {
       sort?: "author-date"|"committer-date";
     };
   export type SearchIssuesParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2325,7 +2325,7 @@ declare namespace Github {
       sort?: "comments"|"created"|"updated";
     };
   export type SearchUsersParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2333,17 +2333,17 @@ declare namespace Github {
       sort?: "followers"|"repositories"|"joined";
     };
   export type SearchEmailParams =
-    & {
+    {
       email: string;
     };
   export type UsersGetForUserParams =
-    & Username
+      Username
     ;
   export type UsersGetByIdParams =
-    & Id
+      Id
     ;
   export type UsersUpdateParams =
-    & {
+    {
       name?: string;
       email?: string;
       blog?: string;
@@ -2353,182 +2353,182 @@ declare namespace Github {
       bio?: string;
     };
   export type UsersGetAllParams =
-    & {
+    {
       since?: number;
     };
   export type UsersGetOrgsParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersGetOrgMembershipsParams =
-    & {
+    {
       state?: "active"|"pending";
     };
   export type UsersGetOrgMembershipParams =
-    & Org
+      Org
     ;
   export type UsersEditOrgMembershipParams =
-    & Org
+      Org
     & {
       state: "active";
     };
   export type UsersGetTeamsParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersGetEmailsParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersAddEmailsParams =
-    & {
+    {
       emails: string[];
     };
   export type UsersDeleteEmailsParams =
-    & {
+    {
       emails: string[];
     };
   export type UsersGetFollowersForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type UsersGetFollowersParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersGetFollowingForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type UsersGetFollowingParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersCheckFollowingParams =
-    & Username
+      Username
     ;
   export type UsersCheckIfOneFollowersOtherParams =
-    & Username
+      Username
     & {
       target_user: string;
     };
   export type UsersFollowUserParams =
-    & Username
+      Username
     ;
   export type UsersUnfollowUserParams =
-    & Username
+      Username
     ;
   export type UsersGetKeysForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   export type UsersGetKeysParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersGetKeyParams =
-    & Id
+      Id
     ;
   export type UsersCreateKeyParams =
-    & Title
+      Title
     & Key
     ;
   export type UsersDeleteKeyParams =
-    & Id
+      Id
     ;
   export type UsersGetGpgKeysParams =
-    & Page
+      Page
     & PerPage
     ;
   export type UsersGetGpgKeyParams =
-    & Id
+      Id
     ;
   export type UsersCreateGpgKeyParams =
-    & {
+    {
       armored_public_key: string;
     };
   export type UsersDeleteGpgKeyParams =
-    & Id
+      Id
     ;
   export type UsersPromoteParams =
-    & Username
+      Username
     ;
   export type UsersDemoteParams =
-    & Username
+      Username
     ;
   export type UsersSuspendParams =
-    & Username
+      Username
     ;
   export type UsersUnsuspendParams =
-    & Username
+      Username
     ;
   export type UsersCheckBlockedUserParams =
-    & Username
+      Username
     ;
   export type UsersBlockUserParams =
-    & Username
+      Username
     ;
   export type UsersUnblockUserParams =
-    & Username
+      Username
     ;
   export type UsersAcceptRepoInviteParams =
-    & InvitationId
+      InvitationId
     ;
   export type UsersDeclineRepoInviteParams =
-    & InvitationId
+      InvitationId
     ;
   export type EnterpriseStatsParams =
-    & {
+    {
       type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
     };
   export type EnterpriseUpdateLdapForUserParams =
-    & Username
+      Username
     & {
       ldap_dn: string;
     };
   export type EnterpriseSyncLdapForUserParams =
-    & Username
+      Username
     ;
   export type EnterpriseUpdateLdapForTeamParams =
-    & {
+    {
       team_id: number;
       ldap_dn: string;
     };
   export type EnterpriseSyncLdapForTeamParams =
-    & {
+    {
       team_id: number;
     };
   export type EnterpriseGetPreReceiveEnvironmentParams =
-    & Id
+      Id
     ;
   export type EnterpriseCreatePreReceiveEnvironmentParams =
-    & {
+    {
       name: string;
       image_url: string;
     };
   export type EnterpriseEditPreReceiveEnvironmentParams =
-    & Id
+      Id
     & {
       name: string;
       image_url: string;
     };
   export type EnterpriseDeletePreReceiveEnvironmentParams =
-    & Id
+      Id
     ;
   export type EnterpriseGetPreReceiveEnvironmentDownloadStatusParams =
-    & Id
+      Id
     ;
   export type EnterpriseTriggerPreReceiveEnvironmentDownloadParams =
-    & Id
+      Id
     ;
   export type EnterpriseGetPreReceiveHookParams =
-    & Id
+      Id
     ;
   export type EnterpriseCreatePreReceiveHookParams =
-    & {
+    {
       name: string;
       script: string;
       script_repository: string;
@@ -2537,19 +2537,19 @@ declare namespace Github {
       allow_downstream_configuration?: boolean;
     };
   export type EnterpriseEditPreReceiveHookParams =
-    & Id
+      Id
     & {
       hook: string;
     };
   export type EnterpriseDeletePreReceiveHookParams =
-    & Id
+      Id
     ;
   export type EnterpriseQueueIndexingJobParams =
-    & {
+    {
       target: string;
     };
   export type EnterpriseCreateOrgParams =
-    & {
+    {
       login: string;
       admin: string;
       profile_name?: string;

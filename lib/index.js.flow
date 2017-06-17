@@ -1,6 +1,6 @@
 declare module "github" {
   declare type Header =
-    | "Authorization"
+      "Authorization"
     | "If-Modified-Since"
     | "If-None-Match"
     | "Cookie"
@@ -51,14 +51,14 @@ declare module "github" {
   };
 
   declare type Auth =
-    | AuthBasic
+      AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
     | AuthJWT;
 
   declare type Link =
-    | { link: string; }
+      { link: string; }
     | { meta: { link: string; }; }
     | string
     | any;
@@ -122,26 +122,26 @@ declare module "github" {
   declare type Assignees = { assignees?: string[]; };
 
   declare type AuthorizationGetGrantsParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type AuthorizationGetGrantParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   declare type AuthorizationDeleteGrantParams =
-    & Id
+      Id
     ;
   declare type AuthorizationGetAllParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type AuthorizationGetParams =
-    & Id
+      Id
     ;
   declare type AuthorizationCreateParams =
-    & Scopes
+      Scopes
     & Note
     & NoteUrl
     & ClientId
@@ -150,7 +150,7 @@ declare module "github" {
       client_secret?: string;
     };
   declare type AuthorizationGetOrCreateAuthorizationForAppParams =
-    & ClientId
+      ClientId
     & Scopes
     & Note
     & NoteUrl
@@ -159,7 +159,7 @@ declare module "github" {
       client_secret: string;
     };
   declare type AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams =
-    & ClientId
+      ClientId
     & Fingerprint
     & Scopes
     & Note
@@ -168,7 +168,7 @@ declare module "github" {
       client_secret: string;
     };
   declare type AuthorizationUpdateParams =
-    & Id
+      Id
     & Scopes
     & Note
     & NoteUrl
@@ -178,82 +178,82 @@ declare module "github" {
       remove_scopes?: string[];
     };
   declare type AuthorizationDeleteParams =
-    & Id
+      Id
     ;
   declare type AuthorizationCheckParams =
-    & ClientId
+      ClientId
     & AccessToken
     ;
   declare type AuthorizationResetParams =
-    & ClientId
+      ClientId
     & AccessToken
     ;
   declare type AuthorizationRevokeParams =
-    & ClientId
+      ClientId
     & AccessToken
     ;
   declare type ActivityGetEventsParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type ActivityGetEventsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsForRepoIssuesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsForRepoNetworkParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsForOrgParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsReceivedParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsReceivedPublicParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsForUserPublicParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type ActivityGetEventsForUserOrgParams =
-    & Username
+      Username
     & Org
     & Page
     & PerPage
     ;
   declare type ActivityGetNotificationsParams =
-    & Since
+      Since
     & {
       all?: boolean;
       participating?: boolean;
       before?: string;
     };
   declare type ActivityGetNotificationsForUserParams =
-    & Owner
+      Owner
     & Repo
     & Since
     & {
@@ -262,41 +262,41 @@ declare module "github" {
       before?: string;
     };
   declare type ActivityMarkNotificationsAsReadParams =
-    & {
+    {
       last_read_at?: string;
     };
   declare type ActivityMarkNotificationsAsReadForRepoParams =
-    & Owner
+      Owner
     & Repo
     & {
       last_read_at?: string;
     };
   declare type ActivityGetNotificationThreadParams =
-    & Id
+      Id
     ;
   declare type ActivityMarkNotificationThreadAsReadParams =
-    & Id
+      Id
     ;
   declare type ActivityCheckNotificationThreadSubscriptionParams =
-    & Id
+      Id
     ;
   declare type ActivitySetNotificationThreadSubscriptionParams =
-    & Id
+      Id
     & {
       subscribed?: boolean;
       ignored?: boolean;
     };
   declare type ActivityDeleteNotificationThreadSubscriptionParams =
-    & Id
+      Id
     ;
   declare type ActivityGetStargazersForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivityGetStarredReposForUserParams =
-    & Username
+      Username
     & Direction
     & Page
     & PerPage
@@ -304,90 +304,90 @@ declare module "github" {
       sort?: "created"|"updated";
     };
   declare type ActivityGetStarredReposParams =
-    & Direction
+      Direction
     & Page
     & PerPage
     & {
       sort?: "created"|"updated";
     };
   declare type ActivityCheckStarringRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivityStarRepoParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ActivityUnstarRepoParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ActivityGetWatchersForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivityGetWatchedReposForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type ActivityGetWatchedReposParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type ActivityGetRepoSubscriptionParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ActivitySetRepoSubscriptionParams =
-    & Owner
+      Owner
     & Repo
     & {
       subscribed?: boolean;
       ignored?: boolean;
     };
   declare type ActivityUnwatchRepoParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type GistsGetForUserParams =
-    & Username
+      Username
     & Since
     & Page
     & PerPage
     ;
   declare type GistsGetAllParams =
-    & Since
+      Since
     & Page
     & PerPage
     ;
   declare type GistsGetPublicParams =
-    & Since
+      Since
     ;
   declare type GistsGetStarredParams =
-    & Since
+      Since
     ;
   declare type GistsGetParams =
-    & Id
+      Id
     ;
   declare type GistsGetRevisionParams =
-    & Id
+      Id
     & Sha
     ;
   declare type GistsCreateParams =
-    & Files
+      Files
     & Description
     & {
       public: boolean;
     };
   declare type GistsEditParams =
-    & Id
+      Id
     & Description
     & Files
     & {
@@ -395,69 +395,69 @@ declare module "github" {
       filename?: string;
     };
   declare type GistsGetCommitsParams =
-    & Id
+      Id
     ;
   declare type GistsStarParams =
-    & Id
+      Id
     ;
   declare type GistsUnstarParams =
-    & Id
+      Id
     ;
   declare type GistsCheckStarParams =
-    & Id
+      Id
     ;
   declare type GistsForkParams =
-    & Id
+      Id
     ;
   declare type GistsGetForksParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   declare type GistsDeleteParams =
-    & Id
+      Id
     ;
   declare type GistsGetCommentsParams =
-    & GistId
+      GistId
     ;
   declare type GistsGetCommentParams =
-    & GistId
+      GistId
     & Id
     ;
   declare type GistsCreateCommentParams =
-    & GistId
+      GistId
     & Body
     ;
   declare type GistsEditCommentParams =
-    & GistId
+      GistId
     & Id
     & Body
     ;
   declare type GistsDeleteCommentParams =
-    & GistId
+      GistId
     & Id
     ;
   declare type GitdataGetBlobParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & Page
     & PerPage
     ;
   declare type GitdataCreateBlobParams =
-    & Owner
+      Owner
     & Repo
     & {
       content: string;
       encoding: string;
     };
   declare type GitdataGetCommitParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   declare type GitdataCreateCommitParams =
-    & Owner
+      Owner
     & Repo
     & {
       message: string;
@@ -467,36 +467,36 @@ declare module "github" {
       committer?: string;
     };
   declare type GitdataGetCommitSignatureVerificationParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   declare type GitdataGetReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     ;
   declare type GitdataGetReferencesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type GitdataGetTagsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type GitdataCreateReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & {
       ref: string;
     };
   declare type GitdataUpdateReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     & Sha
@@ -504,17 +504,17 @@ declare module "github" {
       force?: boolean;
     };
   declare type GitdataDeleteReferenceParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     ;
   declare type GitdataGetTagParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   declare type GitdataCreateTagParams =
-    & Owner
+      Owner
     & Repo
     & {
       tag: string;
@@ -524,51 +524,51 @@ declare module "github" {
       tagger: string;
     };
   declare type GitdataGetTagSignatureVerificationParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   declare type GitdataGetTreeParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & {
       recursive?: boolean;
     };
   declare type GitdataCreateTreeParams =
-    & Owner
+      Owner
     & Repo
     & {
       tree: string;
       base_tree?: string;
     };
   declare type IntegrationsGetInstallationsParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type IntegrationsCreateInstallationTokenParams =
-    & InstallationId
+      InstallationId
     & {
       user_id?: string;
     };
   declare type IntegrationsGetUserIdentityParams =
-    & {
+    {
       nonce?: string;
     };
   declare type IntegrationsGetInstallationRepositoriesParams =
-    & {
+    {
       user_id?: string;
     };
   declare type IntegrationsAddRepoToInstallationParams =
-    & InstallationId
+      InstallationId
     & RepositoryId
     ;
   declare type IntegrationsRemoveRepoFromInstallationParams =
-    & InstallationId
+      InstallationId
     & RepositoryId
     ;
   declare type IssuesGetAllParams =
-    & Direction
+      Direction
     & Since
     & Page
     & PerPage
@@ -579,7 +579,7 @@ declare module "github" {
       sort?: "created"|"updated"|"comments";
     };
   declare type IssuesGetForUserParams =
-    & Direction
+      Direction
     & Since
     & Page
     & PerPage
@@ -590,7 +590,7 @@ declare module "github" {
       sort?: "created"|"updated"|"comments";
     };
   declare type IssuesGetForOrgParams =
-    & Org
+      Org
     & Direction
     & Since
     & Page
@@ -602,7 +602,7 @@ declare module "github" {
       sort?: "created"|"updated"|"comments";
     };
   declare type IssuesGetForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Since
@@ -618,12 +618,12 @@ declare module "github" {
       sort?: "created"|"updated"|"comments";
     };
   declare type IssuesGetParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesCreateParams =
-    & Owner
+      Owner
     & Repo
     & Assignees
     & {
@@ -634,7 +634,7 @@ declare module "github" {
       labels?: string[];
     };
   declare type IssuesEditParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Assignees
@@ -647,47 +647,47 @@ declare module "github" {
       labels?: string[];
     };
   declare type IssuesLockParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesUnlockParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesGetAssigneesParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type IssuesCheckAssigneeParams =
-    & Owner
+      Owner
     & Repo
     & {
       assignee: string;
     };
   declare type IssuesAddAssigneesToIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       assignees: string[];
     };
   declare type IssuesRemoveAssigneesFromIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Assignees
     ;
   declare type IssuesGetCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type IssuesGetCommentsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Since
@@ -697,64 +697,64 @@ declare module "github" {
       sort?: "created"|"updated";
     };
   declare type IssuesGetCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type IssuesCreateCommentParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Body
     ;
   declare type IssuesEditCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Body
     ;
   declare type IssuesDeleteCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type IssuesGetEventsParams =
-    & Owner
+      Owner
     & Repo
     & IssueNumber
     & Page
     & PerPage
     ;
   declare type IssuesGetEventsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type IssuesGetEventParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type IssuesGetLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type IssuesGetLabelParams =
-    & Owner
+      Owner
     & Repo
     & Name
     ;
   declare type IssuesCreateLabelParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & Color
     ;
   declare type IssuesUpdateLabelParams =
-    & Owner
+      Owner
     & Repo
     & Color
     & {
@@ -762,48 +762,48 @@ declare module "github" {
       name: string;
     };
   declare type IssuesDeleteLabelParams =
-    & Owner
+      Owner
     & Repo
     & Name
     ;
   declare type IssuesGetIssueLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesAddLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       labels: string[];
     };
   declare type IssuesRemoveLabelParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       name: string;
     };
   declare type IssuesReplaceAllLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       labels: string[];
     };
   declare type IssuesRemoveAllLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesGetMilestoneLabelsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesGetMilestonesParams =
-    & Owner
+      Owner
     & Repo
     & State
     & Page
@@ -813,12 +813,12 @@ declare module "github" {
       direction?: "asc"|"desc";
     };
   declare type IssuesGetMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesCreateMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & State
     & Description
@@ -827,7 +827,7 @@ declare module "github" {
       due_on?: Date;
     };
   declare type IssuesUpdateMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & State
@@ -837,49 +837,49 @@ declare module "github" {
       due_on?: Date;
     };
   declare type IssuesDeleteMilestoneParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type IssuesGetEventsTimelineParams =
-    & Owner
+      Owner
     & Repo
     & IssueNumber
     & Page
     & PerPage
     ;
   declare type MigrationsStartMigrationParams =
-    & Org
+      Org
     & {
       repositories: string[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
   declare type MigrationsGetMigrationsParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type MigrationsGetMigrationStatusParams =
-    & Org
+      Org
     & Id
     ;
   declare type MigrationsGetMigrationArchiveLinkParams =
-    & Org
+      Org
     & Id
     ;
   declare type MigrationsDeleteMigrationArchiveParams =
-    & Org
+      Org
     & Id
     ;
   declare type MigrationsUnlockRepoLockedForMigrationParams =
-    & Org
+      Org
     & Id
     & {
       repo_name: string;
     };
   declare type MigrationsStartImportParams =
-    & Owner
+      Owner
     & Repo
     & {
       vcs_url: string;
@@ -889,21 +889,21 @@ declare module "github" {
       tfvc_project?: string;
     };
   declare type MigrationsGetImportProgressParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type MigrationsUpdateImportParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type MigrationsGetImportCommitAuthorsParams =
-    & Owner
+      Owner
     & Repo
     & {
       since?: string;
     };
   declare type MigrationsMapImportCommitAuthorParams =
-    & Owner
+      Owner
     & Repo
     & {
       author_id: string;
@@ -911,58 +911,58 @@ declare module "github" {
       name?: string;
     };
   declare type MigrationsSetImportLfsPreferenceParams =
-    & Owner
+      Owner
     & Name
     & {
       use_lfs: string;
     };
   declare type MigrationsGetLargeImportFilesParams =
-    & Owner
+      Owner
     & Name
     ;
   declare type MigrationsCancelImportParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type MiscGetGitignoreTemplateParams =
-    & {
+    {
       name: string;
     };
   declare type MiscGetLicenseParams =
-    & {
+    {
       license: string;
     };
   declare type MiscGetRepoLicenseParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type MiscRenderMarkdownParams =
-    & {
+    {
       text: string;
       mode?: "markdown"|"gfm";
       context?: string;
     };
   declare type MiscRenderMarkdownRawParams =
-    & Data
+      Data
     ;
   declare type OrgsGetAllParams =
-    & Page
+      Page
     & PerPage
     & {
       since?: string;
     };
   declare type OrgsGetForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type OrgsGetParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type OrgsUpdateParams =
-    & Org
+      Org
     & {
       billing_email?: string;
       company?: string;
@@ -974,7 +974,7 @@ declare module "github" {
       members_can_create_repositories?: boolean;
     };
   declare type OrgsGetMembersParams =
-    & Org
+      Org
     & Page
     & PerPage
     & {
@@ -982,68 +982,68 @@ declare module "github" {
       role?: "all"|"admin"|"member";
     };
   declare type OrgsCheckMembershipParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsRemoveMemberParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsGetPublicMembersParams =
-    & Org
+      Org
     ;
   declare type OrgsCheckPublicMembershipParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsPublicizeMembershipParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsConcealMembershipParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsGetOrgMembershipParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsAddOrgMembershipParams =
-    & Org
+      Org
     & Username
     & {
       role: "admin"|"member";
     };
   declare type OrgsRemoveOrgMembershipParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsGetPendingOrgInvitesParams =
-    & Org
+      Org
     ;
   declare type OrgsGetOutsideCollaboratorsParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type OrgsRemoveOutsideCollaboratorParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsConvertMemberToOutsideCollaboratorParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsGetTeamsParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type OrgsGetTeamParams =
-    & Id
+      Id
     ;
   declare type OrgsCreateTeamParams =
-    & Org
+      Org
     & Name
     & Privacy
     & {
@@ -1052,74 +1052,74 @@ declare module "github" {
       repo_names?: string[];
     };
   declare type OrgsEditTeamParams =
-    & Id
+      Id
     & Name
     & Privacy
     & {
       description?: string;
     };
   declare type OrgsDeleteTeamParams =
-    & Id
+      Id
     ;
   declare type OrgsGetTeamMembersParams =
-    & Id
+      Id
     & Page
     & PerPage
     & {
       role?: "member"|"maintainer"|"all";
     };
   declare type OrgsGetTeamMembershipParams =
-    & Id
+      Id
     & Username
     ;
   declare type OrgsAddTeamMembershipParams =
-    & Id
+      Id
     & Username
     & {
       role?: "member"|"maintainer";
     };
   declare type OrgsRemoveTeamMembershipParams =
-    & Id
+      Id
     & Username
     ;
   declare type OrgsGetTeamReposParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   declare type OrgsGetPendingTeamInvitesParams =
-    & Id
+      Id
     & Page
     & PerPage
     ;
   declare type OrgsCheckTeamRepoParams =
-    & Id
+      Id
     & Owner
     & Repo
     ;
   declare type OrgsAddTeamRepoParams =
-    & Id
+      Id
     & Org
     & Repo
     & {
       permission?: "pull"|"push"|"admin";
     };
   declare type OrgsDeleteTeamRepoParams =
-    & Id
+      Id
     & Owner
     & Repo
     ;
   declare type OrgsGetHooksParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type OrgsGetHookParams =
-    & Org
+      Org
     & Id
     ;
   declare type OrgsCreateHookParams =
-    & Org
+      Org
     & {
       name: string;
       config: string;
@@ -1127,7 +1127,7 @@ declare module "github" {
       active?: boolean;
     };
   declare type OrgsEditHookParams =
-    & Org
+      Org
     & Id
     & {
       config: string;
@@ -1135,113 +1135,113 @@ declare module "github" {
       active?: boolean;
     };
   declare type OrgsPingHookParams =
-    & Org
+      Org
     & Id
     ;
   declare type OrgsDeleteHookParams =
-    & Org
+      Org
     & Id
     ;
   declare type OrgsGetBlockedUsersParams =
-    & Org
+      Org
     & Page
     & PerPage
     ;
   declare type OrgsCheckBlockedUserParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsBlockUserParams =
-    & Org
+      Org
     & Username
     ;
   declare type OrgsUnblockUserParams =
-    & Org
+      Org
     & Username
     ;
   declare type ProjectsGetRepoProjectsParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ProjectsGetOrgProjectsParams =
-    & Org
+      Org
     ;
   declare type ProjectsGetProjectParams =
-    & Id
+      Id
     ;
   declare type ProjectsCreateRepoProjectParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & {
       body?: string;
     };
   declare type ProjectsCreateOrgProjectParams =
-    & Org
+      Org
     & Name
     & {
       body?: string;
     };
   declare type ProjectsUpdateProjectParams =
-    & Id
+      Id
     & Name
     & {
       body?: string;
     };
   declare type ProjectsDeleteProjectParams =
-    & Id
+      Id
     ;
   declare type ProjectsGetProjectCardsParams =
-    & ColumnId
+      ColumnId
     ;
   declare type ProjectsGetProjectCardParams =
-    & Id
+      Id
     ;
   declare type ProjectsCreateProjectCardParams =
-    & ColumnId
+      ColumnId
     & {
       note?: string;
       content_id?: string;
       content_type?: string;
     };
   declare type ProjectsUpdateProjectCardParams =
-    & Id
+      Id
     & {
       note?: string;
     };
   declare type ProjectsDeleteProjectCardParams =
-    & Id
+      Id
     ;
   declare type ProjectsMoveProjectCardParams =
-    & Id
+      Id
     & {
       position: string;
       column_id?: string;
     };
   declare type ProjectsGetProjectColumnsParams =
-    & ProjectId
+      ProjectId
     ;
   declare type ProjectsGetProjectColumnParams =
-    & Id
+      Id
     ;
   declare type ProjectsCreateProjectColumnParams =
-    & ProjectId
+      ProjectId
     & Name
     ;
   declare type ProjectsUpdateProjectColumnParams =
-    & Id
+      Id
     & Name
     ;
   declare type ProjectsDeleteProjectColumnParams =
-    & Id
+      Id
     ;
   declare type ProjectsMoveProjectColumnParams =
-    & Id
+      Id
     & {
       position: string;
     };
   declare type PullRequestsGetAllParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Page
@@ -1253,12 +1253,12 @@ declare module "github" {
       sort?: "created"|"updated"|"popularity"|"long-running";
     };
   declare type PullRequestsGetParams =
-    & Owner
+      Owner
     & Repo
     & Number
     ;
   declare type PullRequestsCreateParams =
-    & Owner
+      Owner
     & Repo
     & Head
     & Base
@@ -1268,7 +1268,7 @@ declare module "github" {
       maintainer_can_modify?: boolean;
     };
   declare type PullRequestsCreateFromIssueParams =
-    & Owner
+      Owner
     & Repo
     & Head
     & Base
@@ -1276,7 +1276,7 @@ declare module "github" {
       issue: number;
     };
   declare type PullRequestsUpdateParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & State
@@ -1286,28 +1286,28 @@ declare module "github" {
       base?: string;
     };
   declare type PullRequestsGetCommitsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type PullRequestsGetFilesParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type PullRequestsCheckMergedParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type PullRequestsMergeParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
@@ -1317,20 +1317,20 @@ declare module "github" {
       merge_method?: "merge"|"squash"|"rebase";
     };
   declare type PullRequestsGetReviewsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type PullRequestsGetReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
     ;
   declare type PullRequestsGetReviewCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
@@ -1338,7 +1338,7 @@ declare module "github" {
     & PerPage
     ;
   declare type PullRequestsCreateReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
@@ -1349,7 +1349,7 @@ declare module "github" {
       position?: number;
     };
   declare type PullRequestsSubmitReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
@@ -1358,7 +1358,7 @@ declare module "github" {
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   declare type PullRequestsDismissReviewParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Id
@@ -1368,14 +1368,14 @@ declare module "github" {
       message?: string;
     };
   declare type PullRequestsGetCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type PullRequestsGetCommentsForRepoParams =
-    & Owner
+      Owner
     & Repo
     & Direction
     & Since
@@ -1385,12 +1385,12 @@ declare module "github" {
       sort?: "created"|"updated";
     };
   declare type PullRequestsGetCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type PullRequestsCreateCommentParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Body
@@ -1399,7 +1399,7 @@ declare module "github" {
     & Position
     ;
   declare type PullRequestsCreateCommentReplyParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Body
@@ -1407,98 +1407,98 @@ declare module "github" {
       in_reply_to: number;
     };
   declare type PullRequestsEditCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Body
     ;
   declare type PullRequestsDeleteCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type PullRequestsGetReviewRequestsParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & Page
     & PerPage
     ;
   declare type PullRequestsCreateReviewRequestParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       reviewers?: string[];
     };
   declare type PullRequestsDeleteReviewRequestParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       reviewers?: string[];
     };
   declare type ReactionsGetForCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForIssueParams =
-    & Owner
+      Owner
     & Repo
     & Number
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForIssueCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForIssueCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForPullRequestReviewCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForPullRequestReviewCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsDeleteParams =
-    & Id
+      Id
     ;
   declare type ReposGetAllParams =
-    & Direction
+      Direction
     & Page
     & PerPage
     & {
@@ -1508,7 +1508,7 @@ declare module "github" {
       sort?: "created"|"updated"|"pushed"|"full_name";
     };
   declare type ReposGetForUserParams =
-    & Username
+      Username
     & Direction
     & Page
     & PerPage
@@ -1517,21 +1517,21 @@ declare module "github" {
       sort?: "created"|"updated"|"pushed"|"full_name";
     };
   declare type ReposGetForOrgParams =
-    & Org
+      Org
     & Page
     & PerPage
     & {
       type?: "all"|"public"|"private"|"forks"|"sources"|"member";
     };
   declare type ReposGetPublicParams =
-    & {
+    {
       since?: string;
     };
   declare type ReposGetByIdParams =
-    & Id
+      Id
     ;
   declare type ReposCreateParams =
-    & Name
+      Name
     & Description
     & Homepage
     & Private
@@ -1548,11 +1548,11 @@ declare module "github" {
       allow_rebase_merge?: boolean;
     };
   declare type ReposGetParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposCreateForOrgParams =
-    & Org
+      Org
     & Name
     & Description
     & Homepage
@@ -1570,7 +1570,7 @@ declare module "github" {
       allow_rebase_merge?: boolean;
     };
   declare type ReposEditParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & Description
@@ -1586,7 +1586,7 @@ declare module "github" {
       allow_rebase_merge?: boolean;
     };
   declare type ReposGetContributorsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1594,29 +1594,29 @@ declare module "github" {
       anon?: boolean;
     };
   declare type ReposGetLanguagesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetTeamsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetTagsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposDeleteParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetBranchesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1624,21 +1624,21 @@ declare module "github" {
       protected?: boolean;
     };
   declare type ReposGetBranchParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposGetBranchProtectionParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposUpdateBranchProtectionParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
@@ -1649,21 +1649,21 @@ declare module "github" {
       restrictions: string;
     };
   declare type ReposRemoveBranchProtectionParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposGetProtectedBranchRequiredStatusChecksParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposUpdateProtectedBranchRequiredStatusChecksParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
@@ -1674,129 +1674,129 @@ declare module "github" {
       contexts?: string[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       contexts: string[];
     };
   declare type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       contexts: string[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       contexts: string[];
     };
   declare type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       include_admins?: boolean;
     };
   declare type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     ;
   declare type ReposGetProtectedBranchRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposRemoveProtectedBranchRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     ;
   declare type ReposGetProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposReplaceProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       teams: string[];
     };
   declare type ReposAddProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       teams: string[];
     };
   declare type ReposRemoveProtectedBranchTeamRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       teams: string[];
     };
   declare type ReposGetProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & Page
     & PerPage
     ;
   declare type ReposReplaceProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       users: string[];
     };
   declare type ReposAddProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       users: string[];
     };
   declare type ReposRemoveProtectedBranchUserRestrictionsParams =
-    & Owner
+      Owner
     & Repo
     & Branch
     & {
       users: string[];
     };
   declare type ReposGetCollaboratorsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1804,35 +1804,35 @@ declare module "github" {
       affiliation?: "outside"|"all"|"direct";
     };
   declare type ReposCheckCollaboratorParams =
-    & Owner
+      Owner
     & Repo
     & Username
     ;
   declare type ReposReviewUserPermissionLevelParams =
-    & Owner
+      Owner
     & Repo
     & Username
     ;
   declare type ReposAddCollaboratorParams =
-    & Owner
+      Owner
     & Repo
     & Username
     & {
       permission?: "pull"|"push"|"admin";
     };
   declare type ReposRemoveCollaboratorParams =
-    & Owner
+      Owner
     & Repo
     & Username
     ;
   declare type ReposGetAllCommitCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetCommitCommentsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1840,7 +1840,7 @@ declare module "github" {
       ref: string;
     };
   declare type ReposCreateCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & Body
@@ -1850,26 +1850,26 @@ declare module "github" {
       line?: number;
     };
   declare type ReposGetCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposUpdateCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Body
     ;
   declare type ReposDeleteCommitCommentParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetCommunityHealthMetricsParams =
-    & RepoId
+      RepoId
     ;
   declare type ReposGetCommitsParams =
-    & Owner
+      Owner
     & Repo
     & Since
     & Until
@@ -1881,36 +1881,36 @@ declare module "github" {
       author?: string;
     };
   declare type ReposGetCommitParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     ;
   declare type ReposGetShaOfCommitRefParams =
-    & Owner
+      Owner
     & Repo
     & Ref
     ;
   declare type ReposCompareCommitsParams =
-    & Owner
+      Owner
     & Repo
     & Base
     & Head
     ;
   declare type ReposGetReadmeParams =
-    & Owner
+      Owner
     & Repo
     & {
       ref?: string;
     };
   declare type ReposGetContentParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
       ref?: string;
     };
   declare type ReposCreateFileParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
@@ -1920,7 +1920,7 @@ declare module "github" {
       committer?: string;
     };
   declare type ReposUpdateFileParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
@@ -1931,7 +1931,7 @@ declare module "github" {
       committer?: string;
     };
   declare type ReposDeleteFileParams =
-    & Owner
+      Owner
     & Repo
     & {
       path: string;
@@ -1941,25 +1941,25 @@ declare module "github" {
       committer?: string;
     };
   declare type ReposGetArchiveLinkParams =
-    & Owner
+      Owner
     & Repo
     & {
       archive_format: "tarball"|"zipball";
       ref?: string;
     };
   declare type ReposGetKeysParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetKeyParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposCreateKeyParams =
-    & Owner
+      Owner
     & Repo
     & Title
     & Key
@@ -1967,12 +1967,12 @@ declare module "github" {
       read_only?: boolean;
     };
   declare type ReposDeleteKeyParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetDeploymentsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -1983,7 +1983,7 @@ declare module "github" {
       environment?: string;
     };
   declare type ReposCreateDeploymentParams =
-    & Owner
+      Owner
     & Repo
     & {
       ref: string;
@@ -1997,12 +1997,12 @@ declare module "github" {
       production_environment?: boolean;
     };
   declare type ReposGetDeploymentStatusesParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposCreateDeploymentStatusParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
@@ -2014,23 +2014,23 @@ declare module "github" {
       auto_inactive?: boolean;
     };
   declare type ReposGetDownloadsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetDownloadParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposDeleteDownloadParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetForksParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -2038,26 +2038,26 @@ declare module "github" {
       sort?: "newest"|"oldest"|"stargazers";
     };
   declare type ReposForkParams =
-    & Owner
+      Owner
     & Repo
     & {
       organization?: string;
     };
   declare type ReposGetInvitesParams =
-    & RepoId
+      RepoId
     ;
   declare type ReposDeleteInviteParams =
-    & RepoId
+      RepoId
     & InvitationId
     ;
   declare type ReposUpdateInviteParams =
-    & RepoId
+      RepoId
     & InvitationId
     & {
       permission?: "read"|"write"|"admin";
     };
   declare type ReposMergeParams =
-    & Owner
+      Owner
     & Repo
     & Base
     & Head
@@ -2065,53 +2065,53 @@ declare module "github" {
       commit_message?: string;
     };
   declare type ReposGetPagesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposRequestPageBuildParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetPagesBuildsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetLatestPagesBuildParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetPagesBuildParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetReleasesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetReleaseParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetLatestReleaseParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetReleaseByTagParams =
-    & Owner
+      Owner
     & Repo
     & {
       tag: string;
     };
   declare type ReposCreateReleaseParams =
-    & Owner
+      Owner
     & Repo
     & {
       tag_name: string;
@@ -2122,7 +2122,7 @@ declare module "github" {
       prerelease?: boolean;
     };
   declare type ReposEditReleaseParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
@@ -2134,22 +2134,22 @@ declare module "github" {
       prerelease?: boolean;
     };
   declare type ReposDeleteReleaseParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetAssetsParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposUploadAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & {
@@ -2158,7 +2158,7 @@ declare module "github" {
       label?: string;
     };
   declare type ReposEditAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Name
@@ -2166,32 +2166,32 @@ declare module "github" {
       label?: string;
     };
   declare type ReposDeleteAssetParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposGetStatsContributorsParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetStatsCommitActivityParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetStatsCodeFrequencyParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetStatsParticipationParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposGetStatsPunchCardParams =
-    & Owner
+      Owner
     & Repo
     ;
   declare type ReposCreateStatusParams =
-    & Owner
+      Owner
     & Repo
     & Sha
     & {
@@ -2201,7 +2201,7 @@ declare module "github" {
       context?: string;
     };
   declare type ReposGetStatusesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -2209,7 +2209,7 @@ declare module "github" {
       ref: string;
     };
   declare type ReposGetCombinedStatusParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
@@ -2217,42 +2217,42 @@ declare module "github" {
       ref: string;
     };
   declare type ReposGetReferrersParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetPathsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetViewsParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetClonesParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetHooksParams =
-    & Owner
+      Owner
     & Repo
     & Page
     & PerPage
     ;
   declare type ReposGetHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposCreateHookParams =
-    & Owner
+      Owner
     & Repo
     & Name
     & {
@@ -2261,7 +2261,7 @@ declare module "github" {
       active?: boolean;
     };
   declare type ReposEditHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     & Name
@@ -2273,22 +2273,22 @@ declare module "github" {
       active?: boolean;
     };
   declare type ReposTestHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposPingHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type ReposDeleteHookParams =
-    & Owner
+      Owner
     & Repo
     & Id
     ;
   declare type SearchReposParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2296,7 +2296,7 @@ declare module "github" {
       sort?: "stars"|"forks"|"updated";
     };
   declare type SearchCodeParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2304,7 +2304,7 @@ declare module "github" {
       sort?: "indexed";
     };
   declare type SearchCommitsParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2312,7 +2312,7 @@ declare module "github" {
       sort?: "author-date"|"committer-date";
     };
   declare type SearchIssuesParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2320,7 +2320,7 @@ declare module "github" {
       sort?: "comments"|"created"|"updated";
     };
   declare type SearchUsersParams =
-    & Q
+      Q
     & Order
     & Page
     & PerPage
@@ -2328,17 +2328,17 @@ declare module "github" {
       sort?: "followers"|"repositories"|"joined";
     };
   declare type SearchEmailParams =
-    & {
+    {
       email: string;
     };
   declare type UsersGetForUserParams =
-    & Username
+      Username
     ;
   declare type UsersGetByIdParams =
-    & Id
+      Id
     ;
   declare type UsersUpdateParams =
-    & {
+    {
       name?: string;
       email?: string;
       blog?: string;
@@ -2348,182 +2348,182 @@ declare module "github" {
       bio?: string;
     };
   declare type UsersGetAllParams =
-    & {
+    {
       since?: number;
     };
   declare type UsersGetOrgsParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersGetOrgMembershipsParams =
-    & {
+    {
       state?: "active"|"pending";
     };
   declare type UsersGetOrgMembershipParams =
-    & Org
+      Org
     ;
   declare type UsersEditOrgMembershipParams =
-    & Org
+      Org
     & {
       state: "active";
     };
   declare type UsersGetTeamsParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersGetEmailsParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersAddEmailsParams =
-    & {
+    {
       emails: string[];
     };
   declare type UsersDeleteEmailsParams =
-    & {
+    {
       emails: string[];
     };
   declare type UsersGetFollowersForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type UsersGetFollowersParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersGetFollowingForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type UsersGetFollowingParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersCheckFollowingParams =
-    & Username
+      Username
     ;
   declare type UsersCheckIfOneFollowersOtherParams =
-    & Username
+      Username
     & {
       target_user: string;
     };
   declare type UsersFollowUserParams =
-    & Username
+      Username
     ;
   declare type UsersUnfollowUserParams =
-    & Username
+      Username
     ;
   declare type UsersGetKeysForUserParams =
-    & Username
+      Username
     & Page
     & PerPage
     ;
   declare type UsersGetKeysParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersGetKeyParams =
-    & Id
+      Id
     ;
   declare type UsersCreateKeyParams =
-    & Title
+      Title
     & Key
     ;
   declare type UsersDeleteKeyParams =
-    & Id
+      Id
     ;
   declare type UsersGetGpgKeysParams =
-    & Page
+      Page
     & PerPage
     ;
   declare type UsersGetGpgKeyParams =
-    & Id
+      Id
     ;
   declare type UsersCreateGpgKeyParams =
-    & {
+    {
       armored_public_key: string;
     };
   declare type UsersDeleteGpgKeyParams =
-    & Id
+      Id
     ;
   declare type UsersPromoteParams =
-    & Username
+      Username
     ;
   declare type UsersDemoteParams =
-    & Username
+      Username
     ;
   declare type UsersSuspendParams =
-    & Username
+      Username
     ;
   declare type UsersUnsuspendParams =
-    & Username
+      Username
     ;
   declare type UsersCheckBlockedUserParams =
-    & Username
+      Username
     ;
   declare type UsersBlockUserParams =
-    & Username
+      Username
     ;
   declare type UsersUnblockUserParams =
-    & Username
+      Username
     ;
   declare type UsersAcceptRepoInviteParams =
-    & InvitationId
+      InvitationId
     ;
   declare type UsersDeclineRepoInviteParams =
-    & InvitationId
+      InvitationId
     ;
   declare type EnterpriseStatsParams =
-    & {
+    {
       type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
     };
   declare type EnterpriseUpdateLdapForUserParams =
-    & Username
+      Username
     & {
       ldap_dn: string;
     };
   declare type EnterpriseSyncLdapForUserParams =
-    & Username
+      Username
     ;
   declare type EnterpriseUpdateLdapForTeamParams =
-    & {
+    {
       team_id: number;
       ldap_dn: string;
     };
   declare type EnterpriseSyncLdapForTeamParams =
-    & {
+    {
       team_id: number;
     };
   declare type EnterpriseGetPreReceiveEnvironmentParams =
-    & Id
+      Id
     ;
   declare type EnterpriseCreatePreReceiveEnvironmentParams =
-    & {
+    {
       name: string;
       image_url: string;
     };
   declare type EnterpriseEditPreReceiveEnvironmentParams =
-    & Id
+      Id
     & {
       name: string;
       image_url: string;
     };
   declare type EnterpriseDeletePreReceiveEnvironmentParams =
-    & Id
+      Id
     ;
   declare type EnterpriseGetPreReceiveEnvironmentDownloadStatusParams =
-    & Id
+      Id
     ;
   declare type EnterpriseTriggerPreReceiveEnvironmentDownloadParams =
-    & Id
+      Id
     ;
   declare type EnterpriseGetPreReceiveHookParams =
-    & Id
+      Id
     ;
   declare type EnterpriseCreatePreReceiveHookParams =
-    & {
+    {
       name: string;
       script: string;
       script_repository: string;
@@ -2532,19 +2532,19 @@ declare module "github" {
       allow_downstream_configuration?: boolean;
     };
   declare type EnterpriseEditPreReceiveHookParams =
-    & Id
+      Id
     & {
       hook: string;
     };
   declare type EnterpriseDeletePreReceiveHookParams =
-    & Id
+      Id
     ;
   declare type EnterpriseQueueIndexingJobParams =
-    & {
+    {
       target: string;
     };
   declare type EnterpriseCreateOrgParams =
-    & {
+    {
       login: string;
       admin: string;
       profile_name?: string;

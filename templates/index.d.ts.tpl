@@ -5,7 +5,7 @@
 declare namespace Github {
   export type WellKnownHeader =
     {{#requestHeaders}}
-    | {{{.}}}
+    {{^first}}| {{/first}}{{#first}}  {{/first}}{{{header}}}
     {{/requestHeaders}}
     ;
 
@@ -51,14 +51,14 @@ declare namespace Github {
   }
 
   export type Auth =
-    | AuthBasic
+      AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
     | AuthJWT;
 
   export type Link =
-    | { link: string; }
+      { link: string; }
     | { meta: { link: string; }; }
     | string;
 
@@ -76,10 +76,10 @@ declare namespace Github {
   {{^exclude}}
   export type {{paramTypeName}} =
     {{#unionTypeNames}}
-    & {{.}}
+    {{^first}}& {{/first}}{{#first}}  {{/first}}{{unionTypeName}}
     {{/unionTypeNames}}
     {{#ownParams}}
-    & {
+    {{^first}}& {{/first}}{
     {{#params}}
       {{key}}{{^required}}?{{/required}}: {{{type}}};
     {{/params}}
