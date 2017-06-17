@@ -492,16 +492,6 @@
                 "/orgs/:org/migrations/:id/archive",
                 "/orgs/:org/migrations/:id/repos/:repo_name/lock"
             ],
-            "application/vnd.github.korra-preview+json": [
-                "/orgs/:org",
-                "/orgs/:org/invitations",
-                "/orgs/:org/outside_collaborators",
-                "/orgs/:org/outside_collaborator/:username",
-                "/orgs/:org/teams",
-                "/repos/:owner/:repo/collaborators",
-                "/repos/:owner/:repo/collaborators/:username/permission",
-                "/teams/:id/invitations"
-            ],
             "application/vnd.github.mister-fantastic-preview+json": [
                 "/repos/:owner/:repo/pages",
                 "/repos/:owner/:repo/pages/builds",

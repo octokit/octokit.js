@@ -65,7 +65,7 @@ github.users.getFollowingForUser({
 
 ## Pagination
 
-There are a few pagination-related methods: 
+There are a few pagination-related methods:
 
 ```
 hasNextPage(link)
@@ -198,7 +198,6 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Integrations            | application/vnd.github.machine-man-preview            |
 | License                 | application/vnd.github.drax-preview+json              |
 | Migrations              | application/vnd.github.wyandotte-preview+json         |
-| Organization Membership | application/vnd.github.korra-preview+json             |
 | Pages                   | application/vnd.github.mister-fantastic-preview       |
 | Pre-receive             | application/vnd.github.eye-scream-preview             |
 | Projects                | application/vnd.github.inertia-preview+json           |
