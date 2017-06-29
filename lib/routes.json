@@ -6027,29 +6027,32 @@
             "description": "Create a fork."
         },
         "get-invites": {
-            "url": "/repositories/:repo_id/invitations",
+            "url": "/repos/:owner/:repo/invitations",
             "method": "GET",
             "params": {
-                "$repo_id": null
+                "$owner": null,
+                "$repo": null
             },
-            "description": "List invitations for a repository. (In preview period. See README.)"
+            "description": "List invitations for a repository."
         },
         "delete-invite": {
-            "url": "/repositories/:repo_id/invitations/:invitation_id",
+            "url": "/repos/:owner/:repo/invitations/:invitation_id",
             "method": "DELETE",
             "params": {
-                "$repo_id": null,
+                "$owner": null,
+                "$repo": null,
                 "$invitation_id": null
             },
-            "description": "Delete a repository invitation. (In preview period. See README.)"
+            "description": "Delete a repository invitation."
         },
         "update-invite": {
-            "url": "/repositories/:repo_id/invitations/:invitation_id",
+            "url": "/repos/:owner/:repo/invitations/:invitation_id",
             "method": "PATCH",
             "params": {
-                "$repo_id": null,
+                "$owner": null,
+                "$repo": null,
                 "$invitation_id": null,
-                "permission": {
+                "permissions": {
                     "type": "String",
                     "required": false,
                     "validation": "^(read|write|admin)$",
@@ -6062,8 +6065,9 @@
                     ]
                 }
             },
-            "description": "Update a repository invitation. (In preview period. See README.)"
+            "description": "Update a repository invitation."
         },
+
         "merge": {
             "url": "/repos/:owner/:repo/merges",
             "method": "POST",
@@ -7222,7 +7226,7 @@
             "url": "/user/repository_invitations",
             "method": "GET",
             "params": {},
-            "description": "List a user's repository invitations. (In preview period. See README.)"
+            "description": "List a user's repository invitations."
         },
         "accept-repo-invite": {
             "url": "/user/repository_invitations/:invitation_id",
@@ -7230,7 +7234,7 @@
             "params": {
                 "$invitation_id": null
             },
-            "description": "Accept a repository invitation. (In preview period. See README.)"
+            "description": "Accept a repository invitation."
         },
         "decline-repo-invite": {
             "url": "/user/repository_invitations/:invitation_id",
@@ -7238,7 +7242,7 @@
             "params": {
                 "$invitation_id": null
             },
-            "description": "Decline a repository invitation. (In preview period. See README.)"
+            "description": "Decline a repository invitation."
         }
     },
     "enterprise": {

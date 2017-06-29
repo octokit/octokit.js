@@ -439,10 +439,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repositories/:repo_id/invitations/:invitation_id (deleteInvite)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/invitations/:invitation_id (deleteInvite)",  function(next) {
         client.repos.deleteInvite(
             {
-                repo_id: "String",
+                owner: "String",
+                repo: "String",
                 invitation_id: "String"
             },
             function(err, res) {
@@ -1053,10 +1054,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repositories/:repo_id/invitations (getInvites)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/invitations (getInvites)",  function(next) {
         client.repos.getInvites(
             {
-                repo_id: "String"
+                owner: "String",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1889,12 +1891,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repositories/:repo_id/invitations/:invitation_id (updateInvite)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/invitations/:invitation_id (updateInvite)",  function(next) {
         client.repos.updateInvite(
             {
-                repo_id: "String",
+                owner: "String",
+                repo: "String",
                 invitation_id: "String",
-                permission: "String"
+                permissions: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

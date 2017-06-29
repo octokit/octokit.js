@@ -2068,17 +2068,20 @@ declare module "github" {
       organization?: string;
     };
   declare type ReposGetInvitesParams =
-    & RepoId
+    & Owner
+    & Repo
     ;
   declare type ReposDeleteInviteParams =
-    & RepoId
+    & Owner
+    & Repo
     & InvitationId
     ;
   declare type ReposUpdateInviteParams =
-    & RepoId
+    & Owner
+    & Repo
     & InvitationId
     & {
-      permission?: "read"|"write"|"admin";
+      permissions?: "read"|"write"|"admin";
     };
   declare type ReposMergeParams =
     & Owner

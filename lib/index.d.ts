@@ -2073,17 +2073,20 @@ declare namespace Github {
       organization?: string;
     };
   export type ReposGetInvitesParams =
-    & RepoId
+    & Owner
+    & Repo
     ;
   export type ReposDeleteInviteParams =
-    & RepoId
+    & Owner
+    & Repo
     & InvitationId
     ;
   export type ReposUpdateInviteParams =
-    & RepoId
+    & Owner
+    & Repo
     & InvitationId
     & {
-      permission?: "read"|"write"|"admin";
+      permissions?: "read"|"write"|"admin";
     };
   export type ReposMergeParams =
     & Owner
