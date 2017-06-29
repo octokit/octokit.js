@@ -3953,7 +3953,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List reviews on a pull request. (In preview period. See README.)"
+            "description": "List reviews on a pull request."
         },
         "get-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
@@ -3964,7 +3964,7 @@
                 "$number": null,
                 "$id": null
             },
-            "description": "Get a single pull request review. (In preview period. See README.)"
+            "description": "Get a single pull request review."
         },
         "get-review-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
@@ -3977,7 +3977,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get comments for a pull request review. (In preview period. See README.)"
+            "description": "Get comments for a pull request review."
         },
         "create-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews",
@@ -4029,7 +4029,7 @@
                     "description": "The position in the file to be commented on."
                 }
             },
-            "description": "Create a pull request review. (In preview period. See README.)"
+            "description": "Create a pull request review."
         },
         "submit-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
@@ -4061,7 +4061,7 @@
                     "default": "PENDING"
                 }
             },
-            "description": "Submit a pull request review. (In preview period. See README.)"
+            "description": "Submit a pull request review."
         },
         "dismiss-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
@@ -4081,7 +4081,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Dismiss a pull request review. (In preview period. See README.)"
+            "description": "Dismiss a pull request review."
         },
         "get-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/comments",
@@ -4193,7 +4193,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List review requests. (In preview period. See README.)"
+            "description": "List review requests."
         },
         "create-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -4210,7 +4210,7 @@
                     "description": "An array of user logins that will be requested."
                 }
             },
-            "description": "Create a review request. (In preview period. See README.)"
+            "description": "Create a review request."
         },
         "delete-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -4227,7 +4227,7 @@
                     "description": "An array of user logins that will be requested."
                 }
             },
-            "description": "Delete a review request. (In preview period. See README.)"
+            "description": "Delete a review request."
         }
     },
     "reactions": {
