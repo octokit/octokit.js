@@ -523,6 +523,8 @@
                 "/repos/:owner/:repo/branches/:branch/protection",
                 "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
                 "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+                "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+                "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
@@ -4851,11 +4853,19 @@
                 },
                 "required_pull_request_reviews": {
                     "type": "Json",
-                    "required": true,
+                    "required": false,
                     "allow-null": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators."
+                },
+                "dismissal_restrictions": {
+                    "type": "Json",
+                    "required": false,
+                    "allow-null": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
                 },
                 "restrictions": {
                     "type": "Json",
@@ -4864,6 +4874,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled."
+                },
+                "enforce_admins": {
+                    "type": "Boolean",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Enforces required status checks for repository administrators."
                 },
                 "$page": null,
                 "$per_page": null
@@ -5024,12 +5041,20 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "include_admins": {
+                "dismissal_restrictions": {
+                    "type": "Json",
+                    "required": false,
+                    "allow-null": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
+                },
+                "dismiss_stale_reviews": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Enforce required status checks for repository administrators."
+                    "description": "Dismiss approved reviews automatically when a new commit is pushed."
                 }
             },
             "description": "Update pull request review enforcement of protected branch. (In preview period. See README.)"
@@ -5043,6 +5068,52 @@
                 "$branch": null
             },
             "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
+        },
+        "remove-protected-branch-pull-request-review-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null
+            },
+            "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
+        },
+        "get-protected-branch-admin-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get admin enforcement of protected branch. (In preview period. See README.)"
+        },
+        "add-protected-branch-admin-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+            "method": "POST",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Add admin enforcement of protected branch. (In preview period. See README.)"
+        },
+        "remove-protected-branch-admin-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove admin enforcement of protected branch. (In preview period. See README.)"
         },
         "get-protected-branch-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",

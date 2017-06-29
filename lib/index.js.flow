@@ -1645,8 +1645,10 @@ declare module "github" {
     & PerPage
     & {
       required_status_checks: string;
-      required_pull_request_reviews: string;
+      required_pull_request_reviews?: string;
+      dismissal_restrictions?: string;
       restrictions: string;
+      enforce_admins: boolean;
     };
   declare type ReposRemoveBranchProtectionParams =
     & Owner
@@ -1720,12 +1722,34 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      include_admins?: boolean;
+      dismissal_restrictions?: string;
+      dismiss_stale_reviews?: boolean;
     };
   declare type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
     & Repo
     & Branch
+    ;
+  declare type ReposGetProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposAddProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposRemoveProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
     ;
   declare type ReposGetProtectedBranchRestrictionsParams =
     & Owner
@@ -2860,6 +2884,9 @@ declare module "github" {
       getProtectedBranchPullRequestReviewEnforcement(params: ReposGetProtectedBranchPullRequestReviewEnforcementParams, callback?: Callback): Promise<any>;
       updateProtectedBranchPullRequestReviewEnforcement(params: ReposUpdateProtectedBranchPullRequestReviewEnforcementParams, callback?: Callback): Promise<any>;
       removeProtectedBranchPullRequestReviewEnforcement(params: ReposRemoveProtectedBranchPullRequestReviewEnforcementParams, callback?: Callback): Promise<any>;
+      getProtectedBranchAdminEnforcement(params: ReposGetProtectedBranchAdminEnforcementParams, callback?: Callback): Promise<any>;
+      addProtectedBranchAdminEnforcement(params: ReposAddProtectedBranchAdminEnforcementParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchAdminEnforcement(params: ReposRemoveProtectedBranchAdminEnforcementParams, callback?: Callback): Promise<any>;
       getProtectedBranchRestrictions(params: ReposGetProtectedBranchRestrictionsParams, callback?: Callback): Promise<any>;
       removeProtectedBranchRestrictions(params: ReposRemoveProtectedBranchRestrictionsParams, callback?: Callback): Promise<any>;
       getProtectedBranchTeamRestrictions(params: ReposGetProtectedBranchTeamRestrictionsParams, callback?: Callback): Promise<any>;

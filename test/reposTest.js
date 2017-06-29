@@ -41,6 +41,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/enforce_admins (addProtectedBranchAdminEnforcement)",  function(next) {
+        client.repos.addProtectedBranchAdminEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts (addProtectedBranchRequiredStatusChecksContexts)",  function(next) {
         client.repos.addProtectedBranchRequiredStatusChecksContexts(
             {
@@ -1187,6 +1204,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/enforce_admins (getProtectedBranchAdminEnforcement)",  function(next) {
+        client.repos.getProtectedBranchAdminEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews (getProtectedBranchPullRequestReviewEnforcement)",  function(next) {
         client.repos.getProtectedBranchPullRequestReviewEnforcement(
             {
@@ -1593,6 +1627,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/enforce_admins (removeProtectedBranchAdminEnforcement)",  function(next) {
+        client.repos.removeProtectedBranchAdminEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews (removeProtectedBranchPullRequestReviewEnforcement)",  function(next) {
         client.repos.removeProtectedBranchPullRequestReviewEnforcement(
             {
@@ -1788,7 +1839,9 @@ describe("[repos]", function() {
                 branch: "String",
                 required_status_checks: "Json",
                 required_pull_request_reviews: "Json",
+                dismissal_restrictions: "Json",
                 restrictions: "Json",
+                enforce_admins: "Boolean",
                 page: "Number",
                 per_page: "Number"
             },
@@ -1857,7 +1910,8 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                include_admins: "Boolean"
+                dismissal_restrictions: "Json",
+                dismiss_stale_reviews: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
