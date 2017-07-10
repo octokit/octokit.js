@@ -492,16 +492,6 @@
                 "/orgs/:org/migrations/:id/archive",
                 "/orgs/:org/migrations/:id/repos/:repo_name/lock"
             ],
-            "application/vnd.github.korra-preview+json": [
-                "/orgs/:org",
-                "/orgs/:org/invitations",
-                "/orgs/:org/outside_collaborators",
-                "/orgs/:org/outside_collaborator/:username",
-                "/orgs/:org/teams",
-                "/repos/:owner/:repo/collaborators",
-                "/repos/:owner/:repo/collaborators/:username/permission",
-                "/teams/:id/invitations"
-            ],
             "application/vnd.github.mister-fantastic-preview+json": [
                 "/repos/:owner/:repo/pages",
                 "/repos/:owner/:repo/pages/builds",
@@ -533,6 +523,8 @@
                 "/repos/:owner/:repo/branches/:branch/protection",
                 "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
                 "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+                "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+                "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
                 "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
@@ -3961,7 +3953,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List reviews on a pull request. (In preview period. See README.)"
+            "description": "List reviews on a pull request."
         },
         "get-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
@@ -3972,7 +3964,7 @@
                 "$number": null,
                 "$id": null
             },
-            "description": "Get a single pull request review. (In preview period. See README.)"
+            "description": "Get a single pull request review."
         },
         "get-review-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
@@ -3985,7 +3977,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get comments for a pull request review. (In preview period. See README.)"
+            "description": "Get comments for a pull request review."
         },
         "create-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews",
@@ -4037,7 +4029,7 @@
                     "description": "The position in the file to be commented on."
                 }
             },
-            "description": "Create a pull request review. (In preview period. See README.)"
+            "description": "Create a pull request review."
         },
         "submit-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
@@ -4069,7 +4061,7 @@
                     "default": "PENDING"
                 }
             },
-            "description": "Submit a pull request review. (In preview period. See README.)"
+            "description": "Submit a pull request review."
         },
         "dismiss-review": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
@@ -4089,7 +4081,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Dismiss a pull request review. (In preview period. See README.)"
+            "description": "Dismiss a pull request review."
         },
         "get-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/comments",
@@ -4201,7 +4193,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List review requests. (In preview period. See README.)"
+            "description": "List review requests."
         },
         "create-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -4218,7 +4210,7 @@
                     "description": "An array of user logins that will be requested."
                 }
             },
-            "description": "Create a review request. (In preview period. See README.)"
+            "description": "Create a review request."
         },
         "delete-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -4235,7 +4227,7 @@
                     "description": "An array of user logins that will be requested."
                 }
             },
-            "description": "Delete a review request. (In preview period. See README.)"
+            "description": "Delete a review request."
         }
     },
     "reactions": {
@@ -4861,11 +4853,19 @@
                 },
                 "required_pull_request_reviews": {
                     "type": "Json",
-                    "required": true,
+                    "required": false,
                     "allow-null": true,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators."
+                },
+                "dismissal_restrictions": {
+                    "type": "Json",
+                    "required": false,
+                    "allow-null": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
                 },
                 "restrictions": {
                     "type": "Json",
@@ -5042,12 +5042,20 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "include_admins": {
+                "dismissal_restrictions": {
+                    "type": "Json",
+                    "required": false,
+                    "allow-null": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
+                },
+                "dismiss_stale_reviews": {
                     "type": "Boolean",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "Enforce required status checks for repository administrators."
+                    "description": "Dismiss approved reviews automatically when a new commit is pushed."
                 }
             },
             "description": "Update pull request review enforcement of protected branch. (In preview period. See README.)"
@@ -5061,6 +5069,52 @@
                 "$branch": null
             },
             "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
+        },
+        "remove-protected-branch-pull-request-review-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null
+            },
+            "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
+        },
+        "get-protected-branch-admin-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get admin enforcement of protected branch. (In preview period. See README.)"
+        },
+        "add-protected-branch-admin-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+            "method": "POST",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Add admin enforcement of protected branch. (In preview period. See README.)"
+        },
+        "remove-protected-branch-admin-enforcement": {
+            "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$branch": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Remove admin enforcement of protected branch. (In preview period. See README.)"
         },
         "get-protected-branch-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
@@ -5974,29 +6028,32 @@
             "description": "Create a fork."
         },
         "get-invites": {
-            "url": "/repositories/:repo_id/invitations",
+            "url": "/repos/:owner/:repo/invitations",
             "method": "GET",
             "params": {
-                "$repo_id": null
+                "$owner": null,
+                "$repo": null
             },
-            "description": "List invitations for a repository. (In preview period. See README.)"
+            "description": "List invitations for a repository."
         },
         "delete-invite": {
-            "url": "/repositories/:repo_id/invitations/:invitation_id",
+            "url": "/repos/:owner/:repo/invitations/:invitation_id",
             "method": "DELETE",
             "params": {
-                "$repo_id": null,
+                "$owner": null,
+                "$repo": null,
                 "$invitation_id": null
             },
-            "description": "Delete a repository invitation. (In preview period. See README.)"
+            "description": "Delete a repository invitation."
         },
         "update-invite": {
-            "url": "/repositories/:repo_id/invitations/:invitation_id",
+            "url": "/repos/:owner/:repo/invitations/:invitation_id",
             "method": "PATCH",
             "params": {
-                "$repo_id": null,
+                "$owner": null,
+                "$repo": null,
                 "$invitation_id": null,
-                "permission": {
+                "permissions": {
                     "type": "String",
                     "required": false,
                     "validation": "^(read|write|admin)$",
@@ -6009,8 +6066,9 @@
                     ]
                 }
             },
-            "description": "Update a repository invitation. (In preview period. See README.)"
+            "description": "Update a repository invitation."
         },
+
         "merge": {
             "url": "/repos/:owner/:repo/merges",
             "method": "POST",
@@ -7169,7 +7227,7 @@
             "url": "/user/repository_invitations",
             "method": "GET",
             "params": {},
-            "description": "List a user's repository invitations. (In preview period. See README.)"
+            "description": "List a user's repository invitations."
         },
         "accept-repo-invite": {
             "url": "/user/repository_invitations/:invitation_id",
@@ -7177,7 +7235,7 @@
             "params": {
                 "$invitation_id": null
             },
-            "description": "Accept a repository invitation. (In preview period. See README.)"
+            "description": "Accept a repository invitation."
         },
         "decline-repo-invite": {
             "url": "/user/repository_invitations/:invitation_id",
@@ -7185,7 +7243,7 @@
             "params": {
                 "$invitation_id": null
             },
-            "description": "Decline a repository invitation. (In preview period. See README.)"
+            "description": "Decline a repository invitation."
         }
     },
     "enterprise": {

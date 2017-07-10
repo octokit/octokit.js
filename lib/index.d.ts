@@ -1650,7 +1650,8 @@ declare namespace Github {
     & PerPage
     & {
       required_status_checks: string;
-      required_pull_request_reviews: string;
+      required_pull_request_reviews?: string;
+      dismissal_restrictions?: string;
       restrictions: string;
       enforce_admins: boolean;
     };
@@ -1726,12 +1727,34 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      include_admins?: boolean;
+      dismissal_restrictions?: string;
+      dismiss_stale_reviews?: boolean;
     };
   export type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
     & Repo
     & Branch
+    ;
+  export type ReposGetProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  export type ReposAddProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  export type ReposRemoveProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
     ;
   export type ReposGetProtectedBranchRestrictionsParams =
     & Owner
@@ -2050,17 +2073,20 @@ declare namespace Github {
       organization?: string;
     };
   export type ReposGetInvitesParams =
-    & RepoId
+    & Owner
+    & Repo
     ;
   export type ReposDeleteInviteParams =
-    & RepoId
+    & Owner
+    & Repo
     & InvitationId
     ;
   export type ReposUpdateInviteParams =
-    & RepoId
+    & Owner
+    & Repo
     & InvitationId
     & {
-      permission?: "read"|"write"|"admin";
+      permissions?: "read"|"write"|"admin";
     };
   export type ReposMergeParams =
     & Owner
@@ -2876,6 +2902,9 @@ declare class Github {
     getProtectedBranchPullRequestReviewEnforcement(params: Github.ReposGetProtectedBranchPullRequestReviewEnforcementParams, callback?: Github.Callback): Promise<any>;
     updateProtectedBranchPullRequestReviewEnforcement(params: Github.ReposUpdateProtectedBranchPullRequestReviewEnforcementParams, callback?: Github.Callback): Promise<any>;
     removeProtectedBranchPullRequestReviewEnforcement(params: Github.ReposRemoveProtectedBranchPullRequestReviewEnforcementParams, callback?: Github.Callback): Promise<any>;
+    getProtectedBranchAdminEnforcement(params: Github.ReposGetProtectedBranchAdminEnforcementParams, callback?: Github.Callback): Promise<any>;
+    addProtectedBranchAdminEnforcement(params: Github.ReposAddProtectedBranchAdminEnforcementParams, callback?: Github.Callback): Promise<any>;
+    removeProtectedBranchAdminEnforcement(params: Github.ReposRemoveProtectedBranchAdminEnforcementParams, callback?: Github.Callback): Promise<any>;
     getProtectedBranchRestrictions(params: Github.ReposGetProtectedBranchRestrictionsParams, callback?: Github.Callback): Promise<any>;
     removeProtectedBranchRestrictions(params: Github.ReposRemoveProtectedBranchRestrictionsParams, callback?: Github.Callback): Promise<any>;
     getProtectedBranchTeamRestrictions(params: Github.ReposGetProtectedBranchTeamRestrictionsParams, callback?: Github.Callback): Promise<any>;

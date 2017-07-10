@@ -41,6 +41,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/enforce_admins (addProtectedBranchAdminEnforcement)",  function(next) {
+        client.repos.addProtectedBranchAdminEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts (addProtectedBranchRequiredStatusChecksContexts)",  function(next) {
         client.repos.addProtectedBranchRequiredStatusChecksContexts(
             {
@@ -422,10 +439,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute DELETE /repositories/:repo_id/invitations/:invitation_id (deleteInvite)",  function(next) {
+    it("should successfully execute DELETE /repos/:owner/:repo/invitations/:invitation_id (deleteInvite)",  function(next) {
         client.repos.deleteInvite(
             {
-                repo_id: "String",
+                owner: "String",
+                repo: "String",
                 invitation_id: "String"
             },
             function(err, res) {
@@ -1036,10 +1054,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repositories/:repo_id/invitations (getInvites)",  function(next) {
+    it("should successfully execute GET /repos/:owner/:repo/invitations (getInvites)",  function(next) {
         client.repos.getInvites(
             {
-                repo_id: "String"
+                owner: "String",
+                repo: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1176,6 +1195,23 @@ describe("[repos]", function() {
             {
                 owner: "String",
                 repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/branches/:branch/protection/enforce_admins (getProtectedBranchAdminEnforcement)",  function(next) {
+        client.repos.getProtectedBranchAdminEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
                 page: "Number",
                 per_page: "Number"
             },
@@ -1593,6 +1629,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/enforce_admins (removeProtectedBranchAdminEnforcement)",  function(next) {
+        client.repos.removeProtectedBranchAdminEnforcement(
+            {
+                owner: "String",
+                repo: "String",
+                branch: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews (removeProtectedBranchPullRequestReviewEnforcement)",  function(next) {
         client.repos.removeProtectedBranchPullRequestReviewEnforcement(
             {
@@ -1788,6 +1841,7 @@ describe("[repos]", function() {
                 branch: "String",
                 required_status_checks: "Json",
                 required_pull_request_reviews: "Json",
+                dismissal_restrictions: "Json",
                 restrictions: "Json",
                 enforce_admins: "Boolean",
                 page: "Number",
@@ -1837,12 +1891,13 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute PATCH /repositories/:repo_id/invitations/:invitation_id (updateInvite)",  function(next) {
+    it("should successfully execute PATCH /repos/:owner/:repo/invitations/:invitation_id (updateInvite)",  function(next) {
         client.repos.updateInvite(
             {
-                repo_id: "String",
+                owner: "String",
+                repo: "String",
                 invitation_id: "String",
-                permission: "String"
+                permissions: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1858,7 +1913,8 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                include_admins: "Boolean"
+                dismissal_restrictions: "Json",
+                dismiss_stale_reviews: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
