@@ -2576,6 +2576,14 @@ declare module "github" {
       admin: string;
       profile_name?: string;
     };
+  declare type CodeOfConductGetCodeOfConductParams =
+    & {
+      key: string;
+    };
+  declare type CodeOfConductGetRepoCodeOfConductParams =
+    & Owner
+    & Repo
+    ;
 
   declare class Github {
     constructor(options?: Options): Github;
@@ -3048,6 +3056,11 @@ declare module "github" {
       deletePreReceiveHook(params: EnterpriseDeletePreReceiveHookParams, callback?: Callback): Promise<any>;
       queueIndexingJob(params: EnterpriseQueueIndexingJobParams, callback?: Callback): Promise<any>;
       createOrg(params: EnterpriseCreateOrgParams, callback?: Callback): Promise<any>;
+    };
+    codeOfConduct: {
+      getCodesOfConduct(params: EmptyParams, callback?: Callback): Promise<any>;
+      getCodeOfConduct(params: CodeOfConductGetCodeOfConductParams, callback?: Callback): Promise<any>;
+      getRepoCodeOfConduct(params: CodeOfConductGetRepoCodeOfConductParams, callback?: Callback): Promise<any>;
     };
   }
 

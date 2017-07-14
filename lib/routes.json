@@ -558,6 +558,12 @@
                 "/user/blocks/:username",
                 "/orgs/:org/blocks",
                 "/orgs/:org/blocks/:username"
+            ],
+            "application/vnd.github.scarlet-witch-preview+json": [
+                "/codes_of_conduct",
+                "/codes_of_conduct/:key",
+                "/repos/:owner/:repo",
+                "/repos/:owner/:repo/community/code_of_conduct"
             ]
         }
     },
@@ -7549,5 +7555,36 @@
             },
             "description": "Create an organization"
         }
-    }
+    },
+    "code-of-conduct": {
+        "get-codes-of-conduct": {
+            "url": "/codes_of_conduct",
+            "method": "GET",
+            "params": {},
+            "description": "List all codes of conduct. (In preview period. See README.)"
+        },
+        "get-code-of-conduct": {
+            "url": "/codes_of_conduct/:key",
+            "method": "GET",
+            "params": {
+                "key": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Ex: contributor_covenant"
+                }
+            },
+            "description": "Get an code of conduct. (In preview period. See README.)"
+        },
+        "get-repo-code-of-conduct": {
+            "url": "/repos/:owner/:repo/community/code_of_conduct",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null
+            },
+            "description": "Get the contents of a repository's code of conduct. (In preview period. See README.)"
+        }
+  }
 }

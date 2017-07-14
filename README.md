@@ -190,6 +190,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 
 | Preview API             | Accept header val                                     |
 | -------------------     | -----------------------------------------------       |
+| Code of Conduct         | application/vnd.github.scarlet-witch-preview+json     |
 | Commit Search           | application/vnd.github.cloak-preview+json             |
 | Community               | application/vnd.github.black-panther-preview+json     |
 | Deployment              | application/vnd.github.ant-man-preview+json           |
