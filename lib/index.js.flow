@@ -100,6 +100,7 @@ declare module "github" {
   declare type Homepage = { homepage?: string; };
   declare type Private = { private?: boolean; };
   declare type HasIssues = { has_issues?: boolean; };
+  declare type HasProjects = { has_projects?: boolean; };
   declare type HasWiki = { has_wiki?: boolean; };
   declare type HasDownloads = { has_downloads?: boolean; };
   declare type DefaultBranch = { default_branch?: string; };
@@ -1536,6 +1537,7 @@ declare module "github" {
     & Homepage
     & Private
     & HasIssues
+    & HasProjects
     & HasWiki
     & HasDownloads
     & AutoInit
@@ -1558,6 +1560,7 @@ declare module "github" {
     & Homepage
     & Private
     & HasIssues
+    & HasProjects
     & HasWiki
     & HasDownloads
     & AutoInit
@@ -1577,6 +1580,7 @@ declare module "github" {
     & Homepage
     & Private
     & HasIssues
+    & HasProjects
     & HasWiki
     & HasDownloads
     & DefaultBranch
