@@ -3129,7 +3129,7 @@
             "description": "List all users who are outside collaborators of an organization."
         },
         "remove-outside-collaborator": {
-            "url": "/orgs/:org/outside_collaborator/:username",
+            "url": "/orgs/:org/outside_collaborators/:username",
             "method": "DELETE",
             "params": {
                 "$org": null,
@@ -3138,7 +3138,7 @@
             "description": "Remove outside collaborator."
         },
         "convert-member-to-outside-collaborator": {
-            "url": "/orgs/:org/outside_collaborator/:username",
+            "url": "/orgs/:org/outside_collaborators/:username",
             "method": "PUT",
             "params": {
                 "$org": null,
