@@ -13,8 +13,7 @@ github.orgs.getAll({
     per_page: 100
 }).then(function(res) {
     console.log(res);
-    
-    github.users.getById({ id: "429706" }).then(function(res) {
-        console.log(res);
-    });
+    return github.users.getById({ id: "429706" });
+}).then(function(res) {
+   console.log(res);
 });
