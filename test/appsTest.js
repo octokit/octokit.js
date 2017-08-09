@@ -13,7 +13,7 @@ var Assert = require("assert");
 var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
-describe("[integrations]", function() {
+describe("[apps]", function() {
     var client;
     var token = testAuth["token"];
 
@@ -26,7 +26,7 @@ describe("[integrations]", function() {
     });
 
     it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (addRepoToInstallation)",  function(next) {
-        client.integrations.addRepoToInstallation(
+        client.apps.addRepoToInstallation(
             {
                 installation_id: "String",
                 repository_id: "String"
@@ -40,7 +40,7 @@ describe("[integrations]", function() {
     });
 
     it("should successfully execute POST /installations/:installation_id/access_tokens (createInstallationToken)",  function(next) {
-        client.integrations.createInstallationToken(
+        client.apps.createInstallationToken(
             {
                 installation_id: "String",
                 user_id: "String"
@@ -54,7 +54,7 @@ describe("[integrations]", function() {
     });
 
     it("should successfully execute GET /installation/repositories (getInstallationRepositories)",  function(next) {
-        client.integrations.getInstallationRepositories(
+        client.apps.getInstallationRepositories(
             {
                 user_id: "String"
             },
@@ -66,8 +66,8 @@ describe("[integrations]", function() {
         );
     });
 
-    it("should successfully execute GET /integration/installations (getInstallations)",  function(next) {
-        client.integrations.getInstallations(
+    it("should successfully execute GET /app/installations (getInstallations)",  function(next) {
+        client.apps.getInstallations(
             {
                 page: "Number",
                 per_page: "Number"
@@ -80,8 +80,8 @@ describe("[integrations]", function() {
         );
     });
 
-    it("should successfully execute POST /integration/identity/user (getUserIdentity)",  function(next) {
-        client.integrations.getUserIdentity(
+    it("should successfully execute POST /app/identity/user (getUserIdentity)",  function(next) {
+        client.apps.getUserIdentity(
             {
                 nonce: "String"
             },
@@ -94,7 +94,7 @@ describe("[integrations]", function() {
     });
 
     it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (removeRepoFromInstallation)",  function(next) {
-        client.integrations.removeRepoFromInstallation(
+        client.apps.removeRepoFromInstallation(
             {
                 installation_id: "String",
                 repository_id: "String"
