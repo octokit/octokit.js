@@ -547,6 +547,31 @@ declare namespace Github {
       tree: string;
       base_tree?: string;
     };
+  export type IntegrationsGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  export type IntegrationsCreateInstallationTokenParams =
+    & InstallationId
+    & {
+      user_id?: string;
+    };
+  export type IntegrationsGetUserIdentityParams =
+    & {
+      nonce?: string;
+    };
+  export type IntegrationsGetInstallationRepositoriesParams =
+    & {
+      user_id?: string;
+    };
+  export type IntegrationsAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  export type IntegrationsRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
   export type AppsGetInstallationsParams =
     & Page
     & PerPage
@@ -2691,6 +2716,14 @@ declare class Github {
     getTagSignatureVerification(params: Github.GitdataGetTagSignatureVerificationParams, callback?: Github.Callback): Promise<any>;
     getTree(params: Github.GitdataGetTreeParams, callback?: Github.Callback): Promise<any>;
     createTree(params: Github.GitdataCreateTreeParams, callback?: Github.Callback): Promise<any>;
+  };
+  integrations: {
+    getInstallations(params: Github.IntegrationsGetInstallationsParams, callback?: Github.Callback): Promise<any>;
+    createInstallationToken(params: Github.IntegrationsCreateInstallationTokenParams, callback?: Github.Callback): Promise<any>;
+    getUserIdentity(params: Github.IntegrationsGetUserIdentityParams, callback?: Github.Callback): Promise<any>;
+    getInstallationRepositories(params: Github.IntegrationsGetInstallationRepositoriesParams, callback?: Github.Callback): Promise<any>;
+    addRepoToInstallation(params: Github.IntegrationsAddRepoToInstallationParams, callback?: Github.Callback): Promise<any>;
+    removeRepoFromInstallation(params: Github.IntegrationsRemoveRepoFromInstallationParams, callback?: Github.Callback): Promise<any>;
   };
   apps: {
     getInstallations(params: Github.AppsGetInstallationsParams, callback?: Github.Callback): Promise<any>;

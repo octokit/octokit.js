@@ -474,8 +474,10 @@
                 "/repos/:owner/:repo/import"
             ],
             "application/vnd.github.machine-man-preview": [
+                "/integration/installations",
                 "/app/installations",
                 "/installations/:installation_id/access_tokens",
+                "/integration/identity/user",
                 "/app/identity/user",
                 "/installation/repositories",
                 "/installations/:installation_id/repositories/:repository_id"
@@ -1625,6 +1627,78 @@
                 }
             },
             "description": "Create a Tree"
+        }
+    },
+    "integrations": {
+        "get-installations": {
+            "url": "/app/installations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List the app's installations. (In preview period. See README.)"
+        },
+        "create-installation-token": {
+            "url": "/installations/:installation_id/access_tokens",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "user_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id of the user for whom the app is acting on behalf of."
+                }
+            },
+            "description": "Create a new installation token. (In preview period. See README.)"
+        },
+        "get-user-identity": {
+            "url": "/app/identity/user",
+            "method": "POST",
+            "params": {
+                "nonce": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
+            },
+            "description": "Request identity of user. (In preview period. See README.)"
+        },
+        "get-installation-repositories": {
+            "url": "/installation/repositories",
+            "method": "GET",
+            "params": {
+                "user_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
+                }
+            },
+            "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
+        },
+        "add-repo-to-installation": {
+            "url": "/installations/:installation_id/repositories/:repository_id",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "description": "Add a single repository to an installation. (In preview period. See README.)"
+        },
+        "remove-repo-from-installation": {
+            "url": "/installations/:installation_id/repositories/:repository_id",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "description": "Remove a single repository from an installation. (In preview period. See README.)"
         }
     },
     "apps": {

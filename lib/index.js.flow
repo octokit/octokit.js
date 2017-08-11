@@ -542,6 +542,31 @@ declare module "github" {
       tree: string;
       base_tree?: string;
     };
+  declare type IntegrationsGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  declare type IntegrationsCreateInstallationTokenParams =
+    & InstallationId
+    & {
+      user_id?: string;
+    };
+  declare type IntegrationsGetUserIdentityParams =
+    & {
+      nonce?: string;
+    };
+  declare type IntegrationsGetInstallationRepositoriesParams =
+    & {
+      user_id?: string;
+    };
+  declare type IntegrationsAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type IntegrationsRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
   declare type AppsGetInstallationsParams =
     & Page
     & PerPage
@@ -2676,6 +2701,14 @@ declare module "github" {
       getTagSignatureVerification(params: GitdataGetTagSignatureVerificationParams, callback?: Callback): Promise<any>;
       getTree(params: GitdataGetTreeParams, callback?: Callback): Promise<any>;
       createTree(params: GitdataCreateTreeParams, callback?: Callback): Promise<any>;
+    };
+    integrations: {
+      getInstallations(params: IntegrationsGetInstallationsParams, callback?: Callback): Promise<any>;
+      createInstallationToken(params: IntegrationsCreateInstallationTokenParams, callback?: Callback): Promise<any>;
+      getUserIdentity(params: IntegrationsGetUserIdentityParams, callback?: Callback): Promise<any>;
+      getInstallationRepositories(params: IntegrationsGetInstallationRepositoriesParams, callback?: Callback): Promise<any>;
+      addRepoToInstallation(params: IntegrationsAddRepoToInstallationParams, callback?: Callback): Promise<any>;
+      removeRepoFromInstallation(params: IntegrationsRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
     };
     apps: {
       getInstallations(params: AppsGetInstallationsParams, callback?: Callback): Promise<any>;
