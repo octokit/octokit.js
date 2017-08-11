@@ -1637,6 +1637,7 @@
                 "$page": null,
                 "$per_page": null
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "List the app's installations. (In preview period. See README.)"
         },
         "create-installation-token": {
@@ -1652,6 +1653,7 @@
                     "description": "The id of the user for whom the app is acting on behalf of."
                 }
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "Create a new installation token. (In preview period. See README.)"
         },
         "get-user-identity": {
@@ -1666,6 +1668,7 @@
                     "description": ""
                 }
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "Request identity of user. (In preview period. See README.)"
         },
         "get-installation-repositories": {
@@ -1680,6 +1683,7 @@
                     "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
                 }
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
         },
         "add-repo-to-installation": {
@@ -1689,6 +1693,7 @@
                 "$installation_id": null,
                 "$repository_id": null
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "Add a single repository to an installation. (In preview period. See README.)"
         },
         "remove-repo-from-installation": {
@@ -1698,6 +1703,7 @@
                 "$installation_id": null,
                 "$repository_id": null
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "Remove a single repository from an installation. (In preview period. See README.)"
         }
     },
