@@ -1207,7 +1207,7 @@ declare namespace Github {
     & ColumnId
     & {
       note?: string;
-      content_id?: string;
+      content_id?: Number;
       content_type?: string;
     };
   export type ProjectsUpdateProjectCardParams =
