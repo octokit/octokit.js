@@ -4878,6 +4878,7 @@
                 "enforce_admins": {
                     "type": "Boolean",
                     "required": true,
+                    "allow-null": false,
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Enforces required status checks for repository administrators."
