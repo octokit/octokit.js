@@ -306,6 +306,24 @@ describe("[issues]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/issues/:number/comments (getCommentsForIssue)",  function(next) {
+        client.issues.getCommentsForIssue(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
+                since: "Date",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/issues/comments (getCommentsForRepo)",  function(next) {
         client.issues.getCommentsForRepo(
             {

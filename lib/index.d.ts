@@ -695,6 +695,14 @@ declare namespace Github {
     & Page
     & PerPage
     ;
+  export type IssuesGetCommentsForIssueParams =
+    & Owner
+    & Repo
+    & Number
+    & Since
+    & Page
+    & PerPage
+    ;
   export type IssuesGetCommentsForRepoParams =
     & Owner
     & Repo
@@ -2720,6 +2728,7 @@ declare class Github {
     addAssigneesToIssue(params: Github.IssuesAddAssigneesToIssueParams, callback?: Github.Callback): Promise<any>;
     removeAssigneesFromIssue(params: Github.IssuesRemoveAssigneesFromIssueParams, callback?: Github.Callback): Promise<any>;
     getComments(params: Github.IssuesGetCommentsParams, callback?: Github.Callback): Promise<any>;
+    getCommentsForIssue(params: Github.IssuesGetCommentsForIssueParams, callback?: Github.Callback): Promise<any>;
     getCommentsForRepo(params: Github.IssuesGetCommentsForRepoParams, callback?: Github.Callback): Promise<any>;
     getComment(params: Github.IssuesGetCommentParams, callback?: Github.Callback): Promise<any>;
     createComment(params: Github.IssuesCreateCommentParams, callback?: Github.Callback): Promise<any>;

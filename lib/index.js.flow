@@ -690,6 +690,14 @@ declare module "github" {
     & Page
     & PerPage
     ;
+  declare type IssuesGetCommentsForIssueParams =
+    & Owner
+    & Repo
+    & Number
+    & Since
+    & Page
+    & PerPage
+    ;
   declare type IssuesGetCommentsForRepoParams =
     & Owner
     & Repo
@@ -2705,6 +2713,7 @@ declare module "github" {
       addAssigneesToIssue(params: IssuesAddAssigneesToIssueParams, callback?: Callback): Promise<any>;
       removeAssigneesFromIssue(params: IssuesRemoveAssigneesFromIssueParams, callback?: Callback): Promise<any>;
       getComments(params: IssuesGetCommentsParams, callback?: Callback): Promise<any>;
+      getCommentsForIssue(params: IssuesGetCommentsForIssueParams, callback?: Callback): Promise<any>;
       getCommentsForRepo(params: IssuesGetCommentsForRepoParams, callback?: Callback): Promise<any>;
       getComment(params: IssuesGetCommentParams, callback?: Callback): Promise<any>;
       createComment(params: IssuesCreateCommentParams, callback?: Callback): Promise<any>;
