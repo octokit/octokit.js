@@ -19,11 +19,10 @@ declare module "github" {
     pathPrefix?: string;
     headers?: {[header: Header]: any};
     Promise?: typeof Promise;
-    family?: number;
     followRedirects?: boolean;
     timeout?: number;
   };
-
+  
   declare type AuthBasic = {
     type: "basic";
     username: string;

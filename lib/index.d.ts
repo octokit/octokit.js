@@ -15,12 +15,11 @@ declare namespace Github {
 
   export interface EmptyParams {
   }
-
+  
   export interface Options {
     debug?: boolean;
     protocol?: string;
     host?: string;
-    proxy?: string;
     pathPrefix?: string;
     headers?: {[header: string]: any};
     Promise?: typeof Promise;
@@ -1207,7 +1206,7 @@ declare namespace Github {
     & ColumnId
     & {
       note?: string;
-      content_id?: Number;
+      content_id?: string;
       content_type?: string;
     };
   export type ProjectsUpdateProjectCardParams =
