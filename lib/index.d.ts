@@ -2586,6 +2586,14 @@ declare namespace Github {
       admin: string;
       profile_name?: string;
     };
+  export type CodeOfConductGetCodeOfConductParams =
+    & {
+      key: string;
+    };
+  export type CodeOfConductGetRepoCodeOfConductParams =
+    & Owner
+    & Repo
+    ;
 }
 
 declare class Github {
@@ -3069,6 +3077,11 @@ declare class Github {
     deletePreReceiveHook(params: Github.EnterpriseDeletePreReceiveHookParams, callback?: Github.Callback): Promise<any>;
     queueIndexingJob(params: Github.EnterpriseQueueIndexingJobParams, callback?: Github.Callback): Promise<any>;
     createOrg(params: Github.EnterpriseCreateOrgParams, callback?: Github.Callback): Promise<any>;
+  };
+  codeOfConduct: {
+    getCodesOfConduct(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
+    getCodeOfConduct(params: Github.CodeOfConductGetCodeOfConductParams, callback?: Github.Callback): Promise<any>;
+    getRepoCodeOfConduct(params: Github.CodeOfConductGetRepoCodeOfConductParams, callback?: Github.Callback): Promise<any>;
   };
 }
 
