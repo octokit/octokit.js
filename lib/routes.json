@@ -533,6 +533,11 @@
                 "/repos/:owner/:repo/pulls/:number/merge"
             ],
             "application/vnd.github.squirrel-girl-preview": [
+                "/issues",
+                "/user/issues",
+                "/orgs/:org/issues",
+                "/repos/:owner/:repo/issues",
+                "/repos/:owner/:repo/issues/:number",
                 "/repos/:owner/:repo/comments/:id/reactions",
                 "/repos/:owner/:repo/issues/:number/reactions",
                 "/repos/:owner/:repo/issues/comments/:id/reactions",
