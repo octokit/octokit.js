@@ -17,12 +17,8 @@
       "email": "joe@brassafrax.com"
     }
   ],
-  "homepage": "https://github.com/mikedeboer/node-github",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikedeboer/node-github.git"
-  },
-  "engine": {
+  "repository": "https://github.com/mikedeboer/node-github",
+  "engines": {
     "node": ">=0.4.0"
   },
   "dependencies": {
