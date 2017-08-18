@@ -25,6 +25,30 @@ describe("[misc]", function() {
         });
     });
 
+    it("should successfully execute GET /codes_of_conduct/:key (getCodeOfConduct)",  function(next) {
+        client.misc.getCodeOfConduct(
+            {
+                key: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /codes_of_conduct (getCodesOfConduct)",  function(next) {
+        client.misc.getCodesOfConduct(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /emojis (getEmojis)",  function(next) {
         client.misc.getEmojis(
             {},
@@ -98,6 +122,20 @@ describe("[misc]", function() {
     it("should successfully execute GET /rate_limit (getRateLimit)",  function(next) {
         client.misc.getRateLimit(
             {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/community/code_of_conduct (getRepoCodeOfConduct)",  function(next) {
+        client.misc.getRepoCodeOfConduct(
+            {
+                owner: "String",
+                repo: "String"
+            },
             function(err, res) {
                 Assert.equal(err, null);
                 // other assertions go here

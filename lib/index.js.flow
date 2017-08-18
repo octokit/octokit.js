@@ -929,6 +929,14 @@ declare module "github" {
     & Owner
     & Repo
     ;
+  declare type MiscGetCodeOfConductParams =
+    & {
+      key: string;
+    };
+  declare type MiscGetRepoCodeOfConductParams =
+    & Owner
+    & Repo
+    ;
   declare type MiscGetGitignoreTemplateParams =
     & {
       name: string;
@@ -2581,14 +2589,6 @@ declare module "github" {
       admin: string;
       profile_name?: string;
     };
-  declare type CodesOfConductGetCodeOfConductParams =
-    & {
-      key: string;
-    };
-  declare type CodesOfConductGetRepoCodeOfConductParams =
-    & Owner
-    & Repo
-    ;
 
   declare class Github {
     constructor(options?: Options): Github;
@@ -2757,6 +2757,9 @@ declare module "github" {
       cancelImport(params: MigrationsCancelImportParams, callback?: Callback): Promise<any>;
     };
     misc: {
+      getCodesOfConduct(params: EmptyParams, callback?: Callback): Promise<any>;
+      getCodeOfConduct(params: MiscGetCodeOfConductParams, callback?: Callback): Promise<any>;
+      getRepoCodeOfConduct(params: MiscGetRepoCodeOfConductParams, callback?: Callback): Promise<any>;
       getEmojis(params: EmptyParams, callback?: Callback): Promise<any>;
       getGitignoreTemplates(params: EmptyParams, callback?: Callback): Promise<any>;
       getGitignoreTemplate(params: MiscGetGitignoreTemplateParams, callback?: Callback): Promise<any>;
@@ -3062,11 +3065,6 @@ declare module "github" {
       deletePreReceiveHook(params: EnterpriseDeletePreReceiveHookParams, callback?: Callback): Promise<any>;
       queueIndexingJob(params: EnterpriseQueueIndexingJobParams, callback?: Callback): Promise<any>;
       createOrg(params: EnterpriseCreateOrgParams, callback?: Callback): Promise<any>;
-    };
-    codesOfConduct: {
-      getCodesOfConduct(params: EmptyParams, callback?: Callback): Promise<any>;
-      getCodeOfConduct(params: CodesOfConductGetCodeOfConductParams, callback?: Callback): Promise<any>;
-      getRepoCodeOfConduct(params: CodesOfConductGetRepoCodeOfConductParams, callback?: Callback): Promise<any>;
     };
   }
 

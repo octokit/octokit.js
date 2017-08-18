@@ -934,6 +934,14 @@ declare namespace Github {
     & Owner
     & Repo
     ;
+  export type MiscGetCodeOfConductParams =
+    & {
+      key: string;
+    };
+  export type MiscGetRepoCodeOfConductParams =
+    & Owner
+    & Repo
+    ;
   export type MiscGetGitignoreTemplateParams =
     & {
       name: string;
@@ -2586,14 +2594,6 @@ declare namespace Github {
       admin: string;
       profile_name?: string;
     };
-  export type CodesOfConductGetCodeOfConductParams =
-    & {
-      key: string;
-    };
-  export type CodesOfConductGetRepoCodeOfConductParams =
-    & Owner
-    & Repo
-    ;
 }
 
 declare class Github {
@@ -2772,6 +2772,9 @@ declare class Github {
     cancelImport(params: Github.MigrationsCancelImportParams, callback?: Github.Callback): Promise<any>;
   };
   misc: {
+    getCodesOfConduct(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
+    getCodeOfConduct(params: Github.MiscGetCodeOfConductParams, callback?: Github.Callback): Promise<any>;
+    getRepoCodeOfConduct(params: Github.MiscGetRepoCodeOfConductParams, callback?: Github.Callback): Promise<any>;
     getEmojis(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getGitignoreTemplates(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getGitignoreTemplate(params: Github.MiscGetGitignoreTemplateParams, callback?: Github.Callback): Promise<any>;
@@ -3077,11 +3080,6 @@ declare class Github {
     deletePreReceiveHook(params: Github.EnterpriseDeletePreReceiveHookParams, callback?: Github.Callback): Promise<any>;
     queueIndexingJob(params: Github.EnterpriseQueueIndexingJobParams, callback?: Github.Callback): Promise<any>;
     createOrg(params: Github.EnterpriseCreateOrgParams, callback?: Github.Callback): Promise<any>;
-  };
-  codesOfConduct: {
-    getCodesOfConduct(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
-    getCodeOfConduct(params: Github.CodesOfConductGetCodeOfConductParams, callback?: Github.Callback): Promise<any>;
-    getRepoCodeOfConduct(params: Github.CodesOfConductGetRepoCodeOfConductParams, callback?: Github.Callback): Promise<any>;
   };
 }
 
