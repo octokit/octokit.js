@@ -723,6 +723,15 @@
                 "$access_token": null
             },
             "description": "Revoke an authorization for an application"
+        },
+        "revoke-grant": {
+            "url": "/applications/:client_id/grants/:access_token",
+            "method": "DELETE",
+            "params": {
+                "$client_id": null,
+                "$access_token": null
+            },
+            "description": "Revoke a grant for an application"
         }
     },
     "activity": {

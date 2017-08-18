@@ -15,12 +15,11 @@ declare namespace Github {
 
   export interface EmptyParams {
   }
-
+  
   export interface Options {
     debug?: boolean;
     protocol?: string;
     host?: string;
-    proxy?: string;
     pathPrefix?: string;
     headers?: {[header: string]: any};
     Promise?: typeof Promise;
@@ -195,6 +194,10 @@ declare namespace Github {
     & AccessToken
     ;
   export type AuthorizationRevokeParams =
+    & ClientId
+    & AccessToken
+    ;
+  export type AuthorizationRevokeGrantParams =
     & ClientId
     & AccessToken
     ;
@@ -1207,7 +1210,7 @@ declare namespace Github {
     & ColumnId
     & {
       note?: string;
-      content_id?: Number;
+      content_id?: string;
       content_type?: string;
     };
   export type ProjectsUpdateProjectCardParams =
@@ -2618,6 +2621,7 @@ declare class Github {
     check(params: Github.AuthorizationCheckParams, callback?: Github.Callback): Promise<any>;
     reset(params: Github.AuthorizationResetParams, callback?: Github.Callback): Promise<any>;
     revoke(params: Github.AuthorizationRevokeParams, callback?: Github.Callback): Promise<any>;
+    revokeGrant(params: Github.AuthorizationRevokeGrantParams, callback?: Github.Callback): Promise<any>;
   };
   activity: {
     getEvents(params: Github.ActivityGetEventsParams, callback?: Github.Callback): Promise<any>;

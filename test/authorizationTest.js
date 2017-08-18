@@ -203,6 +203,20 @@ describe("[authorization]", function() {
         );
     });
 
+    it("should successfully execute DELETE /applications/:client_id/grants/:access_token (revokeGrant)",  function(next) {
+        client.authorization.revokeGrant(
+            {
+                client_id: "String",
+                access_token: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PATCH /authorizations/:id (update)",  function(next) {
         client.authorization.update(
             {
