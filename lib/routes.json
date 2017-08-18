@@ -478,7 +478,11 @@
                 "/installations/:installation_id/access_tokens",
                 "/integration/identity/user",
                 "/installation/repositories",
-                "/installations/:installation_id/repositories/:repository_id"
+                "/installations/:installation_id/repositories/:repository_id",
+                "/issues",
+                "/user/issues",
+                "/orgs/:org/issues",
+                "/repos/:owner/:repo/issues"
             ],
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
