@@ -28,14 +28,16 @@
     "netrc": "^0.1.4"
   },
   "devDependencies": {
-    "mocha": "~1.13.0",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
     "mustache": "^2.2.1",
+    "nock": "^9.0.14",
     "npm-run-all": "^4.0.2"
   },
   "main": "lib",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test/**/*-test.js",
     "build": "npm-run-all build:*",
     "build:flow": "node lib/generateFlowTypes",
     "build:ts": "node lib/generateTypeScriptTypes"
