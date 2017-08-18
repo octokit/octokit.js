@@ -2168,18 +2168,6 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "$page": null,
-                "$per_page": null
-            },
-            "description": "List comments on an issue"
-        },
-        "get-comments-for-issue": {
-            "url": "/repos/:owner/:repo/issues/:number/comments",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$number": null,
                 "$since": null,
                 "$page": null,
                 "$per_page": null
