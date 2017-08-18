@@ -483,7 +483,8 @@
                 "/user/issues",
                 "/orgs/:org/issues",
                 "/repos/:owner/:repo/issues",
-                "/repos/:owner/:repo/issues/comments/:id"
+                "/repos/:owner/:repo/issues/comments/:id",
+                "/repos/:owner/:repo/issues/events/:id"
             ],
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
