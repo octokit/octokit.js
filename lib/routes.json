@@ -542,6 +542,11 @@
                 "/repos/:owner/:repo/pulls/comments",
                 "/repos/:owner/:repo/pulls/comments/:id"
             ],
+            "application/vnd.github.v3.star+json": [
+                "/repos/:owner/:repo/stargazers",
+                "/users/:username/starred",
+                "/user/starred"
+            ],
             "application/vnd.github.mockingbird-preview": [
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
             ],
