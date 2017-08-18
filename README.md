@@ -208,12 +208,6 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 
 ## Dev notes
 
-When updating routes.json, you'll want to update the generated docs/tests:
-
-```bash
-$ node lib/generate.js
-```
-
 To update the apidoc for github pages:
 
 ```bash
