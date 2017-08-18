@@ -2581,11 +2581,11 @@ declare module "github" {
       admin: string;
       profile_name?: string;
     };
-  declare type CodeOfConductGetCodeOfConductParams =
+  declare type CodesOfConductGetCodeOfConductParams =
     & {
       key: string;
     };
-  declare type CodeOfConductGetRepoCodeOfConductParams =
+  declare type CodesOfConductGetRepoCodeOfConductParams =
     & Owner
     & Repo
     ;
@@ -3063,10 +3063,10 @@ declare module "github" {
       queueIndexingJob(params: EnterpriseQueueIndexingJobParams, callback?: Callback): Promise<any>;
       createOrg(params: EnterpriseCreateOrgParams, callback?: Callback): Promise<any>;
     };
-    codeOfConduct: {
+    codesOfConduct: {
       getCodesOfConduct(params: EmptyParams, callback?: Callback): Promise<any>;
-      getCodeOfConduct(params: CodeOfConductGetCodeOfConductParams, callback?: Callback): Promise<any>;
-      getRepoCodeOfConduct(params: CodeOfConductGetRepoCodeOfConductParams, callback?: Callback): Promise<any>;
+      getCodeOfConduct(params: CodesOfConductGetCodeOfConductParams, callback?: Callback): Promise<any>;
+      getRepoCodeOfConduct(params: CodesOfConductGetRepoCodeOfConductParams, callback?: Callback): Promise<any>;
     };
   }
 

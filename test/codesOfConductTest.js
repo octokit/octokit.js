@@ -13,7 +13,7 @@ var Assert = require("assert");
 var Client = require("./../lib/index");
 var testAuth = require("./../testAuth.json");
 
-describe("[codeOfConduct]", function() {
+describe("[codesOfConduct]", function() {
     var client;
     var token = testAuth["token"];
 
@@ -25,19 +25,8 @@ describe("[codeOfConduct]", function() {
         });
     });
 
-    it("should successfully execute GET /codes_of_conduct (getCodesOfConduct)",  function(next) {
-        client.codeOfConduct.getCodesOfConduct(
-            {},
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute GET /codes_of_conduct/:key (getCodeOfConduct)",  function(next) {
-        client.codeOfConduct.getCodeOfConduct(
+        client.codesOfConduct.getCodeOfConduct(
             {
                 key: "String"
             },
@@ -49,8 +38,19 @@ describe("[codeOfConduct]", function() {
         );
     });
 
+    it("should successfully execute GET /codes_of_conduct (getCodesOfConduct)",  function(next) {
+        client.codesOfConduct.getCodesOfConduct(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/community/code_of_conduct (getRepoCodeOfConduct)",  function(next) {
-        client.codeOfConduct.getRepoCodeOfConduct(
+        client.codesOfConduct.getRepoCodeOfConduct(
             {
                 owner: "String",
                 repo: "String"

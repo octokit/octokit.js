@@ -7586,7 +7586,7 @@
             "description": "Create an organization"
         }
     },
-    "code-of-conduct": {
+    "codes-of-conduct": {
         "get-codes-of-conduct": {
             "url": "/codes_of_conduct",
             "method": "GET",
