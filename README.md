@@ -1,5 +1,6 @@
 # Node-github
 
+[![Build Status](https://travis-ci.org/octokit/node-github.svg?branch=master)](https://travis-ci.org/octokit/node-github)
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
 <span class="badge-gratipay"><a href="https://gratipay.com/node-github/"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
 
