@@ -451,7 +451,8 @@ describe("[pullRequests]", function() {
                 title: "String",
                 body: "String",
                 state: "String",
-                base: "String"
+                base: "String",
+                maintainer_can_modify: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);

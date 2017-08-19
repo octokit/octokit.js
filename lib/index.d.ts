@@ -1302,11 +1302,12 @@ declare namespace Github {
     & Owner
     & Repo
     & Number
-    & State
     & {
       title?: string;
       body?: string;
+      state?: "open"|"closed";
       base?: string;
+      maintainer_can_modify?: boolean;
     };
   export type PullRequestsGetCommitsParams =
     & Owner

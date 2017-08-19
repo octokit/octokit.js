@@ -1297,11 +1297,12 @@ declare module "github" {
     & Owner
     & Repo
     & Number
-    & State
     & {
       title?: string;
       body?: string;
+      state?: "open"|"closed";
       base?: string;
+      maintainer_can_modify?: boolean;
     };
   declare type PullRequestsGetCommitsParams =
     & Owner
