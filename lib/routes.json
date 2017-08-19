@@ -3160,7 +3160,8 @@
                     "enum": [
                         "admin",
                         "member"
-                    ]
+                    ],
+                    "default": "member"
                 }
             },
             "description": "Add or update organization membership"
