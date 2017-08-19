@@ -25171,7 +25171,7 @@ github.orgs.concealMembership({ ... });
  */
 
 /**
- * @api {put} /orgs/:org/outside_collaborator/:username convertMemberToOutsideCollaborator
+ * @api {put} /orgs/:org/outside_collaborators/:username convertMemberToOutsideCollaborator
  * @apiVersion 8.2.1
  * @apiName convertMemberToOutsideCollaborator
  * @apiDescription Convert member to outside collaborator.
@@ -25557,7 +25557,7 @@ github.orgs.removeOrgMembership({ ... });
  */
 
 /**
- * @api {delete} /orgs/:org/outside_collaborator/:username removeOutsideCollaborator
+ * @api {delete} /orgs/:org/outside_collaborators/:username removeOutsideCollaborator
  * @apiVersion 8.2.1
  * @apiName removeOutsideCollaborator
  * @apiDescription Remove outside collaborator.
@@ -31196,7 +31196,7 @@ github.orgs.concealMembership({ ... });
  */
 
 /**
- * @api {put} /orgs/:org/outside_collaborator/:username convertMemberToOutsideCollaborator
+ * @api {put} /orgs/:org/outside_collaborators/:username convertMemberToOutsideCollaborator
  * @apiVersion 9.1.0
  * @apiName convertMemberToOutsideCollaborator
  * @apiDescription Convert member to outside collaborator.
@@ -31582,7 +31582,7 @@ github.orgs.removeOrgMembership({ ... });
  */
 
 /**
- * @api {delete} /orgs/:org/outside_collaborator/:username removeOutsideCollaborator
+ * @api {delete} /orgs/:org/outside_collaborators/:username removeOutsideCollaborator
  * @apiVersion 9.1.0
  * @apiName removeOutsideCollaborator
  * @apiDescription Remove outside collaborator.

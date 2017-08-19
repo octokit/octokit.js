@@ -156,7 +156,7 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute PUT /orgs/:org/outside_collaborator/:username (convertMemberToOutsideCollaborator)",  function(next) {
+    it("should successfully execute PUT /orgs/:org/outside_collaborators/:username (convertMemberToOutsideCollaborator)",  function(next) {
         client.orgs.convertMemberToOutsideCollaborator(
             {
                 org: "String",
@@ -586,7 +586,7 @@ describe("[orgs]", function() {
         );
     });
 
-    it("should successfully execute DELETE /orgs/:org/outside_collaborator/:username (removeOutsideCollaborator)",  function(next) {
+    it("should successfully execute DELETE /orgs/:org/outside_collaborators/:username (removeOutsideCollaborator)",  function(next) {
         client.orgs.removeOutsideCollaborator(
             {
                 org: "String",
