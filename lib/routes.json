@@ -528,8 +528,6 @@
                 "/repos/:owner/:repo/projects",
                 "/orgs/:org/projects",
                 "/projects/:id",
-                "/repos/:owner/:repo/projects",
-                "/orgs/:org/projects",
                 "/projects/columns/:column_id/cards",
                 "/projects/columns/cards/:id",
                 "/projects/columns/cards/:id/moves",
