@@ -4684,14 +4684,6 @@
             },
             "description": "List all public repositories"
         },
-        "get-by-id": {
-            "url": "/repositories/:id",
-            "method": "GET",
-            "params": {
-                "$id": null
-            },
-            "description": "Get a single repo by id."
-        },
         "create": {
             "url": "/user/repos",
             "method": "POST",
@@ -4739,15 +4731,6 @@
                 }
             },
             "description": "Create a new repository for the authenticated user."
-        },
-        "get": {
-            "url": "/repos/:owner/:repo",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null
-            },
-            "description": "Get a repo for a user."
         },
         "create-for-org": {
             "url": "/orgs/:org/repos",
@@ -4797,6 +4780,23 @@
                 }
             },
             "description": "Create a new repository for an organization."
+        },
+        "get": {
+            "url": "/repos/:owner/:repo",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null
+            },
+            "description": "Get a repo for a user."
+        },
+        "get-by-id": {
+            "url": "/repositories/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Get a single repo by id."
         },
         "edit": {
             "url": "/repos/:owner/:repo",

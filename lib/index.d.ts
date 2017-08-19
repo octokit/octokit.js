@@ -1559,9 +1559,6 @@ declare namespace Github {
     & {
       since?: string;
     };
-  export type ReposGetByIdParams =
-    & Id
-    ;
   export type ReposCreateParams =
     & Name
     & Description
@@ -1579,10 +1576,6 @@ declare namespace Github {
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
-  export type ReposGetParams =
-    & Owner
-    & Repo
-    ;
   export type ReposCreateForOrgParams =
     & Org
     & Name
@@ -1601,6 +1594,13 @@ declare namespace Github {
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
+  export type ReposGetParams =
+    & Owner
+    & Repo
+    ;
+  export type ReposGetByIdParams =
+    & Id
+    ;
   export type ReposEditParams =
     & Owner
     & Repo
@@ -2909,10 +2909,10 @@ declare class Github {
     getForUser(params: Github.ReposGetForUserParams, callback?: Github.Callback): Promise<any>;
     getForOrg(params: Github.ReposGetForOrgParams, callback?: Github.Callback): Promise<any>;
     getPublic(params: Github.ReposGetPublicParams, callback?: Github.Callback): Promise<any>;
-    getById(params: Github.ReposGetByIdParams, callback?: Github.Callback): Promise<any>;
     create(params: Github.ReposCreateParams, callback?: Github.Callback): Promise<any>;
-    get(params: Github.ReposGetParams, callback?: Github.Callback): Promise<any>;
     createForOrg(params: Github.ReposCreateForOrgParams, callback?: Github.Callback): Promise<any>;
+    get(params: Github.ReposGetParams, callback?: Github.Callback): Promise<any>;
+    getById(params: Github.ReposGetByIdParams, callback?: Github.Callback): Promise<any>;
     edit(params: Github.ReposEditParams, callback?: Github.Callback): Promise<any>;
     getContributors(params: Github.ReposGetContributorsParams, callback?: Github.Callback): Promise<any>;
     getLanguages(params: Github.ReposGetLanguagesParams, callback?: Github.Callback): Promise<any>;

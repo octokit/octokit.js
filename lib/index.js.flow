@@ -1554,9 +1554,6 @@ declare module "github" {
     & {
       since?: string;
     };
-  declare type ReposGetByIdParams =
-    & Id
-    ;
   declare type ReposCreateParams =
     & Name
     & Description
@@ -1574,10 +1571,6 @@ declare module "github" {
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
-  declare type ReposGetParams =
-    & Owner
-    & Repo
-    ;
   declare type ReposCreateForOrgParams =
     & Org
     & Name
@@ -1596,6 +1589,13 @@ declare module "github" {
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
+  declare type ReposGetParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetByIdParams =
+    & Id
+    ;
   declare type ReposEditParams =
     & Owner
     & Repo
@@ -2894,10 +2894,10 @@ declare module "github" {
       getForUser(params: ReposGetForUserParams, callback?: Callback): Promise<any>;
       getForOrg(params: ReposGetForOrgParams, callback?: Callback): Promise<any>;
       getPublic(params: ReposGetPublicParams, callback?: Callback): Promise<any>;
-      getById(params: ReposGetByIdParams, callback?: Callback): Promise<any>;
       create(params: ReposCreateParams, callback?: Callback): Promise<any>;
-      get(params: ReposGetParams, callback?: Callback): Promise<any>;
       createForOrg(params: ReposCreateForOrgParams, callback?: Callback): Promise<any>;
+      get(params: ReposGetParams, callback?: Callback): Promise<any>;
+      getById(params: ReposGetByIdParams, callback?: Callback): Promise<any>;
       edit(params: ReposEditParams, callback?: Callback): Promise<any>;
       getContributors(params: ReposGetContributorsParams, callback?: Callback): Promise<any>;
       getLanguages(params: ReposGetLanguagesParams, callback?: Callback): Promise<any>;
