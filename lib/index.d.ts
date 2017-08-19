@@ -1459,6 +1459,7 @@ declare namespace Github {
     & Number
     & {
       reviewers?: string[];
+      team_reviewers?: Array;
     };
   export type PullRequestsDeleteReviewRequestParams =
     & Owner
@@ -1466,6 +1467,7 @@ declare namespace Github {
     & Number
     & {
       reviewers?: string[];
+      team_reviewers?: Array;
     };
   export type ReactionsGetForCommitCommentParams =
     & Owner

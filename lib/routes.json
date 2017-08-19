@@ -568,6 +568,9 @@
                 "/repos/:owner/:repo/pulls/comments",
                 "/repos/:owner/:repo/pulls/comments/:id"
             ],
+            "application/vnd.github.thor-preview+json": [
+                "/repos/:owner/:repo/pulls/:number/requested_reviewers"
+            ],
             "application/vnd.github.v3.star+json": [
                 "/repos/:owner/:repo/stargazers",
                 "/users/:username/starred",
@@ -4273,7 +4276,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List review requests."
+            "description": "List review requests. (In preview period. See README.)"
         },
         "create-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -4288,9 +4291,16 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of user logins that will be requested."
+                },
+                "team_reviewers": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs that will be requested."
                 }
             },
-            "description": "Create a review request."
+            "description": "Create a review request. (In preview period. See README.)"
         },
         "delete-review-request": {
             "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -4305,9 +4315,16 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "An array of user logins that will be requested."
+                },
+                "team_reviewers": {
+                    "type": "Array",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of team slugs that will be requested."
                 }
             },
-            "description": "Delete a review request."
+            "description": "Delete a review request. (In preview period. See README.)"
         }
     },
     "reactions": {

@@ -139,7 +139,8 @@ describe("[pullRequests]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                reviewers: "Array"
+                reviewers: "Array",
+                team_reviewers: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -186,7 +187,8 @@ describe("[pullRequests]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                reviewers: "Array"
+                reviewers: "Array",
+                team_reviewers: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);

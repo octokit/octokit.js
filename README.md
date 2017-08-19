@@ -205,6 +205,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Protected Branches      | application/vnd.github.loki-preview+json              |
 | Pull Request Squash     | application/vnd.github.polaris-preview                |
 | Reactions               | application/vnd.github.squirrel-girl-preview          |
+| Review Requests         | application/vnd.github.thor-preview+json              |
 | Star Creation Timestamp | application/vnd.github.v3.star+json                   |
 | Timeline                | application/vnd.github.mockingbird-preview            |
 
