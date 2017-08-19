@@ -453,10 +453,10 @@
         },
         "acceptTree": {
             "application/vnd.github.giant-sentry-fist-preview+json": [
-                "/user/blocks",
-                "/user/blocks/:username",
                 "/orgs/:org/blocks",
-                "/orgs/:org/blocks/:username"
+                "/orgs/:org/blocks/:username",
+                "/user/blocks",
+                "/user/blocks/:username"
             ],
             "application/vnd.github.scarlet-witch-preview+json": [
                 "/codes_of_conduct",
