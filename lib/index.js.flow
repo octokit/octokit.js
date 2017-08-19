@@ -1038,7 +1038,9 @@ declare module "github" {
     & Org
     & Page
     & PerPage
-    ;
+    & {
+      filter?: "all"|"2fa_disabled";
+    };
   declare type OrgsRemoveOutsideCollaboratorParams =
     & Org
     & Username

@@ -404,6 +404,7 @@ describe("[orgs]", function() {
         client.orgs.getOutsideCollaborators(
             {
                 org: "String",
+                filter: "String",
                 page: "Number",
                 per_page: "Number"
             },

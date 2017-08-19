@@ -1043,7 +1043,9 @@ declare namespace Github {
     & Org
     & Page
     & PerPage
-    ;
+    & {
+      filter?: "all"|"2fa_disabled";
+    };
   export type OrgsRemoveOutsideCollaboratorParams =
     & Org
     & Username

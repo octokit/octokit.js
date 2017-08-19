@@ -3188,6 +3188,18 @@
             "method": "GET",
             "params": {
                 "$org": null,
+                "filter": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "^(all|2fa_disabled)$",
+                    "invalidmsg": "all, 2fa_disabled, default: all",
+                    "description": "Filter the list of outside collaborators.",
+                    "enum": [
+                        "all",
+                        "2fa_disabled"
+                    ],
+                    "default": "all"
+                },
                 "$page": null,
                 "$per_page": null
             },
