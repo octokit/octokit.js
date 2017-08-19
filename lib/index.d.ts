@@ -1583,8 +1583,8 @@ declare namespace Github {
     & Homepage
     & Private
     & HasIssues
+    & HasProjects
     & HasWiki
-    & HasDownloads
     & AutoInit
     & GitignoreTemplate
     & LicenseTemplate
@@ -1609,8 +1609,8 @@ declare namespace Github {
     & Homepage
     & Private
     & HasIssues
+    & HasProjects
     & HasWiki
-    & HasDownloads
     & DefaultBranch
     & {
       allow_squash_merge?: boolean;

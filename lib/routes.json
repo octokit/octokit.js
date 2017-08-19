@@ -4742,14 +4742,14 @@
                 "$homepage": null,
                 "$private": null,
                 "$has_issues": null,
+                "$has_projects": null,
                 "$has_wiki": null,
-                "$has_downloads": null,
                 "team_id": {
                     "type": "Number",
                     "required": false,
                     "validation": "^[0-9]+$",
                     "invalidmsg": "",
-                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repo in an organization."
+                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
                 },
                 "$auto_init": null,
                 "$gitignore_template": null,
@@ -4809,8 +4809,8 @@
                 "$homepage": null,
                 "$private": null,
                 "$has_issues": null,
+                "$has_projects": null,
                 "$has_wiki": null,
-                "$has_downloads": null,
                 "$default_branch": null,
                 "allow_squash_merge": {
                     "type": "Boolean",
