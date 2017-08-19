@@ -189,6 +189,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 
 | Preview API             | Accept header val                                     |
 | -------------------     | -----------------------------------------------       |
+| Blocking Users          | application/vnd.github.giant-sentry-fist-preview+json |
 | Codes of Conduct        | application/vnd.github.scarlet-witch-preview+json     |
 | Commit Search           | application/vnd.github.cloak-preview+json             |
 | Community               | application/vnd.github.black-panther-preview+json     |
@@ -206,7 +207,6 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Reactions               | application/vnd.github.squirrel-girl-preview          |
 | Star Creation Timestamp | application/vnd.github.v3.star+json                   |
 | Timeline                | application/vnd.github.mockingbird-preview            |
-| User Blocking           | application/vnd.github.giant-sentry-fist-preview+json |
 
 ## Dev notes
 

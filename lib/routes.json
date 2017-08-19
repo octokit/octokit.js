@@ -452,11 +452,23 @@
             }
         },
         "acceptTree": {
+            "application/vnd.github.giant-sentry-fist-preview+json": [
+                "/user/blocks",
+                "/user/blocks/:username",
+                "/orgs/:org/blocks",
+                "/orgs/:org/blocks/:username"
+            ],
+            "application/vnd.github.scarlet-witch-preview+json": [
+                "/codes_of_conduct",
+                "/codes_of_conduct/:key",
+                "/repos/:owner/:repo",
+                "/repos/:owner/:repo/community/code_of_conduct"
+            ],
             "application/vnd.github.cloak-preview+json": [
                 "/search/commits"
             ],
             "application/vnd.github.black-panther-preview+json": [
-                "/repositories/:repo_id/community/profile"
+                "/repos/:owner/:name/community/profile"
             ],
             "application/vnd.github.ant-man-preview+json": [
                 "/repos/:owner/:repo/deployments",
@@ -563,26 +575,6 @@
             ],
             "application/vnd.github.mockingbird-preview": [
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
-            ],
-            "application/vnd.github.black-cat-preview+json": [
-                "/repos/:owner/:repo/pulls/:number/reviews",
-                "/repos/:owner/:repo/pulls/:number/reviews/:id",
-                "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
-                "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
-                "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
-                "/repos/:owner/:repo/pulls/:number/requested_reviewers"
-            ],
-            "application/vnd.github.giant-sentry-fist-preview+json": [
-                "/user/blocks",
-                "/user/blocks/:username",
-                "/orgs/:org/blocks",
-                "/orgs/:org/blocks/:username"
-            ],
-            "application/vnd.github.scarlet-witch-preview+json": [
-                "/codes_of_conduct",
-                "/codes_of_conduct/:key",
-                "/repos/:owner/:repo",
-                "/repos/:owner/:repo/community/code_of_conduct"
             ]
         }
     },
