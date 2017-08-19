@@ -1348,6 +1348,12 @@ declare module "github" {
     & Number
     & Id
     ;
+  declare type PullRequestsDeletePendingReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    ;
   declare type PullRequestsGetReviewCommentsParams =
     & Owner
     & Repo
@@ -1361,11 +1367,10 @@ declare module "github" {
     & Repo
     & Number
     & {
+      commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
-      path?: string;
-      position?: number;
     };
   declare type PullRequestsSubmitReviewParams =
     & Owner
@@ -2854,6 +2859,7 @@ declare module "github" {
       merge(params: PullRequestsMergeParams, callback?: Callback): Promise<any>;
       getReviews(params: PullRequestsGetReviewsParams, callback?: Callback): Promise<any>;
       getReview(params: PullRequestsGetReviewParams, callback?: Callback): Promise<any>;
+      deletePendingReview(params: PullRequestsDeletePendingReviewParams, callback?: Callback): Promise<any>;
       getReviewComments(params: PullRequestsGetReviewCommentsParams, callback?: Callback): Promise<any>;
       createReview(params: PullRequestsCreateReviewParams, callback?: Callback): Promise<any>;
       submitReview(params: PullRequestsSubmitReviewParams, callback?: Callback): Promise<any>;

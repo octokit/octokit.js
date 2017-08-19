@@ -1353,6 +1353,12 @@ declare namespace Github {
     & Number
     & Id
     ;
+  export type PullRequestsDeletePendingReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    ;
   export type PullRequestsGetReviewCommentsParams =
     & Owner
     & Repo
@@ -1366,11 +1372,10 @@ declare namespace Github {
     & Repo
     & Number
     & {
+      commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
-      path?: string;
-      position?: number;
     };
   export type PullRequestsSubmitReviewParams =
     & Owner
@@ -2869,6 +2874,7 @@ declare class Github {
     merge(params: Github.PullRequestsMergeParams, callback?: Github.Callback): Promise<any>;
     getReviews(params: Github.PullRequestsGetReviewsParams, callback?: Github.Callback): Promise<any>;
     getReview(params: Github.PullRequestsGetReviewParams, callback?: Github.Callback): Promise<any>;
+    deletePendingReview(params: Github.PullRequestsDeletePendingReviewParams, callback?: Github.Callback): Promise<any>;
     getReviewComments(params: Github.PullRequestsGetReviewCommentsParams, callback?: Github.Callback): Promise<any>;
     createReview(params: Github.PullRequestsCreateReviewParams, callback?: Github.Callback): Promise<any>;
     submitReview(params: Github.PullRequestsSubmitReviewParams, callback?: Github.Callback): Promise<any>;

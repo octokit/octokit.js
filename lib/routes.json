@@ -4042,6 +4042,17 @@
             },
             "description": "Get a single pull request review."
         },
+        "delete-pending-review": {
+            "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
+            "method": "DELETE",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$number": null,
+                "$id": null
+            },
+            "description": "Delete a pending pull request review."
+        },
         "get-review-comments": {
             "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
             "method": "GET",
@@ -4062,6 +4073,13 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
+                "commit_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "Sha of the commit to comment on.",
+                    "description": "Sha of the commit to comment on."
+                },
                 "body": {
                     "type": "String",
                     "required": false,
@@ -4088,21 +4106,7 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "An array of comments part of the review."
-                },
-                "path": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The path to the file being commented on."
-                },
-                "position": {
-                    "type": "Number",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "The position in the file to be commented on."
+                    "description": "An array of draft review comment objects. Draft review comments must include a `path`, `position`, and `body`."
                 }
             },
             "description": "Create a pull request review."

@@ -120,11 +120,10 @@ describe("[pullRequests]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
+                commit_id: "String",
                 body: "String",
                 event: "String",
-                comments: "Array",
-                path: "String",
-                position: "Number"
+                comments: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -155,6 +154,22 @@ describe("[pullRequests]", function() {
             {
                 owner: "String",
                 repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /repos/:owner/:repo/pulls/:number/reviews/:id (deletePendingReview)",  function(next) {
+        client.pullRequests.deletePendingReview(
+            {
+                owner: "String",
+                repo: "String",
+                number: "Number",
                 id: "String"
             },
             function(err, res) {
