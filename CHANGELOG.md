@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 9.3.0
+
+Features:
+  * Update params for create/edit repo.
+  * Add Review Requests preview stuff for team reviewers.
+  * Update params for create pull request review endpoint.
+  * Update params for update pull request endpoint.
+  * Add state param to some project endpoints.
+  * Add filter param to outside collaborators endpoint.
+  * Mark that default role is member for add-org-membership.
+  * Add Code of Conduct preview endpoint support.
+  * Add endpoint to include issue events triggered by integrations.
+  * Add single comment endpoint to include issue comments.
+  * Remove extra issue comments endpoint.
+  * Add issue-related endpoints to include reactions.
+  * Add endpoints to include issues opened by users.
+  * Add endpoints to include reactions in responses.
+  * Allow to see star creation timestamps.
+  * Add revoke grant endpoint.
+  * Pull Request Reviews API now official.
+  * Repository invitation api now official.
+  * Add Protected Branches API Pull Request Review Dismissal Restrictions.
+  * Add package lock file.
+  * Organization Memberships API is now official.
+
+Bug fixes:
+  * Add two missing endpoints for project preview accept header.
+  * Updated api urls for convert/remove collaborator.
+
 ## 9.2.0
 
 Features:
@@ -177,7 +206,7 @@ Bug fixes:
   * Adjust params for updateProtectedBranchRequiredStatusChecks.
   * Use body by default for non head/get/delete requests.
   * Fix mismatched endpoints in acceptTree object.
-  * Prevent `accept` and `Accept` mixing in headers. 
+  * Prevent `accept` and `Accept` mixing in headers.
   * Adjust getFollowers endpoint url.
   * Adjust testHook endpoint url.
 
