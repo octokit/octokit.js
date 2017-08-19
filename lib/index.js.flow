@@ -1177,9 +1177,11 @@ declare module "github" {
   declare type ProjectsGetRepoProjectsParams =
     & Owner
     & Repo
+    & State
     ;
   declare type ProjectsGetOrgProjectsParams =
     & Org
+    & State
     ;
   declare type ProjectsGetProjectParams =
     & Id
@@ -1200,6 +1202,7 @@ declare module "github" {
   declare type ProjectsUpdateProjectParams =
     & Id
     & Name
+    & State
     & {
       body?: string;
     };

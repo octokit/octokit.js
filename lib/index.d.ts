@@ -1182,9 +1182,11 @@ declare namespace Github {
   export type ProjectsGetRepoProjectsParams =
     & Owner
     & Repo
+    & State
     ;
   export type ProjectsGetOrgProjectsParams =
     & Org
+    & State
     ;
   export type ProjectsGetProjectParams =
     & Id
@@ -1205,6 +1207,7 @@ declare namespace Github {
   export type ProjectsUpdateProjectParams =
     & Id
     & Name
+    & State
     & {
       body?: string;
     };

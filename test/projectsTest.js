@@ -128,7 +128,8 @@ describe("[projects]", function() {
     it("should successfully execute GET /orgs/:org/projects (getOrgProjects)",  function(next) {
         client.projects.getOrgProjects(
             {
-                org: "String"
+                org: "String",
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -207,7 +208,8 @@ describe("[projects]", function() {
         client.projects.getRepoProjects(
             {
                 owner: "String",
-                repo: "String"
+                repo: "String",
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -251,7 +253,8 @@ describe("[projects]", function() {
             {
                 id: "String",
                 name: "String",
-                body: "String"
+                body: "String",
+                state: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

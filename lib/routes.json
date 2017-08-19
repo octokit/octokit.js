@@ -3562,7 +3562,8 @@
             "method": "GET",
             "params": {
                 "$owner": null,
-                "$repo": null
+                "$repo": null,
+                "$state": null
             },
             "description": "List repository projects. (In preview period. See README.)"
         },
@@ -3570,7 +3571,8 @@
             "url": "/orgs/:org/projects",
             "method": "GET",
             "params": {
-                "$org": null
+                "$org": null,
+                "$state": null
             },
             "description": "List organization projects. (In preview period. See README.)"
         },
@@ -3627,7 +3629,8 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
-                }
+                },
+                "$state": null
             },
             "description": "Update a project. (In preview period. See README.)"
         },
