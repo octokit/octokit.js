@@ -1266,11 +1266,11 @@ declare namespace Github {
   export type PullRequestsGetAllParams =
     & Owner
     & Repo
+    & State
     & Direction
     & Page
     & PerPage
     & {
-      state?: "open"|"closed"|"all";
       head?: string;
       base?: string;
       sort?: "created"|"updated"|"popularity"|"long-running";

@@ -3797,19 +3797,7 @@
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "state": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "^(open|closed|all)$",
-                    "invalidmsg": "open, closed, all, default: open",
-                    "description": "open, closed, or all",
-                    "enum": [
-                        "open",
-                        "closed",
-                        "all"
-                    ],
-                    "default": "open"
-                },
+                "$state": null,
                 "head": {
                     "type": "String",
                     "required": false,
