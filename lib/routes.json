@@ -295,6 +295,14 @@
                 "description": "True to enable issues for this repository, false to disable them. Default is true.",
                 "default": "true"
             },
+            "has_projects": {
+                "type": "Boolean",
+                "required": false,
+                "validation": "",
+                "invalidmsg": "",
+                "description": "True to enable projects for this repository, false to disable them. Default is true.",
+                "default": "true"
+            },
             "has_wiki": {
                 "type": "Boolean",
                 "required": false,
@@ -4693,8 +4701,8 @@
                 "$homepage": null,
                 "$private": null,
                 "$has_issues": null,
+                "$has_projects": null,
                 "$has_wiki": null,
-                "$has_downloads": null,
                 "team_id": {
                     "type": "Number",
                     "required": false,

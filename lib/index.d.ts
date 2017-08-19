@@ -105,6 +105,7 @@ declare namespace Github {
   export interface Homepage { homepage?: string; }
   export interface Private { private?: boolean; }
   export interface HasIssues { has_issues?: boolean; }
+  export interface HasProjects { has_projects?: boolean; }
   export interface HasWiki { has_wiki?: boolean; }
   export interface HasDownloads { has_downloads?: boolean; }
   export interface DefaultBranch { default_branch?: string; }
@@ -1567,8 +1568,8 @@ declare namespace Github {
     & Homepage
     & Private
     & HasIssues
+    & HasProjects
     & HasWiki
-    & HasDownloads
     & AutoInit
     & GitignoreTemplate
     & LicenseTemplate
