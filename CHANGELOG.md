@@ -19,6 +19,10 @@ Features:
   * Add endpoints to include reactions in responses.
   * Allow to see star creation timestamps.
   * Add revoke grant endpoint.
+  * Require routes.json.
+  * Add family option.
+  * Add proxy param in options interface.
+  * Add the required field "enforce_admins".
   * Pull Request Reviews API now official.
   * Repository invitation api now official.
   * Add Protected Branches API Pull Request Review Dismissal Restrictions.
@@ -28,6 +32,9 @@ Features:
 Bug fixes:
   * Add two missing endpoints for project preview accept header.
   * Updated api urls for convert/remove collaborator.
+  * Change content_id type to Number on createProjectCard.
+  * Remove node-github deprecation warning.
+  * Update api urls for convert/remove collaborator.
 
 ## 9.2.0
 
