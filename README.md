@@ -215,6 +215,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Review Requests         | application/vnd.github.thor-preview+json              |
 | Star Creation Timestamp | application/vnd.github.v3.star+json                   |
 | Timeline                | application/vnd.github.mockingbird-preview            |
+| Topics                  | application/vnd.github.mercy-preview+json             |
 
 ## Dev notes
 

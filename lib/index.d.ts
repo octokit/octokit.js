@@ -1556,6 +1556,8 @@ declare namespace Github {
       type?: "all"|"public"|"private"|"forks"|"sources"|"member";
     };
   export type ReposGetPublicParams =
+    & Page
+    & PerPage
     & {
       since?: string;
     };
@@ -1616,6 +1618,18 @@ declare namespace Github {
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
+    };
+  export type ReposGetTopicsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  export type ReposReplaceTopicsParams =
+    & Owner
+    & Repo
+    & {
+      names: Array;
     };
   export type ReposGetContributorsParams =
     & Owner
@@ -2914,6 +2928,8 @@ declare class Github {
     get(params: Github.ReposGetParams, callback?: Github.Callback): Promise<any>;
     getById(params: Github.ReposGetByIdParams, callback?: Github.Callback): Promise<any>;
     edit(params: Github.ReposEditParams, callback?: Github.Callback): Promise<any>;
+    getTopics(params: Github.ReposGetTopicsParams, callback?: Github.Callback): Promise<any>;
+    replaceTopics(params: Github.ReposReplaceTopicsParams, callback?: Github.Callback): Promise<any>;
     getContributors(params: Github.ReposGetContributorsParams, callback?: Github.Callback): Promise<any>;
     getLanguages(params: Github.ReposGetLanguagesParams, callback?: Github.Callback): Promise<any>;
     getTeams(params: Github.ReposGetTeamsParams, callback?: Github.Callback): Promise<any>;

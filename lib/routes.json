@@ -586,6 +586,9 @@
             ],
             "application/vnd.github.mockingbird-preview": [
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
+            ],
+            "application/vnd.github.mercy-preview+json": [
+                "/repos/:owner/:repo/topics"
             ]
         }
     },
@@ -4680,7 +4683,9 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The integer ID of the last Repository that you've seen."
-                }
+                },
+                "$page": null,
+                "$per_page": null
             },
             "description": "List all public repositories"
         },
@@ -4838,6 +4843,33 @@
                 }
             },
             "description": "Update a repo."
+        },
+        "get-topics": {
+            "url": "/repos/:owner/:repo/topics",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all topics for a repository. (In preview period. See README.)"
+        },
+        "replace-topics": {
+            "url": "/repos/:owner/:repo/topics",
+            "method": "PUT",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "names": {
+                    "type": "Array",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "An array of topics to add to the repository. Pass one or more topics to replace the set of existing topics. Send an empty array ([]) to clear all topics from the repository."
+                }
+            },
+            "description": "Replace all topics for a repository. (In preview period. See README.)"
         },
         "get-contributors": {
             "url": "/repos/:owner/:repo/contributors",

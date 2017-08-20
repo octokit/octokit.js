@@ -1551,6 +1551,8 @@ declare module "github" {
       type?: "all"|"public"|"private"|"forks"|"sources"|"member";
     };
   declare type ReposGetPublicParams =
+    & Page
+    & PerPage
     & {
       since?: string;
     };
@@ -1611,6 +1613,18 @@ declare module "github" {
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
+    };
+  declare type ReposGetTopicsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposReplaceTopicsParams =
+    & Owner
+    & Repo
+    & {
+      names: Array;
     };
   declare type ReposGetContributorsParams =
     & Owner
@@ -2899,6 +2913,8 @@ declare module "github" {
       get(params: ReposGetParams, callback?: Callback): Promise<any>;
       getById(params: ReposGetByIdParams, callback?: Callback): Promise<any>;
       edit(params: ReposEditParams, callback?: Callback): Promise<any>;
+      getTopics(params: ReposGetTopicsParams, callback?: Callback): Promise<any>;
+      replaceTopics(params: ReposReplaceTopicsParams, callback?: Callback): Promise<any>;
       getContributors(params: ReposGetContributorsParams, callback?: Callback): Promise<any>;
       getLanguages(params: ReposGetLanguagesParams, callback?: Callback): Promise<any>;
       getTeams(params: ReposGetTeamsParams, callback?: Callback): Promise<any>;

@@ -1328,7 +1328,9 @@ describe("[repos]", function() {
     it("should successfully execute GET /repositories (getPublic)",  function(next) {
         client.repos.getPublic(
             {
-                since: "String"
+                since: "String",
+                page: "Number",
+                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1535,6 +1537,22 @@ describe("[repos]", function() {
 
     it("should successfully execute GET /repos/:owner/:repo/teams (getTeams)",  function(next) {
         client.repos.getTeams(
+            {
+                owner: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/topics (getTopics)",  function(next) {
+        client.repos.getTopics(
             {
                 owner: "String",
                 repo: "String",
@@ -1780,6 +1798,21 @@ describe("[repos]", function() {
                 repo: "String",
                 branch: "String",
                 users: "Array"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute PUT /repos/:owner/:repo/topics (replaceTopics)",  function(next) {
+        client.repos.replaceTopics(
+            {
+                owner: "String",
+                repo: "String",
+                names: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);
