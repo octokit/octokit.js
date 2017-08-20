@@ -1908,7 +1908,6 @@ declare module "github" {
     & {
       path?: string;
       position?: number;
-      line?: number;
     };
   declare type ReposGetCommitCommentParams =
     & Owner

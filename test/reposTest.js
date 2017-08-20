@@ -171,8 +171,7 @@ describe("[repos]", function() {
                 sha: "String",
                 body: "String",
                 path: "String",
-                position: "Number",
-                line: "Number"
+                position: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

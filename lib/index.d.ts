@@ -1913,7 +1913,6 @@ declare namespace Github {
     & {
       path?: string;
       position?: number;
-      line?: number;
     };
   export type ReposGetCommitCommentParams =
     & Owner

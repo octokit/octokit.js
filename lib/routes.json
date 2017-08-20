@@ -5530,13 +5530,6 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Line index in the diff to comment on."
-                },
-                "line": {
-                    "type": "Number",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Deprecated. Use position parameter instead. Line number in the file to comment on."
                 }
             },
             "description": "Create a commit comment."
