@@ -1709,10 +1709,7 @@ declare module "github" {
     & Owner
     & Repo
     & Branch
-    & Page
-    & PerPage
     & {
-      include_admins?: boolean;
       strict?: boolean;
       contexts?: string[];
     };
@@ -1720,8 +1717,6 @@ declare module "github" {
     & Owner
     & Repo
     & Branch
-    & Page
-    & PerPage
     ;
   declare type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
     & Owner

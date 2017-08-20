@@ -5056,13 +5056,6 @@
                 "$owner": null,
                 "$repo": null,
                 "$branch": null,
-                "include_admins": {
-                    "type": "Boolean",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": "Enforce required status checks for repository administrators."
-                },
                 "strict": {
                     "type": "Boolean",
                     "required": false,
@@ -5076,9 +5069,7 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "The list of status checks to require in order to merge into this branch."
-                },
-                "$page": null,
-                "$per_page": null
+                }
             },
             "description": "Update required status checks of protected branch. (In preview period. See README.)"
         },
@@ -5088,9 +5079,7 @@
             "params": {
                 "$owner": null,
                 "$repo": null,
-                "$branch": null,
-                "$page": null,
-                "$per_page": null
+                "$branch": null
             },
             "description": "Remove required status checks of protected branch. (In preview period. See README.)"
         },

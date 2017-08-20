@@ -1684,9 +1684,7 @@ describe("[repos]", function() {
             {
                 owner: "String",
                 repo: "String",
-                branch: "String",
-                page: "Number",
-                per_page: "Number"
+                branch: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1963,11 +1961,8 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 branch: "String",
-                include_admins: "Boolean",
                 strict: "Boolean",
-                contexts: "Array",
-                page: "Number",
-                per_page: "Number"
+                contexts: "Array"
             },
             function(err, res) {
                 Assert.equal(err, null);

@@ -1714,10 +1714,7 @@ declare namespace Github {
     & Owner
     & Repo
     & Branch
-    & Page
-    & PerPage
     & {
-      include_admins?: boolean;
       strict?: boolean;
       contexts?: string[];
     };
@@ -1725,8 +1722,6 @@ declare namespace Github {
     & Owner
     & Repo
     & Branch
-    & Page
-    & PerPage
     ;
   export type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
