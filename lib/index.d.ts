@@ -15,7 +15,7 @@ declare namespace Github {
 
   export interface EmptyParams {
   }
-  
+
   export interface Options {
     debug?: boolean;
     protocol?: string;
@@ -1460,7 +1460,7 @@ declare namespace Github {
     & Number
     & {
       reviewers?: string[];
-      team_reviewers?: Array;
+      team_reviewers?: string[];
     };
   export type PullRequestsDeleteReviewRequestParams =
     & Owner
@@ -1468,7 +1468,7 @@ declare namespace Github {
     & Number
     & {
       reviewers?: string[];
-      team_reviewers?: Array;
+      team_reviewers?: string[];
     };
   export type ReactionsGetForCommitCommentParams =
     & Owner
