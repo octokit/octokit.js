@@ -1765,6 +1765,7 @@ declare namespace Github {
     & {
       dismissal_restrictions?: string;
       dismiss_stale_reviews?: boolean;
+      require_code_owner_reviews?: boolean;
     };
   export type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
     & Owner

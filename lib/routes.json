@@ -5182,6 +5182,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": "Dismiss approved reviews automatically when a new commit is pushed."
+                },
+                "require_code_owner_reviews": {
+                    "type": "Boolean",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "Blocks merge until code owners have reviewed."
                 }
             },
             "description": "Update pull request review enforcement of protected branch. (In preview period. See README.)"

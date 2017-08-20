@@ -1945,7 +1945,8 @@ describe("[repos]", function() {
                 repo: "String",
                 branch: "String",
                 dismissal_restrictions: "Json",
-                dismiss_stale_reviews: "Boolean"
+                dismiss_stale_reviews: "Boolean",
+                require_code_owner_reviews: "Boolean"
             },
             function(err, res) {
                 Assert.equal(err, null);
