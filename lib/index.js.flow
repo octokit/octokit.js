@@ -1455,7 +1455,7 @@ declare module "github" {
     & Number
     & {
       reviewers?: string[];
-      team_reviewers?: Array;
+      team_reviewers?: string[];
     };
   declare type PullRequestsDeleteReviewRequestParams =
     & Owner
@@ -1463,7 +1463,7 @@ declare module "github" {
     & Number
     & {
       reviewers?: string[];
-      team_reviewers?: Array;
+      team_reviewers?: string[];
     };
   declare type ReactionsGetForCommitCommentParams =
     & Owner
@@ -1624,7 +1624,7 @@ declare module "github" {
     & Owner
     & Repo
     & {
-      names: Array;
+      names: string[];
     };
   declare type ReposGetContributorsParams =
     & Owner
