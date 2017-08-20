@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 9.3.1
+
+Bug fixes:
+  * Fix instantiating multiple instances throwing an error.
+  * Add missing config options to README.
+
 ## 9.3.0
 
 Features:
