@@ -5565,13 +5565,14 @@
             },
             "description": "Delete a commit comment."
         },
-        "get-community-health-metrics": {
-            "url": "/repositories/:repo_id/community/profile",
+        "get-community-profile-metrics": {
+            "url": "/repos/:owner/:name/community/profile",
             "method": "GET",
             "params": {
-                "$repo_id": null
+                "$owner": null,
+                "$name": null
             },
-            "description": "Retrieve community health metrics."
+            "description": "Retrieve community profile metrics."
         },
         "get-commits": {
             "url": "/repos/:owner/:repo/commits",

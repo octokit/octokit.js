@@ -1930,8 +1930,9 @@ declare namespace Github {
     & Repo
     & Id
     ;
-  export type ReposGetCommunityHealthMetricsParams =
-    & RepoId
+  export type ReposGetCommunityProfileMetricsParams =
+    & Owner
+    & Name
     ;
   export type ReposGetCommitsParams =
     & Owner
@@ -2969,7 +2970,7 @@ declare class Github {
     getCommitComment(params: Github.ReposGetCommitCommentParams, callback?: Github.Callback): Promise<any>;
     updateCommitComment(params: Github.ReposUpdateCommitCommentParams, callback?: Github.Callback): Promise<any>;
     deleteCommitComment(params: Github.ReposDeleteCommitCommentParams, callback?: Github.Callback): Promise<any>;
-    getCommunityHealthMetrics(params: Github.ReposGetCommunityHealthMetricsParams, callback?: Github.Callback): Promise<any>;
+    getCommunityProfileMetrics(params: Github.ReposGetCommunityProfileMetricsParams, callback?: Github.Callback): Promise<any>;
     getCommits(params: Github.ReposGetCommitsParams, callback?: Github.Callback): Promise<any>;
     getCommit(params: Github.ReposGetCommitParams, callback?: Github.Callback): Promise<any>;
     getShaOfCommitRef(params: Github.ReposGetShaOfCommitRefParams, callback?: Github.Callback): Promise<any>;

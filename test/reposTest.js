@@ -859,10 +859,11 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repositories/:repo_id/community/profile (getCommunityHealthMetrics)",  function(next) {
-        client.repos.getCommunityHealthMetrics(
+    it("should successfully execute GET /repos/:owner/:name/community/profile (getCommunityProfileMetrics)",  function(next) {
+        client.repos.getCommunityProfileMetrics(
             {
-                repo_id: "String"
+                owner: "String",
+                name: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
