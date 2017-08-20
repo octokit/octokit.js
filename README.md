@@ -37,16 +37,23 @@ var GitHubApi = require("github");
 var github = new GitHubApi({
     // optional
     debug: true,
-    protocol: "https",
+    Promise: require('bluebird'),
+    timeout: 5000,
     host: "github.my-GHE-enabled-company.com", // should be api.github.com for GitHub
     pathPrefix: "/api/v3", // for some GHEs; none for GitHub
+    protocol: "https",
+    port: 9898,
+    proxy: "<proxyUrl>",
+    ca: "whatever",
     headers: {
-        "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
+        "accept": "application/vnd.github.something-custom",
+        "cookie": "something custom",
+        "user-agent": "something custom"
     },
-    Promise: require('bluebird'),
-    family: 6,
-    followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
-    timeout: 5000
+    requestMedia: "application/vnd.github.something-custom",
+    followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow disabling follow-redirects
+    rejectUnauthorized: false, // default: true
+    family: 6
 });
 
 // TODO: optional authentication here depending on desired endpoints. See below in README.
