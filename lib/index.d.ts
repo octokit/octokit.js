@@ -15,7 +15,7 @@ declare namespace Github {
 
   export interface EmptyParams {
   }
-
+  
   export interface Options {
     debug?: boolean;
     protocol?: string;
@@ -1629,7 +1629,7 @@ declare namespace Github {
     & Owner
     & Repo
     & {
-      names: Array;
+      names: string[];
     };
   export type ReposGetContributorsParams =
     & Owner
