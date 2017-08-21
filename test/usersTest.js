@@ -465,6 +465,20 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute GET /user/public_emails (getPublicEmails)",  function(next) {
+        client.users.getPublicEmails(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/repository_invitations (getRepoInvites)",  function(next) {
         client.users.getRepoInvites(
             {},

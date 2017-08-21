@@ -591,7 +591,8 @@
                 "/repos/:owner/:repo/issues/:issue_number/timeline"
             ],
             "application/vnd.github.mercy-preview+json": [
-                "/repos/:owner/:repo/topics"
+                "/repos/:owner/:repo/topics",
+                "/search/repositories"
             ]
         }
     },
@@ -7159,6 +7160,15 @@
                 "$per_page": null
             },
             "description": "List email addresses for a user"
+        },
+        "get-public-emails": {
+            "url": "/user/public_emails",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List public email addresses for a user"
         },
         "add-emails": {
             "url": "/user/emails",

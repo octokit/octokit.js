@@ -2460,6 +2460,10 @@ declare namespace Github {
     & Page
     & PerPage
     ;
+  export type UsersGetPublicEmailsParams =
+    & Page
+    & PerPage
+    ;
   export type UsersAddEmailsParams =
     & {
       emails: string[];
@@ -3073,6 +3077,7 @@ declare class Github {
     editOrgMembership(params: Github.UsersEditOrgMembershipParams, callback?: Github.Callback): Promise<any>;
     getTeams(params: Github.UsersGetTeamsParams, callback?: Github.Callback): Promise<any>;
     getEmails(params: Github.UsersGetEmailsParams, callback?: Github.Callback): Promise<any>;
+    getPublicEmails(params: Github.UsersGetPublicEmailsParams, callback?: Github.Callback): Promise<any>;
     addEmails(params: Github.UsersAddEmailsParams, callback?: Github.Callback): Promise<any>;
     deleteEmails(params: Github.UsersDeleteEmailsParams, callback?: Github.Callback): Promise<any>;
     getFollowersForUser(params: Github.UsersGetFollowersForUserParams, callback?: Github.Callback): Promise<any>;

@@ -2455,6 +2455,10 @@ declare module "github" {
     & Page
     & PerPage
     ;
+  declare type UsersGetPublicEmailsParams =
+    & Page
+    & PerPage
+    ;
   declare type UsersAddEmailsParams =
     & {
       emails: string[];
@@ -3058,6 +3062,7 @@ declare module "github" {
       editOrgMembership(params: UsersEditOrgMembershipParams, callback?: Callback): Promise<any>;
       getTeams(params: UsersGetTeamsParams, callback?: Callback): Promise<any>;
       getEmails(params: UsersGetEmailsParams, callback?: Callback): Promise<any>;
+      getPublicEmails(params: UsersGetPublicEmailsParams, callback?: Callback): Promise<any>;
       addEmails(params: UsersAddEmailsParams, callback?: Callback): Promise<any>;
       deleteEmails(params: UsersDeleteEmailsParams, callback?: Callback): Promise<any>;
       getFollowersForUser(params: UsersGetFollowersForUserParams, callback?: Callback): Promise<any>;
