@@ -3080,6 +3080,7 @@ declare class Github {
     getPublicEmails(params: Github.UsersGetPublicEmailsParams, callback?: Github.Callback): Promise<any>;
     addEmails(params: Github.UsersAddEmailsParams, callback?: Github.Callback): Promise<any>;
     deleteEmails(params: Github.UsersDeleteEmailsParams, callback?: Github.Callback): Promise<any>;
+    togglePrimaryEmailVisibility(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getFollowersForUser(params: Github.UsersGetFollowersForUserParams, callback?: Github.Callback): Promise<any>;
     getFollowers(params: Github.UsersGetFollowersParams, callback?: Github.Callback): Promise<any>;
     getFollowingForUser(params: Github.UsersGetFollowingForUserParams, callback?: Github.Callback): Promise<any>;

@@ -7141,7 +7141,7 @@
                     ]
                 }
             },
-            "description": "Edit your organization membership"
+            "description": "Edit your organization membership."
         },
         "get-teams": {
             "url": "/user/teams",
@@ -7150,7 +7150,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get your teams"
+            "description": "Get your teams."
         },
         "get-emails": {
             "url": "/user/emails",
@@ -7159,7 +7159,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List email addresses for a user"
+            "description": "List email addresses for a user."
         },
         "get-public-emails": {
             "url": "/user/public_emails",
@@ -7168,7 +7168,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List public email addresses for a user"
+            "description": "List public email addresses for a user."
         },
         "add-emails": {
             "url": "/user/emails",
@@ -7183,7 +7183,7 @@
                     "description": "You can post a single email address or an array of addresses."
                 }
             },
-            "description": "Add email address(es)"
+            "description": "Add email address(es)."
         },
         "delete-emails": {
             "url": "/user/emails",
@@ -7198,7 +7198,14 @@
                     "description": "You can post a single email address or an array of addresses."
                 }
             },
-            "description": "Delete email address(es)"
+            "description": "Delete email address(es)."
+        },
+        "toggle-primary-email-visibility": {
+            "url": "/user/email/visibility",
+            "method": "PATCH",
+            "params": {
+            },
+            "description": "Toggle primary email visibility."
         },
         "get-followers-for-user": {
             "url": "/users/:username/followers",

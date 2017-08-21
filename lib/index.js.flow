@@ -3065,6 +3065,7 @@ declare module "github" {
       getPublicEmails(params: UsersGetPublicEmailsParams, callback?: Callback): Promise<any>;
       addEmails(params: UsersAddEmailsParams, callback?: Callback): Promise<any>;
       deleteEmails(params: UsersDeleteEmailsParams, callback?: Callback): Promise<any>;
+      togglePrimaryEmailVisibility(params: EmptyParams, callback?: Callback): Promise<any>;
       getFollowersForUser(params: UsersGetFollowersForUserParams, callback?: Callback): Promise<any>;
       getFollowers(params: UsersGetFollowersParams, callback?: Callback): Promise<any>;
       getFollowingForUser(params: UsersGetFollowingForUserParams, callback?: Callback): Promise<any>;

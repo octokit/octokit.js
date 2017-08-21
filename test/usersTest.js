@@ -530,6 +530,17 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute PATCH /user/email/visibility (togglePrimaryEmailVisibility)",  function(next) {
+        client.users.togglePrimaryEmailVisibility(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /user/blocks/:username (unblockUser)",  function(next) {
         client.users.unblockUser(
             {
