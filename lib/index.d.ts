@@ -2051,6 +2051,12 @@ declare namespace Github {
       task?: string;
       environment?: string;
     };
+  export type ReposGetDeploymentParams =
+    & Owner
+    & Repo
+    & {
+      deployment_id: string;
+    };
   export type ReposCreateDeploymentParams =
     & Owner
     & Repo
@@ -2070,6 +2076,13 @@ declare namespace Github {
     & Repo
     & Id
     ;
+  export type ReposGetDeploymentStatusParams =
+    & Owner
+    & Repo
+    & {
+      id: string;
+      status_id: string;
+    };
   export type ReposCreateDeploymentStatusParams =
     & Owner
     & Repo
@@ -2215,11 +2228,6 @@ declare namespace Github {
     & Repo
     & Id
     ;
-  export type ReposGetAssetParams =
-    & Owner
-    & Repo
-    & Id
-    ;
   export type ReposUploadAssetParams =
     & Owner
     & Repo
@@ -2229,6 +2237,11 @@ declare namespace Github {
       name: string;
       label?: string;
     };
+  export type ReposGetAssetParams =
+    & Owner
+    & Repo
+    & Id
+    ;
   export type ReposEditAssetParams =
     & Owner
     & Repo
@@ -2989,8 +3002,10 @@ declare class Github {
     addDeployKey(params: Github.ReposAddDeployKeyParams, callback?: Github.Callback): Promise<any>;
     deleteDeployKey(params: Github.ReposDeleteDeployKeyParams, callback?: Github.Callback): Promise<any>;
     getDeployments(params: Github.ReposGetDeploymentsParams, callback?: Github.Callback): Promise<any>;
+    getDeployment(params: Github.ReposGetDeploymentParams, callback?: Github.Callback): Promise<any>;
     createDeployment(params: Github.ReposCreateDeploymentParams, callback?: Github.Callback): Promise<any>;
     getDeploymentStatuses(params: Github.ReposGetDeploymentStatusesParams, callback?: Github.Callback): Promise<any>;
+    getDeploymentStatus(params: Github.ReposGetDeploymentStatusParams, callback?: Github.Callback): Promise<any>;
     createDeploymentStatus(params: Github.ReposCreateDeploymentStatusParams, callback?: Github.Callback): Promise<any>;
     getDownloads(params: Github.ReposGetDownloadsParams, callback?: Github.Callback): Promise<any>;
     getDownload(params: Github.ReposGetDownloadParams, callback?: Github.Callback): Promise<any>;
@@ -3014,8 +3029,8 @@ declare class Github {
     editRelease(params: Github.ReposEditReleaseParams, callback?: Github.Callback): Promise<any>;
     deleteRelease(params: Github.ReposDeleteReleaseParams, callback?: Github.Callback): Promise<any>;
     getAssets(params: Github.ReposGetAssetsParams, callback?: Github.Callback): Promise<any>;
-    getAsset(params: Github.ReposGetAssetParams, callback?: Github.Callback): Promise<any>;
     uploadAsset(params: Github.ReposUploadAssetParams, callback?: Github.Callback): Promise<any>;
+    getAsset(params: Github.ReposGetAssetParams, callback?: Github.Callback): Promise<any>;
     editAsset(params: Github.ReposEditAssetParams, callback?: Github.Callback): Promise<any>;
     deleteAsset(params: Github.ReposDeleteAssetParams, callback?: Github.Callback): Promise<any>;
     getStatsContributors(params: Github.ReposGetStatsContributorsParams, callback?: Github.Callback): Promise<any>;

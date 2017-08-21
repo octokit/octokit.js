@@ -939,6 +939,37 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/deployments/:deployment_id (getDeployment)",  function(next) {
+        client.repos.getDeployment(
+            {
+                owner: "String",
+                repo: "String",
+                deployment_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/deployments/:id/statuses/:status_id (getDeploymentStatus)",  function(next) {
+        client.repos.getDeploymentStatus(
+            {
+                owner: "String",
+                repo: "String",
+                id: "String",
+                status_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
         client.repos.getDeploymentStatuses(
             {

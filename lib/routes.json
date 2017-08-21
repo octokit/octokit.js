@@ -505,7 +505,9 @@
                 "/orgs/:org/issues",
                 "/repos/:owner/:repo/issues",
                 "/repos/:owner/:repo/issues/comments/:id",
-                "/repos/:owner/:repo/issues/events/:id"
+                "/repos/:owner/:repo/issues/events/:id",
+                "/repos/:owner/:repo/deployments/:deployment_id",
+                "/repos/:owner/:repo/deployments/:id/statuses/:status_id"
             ],
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
@@ -5958,7 +5960,23 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List deployments. (In preview period. See README.)"
+            "description": "List deployments."
+        },
+        "get-deployment": {
+            "url": "/repos/:owner/:repo/deployments/:deployment_id",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "deployment_id": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The deployment id."
+                }
+            },
+            "description": "Get a single Deployment. (In preview period. See README.)"
         },
         "create-deployment": {
             "url": "/repos/:owner/:repo/deployments",
@@ -6048,6 +6066,29 @@
             },
             "description": "List deployment statuses. (In preview period. See README.)"
         },
+        "get-deployment-status": {
+            "url": "/repos/:owner/:repo/deployments/:id/statuses/:status_id",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "id": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The Deployment ID to list the statuses from."
+                },
+                "status_id": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The Deployment Status ID."
+                }
+            },
+            "description": "List deployment statuses. (In preview period. See README.)"
+        },
         "create-deployment-status": {
             "url": "/repos/:owner/:repo/deployments/:id/statuses",
             "method": "POST",
@@ -6114,7 +6155,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List downloads for repository."
+            "description": "List downloads for a repository."
         },
         "get-download": {
             "url": "/repos/:owner/:repo/downloads/:id",
@@ -6217,7 +6258,6 @@
             },
             "description": "Update a repository invitation."
         },
-
         "merge": {
             "url": "/repos/:owner/:repo/merges",
             "method": "POST",
@@ -6457,16 +6497,6 @@
             },
             "description": "List assets for a release."
         },
-        "get-asset": {
-            "url": "/repos/:owner/:repo/releases/assets/:id",
-            "method": "GET",
-            "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null
-            },
-            "description": "Get a single release asset."
-        },
         "upload-asset": {
             "url": "/repos/:owner/:repo/releases/:id/assets",
             "method": "POST",
@@ -6500,6 +6530,16 @@
                 }
             },
             "description": "Upload a release asset."
+        },
+        "get-asset": {
+            "url": "/repos/:owner/:repo/releases/assets/:id",
+            "method": "GET",
+            "params": {
+                "$owner": null,
+                "$repo": null,
+                "$id": null
+            },
+            "description": "Get a single release asset."
         },
         "edit-asset": {
             "url": "/repos/:owner/:repo/releases/assets/:id",

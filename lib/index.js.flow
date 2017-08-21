@@ -2046,6 +2046,12 @@ declare module "github" {
       task?: string;
       environment?: string;
     };
+  declare type ReposGetDeploymentParams =
+    & Owner
+    & Repo
+    & {
+      deployment_id: string;
+    };
   declare type ReposCreateDeploymentParams =
     & Owner
     & Repo
@@ -2065,6 +2071,13 @@ declare module "github" {
     & Repo
     & Id
     ;
+  declare type ReposGetDeploymentStatusParams =
+    & Owner
+    & Repo
+    & {
+      id: string;
+      status_id: string;
+    };
   declare type ReposCreateDeploymentStatusParams =
     & Owner
     & Repo
@@ -2210,11 +2223,6 @@ declare module "github" {
     & Repo
     & Id
     ;
-  declare type ReposGetAssetParams =
-    & Owner
-    & Repo
-    & Id
-    ;
   declare type ReposUploadAssetParams =
     & Owner
     & Repo
@@ -2224,6 +2232,11 @@ declare module "github" {
       name: string;
       label?: string;
     };
+  declare type ReposGetAssetParams =
+    & Owner
+    & Repo
+    & Id
+    ;
   declare type ReposEditAssetParams =
     & Owner
     & Repo
@@ -2974,8 +2987,10 @@ declare module "github" {
       addDeployKey(params: ReposAddDeployKeyParams, callback?: Callback): Promise<any>;
       deleteDeployKey(params: ReposDeleteDeployKeyParams, callback?: Callback): Promise<any>;
       getDeployments(params: ReposGetDeploymentsParams, callback?: Callback): Promise<any>;
+      getDeployment(params: ReposGetDeploymentParams, callback?: Callback): Promise<any>;
       createDeployment(params: ReposCreateDeploymentParams, callback?: Callback): Promise<any>;
       getDeploymentStatuses(params: ReposGetDeploymentStatusesParams, callback?: Callback): Promise<any>;
+      getDeploymentStatus(params: ReposGetDeploymentStatusParams, callback?: Callback): Promise<any>;
       createDeploymentStatus(params: ReposCreateDeploymentStatusParams, callback?: Callback): Promise<any>;
       getDownloads(params: ReposGetDownloadsParams, callback?: Callback): Promise<any>;
       getDownload(params: ReposGetDownloadParams, callback?: Callback): Promise<any>;
@@ -2999,8 +3014,8 @@ declare module "github" {
       editRelease(params: ReposEditReleaseParams, callback?: Callback): Promise<any>;
       deleteRelease(params: ReposDeleteReleaseParams, callback?: Callback): Promise<any>;
       getAssets(params: ReposGetAssetsParams, callback?: Callback): Promise<any>;
-      getAsset(params: ReposGetAssetParams, callback?: Callback): Promise<any>;
       uploadAsset(params: ReposUploadAssetParams, callback?: Callback): Promise<any>;
+      getAsset(params: ReposGetAssetParams, callback?: Callback): Promise<any>;
       editAsset(params: ReposEditAssetParams, callback?: Callback): Promise<any>;
       deleteAsset(params: ReposDeleteAssetParams, callback?: Callback): Promise<any>;
       getStatsContributors(params: ReposGetStatsContributorsParams, callback?: Callback): Promise<any>;
