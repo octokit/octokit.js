@@ -483,6 +483,7 @@
                 "/repos/:owner/:repo/deployments/:id/statuses"
             ],
             "application/vnd.github.cryptographer-preview": [
+                "/users/:username/gpg_keys",
                 "/user/gpg_keys",
                 "/user/gpg_keys/:id",
                 "/repos/:owner/:repo/commits/:sha"
@@ -7327,6 +7328,16 @@
                 "$id": null
             },
             "description": "Delete a public key"
+        },
+        "get-gpg-keys-for-user": {
+            "url": "/users/:username/gpg_keys",
+            "method": "GET",
+            "params": {
+                "$username": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Lists the GPG keys for a user. This information is accessible by anyone. (In preview period. See README.)"
         },
         "get-gpg-keys": {
             "url": "/user/gpg_keys",

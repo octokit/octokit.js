@@ -383,6 +383,21 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute GET /users/:username/gpg_keys (getGpgKeysForUser)",  function(next) {
+        client.users.getGpgKeysForUser(
+            {
+                username: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/keys/:id (getKey)",  function(next) {
         client.users.getKey(
             {

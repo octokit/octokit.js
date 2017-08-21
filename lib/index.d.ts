@@ -2523,6 +2523,11 @@ declare namespace Github {
   export type UsersDeleteKeyParams =
     & Id
     ;
+  export type UsersGetGpgKeysForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
   export type UsersGetGpgKeysParams =
     & Page
     & PerPage
@@ -3094,6 +3099,7 @@ declare class Github {
     getKey(params: Github.UsersGetKeyParams, callback?: Github.Callback): Promise<any>;
     createKey(params: Github.UsersCreateKeyParams, callback?: Github.Callback): Promise<any>;
     deleteKey(params: Github.UsersDeleteKeyParams, callback?: Github.Callback): Promise<any>;
+    getGpgKeysForUser(params: Github.UsersGetGpgKeysForUserParams, callback?: Github.Callback): Promise<any>;
     getGpgKeys(params: Github.UsersGetGpgKeysParams, callback?: Github.Callback): Promise<any>;
     getGpgKey(params: Github.UsersGetGpgKeyParams, callback?: Github.Callback): Promise<any>;
     createGpgKey(params: Github.UsersCreateGpgKeyParams, callback?: Github.Callback): Promise<any>;

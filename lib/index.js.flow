@@ -2518,6 +2518,11 @@ declare module "github" {
   declare type UsersDeleteKeyParams =
     & Id
     ;
+  declare type UsersGetGpgKeysForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
   declare type UsersGetGpgKeysParams =
     & Page
     & PerPage
@@ -3079,6 +3084,7 @@ declare module "github" {
       getKey(params: UsersGetKeyParams, callback?: Callback): Promise<any>;
       createKey(params: UsersCreateKeyParams, callback?: Callback): Promise<any>;
       deleteKey(params: UsersDeleteKeyParams, callback?: Callback): Promise<any>;
+      getGpgKeysForUser(params: UsersGetGpgKeysForUserParams, callback?: Callback): Promise<any>;
       getGpgKeys(params: UsersGetGpgKeysParams, callback?: Callback): Promise<any>;
       getGpgKey(params: UsersGetGpgKeyParams, callback?: Callback): Promise<any>;
       createGpgKey(params: UsersCreateGpgKeyParams, callback?: Callback): Promise<any>;
