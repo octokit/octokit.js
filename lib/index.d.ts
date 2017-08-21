@@ -2016,18 +2016,18 @@ declare namespace Github {
       archive_format: "tarball"|"zipball";
       ref?: string;
     };
-  export type ReposGetKeysParams =
+  export type ReposGetDeployKeysParams =
     & Owner
     & Repo
     & Page
     & PerPage
     ;
-  export type ReposGetKeyParams =
+  export type ReposGetDeployKeyParams =
     & Owner
     & Repo
     & Id
     ;
-  export type ReposCreateKeyParams =
+  export type ReposAddDeployKeyParams =
     & Owner
     & Repo
     & Title
@@ -2035,7 +2035,7 @@ declare namespace Github {
     & {
       read_only?: boolean;
     };
-  export type ReposDeleteKeyParams =
+  export type ReposDeleteDeployKeyParams =
     & Owner
     & Repo
     & Id
@@ -2984,10 +2984,10 @@ declare class Github {
     updateFile(params: Github.ReposUpdateFileParams, callback?: Github.Callback): Promise<any>;
     deleteFile(params: Github.ReposDeleteFileParams, callback?: Github.Callback): Promise<any>;
     getArchiveLink(params: Github.ReposGetArchiveLinkParams, callback?: Github.Callback): Promise<any>;
-    getKeys(params: Github.ReposGetKeysParams, callback?: Github.Callback): Promise<any>;
-    getKey(params: Github.ReposGetKeyParams, callback?: Github.Callback): Promise<any>;
-    createKey(params: Github.ReposCreateKeyParams, callback?: Github.Callback): Promise<any>;
-    deleteKey(params: Github.ReposDeleteKeyParams, callback?: Github.Callback): Promise<any>;
+    getDeployKeys(params: Github.ReposGetDeployKeysParams, callback?: Github.Callback): Promise<any>;
+    getDeployKey(params: Github.ReposGetDeployKeyParams, callback?: Github.Callback): Promise<any>;
+    addDeployKey(params: Github.ReposAddDeployKeyParams, callback?: Github.Callback): Promise<any>;
+    deleteDeployKey(params: Github.ReposDeleteDeployKeyParams, callback?: Github.Callback): Promise<any>;
     getDeployments(params: Github.ReposGetDeploymentsParams, callback?: Github.Callback): Promise<any>;
     createDeployment(params: Github.ReposCreateDeploymentParams, callback?: Github.Callback): Promise<any>;
     getDeploymentStatuses(params: Github.ReposGetDeploymentStatusesParams, callback?: Github.Callback): Promise<any>;

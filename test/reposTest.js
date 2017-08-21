@@ -41,6 +41,23 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute POST /repos/:owner/:repo/keys (addDeployKey)",  function(next) {
+        client.repos.addDeployKey(
+            {
+                owner: "String",
+                repo: "String",
+                title: "String",
+                key: "String",
+                read_only: "Boolean"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /repos/:owner/:repo/branches/:branch/protection/enforce_admins (addProtectedBranchAdminEnforcement)",  function(next) {
         client.repos.addProtectedBranchAdminEnforcement(
             {
@@ -290,23 +307,6 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute POST /repos/:owner/:repo/keys (createKey)",  function(next) {
-        client.repos.createKey(
-            {
-                owner: "String",
-                repo: "String",
-                title: "String",
-                key: "String",
-                read_only: "Boolean"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /repos/:owner/:repo/releases (createRelease)",  function(next) {
         client.repos.createRelease(
             {
@@ -390,6 +390,21 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute DELETE /repos/:owner/:repo/keys/:id (deleteDeployKey)",  function(next) {
+        client.repos.deleteDeployKey(
+            {
+                owner: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute DELETE /repos/:owner/:repo/downloads/:id (deleteDownload)",  function(next) {
         client.repos.deleteDownload(
             {
@@ -446,21 +461,6 @@ describe("[repos]", function() {
                 owner: "String",
                 repo: "String",
                 invitation_id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute DELETE /repos/:owner/:repo/keys/:id (deleteKey)",  function(next) {
-        client.repos.deleteKey(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -908,6 +908,37 @@ describe("[repos]", function() {
         );
     });
 
+    it("should successfully execute GET /repos/:owner/:repo/keys/:id (getDeployKey)",  function(next) {
+        client.repos.getDeployKey(
+            {
+                owner: "String",
+                repo: "String",
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /repos/:owner/:repo/keys (getDeployKeys)",  function(next) {
+        client.repos.getDeployKeys(
+            {
+                owner: "String",
+                repo: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /repos/:owner/:repo/deployments/:id/statuses (getDeploymentStatuses)",  function(next) {
         client.repos.getDeploymentStatuses(
             {
@@ -1061,37 +1092,6 @@ describe("[repos]", function() {
             {
                 owner: "String",
                 repo: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/keys/:id (getKey)",  function(next) {
-        client.repos.getKey(
-            {
-                owner: "String",
-                repo: "String",
-                id: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute GET /repos/:owner/:repo/keys (getKeys)",  function(next) {
-        client.repos.getKeys(
-            {
-                owner: "String",
-                repo: "String",
-                page: "Number",
-                per_page: "Number"
             },
             function(err, res) {
                 Assert.equal(err, null);

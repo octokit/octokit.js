@@ -2011,18 +2011,18 @@ declare module "github" {
       archive_format: "tarball"|"zipball";
       ref?: string;
     };
-  declare type ReposGetKeysParams =
+  declare type ReposGetDeployKeysParams =
     & Owner
     & Repo
     & Page
     & PerPage
     ;
-  declare type ReposGetKeyParams =
+  declare type ReposGetDeployKeyParams =
     & Owner
     & Repo
     & Id
     ;
-  declare type ReposCreateKeyParams =
+  declare type ReposAddDeployKeyParams =
     & Owner
     & Repo
     & Title
@@ -2030,7 +2030,7 @@ declare module "github" {
     & {
       read_only?: boolean;
     };
-  declare type ReposDeleteKeyParams =
+  declare type ReposDeleteDeployKeyParams =
     & Owner
     & Repo
     & Id
@@ -2969,10 +2969,10 @@ declare module "github" {
       updateFile(params: ReposUpdateFileParams, callback?: Callback): Promise<any>;
       deleteFile(params: ReposDeleteFileParams, callback?: Callback): Promise<any>;
       getArchiveLink(params: ReposGetArchiveLinkParams, callback?: Callback): Promise<any>;
-      getKeys(params: ReposGetKeysParams, callback?: Callback): Promise<any>;
-      getKey(params: ReposGetKeyParams, callback?: Callback): Promise<any>;
-      createKey(params: ReposCreateKeyParams, callback?: Callback): Promise<any>;
-      deleteKey(params: ReposDeleteKeyParams, callback?: Callback): Promise<any>;
+      getDeployKeys(params: ReposGetDeployKeysParams, callback?: Callback): Promise<any>;
+      getDeployKey(params: ReposGetDeployKeyParams, callback?: Callback): Promise<any>;
+      addDeployKey(params: ReposAddDeployKeyParams, callback?: Callback): Promise<any>;
+      deleteDeployKey(params: ReposDeleteDeployKeyParams, callback?: Callback): Promise<any>;
       getDeployments(params: ReposGetDeploymentsParams, callback?: Callback): Promise<any>;
       createDeployment(params: ReposCreateDeploymentParams, callback?: Callback): Promise<any>;
       getDeploymentStatuses(params: ReposGetDeploymentStatusesParams, callback?: Callback): Promise<any>;

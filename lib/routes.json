@@ -5868,7 +5868,7 @@
             },
             "description": "Get archive link."
         },
-        "get-keys": {
+        "get-deploy-keys": {
             "url": "/repos/:owner/:repo/keys",
             "method": "GET",
             "params": {
@@ -5879,7 +5879,7 @@
             },
             "description": "List deploy keys."
         },
-        "get-key": {
+        "get-deploy-key": {
             "url": "/repos/:owner/:repo/keys/:id",
             "method": "GET",
             "params": {
@@ -5889,7 +5889,7 @@
             },
             "description": "Get a deploy key."
         },
-        "create-key": {
+        "add-deploy-key": {
             "url": "/repos/:owner/:repo/keys",
             "method": "POST",
             "params": {
@@ -5907,7 +5907,7 @@
             },
             "description": "Add a new deploy key."
         },
-        "delete-key": {
+        "delete-deploy-key": {
             "url": "/repos/:owner/:repo/keys/:id",
             "method": "DELETE",
             "params": {
