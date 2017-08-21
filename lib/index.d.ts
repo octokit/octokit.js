@@ -1984,6 +1984,7 @@ declare namespace Github {
       content: string;
       branch?: string;
       committer?: string;
+      author?: string;
     };
   export type ReposUpdateFileParams =
     & Owner

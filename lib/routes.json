@@ -484,7 +484,8 @@
             ],
             "application/vnd.github.cryptographer-preview": [
                 "/user/gpg_keys",
-                "/user/gpg_keys/:id"
+                "/user/gpg_keys/:id",
+                "/repos/:owner/:repo/commits/:sha"
             ],
             "application/vnd.github.barred-rock-preview": [
                 "/repos/:owner/:repo/import/authors",
@@ -5714,6 +5715,13 @@
                     "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
                 },
                 "committer": {
+                    "type": "Json",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "author": {
                     "type": "Json",
                     "required": false,
                     "validation": "",

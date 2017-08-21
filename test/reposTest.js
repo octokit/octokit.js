@@ -234,7 +234,8 @@ describe("[repos]", function() {
                 message: "String",
                 content: "String",
                 branch: "String",
-                committer: "Json"
+                committer: "Json",
+                author: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);
