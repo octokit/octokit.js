@@ -1996,6 +1996,7 @@ declare namespace Github {
       sha: string;
       branch?: string;
       committer?: string;
+      author?: string;
     };
   export type ReposDeleteFileParams =
     & Owner
@@ -2006,6 +2007,7 @@ declare namespace Github {
       sha: string;
       branch?: string;
       committer?: string;
+      author?: string;
     };
   export type ReposGetArchiveLinkParams =
     & Owner

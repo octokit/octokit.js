@@ -5778,6 +5778,13 @@
                     "validation": "",
                     "invalidmsg": "",
                     "description": ""
+                },
+                "author": {
+                    "type": "Json",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
                 }
             },
             "description": "Update a file."
@@ -5817,6 +5824,13 @@
                     "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
                 },
                 "committer": {
+                    "type": "Json",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                },
+                "author": {
                     "type": "Json",
                     "required": false,
                     "validation": "",

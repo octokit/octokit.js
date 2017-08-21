@@ -1991,6 +1991,7 @@ declare module "github" {
       sha: string;
       branch?: string;
       committer?: string;
+      author?: string;
     };
   declare type ReposDeleteFileParams =
     & Owner
@@ -2001,6 +2002,7 @@ declare module "github" {
       sha: string;
       branch?: string;
       committer?: string;
+      author?: string;
     };
   declare type ReposGetArchiveLinkParams =
     & Owner

@@ -414,7 +414,8 @@ describe("[repos]", function() {
                 message: "String",
                 sha: "String",
                 branch: "String",
-                committer: "Json"
+                committer: "Json",
+                author: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -1913,7 +1914,8 @@ describe("[repos]", function() {
                 content: "String",
                 sha: "String",
                 branch: "String",
-                committer: "Json"
+                committer: "Json",
+                author: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);
