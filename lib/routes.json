@@ -6676,7 +6676,7 @@
             },
             "description": "List statuses for a specfic ref."
         },
-        "get-combined-status": {
+        "get-combined-status-for-ref": {
             "url": "/repos/:owner/:repo/commits/:ref/status",
             "method": "GET",
             "params": {

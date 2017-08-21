@@ -776,8 +776,8 @@ describe("[repos]", function() {
         );
     });
 
-    it("should successfully execute GET /repos/:owner/:repo/commits/:ref/status (getCombinedStatus)",  function(next) {
-        client.repos.getCombinedStatus(
+    it("should successfully execute GET /repos/:owner/:repo/commits/:ref/status (getCombinedStatusForRef)",  function(next) {
+        client.repos.getCombinedStatusForRef(
             {
                 owner: "String",
                 repo: "String",

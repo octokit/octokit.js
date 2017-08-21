@@ -2293,7 +2293,7 @@ declare namespace Github {
     & {
       ref: string;
     };
-  export type ReposGetCombinedStatusParams =
+  export type ReposGetCombinedStatusForRefParams =
     & Owner
     & Repo
     & Page
@@ -3040,7 +3040,7 @@ declare class Github {
     getStatsPunchCard(params: Github.ReposGetStatsPunchCardParams, callback?: Github.Callback): Promise<any>;
     createStatus(params: Github.ReposCreateStatusParams, callback?: Github.Callback): Promise<any>;
     getStatuses(params: Github.ReposGetStatusesParams, callback?: Github.Callback): Promise<any>;
-    getCombinedStatus(params: Github.ReposGetCombinedStatusParams, callback?: Github.Callback): Promise<any>;
+    getCombinedStatusForRef(params: Github.ReposGetCombinedStatusForRefParams, callback?: Github.Callback): Promise<any>;
     getReferrers(params: Github.ReposGetReferrersParams, callback?: Github.Callback): Promise<any>;
     getPaths(params: Github.ReposGetPathsParams, callback?: Github.Callback): Promise<any>;
     getViews(params: Github.ReposGetViewsParams, callback?: Github.Callback): Promise<any>;

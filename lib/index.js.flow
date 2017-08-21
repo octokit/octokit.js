@@ -2288,7 +2288,7 @@ declare module "github" {
     & {
       ref: string;
     };
-  declare type ReposGetCombinedStatusParams =
+  declare type ReposGetCombinedStatusForRefParams =
     & Owner
     & Repo
     & Page
@@ -3025,7 +3025,7 @@ declare module "github" {
       getStatsPunchCard(params: ReposGetStatsPunchCardParams, callback?: Callback): Promise<any>;
       createStatus(params: ReposCreateStatusParams, callback?: Callback): Promise<any>;
       getStatuses(params: ReposGetStatusesParams, callback?: Callback): Promise<any>;
-      getCombinedStatus(params: ReposGetCombinedStatusParams, callback?: Callback): Promise<any>;
+      getCombinedStatusForRef(params: ReposGetCombinedStatusForRefParams, callback?: Callback): Promise<any>;
       getReferrers(params: ReposGetReferrersParams, callback?: Callback): Promise<any>;
       getPaths(params: ReposGetPathsParams, callback?: Callback): Promise<any>;
       getViews(params: ReposGetViewsParams, callback?: Callback): Promise<any>;
