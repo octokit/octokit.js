@@ -682,8 +682,9 @@ declare module "github" {
     & Owner
     & Repo
     & Number
-    & Assignees
-    ;
+    & {
+      body: string;
+    };
   declare type IssuesGetCommentsParams =
     & Owner
     & Repo

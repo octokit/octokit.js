@@ -687,8 +687,9 @@ declare namespace Github {
     & Owner
     & Repo
     & Number
-    & Assignees
-    ;
+    & {
+      body: string;
+    };
   export type IssuesGetCommentsParams =
     & Owner
     & Repo

@@ -2176,7 +2176,14 @@
                 "$owner": null,
                 "$repo": null,
                 "$number": null,
-                "$assignees": null
+                "body": {
+                    "type": "Json",
+                    "sendValueAsBody": true,
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": ""
+                }
             },
             "description": "Remove assignees from an issue."
         },

@@ -588,7 +588,7 @@ describe("[issues]", function() {
                 owner: "String",
                 repo: "String",
                 number: "Number",
-                assignees: "Array"
+                body: "Json"
             },
             function(err, res) {
                 Assert.equal(err, null);
