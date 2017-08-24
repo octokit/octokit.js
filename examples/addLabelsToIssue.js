@@ -16,7 +16,7 @@ github.issues.addLabels({
     owner: "kaizensoze",
     repo: "test2",
     number: "4",
-    body: ["bug", "help wanted", "question"]
+    labels: ["bug", "help wanted", "question"]
 }, function(err, res) {
     console.log(err, res);
 });
