@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 10.0.0
+
+Breaking changes:
+  * getCombinedStatus -> getCombinedStatusForRef.
+  * Specify deploy key in deploy key related methods.
+  * Chanage createDeployKey to addDeployKey.
+  * Remove deprecated line param from createCommitComment.
+  * Remove deprecated line param from the create commit comment endpoint.
+
+Features:
+  * Add get-gpg-keys-for-user endpoint.
+  * Add endpoint to toggle user primary email visibility.
+  * Add endpoint to get user's public emails.
+  * Allow to do commit signature verification.
+  * Add repo topic-related endpoints.
+
+Bug fixes:
+  * Fix removeAssigneesFromIssue endpoint.
+  * Fix params for addLabelsToIssue example.
+  * Add author param to file-related endpoints.
+  * Add author param to create file endpoint.
+  * Update typings generator.
+  * Fix missing TypeScript interface generics.
+  * Update community profile metrics endpoint.
+  * Add require_code_owner_reviews param to endpoint.
+  * Add require_code_owner_reviews param to Update branch protection
+    endpoint.
+  * Clean up params of Update branch required status checks.
+
 ## 9.3.1
 
 Bug fixes:
