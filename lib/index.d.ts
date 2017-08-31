@@ -2624,6 +2624,31 @@ declare namespace Github {
   export type UsersDeclineRepoInviteParams =
     & InvitationId
     ;
+  export type UsersGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  export type UsersGetInstallationReposParams =
+    & InstallationId
+    & Page
+    & PerPage
+    ;
+  export type UsersAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  export type UsersRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  export type UsersGetMarketplacePurchasesParams =
+    & Page
+    & PerPage
+    ;
+  export type UsersGetMarketplaceStubbedPurchasesParams =
+    & Page
+    & PerPage
+    ;
   export type EnterpriseStatsParams =
     & {
       type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
@@ -3185,6 +3210,12 @@ declare class Github {
     getRepoInvites(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     acceptRepoInvite(params: Github.UsersAcceptRepoInviteParams, callback?: Github.Callback): Promise<any>;
     declineRepoInvite(params: Github.UsersDeclineRepoInviteParams, callback?: Github.Callback): Promise<any>;
+    getInstallations(params: Github.UsersGetInstallationsParams, callback?: Github.Callback): Promise<any>;
+    getInstallationRepos(params: Github.UsersGetInstallationReposParams, callback?: Github.Callback): Promise<any>;
+    addRepoToInstallation(params: Github.UsersAddRepoToInstallationParams, callback?: Github.Callback): Promise<any>;
+    removeRepoFromInstallation(params: Github.UsersRemoveRepoFromInstallationParams, callback?: Github.Callback): Promise<any>;
+    getMarketplacePurchases(params: Github.UsersGetMarketplacePurchasesParams, callback?: Github.Callback): Promise<any>;
+    getMarketplaceStubbedPurchases(params: Github.UsersGetMarketplaceStubbedPurchasesParams, callback?: Github.Callback): Promise<any>;
   };
   enterprise: {
     stats(params: Github.EnterpriseStatsParams, callback?: Github.Callback): Promise<any>;

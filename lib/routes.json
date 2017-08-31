@@ -501,7 +501,9 @@
                 "/installation/repositories",
                 "/installations/:installation_id/repositories/:repository_id",
                 "/apps/:app_slug",
-                "/app/installations/:installation_id"
+                "/app/installations/:installation_id",
+                "/user/installations",
+                "/user/installations/:installation_id/repositories/:repository_id"
             ],
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
@@ -1719,7 +1721,7 @@
         },
         "add-repo-to-installation": {
             "url": "/installations/:installation_id/repositories/:repository_id",
-            "method": "POST",
+            "method": "PUT",
             "params": {
                 "$installation_id": null,
                 "$repository_id": null
@@ -1729,7 +1731,7 @@
         },
         "remove-repo-from-installation": {
             "url": "/installations/:installation_id/repositories/:repository_id",
-            "method": "POST",
+            "method": "DELETE",
             "params": {
                 "$installation_id": null,
                 "$repository_id": null
@@ -1808,7 +1810,7 @@
         },
         "add-repo-to-installation": {
             "url": "/installations/:installation_id/repositories/:repository_id",
-            "method": "POST",
+            "method": "PUT",
             "params": {
                 "$installation_id": null,
                 "$repository_id": null
@@ -1817,7 +1819,7 @@
         },
         "remove-repo-from-installation": {
             "url": "/installations/:installation_id/repositories/:repository_id",
-            "method": "POST",
+            "method": "DELETE",
             "params": {
                 "$installation_id": null,
                 "$repository_id": null
@@ -7603,6 +7605,61 @@
                 "$invitation_id": null
             },
             "description": "Decline a repository invitation."
+        },
+        "get-installations": {
+            "url": "/user/installations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List installations. (In preview period. See README.)"
+        },
+        "get-installation-repos": {
+            "url": "/user/installations/:installation_id/repositories",
+            "method": "GET",
+            "params": {
+                "$installation_id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List repositories accessible to the user for an installation. (In preview period. See README.)"
+        },
+        "add-repo-to-installation": {
+            "url": "/user/installations/:installation_id/repositories/:repository_id",
+            "method": "PUT",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "description": "Add a single repository to an installation. (In preview period. See README.)"
+        },
+        "remove-repo-from-installation": {
+            "url": "/user/installations/:installation_id/repositories/:repository_id",
+            "method": "DELETE",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "description": "Remove a single repository from an installation. (In preview period. See README.)"
+        },
+        "get-marketplace-purchases": {
+            "url": "/user/marketplace_purchases",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get a user's Marketplace purchases. (In preview period. See README.)"
+        },
+        "get-marketplace-stubbed-purchases": {
+            "url": "/user/marketplace_purchases/stubbed",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "Get a user's stubbed Marketplace purchases. (In preview period. See README.)"
         }
     },
     "enterprise": {

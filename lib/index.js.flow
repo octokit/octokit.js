@@ -2619,6 +2619,31 @@ declare module "github" {
   declare type UsersDeclineRepoInviteParams =
     & InvitationId
     ;
+  declare type UsersGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetInstallationReposParams =
+    & InstallationId
+    & Page
+    & PerPage
+    ;
+  declare type UsersAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type UsersRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type UsersGetMarketplacePurchasesParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetMarketplaceStubbedPurchasesParams =
+    & Page
+    & PerPage
+    ;
   declare type EnterpriseStatsParams =
     & {
       type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
@@ -3170,6 +3195,12 @@ declare module "github" {
       getRepoInvites(params: EmptyParams, callback?: Callback): Promise<any>;
       acceptRepoInvite(params: UsersAcceptRepoInviteParams, callback?: Callback): Promise<any>;
       declineRepoInvite(params: UsersDeclineRepoInviteParams, callback?: Callback): Promise<any>;
+      getInstallations(params: UsersGetInstallationsParams, callback?: Callback): Promise<any>;
+      getInstallationRepos(params: UsersGetInstallationReposParams, callback?: Callback): Promise<any>;
+      addRepoToInstallation(params: UsersAddRepoToInstallationParams, callback?: Callback): Promise<any>;
+      removeRepoFromInstallation(params: UsersRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
+      getMarketplacePurchases(params: UsersGetMarketplacePurchasesParams, callback?: Callback): Promise<any>;
+      getMarketplaceStubbedPurchases(params: UsersGetMarketplaceStubbedPurchasesParams, callback?: Callback): Promise<any>;
     };
     enterprise: {
       stats(params: EnterpriseStatsParams, callback?: Callback): Promise<any>;

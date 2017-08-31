@@ -25,7 +25,7 @@ describe("[integrations]", function() {
         });
     });
 
-    it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (addRepoToInstallation)",  function(next) {
+    it("should successfully execute PUT /installations/:installation_id/repositories/:repository_id (addRepoToInstallation)",  function(next) {
         client.integrations.addRepoToInstallation(
             {
                 installation_id: "String",
@@ -80,7 +80,7 @@ describe("[integrations]", function() {
         );
     });
 
-    it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (removeRepoFromInstallation)",  function(next) {
+    it("should successfully execute DELETE /installations/:installation_id/repositories/:repository_id (removeRepoFromInstallation)",  function(next) {
         client.integrations.removeRepoFromInstallation(
             {
                 installation_id: "String",

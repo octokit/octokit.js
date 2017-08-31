@@ -51,6 +51,20 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute PUT /user/installations/:installation_id/repositories/:repository_id (addRepoToInstallation)",  function(next) {
+        client.users.addRepoToInstallation(
+            {
+                installation_id: "String",
+                repository_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute PUT /user/blocks/:username (blockUser)",  function(next) {
         client.users.blockUser(
             {
@@ -398,6 +412,35 @@ describe("[users]", function() {
         );
     });
 
+    it("should successfully execute GET /user/installations/:installation_id/repositories (getInstallationRepos)",  function(next) {
+        client.users.getInstallationRepos(
+            {
+                installation_id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/installations (getInstallations)",  function(next) {
+        client.users.getInstallations(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /user/keys/:id (getKey)",  function(next) {
         client.users.getKey(
             {
@@ -429,6 +472,34 @@ describe("[users]", function() {
         client.users.getKeysForUser(
             {
                 username: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/marketplace_purchases (getMarketplacePurchases)",  function(next) {
+        client.users.getMarketplacePurchases(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /user/marketplace_purchases/stubbed (getMarketplaceStubbedPurchases)",  function(next) {
+        client.users.getMarketplaceStubbedPurchases(
+            {
                 page: "Number",
                 per_page: "Number"
             },
@@ -523,6 +594,20 @@ describe("[users]", function() {
         client.users.promote(
             {
                 username: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute DELETE /user/installations/:installation_id/repositories/:repository_id (removeRepoFromInstallation)",  function(next) {
+        client.users.removeRepoFromInstallation(
+            {
+                installation_id: "String",
+                repository_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
