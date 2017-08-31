@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 10.1.0
+
+Features:
+  * Add some user related endpoints.
+  * Add missing options to type/flow templates.
+  * Add marketplace endpoints.
+  * Rename integrations to apps.
+
 ## 10.0.0
 
 Breaking changes:
