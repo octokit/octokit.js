@@ -496,19 +496,12 @@
                 "/repos/:owner/:repo/import"
             ],
             "application/vnd.github.machine-man-preview": [
-                "/integration/installations",
+                "/app/installations",
                 "/installations/:installation_id/access_tokens",
-                "/integration/identity/user",
                 "/installation/repositories",
                 "/installations/:installation_id/repositories/:repository_id",
-                "/issues",
-                "/user/issues",
-                "/orgs/:org/issues",
-                "/repos/:owner/:repo/issues",
-                "/repos/:owner/:repo/issues/comments/:id",
-                "/repos/:owner/:repo/issues/events/:id",
-                "/repos/:owner/:repo/deployments/:deployment_id",
-                "/repos/:owner/:repo/deployments/:id/statuses/:status_id"
+                "/apps/:app_slug",
+                "/app/installations/:installation_id"
             ],
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
@@ -1674,13 +1667,14 @@
     },
     "integrations": {
         "get-installations": {
-            "url": "/integration/installations",
+            "url": "/app/installations",
             "method": "GET",
             "params": {
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List the integration's installations. (In preview period. See README.)"
+            "deprecated": "`integrations` has been renamed to `apps`",
+            "description": "List the app's installations. (In preview period. See README.)"
         },
         "create-installation-token": {
             "url": "/installations/:installation_id/access_tokens",
@@ -1692,24 +1686,101 @@
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The id of the user for whom the integration is acting on behalf of."
+                    "description": "The id of the user for whom the app is acting on behalf of."
                 }
             },
+            "deprecated": "`integrations` has been renamed to `apps`",
             "description": "Create a new installation token. (In preview period. See README.)"
         },
-        "get-user-identity": {
-            "url": "/integration/identity/user",
-            "method": "POST",
+        "get-installation-repositories": {
+            "url": "/installation/repositories",
+            "method": "GET",
             "params": {
-                "nonce": {
+                "user_id": {
                     "type": "String",
                     "required": false,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": ""
+                    "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
                 }
             },
-            "description": "Request identity of user. (In preview period. See README.)"
+            "deprecated": "`integrations` has been renamed to `apps`",
+            "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
+        },
+        "add-repo-to-installation": {
+            "url": "/installations/:installation_id/repositories/:repository_id",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "deprecated": "`integrations` has been renamed to `apps`",
+            "description": "Add a single repository to an installation. (In preview period. See README.)"
+        },
+        "remove-repo-from-installation": {
+            "url": "/installations/:installation_id/repositories/:repository_id",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "$repository_id": null
+            },
+            "deprecated": "`integrations` has been renamed to `apps`",
+            "description": "Remove a single repository from an installation. (In preview period. See README.)"
+        }
+    },
+    "apps": {
+        "get-for-slug": {
+            "url": "/apps/:app_slug",
+            "method": "GET",
+            "params": {
+                "app_slug": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., https://github.com/settings/apps/:app_slug)."
+                }
+            },
+            "description": "Get a single GitHub App. (In preview period. See README.)"
+        },
+        "get": {
+            "url": "/app",
+            "method": "GET",
+            "params": {
+            },
+            "description": "Get the authenticated GitHub App. (In preview period. See README.)"
+        },
+        "get-installations": {
+            "url": "/app/installations",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List the app's installations. (In preview period. See README.)"
+        },
+        "get-installation": {
+            "url": "/app/installations/:installation_id",
+            "method": "GET",
+            "params": {
+                "$installation_id": null
+            },
+            "description": "Get a single installation. (In preview period. See README.)"
+        },
+        "create-installation-token": {
+            "url": "/installations/:installation_id/access_tokens",
+            "method": "POST",
+            "params": {
+                "$installation_id": null,
+                "user_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The id of the user for whom the app is acting on behalf of."
+                }
+            },
+            "description": "Create a new installation token. (In preview period. See README.)"
         },
         "get-installation-repositories": {
             "url": "/installation/repositories",
