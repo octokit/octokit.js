@@ -80,19 +80,6 @@ describe("[integrations]", function() {
         );
     });
 
-    it("should successfully execute POST /app/identity/user (getUserIdentity)",  function(next) {
-        client.integrations.getUserIdentity(
-            {
-                nonce: "String"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
     it("should successfully execute POST /installations/:installation_id/repositories/:repository_id (removeRepoFromInstallation)",  function(next) {
         client.integrations.removeRepoFromInstallation(
             {

@@ -474,13 +474,12 @@
                 "/repos/:owner/:repo/import"
             ],
             "application/vnd.github.machine-man-preview": [
-                "/integration/installations",
                 "/app/installations",
                 "/installations/:installation_id/access_tokens",
-                "/integration/identity/user",
-                "/app/identity/user",
                 "/installation/repositories",
-                "/installations/:installation_id/repositories/:repository_id"
+                "/installations/:installation_id/repositories/:repository_id",
+                "/apps/:app_slug",
+                "/app/installations/:installation_id"
             ],
             "application/vnd.github.drax-preview+json": [
                 "/licenses",
@@ -1656,21 +1655,6 @@
             "deprecated": "`integrations` has been renamed to `apps`",
             "description": "Create a new installation token. (In preview period. See README.)"
         },
-        "get-user-identity": {
-            "url": "/app/identity/user",
-            "method": "POST",
-            "params": {
-                "nonce": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
-            },
-            "deprecated": "`integrations` has been renamed to `apps`",
-            "description": "Request identity of user. (In preview period. See README.)"
-        },
         "get-installation-repositories": {
             "url": "/installation/repositories",
             "method": "GET",
@@ -1708,6 +1692,27 @@
         }
     },
     "apps": {
+        "get-for-slug": {
+            "url": "/apps/:app_slug",
+            "method": "GET",
+            "params": {
+                "app_slug": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., https://github.com/settings/apps/:app_slug)."
+                }
+            },
+            "description": "Get a single GitHub App. (In preview period. See README.)"
+        },
+        "get": {
+            "url": "/app",
+            "method": "GET",
+            "params": {
+            },
+            "description": "Get the authenticated GitHub App. (In preview period. See README.)"
+        },
         "get-installations": {
             "url": "/app/installations",
             "method": "GET",
@@ -1716,6 +1721,14 @@
                 "$per_page": null
             },
             "description": "List the app's installations. (In preview period. See README.)"
+        },
+        "get-installation": {
+            "url": "/app/installations/:installation_id",
+            "method": "GET",
+            "params": {
+                "$installation_id": null
+            },
+            "description": "Get a single installation. (In preview period. See README.)"
         },
         "create-installation-token": {
             "url": "/installations/:installation_id/access_tokens",
@@ -1731,20 +1744,6 @@
                 }
             },
             "description": "Create a new installation token. (In preview period. See README.)"
-        },
-        "get-user-identity": {
-            "url": "/app/identity/user",
-            "method": "POST",
-            "params": {
-                "nonce": {
-                    "type": "String",
-                    "required": false,
-                    "validation": "",
-                    "invalidmsg": "",
-                    "description": ""
-                }
-            },
-            "description": "Request identity of user. (In preview period. See README.)"
         },
         "get-installation-repositories": {
             "url": "/installation/repositories",

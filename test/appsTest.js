@@ -53,6 +53,43 @@ describe("[apps]", function() {
         );
     });
 
+    it("should successfully execute GET /app (get)",  function(next) {
+        client.apps.get(
+            {},
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /apps/:app_slug (getForSlug)",  function(next) {
+        client.apps.getForSlug(
+            {
+                app_slug: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /app/installations/:installation_id (getInstallation)",  function(next) {
+        client.apps.getInstallation(
+            {
+                installation_id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute GET /installation/repositories (getInstallationRepositories)",  function(next) {
         client.apps.getInstallationRepositories(
             {
@@ -71,19 +108,6 @@ describe("[apps]", function() {
             {
                 page: "Number",
                 per_page: "Number"
-            },
-            function(err, res) {
-                Assert.equal(err, null);
-                // other assertions go here
-                next();
-            }
-        );
-    });
-
-    it("should successfully execute POST /app/identity/user (getUserIdentity)",  function(next) {
-        client.apps.getUserIdentity(
-            {
-                nonce: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

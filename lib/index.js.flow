@@ -551,10 +551,6 @@ declare module "github" {
     & {
       user_id?: string;
     };
-  declare type IntegrationsGetUserIdentityParams =
-    & {
-      nonce?: string;
-    };
   declare type IntegrationsGetInstallationRepositoriesParams =
     & {
       user_id?: string;
@@ -567,18 +563,21 @@ declare module "github" {
     & InstallationId
     & RepositoryId
     ;
+  declare type AppsGetForSlugParams =
+    & {
+      app_slug: string;
+    };
   declare type AppsGetInstallationsParams =
     & Page
     & PerPage
+    ;
+  declare type AppsGetInstallationParams =
+    & InstallationId
     ;
   declare type AppsCreateInstallationTokenParams =
     & InstallationId
     & {
       user_id?: string;
-    };
-  declare type AppsGetUserIdentityParams =
-    & {
-      nonce?: string;
     };
   declare type AppsGetInstallationRepositoriesParams =
     & {
@@ -2705,15 +2704,16 @@ declare module "github" {
     integrations: {
       getInstallations(params: IntegrationsGetInstallationsParams, callback?: Callback): Promise<any>;
       createInstallationToken(params: IntegrationsCreateInstallationTokenParams, callback?: Callback): Promise<any>;
-      getUserIdentity(params: IntegrationsGetUserIdentityParams, callback?: Callback): Promise<any>;
       getInstallationRepositories(params: IntegrationsGetInstallationRepositoriesParams, callback?: Callback): Promise<any>;
       addRepoToInstallation(params: IntegrationsAddRepoToInstallationParams, callback?: Callback): Promise<any>;
       removeRepoFromInstallation(params: IntegrationsRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
     };
     apps: {
+      getForSlug(params: AppsGetForSlugParams, callback?: Callback): Promise<any>;
+      get(params: EmptyParams, callback?: Callback): Promise<any>;
       getInstallations(params: AppsGetInstallationsParams, callback?: Callback): Promise<any>;
+      getInstallation(params: AppsGetInstallationParams, callback?: Callback): Promise<any>;
       createInstallationToken(params: AppsCreateInstallationTokenParams, callback?: Callback): Promise<any>;
-      getUserIdentity(params: AppsGetUserIdentityParams, callback?: Callback): Promise<any>;
       getInstallationRepositories(params: AppsGetInstallationRepositoriesParams, callback?: Callback): Promise<any>;
       addRepoToInstallation(params: AppsAddRepoToInstallationParams, callback?: Callback): Promise<any>;
       removeRepoFromInstallation(params: AppsRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;

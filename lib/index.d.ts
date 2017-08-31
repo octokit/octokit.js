@@ -556,10 +556,6 @@ declare namespace Github {
     & {
       user_id?: string;
     };
-  export type IntegrationsGetUserIdentityParams =
-    & {
-      nonce?: string;
-    };
   export type IntegrationsGetInstallationRepositoriesParams =
     & {
       user_id?: string;
@@ -572,18 +568,21 @@ declare namespace Github {
     & InstallationId
     & RepositoryId
     ;
+  export type AppsGetForSlugParams =
+    & {
+      app_slug: string;
+    };
   export type AppsGetInstallationsParams =
     & Page
     & PerPage
+    ;
+  export type AppsGetInstallationParams =
+    & InstallationId
     ;
   export type AppsCreateInstallationTokenParams =
     & InstallationId
     & {
       user_id?: string;
-    };
-  export type AppsGetUserIdentityParams =
-    & {
-      nonce?: string;
     };
   export type AppsGetInstallationRepositoriesParams =
     & {
@@ -2720,15 +2719,16 @@ declare class Github {
   integrations: {
     getInstallations(params: Github.IntegrationsGetInstallationsParams, callback?: Github.Callback): Promise<any>;
     createInstallationToken(params: Github.IntegrationsCreateInstallationTokenParams, callback?: Github.Callback): Promise<any>;
-    getUserIdentity(params: Github.IntegrationsGetUserIdentityParams, callback?: Github.Callback): Promise<any>;
     getInstallationRepositories(params: Github.IntegrationsGetInstallationRepositoriesParams, callback?: Github.Callback): Promise<any>;
     addRepoToInstallation(params: Github.IntegrationsAddRepoToInstallationParams, callback?: Github.Callback): Promise<any>;
     removeRepoFromInstallation(params: Github.IntegrationsRemoveRepoFromInstallationParams, callback?: Github.Callback): Promise<any>;
   };
   apps: {
+    getForSlug(params: Github.AppsGetForSlugParams, callback?: Github.Callback): Promise<any>;
+    get(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getInstallations(params: Github.AppsGetInstallationsParams, callback?: Github.Callback): Promise<any>;
+    getInstallation(params: Github.AppsGetInstallationParams, callback?: Github.Callback): Promise<any>;
     createInstallationToken(params: Github.AppsCreateInstallationTokenParams, callback?: Github.Callback): Promise<any>;
-    getUserIdentity(params: Github.AppsGetUserIdentityParams, callback?: Github.Callback): Promise<any>;
     getInstallationRepositories(params: Github.AppsGetInstallationRepositoriesParams, callback?: Github.Callback): Promise<any>;
     addRepoToInstallation(params: Github.AppsAddRepoToInstallationParams, callback?: Github.Callback): Promise<any>;
     removeRepoFromInstallation(params: Github.AppsRemoveRepoFromInstallationParams, callback?: Github.Callback): Promise<any>;
