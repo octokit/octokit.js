@@ -205,6 +205,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Imports                 | application/vnd.github.barred-rock-preview            |
 | Integrations            | application/vnd.github.machine-man-preview            |
 | License                 | application/vnd.github.drax-preview+json              |
+| Marketplace             | application/vnd.github.valkyrie-preview+json          |
 | Migrations              | application/vnd.github.wyandotte-preview+json         |
 | Pages                   | application/vnd.github.mister-fantastic-preview       |
 | Pre-receive             | application/vnd.github.eye-scream-preview             |

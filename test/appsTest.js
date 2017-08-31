@@ -39,6 +39,32 @@ describe("[apps]", function() {
         );
     });
 
+    it("should successfully execute GET /marketplace_listing/accounts/:id (checkMarketplaceListingAccount)",  function(next) {
+        client.apps.checkMarketplaceListingAccount(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /marketplace_listing/stubbed/accounts/:id (checkMarketplaceListingStubbedAccount)",  function(next) {
+        client.apps.checkMarketplaceListingStubbedAccount(
+            {
+                id: "String"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
     it("should successfully execute POST /installations/:installation_id/access_tokens (createInstallationToken)",  function(next) {
         client.apps.createInstallationToken(
             {
@@ -105,6 +131,64 @@ describe("[apps]", function() {
 
     it("should successfully execute GET /app/installations (getInstallations)",  function(next) {
         client.apps.getInstallations(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /marketplace_listing/plans/:id/accounts (getMarketplaceListingPlanAccounts)",  function(next) {
+        client.apps.getMarketplaceListingPlanAccounts(
+            {
+                id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /marketplace_listing/plans (getMarketplaceListingPlans)",  function(next) {
+        client.apps.getMarketplaceListingPlans(
+            {
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /marketplace_listing/stubbed/plans/:id/accounts (getMarketplaceListingStubbedPlanAccounts)",  function(next) {
+        client.apps.getMarketplaceListingStubbedPlanAccounts(
+            {
+                id: "String",
+                page: "Number",
+                per_page: "Number"
+            },
+            function(err, res) {
+                Assert.equal(err, null);
+                // other assertions go here
+                next();
+            }
+        );
+    });
+
+    it("should successfully execute GET /marketplace_listing/stubbed/plans (getMarketplaceListingStubbedPlans)",  function(next) {
+        client.apps.getMarketplaceListingStubbedPlans(
             {
                 page: "Number",
                 per_page: "Number"

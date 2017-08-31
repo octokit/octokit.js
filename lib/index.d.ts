@@ -601,6 +601,30 @@ declare namespace Github {
     & InstallationId
     & RepositoryId
     ;
+  export type AppsGetMarketplaceListingPlansParams =
+    & Page
+    & PerPage
+    ;
+  export type AppsGetMarketplaceListingStubbedPlansParams =
+    & Page
+    & PerPage
+    ;
+  export type AppsGetMarketplaceListingPlanAccountsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  export type AppsGetMarketplaceListingStubbedPlanAccountsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  export type AppsCheckMarketplaceListingAccountParams =
+    & Id
+    ;
+  export type AppsCheckMarketplaceListingStubbedAccountParams =
+    & Id
+    ;
   export type IssuesGetAllParams =
     & Direction
     & Since
@@ -2796,6 +2820,12 @@ declare class Github {
     getInstallationRepositories(params: Github.AppsGetInstallationRepositoriesParams, callback?: Github.Callback): Promise<any>;
     addRepoToInstallation(params: Github.AppsAddRepoToInstallationParams, callback?: Github.Callback): Promise<any>;
     removeRepoFromInstallation(params: Github.AppsRemoveRepoFromInstallationParams, callback?: Github.Callback): Promise<any>;
+    getMarketplaceListingPlans(params: Github.AppsGetMarketplaceListingPlansParams, callback?: Github.Callback): Promise<any>;
+    getMarketplaceListingStubbedPlans(params: Github.AppsGetMarketplaceListingStubbedPlansParams, callback?: Github.Callback): Promise<any>;
+    getMarketplaceListingPlanAccounts(params: Github.AppsGetMarketplaceListingPlanAccountsParams, callback?: Github.Callback): Promise<any>;
+    getMarketplaceListingStubbedPlanAccounts(params: Github.AppsGetMarketplaceListingStubbedPlanAccountsParams, callback?: Github.Callback): Promise<any>;
+    checkMarketplaceListingAccount(params: Github.AppsCheckMarketplaceListingAccountParams, callback?: Github.Callback): Promise<any>;
+    checkMarketplaceListingStubbedAccount(params: Github.AppsCheckMarketplaceListingStubbedAccountParams, callback?: Github.Callback): Promise<any>;
   };
   issues: {
     getAll(params: Github.IssuesGetAllParams, callback?: Github.Callback): Promise<any>;

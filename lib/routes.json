@@ -509,6 +509,16 @@
                 "/repos/:owner/:repo",
                 "/repos/:owner/:repo/license"
             ],
+            "application/vnd.github.valkyrie-preview+json": [
+                "/marketplace_listing/plans",
+                "/marketplace_listing/stubbed/plans",
+                "/marketplace_listing/plans/:id/accounts",
+                "/marketplace_listing/stubbed/plans/:id/accounts",
+                "/marketplace_listing/accounts/:id",
+                "/marketplace_listing/stubbed/accounts/:id",
+                "/user/marketplace_purchases",
+                "/user/marketplace_purchases/stubbed"
+            ],
             "application/vnd.github.wyandotte-preview+json": [
                 "/orgs/:org/migrations",
                 "/orgs/:org/migrations/:id",
@@ -1813,6 +1823,60 @@
                 "$repository_id": null
             },
             "description": "Remove a single repository from an installation. (In preview period. See README.)"
+        },
+        "get-marketplace-listing-plans": {
+            "url": "/marketplace_listing/plans",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all plans for your Marketplace listing. (In preview period. See README.)"
+        },
+        "get-marketplace-listing-stubbed-plans": {
+            "url": "/marketplace_listing/stubbed/plans",
+            "method": "GET",
+            "params": {
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all stubbed plans for your Marketplace listing. (In preview period. See README.)"
+        },
+        "get-marketplace-listing-plan-accounts": {
+            "url": "/marketplace_listing/plans/:id/accounts",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all GitHub accounts (user or organization) on a specific plan. (In preview period. See README.)"
+        },
+        "get-marketplace-listing-stubbed-plan-accounts": {
+            "url": "/marketplace_listing/stubbed/plans/:id/accounts",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List all GitHub accounts (user or organization) on a specific stubbed plan. (In preview period. See README.)"
+        },
+        "check-marketplace-listing-account": {
+            "url": "/marketplace_listing/accounts/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Check if a GitHub account is associated with any Marketplace listing. (In preview period. See README.)"
+        },
+        "check-marketplace-listing-stubbed-account": {
+            "url": "/marketplace_listing/stubbed/accounts/:id",
+            "method": "GET",
+            "params": {
+                "$id": null
+            },
+            "description": "Check if a stubbed GitHub account is associated with any Marketplace listing. (In preview period. See README.)"
         }
     },
     "issues": {

@@ -596,6 +596,30 @@ declare module "github" {
     & InstallationId
     & RepositoryId
     ;
+  declare type AppsGetMarketplaceListingPlansParams =
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetMarketplaceListingStubbedPlansParams =
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetMarketplaceListingPlanAccountsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetMarketplaceListingStubbedPlanAccountsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type AppsCheckMarketplaceListingAccountParams =
+    & Id
+    ;
+  declare type AppsCheckMarketplaceListingStubbedAccountParams =
+    & Id
+    ;
   declare type IssuesGetAllParams =
     & Direction
     & Since
@@ -2781,6 +2805,12 @@ declare module "github" {
       getInstallationRepositories(params: AppsGetInstallationRepositoriesParams, callback?: Callback): Promise<any>;
       addRepoToInstallation(params: AppsAddRepoToInstallationParams, callback?: Callback): Promise<any>;
       removeRepoFromInstallation(params: AppsRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingPlans(params: AppsGetMarketplaceListingPlansParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingStubbedPlans(params: AppsGetMarketplaceListingStubbedPlansParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingPlanAccounts(params: AppsGetMarketplaceListingPlanAccountsParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingStubbedPlanAccounts(params: AppsGetMarketplaceListingStubbedPlanAccountsParams, callback?: Callback): Promise<any>;
+      checkMarketplaceListingAccount(params: AppsCheckMarketplaceListingAccountParams, callback?: Callback): Promise<any>;
+      checkMarketplaceListingStubbedAccount(params: AppsCheckMarketplaceListingStubbedAccountParams, callback?: Callback): Promise<any>;
     };
     issues: {
       getAll(params: IssuesGetAllParams, callback?: Callback): Promise<any>;
