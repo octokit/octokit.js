@@ -11,16 +11,22 @@ declare namespace Github {
 
   export interface EmptyParams {
   }
-  
+
   export interface Options {
     debug?: boolean;
-    protocol?: string;
+    Promise?: typeof Promise;
+    timeout?: number;
     host?: string;
     pathPrefix?: string;
+    protocol?: string;
+    port?: number;
+    proxy?: string;
+    ca?: string;
     headers?: {[header: string]: any};
-    Promise?: typeof Promise;
+    requestMedia?: string;
     followRedirects?: boolean;
-    timeout?: number;
+    rejectUnauthorized?: boolean;
+    family?: number;
   }
 
   export interface AuthBasic  {

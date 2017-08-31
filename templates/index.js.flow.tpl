@@ -10,15 +10,21 @@ declare module "github" {
 
   declare type Options = {
     debug?: boolean;
-    protocol?: string;
+    Promise?: typeof Promise;
+    timeout?: number;
     host?: string;
     pathPrefix?: string;
+    protocol?: string;
+    port?: number;
+    proxy?: string;
+    ca?: string;
     headers?: {[header: Header]: any};
-    Promise?: typeof Promise;
+    requestMedia?: string;
     followRedirects?: boolean;
-    timeout?: number;
+    rejectUnauthorized?: boolean;
+    family?: number;
   };
-  
+
   declare type AuthBasic = {
     type: "basic";
     username: string;
