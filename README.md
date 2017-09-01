@@ -207,6 +207,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | License                 | application/vnd.github.drax-preview+json              |
 | Marketplace             | application/vnd.github.valkyrie-preview+json          |
 | Migrations              | application/vnd.github.wyandotte-preview+json         |
+| Nested Teams            | application/vnd.github.hellcat-preview+json           |
 | Pages                   | application/vnd.github.mister-fantastic-preview       |
 | Pre-receive             | application/vnd.github.eye-scream-preview             |
 | Projects                | application/vnd.github.inertia-preview+json           |

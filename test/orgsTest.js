@@ -195,7 +195,8 @@ describe("[orgs]", function() {
                 description: "String",
                 maintainers: "Array",
                 repo_names: "Array",
-                privacy: "String"
+                privacy: "String",
+                parent_team_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);
@@ -270,7 +271,8 @@ describe("[orgs]", function() {
                 id: "String",
                 name: "String",
                 description: "String",
-                privacy: "String"
+                privacy: "String",
+                parent_team_id: "String"
             },
             function(err, res) {
                 Assert.equal(err, null);

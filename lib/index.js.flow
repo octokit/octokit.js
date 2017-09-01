@@ -1121,6 +1121,7 @@ declare module "github" {
       description?: string;
       maintainers?: string[];
       repo_names?: string[];
+      parent_team_id?: string;
     };
   declare type OrgsEditTeamParams =
     & Id
@@ -1128,6 +1129,7 @@ declare module "github" {
     & Privacy
     & {
       description?: string;
+      parent_team_id?: string;
     };
   declare type OrgsDeleteTeamParams =
     & Id

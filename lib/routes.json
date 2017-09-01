@@ -527,6 +527,17 @@
                 "/orgs/:org/migrations/:id/archive",
                 "/orgs/:org/migrations/:id/repos/:repo_name/lock"
             ],
+            "application/vnd.github.hellcat-preview+json": [
+                "/orgs/:org/teams",
+                "/teams/:id",
+                "/teams/:id/teams",
+                "/teams/:id/members",
+                "/teams/:id/memberships/:username",
+                "/teams/:id/repos",
+                "/teams/:id/repos/:owner/:repo",
+                "/teams/:id/repos/:org/:repo",
+                "/user/teams"
+            ],
             "application/vnd.github.mister-fantastic-preview+json": [
                 "/repos/:owner/:repo/pages",
                 "/repos/:owner/:repo/pages/builds",
@@ -3423,7 +3434,14 @@
                     "invalidmsg": "",
                     "description": "The full name (e.g., \"organization-name/repository-name\") of repositories to add the team to."
                 },
-                "$privacy": null
+                "$privacy": null,
+                "parent_team_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The ID of a team to set as the parent team."
+                }
             },
             "description": "Create team"
         },
@@ -3440,7 +3458,14 @@
                     "invalidmsg": "",
                     "description": "The description of the team."
                 },
-                "$privacy": null
+                "$privacy": null,
+                "parent_team_id": {
+                    "type": "String",
+                    "required": false,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The ID of a team to set as the parent team."
+                }
             },
             "description": "Edit team"
         },

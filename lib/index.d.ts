@@ -1126,6 +1126,7 @@ declare namespace Github {
       description?: string;
       maintainers?: string[];
       repo_names?: string[];
+      parent_team_id?: string;
     };
   export type OrgsEditTeamParams =
     & Id
@@ -1133,6 +1134,7 @@ declare namespace Github {
     & Privacy
     & {
       description?: string;
+      parent_team_id?: string;
     };
   export type OrgsDeleteTeamParams =
     & Id
