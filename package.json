@@ -47,6 +47,9 @@
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
   ],
+  "files": [
+    "lib"
+  ],
   "apidoc": {
     "title": "node-github",
     "name": "node-github",
