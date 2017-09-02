@@ -48,8 +48,7 @@
     }
   ],
   "files": [
-    "lib",
-    "tsconfig.json"
+    "lib"
   ],
   "apidoc": {
     "title": "node-github",
