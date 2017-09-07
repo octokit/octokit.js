@@ -563,18 +563,6 @@
                 "/projects/columns/:id",
                 "/projects/columns/:id/moves"
             ],
-            "application/vnd.github.loki-preview+json": [
-                "/repos/:owner/:repo/branches",
-                "/repos/:owner/:repo/branches/:branch",
-                "/repos/:owner/:repo/branches/:branch/protection",
-                "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
-                "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
-                "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
-                "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
-                "/repos/:owner/:repo/branches/:branch/protection/restrictions",
-                "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
-                "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
-            ],
             "application/vnd.github.polaris-preview": [
                 "/repos/:owner/:repo/pulls/:number/merge"
             ],
@@ -5121,7 +5109,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List branches. (In preview period. See README.)"
+            "description": "List branches."
         },
         "get-branch": {
             "url": "/repos/:owner/:repo/branches/:branch",
@@ -5133,7 +5121,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get branch. (In preview period. See README.)"
+            "description": "Get branch."
         },
         "get-branch-protection": {
             "url": "/repos/:owner/:repo/branches/:branch/protection",
@@ -5145,7 +5133,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get branch protection. (In preview period. See README.)"
+            "description": "Get branch protection."
         },
         "update-branch-protection": {
             "url": "/repos/:owner/:repo/branches/:branch/protection",
@@ -5164,7 +5152,7 @@
                 },
                 "required_pull_request_reviews": {
                     "type": "Json",
-                    "required": false,
+                    "required": true,
                     "allow-null": true,
                     "validation": "",
                     "invalidmsg": "",
@@ -5197,7 +5185,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Update branch protection. (In preview period. See README.)"
+            "description": "Update branch protection."
         },
         "remove-branch-protection": {
             "url": "/repos/:owner/:repo/branches/:branch/protection",
@@ -5209,7 +5197,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Remove branch protection. (In preview period. See README.)"
+            "description": "Remove branch protection."
         },
         "get-protected-branch-required-status-checks": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
@@ -5221,7 +5209,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get required status checks of protected branch. (In preview period. See README.)"
+            "description": "Get required status checks of protected branch."
         },
         "update-protected-branch-required-status-checks": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
@@ -5245,7 +5233,7 @@
                     "description": "The list of status checks to require in order to merge into this branch."
                 }
             },
-            "description": "Update required status checks of protected branch. (In preview period. See README.)"
+            "description": "Update required status checks of protected branch."
         },
         "remove-protected-branch-required-status-checks": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
@@ -5255,7 +5243,7 @@
                 "$repo": null,
                 "$branch": null
             },
-            "description": "Remove required status checks of protected branch. (In preview period. See README.)"
+            "description": "Remove required status checks of protected branch."
         },
         "get-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -5267,7 +5255,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List required status checks contexts of protected branch. (In preview period. See README.)"
+            "description": "List required status checks contexts of protected branch."
         },
         "replace-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -5285,7 +5273,7 @@
                     "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
                 }
             },
-            "description": "Replace required status checks contexts of protected branch. (In preview period. See README.)"
+            "description": "Replace required status checks contexts of protected branch."
         },
         "add-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -5303,7 +5291,7 @@
                     "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
                 }
             },
-            "description": "Add required status checks contexts of protected branch. (In preview period. See README.)"
+            "description": "Add required status checks contexts of protected branch."
         },
         "remove-protected-branch-required-status-checks-contexts": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -5321,7 +5309,7 @@
                     "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins)."
                 }
             },
-            "description": "Remove required status checks contexts of protected branch. (In preview period. See README.)"
+            "description": "Remove required status checks contexts of protected branch."
         },
         "get-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
@@ -5333,7 +5321,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get pull request review enforcement of protected branch. (In preview period. See README.)"
+            "description": "Get pull request review enforcement of protected branch."
         },
         "update-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
@@ -5365,7 +5353,7 @@
                     "description": "Blocks merge until code owners have reviewed."
                 }
             },
-            "description": "Update pull request review enforcement of protected branch. (In preview period. See README.)"
+            "description": "Update pull request review enforcement of protected branch."
         },
         "remove-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
@@ -5375,7 +5363,7 @@
                 "$repo": null,
                 "$branch": null
             },
-            "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
+            "description": "Remove pull request review enforcement of protected branch."
         },
         "remove-protected-branch-pull-request-review-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
@@ -5385,7 +5373,7 @@
                 "$repo": null,
                 "$branch": null
             },
-            "description": "Remove pull request review enforcement of protected branch. (In preview period. See README.)"
+            "description": "Remove pull request review enforcement of protected branch."
         },
         "get-protected-branch-admin-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
@@ -5397,7 +5385,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get admin enforcement of protected branch. (In preview period. See README.)"
+            "description": "Get admin enforcement of protected branch."
         },
         "add-protected-branch-admin-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
@@ -5409,7 +5397,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Add admin enforcement of protected branch. (In preview period. See README.)"
+            "description": "Add admin enforcement of protected branch."
         },
         "remove-protected-branch-admin-enforcement": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
@@ -5421,7 +5409,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Remove admin enforcement of protected branch. (In preview period. See README.)"
+            "description": "Remove admin enforcement of protected branch."
         },
         "get-protected-branch-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
@@ -5433,7 +5421,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "Get restrictions of protected branch. (In preview period. See README.)"
+            "description": "Get restrictions of protected branch."
         },
         "remove-protected-branch-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
@@ -5443,7 +5431,7 @@
                 "$repo": null,
                 "$branch": null
             },
-            "description": "Remove restrictions of protected branch. (In preview period. See README.)"
+            "description": "Remove restrictions of protected branch."
         },
         "get-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -5455,7 +5443,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List team restrictions of protected branch. (In preview period. See README.)"
+            "description": "List team restrictions of protected branch."
         },
         "replace-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -5473,7 +5461,7 @@
                     "description": "An array of team slugs (e.g. justice-league)."
                 }
             },
-            "description": "Replace team restrictions of protected branch. (In preview period. See README.)"
+            "description": "Replace team restrictions of protected branch."
         },
         "add-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -5491,7 +5479,7 @@
                     "description": "An array of team slugs (e.g. justice-league)."
                 }
             },
-            "description": "Add team restrictions of protected branch. (In preview period. See README.)"
+            "description": "Add team restrictions of protected branch."
         },
         "remove-protected-branch-team-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -5509,7 +5497,7 @@
                     "description": "An array of team slugs (e.g. justice-league)."
                 }
             },
-            "description": "Remove team restrictions of protected branch. (In preview period. See README.)"
+            "description": "Remove team restrictions of protected branch."
         },
         "get-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -5521,7 +5509,7 @@
                 "$page": null,
                 "$per_page": null
             },
-            "description": "List user restrictions of protected branch. (In preview period. See README.)"
+            "description": "List user restrictions of protected branch."
         },
         "replace-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -5539,7 +5527,7 @@
                     "description": "An array of team slugs (e.g. justice-league)."
                 }
             },
-            "description": "Replace user restrictions of protected branch. (In preview period. See README.)"
+            "description": "Replace user restrictions of protected branch."
         },
         "add-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -5557,7 +5545,7 @@
                     "description": "An array of team slugs (e.g. justice-league)."
                 }
             },
-            "description": "Add user restrictions of protected branch. (In preview period. See README.)"
+            "description": "Add user restrictions of protected branch."
         },
         "remove-protected-branch-user-restrictions": {
             "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -5575,7 +5563,7 @@
                     "description": "An array of team slugs (e.g. justice-league)."
                 }
             },
-            "description": "Remove user restrictions of protected branch. (In preview period. See README.)"
+            "description": "Remove user restrictions of protected branch."
         },
         "get-collaborators": {
             "url": "/repos/:owner/:repo/collaborators",

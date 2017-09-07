@@ -1748,7 +1748,7 @@ declare namespace Github {
     & PerPage
     & {
       required_status_checks: string;
-      required_pull_request_reviews?: string;
+      required_pull_request_reviews: string;
       dismissal_restrictions?: string;
       restrictions: string;
       enforce_admins: boolean;

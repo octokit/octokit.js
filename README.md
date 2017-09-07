@@ -211,7 +211,6 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Pages                   | application/vnd.github.mister-fantastic-preview       |
 | Pre-receive             | application/vnd.github.eye-scream-preview             |
 | Projects                | application/vnd.github.inertia-preview+json           |
-| Protected Branches      | application/vnd.github.loki-preview+json              |
 | Pull Request Squash     | application/vnd.github.polaris-preview                |
 | Reactions               | application/vnd.github.squirrel-girl-preview          |
 | Review Requests         | application/vnd.github.thor-preview+json              |
