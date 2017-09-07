@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 11.0.0
+
+Breaking changes:
+  * `required_pull_request_reviews` required when calling the update branch protection endpoint.
+
+Features:
+  * Add Nested Teams API changes.
+
 ## 10.1.0
 
 Features:
