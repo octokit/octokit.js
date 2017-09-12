@@ -31,8 +31,8 @@
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
     "mustache": "^2.2.1",
-    "nock": "^9.0.14",
-    "npm-run-all": "^4.0.2"
+    "npm-run-all": "^4.0.2",
+    "octokit-fixtures": "^1.0.0"
   },
   "main": "lib",
   "types": "lib/index.d.ts",
