@@ -1,5 +1,5 @@
 const chai = require('chai')
-const nock = require('nock')
+const fixtures = require('@octokit/fixtures')
 
 const GitHub = require('../../')
 
@@ -8,23 +8,16 @@ const describe = mocha.describe
 const it = mocha.it
 chai.should()
 
-// https://www.npmjs.com/package/nock#enabledisable-real-http-request
-nock.disableNetConnect()
-
 describe('smoke test', () => {
-  it('github.repos.get({owner: "octokit", repo: "node-github"})', () => {
-    const GitHubMock = nock('https://api.github.com', {encodedQueryParams: true})
-      .get('/repos/octokit/node-github')
-      .reply(200, {
-        full_name: 'octokit/node-github'
-      })
+  it('github.repos.get({owner: "octocat", repo: "hello-world"})', () => {
+    const GitHubMock = fixtures.mock('api.github.com/get-organization')
 
     const github = new GitHub()
 
-    return github.repos.get({owner: 'octokit', repo: 'node-github'})
+    return github.orgs.get({org: 'octokit-fixture-org'})
 
     .then((response) => {
-      response.data.full_name.should.equal('octokit/node-github')
+      response.data.login.should.equal('octokit-fixture-org')
       GitHubMock.pendingMocks().should.deep.equal([])
     })
   })
