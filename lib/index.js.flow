@@ -24,7 +24,6 @@ declare module "github" {
     ca?: string;
     headers?: {[header: Header]: any};
     requestMedia?: string;
-    Promise?: typeof Promise;
     followRedirects?: boolean;
     rejectUnauthorized?: boolean;
     family?: number;

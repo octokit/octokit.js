@@ -15,7 +15,7 @@ declare namespace Github {
 
   export interface EmptyParams {
   }
-  
+
   export interface Options {
     debug?: boolean;
     Promise?: typeof Promise;
