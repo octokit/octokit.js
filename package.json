@@ -19,7 +19,7 @@
   ],
   "repository": "https://github.com/mikedeboer/node-github",
   "engines": {
-    "node": ">=0.4.0"
+    "node": ">=4"
   },
   "dependencies": {
     "follow-redirects": "0.0.7",
