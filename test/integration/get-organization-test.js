@@ -9,7 +9,7 @@ const it = mocha.it
 chai.should()
 
 describe('smoke test', () => {
-  it('github.repos.get({owner: "octocat", repo: "hello-world"})', () => {
+  it('github.orgs.get({owner: "octokit-fixture-org"})', () => {
     const GitHubMock = fixtures.mock('api.github.com/get-organization')
 
     const github = new GitHub()
