@@ -18,7 +18,9 @@ describe('smoke test', () => {
 
     .then((response) => {
       response.data.login.should.equal('octokit-fixture-org')
-      GitHubMock.pendingMocks().should.deep.equal([])
+      GitHubMock.pending().should.deep.equal([])
     })
+
+    .catch(GitHubMock.explain)
   })
 })
