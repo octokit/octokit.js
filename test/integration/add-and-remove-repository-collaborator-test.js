@@ -8,8 +8,8 @@ const describe = mocha.describe
 const it = mocha.it
 chai.should()
 
-describe('smoke test', () => {
-  it('github.orgs.get({owner: "octokit-fixture-org"})', () => {
+describe('api.github.com', () => {
+  it('add-and-remove-repository-collaborator-test', () => {
     const GitHubMock = fixtures.mock('api.github.com/add-and-remove-repository-collaborator')
     const githubUserA = new GitHub()
     const githubUserB = new GitHub()
@@ -71,7 +71,9 @@ describe('smoke test', () => {
 
     .then((response) => {
       response.data.length.should.equal(1)
-      GitHubMock.pendingMocks().should.deep.equal([])
+      GitHubMock.pending().should.deep.equal([])
     })
+
+    .catch(GitHubMock.explain)
   })
 })
