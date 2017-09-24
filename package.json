@@ -24,15 +24,15 @@
   "dependencies": {
     "follow-redirects": "0.0.7",
     "https-proxy-agent": "^1.0.0",
-    "mime": "^1.2.11",
+    "mime": "^1.4.0",
     "netrc": "^0.1.4"
   },
   "devDependencies": {
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0",
+    "@octokit/fixtures": "^1.5.0",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
     "mustache": "^2.2.1",
-    "npm-run-all": "^4.0.2",
-    "@octokit/fixtures": "^1.4.0"
+    "npm-run-all": "^4.1.1"
   },
   "main": "lib",
   "types": "lib/index.d.ts",
