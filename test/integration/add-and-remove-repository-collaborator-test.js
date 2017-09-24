@@ -26,14 +26,14 @@ describe('api.github.com', () => {
 
     return githubUserA.repos.addCollaborator({
       owner: 'octokit-fixture-org',
-      repo: 'hello-world',
+      repo: 'add-and-remove-repository-collaborator',
       username: 'octokit-fixture-user-b'
     })
 
     .then(() => {
       return githubUserA.repos.getInvites({
         owner: 'octokit-fixture-org',
-        repo: 'hello-world'
+        repo: 'add-and-remove-repository-collaborator'
       })
     })
 
@@ -48,7 +48,7 @@ describe('api.github.com', () => {
     .then(() => {
       return githubUserA.repos.getCollaborators({
         owner: 'octokit-fixture-org',
-        repo: 'hello-world'
+        repo: 'add-and-remove-repository-collaborator'
       })
     })
 
@@ -57,7 +57,7 @@ describe('api.github.com', () => {
 
       return githubUserA.repos.removeCollaborator({
         owner: 'octokit-fixture-org',
-        repo: 'hello-world',
+        repo: 'add-and-remove-repository-collaborator',
         username: 'octokit-fixture-user-b'
       })
     })
@@ -65,7 +65,7 @@ describe('api.github.com', () => {
     .then(() => {
       return githubUserA.repos.getCollaborators({
         owner: 'octokit-fixture-org',
-        repo: 'hello-world'
+        repo: 'add-and-remove-repository-collaborator'
       })
     })
 
