@@ -1,5 +1,6 @@
 # Node-github
 
+[![Build Status](https://travis-ci.org/octokit/node-github.svg?branch=master)](https://travis-ci.org/octokit/node-github)
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
 <span class="badge-gratipay"><a href="https://gratipay.com/node-github/"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
 
@@ -219,12 +220,6 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Topics                  | application/vnd.github.mercy-preview+json             |
 
 ## Dev notes
-
-When updating routes.json, you'll want to update the generated docs/tests:
-
-```bash
-$ node lib/generate.js
-```
 
 To update the apidoc for github pages:
 

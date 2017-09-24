@@ -17,28 +17,30 @@
       "email": "joe@brassafrax.com"
     }
   ],
-  "homepage": "https://github.com/mikedeboer/node-github",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikedeboer/node-github.git"
-  },
-  "engine": {
-    "node": ">=0.4.0"
+  "repository": "https://github.com/mikedeboer/node-github",
+  "engines": {
+    "node": ">=4"
   },
   "dependencies": {
     "follow-redirects": "0.0.7",
     "https-proxy-agent": "^1.0.0",
-    "mime": "^1.2.11",
+    "mime": "^1.4.0",
     "netrc": "^0.1.4"
   },
   "devDependencies": {
-    "mocha": "~1.13.0",
-    "mustache": "^2.2.1"
+    "@octokit/fixtures": "^1.5.0",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "mustache": "^2.2.1",
+    "npm-run-all": "^4.1.1"
   },
   "main": "lib",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/**/*-test.js",
+    "build": "npm-run-all build:*",
+    "build:flow": "node lib/generateFlowTypes",
+    "build:ts": "node lib/generateTypeScriptTypes"
   },
   "license": "MIT",
   "licenses": [
