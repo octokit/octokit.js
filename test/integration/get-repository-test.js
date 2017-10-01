@@ -8,7 +8,7 @@ const describe = mocha.describe
 const it = mocha.it
 chai.should()
 
-describe('smoke test', () => {
+describe('api.github.com', () => {
   it.skip('(#587) github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
     const GitHubMock = fixtures.mock('api.github.com/get-repository')
 
