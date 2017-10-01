@@ -28,7 +28,7 @@
     "netrc": "^0.1.4"
   },
   "devDependencies": {
-    "@octokit/fixtures": "^1.5.0",
+    "@octokit/fixtures": "^1.6.0",
     "chai": "^4.1.2",
     "mocha": "^3.5.3",
     "mustache": "^2.2.1",
