@@ -1,4 +1,4 @@
-# Node-github
+# node-github
 
 [![Build Status](https://travis-ci.org/octokit/node-github.svg?branch=master)](https://travis-ci.org/octokit/node-github)
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
@@ -10,28 +10,27 @@ A Node.js wrapper for GitHub API.
 Install via npm.
 
 ```bash
-$ npm install github
+npm install github
 ```
 
-or
-
-Install via git clone
+or install via git clone:
 
 ```bash
-$ git clone https://github.com/mikedeboer/node-github.git
-$ cd node-github
-$ npm install
+git clone https://github.com/octokit/node-github
+cd node-github
+npm install
 ```
 
 ## Documentation
 
-Client API: [https://mikedeboer.github.io/node-github/](https://mikedeboer.github.io/node-github/)
-GitHub API: [https://developer.github.com/v3/](https://developer.github.com/v3/)
+Client API: [octokit.github.io/node-github](https://octokit.github.io/node-github/)
+GitHub API: [developer.github.com/v3](https://developer.github.com/v3/)
 
 ## Example
 
 Get all followers for user "defunkt":
-```javascript
+
+```js
 var GitHubApi = require("github");
 
 var github = new GitHubApi({
@@ -87,7 +86,7 @@ getLastPage(link, headers, callback)
 NOTE: link is the response object or the contents of the Link header
 ```
 
-See [here](https://github.com/mikedeboer/node-github/blob/master/examples/paginationCustomHeaders.js) and [here](https://github.com/mikedeboer/node-github/blob/master/examples/getStarred.js) for examples.
+See [here](https://github.com/octokit/node-github/blob/master/examples/paginationCustomHeaders.js) and [here](https://github.com/octokit/node-github/blob/master/examples/getStarred.js) for examples.
 
 ## Authentication
 
@@ -171,8 +170,8 @@ $ > testAuth.json
 
 ## Promises
 
-For using bluebird, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromise.js).
-For using Q, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/testPromiseQ.js).
+For using bluebird, see [here](https://github.com/octokit/node-github/blob/master/examples/testPromise.js).
+For using Q, see [here](https://github.com/octokit/node-github/blob/master/examples/testPromiseQ.js).
 
 ## Tests
 
@@ -190,7 +189,7 @@ $ npm test test/issuesTest.js
 
 ## Preview APIs
 
-Accept headers for the preview APIs should be taken care of behind the scenes, but in the event a preview endpoint isn't working, see [here](https://github.com/mikedeboer/node-github/blob/master/examples/getRawBlob.js) for an example on how to add the required custom accept header.
+Accept headers for the preview APIs should be taken care of behind the scenes, but in the event a preview endpoint isn't working, see [here](https://github.com/octokit/node-github/blob/master/examples/getRawBlob.js) for an example on how to add the required custom accept header.
 
 For updates on endpoints under preview, see https://developer.github.com/changes/.
 
