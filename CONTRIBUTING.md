@@ -5,6 +5,11 @@ node-github up to date and always improving! There are a few guidelines that we 
 contributors to follow to keep the project consistent, as well as allow us to keep
 maintaining node-github in a reasonable amount of time.
 
+Please note that this project is released with a [Contributor Code of Conduct][coc].
+By participating in this project you agree to abide by its terms.
+
+[coc]: ./CODE_OF_CONDUCT.md
+
 ## Creating an Issue
 
 Before you create a new Issue:
