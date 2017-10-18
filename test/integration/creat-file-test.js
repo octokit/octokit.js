@@ -16,7 +16,7 @@ describe('api.github.com', () => {
 
     github.authenticate({
       type: 'token',
-      token: '0000000000000000000000000000000000000000'
+      token: '0000000000000000000000000000000000000001'
     })
 
     return github.repos.createFile({
