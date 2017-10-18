@@ -1504,7 +1504,7 @@
             "description": "Get a Reference"
         },
         "get-references": {
-            "url": "/repos/:owner/:repo/git/refs/",
+            "url": "/repos/:owner/:repo/git/refs",
             "method": "GET",
             "params": {
                 "$owner": null,
