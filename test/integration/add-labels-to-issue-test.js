@@ -15,7 +15,7 @@ describe('api.github.com', () => {
 
     githubUserA.authenticate({
       type: 'token',
-      token: '0000000000000000000000000000000000000000'
+      token: '0000000000000000000000000000000000000001'
     })
 
     return githubUserA.issues.create({
