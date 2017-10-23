@@ -19,14 +19,6 @@ describe('api.github.com', () => {
       token: '0000000000000000000000000000000000000001'
     })
 
-    // return github.repos.createFile({
-    //   owner: 'octokit-fixture-org',
-    //   repo: 'create-file',
-    //   path: 'test.txt',
-    //   message: 'create test.txt',
-    //   content: Buffer.from('Test content').toString('base64')
-    // })
-
     return github.repos.getBranchProtection({
       owner: 'octokit-fixture-org',
       repo: 'branch-protection',
