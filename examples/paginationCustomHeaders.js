@@ -1,42 +1,44 @@
-"use strict";
+'use strict'
 
-var Client = require("./../lib/index");
-var testAuth = require("./../testAuth.json");
+var Client = require('./../lib/index')
+var testAuth = require('./../testAuth.json')
 
 var github = new Client({
-    debug: true
-});
+  debug: true
+})
 
 github.authenticate({
-    type: "oauth",
-    token: testAuth["token"]
-});
+  type: 'oauth',
+  token: testAuth['token']
+})
 
 var customHeaders = {
-    "User-Agent": "blah"
-};
+  'User-Agent': 'blah'
+}
 
 github.issues.getForRepo({
-    owner: "mikedeboer",
-    repo: "node-github",
-    headers: customHeaders
-}, function(err, res) {
-    showIssueIds(res);
-    console.log('END of PAGE 1');
-    
-    if (github.hasNextPage(res)) {
-        github.getNextPage(res, customHeaders, function(err, res) {
-            showIssueIds(res);
-        });
-    }
-});
+  owner: 'mikedeboer',
+  repo: 'node-github',
+  headers: customHeaders
+}, function (err, res) {
+  if (err) throw err
+  showIssueIds(res)
+  console.log('END of PAGE 1')
 
-function showIssueIds(res) {
-    for (var i = 0; i <= res.length; i++) {
-        if (typeof res[i] !== 'undefined') {
-            var url = res[i].url;
-            var issueId = url.substr(url.lastIndexOf('/') + 1);
-            console.log(issueId);
-        }
+  if (github.hasNextPage(res)) {
+    github.getNextPage(res, customHeaders, function (err, res) {
+      if (err) throw err
+      showIssueIds(res)
+    })
+  }
+})
+
+function showIssueIds (res) {
+  for (var i = 0; i <= res.length; i++) {
+    if (typeof res[i] !== 'undefined') {
+      var url = res[i].url
+      var issueId = url.substr(url.lastIndexOf('/') + 1)
+      console.log(issueId)
     }
+  }
 }

@@ -1,26 +1,26 @@
-var Client = require("./../lib/index");
+var Client = require('./../lib/index')
 
 var gh = new Client({
   Promise: require('bluebird')
-});
+})
 
-function getAllOrgRepos(orgName) {
-  var repos = [];
+function getAllOrgRepos (orgName) {
+  var repos = []
 
-  function pager(res) {
-    repos = repos.concat(res);
+  function pager (res) {
+    repos = repos.concat(res)
     if (gh.hasNextPage(res)) {
       return gh.getNextPage(res)
-        .then(pager);
+        .then(pager)
     }
-    return repos;
+    return repos
   }
 
   return gh.repos.getForOrg({ org: orgName })
-    .then(pager);
+    .then(pager)
 }
 
 getAllOrgRepos('organization')
-  .then(function(orgRepos) {
-    console.log(orgRepos);
-  });
+  .then(function (orgRepos) {
+    console.log(orgRepos)
+  })
