@@ -14,3 +14,6 @@ branches:
 # Retry install on fail to avoid failing a build on network/disk/external errors
 install:
   - travis_retry npm install
+
+after_success:
+  - npm run coverage:upload
