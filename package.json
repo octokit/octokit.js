@@ -15,6 +15,10 @@
     {
       "name": "Joe Gallo",
       "email": "joe@brassafrax.com"
+    },
+    {
+      "name": "Gregor Martynus",
+      "url": "https://github.com/gr2m"
     }
   ],
   "repository": "https://github.com/octokit/node-github",
