@@ -31,29 +31,29 @@ GitHub API: [developer.github.com/v3](https://developer.github.com/v3/)
 Get all followers for user "defunkt":
 
 ```js
-var GitHubApi = require("github");
+var GitHubApi = require('github')
 
 var github = new GitHubApi({
     // optional
-    debug: true,
-    Promise: require('bluebird'),
-    timeout: 5000,
-    host: "github.my-GHE-enabled-company.com", // should be api.github.com for GitHub
-    pathPrefix: "/api/v3", // for some GHEs; none for GitHub
-    protocol: "https",
-    port: 9898,
-    proxy: "<proxyUrl>",
-    ca: "whatever",
-    headers: {
-        "accept": "application/vnd.github.something-custom",
-        "cookie": "something custom",
-        "user-agent": "something custom"
-    },
-    requestMedia: "application/vnd.github.something-custom",
-    followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow disabling follow-redirects
-    rejectUnauthorized: false, // default: true
-    family: 6
-});
+  debug: true,
+  Promise: require('bluebird'),
+  timeout: 5000,
+  host: 'github.my-GHE-enabled-company.com', // should be api.github.com for GitHub
+  pathPrefix: '/api/v3', // for some GHEs; none for GitHub
+  protocol: 'https',
+  port: 9898,
+  proxy: '<proxyUrl>',
+  ca: 'whatever',
+  headers: {
+    'accept': 'application/vnd.github.something-custom',
+    'cookie': 'something custom',
+    'user-agent': 'something custom'
+  },
+  requestMedia: 'application/vnd.github.something-custom',
+  followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow disabling follow-redirects
+  rejectUnauthorized: false, // default: true
+  family: 6
+})
 
 // TODO: optional authentication here depending on desired endpoints. See below in README.
 
@@ -62,10 +62,11 @@ github.users.getFollowingForUser({
     // headers: {
     //     "cookie": "blahblah"
     // },
-    username: "defunkt"
-}, function(err, res) {
-    console.log(JSON.stringify(res));
-});
+  username: 'defunkt'
+}, function (err, res) {
+  if (err) throw err
+  console.log(JSON.stringify(res))
+})
 ```
 
 ## Pagination
@@ -97,40 +98,40 @@ You need the GitHub user name and the API key for authentication. The API key ca
 ```javascript
 // basic
 github.authenticate({
-    type: "basic",
-    username: USERNAME,
-    password: PASSWORD
-});
+  type: 'basic',
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD
+})
 
 // oauth
 github.authenticate({
-    type: "oauth",
-    token: AUTH_TOKEN
-});
+  type: 'oauth',
+  token: process.env.AUTH_TOKEN
+})
 
 // oauth key/secret (to get a token)
 github.authenticate({
-    type: "oauth",
-    key: CLIENT_ID,
-    secret: CLIENT_SECRET
+  type: 'oauth',
+  key: process.env.CLIENT_ID,
+  secret: process.env.CLIENT_SECRET
 })
 
 // user token
 github.authenticate({
-    type: "token",
-    token: "userToken",
-});
+  type: 'token',
+  token: 'userToken'
+})
 
 // integration (jwt)
 github.authenticate({
-    type: "integration",
-    token: "jwt",
-});
+  type: 'integration',
+  token: 'jwt'
+})
 
 // ~/.netrc
 github.authenticate({
-    type: "netrc"
-});
+  type: 'netrc'
+})
 ```
 
 Note: `authenticate` is synchronous because it only stores the
@@ -144,17 +145,18 @@ credentials for the next request.
 
 ```javascript
 github.authorization.create({
-    scopes: ["user", "public_repo", "repo", "repo:status", "gist"],
-    note: "what this auth is for",
-    note_url: "http://url-to-this-auth-app",
-    headers: {
-        "X-GitHub-OTP": "two-factor-code"
-    }
-}, function(err, res) {
-    if (res.token) {
-        //save and use res.token as in the Oauth process above from now on
-    }
-});
+  scopes: ['user', 'public_repo', 'repo', 'repo:status', 'gist'],
+  note: 'what this auth is for',
+  note_url: 'http://url-to-this-auth-app',
+  headers: {
+    'X-GitHub-OTP': 'two-factor-code'
+  }
+}, function (err, res) {
+  if (err) throw err
+  if (res.token) {
+    // save and use res.token as in the Oauth process above from now on
+  }
+})
 ```
 
 ## Create test auth file
