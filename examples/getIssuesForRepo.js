@@ -13,7 +13,7 @@ github.authenticate({
 })
 
 github.issues.getForRepo({
-  owner: 'mikedeboer',
+  owner: 'octokit',
   repo: 'node-github'
 }, function (err, res) {
   if (err) {

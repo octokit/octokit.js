@@ -13,7 +13,7 @@ github.authenticate({
 })
 
 github.issues.getEventsTimeline({
-  owner: 'mikedeboer',
+  owner: 'octokit',
   repo: 'node-github',
   issue_number: '447'
 }, function (err, res) {

@@ -13,7 +13,7 @@ github.authenticate({
 })
 
 github.gitdata.getReferences({
-  owner: 'mikedeboer',
+  owner: 'octokit',
   repo: 'node-github'
 }, function (err, res) {
   console.log(err, res)
