@@ -17,7 +17,7 @@ var customHeaders = {
 }
 
 github.issues.getForRepo({
-  owner: 'mikedeboer',
+  owner: 'octokit',
   repo: 'node-github',
   headers: customHeaders
 }, function (err, res) {

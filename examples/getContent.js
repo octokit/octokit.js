@@ -7,7 +7,7 @@ var github = new Client({
 })
 
 github.repos.getContent({
-  owner: 'mikedeboer',
+  owner: 'octokit',
   repo: 'node-github',
   path: ''
 }, function (err, res) {
