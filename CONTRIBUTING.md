@@ -13,7 +13,7 @@ By participating in this project you agree to abide by its terms.
 ## Creating an Issue
 
 Before you create a new Issue:
-* Check the [Issues](https://github.com/mikedeboer/node-github/issues) on Github to ensure one doesn't already exist.
+* Check the [Issues](https://github.com/octokit/node-github/issues) on Github to ensure one doesn't already exist.
 * Clearly describe the issue, including the steps to reproduce the issue.
 * Please include links to the corresponding github documentation.
 
