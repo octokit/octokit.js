@@ -1,21 +1,21 @@
-"use strict";
+'use strict'
 
-var Client = require("./../lib/index");
-var testAuth = require("./../testAuth.json");
+var Client = require('./../lib/index')
+var testAuth = require('./../testAuth.json')
 
 var github = new Client({
-    debug: true
-});
+  debug: true
+})
 
 github.authenticate({
-    type: "oauth",
-    token: testAuth["token"]
-});
+  type: 'oauth',
+  token: testAuth['token']
+})
 
 github.reactions.getForIssue({
-    owner: "mikedeboer",
-    repo: "node-github",
-    number: "365"
-}, function(err, res) {
-    console.log(err, res);
-});
+  owner: 'mikedeboer',
+  repo: 'node-github',
+  number: '365'
+}, function (err, res) {
+  console.log(err, res)
+})

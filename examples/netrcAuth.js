@@ -1,18 +1,15 @@
-"use strict";
+'use strict'
 
-var Client = require("./../lib/index");
-var testAuth = require("./../testAuth.json");
-
+var Client = require('./../lib/index')
 var github = new Client({
-    debug: true
-});
+  debug: true
+})
 
 github.authenticate({
-    type: "netrc"
-});
+  type: 'netrc'
+})
 
 github.repos.getAll({
-}, function(err, res) {
-    console.log(err, res);
-});
-
+}, function (err, res) {
+  console.log(err, res)
+})

@@ -1,19 +1,19 @@
-"use strict";
+'use strict'
 
-var Client = require("./../lib/index");
-var testAuth = require("./../testAuth.json");
+var Client = require('./../lib/index')
+var testAuth = require('./../testAuth.json')
 
 var github = new Client({
-    debug: true
-});
+  debug: true
+})
 
 github.authenticate({
-    type: "oauth",
-    token: testAuth["token"]
-});
+  type: 'oauth',
+  token: testAuth['token']
+})
 
 github.orgs.get({
-    org: "facebook"
-}, function(err, res) {
-    console.log(err, res);
-});
+  org: 'facebook'
+}, function (err, res) {
+  console.log(err, res)
+})
