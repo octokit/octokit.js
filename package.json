@@ -32,11 +32,14 @@
     "chai": "^4.1.2",
     "mocha": "^3.5.3",
     "mustache": "^2.2.1",
-    "npm-run-all": "^4.1.1"
+    "npm-run-all": "^4.1.1",
+    "standard": "^10.0.3",
+    "standard-markdown": "^4.0.2"
   },
   "main": "lib",
   "types": "lib/index.d.ts",
   "scripts": {
+    "pretest": "standard && standard-markdown",
     "test": "mocha test/**/*-test.js",
     "build": "npm-run-all build:*",
     "build:flow": "node lib/generateFlowTypes",
