@@ -3,6 +3,9 @@ node_js:
   - "8"
   - "6"
   - "4"
+cache:
+  directories:
+    - ~/.npm
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -17,3 +20,4 @@ install:
 
 after_success:
   - npm run coverage:upload
+  - npm run semantic-release
