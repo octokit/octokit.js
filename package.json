@@ -51,8 +51,9 @@
     "pretest": "standard && standard-markdown",
     "test": "nyc mocha test/**/*-test.js",
     "build": "npm-run-all build:*",
-    "build:flow": "node lib/generateFlowTypes",
-    "build:ts": "node lib/generateTypeScriptTypes",
+    "build:flow": "node scripts/generateFlowTypes",
+    "build:ts": "node scripts/generateTypeScriptTypes",
+    "presemantic-release": "npm run -s build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "license": "MIT",
