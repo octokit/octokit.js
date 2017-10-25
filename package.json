@@ -26,16 +26,16 @@
     "node": ">=4"
   },
   "dependencies": {
-    "follow-redirects": "0.0.7",
-    "https-proxy-agent": "^1.0.0",
-    "mime": "^1.4.0",
+    "follow-redirects": "1.2.5",
+    "https-proxy-agent": "^2.1.0",
+    "mime": "^2.0.3",
     "netrc": "^0.1.4"
   },
   "devDependencies": {
     "@octokit/fixtures": "^2.4.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
-    "mocha": "^3.5.3",
+    "mocha": "^4.0.1",
     "mustache": "^2.2.1",
     "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
