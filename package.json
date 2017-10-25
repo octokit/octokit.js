@@ -32,7 +32,7 @@
     "netrc": "^0.1.4"
   },
   "devDependencies": {
-    "@octokit/fixtures": "^2.4.0",
+    "@octokit/fixtures": "^3.0.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "mocha": "^4.0.1",
