@@ -10,7 +10,6 @@ declare module "github" {
 
   declare type Options = {
     debug?: boolean;
-    Promise?: typeof Promise;
     timeout?: number;
     host?: string;
     pathPrefix?: string;
