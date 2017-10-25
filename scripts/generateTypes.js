@@ -13,8 +13,8 @@
 'use strict'
 
 var fs = require('fs')
-var Path = require('path')
-var Util = require('./util')
+var pathJoin = require('path').join
+var Util = require('../lib/util')
 var Mustache = require('mustache')
 
 var typeMap = {
@@ -107,11 +107,11 @@ function combineParamData (params, entry) {
 }
 
 module.exports = function (languageName, templateFile, outputFile) {
-  var templatePath = Path.join(__dirname, '..', 'templates', templateFile)
+  var templatePath = pathJoin(__dirname, 'templates', templateFile)
   var template = fs.readFileSync(templatePath, 'utf8')
 
     // check routes path
-  var routesPath = Path.join(__dirname, 'routes.json')
+  var routesPath = pathJoin(__dirname, '..', 'lib', 'routes.json')
   var routes = JSON.parse(fs.readFileSync(routesPath, 'utf8'))
   if (!routes.defines) {
     Util.log('No routes defined.', 'fatal')
@@ -170,5 +170,5 @@ module.exports = function (languageName, templateFile, outputFile) {
 
   Util.log('Writing ' + languageName + ' declarations file')
 
-  fs.writeFileSync(Path.join(__dirname, outputFile), body, 'utf8')
+  fs.writeFileSync(pathJoin(__dirname, '..', 'lib', outputFile), body, 'utf8')
 }
