@@ -21,8 +21,7 @@ Before you create a new Issue:
 
 * Create a topic branch from the master branch.
 * Check for unnecessary whitespace / changes with `git diff --check` before committing.
-* If modifying `routes.json`, be sure to run `node lib/generate.js` to generate/update docs/tests.
-* Keep git commit messages clear and appropriate
+* Keep git commit messages clear and appropriate. Ideally follow commit conventions described below.
 	* Please "squash" your commits down to one commit.
 
 ## Submitting the Pull Request
@@ -30,7 +29,7 @@ Before you create a new Issue:
 * Push your changes to your topic branch on your fork of the repo.
 * Submit a pull request from your topic branch to the master branch on the node-github repository.
 * Be sure to tag any issues your pull request is taking care of / contributing to.
-	* Adding "Closes #xyz" to a commit message will auto close the issue once the pull request is merged in.
+	* Adding "Closes #123" to a pull request description will auto close the issue once the pull request is merged in.
 
 ## Merging the Pull Request & releasing a new version
 
