@@ -38,7 +38,6 @@ var GitHubApi = require('github')
 var github = new GitHubApi({
     // optional
   debug: true,
-  Promise: require('bluebird'),
   timeout: 5000,
   host: 'github.my-GHE-enabled-company.com', // should be api.github.com for GitHub
   pathPrefix: '/api/v3', // for some GHEs; none for GitHub
@@ -160,10 +159,6 @@ github.authorization.create({
   }
 })
 ```
-
-## Promises
-
-See example [here](https://github.com/octokit/node-github/blob/master/examples/testPromiseGetNextPage.js).
 
 ## Tests
 
