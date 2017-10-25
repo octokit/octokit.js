@@ -38,7 +38,6 @@ var GitHubApi = require('github')
 var github = new GitHubApi({
     // optional
   debug: true,
-  Promise: require('bluebird'),
   timeout: 5000,
   host: 'github.my-GHE-enabled-company.com', // should be api.github.com for GitHub
   pathPrefix: '/api/v3', // for some GHEs; none for GitHub
@@ -171,11 +170,6 @@ $ > testAuth.json
     "token": "<TOKEN>"
 }
 ```
-
-## Promises
-
-For using bluebird, see [here](https://github.com/octokit/node-github/blob/master/examples/testPromise.js).
-For using Q, see [here](https://github.com/octokit/node-github/blob/master/examples/testPromiseQ.js).
 
 ## Tests
 
