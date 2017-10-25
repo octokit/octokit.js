@@ -1,3 +1,7 @@
+# ignoring package-lock.json as we have Greenkeeper.io to prevent new versions
+# of dependencies to break the local dev environment
+package-lock.json
+
 .nyc_output
 coverage
 node_modules
