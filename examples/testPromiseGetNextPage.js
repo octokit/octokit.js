@@ -1,8 +1,6 @@
 var Client = require('./../lib/index')
 
-var gh = new Client({
-  Promise: require('bluebird')
-})
+var gh = new Client()
 
 function getAllOrgRepos (orgName) {
   var repos = []
