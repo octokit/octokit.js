@@ -31,3 +31,18 @@ Before you create a new Issue:
 * Submit a pull request from your topic branch to the master branch on the node-github repository.
 * Be sure to tag any issues your pull request is taking care of / contributing to.
 	* Adding "Closes #xyz" to a commit message will auto close the issue once the pull request is merged in.
+
+## Merging the Pull Request & releasing a new version
+
+Releases are automated using [semantic-release](https://github.com/semantic-release/semantic-release).
+The following commit message conventions determine which version is released:
+
+1. `fix: ...` or `fix(scope name): ...` prefix in subject: bumps fix version, e.g. `1.2.3` → `1.2.4`
+2. `feat: ...` or `feat(scope name): ...` prefix in subject: bumps feature version, e.g. `1.2.3` → `1.3.0`
+3. `BREAKING CHANGE: ` in body: bumps breaking version, e.g. `1.2.3` → `2.0.0`
+
+Only one version number is bumped at a time, the highest version change trumps the others.
+Besides publishing a new version to npm, semantic-release also creates a git tag and release
+on GitHub, generates changelogs from the commit messages and puts them into the release notes.
+
+If the pull request looks good but does not follow the commit conventions, use the "Squash & merge" button.
