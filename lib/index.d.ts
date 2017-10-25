@@ -18,7 +18,6 @@ declare namespace Github {
 
   export interface Options {
     debug?: boolean;
-    Promise?: typeof Promise;
     timeout?: number;
     host?: string;
     pathPrefix?: string;
