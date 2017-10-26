@@ -28,6 +28,7 @@
   "dependencies": {
     "follow-redirects": "1.2.5",
     "https-proxy-agent": "^2.1.0",
+    "lodash": "^4.17.4",
     "mime": "^2.0.3",
     "netrc": "^0.1.4"
   },
