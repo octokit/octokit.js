@@ -26,6 +26,7 @@
     "node": ">=4"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "follow-redirects": "1.2.5",
     "https-proxy-agent": "^2.1.0",
     "lodash": "^4.17.4",
@@ -36,13 +37,15 @@
     "@octokit/fixtures": "^3.0.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
+    "glob": "^7.1.2",
     "mocha": "^4.0.1",
     "mustache": "^2.2.1",
     "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
+    "proxyquire": "^1.8.0",
+    "semantic-release": "^8.2.0",
     "standard": "^10.0.3",
-    "standard-markdown": "^4.0.2",
-    "semantic-release": "^8.2.0"
+    "standard-markdown": "^4.0.2"
   },
   "main": "lib",
   "types": "lib/index.d.ts",
