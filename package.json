@@ -77,5 +77,11 @@
     "template": {
       "withCompare": true
     }
+  },
+  "nyc": {
+    "ignore": [
+      "examples",
+      "test"
+    ]
   }
 }
