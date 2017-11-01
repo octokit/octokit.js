@@ -2,6 +2,7 @@
 # of dependencies to break the local dev environment
 package-lock.json
 
+.env
 .nyc_output
 coverage
 node_modules
