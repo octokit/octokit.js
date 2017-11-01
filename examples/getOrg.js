@@ -1,19 +1,12 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const assert = require('assert')
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
-github.authenticate({
-  type: 'oauth',
-  token: testAuth['token']
-})
-
 github.orgs.get({
-  org: 'facebook'
-}, function (err, res) {
-  console.log(err, res)
+  org: 'octokit'
+}).then(result => {
+  // result.data looks like https://developer.github.com/v3/orgs/#response-3
+  assert.equal(result.data.login, 'octokit')
 })

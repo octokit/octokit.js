@@ -1,21 +1,10 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
-github.authenticate({
-  type: 'oauth',
-  token: testAuth['token']
-})
-
 github.gitdata.getReference({
-  owner: 'kaizensoze',
-  repo: 'test2',
-  ref: 'heads/a#blah'
-}, function (err, res) {
-  console.log(err, res)
+  owner: 'octokit',
+  repo: 'node-github',
+  ref: 'heads/master'
 })

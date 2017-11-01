@@ -1,21 +1,15 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
 github.authenticate({
   type: 'oauth',
-  token: testAuth['token']
+  token: 'add-your-real-token-here'
 })
 
 github.repos.addCollaborator({
-  owner: 'brassafrax', // needs to be an org
-  repo: 'test',
-  username: 'first9890'
-}, function (err, res) {
-  console.log(err, res)
+  owner: 'octokit',
+  repo: 'node-github',
+  username: 'defunkt'
 })

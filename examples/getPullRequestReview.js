@@ -1,32 +1,25 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
-github.authenticate({
-  type: 'oauth',
-  token: testAuth['token']
+github.pullRequests.getReviews({
+  owner: 'octokit',
+  repo: 'node-github',
+  number: 640
 })
 
-github.pullRequests.getReviews({
-  owner: 'brassafrax',
-  repo: 'test',
-  number: 1
-}, function (err, res) {
-  if (err) throw err
+.then(result => {
+  const firstReviewId = result.data[0].id
 
-  var reviewId = res[0]['id']
-  github.pullRequests.getReview({
-    owner: 'brassafrax',
-    repo: 'test',
-    number: 1,
-    id: reviewId
-  }, function (err, res) {
-    if (err) throw err
-    console.log(res)
+  return github.pullRequests.getReview({
+    owner: 'octokit',
+    repo: 'node-github',
+    number: 640,
+    id: firstReviewId
   })
+})
+
+.then(result => {
+  // result.data has review properties
 })

@@ -1,21 +1,10 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
-})
-
-github.authenticate({
-  type: 'oauth',
-  token: testAuth['token']
 })
 
 github.issues.getEventsTimeline({
   owner: 'octokit',
   repo: 'node-github',
   issue_number: '447'
-}, function (err, res) {
-  console.log(err, res)
 })

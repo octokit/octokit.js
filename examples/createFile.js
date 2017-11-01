@@ -1,23 +1,17 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
 github.authenticate({
   type: 'oauth',
-  token: testAuth['token']
+  token: 'add-your-real-token-here'
 })
 
 github.repos.createFile({
-  owner: 'kaizensoze',
-  repo: 'misc-scripts',
+  owner: 'octokit',
+  repo: 'node-github',
   path: 'blah.txt',
   message: 'blah blah',
-  content: 'YmxlZXAgYmxvb3A='
-}, function (err, res) {
-  console.log(err, res)
+  content: 'YmxlZXAgYmxvb3A=' // base64-encoded "bleep bloop"
 })

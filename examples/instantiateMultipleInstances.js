@@ -1,6 +1,14 @@
-'use strict'
+const Github = require('./../lib/index')
 
-var Github = require('./../lib/index')
+const github1 = new Github()
+const github2 = new Github()
 
-var g1 = new Github() // eslint-disable-line
-var g2 = new Github() // eslint-disable-line
+github1.authenticate({
+  type: 'oauth',
+  token: 'add-a-real-token-here'
+})
+
+github2.authenticate({
+  type: 'oauth',
+  token: 'add-a-different-token-here'
+})
