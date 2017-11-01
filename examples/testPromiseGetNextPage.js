@@ -1,26 +1,26 @@
-var Client = require('./../lib/index')
-
-var gh = new Client({
-  Promise: require('bluebird')
+const GitHubApi = require('github')
+const github = new GitHubApi({
+  debug: true
 })
 
 function getAllOrgRepos (orgName) {
-  var repos = []
+  let repos = []
 
-  function pager (res) {
-    repos = repos.concat(res)
-    if (gh.hasNextPage(res)) {
-      return gh.getNextPage(res)
-        .then(pager)
+  function pager (result) {
+    repos = repos.concat(result.data)
+
+    if (github.hasNextPage(result)) {
+      return github.getNextPage(result).then(pager)
     }
+
     return repos
   }
 
-  return gh.repos.getForOrg({ org: orgName })
+  return github.repos.getForOrg({ org: orgName })
     .then(pager)
 }
 
-getAllOrgRepos('organization')
-  .then(function (orgRepos) {
-    console.log(orgRepos)
+getAllOrgRepos('github')
+  .then((orgRepos) => {
+    // orgRepos is array of all repositories meta data
   })

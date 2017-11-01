@@ -1,26 +1,24 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({})
-
-github.authenticate({
-  type: 'oauth',
-  token: testAuth['token']
+const GitHubApi = require('github')
+const github = new GitHubApi({
+  debug: true
 })
 
 github.repos.getAll({
-  'affiliation': 'owner,organization_member'
-}, function (err, res) {
-  if (err) throw err
-  if (github.hasNextPage(res)) {
-    console.log(res.data.length)
-    github.getNextPage(res, nextFunc)
-  }
+  owner: 'octokit',
+  repo: 'node-github',
+  affiliation: 'owner,organization_member'
 })
 
-function nextFunc (err, res) {
-  if (err) throw err
-  console.log(res.data.length)
+.then(result => {
+  if (github.hasNextPage(result)) {
+    return github.getNextPage(result)
+
+    .then(handleResults)
+  }
+
+  handleResults(result)
+})
+
+function handleResults (result) {
+  // result.data has list of repositories
 }

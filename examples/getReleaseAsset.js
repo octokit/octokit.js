@@ -1,59 +1,43 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
-github.authenticate({
-  type: 'oauth',
-  token: testAuth['token']
+github.repos.getReleases({
+  owner: 'octokit',
+  repo: 'node-github'
 })
 
-var testRepo = {
-  owner: 'aktau',
-  repo: 'github-release'
-}
-
-github.repos.getReleases({
-  owner: testRepo.owner,
-  repo: testRepo.repo
-}, function (err, res) {
-  if (err) throw err
-  var releases = res.data
-  if (releases.length === 0) {
+.then(result => {
+  if (result.data.length === 0) {
+    console.log('Repository has no releases')
     return
   }
-  var release = releases[0]
-  var releaseId = release.id
-  console.log(release)
 
-  github.repos.getAssets({
-    owner: testRepo.owner,
-    repo: testRepo.repo,
-    id: releaseId
-  }, function (err, res) {
-    if (err) throw err
-    var assets = res.data
-    if (assets.length === 0) {
-      return
-    }
-    var asset = assets[0]
-    var assetId = asset.id
-    console.log(asset)
-
-    github.repos.getAsset({
-      owner: testRepo.owner,
-      repo: testRepo.repo,
-      id: assetId
-      // headers: {
-      //     "Accept": "application/octet-stream"
-      // }
-    }, function (err, res) {
-      if (err) throw err
-      console.log(res)
-    })
+  // get id of first release
+  const firstRelease = result.data.pop()
+  return github.repos.getAssets({
+    owner: 'octokit',
+    repo: 'node-github',
+    id: firstRelease.id
   })
+})
+
+.then(result => {
+  if (result.data.length === 0) {
+    console.log('First release has no assets attached')
+    return
+  }
+
+  // get id of first asset
+  const assetId = result.data[0].id
+  return github.repos.getAsset({
+    owner: 'octokit',
+    repo: 'node-github',
+    id: assetId
+  })
+})
+
+.then(result => {
+  // result.data has asset properties
 })

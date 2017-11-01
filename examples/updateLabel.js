@@ -1,23 +1,17 @@
-'use strict'
-
-var Client = require('./../lib/index')
-var testAuth = require('./../testAuth.json')
-
-var github = new Client({
+const GitHubApi = require('github')
+const github = new GitHubApi({
   debug: true
 })
 
 github.authenticate({
   type: 'oauth',
-  token: testAuth['token']
+  token: 'add-your-real-token-here'
 })
 
 github.issues.updateLabel({
-  owner: 'kaizensoze',
-  repo: 'test2',
+  owner: 'octokit',
+  repo: 'node-github',
   oldname: 'labelA',
   name: 'labelB',
   color: '0052cc'
-}, function (err, res) {
-  console.log(err, res)
 })
