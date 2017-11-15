@@ -111,20 +111,18 @@ module.exports = function (languageName, templateFile, outputFile) {
   var template = fs.readFileSync(templatePath, 'utf8')
 
     // check routes path
-  var routesPath = pathJoin(__dirname, '..', 'lib', 'routes.json')
-  var routes = JSON.parse(fs.readFileSync(routesPath, 'utf8'))
-  if (!routes.defines) {
+  var routes = require('../lib/routes')
+  var definitions = require('../lib/definitions')
+  if (!definitions) {
     Util.log('No routes defined.', 'fatal')
     process.exit(1)
   }
 
-  var defines = routes.defines
-  var requestHeaders = defines['request-headers']
-  delete routes.defines
+  var requestHeaders = definitions['request-headers']
 
   Util.log('Generating ' + languageName + ' types...')
 
-  var params = entries(defines.params).reduce(combineParamData, [])
+  var params = entries(definitions.params).reduce(combineParamData, [])
 
   var namespaces = Object.keys(routes).reduce(function (namespaces, namespace) {
     var methods = entries(routes[namespace]).reduce(function (methods, entry) {
