@@ -163,8 +163,7 @@ github.authorization.create({
 
 ## Promises
 
-For using bluebird, see [here](https://github.com/octokit/node-github/blob/master/examples/testPromise.js).
-For using Q, see [here](https://github.com/octokit/node-github/blob/master/examples/testPromiseQ.js).
+See example [here](https://github.com/octokit/node-github/blob/master/examples/testPromiseGetNextPage.js).
 
 ## Tests
 
