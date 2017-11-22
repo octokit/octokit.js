@@ -38,4 +38,20 @@ describe('missing argument', () => {
       })
     })
   })
+
+  it('invalid argument', () => {
+    const github = new GitHub({
+      host: 'nope'
+    })
+
+    return github.issues.getAll({filter: 'foo'})
+
+    .catch(error => {
+      error.toJSON().should.deep.equal({
+        code: '400',
+        message: 'Invalid value for parameter \'filter\': foo',
+        status: 'Bad Request'
+      })
+    })
+  })
 })
