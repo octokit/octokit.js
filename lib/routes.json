@@ -6055,21 +6055,42 @@
             "description": "List assets for a release."
         },
         "upload-asset": {
-            "url": "/repos/:owner/:repo/releases/:id/assets",
+            "url": "/:url",
             "method": "POST",
-            "host": "uploads.github.com",
             "hasFileBody": true,
+            "headers": {
+              "Content-Type": ":contentType",
+              "Content-Length": ":contentLength"
+            },
             "timeout": 0,
             "params": {
-                "$owner": null,
-                "$repo": null,
-                "$id": null,
-                "filePath": {
+                "$url": {
                     "type": "String",
                     "required": true,
                     "validation": "",
                     "invalidmsg": "",
-                    "description": "The file path of the asset."
+                    "description": "This endpoint makes use of a Hypermedia relation (https://developer.github.com/v3/#hypermedia) to determine which URL to access. This endpoint is provided by a URI template in the release's API response (https://developer.github.com/v3/repos/releases/#get-a-single-release). You need to use an HTTP client which supports SNI (https://en.wikipedia.org/wiki/Server_Name_Indication) to make calls to this endpoint."
+                },
+                "file": {
+                    "type": "Object",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "A file read stream, a String or a Buffer."
+                },
+                "$contentType": {
+                    "type": "String",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "The content type of the asset. This should be set in the Header. Example: 'application/zip'. For a list of acceptable types, refer this list of media types (https://www.iana.org/assignments/media-types/media-types.xhtml)"
+                },
+                "$contentLength": {
+                    "type": "Number",
+                    "required": true,
+                    "validation": "",
+                    "invalidmsg": "",
+                    "description": "File size in bytes."
                 },
                 "name": {
                     "type": "String",
