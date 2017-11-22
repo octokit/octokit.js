@@ -26,6 +26,7 @@
     "node": ">=4"
   },
   "dependencies": {
+    "debug": "^3.1.0",
     "dotenv": "^4.0.0",
     "https-proxy-agent": "^2.1.0",
     "lodash": "^4.17.4",
@@ -38,6 +39,7 @@
     "glob": "^7.1.2",
     "mocha": "^4.0.1",
     "mustache": "^2.2.1",
+    "nock": "^9.1.0",
     "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
     "proxyquire": "^1.8.0",
