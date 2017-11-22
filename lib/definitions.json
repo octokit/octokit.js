@@ -457,6 +457,27 @@
             "validation": "",
             "invalidmsg": "",
             "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
+        },
+        "url": {
+            "type": "String",
+            "required": true,
+            "validation": "",
+            "invalidmsg": "",
+            "description": "Dynamic URL for release asset uploads returned by the release’s API response."
+        },
+        "contentType": {
+            "type": "String",
+            "required": true,
+            "validation": "",
+            "invalidmsg": "",
+            "description": "The content type of a release asset upload."
+        },
+        "contentLength": {
+            "type": "Number",
+            "required": true,
+            "validation": "",
+            "invalidmsg": "",
+            "description": "Size of release asset upload in bytes."
         }
     },
     "acceptTree": {
