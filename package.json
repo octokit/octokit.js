@@ -29,7 +29,7 @@
     "dotenv": "^4.0.0",
     "https-proxy-agent": "^2.1.0",
     "lodash": "^4.17.4",
-    "mime": "^2.0.3"
+    "url-template": "^2.0.8"
   },
   "devDependencies": {
     "@octokit/fixtures": "^5.4.0",
