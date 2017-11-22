@@ -1,5 +1,3 @@
-const pathResolve = require('path').resolve
-
 const chai = require('chai')
 const fixtures = require('@octokit/fixtures')
 
@@ -23,7 +21,7 @@ describe('api.github.com', () => {
       token: '0000000000000000000000000000000000000001'
     })
 
-    githubUserA.repos.getReleaseByTag({
+    return githubUserA.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -33,10 +31,10 @@ describe('api.github.com', () => {
       releaseId = result.data.id
 
       return githubUserA.repos.uploadAsset({
-        owner: 'octokit-fixture-org',
-        repo: 'release-assets',
-        id: releaseId,
-        filePath: pathResolve(__dirname, 'test-upload.txt'),
+        url: result.data.upload_url,
+        file: 'Hello, world!\n',
+        contentType: 'text/plain',
+        contentLength: 14,
         name: 'test-upload.txt',
         label: 'test'
       })
