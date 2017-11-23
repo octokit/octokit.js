@@ -1,4 +1,5 @@
 const chai = require('chai')
+const nock = require('nock')
 
 const GitHub = require('../../')
 
@@ -7,7 +8,7 @@ const describe = mocha.describe
 const it = mocha.it
 chai.should()
 
-describe('missing argument', () => {
+describe('params validations', () => {
   it('github.orgs.get({})', () => {
     const github = new GitHub()
 
@@ -40,9 +41,7 @@ describe('missing argument', () => {
   })
 
   it('invalid value for github.issues.getAll({filter})', () => {
-    const github = new GitHub({
-      host: 'nope'
-    })
+    const github = new GitHub()
 
     return github.issues.getAll({filter: 'foo'})
 
@@ -55,10 +54,8 @@ describe('missing argument', () => {
     })
   })
 
-  it('Not a number for github.issues.createCommitComment({..., position})', () => {
-    const github = new GitHub({
-      host: 'nope'
-    })
+  it('Not a number for github.repos.createCommitComment({..., position})', () => {
+    const github = new GitHub()
 
     return github.repos.createCommitComment({
       owner: 'foo',
@@ -77,10 +74,8 @@ describe('missing argument', () => {
     })
   })
 
-  it('Not a valid JSON string for github.issues.createHook({..., config})', () => {
-    const github = new GitHub({
-      host: 'nope'
-    })
+  it('Not a valid JSON string for github.repos.createHook({..., config})', () => {
+    const github = new GitHub()
 
     return github.repos.createHook({
       owner: 'foo',
@@ -95,6 +90,24 @@ describe('missing argument', () => {
         message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
         status: 'Bad Request'
       })
+    })
+  })
+
+  it('Date object for github.issues.createMilestone({..., due_on})', () => {
+    const github = new GitHub()
+
+    nock('https://api.github.com')
+      .post('/repos/foo/bar/milestones', (body) => {
+        body.due_on.should.equal('2012-10-09T23:39:01.000Z')
+        return true
+      })
+      .reply(201, {})
+
+    return github.issues.createMilestone({
+      owner: 'foo',
+      repo: 'bar',
+      title: 'Like a rolling ...',
+      due_on: new Date('2012-10-09T23:39:01Z')
     })
   })
 })
