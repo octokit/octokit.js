@@ -39,7 +39,7 @@ describe('missing argument', () => {
     })
   })
 
-  it('invalid argument', () => {
+  it('invalid value for github.issues.getAll({filter})', () => {
     const github = new GitHub({
       host: 'nope'
     })
@@ -50,6 +50,28 @@ describe('missing argument', () => {
       error.toJSON().should.deep.equal({
         code: '400',
         message: 'Invalid value for parameter \'filter\': foo',
+        status: 'Bad Request'
+      })
+    })
+  })
+
+  it('Not a number for github.issues.createCommitComment({..., position})', () => {
+    const github = new GitHub({
+      host: 'nope'
+    })
+
+    return github.repos.createCommitComment({
+      owner: 'foo',
+      repo: 'bar',
+      sha: 'lala',
+      body: 'Sing with me!',
+      position: 'Age Ain’t Nothing'
+    })
+
+    .catch(error => {
+      error.toJSON().should.deep.equal({
+        code: '400',
+        message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
         status: 'Bad Request'
       })
     })
