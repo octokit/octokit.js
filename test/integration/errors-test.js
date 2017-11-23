@@ -76,4 +76,25 @@ describe('missing argument', () => {
       })
     })
   })
+
+  it('Not a valid JSON string for github.issues.createHook({..., config})', () => {
+    const github = new GitHub({
+      host: 'nope'
+    })
+
+    return github.repos.createHook({
+      owner: 'foo',
+      repo: 'bar',
+      name: 'captain',
+      config: 'I’m no Je-Son!'
+    })
+
+    .catch(error => {
+      error.toJSON().should.deep.equal({
+        code: '400',
+        message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
+        status: 'Bad Request'
+      })
+    })
+  })
 })
