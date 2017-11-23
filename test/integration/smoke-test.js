@@ -25,4 +25,10 @@ describe('constructor', () => {
 
     return github.orgs.get({org: 'myorg'})
   })
+
+  it('has .getReposApi() method', () => {
+    const github = new GitHub()
+    const api = github.getReposApi()
+    api.getAll.should.be.a('function')
+  })
 })
