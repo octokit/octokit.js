@@ -44,6 +44,7 @@
     "nyc": "^11.2.1",
     "proxyquire": "^1.8.0",
     "semantic-release": "^8.2.0",
+    "simple-mock": "^0.8.0",
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2"
   },
