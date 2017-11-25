@@ -31,4 +31,14 @@ describe('constructor', () => {
     const api = github.getReposApi()
     api.getAll.should.be.a('function')
   })
+
+  it('callback', (done) => {
+    nock('https://api.github.com')
+      .get('/orgs/myorg')
+      .reply(200, {})
+
+    const github = new GitHub()
+
+    github.orgs.get({org: 'myorg'}, done)
+  })
 })
