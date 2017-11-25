@@ -94,9 +94,11 @@ describe('params validations', () => {
   })
 
   it('Date object for github.issues.createMilestone({..., due_on})', () => {
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'milestones-test-host.com'
+    })
 
-    nock('https://api.github.com')
+    nock('https://milestones-test-host.com')
       .post('/repos/foo/bar/milestones', (body) => {
         body.due_on.should.equal('2012-10-09T23:39:01.000Z')
         return true

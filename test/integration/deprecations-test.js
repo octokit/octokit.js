@@ -10,11 +10,13 @@ chai.should()
 
 describe('deprecations', () => {
   it('github.integrations.*', () => {
-    nock('https://api.github.com')
+    nock('https://deprecations-test.com')
       .get('/app/installations')
       .reply(200, [])
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'deprecations-test.com'
+    })
     return github.integrations.getInstallations({})
   })
 })

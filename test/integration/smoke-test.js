@@ -33,21 +33,25 @@ describe('constructor', () => {
   })
 
   it('callback', (done) => {
-    nock('https://api.github.com')
+    nock('https://smoke-test.com')
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'smoke-test.com'
+    })
 
     github.orgs.get({org: 'myorg'}, done)
   })
 
   it('custom header', () => {
-    nock('https://api.github.com')
+    nock('https://smoke-test.com')
       .get('/orgs/octokit')
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'smoke-test.com'
+    })
 
     const customHeaders = {
       'User-Agent': 'blah'
@@ -60,7 +64,7 @@ describe('constructor', () => {
   })
 
   it('pagination', () => {
-    nock('https://api.github.com')
+    nock('https://smoke-test.com')
       .get('/organizations')
       .query(true)
       .reply(200, [{}], {
@@ -78,7 +82,9 @@ describe('constructor', () => {
       .query({since: 3})
       .reply(404, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'smoke-test.com'
+    })
 
     github.orgs.getAll({
       org: 'octokit',

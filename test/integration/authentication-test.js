@@ -6,11 +6,11 @@ const GitHub = require('../../')
 const mocha = require('mocha')
 const describe = mocha.describe
 const it = mocha.it
-const should = chai.should()
+chai.should()
 
 describe('authentication', () => {
   it('basic', () => {
-    nock('https://api.github.com', {
+    nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
       }
@@ -18,7 +18,9 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
 
     github.authenticate({
       type: 'basic',
@@ -30,7 +32,7 @@ describe('authentication', () => {
   })
 
   it('token', () => {
-    nock('https://api.github.com', {
+    nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'token abc4567'
       }
@@ -38,7 +40,9 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
 
     github.authenticate({
       type: 'token',
@@ -49,12 +53,14 @@ describe('authentication', () => {
   })
 
   it('oauth token', () => {
-    nock('https://api.github.com')
+    nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
       .query({access_token: 'abc4567'})
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
 
     github.authenticate({
       type: 'oauth',
@@ -65,12 +71,14 @@ describe('authentication', () => {
   })
 
   it('oauth key & secret', () => {
-    nock('https://api.github.com')
+    nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
       .query({client_id: 'oauthkey', client_secret: 'oauthsecret'})
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
 
     github.authenticate({
       type: 'oauth',
@@ -82,7 +90,7 @@ describe('authentication', () => {
   })
 
   it('integration', () => {
-    nock('https://api.github.com', {
+    nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'Bearer abc4567'
       }
@@ -90,7 +98,9 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
 
     github.authenticate({
       type: 'integration',
@@ -101,12 +111,16 @@ describe('authentication', () => {
   })
 
   it('authenticate without options', () => {
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
     github.authenticate()
   })
 
   it('authenticate errors', () => {
-    const github = new GitHub()
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
 
     ;(() => {
       github.authenticate({})
