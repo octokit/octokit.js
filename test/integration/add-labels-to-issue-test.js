@@ -9,7 +9,7 @@ const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
-  it.skip('(#587) add-labels-to-issue-test', () => {
+  it('(#587) add-labels-to-issue-test', () => {
     const GitHubMock = fixtures.mock('api.github.com/add-labels-to-issue')
     const githubUserA = new GitHub()
 
@@ -21,7 +21,11 @@ describe('api.github.com', () => {
     return githubUserA.issues.create({
       owner: 'octokit-fixture-org',
       repo: 'add-labels-to-issue',
-      title: 'Issue without a label'
+      title: 'Issue without a label',
+      // TODO: remove once #587 is resolved
+      headers: {
+        accept: 'application/vnd.github.v3+json'
+      }
     })
 
     .then(() => {
