@@ -27,13 +27,12 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
-    "follow-redirects": "1.2.6",
     "https-proxy-agent": "^2.1.0",
     "lodash": "^4.17.4",
     "mime": "^2.0.3"
   },
   "devDependencies": {
-    "@octokit/fixtures": "^5.0.0",
+    "@octokit/fixtures": "^5.2.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "glob": "^7.1.2",
