@@ -51,7 +51,6 @@ var github = new GitHubApi({
     'user-agent': 'something custom'
   },
   requestMedia: 'application/vnd.github.something-custom',
-  followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow disabling follow-redirects
   rejectUnauthorized: false, // default: true
   family: 6
 })
