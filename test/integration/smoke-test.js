@@ -14,12 +14,13 @@ describe('constructor', () => {
   })
 
   it('host & pathPrefix options', () => {
-    nock('https://myhost.com')
+    nock('http://myhost.com')
       .get('/my/api/orgs/myorg')
       .reply(200, {})
 
     const github = new GitHub({
       host: 'myhost.com',
+      protocol: 'http',
       pathPrefix: '/my/api/'
     })
 
