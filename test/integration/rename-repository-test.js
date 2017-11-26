@@ -9,7 +9,7 @@ const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
-  it.skip('(#587) github.repos.get() with previous name', () => {
+  it('github.repos.get() with previous name', () => {
     const GitHubMock = fixtures.mock('api.github.com/rename-repository')
 
     const github = new GitHub()
@@ -22,13 +22,34 @@ describe('api.github.com', () => {
     return github.repos.edit({
       owner: 'octokit-fixture-org',
       repo: 'rename-repository',
-      name: 'rename-repository-newname'
+      name: 'rename-repository-newname',
+      // TODO: remove once #587 is resolved
+      headers: {
+        accept: 'application/vnd.github.v3+json'
+      }
     })
 
     .then(() => {
       return github.repos.get({
         owner: 'octokit-fixture-org',
-        repo: 'rename-repository'
+        repo: 'rename-repository',
+        // TODO: remove once #587 is resolved
+        headers: {
+          accept: 'application/vnd.github.v3+json'
+        }
+      })
+    })
+
+    .then(() => {
+      return github.repos.edit({
+        owner: 'octokit-fixture-org',
+        repo: 'rename-repository',
+        // TODO: remove once #587 is resolved
+        headers: {
+          accept: 'application/vnd.github.v3+json'
+        },
+        name: 'rename-repository-newname',
+        description: 'test description'
       })
     })
 
