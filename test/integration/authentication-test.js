@@ -70,6 +70,24 @@ describe('authentication', () => {
     return github.orgs.get({org: 'myorg'})
   })
 
+  it('oauth token with query', () => {
+    nock('https://authentication-test-host.com')
+      .get('/orgs/myorg/repos')
+      .query({per_page: 1, access_token: 'abc4567'})
+      .reply(200, [])
+
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
+
+    github.authenticate({
+      type: 'oauth',
+      token: 'abc4567'
+    })
+
+    return github.repos.getForOrg({org: 'myorg', per_page: 1})
+  })
+
   it('oauth key & secret', () => {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
@@ -87,6 +105,25 @@ describe('authentication', () => {
     })
 
     return github.orgs.get({org: 'myorg'})
+  })
+
+  it('oauth key & secret with query', () => {
+    nock('https://authentication-test-host.com')
+      .get('/orgs/myorg/repos')
+      .query({per_page: 1, client_id: 'oauthkey', client_secret: 'oauthsecret'})
+      .reply(200, [])
+
+    const github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
+
+    github.authenticate({
+      type: 'oauth',
+      key: 'oauthkey',
+      secret: 'oauthsecret'
+    })
+
+    return github.repos.getForOrg({org: 'myorg', per_page: 1})
   })
 
   it('integration', () => {
