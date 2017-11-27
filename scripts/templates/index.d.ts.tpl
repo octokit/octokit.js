@@ -13,7 +13,6 @@ declare namespace Github {
   }
 
   export interface Options {
-    debug?: boolean;
     timeout?: number;
     host?: string;
     pathPrefix?: string;
