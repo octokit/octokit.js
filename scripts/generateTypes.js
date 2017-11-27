@@ -14,7 +14,8 @@
 
 var fs = require('fs')
 var pathJoin = require('path').join
-var Util = require('../lib/util')
+
+var debug = require('debug')('node-github')
 var Mustache = require('mustache')
 
 var typeMap = {
@@ -114,13 +115,13 @@ module.exports = function (languageName, templateFile, outputFile) {
   var routes = require('../lib/routes')
   var definitions = require('../lib/definitions')
   if (!definitions) {
-    Util.log('No routes defined.', 'fatal')
+    debug('No routes defined.', 'fatal')
     process.exit(1)
   }
 
   var requestHeaders = definitions['request-headers']
 
-  Util.log('Generating ' + languageName + ' types...')
+  debug('Generating ' + languageName + ' types...')
 
   var params = entries(definitions.params).reduce(combineParamData, [])
 
@@ -166,7 +167,7 @@ module.exports = function (languageName, templateFile, outputFile) {
     namespaces: namespaces
   })
 
-  Util.log('Writing ' + languageName + ' declarations file')
+  debug('Writing ' + languageName + ' declarations file')
 
   fs.writeFileSync(pathJoin(__dirname, '..', 'lib', outputFile), body, 'utf8')
 }
