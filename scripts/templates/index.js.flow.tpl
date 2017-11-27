@@ -9,7 +9,6 @@ declare module "github" {
   };
 
   declare type Options = {
-    debug?: boolean;
     timeout?: number;
     host?: string;
     pathPrefix?: string;
