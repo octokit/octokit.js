@@ -56,8 +56,8 @@
     "pretest": "standard && standard-markdown",
     "test": "nyc mocha test/**/*-test.js",
     "build": "npm-run-all build:*",
-    "build:flow": "node scripts/generateFlowTypes",
-    "build:ts": "node scripts/generateTypeScriptTypes",
+    "build:flow": "node scripts/generate-flow-types",
+    "build:ts": "node scripts/generate-typescript-types",
     "presemantic-release": "npm run -s build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
