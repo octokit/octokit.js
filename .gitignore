@@ -11,6 +11,9 @@ node_modules
 lib/index.d.ts
 lib/index.js.flow
 
+# API DOCs are generated before publish
+doc/
+
 logs
 *.log
 npm-debug.log*
