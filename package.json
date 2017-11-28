@@ -34,9 +34,11 @@
   },
   "devDependencies": {
     "@octokit/fixtures": "^5.4.0",
+    "apidoc": "^0.17.6",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "glob": "^7.1.2",
+    "mkdirp": "^0.5.1",
     "mocha": "^4.0.1",
     "mustache": "^2.2.1",
     "nock": "^9.1.0",
@@ -56,6 +58,9 @@
     "pretest": "standard && standard-markdown",
     "test": "nyc mocha test/**/*-test.js",
     "build": "npm-run-all build:*",
+    "prebuild:docs": "mkdirp doc/",
+    "build:docs": "node scripts/generate-api-docs",
+    "postbuild:docs": "apidoc -i doc/ -o apidoc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
     "presemantic-release": "npm run -s build",
@@ -72,11 +77,8 @@
     "lib"
   ],
   "apidoc": {
-    "title": "node-github",
-    "name": "node-github",
-    "version": "11.0.0",
     "template": {
-      "withCompare": true
+      "withCompare": false
     }
   },
   "nyc": {
