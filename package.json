@@ -37,6 +37,7 @@
     "apidoc": "^0.17.6",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
+    "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
     "mkdirp": "^0.5.1",
     "mocha": "^4.0.1",
@@ -63,8 +64,10 @@
     "postbuild:docs": "apidoc -i doc/ -o apidoc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
+    "deploy-docs": "gh-pages-with-token -d apidoc",
     "presemantic-release": "npm run -s build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "postpublish": "npm run -s deploy-docs"
   },
   "license": "MIT",
   "licenses": [
