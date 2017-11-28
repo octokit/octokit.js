@@ -18,6 +18,7 @@
         "X-Poll-Interval",
         "X-GitHub-Request-Id",
         "X-GitHub-Media-Type",
+        "X-GitHub-SSO",
         "Retry-After",
         "Link",
         "Location",
