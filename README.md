@@ -32,6 +32,8 @@ GitHub API: [developer.github.com/v3](https://developer.github.com/v3/)
 
 Get all followers for user "defunkt":
 
+<!-- HEADS UP: when changing the options for the constructor, make sure to also
+     update the type definition templates in scripts/templates/* -->
 ```js
 var GitHubApi = require('github')
 
