@@ -2886,6 +2886,16 @@
             },
             "description": "List team members"
         },
+        "get-child-teams": {
+            "url": "/teams/:id/teams",
+            "method": "GET",
+            "params": {
+                "$id": null,
+                "$page": null,
+                "$per_page": null
+            },
+            "description": "List child teams"
+        },
         "get-team-membership": {
             "url": "/teams/:id/memberships/:username",
             "method": "GET",
