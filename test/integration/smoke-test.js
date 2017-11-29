@@ -8,7 +8,7 @@ const describe = mocha.describe
 const it = mocha.it
 const should = chai.should()
 
-describe('constructor', () => {
+describe('smoke', () => {
   it('called as function', () => {
     GitHub()
   })
@@ -25,12 +25,6 @@ describe('constructor', () => {
     })
 
     return github.orgs.get({org: 'myorg'})
-  })
-
-  it('has .getReposApi() method', () => {
-    const github = new GitHub()
-    const api = github.getReposApi()
-    api.getAll.should.be.a('function')
   })
 
   it('callback', (done) => {
