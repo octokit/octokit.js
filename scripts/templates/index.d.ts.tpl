@@ -22,7 +22,6 @@ declare namespace Github {
     ca?: string;
     headers?: {[header: string]: any};
     requestMedia?: string;
-    followRedirects?: boolean;
     rejectUnauthorized?: boolean;
     family?: number;
   }

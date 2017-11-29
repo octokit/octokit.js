@@ -18,7 +18,6 @@ declare module "github" {
     ca?: string;
     headers?: {[header: Header]: any};
     requestMedia?: string;
-    followRedirects?: boolean;
     rejectUnauthorized?: boolean;
     family?: number;
   };
