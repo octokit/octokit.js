@@ -64,23 +64,23 @@ describe('constructor', () => {
     })
   })
 
-  it('pagination', () => {
+  it('pagination', (done) => {
     nock('https://smoke-test.com')
       .get('/organizations')
-      .query(true)
+      .query({page: 2, per_page: 1})
       .reply(200, [{}], {
-        'Link': '<https://api.github.com/organizations?since=3>; rel="next", <https://api.github.com/organizations?since=0>; rel="first", <https://api.github.com/organizations?since=1>; rel="prev"',
+        'Link': '<https://api.github.com/organizations?page=3>; rel="next", <https://api.github.com/organizations?page=0>; rel="first", <https://api.github.com/organizations?page=1>; rel="prev"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
 
       .get('/organizations')
-      .query({since: 0})
+      .query({page: 0})
       .reply(200, [{}])
       .get('/organizations')
-      .query({since: 1})
+      .query({page: 1})
       .reply(200, [{}])
       .get('/organizations')
-      .query({since: 3})
+      .query({page: 3})
       .reply(404, {})
 
     const github = new GitHub({
@@ -88,7 +88,6 @@ describe('constructor', () => {
     })
 
     github.orgs.getAll({
-      org: 'octokit',
       per_page: 1,
       page: 2
     })
@@ -101,7 +100,18 @@ describe('constructor', () => {
 
       const customHeaders = {foo: 'bar'}
       const callback = () => {}
-      github.getFirstPage(result, callback)
+      github.getFirstPage(result, (error, result) => {
+        if (error) {
+          return done(error)
+        }
+
+        should.not.throw(() => {
+          github.hasPreviousPage(result)
+        })
+        should.not.exist(github.hasPreviousPage(result))
+
+        done()
+      })
       github.getPreviousPage(result, customHeaders)
       github.getNextPage(result).catch(callback)
       github.getLastPage(result, customHeaders, (error) => {
@@ -110,11 +120,6 @@ describe('constructor', () => {
 
       // test error with promise
       github.getLastPage(result).catch(callback)
-
-      // getNextPage(link, headers, callback)
-      // getPreviousPage(link, headers, callback)
-      // getFirstPage(link, headers, callback)
-      // getLastPage(link, headers, callback)
     })
   })
 })
