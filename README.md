@@ -206,17 +206,6 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Timeline                | application/vnd.github.mockingbird-preview            |
 | Topics                  | application/vnd.github.mercy-preview+json             |
 
-## Dev notes
-
-To update the apidoc for github pages:
-
-```bash
-$ npm install apidoc -g
-$ apidoc -i doc/ -o apidoc/
-```
-
-Just a reminder, since an ad-hoc filter was added to the apidoc, don't overwrite index.html, main.js.
-
 ## LICENSE
 
-MIT license. See the LICENSE file for details.
+[MIT](LICENSE)
