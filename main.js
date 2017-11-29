@@ -6,12 +6,13 @@ require.config({
         handlebarsExtended: './utils/handlebars_helper',
         jquery: './vendor/jquery.min',
         locales: './locales/locale',
-        lodash: './vendor/lodash.min',
+        lodash: './vendor/lodash.custom.min',
         pathToRegexp: './vendor/path-to-regexp/index',
         prettify: './vendor/prettify/prettify',
         semver: './vendor/semver.min',
         utilsSampleRequest: './utils/send_sample_request',
-        webfontloader: './vendor/webfontloader'
+        webfontloader: './vendor/webfontloader',
+        list: './vendor/list.min'
     },
     shim: {
         bootstrap: {
@@ -47,7 +48,8 @@ require([
     'semver',
     'webfontloader',
     'bootstrap',
-    'pathToRegexp'
+    'pathToRegexp',
+    'list'
 ], function($, _, locale, Handlebars, apiProject, apiData, prettyPrint, sampleRequest, semver, WebFont) {
 
     // load google web fonts
@@ -201,24 +203,77 @@ require([
         });
     });
 
+    /**
+     * Add navigation items by analyzing the HTML content and searching for h1 and h2 tags
+     * @param nav Object the navigation array
+     * @param content string the compiled HTML content
+     * @param index where to insert items
+     * @return boolean true if any good-looking (i.e. with a group identifier) <h1> tag was found
+     */
+    function add_nav(nav, content, index) {
+        var found_level1 = false;
+        if ( ! content) {
+          return found_level1;
+        }
+        var topics = content.match(/<h(1|2).*?>(.+?)<\/h(1|2)>/gi);
+        if ( topics ) {
+          topics.forEach(function(entry) {
+              var level = entry.substring(2,3);
+              var title = entry.replace(/<.+?>/g, '');    // Remove all HTML tags for the title
+              var entry_tags = entry.match(/id="api-([^\-]+)(?:-(.+))?"/);    // Find the group and name in the id property
+              var group = (entry_tags ? entry_tags[1] : null);
+              var name = (entry_tags ? entry_tags[2] : null);
+              if (level==1 && title && group)  {
+                  nav.splice(index, 0, {
+                      group: group,
+                      isHeader: true,
+                      title: title,
+                      isFixed: true
+                  });
+                  index++;
+                  found_level1 = true;
+              }
+              if (level==2 && title && group && name)    {
+                  nav.splice(index, 0, {
+                      group: group,
+                      name: name,
+                      isHeader: false,
+                      title: title,
+                      isFixed: false,
+                      version: '1.0'
+                  });
+                  index++;
+              }
+          });
+        }
+        return found_level1;
+    }
+
     // Mainmenu Header entry
     if (apiProject.header) {
-        nav.unshift({
-            group: '_',
-            isHeader: true,
-            title: (apiProject.header.title == null) ? locale.__('General') : apiProject.header.title,
-            isFixed: true
-        });
+        var found_level1 = add_nav(nav, apiProject.header.content, 0); // Add level 1 and 2 titles
+        if (!found_level1) {    // If no Level 1 tags were found, make a title
+            nav.unshift({
+                group: '_',
+                isHeader: true,
+                title: (apiProject.header.title == null) ? locale.__('General') : apiProject.header.title,
+                isFixed: true
+            });
+        }
     }
 
     // Mainmenu Footer entry
-    if (apiProject.footer && apiProject.footer.title != null) {
-        nav.push({
-            group: '_footer',
-            isHeader: true,
-            title: apiProject.footer.title,
-            isFixed: true
-        });
+    if (apiProject.footer) {
+        var last_nav_index = nav.length;
+        var found_level1 = add_nav(nav, apiProject.footer.content, nav.length); // Add level 1 and 2 titles
+        if (!found_level1 && apiProject.footer.title != null) {    // If no Level 1 tags were found, make a title
+            nav.splice(last_nav_index, 0, {
+                group: '_footer',
+                isHeader: true,
+                title: apiProject.footer.title,
+                isFixed: true
+            });
+        }
     }
 
     // render pagetitle
@@ -348,8 +403,7 @@ require([
     function _hasTypeInFields(fields) {
         var result = false;
         $.each(fields, function(name) {
-            if (_.any(fields[name], function(item) { return item.type; }) )
-                result = true;
+            result = result || _.some(fields[name], function(item) { return item.type; });
         });
         return result;
     }
@@ -358,13 +412,10 @@ require([
      * On Template changes, recall plugins.
      */
     function initDynamic() {
-        // bootstrap popover
-        $('a[data-toggle=popover]')
-            .popover()
-            .click(function(e) {
-                e.preventDefault();
-            })
-        ;
+        // Bootstrap popover
+        $('button[data-toggle="popover"]').popover().click(function(e) {
+            e.preventDefault();
+        });
 
         var version = $('#version strong').html();
         $('#sidenav li').removeClass('is-new');
@@ -424,7 +475,7 @@ require([
             var name = $(this).data('name');
             var version = $(this).data('version');
 
-            if (version <= selectedVersion) {
+            if (semver.lte(version, selectedVersion)) {
                 if ($('article[data-group=\'' + group + '\'][data-name=\'' + name + '\']:visible').length === 0) {
                     // enable Article
                     $('article[data-group=\'' + group + '\'][data-name=\'' + name + '\'][data-version=\'' + version + '\']').removeClass('hide');
@@ -434,7 +485,6 @@ require([
                 }
             }
         });
-
 
         // show 1st equal or lower Version of each entry
         $('article[data-version]').each(function(index) {
@@ -472,6 +522,37 @@ require([
             $('html,body').animate({ scrollTop: parseInt($(id).offset().top) - 18 }, 0);
         }
     }
+
+    /**
+     * Initialize search
+     */
+    var options = {
+      valueNames: [ 'nav-list-item' ]
+    };
+    var endpointsList = new List('scrollingNav', options);
+
+    /**
+     * Set initial focus to search input
+     */
+    $('#scrollingNav .sidenav-search input.search').focus();
+
+    /**
+     * Detect ESC key to reset search
+     */
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) $('span.search-reset').click();
+    });
+
+    /**
+     * Search reset
+     */
+    $('span.search-reset').on('click', function() {
+      $('#scrollingNav .sidenav-search input.search')
+        .val("")
+        .focus()
+      ;
+      endpointsList.search();
+    });
 
     /**
      * Change version of an article to compare it to an other version.
@@ -742,26 +823,5 @@ require([
         });
         return results;
     }
-    
-    // custom filter
-    $('#custom-filter').on('input', function(e) {
-        var newVal = e.target.value;
-        
-        var selectedVersion = $.trim($('#version').text());
-        
-        // hide all sidenav endpoints
-        $('ul.sidenav > li:not(.nav-header)').hide();
-        
-        // show matches
-        $('ul.sidenav > li:not(.nav-header)').filter(function(idx, el) {
-            var name = $(el).data('name');
-            var version = $(el).data('version');
-            
-            var nameMatches = name.toUpperCase().includes(newVal.toUpperCase());
-            var versionMatches = version === selectedVersion;
-            
-            return nameMatches && versionMatches;
-        }).show();
-    });
 
 });
