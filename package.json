@@ -30,6 +30,7 @@
     "dotenv": "^4.0.0",
     "https-proxy-agent": "^2.1.0",
     "lodash": "^4.17.4",
+    "proxy-from-env": "^1.0.0",
     "url-template": "^2.0.8"
   },
   "devDependencies": {

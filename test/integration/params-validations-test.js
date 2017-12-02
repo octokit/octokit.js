@@ -26,7 +26,8 @@ describe('params validations', () => {
 
   it('request error', () => {
     const github = new GitHub({
-      host: 'nope'
+      host: '127.0.0.1',
+      port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     })
 
     return github.orgs.get({org: 'foo'})
@@ -34,7 +35,7 @@ describe('params validations', () => {
     .catch(error => {
       error.toJSON().should.deep.equal({
         code: '500',
-        message: 'getaddrinfo ENOTFOUND nope nope:443',
+        message: 'connect ECONNREFUSED 127.0.0.1:8',
         status: 'Internal Server Error'
       })
     })
