@@ -157,7 +157,7 @@ github.authorization.create({
 
 ## DEBUG
 
-Set `DEBUG=node-github:*` for additional debug logs.
+Set `DEBUG=node-github*` for additional debug logs.
 
 ## Tests
 
