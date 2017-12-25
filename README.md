@@ -1,11 +1,11 @@
 # node-github
 
+> GitHub REST API client for Node.js
+
 [![Build Status](https://travis-ci.org/octokit/node-github.svg?branch=master)](https://travis-ci.org/octokit/node-github)
 [![Coverage Status](https://coveralls.io/repos/github/octokit/node-github/badge.svg)](https://coveralls.io/github/octokit/node-github)
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/node-github.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
-
-A Node.js wrapper for GitHub API.
 
 ## Installation
 
