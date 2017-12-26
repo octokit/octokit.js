@@ -1,9 +1,9 @@
 # How to contribute
 
 Support and contributions from the open source community are essential for keeping
-node-github up to date and always improving! There are a few guidelines that we need
+`@octokit/rest.js` up to date and always improving! There are a few guidelines that we need
 contributors to follow to keep the project consistent, as well as allow us to keep
-maintaining node-github in a reasonable amount of time.
+maintaining `@octokit/rest.js` in a reasonable amount of time.
 
 Please note that this project is released with a [Contributor Code of Conduct][coc].
 By participating in this project you agree to abide by its terms.
@@ -13,7 +13,7 @@ By participating in this project you agree to abide by its terms.
 ## Creating an Issue
 
 Before you create a new Issue:
-* Check the [Issues](https://github.com/octokit/node-github/issues) on Github to ensure one doesn't already exist.
+* Check the [Issues](https://github.com/octokit/rest.js/issues) on Github to ensure one doesn't already exist.
 * Clearly describe the issue, including the steps to reproduce the issue.
 * Please include links to the corresponding github documentation.
 
@@ -27,7 +27,7 @@ Before you create a new Issue:
 ## Submitting the Pull Request
 
 * Push your changes to your topic branch on your fork of the repo.
-* Submit a pull request from your topic branch to the master branch on the node-github repository.
+* Submit a pull request from your topic branch to the master branch on the `rest.js` repository.
 * Be sure to tag any issues your pull request is taking care of / contributing to.
 	* Adding "Closes #123" to a pull request description will auto close the issue once the pull request is merged in.
 
@@ -45,6 +45,6 @@ Besides publishing a new version to npm, semantic-release also creates a git tag
 on GitHub, generates changelogs from the commit messages and puts them into the release notes.
 
 Before the publish it runs the `npm run build` script which generates type definitions for Flow & Typescript based on the [templates](scripts/templates/).
-The script also generates the API docs. After the publish, the API docs are automatically pushed to the `gh-pages` branch which updates the documentation at  [octokit.github.io/node-github](http://octokit.github.io/node-github/).
+The script also generates the API docs. After the publish, the API docs are automatically pushed to the `gh-pages` branch which updates the documentation at  [octokit.github.io/rest.js](http://octokit.github.io/rest.js).
 
 If the pull request looks good but does not follow the commit conventions, use the "Squash & merge" button.
