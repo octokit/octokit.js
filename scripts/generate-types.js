@@ -49,7 +49,7 @@ function entries (object) {
   return Object.keys(object).map((key) => [key, object[key]])
 }
 
-function combineParams (params, entry) {
+function toCombineParams (params, entry) {
   return params.concat(parameterize.apply(null, entry))
 }
 
@@ -61,7 +61,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
   debug(`Generating ${languageName} types...`)
 
-  const params = entries(DEFINITIONS.params).reduce(combineParams, [])
+  const params = entries(DEFINITIONS.params).reduce(toCombineParams, [])
   const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
     const methods = entries(ROUTES[namespace]).reduce((methods, entry) => {
       const unionTypeNames = Object.keys(entry[1].params)
@@ -72,12 +72,12 @@ function generateTypes (languageName, templateFile, outputFile) {
 
       const ownParams = entries(entry[1].params)
         .filter((entry) => isLocalParam(entry[0]))
-        .reduce(combineParams, [])
+        .reduce(toCombineParams, [])
 
       const hasParams = unionTypeNames.length > 0 || ownParams.length > 0
 
       let paramTypeName = hasParams
-        ? pascalcase(namespace + '-' + entry[0] + 'Params')
+        ? pascalcase(`${namespace}-${entry[0]}Params`)
         : pascalcase('EmptyParams')
 
       return methods.concat({

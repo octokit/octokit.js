@@ -67,7 +67,7 @@
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
     "deploy-docs": "gh-pages-with-token -d apidoc",
-    "presemantic-release": "npm run -s build",
+    "prepublishOnly": "npm run -s build",
     "semantic-release": "semantic-release",
     "postpublish": "npm run -s deploy-docs"
   },

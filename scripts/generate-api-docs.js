@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const writeFileSync = require('fs').writeFileSync
-const pathJoin = require('path').join
+const {writeFileSync} = require('fs')
+const {join: pathJoin} = require('path')
 
 const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
@@ -10,22 +10,23 @@ const ROUTES = require('../lib/routes.json')
 const DEFINITIONS = require('../lib/definitions.json')
 
 debug('Converting routes to functions')
+
 const apiDocs = Object.keys(ROUTES)
   .map(namespaceName => prepareNamespace(ROUTES[namespaceName], namespaceName))
   .join('\n\n\n')
 
 function prepareNamespace (namespace, namespaceName) {
-  return [createSectionComment(namespaceName)]
+  return [toSectionComment(namespaceName)]
     .concat(
       Object.keys(namespace).map(apiName => prepareApi(namespace[apiName], apiName, namespaceName))
     ).join('\n\n\n')
 }
 
 function prepareApi (api, apiName, namespaceName) {
-  return createComment(namespaceName, apiName, api)
+  return toApiComment(namespaceName, apiName, api)
 }
 
-function createSectionComment (namespaceName) {
+function toSectionComment (namespaceName) {
   return `
 /**,
  * ${upperFirst(namespaceName)}
@@ -33,7 +34,7 @@ function createSectionComment (namespaceName) {
  */`
 }
 
-function createComment (namespaceName, apiName, api) {
+function toApiComment (namespaceName, apiName, api) {
   if (!api.method) {
     throw new Error(
       `No HTTP method specified for ${namespaceName}.${apiName} in routes.json`
@@ -42,6 +43,9 @@ function createComment (namespaceName, apiName, api) {
 
   const method = api['method'].toUpperCase()
   const url = api['url']
+  const paramsObj = api['params']
+  const params = Object.keys(paramsObj)
+    .sort(sortByRequired.bind(null, paramsObj))
 
   const commentLines = [
     '/**',
@@ -50,46 +54,53 @@ function createComment (namespaceName, apiName, api) {
     ` * @apiDescription ${api['description']}`,
     ` * @apiGroup ${upperFirst(namespaceName)}`,
     ' *'
-  ]
+  ].concat(
+    params.map(toApiParamComment.bind(null, paramsObj))
+  )
 
-  const paramsObj = api['params']
-  const params = []
+  const paramsString = params.map(removeParamPrefix).join(', ')
 
-  Object.keys(paramsObj)
-    .sort(sortByRequired.bind(null, paramsObj))
-    .forEach((param) => {
-      const cleanParam = param.replace(/^\$/, '')
-      params.push(cleanParam)
-      const paramInfo = paramsObj[param] || DEFINITIONS['params'][cleanParam]
+  return commentLines.concat([
+    ' * @apiExample {js} async/await',
+    ` * const result = await github.${namespaceName}.${apiName}({${paramsString}})`,
+    ' * @apiExample {js} Promise',
+    ` * github.${namespaceName}.${apiName}({${paramsString}}).then(result => {})`,
+    ' * @apiExample {js} Callback',
+    ` * github.${namespaceName}.${apiName}({${paramsString}}, (error, result) => {})`
+  ]).join('\n') + '\n */'
+}
 
-      const paramRequired = paramInfo['required']
-      const paramType = paramInfo['type'].toLowerCase()
-      const paramDescription = paramInfo['description']
-      const paramDefaultVal = paramInfo['default']
+function toApiParamComment (paramsObj, param) {
+  const cleanParam = removeParamPrefix(param)
+  const paramInfo = paramsObj[param] || DEFINITIONS['params'][cleanParam]
 
-      let paramLabel = cleanParam
+  const paramRequired = paramInfo['required']
+  const paramType = paramInfo['type'].toLowerCase()
+  const paramDescription = paramInfo['description']
+  const paramDefaultVal = paramInfo['default']
 
-      // add default value if there is one
-      if (typeof paramDefaultVal !== 'undefined') {
-        paramLabel += `=${paramDefaultVal}`
-      }
+  let paramLabel = cleanParam
 
-      // show param as either required or optional
-      if (!paramRequired) {
-        paramLabel = `[${paramLabel}]`
-      }
+  // add default value if there is one
+  if (typeof paramDefaultVal !== 'undefined') {
+    paramLabel += `=${paramDefaultVal}`
+  }
 
-      let allowedValues = ''
-      if (paramInfo['enum']) {
-        allowedValues = `=${paramInfo['enum'].join(',')}`
-      }
+  // show param as either required or optional
+  if (!paramRequired) {
+    paramLabel = `[${paramLabel}]`
+  }
 
-      commentLines.push(` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`)
-    })
+  let allowedValues = ''
+  if (paramInfo['enum']) {
+    allowedValues = `=${paramInfo['enum'].join(',')}`
+  }
 
-  commentLines.push(` * @apiExample {js} example\n * const result = await github.${namespaceName}.${apiName}({${params.join(', ')}})`)
+  return ` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`
+}
 
-  return commentLines.join('\n') + '\n */'
+function removeParamPrefix (name) {
+  return name.replace(/^\$/, '')
 }
 
 function sortByRequired (api, paramA, paramB) {
