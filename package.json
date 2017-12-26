@@ -21,7 +21,7 @@
       "url": "https://github.com/gr2m"
     }
   ],
-  "repository": "https://github.com/octokit/node-github",
+  "repository": "https://github.com/octokit/rest.js",
   "engines": {
     "node": ">=4"
   },
