@@ -133,6 +133,43 @@ declare namespace Github {
   export interface ContentType { contentType: string; }
   export interface ContentLength { contentLength: number; }
 
+  export type AuthorizationGetParams =
+    & Id
+    ;
+  export type AuthorizationCreateParams =
+    & Scopes
+    & Note
+    & NoteUrl
+    & ClientId
+    & Fingerprint
+    & {
+      client_secret?: string;
+    };
+  export type AuthorizationUpdateParams =
+    & Id
+    & Scopes
+    & Note
+    & NoteUrl
+    & Fingerprint
+    & {
+      add_scopes?: string[];
+      remove_scopes?: string[];
+    };
+  export type AuthorizationDeleteParams =
+    & Id
+    ;
+  export type AuthorizationCheckParams =
+    & ClientId
+    & AccessToken
+    ;
+  export type AuthorizationResetParams =
+    & ClientId
+    & AccessToken
+    ;
+  export type AuthorizationRevokeParams =
+    & ClientId
+    & AccessToken
+    ;
   export type AuthorizationGetGrantsParams =
     & Page
     & PerPage
@@ -335,6 +372,35 @@ declare namespace Github {
     & Owner
     & Repo
     ;
+  export type GistsGetParams =
+    & Id
+    ;
+  export type GistsCreateParams =
+    & Files
+    & Description
+    & {
+      public: boolean;
+    };
+  export type GistsEditParams =
+    & Id
+    & Description
+    & Files
+    & {
+      content?: string;
+      filename?: string;
+    };
+  export type GistsStarParams =
+    & Id
+    ;
+  export type GistsUnstarParams =
+    & Id
+    ;
+  export type GistsForkParams =
+    & Id
+    ;
+  export type GistsDeleteParams =
+    & Id
+    ;
   export type GistsGetForUserParams =
     & Username
     & Since
@@ -412,7 +478,7 @@ declare namespace Github {
     & {
       message: string;
       tree: string;
-      parents: String[];
+      parents: string[];
       author?: string;
       committer?: string;
     };
@@ -565,6 +631,45 @@ declare namespace Github {
   export type AppsCheckMarketplaceListingStubbedAccountParams =
     & Id
     ;
+  export type IssuesGetParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  export type IssuesCreateParams =
+    & Owner
+    & Repo
+    & Assignees
+    & {
+      title: string;
+      body?: string;
+      assignee?: string;
+      milestone?: number;
+      labels?: string[];
+    };
+  export type IssuesEditParams =
+    & Owner
+    & Repo
+    & Number
+    & Assignees
+    & {
+      title?: string;
+      body?: string;
+      assignee?: string;
+      state?: "open"|"closed";
+      milestone?: number;
+      labels?: string[];
+    };
+  export type IssuesLockParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  export type IssuesUnlockParams =
+    & Owner
+    & Repo
+    & Number
+    ;
   export type IssuesGetAllParams =
     & Direction
     & Since
@@ -630,7 +735,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      assignees: String[];
+      assignees: string[];
     };
   export type IssuesRemoveAssigneesFromIssueParams =
     & Owner
@@ -737,7 +842,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      labels: String[];
+      labels: string[];
     };
   export type IssuesRemoveLabelParams =
     & Owner
@@ -751,7 +856,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      labels: String[];
+      labels: string[];
     };
   export type IssuesRemoveAllLabelsParams =
     & Owner
@@ -812,7 +917,7 @@ declare namespace Github {
   export type MigrationsStartMigrationParams =
     & Org
     & {
-      repositories: String[];
+      repositories: string[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
@@ -914,6 +1019,23 @@ declare namespace Github {
   export type MiscRenderMarkdownRawParams =
     & Data
     ;
+  export type OrgsGetParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  export type OrgsUpdateParams =
+    & Org
+    & {
+      billing_email?: string;
+      company?: string;
+      email?: string;
+      location?: string;
+      name?: string;
+      description?: string;
+      default_repository_permission?: "read"|"write"|"admin"|"none";
+      members_can_create_repositories?: boolean;
+    };
   export type OrgsGetAllParams =
     & Page
     & PerPage
@@ -1002,8 +1124,8 @@ declare namespace Github {
     & Privacy
     & {
       description?: string;
-      maintainers?: String[];
-      repo_names?: String[];
+      maintainers?: string[];
+      repo_names?: string[];
       parent_team_id?: string;
     };
   export type OrgsEditTeamParams =
@@ -1084,7 +1206,7 @@ declare namespace Github {
     & {
       name: string;
       config: string;
-      events?: String[];
+      events?: string[];
       active?: boolean;
     };
   export type OrgsEditHookParams =
@@ -1092,7 +1214,7 @@ declare namespace Github {
     & Id
     & {
       config: string;
-      events?: String[];
+      events?: string[];
       active?: boolean;
     };
   export type OrgsPingHookParams =
@@ -1204,6 +1326,42 @@ declare namespace Github {
     & {
       position: string;
     };
+  export type PullRequestsGetParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  export type PullRequestsCreateParams =
+    & Owner
+    & Repo
+    & Head
+    & Base
+    & {
+      title: string;
+      body?: string;
+      maintainer_can_modify?: boolean;
+    };
+  export type PullRequestsUpdateParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      title?: string;
+      body?: string;
+      state?: "open"|"closed";
+      base?: string;
+      maintainer_can_modify?: boolean;
+    };
+  export type PullRequestsMergeParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      commit_title?: string;
+      commit_message?: string;
+      sha?: string;
+      merge_method?: "merge"|"squash"|"rebase";
+    };
   export type PullRequestsGetAllParams =
     & Owner
     & Repo
@@ -1280,7 +1438,7 @@ declare namespace Github {
       commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
-      comments?: String[];
+      comments?: string[];
     };
   export type PullRequestsSubmitReviewParams =
     & Owner
@@ -1363,17 +1521,20 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      reviewers?: String[];
-      team_reviewers?: String[];
+      reviewers?: string[];
+      team_reviewers?: string[];
     };
   export type PullRequestsDeleteReviewRequestParams =
     & Owner
     & Repo
     & Number
     & {
-      reviewers?: String[];
-      team_reviewers?: String[];
+      reviewers?: string[];
+      team_reviewers?: string[];
     };
+  export type ReactionsDeleteParams =
+    & Id
+    ;
   export type ReactionsGetForCommitCommentParams =
     & Owner
     & Repo
@@ -1429,6 +1590,61 @@ declare namespace Github {
     & Id
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  export type ReposCreateParams =
+    & Name
+    & Description
+    & Homepage
+    & Private
+    & HasIssues
+    & HasProjects
+    & HasWiki
+    & AutoInit
+    & GitignoreTemplate
+    & LicenseTemplate
+    & {
+      team_id?: number;
+      allow_squash_merge?: boolean;
+      allow_merge_commit?: boolean;
+      allow_rebase_merge?: boolean;
+    };
+  export type ReposGetParams =
+    & Owner
+    & Repo
+    ;
+  export type ReposEditParams =
+    & Owner
+    & Repo
+    & Name
+    & Description
+    & Homepage
+    & Private
+    & HasIssues
+    & HasProjects
+    & HasWiki
+    & DefaultBranch
+    & {
+      allow_squash_merge?: boolean;
+      allow_merge_commit?: boolean;
+      allow_rebase_merge?: boolean;
+    };
+  export type ReposDeleteParams =
+    & Owner
+    & Repo
+    ;
+  export type ReposForkParams =
+    & Owner
+    & Repo
+    & {
+      organization?: string;
+    };
+  export type ReposMergeParams =
+    & Owner
+    & Repo
+    & Base
+    & Head
+    & {
+      commit_message?: string;
     };
   export type ReposGetAllParams =
     & Direction
@@ -1493,7 +1709,7 @@ declare namespace Github {
     & Owner
     & Repo
     & {
-      names: String[];
+      names: string[];
     };
   export type ReposGetContributorsParams =
     & Owner
@@ -1576,7 +1792,7 @@ declare namespace Github {
     & Branch
     & {
       strict?: boolean;
-      contexts?: String[];
+      contexts?: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksParams =
     & Owner
@@ -1595,21 +1811,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      contexts: String[];
+      contexts: string[];
     };
   export type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      contexts: String[];
+      contexts: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      contexts: String[];
+      contexts: string[];
     };
   export type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
@@ -1677,21 +1893,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      teams: String[];
+      teams: string[];
     };
   export type ReposAddProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      teams: String[];
+      teams: string[];
     };
   export type ReposRemoveProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      teams: String[];
+      teams: string[];
     };
   export type ReposGetProtectedBranchUserRestrictionsParams =
     & Owner
@@ -1705,21 +1921,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      users: String[];
+      users: string[];
     };
   export type ReposAddProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      users: String[];
+      users: string[];
     };
   export type ReposRemoveProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      users: String[];
+      users: string[];
     };
   export type ReposGetCollaboratorsParams =
     & Owner
@@ -1924,7 +2140,7 @@ declare namespace Github {
       ref: string;
       task?: string;
       auto_merge?: boolean;
-      required_contexts?: String[];
+      required_contexts?: string[];
       payload?: string;
       environment?: string;
       description?: string;
@@ -2188,7 +2404,7 @@ declare namespace Github {
     & Name
     & {
       config: string;
-      events?: String[];
+      events?: string[];
       active?: boolean;
     };
   export type ReposEditHookParams =
@@ -2198,9 +2414,9 @@ declare namespace Github {
     & Name
     & {
       config: string;
-      events?: String[];
-      add_events?: String[];
-      remove_events?: String[];
+      events?: string[];
+      add_events?: string[];
+      remove_events?: string[];
       active?: boolean;
     };
   export type ReposTestHookParams =
@@ -2217,6 +2433,72 @@ declare namespace Github {
     & Owner
     & Repo
     & Id
+    ;
+  export type SearchReposParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "stars"|"forks"|"updated";
+    };
+  export type SearchCodeParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "indexed";
+    };
+  export type SearchCommitsParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "author-date"|"committer-date";
+    };
+  export type SearchIssuesParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "comments"|"created"|"updated";
+    };
+  export type SearchUsersParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "followers"|"repositories"|"joined";
+    };
+  export type SearchEmailParams =
+    & {
+      email: string;
+    };
+  export type UsersUpdateParams =
+    & {
+      name?: string;
+      email?: string;
+      blog?: string;
+      company?: string;
+      location?: string;
+      hireable?: boolean;
+      bio?: string;
+    };
+  export type UsersPromoteParams =
+    & Username
+    ;
+  export type UsersDemoteParams =
+    & Username
+    ;
+  export type UsersSuspendParams =
+    & Username
+    ;
+  export type UsersUnsuspendParams =
+    & Username
     ;
   export type UsersGetForUserParams =
     & Username
@@ -2258,11 +2540,11 @@ declare namespace Github {
     ;
   export type UsersAddEmailsParams =
     & {
-      emails: String[];
+      emails: string[];
     };
   export type UsersDeleteEmailsParams =
     & {
-      emails: String[];
+      emails: string[];
     };
   export type UsersGetFollowersForUserParams =
     & Username
@@ -2374,6 +2656,10 @@ declare namespace Github {
     & Page
     & PerPage
     ;
+  export type EnterpriseStatsParams =
+    & {
+      type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
+    };
   export type EnterpriseUpdateLdapForUserParams =
     & Username
     & {
@@ -2467,6 +2753,13 @@ declare class Github {
   getFirstPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback): Promise<any>;
 
   authorization: {
+    get(params: Github.AuthorizationGetParams, callback?: Github.Callback): Promise<any>;
+    create(params: Github.AuthorizationCreateParams, callback?: Github.Callback): Promise<any>;
+    update(params: Github.AuthorizationUpdateParams, callback?: Github.Callback): Promise<any>;
+    delete(params: Github.AuthorizationDeleteParams, callback?: Github.Callback): Promise<any>;
+    check(params: Github.AuthorizationCheckParams, callback?: Github.Callback): Promise<any>;
+    reset(params: Github.AuthorizationResetParams, callback?: Github.Callback): Promise<any>;
+    revoke(params: Github.AuthorizationRevokeParams, callback?: Github.Callback): Promise<any>;
     getGrants(params: Github.AuthorizationGetGrantsParams, callback?: Github.Callback): Promise<any>;
     getGrant(params: Github.AuthorizationGetGrantParams, callback?: Github.Callback): Promise<any>;
     deleteGrant(params: Github.AuthorizationDeleteGrantParams, callback?: Github.Callback): Promise<any>;
@@ -2510,6 +2803,13 @@ declare class Github {
     unwatchRepo(params: Github.ActivityUnwatchRepoParams, callback?: Github.Callback): Promise<any>;
   };
   gists: {
+    get(params: Github.GistsGetParams, callback?: Github.Callback): Promise<any>;
+    create(params: Github.GistsCreateParams, callback?: Github.Callback): Promise<any>;
+    edit(params: Github.GistsEditParams, callback?: Github.Callback): Promise<any>;
+    star(params: Github.GistsStarParams, callback?: Github.Callback): Promise<any>;
+    unstar(params: Github.GistsUnstarParams, callback?: Github.Callback): Promise<any>;
+    fork(params: Github.GistsForkParams, callback?: Github.Callback): Promise<any>;
+    delete(params: Github.GistsDeleteParams, callback?: Github.Callback): Promise<any>;
     getForUser(params: Github.GistsGetForUserParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.GistsGetAllParams, callback?: Github.Callback): Promise<any>;
     getPublic(params: Github.GistsGetPublicParams, callback?: Github.Callback): Promise<any>;
@@ -2550,6 +2850,7 @@ declare class Github {
     removeRepoFromInstallation(params: Github.IntegrationsRemoveRepoFromInstallationParams, callback?: Github.Callback): Promise<any>;
   };
   apps: {
+    get(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
     getForSlug(params: Github.AppsGetForSlugParams, callback?: Github.Callback): Promise<any>;
     getInstallations(params: Github.AppsGetInstallationsParams, callback?: Github.Callback): Promise<any>;
     getInstallation(params: Github.AppsGetInstallationParams, callback?: Github.Callback): Promise<any>;
@@ -2565,6 +2866,11 @@ declare class Github {
     checkMarketplaceListingStubbedAccount(params: Github.AppsCheckMarketplaceListingStubbedAccountParams, callback?: Github.Callback): Promise<any>;
   };
   issues: {
+    get(params: Github.IssuesGetParams, callback?: Github.Callback): Promise<any>;
+    create(params: Github.IssuesCreateParams, callback?: Github.Callback): Promise<any>;
+    edit(params: Github.IssuesEditParams, callback?: Github.Callback): Promise<any>;
+    lock(params: Github.IssuesLockParams, callback?: Github.Callback): Promise<any>;
+    unlock(params: Github.IssuesUnlockParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.IssuesGetAllParams, callback?: Github.Callback): Promise<any>;
     getForUser(params: Github.IssuesGetForUserParams, callback?: Github.Callback): Promise<any>;
     getForOrg(params: Github.IssuesGetForOrgParams, callback?: Github.Callback): Promise<any>;
@@ -2632,6 +2938,8 @@ declare class Github {
     getRateLimit(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
   };
   orgs: {
+    get(params: Github.OrgsGetParams, callback?: Github.Callback): Promise<any>;
+    update(params: Github.OrgsUpdateParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.OrgsGetAllParams, callback?: Github.Callback): Promise<any>;
     getForUser(params: Github.OrgsGetForUserParams, callback?: Github.Callback): Promise<any>;
     getMembers(params: Github.OrgsGetMembersParams, callback?: Github.Callback): Promise<any>;
@@ -2696,6 +3004,10 @@ declare class Github {
     moveProjectColumn(params: Github.ProjectsMoveProjectColumnParams, callback?: Github.Callback): Promise<any>;
   };
   pullRequests: {
+    get(params: Github.PullRequestsGetParams, callback?: Github.Callback): Promise<any>;
+    create(params: Github.PullRequestsCreateParams, callback?: Github.Callback): Promise<any>;
+    update(params: Github.PullRequestsUpdateParams, callback?: Github.Callback): Promise<any>;
+    merge(params: Github.PullRequestsMergeParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.PullRequestsGetAllParams, callback?: Github.Callback): Promise<any>;
     createFromIssue(params: Github.PullRequestsCreateFromIssueParams, callback?: Github.Callback): Promise<any>;
     getCommits(params: Github.PullRequestsGetCommitsParams, callback?: Github.Callback): Promise<any>;
@@ -2720,6 +3032,7 @@ declare class Github {
     deleteReviewRequest(params: Github.PullRequestsDeleteReviewRequestParams, callback?: Github.Callback): Promise<any>;
   };
   reactions: {
+    delete(params: Github.ReactionsDeleteParams, callback?: Github.Callback): Promise<any>;
     getForCommitComment(params: Github.ReactionsGetForCommitCommentParams, callback?: Github.Callback): Promise<any>;
     createForCommitComment(params: Github.ReactionsCreateForCommitCommentParams, callback?: Github.Callback): Promise<any>;
     getForIssue(params: Github.ReactionsGetForIssueParams, callback?: Github.Callback): Promise<any>;
@@ -2730,6 +3043,12 @@ declare class Github {
     createForPullRequestReviewComment(params: Github.ReactionsCreateForPullRequestReviewCommentParams, callback?: Github.Callback): Promise<any>;
   };
   repos: {
+    create(params: Github.ReposCreateParams, callback?: Github.Callback): Promise<any>;
+    get(params: Github.ReposGetParams, callback?: Github.Callback): Promise<any>;
+    edit(params: Github.ReposEditParams, callback?: Github.Callback): Promise<any>;
+    delete(params: Github.ReposDeleteParams, callback?: Github.Callback): Promise<any>;
+    fork(params: Github.ReposForkParams, callback?: Github.Callback): Promise<any>;
+    merge(params: Github.ReposMergeParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.ReposGetAllParams, callback?: Github.Callback): Promise<any>;
     getForUser(params: Github.ReposGetForUserParams, callback?: Github.Callback): Promise<any>;
     getForOrg(params: Github.ReposGetForOrgParams, callback?: Github.Callback): Promise<any>;
@@ -2847,8 +3166,20 @@ declare class Github {
     deleteHook(params: Github.ReposDeleteHookParams, callback?: Github.Callback): Promise<any>;
   };
   search: {
+    repos(params: Github.SearchReposParams, callback?: Github.Callback): Promise<any>;
+    code(params: Github.SearchCodeParams, callback?: Github.Callback): Promise<any>;
+    commits(params: Github.SearchCommitsParams, callback?: Github.Callback): Promise<any>;
+    issues(params: Github.SearchIssuesParams, callback?: Github.Callback): Promise<any>;
+    users(params: Github.SearchUsersParams, callback?: Github.Callback): Promise<any>;
+    email(params: Github.SearchEmailParams, callback?: Github.Callback): Promise<any>;
   };
   users: {
+    get(params: Github.EmptyParams, callback?: Github.Callback): Promise<any>;
+    update(params: Github.UsersUpdateParams, callback?: Github.Callback): Promise<any>;
+    promote(params: Github.UsersPromoteParams, callback?: Github.Callback): Promise<any>;
+    demote(params: Github.UsersDemoteParams, callback?: Github.Callback): Promise<any>;
+    suspend(params: Github.UsersSuspendParams, callback?: Github.Callback): Promise<any>;
+    unsuspend(params: Github.UsersUnsuspendParams, callback?: Github.Callback): Promise<any>;
     getForUser(params: Github.UsersGetForUserParams, callback?: Github.Callback): Promise<any>;
     getById(params: Github.UsersGetByIdParams, callback?: Github.Callback): Promise<any>;
     getAll(params: Github.UsersGetAllParams, callback?: Github.Callback): Promise<any>;
@@ -2895,6 +3226,7 @@ declare class Github {
     getMarketplaceStubbedPurchases(params: Github.UsersGetMarketplaceStubbedPurchasesParams, callback?: Github.Callback): Promise<any>;
   };
   enterprise: {
+    stats(params: Github.EnterpriseStatsParams, callback?: Github.Callback): Promise<any>;
     updateLdapForUser(params: Github.EnterpriseUpdateLdapForUserParams, callback?: Github.Callback): Promise<any>;
     syncLdapForUser(params: Github.EnterpriseSyncLdapForUserParams, callback?: Github.Callback): Promise<any>;
     updateLdapForTeam(params: Github.EnterpriseUpdateLdapForTeamParams, callback?: Github.Callback): Promise<any>;

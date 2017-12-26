@@ -1,5 +1,93 @@
 {
   "authorization": {
+    "get": {
+      "url": "/authorizations/:id",
+      "method": "GET",
+      "params": {
+        "$id": null
+      },
+      "description": "Get a single authorization."
+    },
+    "create": {
+      "url": "/authorizations",
+      "method": "POST",
+      "params": {
+        "$scopes": null,
+        "$note": null,
+        "$note_url": null,
+        "$client_id": null,
+        "client_secret": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The 40 character OAuth app client secret for which to create the token."
+        },
+        "$fingerprint": null
+      },
+      "description": "Create a new authorization."
+    },
+    "update": {
+      "url": "/authorizations/:id",
+      "method": "PATCH",
+      "params": {
+        "$id": null,
+        "$scopes": null,
+        "add_scopes": {
+          "type": "string[]",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "A list of scopes to add to this authorization."
+        },
+        "remove_scopes": {
+          "type": "string[]",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "A list of scopes to remove from this authorization."
+        },
+        "$note": null,
+        "$note_url": null,
+        "$fingerprint": null
+      },
+      "description": "Update an existing authorization."
+    },
+    "delete": {
+      "url": "/authorizations/:id",
+      "method": "DELETE",
+      "params": {
+        "$id": null
+      },
+      "description": "Delete an authorization."
+    },
+    "check": {
+      "url": "/applications/:client_id/tokens/:access_token",
+      "method": "GET",
+      "params": {
+        "$client_id": null,
+        "$access_token": null
+      },
+      "description": "Check an authorization"
+    },
+    "reset": {
+      "url": "/applications/:client_id/tokens/:access_token",
+      "method": "POST",
+      "params": {
+        "$client_id": null,
+        "$access_token": null
+      },
+      "description": "Reset an authorization"
+    },
+    "revoke": {
+      "url": "/applications/:client_id/tokens/:access_token",
+      "method": "DELETE",
+      "params": {
+        "$client_id": null,
+        "$access_token": null
+      },
+      "description": "Revoke an authorization for an application"
+    },
     "getGrants": {
       "url": "/applications/grants",
       "method": "GET",
@@ -504,6 +592,86 @@
     }
   },
   "gists": {
+    "get": {
+      "url": "/gists/:id",
+      "method": "GET",
+      "params": {
+        "$id": null
+      },
+      "description": "Get a single gist"
+    },
+    "create": {
+      "url": "/gists",
+      "method": "POST",
+      "params": {
+        "$files": null,
+        "$description": null,
+        "public": {
+          "type": "boolean",
+          "required": true,
+          "validation": "",
+          "invalidmsg": "",
+          "description": ""
+        }
+      },
+      "description": "Create a gist"
+    },
+    "edit": {
+      "url": "/gists/:id",
+      "method": "PATCH",
+      "params": {
+        "$id": null,
+        "$description": null,
+        "$files": null,
+        "content": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Updated file contents."
+        },
+        "filename": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "New name for this file."
+        }
+      },
+      "description": "Edit a gist"
+    },
+    "star": {
+      "url": "/gists/:id/star",
+      "method": "PUT",
+      "params": {
+        "$id": null
+      },
+      "description": "Star a gist"
+    },
+    "unstar": {
+      "url": "/gists/:id/star",
+      "method": "DELETE",
+      "params": {
+        "$id": null
+      },
+      "description": "Unstar a gist"
+    },
+    "fork": {
+      "url": "/gists/:id/forks",
+      "method": "POST",
+      "params": {
+        "$id": null
+      },
+      "description": "Fork a gist"
+    },
+    "delete": {
+      "url": "/gists/:id",
+      "method": "DELETE",
+      "params": {
+        "$id": null
+      },
+      "description": "Delete a gist"
+    },
     "getForUser": {
       "url": "/users/:username/gists",
       "method": "GET",
@@ -690,7 +858,7 @@
           "description": "String of the SHA of the tree object this commit points to"
         },
         "parents": {
-          "type": "String[]",
+          "type": "string[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -970,6 +1138,12 @@
     }
   },
   "apps": {
+    "get": {
+      "url": "/app",
+      "method": "GET",
+      "params": {},
+      "description": "Get the authenticated GitHub App. (In preview period. See README.)"
+    },
     "getForSlug": {
       "url": "/apps/:app_slug",
       "method": "GET",
@@ -1104,6 +1278,139 @@
     }
   },
   "issues": {
+    "get": {
+      "url": "/repos/:owner/:repo/issues/:number",
+      "method": "GET",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null
+      },
+      "description": "Get a single issue"
+    },
+    "create": {
+      "url": "/repos/:owner/:repo/issues",
+      "method": "POST",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "title": {
+          "type": "string",
+          "required": true,
+          "validation": "",
+          "invalidmsg": "",
+          "description": ""
+        },
+        "body": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": ""
+        },
+        "assignee": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Login for the user that this issue should be assigned to."
+        },
+        "milestone": {
+          "type": "number",
+          "required": false,
+          "validation": "^[0-9]+$",
+          "invalidmsg": "",
+          "description": "Milestone to associate this issue with."
+        },
+        "labels": {
+          "type": "string[]",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Array of strings - Labels to associate with this issue."
+        },
+        "$assignees": null
+      },
+      "description": "Create an issue"
+    },
+    "edit": {
+      "url": "/repos/:owner/:repo/issues/:number",
+      "method": "PATCH",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null,
+        "title": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": ""
+        },
+        "body": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": ""
+        },
+        "assignee": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Login for the user that this issue should be assigned to."
+        },
+        "state": {
+          "type": "string",
+          "required": false,
+          "validation": "^(open|closed)$",
+          "invalidmsg": "open, closed, default: open",
+          "description": "open or closed",
+          "enum": [
+            "open",
+            "closed"
+          ],
+          "default": "open"
+        },
+        "milestone": {
+          "type": "number",
+          "required": false,
+          "validation": "^[0-9]+$",
+          "invalidmsg": "",
+          "description": "Milestone to associate this issue with."
+        },
+        "labels": {
+          "type": "string[]",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Array of strings - Labels to associate with this issue."
+        },
+        "$assignees": null
+      },
+      "description": "Edit an issue"
+    },
+    "lock": {
+      "url": "/repos/:owner/:repo/issues/:number/lock",
+      "method": "PUT",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null
+      },
+      "description": "Users with push access can lock an issue's conversation."
+    },
+    "unlock": {
+      "url": "/repos/:owner/:repo/issues/:number/lock",
+      "method": "DELETE",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null
+      },
+      "description": "Users with push access can unlock an issue's conversation."
+    },
     "getAll": {
       "url": "/issues",
       "method": "GET",
@@ -1386,7 +1693,7 @@
         "$repo": null,
         "$number": null,
         "assignees": {
-          "type": "String[]",
+          "type": "string[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1610,7 +1917,7 @@
         "$repo": null,
         "$number": null,
         "labels": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -1645,7 +1952,7 @@
         "$repo": null,
         "$number": null,
         "labels": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -1802,7 +2109,7 @@
       "params": {
         "$org": null,
         "repositories": {
-          "type": "String[]",
+          "type": "string[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2184,6 +2491,88 @@
     }
   },
   "orgs": {
+    "get": {
+      "url": "/orgs/:org",
+      "method": "GET",
+      "params": {
+        "$org": null,
+        "$page": null,
+        "$per_page": null
+      },
+      "description": "Get an organization"
+    },
+    "update": {
+      "url": "/orgs/:org",
+      "method": "PATCH",
+      "params": {
+        "$org": null,
+        "billing_email": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Billing email address. This address is not publicized."
+        },
+        "company": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The company name."
+        },
+        "email": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The publicly visible email address."
+        },
+        "location": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The location."
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The shorthand name of the company."
+        },
+        "description": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The description of the company."
+        },
+        "default_repository_permission": {
+          "type": "string",
+          "required": false,
+          "validation": "^(read|write|admin|none)$",
+          "invalidmsg": "read, write, admin, none, default: read",
+          "description": "Default permission level members have for organization repositories.",
+          "enum": [
+            "read",
+            "write",
+            "admin",
+            "none"
+          ],
+          "default": "read"
+        },
+        "members_can_create_repositories": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Toggles ability of non-admin organization members to create repositories.",
+          "default": true
+        }
+      },
+      "description": "Edit an organization"
+    },
     "getAll": {
       "url": "/organizations",
       "method": "GET",
@@ -2417,14 +2806,14 @@
           "description": "The description of the team."
         },
         "maintainers": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The logins of organization members to add as maintainers of the team."
         },
         "repo_names": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2646,7 +3035,7 @@
           "description": "Key/value pairs to provide settings for this webhook"
         },
         "events": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2677,7 +3066,7 @@
           "description": "Key/value pairs to provide settings for this webhook"
         },
         "events": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2985,6 +3374,139 @@
     }
   },
   "pull-requests": {
+    "get": {
+      "url": "/repos/:owner/:repo/pulls/:number",
+      "method": "GET",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null
+      },
+      "description": "Get a single pull request"
+    },
+    "create": {
+      "url": "/repos/:owner/:repo/pulls",
+      "method": "POST",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "title": {
+          "type": "string",
+          "required": true,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The title of the pull request."
+        },
+        "$head": null,
+        "$base": null,
+        "body": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The contents of the pull request."
+        },
+        "maintainer_can_modify": {
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Indicates whether maintainers can modify the pull request."
+        }
+      },
+      "description": "Create a pull request"
+    },
+    "update": {
+      "url": "/repos/:owner/:repo/pulls/:number",
+      "method": "PATCH",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null,
+        "title": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The title of the pull request."
+        },
+        "body": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The contents of the pull request."
+        },
+        "state": {
+          "type": "string",
+          "required": false,
+          "validation": "^(open|closed)$",
+          "invalidmsg": "open, closed",
+          "description": "open or closed",
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "base": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+        },
+        "maintainer_can_modify": {
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Indicates whether maintainers can modify the pull request."
+        }
+      },
+      "description": "Update a pull request"
+    },
+    "merge": {
+      "url": "/repos/:owner/:repo/pulls/:number/merge",
+      "method": "PUT",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$number": null,
+        "commit_title": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Title for the automatic commit message. (In preview period. See README.)"
+        },
+        "commit_message": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Extra detail to append to automatic commit message."
+        },
+        "sha": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "SHA that pull request head must match to allow merge"
+        },
+        "merge_method": {
+          "type": "string",
+          "required": false,
+          "validation": "^(merge|squash|rebase)$",
+          "invalidmsg": "Possible values are: `merge`, `squash`, `rebase` Default: `merge`",
+          "description": "Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)",
+          "enum": [
+            "merge",
+            "squash",
+            "rebase"
+          ],
+          "default": "merge"
+        }
+      },
+      "description": "Merge a pull request (Merge Button)"
+    },
     "getAll": {
       "url": "/repos/:owner/:repo/pulls",
       "method": "GET",
@@ -3163,7 +3685,7 @@
           "default": "PENDING"
         },
         "comments": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3344,14 +3866,14 @@
         "$repo": null,
         "$number": null,
         "reviewers": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "An array of user logins that will be requested."
         },
         "team_reviewers": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3368,14 +3890,14 @@
         "$repo": null,
         "$number": null,
         "reviewers": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "An array of user logins that will be requested."
         },
         "team_reviewers": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3386,6 +3908,14 @@
     }
   },
   "reactions": {
+    "delete": {
+      "url": "/reactions/:id",
+      "method": "DELETE",
+      "params": {
+        "$id": null
+      },
+      "description": "Delete a reaction. (In preview period. See README.)"
+    },
     "getForCommitComment": {
       "url": "/repos/:owner/:repo/comments/:id/reactions",
       "method": "GET",
@@ -3588,6 +4118,147 @@
     }
   },
   "repos": {
+    "create": {
+      "url": "/user/repos",
+      "method": "POST",
+      "params": {
+        "$name": null,
+        "$description": null,
+        "$homepage": null,
+        "$private": null,
+        "$has_issues": null,
+        "$has_projects": null,
+        "$has_wiki": null,
+        "team_id": {
+          "type": "number",
+          "required": false,
+          "validation": "^[0-9]+$",
+          "invalidmsg": "",
+          "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+        },
+        "$auto_init": null,
+        "$gitignore_template": null,
+        "$license_template": null,
+        "allow_squash_merge": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
+          "default": "true"
+        },
+        "allow_merge_commit": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
+          "default": "true"
+        },
+        "allow_rebase_merge": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
+          "default": "true"
+        }
+      },
+      "description": "Create a new repository for the authenticated user."
+    },
+    "get": {
+      "url": "/repos/:owner/:repo",
+      "method": "GET",
+      "params": {
+        "$owner": null,
+        "$repo": null
+      },
+      "description": "Get a repo for a user."
+    },
+    "edit": {
+      "url": "/repos/:owner/:repo",
+      "method": "PATCH",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$name": null,
+        "$description": null,
+        "$homepage": null,
+        "$private": null,
+        "$has_issues": null,
+        "$has_projects": null,
+        "$has_wiki": null,
+        "$default_branch": null,
+        "allow_squash_merge": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
+          "default": "true"
+        },
+        "allow_merge_commit": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
+          "default": "true"
+        },
+        "allow_rebase_merge": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
+          "default": "true"
+        }
+      },
+      "description": "Update a repo."
+    },
+    "delete": {
+      "url": "/repos/:owner/:repo",
+      "method": "DELETE",
+      "params": {
+        "$owner": null,
+        "$repo": null
+      },
+      "description": "Delete a repository."
+    },
+    "fork": {
+      "url": "/repos/:owner/:repo/forks",
+      "method": "POST",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "organization": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Optional parameter to specify the organization name if forking into an organization."
+        }
+      },
+      "description": "Create a fork."
+    },
+    "merge": {
+      "url": "/repos/:owner/:repo/merges",
+      "method": "POST",
+      "params": {
+        "$owner": null,
+        "$repo": null,
+        "$base": null,
+        "$head": null,
+        "commit_message": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Commit message to use for the merge commit. If omitted, a default message will be used."
+        }
+      },
+      "description": "Perform a merge."
+    },
     "getAll": {
       "url": "/user/repos",
       "method": "GET",
@@ -3803,7 +4474,7 @@
         "$owner": null,
         "$repo": null,
         "names": {
-          "type": "String[]",
+          "type": "string[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -3996,7 +4667,7 @@
           "description": "Require branches to be up to date before merging."
         },
         "contexts": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4035,7 +4706,7 @@
         "$repo": null,
         "$branch": null,
         "contexts": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4053,7 +4724,7 @@
         "$repo": null,
         "$branch": null,
         "contexts": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4071,7 +4742,7 @@
         "$repo": null,
         "$branch": null,
         "contexts": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4213,7 +4884,7 @@
         "$repo": null,
         "$branch": null,
         "teams": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4231,7 +4902,7 @@
         "$repo": null,
         "$branch": null,
         "teams": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4249,7 +4920,7 @@
         "$repo": null,
         "$branch": null,
         "teams": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4279,7 +4950,7 @@
         "$repo": null,
         "$branch": null,
         "users": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4297,7 +4968,7 @@
         "$repo": null,
         "$branch": null,
         "users": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4315,7 +4986,7 @@
         "$repo": null,
         "$branch": null,
         "users": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4927,7 +5598,7 @@
           "default": "true"
         },
         "required_contexts": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5680,7 +6351,7 @@
           "description": "A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
         },
         "events": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5713,7 +6384,7 @@
           "description": "A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
         },
         "events": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5721,14 +6392,14 @@
           "default": "[\"push\"]"
         },
         "add_events": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Determines a list of events to be added to the list of events that the Hook triggers for."
         },
         "remove_events": {
-          "type": "String[]",
+          "type": "string[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5775,8 +6446,229 @@
       "description": "Deleate a hook."
     }
   },
-  "search": {},
+  "search": {
+    "repos": {
+      "url": "/search/repositories",
+      "method": "GET",
+      "params": {
+        "$q": null,
+        "sort": {
+          "type": "string",
+          "required": false,
+          "validation": "^(stars|forks|updated)$",
+          "invalidmsg": "One of stars, forks, or updated. Default: results are sorted by best match.",
+          "description": "stars, forks, or updated",
+          "enum": [
+            "stars",
+            "forks",
+            "updated"
+          ]
+        },
+        "$order": null,
+        "$page": null,
+        "$per_page": null
+      },
+      "description": "Search repositories."
+    },
+    "code": {
+      "url": "/search/code",
+      "method": "GET",
+      "params": {
+        "$q": null,
+        "sort": {
+          "type": "string",
+          "required": false,
+          "validation": "^indexed$",
+          "invalidmsg": "indexed only",
+          "description": "The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match.",
+          "enum": [
+            "indexed"
+          ]
+        },
+        "$order": null,
+        "$page": null,
+        "$per_page": null
+      },
+      "description": "Search code."
+    },
+    "commits": {
+      "url": "/search/commits",
+      "method": "GET",
+      "params": {
+        "$q": null,
+        "sort": {
+          "type": "string",
+          "required": false,
+          "validation": "^(author-date|committer-date)$",
+          "invalidmsg": "author-date or committer-date",
+          "description": "The sort field. Can be author-date or committer-date. Default: best match.",
+          "enum": [
+            "author-date",
+            "committer-date"
+          ]
+        },
+        "$order": null,
+        "$page": null,
+        "$per_page": null
+      },
+      "description": "Search commits. (In preview period. See README.)"
+    },
+    "issues": {
+      "url": "/search/issues",
+      "method": "GET",
+      "params": {
+        "$q": null,
+        "sort": {
+          "type": "string",
+          "required": false,
+          "validation": "^(comments|created|updated)$",
+          "invalidmsg": "comments, created, or updated",
+          "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match.",
+          "enum": [
+            "comments",
+            "created",
+            "updated"
+          ]
+        },
+        "$order": null,
+        "$page": null,
+        "$per_page": null
+      },
+      "description": "Search issues."
+    },
+    "users": {
+      "url": "/search/users",
+      "method": "GET",
+      "params": {
+        "$q": null,
+        "sort": {
+          "type": "string",
+          "required": false,
+          "validation": "^(followers|repositories|joined)$",
+          "invalidmsg": "Can be followers, repositories, or joined. Default: results are sorted by best match.",
+          "description": "The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match.",
+          "enum": [
+            "followers",
+            "repositories",
+            "joined"
+          ]
+        },
+        "$order": null,
+        "$page": null,
+        "$per_page": null
+      },
+      "description": "Search users."
+    },
+    "email": {
+      "url": "/legacy/user/email/:email",
+      "method": "GET",
+      "params": {
+        "email": {
+          "type": "string",
+          "required": true,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The email address"
+        }
+      },
+      "description": "Search against public email addresses."
+    }
+  },
   "users": {
+    "get": {
+      "url": "/user",
+      "method": "GET",
+      "params": {},
+      "description": "Get the authenticated user"
+    },
+    "update": {
+      "url": "/user",
+      "method": "PATCH",
+      "params": {
+        "name": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The new name of the user"
+        },
+        "email": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "Publicly visible email address."
+        },
+        "blog": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The new blog URL of the user."
+        },
+        "company": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The new company of the user."
+        },
+        "location": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The new location of the user."
+        },
+        "hireable": {
+          "type": "boolean",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The new hiring availability of the user."
+        },
+        "bio": {
+          "type": "string",
+          "required": false,
+          "validation": "",
+          "invalidmsg": "",
+          "description": "The new short biography of the user."
+        }
+      },
+      "description": "Update the authenticated user"
+    },
+    "promote": {
+      "url": "/users/:username/site_admin",
+      "method": "PUT",
+      "params": {
+        "$username": null
+      },
+      "description": "Promote an ordinary user to a site administrator"
+    },
+    "demote": {
+      "url": "/users/:username/site_admin",
+      "method": "DELETE",
+      "params": {
+        "$username": null
+      },
+      "description": "Demote a site administrator to an ordinary user"
+    },
+    "suspend": {
+      "url": "/users/:username/suspended",
+      "method": "PUT",
+      "params": {
+        "$username": null
+      },
+      "description": "Suspend a user"
+    },
+    "unsuspend": {
+      "url": "/users/:username/suspended",
+      "method": "DELETE",
+      "params": {
+        "$username": null
+      },
+      "description": "Unsuspend a user"
+    },
     "getForUser": {
       "url": "/users/:username",
       "method": "GET",
@@ -5891,7 +6783,7 @@
       "method": "POST",
       "params": {
         "emails": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -5906,7 +6798,7 @@
       "method": "DELETE",
       "params": {
         "emails": {
-          "type": "String[]",
+          "type": "string[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -6201,6 +7093,33 @@
     }
   },
   "enterprise": {
+    "stats": {
+      "url": "/enterprise/stats/:type",
+      "method": "GET",
+      "params": {
+        "type": {
+          "type": "string",
+          "required": true,
+          "validation": "^(issues|hooks|milestones|orgs|comments|pages|users|gists|pulls|repos|all)$",
+          "invalidmsg": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
+          "description": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
+          "enum": [
+            "issues",
+            "hooks",
+            "milestones",
+            "orgs",
+            "comments",
+            "pages",
+            "users",
+            "gists",
+            "pulls",
+            "repos",
+            "all"
+          ]
+        }
+      },
+      "description": "Get statistics."
+    },
     "updateLdapForUser": {
       "url": "/admin/ldap/users/:username/mapping",
       "method": "PATCH",
