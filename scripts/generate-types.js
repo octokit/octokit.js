@@ -1,7 +1,7 @@
 module.exports = generateTypes
 
-const fs = require('fs')
-const pathJoin = require('path').join
+const {readFileSync, writeFileSync} = require('fs')
+const {join: pathJoin} = require('path')
 
 const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
@@ -55,7 +55,7 @@ function toCombineParams (params, entry) {
 
 function generateTypes (languageName, templateFile, outputFile) {
   const templatePath = pathJoin(__dirname, 'templates', templateFile)
-  const template = fs.readFileSync(templatePath, 'utf8')
+  const template = readFileSync(templatePath, 'utf8')
 
   const requestHeaders = DEFINITIONS['request-headers']
 
@@ -82,7 +82,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
       return methods.concat({
         method: camelcase(entry[0]),
-        paramTypeName: paramTypeName,
+        paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
         exclude: !hasParams
@@ -91,18 +91,18 @@ function generateTypes (languageName, templateFile, outputFile) {
 
     return namespaces.concat({
       namespace: camelcase(namespace),
-      methods: methods
+      methods
     })
   }, [])
 
   const body = Mustache.render(template, {
     requestHeaders: requestHeaders.map(JSON.stringify),
-    params: params,
-    namespaces: namespaces
+    params,
+    namespaces
   })
 
   const definitionFilePath = pathJoin(__dirname, '..', 'lib', outputFile)
   debug(`Writing ${languageName} declarations file to ${definitionFilePath}`)
 
-  fs.writeFileSync(definitionFilePath, body, 'utf8')
+  writeFileSync(definitionFilePath, body, 'utf8')
 }
