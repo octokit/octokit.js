@@ -42,7 +42,7 @@
       "params": {
         "$client_id": null,
         "client_secret": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -62,7 +62,7 @@
         "$client_id": null,
         "$fingerprint": null,
         "client_secret": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -199,7 +199,7 @@
       "method": "GET",
       "params": {
         "all": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -207,7 +207,7 @@
           "default": "false"
         },
         "participating": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -216,7 +216,7 @@
         },
         "$since": null,
         "before": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -232,7 +232,7 @@
         "$owner": null,
         "$repo": null,
         "all": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -240,7 +240,7 @@
           "default": "false"
         },
         "participating": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -249,7 +249,7 @@
         },
         "$since": null,
         "before": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -263,7 +263,7 @@
       "method": "PUT",
       "params": {
         "last_read_at": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -280,7 +280,7 @@
         "$owner": null,
         "$repo": null,
         "last_read_at": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -320,14 +320,14 @@
       "params": {
         "$id": null,
         "subscribed": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Determines if notifications should be received from this thread"
         },
         "ignored": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -361,7 +361,7 @@
       "params": {
         "$username": null,
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated)$",
           "invalidmsg": "created or updated (when it was last pushed to); default: created.",
@@ -383,7 +383,7 @@
       "method": "GET",
       "params": {
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated)$",
           "invalidmsg": "created or updated (when it was last pushed to); default: created.",
@@ -477,14 +477,14 @@
         "$owner": null,
         "$repo": null,
         "subscribed": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Determines if notifications should be received from this repository."
         },
         "ignored": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -642,7 +642,7 @@
         "$owner": null,
         "$repo": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "allow-empty": true,
           "validation": "",
@@ -650,7 +650,7 @@
           "description": ""
         },
         "encoding": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -676,21 +676,21 @@
         "$owner": null,
         "$repo": null,
         "message": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the commit message"
         },
         "tree": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the SHA of the tree object this commit points to"
         },
         "parents": {
-          "type": "Array",
+          "type": "String[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -762,7 +762,7 @@
         "$owner": null,
         "$repo": null,
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -781,7 +781,7 @@
         "$ref": null,
         "$sha": null,
         "force": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -818,28 +818,28 @@
         "$owner": null,
         "$repo": null,
         "tag": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the tag"
         },
         "message": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the tag message"
         },
         "object": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the SHA of the git object this is tagging"
         },
         "type": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -873,7 +873,7 @@
         "$repo": null,
         "$sha": null,
         "recursive": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -896,7 +896,7 @@
           "description": "Array of Hash objects (of path, mode, type and sha) specifying a tree structure"
         },
         "base_tree": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -923,7 +923,7 @@
       "params": {
         "$installation_id": null,
         "user_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -938,7 +938,7 @@
       "method": "GET",
       "params": {
         "user_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -975,7 +975,7 @@
       "method": "GET",
       "params": {
         "app_slug": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1007,7 +1007,7 @@
       "params": {
         "$installation_id": null,
         "user_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1021,7 +1021,7 @@
       "method": "GET",
       "params": {
         "user_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1109,7 +1109,7 @@
       "method": "GET",
       "params": {
         "filter": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|assigned|created|mentioned|subscribed)$",
           "invalidmsg": "",
@@ -1123,7 +1123,7 @@
           ]
         },
         "state": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(open|closed|all)$",
           "invalidmsg": "open, closed, all, default: open",
@@ -1136,14 +1136,14 @@
           "default": "open"
         },
         "labels": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "String list of comma separated Label names. Example: bug,ui,@high"
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|comments)$",
           "invalidmsg": "created, updated, comments, default: created.",
@@ -1167,7 +1167,7 @@
       "method": "GET",
       "params": {
         "filter": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|assigned|created|mentioned|subscribed)$",
           "invalidmsg": "",
@@ -1181,7 +1181,7 @@
           ]
         },
         "state": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(open|closed|all)$",
           "invalidmsg": "open, closed, all, default: open",
@@ -1194,14 +1194,14 @@
           "default": "open"
         },
         "labels": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "String list of comma separated Label names. Example: bug,ui,@high"
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|comments)$",
           "invalidmsg": "created, updated, comments, default: created.",
@@ -1226,7 +1226,7 @@
       "params": {
         "$org": null,
         "filter": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|assigned|created|mentioned|subscribed)$",
           "invalidmsg": "",
@@ -1240,7 +1240,7 @@
           ]
         },
         "state": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(open|closed|all)$",
           "invalidmsg": "open, closed, all, default: open",
@@ -1253,14 +1253,14 @@
           "default": "open"
         },
         "labels": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "String list of comma separated Label names. Example: bug,ui,@high"
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|comments)$",
           "invalidmsg": "created, updated, comments, default: created.",
@@ -1286,14 +1286,14 @@
         "$owner": null,
         "$repo": null,
         "milestone": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^([0-9]+|none|\\*)$",
           "invalidmsg": "",
           "description": ""
         },
         "state": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(open|closed|all)$",
           "invalidmsg": "open, closed, all, default: open",
@@ -1306,35 +1306,35 @@
           "default": "open"
         },
         "assignee": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User."
         },
         "creator": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The user that created the issue."
         },
         "mentioned": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "String User login."
         },
         "labels": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "String list of comma separated Label names. Example: bug,ui,@high"
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|comments)$",
           "invalidmsg": "created, updated, comments, default: created.",
@@ -1369,7 +1369,7 @@
         "$owner": null,
         "$repo": null,
         "assignee": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1386,7 +1386,7 @@
         "$repo": null,
         "$number": null,
         "assignees": {
-          "type": "Array",
+          "type": "String[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1433,7 +1433,7 @@
         "$owner": null,
         "$repo": null,
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated)$",
           "invalidmsg": "created, updated, default: created.",
@@ -1565,14 +1565,14 @@
         "$owner": null,
         "$repo": null,
         "oldname": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The old name of the label."
         },
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1610,7 +1610,7 @@
         "$repo": null,
         "$number": null,
         "labels": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -1628,7 +1628,7 @@
         "$repo": null,
         "$number": null,
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1645,7 +1645,7 @@
         "$repo": null,
         "$number": null,
         "labels": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -1683,7 +1683,7 @@
         "$repo": null,
         "$state": null,
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(due_on|completeness)$",
           "invalidmsg": "due_on, completeness, default: due_on",
@@ -1695,7 +1695,7 @@
           "default": "due_on"
         },
         "direction": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(asc|desc)$",
           "invalidmsg": "asc or desc, default: asc.",
@@ -1728,7 +1728,7 @@
         "$owner": null,
         "$repo": null,
         "title": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1754,7 +1754,7 @@
         "$repo": null,
         "$number": null,
         "title": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1802,14 +1802,14 @@
       "params": {
         "$org": null,
         "repositories": {
-          "type": "Array",
+          "type": "String[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "A list of arrays indicating which repositories should be migrated."
         },
         "lock_repositories": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1817,7 +1817,7 @@
           "default": "false"
         },
         "exclude_attachments": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1871,7 +1871,7 @@
         "$org": null,
         "$id": null,
         "repo_name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1887,14 +1887,14 @@
         "$owner": null,
         "$repo": null,
         "vcs_url": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The URL of the originating repository."
         },
         "vcs": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(subversion|git|mercurial|tfvc)$",
           "invalidmsg": "subversion, git, mercurial, tfvc",
@@ -1907,21 +1907,21 @@
           ]
         },
         "vcs_username": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "If authentication is required, the username to provide to vcs_url."
         },
         "vcs_password": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "If authentication is required, the password to provide to vcs_url."
         },
         "tfvc_project": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1947,14 +1947,14 @@
         "$repo": null
       },
       "vcs_username": {
-        "type": "String",
+        "type": "string",
         "required": false,
         "validation": "",
         "invalidmsg": "",
         "description": "The username to provide to the originating repository."
       },
       "vcs_password": {
-        "type": "String",
+        "type": "string",
         "required": false,
         "validation": "",
         "invalidmsg": "",
@@ -1969,7 +1969,7 @@
         "$owner": null,
         "$repo": null,
         "since": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1985,21 +1985,21 @@
         "$owner": null,
         "$repo": null,
         "author_id": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The commit author id."
         },
         "email": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The new Git author email."
         },
         "name": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2015,7 +2015,7 @@
         "$owner": null,
         "$name": null,
         "use_lfs": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2055,7 +2055,7 @@
       "method": "GET",
       "params": {
         "key": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2090,7 +2090,7 @@
       "method": "GET",
       "params": {
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2110,7 +2110,7 @@
       "method": "GET",
       "params": {
         "license": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2133,14 +2133,14 @@
       "method": "POST",
       "params": {
         "text": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The Markdown text to render"
         },
         "mode": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(markdown|gfm)$",
           "invalidmsg": "",
@@ -2152,7 +2152,7 @@
           "default": "markdown"
         },
         "context": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2189,7 +2189,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2216,7 +2216,7 @@
       "params": {
         "$org": null,
         "filter": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|2fa_disabled)$",
           "invalidmsg": "all, 2fa_disabled, default: all",
@@ -2228,7 +2228,7 @@
           "default": "all"
         },
         "role": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|admin|member)$",
           "invalidmsg": "all, admin, member, default: all",
@@ -2314,7 +2314,7 @@
         "$org": null,
         "$username": null,
         "role": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(admin|member)$",
           "invalidmsg": "admin, member",
@@ -2351,7 +2351,7 @@
       "params": {
         "$org": null,
         "filter": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|2fa_disabled)$",
           "invalidmsg": "all, 2fa_disabled, default: all",
@@ -2410,21 +2410,21 @@
         "$org": null,
         "$name": null,
         "description": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The description of the team."
         },
         "maintainers": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The logins of organization members to add as maintainers of the team."
         },
         "repo_names": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2432,7 +2432,7 @@
         },
         "$privacy": null,
         "parent_team_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2448,7 +2448,7 @@
         "$id": null,
         "$name": null,
         "description": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2456,7 +2456,7 @@
         },
         "$privacy": null,
         "parent_team_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2479,7 +2479,7 @@
       "params": {
         "$id": null,
         "role": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(member|maintainer|all)$",
           "invalidmsg": "member, maintainer, all, default: all",
@@ -2522,7 +2522,7 @@
         "$id": null,
         "$username": null,
         "role": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(member|maintainer)$",
           "invalidmsg": "member, maintainer, default: member",
@@ -2583,7 +2583,7 @@
         "$org": null,
         "$repo": null,
         "permission": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(pull|push|admin)$",
           "invalidmsg": "",
@@ -2632,7 +2632,7 @@
       "params": {
         "$org": null,
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2646,7 +2646,7 @@
           "description": "Key/value pairs to provide settings for this webhook"
         },
         "events": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2654,7 +2654,7 @@
           "default": "[\"push\"]"
         },
         "active": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2677,7 +2677,7 @@
           "description": "Key/value pairs to provide settings for this webhook"
         },
         "events": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2685,7 +2685,7 @@
           "default": "[\"push\"]"
         },
         "active": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2786,7 +2786,7 @@
         "$repo": null,
         "$name": null,
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2802,7 +2802,7 @@
         "$org": null,
         "$name": null,
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2818,7 +2818,7 @@
         "$id": null,
         "$name": null,
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2858,21 +2858,21 @@
       "params": {
         "$column_id": null,
         "note": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The note of the card."
         },
         "content_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The id of the Issue or Pull Request to associate with this card."
         },
         "content_type": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2887,7 +2887,7 @@
       "params": {
         "$id": null,
         "note": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2910,14 +2910,14 @@
       "params": {
         "$id": null,
         "position": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(top|bottom|after:\\d+)$",
           "invalidmsg": "",
           "description": "Can be one of top, bottom, or after:<card-id>, where <card-id> is the id value of a card in the same project."
         },
         "column_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2974,7 +2974,7 @@
       "params": {
         "$id": null,
         "position": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(first|last|after:\\d+)$",
           "invalidmsg": "",
@@ -2993,21 +2993,21 @@
         "$repo": null,
         "$state": null,
         "head": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Filter pulls by head user and branch name in the format of user:ref-name. Example: github:new-script-format."
         },
         "base": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Filter pulls by base branch name. Example: gh-pages."
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|popularity|long-running)$",
           "invalidmsg": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
@@ -3033,7 +3033,7 @@
         "$owner": null,
         "$repo": null,
         "issue": {
-          "type": "Number",
+          "type": "number",
           "required": true,
           "validation": "^[0-9]+$",
           "invalidmsg": "",
@@ -3135,21 +3135,21 @@
         "$repo": null,
         "$number": null,
         "commit_id": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "Sha of the commit to comment on.",
           "description": "Sha of the commit to comment on."
         },
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The body text of the pull request review."
         },
         "event": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(APPROVE|REQUEST_CHANGES|COMMENT|PENDING)$",
           "invalidmsg": "Possible values are: `APPROVE`, `REQUEST_CHANGES`, `COMMENT`, `PENDING`. Default: `PENDING`",
@@ -3163,7 +3163,7 @@
           "default": "PENDING"
         },
         "comments": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3181,14 +3181,14 @@
         "$number": null,
         "$id": null,
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The body text of the pull request review."
         },
         "event": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(APPROVE|REQUEST_CHANGES|COMMENT|PENDING)$",
           "invalidmsg": "Possible values are: `APPROVE`, `REQUEST_CHANGES`, `COMMENT`, `PENDING`. Default: `PENDING`",
@@ -3213,7 +3213,7 @@
         "$number": null,
         "$id": null,
         "message": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3243,7 +3243,7 @@
         "$owner": null,
         "$repo": null,
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated)$",
           "invalidmsg": "Possible values are: `created`, `updated`, Default: `created`",
@@ -3294,7 +3294,7 @@
         "$number": null,
         "$body": null,
         "in_reply_to": {
-          "type": "Number",
+          "type": "number",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -3344,14 +3344,14 @@
         "$repo": null,
         "$number": null,
         "reviewers": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "An array of user logins that will be requested."
         },
         "team_reviewers": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3368,14 +3368,14 @@
         "$repo": null,
         "$number": null,
         "reviewers": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "An array of user logins that will be requested."
         },
         "team_reviewers": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3394,7 +3394,7 @@
         "$repo": null,
         "$id": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3419,7 +3419,7 @@
         "$repo": null,
         "$id": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3444,7 +3444,7 @@
         "$repo": null,
         "$number": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3469,7 +3469,7 @@
         "$repo": null,
         "$number": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3494,7 +3494,7 @@
         "$repo": null,
         "$id": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3519,7 +3519,7 @@
         "$repo": null,
         "$id": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3544,7 +3544,7 @@
         "$repo": null,
         "$id": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3569,7 +3569,7 @@
         "$repo": null,
         "$id": null,
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(\\+1|-1|laugh|confused|heart|hooray)$",
           "invalidmsg": "Possible values: `+1`, `-1`, `laugh`, `confused`, `heart`, `hooray`.",
@@ -3593,7 +3593,7 @@
       "method": "GET",
       "params": {
         "visibility": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|public|private)$",
           "invalidmsg": "Possible values: `all`, `public`, `private`, Default: `all`.",
@@ -3606,7 +3606,7 @@
           "default": "all"
         },
         "affiliation": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "Possible values: `owner`, `collaborator`, `organization_member`, Default: `owner,collaborator,organization_member`.",
@@ -3614,7 +3614,7 @@
           "default": "owner,collaborator,organization_member"
         },
         "type": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|owner|public|private|member)$",
           "invalidmsg": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
@@ -3629,7 +3629,7 @@
           "default": "all"
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|pushed|full_name)$",
           "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
@@ -3654,7 +3654,7 @@
       "params": {
         "$username": null,
         "type": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|owner|member)$",
           "invalidmsg": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
@@ -3667,7 +3667,7 @@
           "default": "owner"
         },
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(created|updated|pushed|full_name)$",
           "invalidmsg": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
@@ -3692,7 +3692,7 @@
       "params": {
         "$org": null,
         "type": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(all|public|private|forks|sources|member)$",
           "invalidmsg": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
@@ -3717,7 +3717,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3741,7 +3741,7 @@
         "$has_projects": null,
         "$has_wiki": null,
         "team_id": {
-          "type": "Number",
+          "type": "number",
           "required": false,
           "validation": "^[0-9]+$",
           "invalidmsg": "",
@@ -3751,7 +3751,7 @@
         "$gitignore_template": null,
         "$license_template": null,
         "allow_squash_merge": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3759,7 +3759,7 @@
           "default": "true"
         },
         "allow_merge_commit": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3767,7 +3767,7 @@
           "default": "true"
         },
         "allow_rebase_merge": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3803,7 +3803,7 @@
         "$owner": null,
         "$repo": null,
         "names": {
-          "type": "Array",
+          "type": "String[]",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -3819,7 +3819,7 @@
         "$owner": null,
         "$repo": null,
         "anon": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3870,7 +3870,7 @@
         "$owner": null,
         "$repo": null,
         "protected": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3945,7 +3945,7 @@
           "description": "JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled."
         },
         "enforce_admins": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": true,
           "allow-null": false,
           "validation": "",
@@ -3989,14 +3989,14 @@
         "$repo": null,
         "$branch": null,
         "strict": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Require branches to be up to date before merging."
         },
         "contexts": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4035,7 +4035,7 @@
         "$repo": null,
         "$branch": null,
         "contexts": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4053,7 +4053,7 @@
         "$repo": null,
         "$branch": null,
         "contexts": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4071,7 +4071,7 @@
         "$repo": null,
         "$branch": null,
         "contexts": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4109,14 +4109,14 @@
           "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
         },
         "dismiss_stale_reviews": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Dismiss approved reviews automatically when a new commit is pushed."
         },
         "require_code_owner_reviews": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4213,7 +4213,7 @@
         "$repo": null,
         "$branch": null,
         "teams": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4231,7 +4231,7 @@
         "$repo": null,
         "$branch": null,
         "teams": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4249,7 +4249,7 @@
         "$repo": null,
         "$branch": null,
         "teams": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4279,7 +4279,7 @@
         "$repo": null,
         "$branch": null,
         "users": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4297,7 +4297,7 @@
         "$repo": null,
         "$branch": null,
         "users": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4315,7 +4315,7 @@
         "$repo": null,
         "$branch": null,
         "users": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -4332,7 +4332,7 @@
         "$owner": null,
         "$repo": null,
         "affiliation": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(outside|all|direct)$",
           "invalidmsg": "outside, all, direct, default: all",
@@ -4377,7 +4377,7 @@
         "$repo": null,
         "$username": null,
         "permission": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(pull|push|admin)$",
           "invalidmsg": "",
@@ -4420,7 +4420,7 @@
         "$owner": null,
         "$repo": null,
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -4440,14 +4440,14 @@
         "$sha": null,
         "$body": null,
         "path": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Relative path of the file to comment on."
         },
         "position": {
-          "type": "Number",
+          "type": "number",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4503,21 +4503,21 @@
         "$owner": null,
         "$repo": null,
         "sha": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Sha or branch to start listing commits from."
         },
         "path": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Only commits containing this file path will be returned."
         },
         "author": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4568,7 +4568,7 @@
         "$owner": null,
         "$repo": null,
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4584,7 +4584,7 @@
         "$owner": null,
         "$repo": null,
         "path": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "allow-empty": true,
           "validation": "",
@@ -4592,7 +4592,7 @@
           "description": "The content path."
         },
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4608,28 +4608,28 @@
         "$owner": null,
         "$repo": null,
         "path": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The content path."
         },
         "message": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The commit message."
         },
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The new file content, Base64 encoded."
         },
         "branch": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4659,35 +4659,35 @@
         "$owner": null,
         "$repo": null,
         "path": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The content path."
         },
         "message": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The commit message."
         },
         "content": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The updated file content, Base64 encoded."
         },
         "sha": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The blob SHA of the file being replaced."
         },
         "branch": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4717,28 +4717,28 @@
         "$owner": null,
         "$repo": null,
         "path": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The content path."
         },
         "message": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The commit message."
         },
         "sha": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The blob SHA of the file being removed."
         },
         "branch": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4768,7 +4768,7 @@
         "$owner": null,
         "$repo": null,
         "archive_format": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(tarball|zipball)$",
           "invalidmsg": "Either tarball or zipball, Default: tarball.",
@@ -4780,7 +4780,7 @@
           "default": "tarball"
         },
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4819,7 +4819,7 @@
         "$title": null,
         "$key": null,
         "read_only": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4845,7 +4845,7 @@
         "$owner": null,
         "$repo": null,
         "sha": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4853,7 +4853,7 @@
           "default": "none"
         },
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4861,7 +4861,7 @@
           "default": "none"
         },
         "task": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4869,7 +4869,7 @@
           "default": "none"
         },
         "environment": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4888,7 +4888,7 @@
         "$owner": null,
         "$repo": null,
         "deployment_id": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -4904,14 +4904,14 @@
         "$owner": null,
         "$repo": null,
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The ref to deploy. This can be a branch, tag, or sha."
         },
         "task": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4919,7 +4919,7 @@
           "default": "deploy"
         },
         "auto_merge": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4927,14 +4927,14 @@
           "default": "true"
         },
         "required_contexts": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts."
         },
         "payload": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4942,7 +4942,7 @@
           "default": "\"\""
         },
         "environment": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4950,7 +4950,7 @@
           "default": "none"
         },
         "description": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4958,7 +4958,7 @@
           "default": "\"\""
         },
         "transient_environment": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4966,7 +4966,7 @@
           "default": false
         },
         "production_environment": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4992,14 +4992,14 @@
         "$owner": null,
         "$repo": null,
         "id": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The Deployment ID to list the statuses from."
         },
         "status_id": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -5016,14 +5016,14 @@
         "$repo": null,
         "$id": null,
         "state": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "The state of the status. Can be one of pending, success, error, or failure."
         },
         "target_url": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5031,7 +5031,7 @@
           "default": "\"\""
         },
         "log_url": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5039,7 +5039,7 @@
           "default": "\"\""
         },
         "description": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5047,7 +5047,7 @@
           "default": "\"\""
         },
         "environment_url": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5055,7 +5055,7 @@
           "default": "\"\""
         },
         "auto_inactive": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5103,7 +5103,7 @@
         "$owner": null,
         "$repo": null,
         "sort": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(newest|oldest|stargazers)$",
           "invalidmsg": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
@@ -5147,7 +5147,7 @@
         "$repo": null,
         "$invitation_id": null,
         "permissions": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(read|write|admin)$",
           "invalidmsg": "Read, write, or admin.",
@@ -5248,7 +5248,7 @@
         "$owner": null,
         "$repo": null,
         "tag": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -5264,42 +5264,42 @@
         "$owner": null,
         "$repo": null,
         "tag_name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the tag"
         },
         "target_commitish": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
         },
         "name": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "draft": {
-          "type": "Boolean",
+          "type": "boolean",
           "validation": "",
           "invalidmsg": "",
           "description": "true to create a draft (unpublished) release, false to create a published one. Default: false",
           "default": "false"
         },
         "prerelease": {
-          "type": "Boolean",
+          "type": "boolean",
           "validation": "",
           "invalidmsg": "",
           "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false",
@@ -5316,35 +5316,35 @@
         "$repo": null,
         "$id": null,
         "tag_name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "String of the tag"
         },
         "target_commitish": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
         },
         "name": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "body": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "draft": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5352,7 +5352,7 @@
           "default": "false"
         },
         "prerelease": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5393,7 +5393,7 @@
       "timeout": 0,
       "params": {
         "$url": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -5407,28 +5407,28 @@
           "description": "A file read stream, a String or a Buffer."
         },
         "$contentType": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The content type of the asset. This should be set in the Header. Example: 'application/zip'. For a list of acceptable types, refer this list of media types (https://www.iana.org/assignments/media-types/media-types.xhtml)"
         },
         "$contentLength": {
-          "type": "Number",
+          "type": "number",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "File size in bytes."
         },
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The file name of the asset. This should be set in a URI query parameter."
         },
         "label": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5456,7 +5456,7 @@
         "$id": null,
         "$name": null,
         "label": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5528,7 +5528,7 @@
         "$repo": null,
         "$sha": null,
         "state": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(pending|success|error|failure)$",
           "invalidmsg": "",
@@ -5541,21 +5541,21 @@
           ]
         },
         "target_url": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
         },
         "description": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Short description of the status."
         },
         "context": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5571,7 +5571,7 @@
         "$owner": null,
         "$repo": null,
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -5589,7 +5589,7 @@
         "$owner": null,
         "$repo": null,
         "ref": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -5680,7 +5680,7 @@
           "description": "A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
         },
         "events": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5688,7 +5688,7 @@
           "default": "[\"push\"]"
         },
         "active": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5713,7 +5713,7 @@
           "description": "A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
         },
         "events": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5721,21 +5721,21 @@
           "default": "[\"push\"]"
         },
         "add_events": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Determines a list of events to be added to the list of events that the Hook triggers for."
         },
         "remove_events": {
-          "type": "Array",
+          "type": "String[]",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Determines a list of events to be removed from the list of events that the Hook triggers for."
         },
         "active": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -5798,7 +5798,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "Number",
+          "type": "number",
           "required": false,
           "validation": "",
           "description": "The integer ID of the last User that you’ve seen."
@@ -5820,7 +5820,7 @@
       "method": "GET",
       "params": {
         "state": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "^(active|pending)$",
           "invalidmsg": "active, pending",
@@ -5847,7 +5847,7 @@
       "params": {
         "$org": null,
         "state": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "^(active)$",
           "invalidmsg": "active",
@@ -5891,7 +5891,7 @@
       "method": "POST",
       "params": {
         "emails": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -5906,7 +5906,7 @@
       "method": "DELETE",
       "params": {
         "emails": {
-          "type": "Array",
+          "type": "String[]",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -5974,7 +5974,7 @@
       "params": {
         "$username": null,
         "target_user": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6075,7 +6075,7 @@
       "method": "POST",
       "params": {
         "armored_public_key": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6207,7 +6207,7 @@
       "params": {
         "$username": null,
         "ldap_dn": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "Invalid DN",
@@ -6229,14 +6229,14 @@
       "method": "PATCH",
       "params": {
         "team_id": {
-          "type": "Number",
+          "type": "number",
           "required": true,
           "validation": "^[0-9]+$",
           "invalidmsg": "",
           "description": ""
         },
         "ldap_dn": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "Invalid DN",
@@ -6250,7 +6250,7 @@
       "method": "POST",
       "params": {
         "team_id": {
-          "type": "Number",
+          "type": "number",
           "required": true,
           "validation": "^[0-9]+$",
           "invalidmsg": "",
@@ -6284,14 +6284,14 @@
       "method": "POST",
       "params": {
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The new pre-receive environment's name."
         },
         "image_url": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6306,14 +6306,14 @@
       "params": {
         "$id": null,
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "This pre-receive environment's new name."
         },
         "image_url": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6365,14 +6365,14 @@
       "method": "POST",
       "params": {
         "name": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The name of the hook."
         },
         "script": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6393,7 +6393,7 @@
           "description": "The pre-receive environment where the script is executed."
         },
         "enforcement": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -6401,7 +6401,7 @@
           "default": "disabled"
         },
         "allow_downstream_configuration": {
-          "type": "Boolean",
+          "type": "boolean",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -6440,7 +6440,7 @@
       "method": "POST",
       "params": {
         "target": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6454,21 +6454,21 @@
       "method": "POST",
       "params": {
         "login": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The organization's username."
         },
         "admin": {
-          "type": "String",
+          "type": "string",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The login of the user who will manage this organization."
         },
         "profile_name": {
-          "type": "String",
+          "type": "string",
           "required": false,
           "validation": "",
           "invalidmsg": "",

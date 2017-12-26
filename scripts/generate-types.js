@@ -13,49 +13,12 @@ var typeMap = {
   Boolean: 'boolean'
 }
 
-// XXX: maybe a better idea to update routes.json to include array value types.
-function replaceArrayTypes (type, name) {
-  switch (name) {
-    case 'scopes':
-    case 'add_scopes':
-    case 'remove_scopes':
-    case 'parents':
-    case 'assignees':
-    case 'repositories':
-    case 'repo_names':
-    case 'events':
-    case 'add_events':
-    case 'remove_events':
-    case 'contexts':
-    case 'required_contexts':
-    case 'maintainers':
-    case 'reviewers':
-    case 'team_reviewers':
-    case 'comments':
-    case 'labels':
-    case 'teams':
-    case 'users':
-    case 'names':
-    case 'emails':
-      if (type === 'Array') {
-        return 'string[]'
-      } else {
-        console.log(`\ntype ==============================`)
-        console.log(type)
-        console.log(`\nname ==============================`)
-        console.log(name)
-      }
-  }
-  return type
-}
-
 function paramData (key, definition) {
   if (definition === null) {
     return {}
   }
 
-  var typeName = typeMap[definition.type] || definition.type
-  var type = replaceArrayTypes(typeName, key)
+  var type = typeMap[definition.type] || definition.type
   var enums = definition.enum
         ? definition.enum.map(JSON.stringify).join('|')
         : null

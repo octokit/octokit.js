@@ -44,126 +44,126 @@
             "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
         },
         "owner": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "username": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "org": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "repo": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "branch": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "sha": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "description": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "gist_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "Id (SHA1 hash) of the gist."
         },
         "installation_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "repository_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "commit_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "Sha of the commit to comment on.",
             "description": "Sha of the commit to comment on."
         },
         "client_id": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "The 20 character OAuth app client key for which to create the token."
         },
         "column_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "project_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "repo_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "invitation_id": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "ref": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "allow-empty": true,
             "validation": "",
@@ -171,28 +171,28 @@
             "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
         },
         "number": {
-            "type": "Number",
+            "type": "number",
             "required": true,
             "validation": "^[0-9]+$",
             "invalidmsg": "",
             "description": ""
         },
         "issue_number": {
-            "type": "Number",
+            "type": "number",
             "required": true,
             "validation": "^[0-9]+$",
             "invalidmsg": "",
             "description": ""
         },
         "name": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "direction": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "^(asc|desc)$",
             "invalidmsg": "asc or desc, default: desc.",
@@ -218,7 +218,7 @@
             "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
         },
         "state": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "^(open|closed|all)$",
             "invalidmsg": "open, closed, all, default: open",
@@ -231,56 +231,56 @@
             "default": "open"
         },
         "color": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "6 character hex code, without a leading #.",
             "description": "6 character hex code, without a leading #."
         },
         "base": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
         },
         "head": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "The branch (or git ref) where your changes are implemented."
         },
         "path": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "Relative path of the file to comment on.",
             "description": "Relative path of the file to comment on."
         },
         "position": {
-            "type": "Number",
+            "type": "number",
             "required": true,
             "validation": "",
             "invalidmsg": "Column index in the diff to comment on.",
             "description": "Column index in the diff to comment on."
         },
         "body": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "homepage": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "private": {
-            "type": "Boolean",
+            "type": "boolean",
             "required": false,
             "validation": "",
             "invalidmsg": "",
@@ -288,7 +288,7 @@
             "default": "false"
         },
         "has_issues": {
-            "type": "Boolean",
+            "type": "boolean",
             "required": false,
             "validation": "",
             "invalidmsg": "",
@@ -296,7 +296,7 @@
             "default": "true"
         },
         "has_projects": {
-            "type": "Boolean",
+            "type": "boolean",
             "required": false,
             "validation": "",
             "invalidmsg": "",
@@ -304,7 +304,7 @@
             "default": "true"
         },
         "has_wiki": {
-            "type": "Boolean",
+            "type": "boolean",
             "required": false,
             "validation": "",
             "invalidmsg": "",
@@ -312,7 +312,7 @@
             "default": "true"
         },
         "has_downloads": {
-            "type": "Boolean",
+            "type": "boolean",
             "required": false,
             "validation": "",
             "invalidmsg": "",
@@ -320,35 +320,35 @@
             "default": "true"
         },
         "default_branch": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "Updates the default branch for this repository."
         },
         "title": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "key": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": ""
         },
         "page": {
-            "type": "Number",
+            "type": "number",
             "required": false,
             "validation": "^[0-9]+$",
             "invalidmsg": "",
             "description": "Page number of the results to fetch."
         },
         "per_page": {
-            "type": "Number",
+            "type": "number",
             "required": false,
             "validation": "^[0-9]+$",
             "invalidmsg": "",
@@ -356,28 +356,28 @@
             "default": "30"
         },
         "scopes": {
-            "type": "Array",
+            "type": "string[]",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "A list of scopes that this authorization is in."
         },
         "note": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "A note to remind you what the OAuth token is for."
         },
         "note_url": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "A URL to remind you what app the OAuth token is for."
         },
         "auto_init": {
-            "type": "Boolean",
+            "type": "boolean",
             "required": false,
             "validation": "",
             "invalidmsg": "",
@@ -385,21 +385,21 @@
             "default": "false"
         },
         "gitignore_template": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
         },
         "license_template": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "Desired LICENSE template to apply. Use the name of the template without the extension. For example, \"mit\" or \"mozilla\"."
         },
         "order": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "^(asc|desc)$",
             "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
@@ -411,7 +411,7 @@
             "default": "desc"
         },
         "q": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
@@ -419,14 +419,14 @@
             "combined": true
         },
         "data": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "Raw data to send as the body of the request"
         },
         "privacy": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "^(secret|closed)$",
             "invalidmsg": "secret, closed, default: secret",
@@ -438,42 +438,42 @@
             "default": "secret"
         },
         "fingerprint": {
-            "type": "String",
+            "type": "string",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
         },
         "access_token": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "OAuth token"
         },
         "assignees": {
-            "type": "Array",
+            "type": "string[]",
             "required": false,
             "validation": "",
             "invalidmsg": "",
             "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
         },
         "url": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "Dynamic URL for release asset uploads returned by the release’s API response."
         },
         "contentType": {
-            "type": "String",
+            "type": "string",
             "required": true,
             "validation": "",
             "invalidmsg": "",
             "description": "The content type of a release asset upload."
         },
         "contentLength": {
-            "type": "Number",
+            "type": "number",
             "required": true,
             "validation": "",
             "invalidmsg": "",

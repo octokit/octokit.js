@@ -412,7 +412,7 @@ declare namespace Github {
     & {
       message: string;
       tree: string;
-      parents: string[];
+      parents: String[];
       author?: string;
       committer?: string;
     };
@@ -630,7 +630,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      assignees: string[];
+      assignees: String[];
     };
   export type IssuesRemoveAssigneesFromIssueParams =
     & Owner
@@ -737,7 +737,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      labels: string[];
+      labels: String[];
     };
   export type IssuesRemoveLabelParams =
     & Owner
@@ -751,7 +751,7 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      labels: string[];
+      labels: String[];
     };
   export type IssuesRemoveAllLabelsParams =
     & Owner
@@ -812,7 +812,7 @@ declare namespace Github {
   export type MigrationsStartMigrationParams =
     & Org
     & {
-      repositories: string[];
+      repositories: String[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
@@ -1002,8 +1002,8 @@ declare namespace Github {
     & Privacy
     & {
       description?: string;
-      maintainers?: string[];
-      repo_names?: string[];
+      maintainers?: String[];
+      repo_names?: String[];
       parent_team_id?: string;
     };
   export type OrgsEditTeamParams =
@@ -1084,7 +1084,7 @@ declare namespace Github {
     & {
       name: string;
       config: string;
-      events?: string[];
+      events?: String[];
       active?: boolean;
     };
   export type OrgsEditHookParams =
@@ -1092,7 +1092,7 @@ declare namespace Github {
     & Id
     & {
       config: string;
-      events?: string[];
+      events?: String[];
       active?: boolean;
     };
   export type OrgsPingHookParams =
@@ -1280,7 +1280,7 @@ declare namespace Github {
       commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
-      comments?: string[];
+      comments?: String[];
     };
   export type PullRequestsSubmitReviewParams =
     & Owner
@@ -1363,16 +1363,16 @@ declare namespace Github {
     & Repo
     & Number
     & {
-      reviewers?: string[];
-      team_reviewers?: string[];
+      reviewers?: String[];
+      team_reviewers?: String[];
     };
   export type PullRequestsDeleteReviewRequestParams =
     & Owner
     & Repo
     & Number
     & {
-      reviewers?: string[];
-      team_reviewers?: string[];
+      reviewers?: String[];
+      team_reviewers?: String[];
     };
   export type ReactionsGetForCommitCommentParams =
     & Owner
@@ -1493,7 +1493,7 @@ declare namespace Github {
     & Owner
     & Repo
     & {
-      names: string[];
+      names: String[];
     };
   export type ReposGetContributorsParams =
     & Owner
@@ -1576,7 +1576,7 @@ declare namespace Github {
     & Branch
     & {
       strict?: boolean;
-      contexts?: string[];
+      contexts?: String[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksParams =
     & Owner
@@ -1595,21 +1595,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      contexts: string[];
+      contexts: String[];
     };
   export type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      contexts: string[];
+      contexts: String[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      contexts: string[];
+      contexts: String[];
     };
   export type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
@@ -1677,21 +1677,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      teams: string[];
+      teams: String[];
     };
   export type ReposAddProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      teams: string[];
+      teams: String[];
     };
   export type ReposRemoveProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      teams: string[];
+      teams: String[];
     };
   export type ReposGetProtectedBranchUserRestrictionsParams =
     & Owner
@@ -1705,21 +1705,21 @@ declare namespace Github {
     & Repo
     & Branch
     & {
-      users: string[];
+      users: String[];
     };
   export type ReposAddProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      users: string[];
+      users: String[];
     };
   export type ReposRemoveProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      users: string[];
+      users: String[];
     };
   export type ReposGetCollaboratorsParams =
     & Owner
@@ -1924,7 +1924,7 @@ declare namespace Github {
       ref: string;
       task?: string;
       auto_merge?: boolean;
-      required_contexts?: string[];
+      required_contexts?: String[];
       payload?: string;
       environment?: string;
       description?: string;
@@ -2188,7 +2188,7 @@ declare namespace Github {
     & Name
     & {
       config: string;
-      events?: string[];
+      events?: String[];
       active?: boolean;
     };
   export type ReposEditHookParams =
@@ -2198,9 +2198,9 @@ declare namespace Github {
     & Name
     & {
       config: string;
-      events?: string[];
-      add_events?: string[];
-      remove_events?: string[];
+      events?: String[];
+      add_events?: String[];
+      remove_events?: String[];
       active?: boolean;
     };
   export type ReposTestHookParams =
@@ -2258,11 +2258,11 @@ declare namespace Github {
     ;
   export type UsersAddEmailsParams =
     & {
-      emails: string[];
+      emails: String[];
     };
   export type UsersDeleteEmailsParams =
     & {
-      emails: string[];
+      emails: String[];
     };
   export type UsersGetFollowersForUserParams =
     & Username

@@ -1,0 +1,3238 @@
+declare module "github" {
+  declare type Header =
+    | "Authorization"
+    | "If-Modified-Since"
+    | "If-None-Match"
+    | "Cookie"
+    | "User-Agent"
+    | "Accept"
+    | "X-GitHub-OTP"
+    | string;
+
+  declare type EmptyParams = {
+  };
+
+  declare type Options = {
+    timeout?: number;
+    host?: string;
+    pathPrefix?: string;
+    protocol?: string;
+    port?: number;
+    proxy?: string;
+    ca?: string;
+    headers?: {[header: Header]: any};
+    requestMedia?: string;
+    rejectUnauthorized?: boolean;
+    family?: number;
+  };
+
+  declare type AuthBasic = {
+    type: "basic";
+    username: string;
+    password: string;
+  };
+
+  declare type AuthOAuthToken = {
+    type: "oauth";
+    token: string;
+  };
+
+  declare type AuthOAuthSecret = {
+    type: "oauth";
+    key: string;
+    secret: string;
+  };
+
+  declare type AuthUserToken = {
+    type: "token";
+    token: string;
+  };
+
+  declare type AuthJWT = {
+    type: "integration";
+    token: string;
+  };
+
+  declare type Auth =
+    | AuthBasic
+    | AuthOAuthToken
+    | AuthOAuthSecret
+    | AuthUserToken
+    | AuthJWT;
+
+  declare type Link =
+    | { link: string; }
+    | { meta: { link: string; }; }
+    | string
+    | any;
+
+  declare type Callback = (error: ?Error, result: ?any) => any;
+
+  declare type Files = { files: string; };
+  declare type Owner = { owner: string; };
+  declare type Username = { username: string; };
+  declare type Org = { org: string; };
+  declare type Repo = { repo: string; };
+  declare type Branch = { branch: string; };
+  declare type Sha = { sha: string; };
+  declare type Description = { description?: string; };
+  declare type Id = { id: string; };
+  declare type GistId = { gist_id: string; };
+  declare type InstallationId = { installation_id: string; };
+  declare type RepositoryId = { repository_id: string; };
+  declare type CommitId = { commit_id: string; };
+  declare type ClientId = { client_id?: string; };
+  declare type ColumnId = { column_id: string; };
+  declare type ProjectId = { project_id: string; };
+  declare type RepoId = { repo_id: string; };
+  declare type InvitationId = { invitation_id: string; };
+  declare type Ref = { ref: string; };
+  declare type Number = { number: number; };
+  declare type IssueNumber = { issue_number: number; };
+  declare type Name = { name: string; };
+  declare type Direction = { direction?: "asc"|"desc"; };
+  declare type Since = { since?: Date; };
+  declare type Until = { until?: Date; };
+  declare type State = { state?: "open"|"closed"|"all"; };
+  declare type Color = { color: string; };
+  declare type Base = { base: string; };
+  declare type Head = { head: string; };
+  declare type Path = { path: string; };
+  declare type Position = { position: number; };
+  declare type Body = { body: string; };
+  declare type Homepage = { homepage?: string; };
+  declare type Private = { private?: boolean; };
+  declare type HasIssues = { has_issues?: boolean; };
+  declare type HasProjects = { has_projects?: boolean; };
+  declare type HasWiki = { has_wiki?: boolean; };
+  declare type HasDownloads = { has_downloads?: boolean; };
+  declare type DefaultBranch = { default_branch?: string; };
+  declare type Title = { title: string; };
+  declare type Key = { key: string; };
+  declare type Page = { page?: number; };
+  declare type PerPage = { per_page?: number; };
+  declare type Scopes = { scopes?: string[]; };
+  declare type Note = { note?: string; };
+  declare type NoteUrl = { note_url?: string; };
+  declare type AutoInit = { auto_init?: boolean; };
+  declare type GitignoreTemplate = { gitignore_template?: string; };
+  declare type LicenseTemplate = { license_template?: string; };
+  declare type Order = { order?: "asc"|"desc"; };
+  declare type Q = { q: string; };
+  declare type Data = { data: string; };
+  declare type Privacy = { privacy?: "secret"|"closed"; };
+  declare type Fingerprint = { fingerprint?: string; };
+  declare type AccessToken = { access_token: string; };
+  declare type Assignees = { assignees?: string[]; };
+  declare type Url = { url: string; };
+  declare type ContentType = { contentType: string; };
+  declare type ContentLength = { contentLength: number; };
+
+  declare type AuthorizationGetGrantsParams =
+    & Page
+    & PerPage
+    ;
+  declare type AuthorizationGetGrantParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type AuthorizationDeleteGrantParams =
+    & Id
+    ;
+  declare type AuthorizationGetAllParams =
+    & Page
+    & PerPage
+    ;
+  declare type AuthorizationGetParams =
+    & Id
+    ;
+  declare type AuthorizationCreateParams =
+    & Scopes
+    & Note
+    & NoteUrl
+    & ClientId
+    & Fingerprint
+    & {
+      client_secret?: string;
+    };
+  declare type AuthorizationGetOrCreateAuthorizationForAppParams =
+    & ClientId
+    & Scopes
+    & Note
+    & NoteUrl
+    & Fingerprint
+    & {
+      client_secret: string;
+    };
+  declare type AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams =
+    & ClientId
+    & Fingerprint
+    & Scopes
+    & Note
+    & NoteUrl
+    & {
+      client_secret: string;
+    };
+  declare type AuthorizationUpdateParams =
+    & Id
+    & Scopes
+    & Note
+    & NoteUrl
+    & Fingerprint
+    & {
+      add_scopes?: string[];
+      remove_scopes?: string[];
+    };
+  declare type AuthorizationDeleteParams =
+    & Id
+    ;
+  declare type AuthorizationCheckParams =
+    & ClientId
+    & AccessToken
+    ;
+  declare type AuthorizationResetParams =
+    & ClientId
+    & AccessToken
+    ;
+  declare type AuthorizationRevokeParams =
+    & ClientId
+    & AccessToken
+    ;
+  declare type AuthorizationRevokeGrantParams =
+    & ClientId
+    & AccessToken
+    ;
+  declare type ActivityGetEventsParams =
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForRepoParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForRepoIssuesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForRepoNetworkParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForOrgParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsReceivedParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsReceivedPublicParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForUserPublicParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetEventsForUserOrgParams =
+    & Username
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetNotificationsParams =
+    & Since
+    & {
+      all?: boolean;
+      participating?: boolean;
+      before?: string;
+    };
+  declare type ActivityGetNotificationsForUserParams =
+    & Owner
+    & Repo
+    & Since
+    & {
+      all?: boolean;
+      participating?: boolean;
+      before?: string;
+    };
+  declare type ActivityMarkNotificationsAsReadParams =
+    & {
+      last_read_at?: string;
+    };
+  declare type ActivityMarkNotificationsAsReadForRepoParams =
+    & Owner
+    & Repo
+    & {
+      last_read_at?: string;
+    };
+  declare type ActivityGetNotificationThreadParams =
+    & Id
+    ;
+  declare type ActivityMarkNotificationThreadAsReadParams =
+    & Id
+    ;
+  declare type ActivityCheckNotificationThreadSubscriptionParams =
+    & Id
+    ;
+  declare type ActivitySetNotificationThreadSubscriptionParams =
+    & Id
+    & {
+      subscribed?: boolean;
+      ignored?: boolean;
+    };
+  declare type ActivityDeleteNotificationThreadSubscriptionParams =
+    & Id
+    ;
+  declare type ActivityGetStargazersForRepoParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetStarredReposForUserParams =
+    & Username
+    & Direction
+    & Page
+    & PerPage
+    & {
+      sort?: "created"|"updated";
+    };
+  declare type ActivityGetStarredReposParams =
+    & Direction
+    & Page
+    & PerPage
+    & {
+      sort?: "created"|"updated";
+    };
+  declare type ActivityCheckStarringRepoParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivityStarRepoParams =
+    & Owner
+    & Repo
+    ;
+  declare type ActivityUnstarRepoParams =
+    & Owner
+    & Repo
+    ;
+  declare type ActivityGetWatchersForRepoParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetWatchedReposForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetWatchedReposParams =
+    & Page
+    & PerPage
+    ;
+  declare type ActivityGetRepoSubscriptionParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ActivitySetRepoSubscriptionParams =
+    & Owner
+    & Repo
+    & {
+      subscribed?: boolean;
+      ignored?: boolean;
+    };
+  declare type ActivityUnwatchRepoParams =
+    & Owner
+    & Repo
+    ;
+  declare type GistsGetForUserParams =
+    & Username
+    & Since
+    & Page
+    & PerPage
+    ;
+  declare type GistsGetAllParams =
+    & Since
+    & Page
+    & PerPage
+    ;
+  declare type GistsGetPublicParams =
+    & Since
+    ;
+  declare type GistsGetStarredParams =
+    & Since
+    ;
+  declare type GistsGetParams =
+    & Id
+    ;
+  declare type GistsGetRevisionParams =
+    & Id
+    & Sha
+    ;
+  declare type GistsCreateParams =
+    & Files
+    & Description
+    & {
+      public: boolean;
+    };
+  declare type GistsEditParams =
+    & Id
+    & Description
+    & Files
+    & {
+      content?: string;
+      filename?: string;
+    };
+  declare type GistsGetCommitsParams =
+    & Id
+    ;
+  declare type GistsStarParams =
+    & Id
+    ;
+  declare type GistsUnstarParams =
+    & Id
+    ;
+  declare type GistsCheckStarParams =
+    & Id
+    ;
+  declare type GistsForkParams =
+    & Id
+    ;
+  declare type GistsGetForksParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type GistsDeleteParams =
+    & Id
+    ;
+  declare type GistsGetCommentsParams =
+    & GistId
+    ;
+  declare type GistsGetCommentParams =
+    & GistId
+    & Id
+    ;
+  declare type GistsCreateCommentParams =
+    & GistId
+    & Body
+    ;
+  declare type GistsEditCommentParams =
+    & GistId
+    & Id
+    & Body
+    ;
+  declare type GistsDeleteCommentParams =
+    & GistId
+    & Id
+    ;
+  declare type GitdataGetBlobParams =
+    & Owner
+    & Repo
+    & Sha
+    & Page
+    & PerPage
+    ;
+  declare type GitdataCreateBlobParams =
+    & Owner
+    & Repo
+    & {
+      content: string;
+      encoding: string;
+    };
+  declare type GitdataGetCommitParams =
+    & Owner
+    & Repo
+    & Sha
+    ;
+  declare type GitdataCreateCommitParams =
+    & Owner
+    & Repo
+    & {
+      message: string;
+      tree: string;
+      parents: string[];
+      author?: string;
+      committer?: string;
+    };
+  declare type GitdataGetCommitSignatureVerificationParams =
+    & Owner
+    & Repo
+    & Sha
+    ;
+  declare type GitdataGetReferenceParams =
+    & Owner
+    & Repo
+    & Ref
+    ;
+  declare type GitdataGetReferencesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type GitdataGetTagsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type GitdataCreateReferenceParams =
+    & Owner
+    & Repo
+    & Sha
+    & {
+      ref: string;
+    };
+  declare type GitdataUpdateReferenceParams =
+    & Owner
+    & Repo
+    & Ref
+    & Sha
+    & {
+      force?: boolean;
+    };
+  declare type GitdataDeleteReferenceParams =
+    & Owner
+    & Repo
+    & Ref
+    ;
+  declare type GitdataGetTagParams =
+    & Owner
+    & Repo
+    & Sha
+    ;
+  declare type GitdataCreateTagParams =
+    & Owner
+    & Repo
+    & {
+      tag: string;
+      message: string;
+      object: string;
+      type: string;
+      tagger: string;
+    };
+  declare type GitdataGetTagSignatureVerificationParams =
+    & Owner
+    & Repo
+    & Sha
+    ;
+  declare type GitdataGetTreeParams =
+    & Owner
+    & Repo
+    & Sha
+    & {
+      recursive?: boolean;
+    };
+  declare type GitdataCreateTreeParams =
+    & Owner
+    & Repo
+    & {
+      tree: string;
+      base_tree?: string;
+    };
+  declare type IntegrationsGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  declare type IntegrationsCreateInstallationTokenParams =
+    & InstallationId
+    & {
+      user_id?: string;
+    };
+  declare type IntegrationsGetInstallationRepositoriesParams =
+    & {
+      user_id?: string;
+    };
+  declare type IntegrationsAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type IntegrationsRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type AppsGetForSlugParams =
+    & {
+      app_slug: string;
+    };
+  declare type AppsGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetInstallationParams =
+    & InstallationId
+    ;
+  declare type AppsCreateInstallationTokenParams =
+    & InstallationId
+    & {
+      user_id?: string;
+    };
+  declare type AppsGetInstallationRepositoriesParams =
+    & {
+      user_id?: string;
+    };
+  declare type AppsAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type AppsRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type AppsGetMarketplaceListingPlansParams =
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetMarketplaceListingStubbedPlansParams =
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetMarketplaceListingPlanAccountsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type AppsGetMarketplaceListingStubbedPlanAccountsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type AppsCheckMarketplaceListingAccountParams =
+    & Id
+    ;
+  declare type AppsCheckMarketplaceListingStubbedAccountParams =
+    & Id
+    ;
+  declare type IssuesGetAllParams =
+    & Direction
+    & Since
+    & Page
+    & PerPage
+    & {
+      filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
+      state?: "open"|"closed"|"all";
+      labels?: string;
+      sort?: "created"|"updated"|"comments";
+    };
+  declare type IssuesGetForUserParams =
+    & Direction
+    & Since
+    & Page
+    & PerPage
+    & {
+      filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
+      state?: "open"|"closed"|"all";
+      labels?: string;
+      sort?: "created"|"updated"|"comments";
+    };
+  declare type IssuesGetForOrgParams =
+    & Org
+    & Direction
+    & Since
+    & Page
+    & PerPage
+    & {
+      filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
+      state?: "open"|"closed"|"all";
+      labels?: string;
+      sort?: "created"|"updated"|"comments";
+    };
+  declare type IssuesGetForRepoParams =
+    & Owner
+    & Repo
+    & Direction
+    & Since
+    & Page
+    & PerPage
+    & {
+      milestone?: string;
+      state?: "open"|"closed"|"all";
+      assignee?: string;
+      creator?: string;
+      mentioned?: string;
+      labels?: string;
+      sort?: "created"|"updated"|"comments";
+    };
+  declare type IssuesGetParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesCreateParams =
+    & Owner
+    & Repo
+    & Assignees
+    & {
+      title: string;
+      body?: string;
+      assignee?: string;
+      milestone?: number;
+      labels?: string[];
+    };
+  declare type IssuesEditParams =
+    & Owner
+    & Repo
+    & Number
+    & Assignees
+    & {
+      title?: string;
+      body?: string;
+      assignee?: string;
+      state?: "open"|"closed";
+      milestone?: number;
+      labels?: string[];
+    };
+  declare type IssuesLockParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesUnlockParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesGetAssigneesParams =
+    & Owner
+    & Repo
+    ;
+  declare type IssuesCheckAssigneeParams =
+    & Owner
+    & Repo
+    & {
+      assignee: string;
+    };
+  declare type IssuesAddAssigneesToIssueParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      assignees: string[];
+    };
+  declare type IssuesRemoveAssigneesFromIssueParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      body: string;
+    };
+  declare type IssuesGetCommentsParams =
+    & Owner
+    & Repo
+    & Number
+    & Since
+    & Page
+    & PerPage
+    ;
+  declare type IssuesGetCommentsForRepoParams =
+    & Owner
+    & Repo
+    & Direction
+    & Since
+    & Page
+    & PerPage
+    & {
+      sort?: "created"|"updated";
+    };
+  declare type IssuesGetCommentParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type IssuesCreateCommentParams =
+    & Owner
+    & Repo
+    & Number
+    & Body
+    ;
+  declare type IssuesEditCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & Body
+    ;
+  declare type IssuesDeleteCommentParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type IssuesGetEventsParams =
+    & Owner
+    & Repo
+    & IssueNumber
+    & Page
+    & PerPage
+    ;
+  declare type IssuesGetEventsForRepoParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type IssuesGetEventParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type IssuesGetLabelsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type IssuesGetLabelParams =
+    & Owner
+    & Repo
+    & Name
+    ;
+  declare type IssuesCreateLabelParams =
+    & Owner
+    & Repo
+    & Name
+    & Color
+    ;
+  declare type IssuesUpdateLabelParams =
+    & Owner
+    & Repo
+    & Color
+    & {
+      oldname: string;
+      name: string;
+    };
+  declare type IssuesDeleteLabelParams =
+    & Owner
+    & Repo
+    & Name
+    ;
+  declare type IssuesGetIssueLabelsParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesAddLabelsParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      labels: string[];
+    };
+  declare type IssuesRemoveLabelParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      name: string;
+    };
+  declare type IssuesReplaceAllLabelsParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      labels: string[];
+    };
+  declare type IssuesRemoveAllLabelsParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesGetMilestoneLabelsParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesGetMilestonesParams =
+    & Owner
+    & Repo
+    & State
+    & Page
+    & PerPage
+    & {
+      sort?: "due_on"|"completeness";
+      direction?: "asc"|"desc";
+    };
+  declare type IssuesGetMilestoneParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesCreateMilestoneParams =
+    & Owner
+    & Repo
+    & State
+    & Description
+    & {
+      title: string;
+      due_on?: Date;
+    };
+  declare type IssuesUpdateMilestoneParams =
+    & Owner
+    & Repo
+    & Number
+    & State
+    & Description
+    & {
+      title: string;
+      due_on?: Date;
+    };
+  declare type IssuesDeleteMilestoneParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type IssuesGetEventsTimelineParams =
+    & Owner
+    & Repo
+    & IssueNumber
+    & Page
+    & PerPage
+    ;
+  declare type MigrationsStartMigrationParams =
+    & Org
+    & {
+      repositories: string[];
+      lock_repositories?: boolean;
+      exclude_attachments?: boolean;
+    };
+  declare type MigrationsGetMigrationsParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type MigrationsGetMigrationStatusParams =
+    & Org
+    & Id
+    ;
+  declare type MigrationsGetMigrationArchiveLinkParams =
+    & Org
+    & Id
+    ;
+  declare type MigrationsDeleteMigrationArchiveParams =
+    & Org
+    & Id
+    ;
+  declare type MigrationsUnlockRepoLockedForMigrationParams =
+    & Org
+    & Id
+    & {
+      repo_name: string;
+    };
+  declare type MigrationsStartImportParams =
+    & Owner
+    & Repo
+    & {
+      vcs_url: string;
+      vcs?: "subversion"|"git"|"mercurial"|"tfvc";
+      vcs_username?: string;
+      vcs_password?: string;
+      tfvc_project?: string;
+    };
+  declare type MigrationsGetImportProgressParams =
+    & Owner
+    & Repo
+    ;
+  declare type MigrationsUpdateImportParams =
+    & Owner
+    & Repo
+    ;
+  declare type MigrationsGetImportCommitAuthorsParams =
+    & Owner
+    & Repo
+    & {
+      since?: string;
+    };
+  declare type MigrationsMapImportCommitAuthorParams =
+    & Owner
+    & Repo
+    & {
+      author_id: string;
+      email?: string;
+      name?: string;
+    };
+  declare type MigrationsSetImportLfsPreferenceParams =
+    & Owner
+    & Name
+    & {
+      use_lfs: string;
+    };
+  declare type MigrationsGetLargeImportFilesParams =
+    & Owner
+    & Name
+    ;
+  declare type MigrationsCancelImportParams =
+    & Owner
+    & Repo
+    ;
+  declare type MiscGetCodeOfConductParams =
+    & {
+      key: string;
+    };
+  declare type MiscGetRepoCodeOfConductParams =
+    & Owner
+    & Repo
+    ;
+  declare type MiscGetGitignoreTemplateParams =
+    & {
+      name: string;
+    };
+  declare type MiscGetLicenseParams =
+    & {
+      license: string;
+    };
+  declare type MiscGetRepoLicenseParams =
+    & Owner
+    & Repo
+    ;
+  declare type MiscRenderMarkdownParams =
+    & {
+      text: string;
+      mode?: "markdown"|"gfm";
+      context?: string;
+    };
+  declare type MiscRenderMarkdownRawParams =
+    & Data
+    ;
+  declare type OrgsGetAllParams =
+    & Page
+    & PerPage
+    & {
+      since?: string;
+    };
+  declare type OrgsGetForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type OrgsGetParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type OrgsUpdateParams =
+    & Org
+    & {
+      billing_email?: string;
+      company?: string;
+      email?: string;
+      location?: string;
+      name?: string;
+      description?: string;
+      default_repository_permission?: "read"|"write"|"admin"|"none";
+      members_can_create_repositories?: boolean;
+    };
+  declare type OrgsGetMembersParams =
+    & Org
+    & Page
+    & PerPage
+    & {
+      filter?: "all"|"2fa_disabled";
+      role?: "all"|"admin"|"member";
+    };
+  declare type OrgsCheckMembershipParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsRemoveMemberParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsGetPublicMembersParams =
+    & Org
+    ;
+  declare type OrgsCheckPublicMembershipParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsPublicizeMembershipParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsConcealMembershipParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsGetOrgMembershipParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsAddOrgMembershipParams =
+    & Org
+    & Username
+    & {
+      role: "admin"|"member";
+    };
+  declare type OrgsRemoveOrgMembershipParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsGetPendingOrgInvitesParams =
+    & Org
+    ;
+  declare type OrgsGetOutsideCollaboratorsParams =
+    & Org
+    & Page
+    & PerPage
+    & {
+      filter?: "all"|"2fa_disabled";
+    };
+  declare type OrgsRemoveOutsideCollaboratorParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsConvertMemberToOutsideCollaboratorParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsGetTeamsParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type OrgsGetTeamParams =
+    & Id
+    ;
+  declare type OrgsCreateTeamParams =
+    & Org
+    & Name
+    & Privacy
+    & {
+      description?: string;
+      maintainers?: string[];
+      repo_names?: string[];
+      parent_team_id?: string;
+    };
+  declare type OrgsEditTeamParams =
+    & Id
+    & Name
+    & Privacy
+    & {
+      description?: string;
+      parent_team_id?: string;
+    };
+  declare type OrgsDeleteTeamParams =
+    & Id
+    ;
+  declare type OrgsGetTeamMembersParams =
+    & Id
+    & Page
+    & PerPage
+    & {
+      role?: "member"|"maintainer"|"all";
+    };
+  declare type OrgsGetChildTeamsParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type OrgsGetTeamMembershipParams =
+    & Id
+    & Username
+    ;
+  declare type OrgsAddTeamMembershipParams =
+    & Id
+    & Username
+    & {
+      role?: "member"|"maintainer";
+    };
+  declare type OrgsRemoveTeamMembershipParams =
+    & Id
+    & Username
+    ;
+  declare type OrgsGetTeamReposParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type OrgsGetPendingTeamInvitesParams =
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type OrgsCheckTeamRepoParams =
+    & Id
+    & Owner
+    & Repo
+    ;
+  declare type OrgsAddTeamRepoParams =
+    & Id
+    & Org
+    & Repo
+    & {
+      permission?: "pull"|"push"|"admin";
+    };
+  declare type OrgsDeleteTeamRepoParams =
+    & Id
+    & Owner
+    & Repo
+    ;
+  declare type OrgsGetHooksParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type OrgsGetHookParams =
+    & Org
+    & Id
+    ;
+  declare type OrgsCreateHookParams =
+    & Org
+    & {
+      name: string;
+      config: string;
+      events?: string[];
+      active?: boolean;
+    };
+  declare type OrgsEditHookParams =
+    & Org
+    & Id
+    & {
+      config: string;
+      events?: string[];
+      active?: boolean;
+    };
+  declare type OrgsPingHookParams =
+    & Org
+    & Id
+    ;
+  declare type OrgsDeleteHookParams =
+    & Org
+    & Id
+    ;
+  declare type OrgsGetBlockedUsersParams =
+    & Org
+    & Page
+    & PerPage
+    ;
+  declare type OrgsCheckBlockedUserParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsBlockUserParams =
+    & Org
+    & Username
+    ;
+  declare type OrgsUnblockUserParams =
+    & Org
+    & Username
+    ;
+  declare type ProjectsGetRepoProjectsParams =
+    & Owner
+    & Repo
+    & State
+    ;
+  declare type ProjectsGetOrgProjectsParams =
+    & Org
+    & State
+    ;
+  declare type ProjectsGetProjectParams =
+    & Id
+    ;
+  declare type ProjectsCreateRepoProjectParams =
+    & Owner
+    & Repo
+    & Name
+    & {
+      body?: string;
+    };
+  declare type ProjectsCreateOrgProjectParams =
+    & Org
+    & Name
+    & {
+      body?: string;
+    };
+  declare type ProjectsUpdateProjectParams =
+    & Id
+    & Name
+    & State
+    & {
+      body?: string;
+    };
+  declare type ProjectsDeleteProjectParams =
+    & Id
+    ;
+  declare type ProjectsGetProjectCardsParams =
+    & ColumnId
+    ;
+  declare type ProjectsGetProjectCardParams =
+    & Id
+    ;
+  declare type ProjectsCreateProjectCardParams =
+    & ColumnId
+    & {
+      note?: string;
+      content_id?: string;
+      content_type?: string;
+    };
+  declare type ProjectsUpdateProjectCardParams =
+    & Id
+    & {
+      note?: string;
+    };
+  declare type ProjectsDeleteProjectCardParams =
+    & Id
+    ;
+  declare type ProjectsMoveProjectCardParams =
+    & Id
+    & {
+      position: string;
+      column_id?: string;
+    };
+  declare type ProjectsGetProjectColumnsParams =
+    & ProjectId
+    ;
+  declare type ProjectsGetProjectColumnParams =
+    & Id
+    ;
+  declare type ProjectsCreateProjectColumnParams =
+    & ProjectId
+    & Name
+    ;
+  declare type ProjectsUpdateProjectColumnParams =
+    & Id
+    & Name
+    ;
+  declare type ProjectsDeleteProjectColumnParams =
+    & Id
+    ;
+  declare type ProjectsMoveProjectColumnParams =
+    & Id
+    & {
+      position: string;
+    };
+  declare type PullRequestsGetAllParams =
+    & Owner
+    & Repo
+    & State
+    & Direction
+    & Page
+    & PerPage
+    & {
+      head?: string;
+      base?: string;
+      sort?: "created"|"updated"|"popularity"|"long-running";
+    };
+  declare type PullRequestsGetParams =
+    & Owner
+    & Repo
+    & Number
+    ;
+  declare type PullRequestsCreateParams =
+    & Owner
+    & Repo
+    & Head
+    & Base
+    & {
+      title: string;
+      body?: string;
+      maintainer_can_modify?: boolean;
+    };
+  declare type PullRequestsCreateFromIssueParams =
+    & Owner
+    & Repo
+    & Head
+    & Base
+    & {
+      issue: number;
+    };
+  declare type PullRequestsUpdateParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      title?: string;
+      body?: string;
+      state?: "open"|"closed";
+      base?: string;
+      maintainer_can_modify?: boolean;
+    };
+  declare type PullRequestsGetCommitsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsGetFilesParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsCheckMergedParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsMergeParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      commit_title?: string;
+      commit_message?: string;
+      sha?: string;
+      merge_method?: "merge"|"squash"|"rebase";
+    };
+  declare type PullRequestsGetReviewsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsGetReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    ;
+  declare type PullRequestsDeletePendingReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    ;
+  declare type PullRequestsGetReviewCommentsParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsCreateReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      commit_id?: string;
+      body?: string;
+      event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
+      comments?: string[];
+    };
+  declare type PullRequestsSubmitReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    & {
+      body?: string;
+      event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
+    };
+  declare type PullRequestsDismissReviewParams =
+    & Owner
+    & Repo
+    & Number
+    & Id
+    & Page
+    & PerPage
+    & {
+      message?: string;
+    };
+  declare type PullRequestsGetCommentsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsGetCommentsForRepoParams =
+    & Owner
+    & Repo
+    & Direction
+    & Since
+    & Page
+    & PerPage
+    & {
+      sort?: "created"|"updated";
+    };
+  declare type PullRequestsGetCommentParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type PullRequestsCreateCommentParams =
+    & Owner
+    & Repo
+    & Number
+    & Body
+    & CommitId
+    & Path
+    & Position
+    ;
+  declare type PullRequestsCreateCommentReplyParams =
+    & Owner
+    & Repo
+    & Number
+    & Body
+    & {
+      in_reply_to: number;
+    };
+  declare type PullRequestsEditCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & Body
+    ;
+  declare type PullRequestsDeleteCommentParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type PullRequestsGetReviewRequestsParams =
+    & Owner
+    & Repo
+    & Number
+    & Page
+    & PerPage
+    ;
+  declare type PullRequestsCreateReviewRequestParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      reviewers?: string[];
+      team_reviewers?: string[];
+    };
+  declare type PullRequestsDeleteReviewRequestParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      reviewers?: string[];
+      team_reviewers?: string[];
+    };
+  declare type ReactionsGetForCommitCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsCreateForCommitCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsGetForIssueParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsCreateForIssueParams =
+    & Owner
+    & Repo
+    & Number
+    & {
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsGetForIssueCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsCreateForIssueCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsGetForPullRequestReviewCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsCreateForPullRequestReviewCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
+    };
+  declare type ReactionsDeleteParams =
+    & Id
+    ;
+  declare type ReposGetAllParams =
+    & Direction
+    & Page
+    & PerPage
+    & {
+      visibility?: "all"|"public"|"private";
+      affiliation?: string;
+      type?: "all"|"owner"|"public"|"private"|"member";
+      sort?: "created"|"updated"|"pushed"|"full_name";
+    };
+  declare type ReposGetForUserParams =
+    & Username
+    & Direction
+    & Page
+    & PerPage
+    & {
+      type?: "all"|"owner"|"member";
+      sort?: "created"|"updated"|"pushed"|"full_name";
+    };
+  declare type ReposGetForOrgParams =
+    & Org
+    & Page
+    & PerPage
+    & {
+      type?: "all"|"public"|"private"|"forks"|"sources"|"member";
+    };
+  declare type ReposGetPublicParams =
+    & Page
+    & PerPage
+    & {
+      since?: string;
+    };
+  declare type ReposCreateParams =
+    & Name
+    & Description
+    & Homepage
+    & Private
+    & HasIssues
+    & HasProjects
+    & HasWiki
+    & AutoInit
+    & GitignoreTemplate
+    & LicenseTemplate
+    & {
+      team_id?: number;
+      allow_squash_merge?: boolean;
+      allow_merge_commit?: boolean;
+      allow_rebase_merge?: boolean;
+    };
+  declare type ReposCreateForOrgParams =
+    & Org
+    & Name
+    & Description
+    & Homepage
+    & Private
+    & HasIssues
+    & HasProjects
+    & HasWiki
+    & AutoInit
+    & GitignoreTemplate
+    & LicenseTemplate
+    & {
+      team_id?: number;
+      allow_squash_merge?: boolean;
+      allow_merge_commit?: boolean;
+      allow_rebase_merge?: boolean;
+    };
+  declare type ReposGetParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetByIdParams =
+    & Id
+    ;
+  declare type ReposEditParams =
+    & Owner
+    & Repo
+    & Name
+    & Description
+    & Homepage
+    & Private
+    & HasIssues
+    & HasProjects
+    & HasWiki
+    & DefaultBranch
+    & {
+      allow_squash_merge?: boolean;
+      allow_merge_commit?: boolean;
+      allow_rebase_merge?: boolean;
+    };
+  declare type ReposGetTopicsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposReplaceTopicsParams =
+    & Owner
+    & Repo
+    & {
+      names: string[];
+    };
+  declare type ReposGetContributorsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      anon?: boolean;
+    };
+  declare type ReposGetLanguagesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetTeamsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetTagsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposDeleteParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetBranchesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      protected?: boolean;
+    };
+  declare type ReposGetBranchParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetBranchProtectionParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposUpdateBranchProtectionParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    & {
+      required_status_checks: string;
+      required_pull_request_reviews: string;
+      dismissal_restrictions?: string;
+      restrictions: string;
+      enforce_admins: boolean;
+    };
+  declare type ReposRemoveBranchProtectionParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetProtectedBranchRequiredStatusChecksParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposUpdateProtectedBranchRequiredStatusChecksParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      strict?: boolean;
+      contexts?: string[];
+    };
+  declare type ReposRemoveProtectedBranchRequiredStatusChecksParams =
+    & Owner
+    & Repo
+    & Branch
+    ;
+  declare type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      contexts: string[];
+    };
+  declare type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      contexts: string[];
+    };
+  declare type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      contexts: string[];
+    };
+  declare type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      dismissal_restrictions?: string;
+      dismiss_stale_reviews?: boolean;
+      require_code_owner_reviews?: boolean;
+    };
+  declare type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    ;
+  declare type ReposGetProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposAddProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposRemoveProtectedBranchAdminEnforcementParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetProtectedBranchRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposRemoveProtectedBranchRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    ;
+  declare type ReposGetProtectedBranchTeamRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposReplaceProtectedBranchTeamRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      teams: string[];
+    };
+  declare type ReposAddProtectedBranchTeamRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      teams: string[];
+    };
+  declare type ReposRemoveProtectedBranchTeamRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      teams: string[];
+    };
+  declare type ReposGetProtectedBranchUserRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & Page
+    & PerPage
+    ;
+  declare type ReposReplaceProtectedBranchUserRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      users: string[];
+    };
+  declare type ReposAddProtectedBranchUserRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      users: string[];
+    };
+  declare type ReposRemoveProtectedBranchUserRestrictionsParams =
+    & Owner
+    & Repo
+    & Branch
+    & {
+      users: string[];
+    };
+  declare type ReposGetCollaboratorsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      affiliation?: "outside"|"all"|"direct";
+    };
+  declare type ReposCheckCollaboratorParams =
+    & Owner
+    & Repo
+    & Username
+    ;
+  declare type ReposReviewUserPermissionLevelParams =
+    & Owner
+    & Repo
+    & Username
+    ;
+  declare type ReposAddCollaboratorParams =
+    & Owner
+    & Repo
+    & Username
+    & {
+      permission?: "pull"|"push"|"admin";
+    };
+  declare type ReposRemoveCollaboratorParams =
+    & Owner
+    & Repo
+    & Username
+    ;
+  declare type ReposGetAllCommitCommentsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetCommitCommentsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      ref: string;
+    };
+  declare type ReposCreateCommitCommentParams =
+    & Owner
+    & Repo
+    & Sha
+    & Body
+    & {
+      path?: string;
+      position?: number;
+    };
+  declare type ReposGetCommitCommentParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposUpdateCommitCommentParams =
+    & Owner
+    & Repo
+    & Id
+    & Body
+    ;
+  declare type ReposDeleteCommitCommentParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetCommunityProfileMetricsParams =
+    & Owner
+    & Name
+    ;
+  declare type ReposGetCommitsParams =
+    & Owner
+    & Repo
+    & Since
+    & Until
+    & Page
+    & PerPage
+    & {
+      sha?: string;
+      path?: string;
+      author?: string;
+    };
+  declare type ReposGetCommitParams =
+    & Owner
+    & Repo
+    & Sha
+    ;
+  declare type ReposGetShaOfCommitRefParams =
+    & Owner
+    & Repo
+    & Ref
+    ;
+  declare type ReposCompareCommitsParams =
+    & Owner
+    & Repo
+    & Base
+    & Head
+    ;
+  declare type ReposGetReadmeParams =
+    & Owner
+    & Repo
+    & {
+      ref?: string;
+    };
+  declare type ReposGetContentParams =
+    & Owner
+    & Repo
+    & {
+      path: string;
+      ref?: string;
+    };
+  declare type ReposCreateFileParams =
+    & Owner
+    & Repo
+    & {
+      path: string;
+      message: string;
+      content: string;
+      branch?: string;
+      committer?: string;
+      author?: string;
+    };
+  declare type ReposUpdateFileParams =
+    & Owner
+    & Repo
+    & {
+      path: string;
+      message: string;
+      content: string;
+      sha: string;
+      branch?: string;
+      committer?: string;
+      author?: string;
+    };
+  declare type ReposDeleteFileParams =
+    & Owner
+    & Repo
+    & {
+      path: string;
+      message: string;
+      sha: string;
+      branch?: string;
+      committer?: string;
+      author?: string;
+    };
+  declare type ReposGetArchiveLinkParams =
+    & Owner
+    & Repo
+    & {
+      archive_format: "tarball"|"zipball";
+      ref?: string;
+    };
+  declare type ReposGetDeployKeysParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetDeployKeyParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposAddDeployKeyParams =
+    & Owner
+    & Repo
+    & Title
+    & Key
+    & {
+      read_only?: boolean;
+    };
+  declare type ReposDeleteDeployKeyParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetDeploymentsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      sha?: string;
+      ref?: string;
+      task?: string;
+      environment?: string;
+    };
+  declare type ReposGetDeploymentParams =
+    & Owner
+    & Repo
+    & {
+      deployment_id: string;
+    };
+  declare type ReposCreateDeploymentParams =
+    & Owner
+    & Repo
+    & {
+      ref: string;
+      task?: string;
+      auto_merge?: boolean;
+      required_contexts?: string[];
+      payload?: string;
+      environment?: string;
+      description?: string;
+      transient_environment?: boolean;
+      production_environment?: boolean;
+    };
+  declare type ReposGetDeploymentStatusesParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetDeploymentStatusParams =
+    & Owner
+    & Repo
+    & {
+      id: string;
+      status_id: string;
+    };
+  declare type ReposCreateDeploymentStatusParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      state?: string;
+      target_url?: string;
+      log_url?: string;
+      description?: string;
+      environment_url?: string;
+      auto_inactive?: boolean;
+    };
+  declare type ReposGetDownloadsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetDownloadParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposDeleteDownloadParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetForksParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      sort?: "newest"|"oldest"|"stargazers";
+    };
+  declare type ReposForkParams =
+    & Owner
+    & Repo
+    & {
+      organization?: string;
+    };
+  declare type ReposGetInvitesParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposDeleteInviteParams =
+    & Owner
+    & Repo
+    & InvitationId
+    ;
+  declare type ReposUpdateInviteParams =
+    & Owner
+    & Repo
+    & InvitationId
+    & {
+      permissions?: "read"|"write"|"admin";
+    };
+  declare type ReposMergeParams =
+    & Owner
+    & Repo
+    & Base
+    & Head
+    & {
+      commit_message?: string;
+    };
+  declare type ReposGetPagesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposRequestPageBuildParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetPagesBuildsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetLatestPagesBuildParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetPagesBuildParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetReleasesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetReleaseParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetLatestReleaseParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetReleaseByTagParams =
+    & Owner
+    & Repo
+    & {
+      tag: string;
+    };
+  declare type ReposCreateReleaseParams =
+    & Owner
+    & Repo
+    & {
+      tag_name: string;
+      target_commitish?: string;
+      name?: string;
+      body?: string;
+      draft?: boolean;
+      prerelease?: boolean;
+    };
+  declare type ReposEditReleaseParams =
+    & Owner
+    & Repo
+    & Id
+    & {
+      tag_name: string;
+      target_commitish?: string;
+      name?: string;
+      body?: string;
+      draft?: boolean;
+      prerelease?: boolean;
+    };
+  declare type ReposDeleteReleaseParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetAssetsParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposUploadAssetParams =
+    & Url
+    & ContentType
+    & ContentLength
+    & {
+      file: Object;
+      name: string;
+      label?: string;
+    };
+  declare type ReposGetAssetParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposEditAssetParams =
+    & Owner
+    & Repo
+    & Id
+    & Name
+    & {
+      label?: string;
+    };
+  declare type ReposDeleteAssetParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposGetStatsContributorsParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetStatsCommitActivityParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetStatsCodeFrequencyParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetStatsParticipationParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposGetStatsPunchCardParams =
+    & Owner
+    & Repo
+    ;
+  declare type ReposCreateStatusParams =
+    & Owner
+    & Repo
+    & Sha
+    & {
+      state: "pending"|"success"|"error"|"failure";
+      target_url?: string;
+      description?: string;
+      context?: string;
+    };
+  declare type ReposGetStatusesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      ref: string;
+    };
+  declare type ReposGetCombinedStatusForRefParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    & {
+      ref: string;
+    };
+  declare type ReposGetReferrersParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetPathsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetViewsParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetClonesParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetHooksParams =
+    & Owner
+    & Repo
+    & Page
+    & PerPage
+    ;
+  declare type ReposGetHookParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposCreateHookParams =
+    & Owner
+    & Repo
+    & Name
+    & {
+      config: string;
+      events?: string[];
+      active?: boolean;
+    };
+  declare type ReposEditHookParams =
+    & Owner
+    & Repo
+    & Id
+    & Name
+    & {
+      config: string;
+      events?: string[];
+      add_events?: string[];
+      remove_events?: string[];
+      active?: boolean;
+    };
+  declare type ReposTestHookParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposPingHookParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type ReposDeleteHookParams =
+    & Owner
+    & Repo
+    & Id
+    ;
+  declare type SearchReposParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "stars"|"forks"|"updated";
+    };
+  declare type SearchCodeParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "indexed";
+    };
+  declare type SearchCommitsParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "author-date"|"committer-date";
+    };
+  declare type SearchIssuesParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "comments"|"created"|"updated";
+    };
+  declare type SearchUsersParams =
+    & Q
+    & Order
+    & Page
+    & PerPage
+    & {
+      sort?: "followers"|"repositories"|"joined";
+    };
+  declare type SearchEmailParams =
+    & {
+      email: string;
+    };
+  declare type UsersGetForUserParams =
+    & Username
+    ;
+  declare type UsersGetByIdParams =
+    & Id
+    ;
+  declare type UsersUpdateParams =
+    & {
+      name?: string;
+      email?: string;
+      blog?: string;
+      company?: string;
+      location?: string;
+      hireable?: boolean;
+      bio?: string;
+    };
+  declare type UsersGetAllParams =
+    & {
+      since?: number;
+    };
+  declare type UsersGetOrgsParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetOrgMembershipsParams =
+    & {
+      state?: "active"|"pending";
+    };
+  declare type UsersGetOrgMembershipParams =
+    & Org
+    ;
+  declare type UsersEditOrgMembershipParams =
+    & Org
+    & {
+      state: "active";
+    };
+  declare type UsersGetTeamsParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetEmailsParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetPublicEmailsParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersAddEmailsParams =
+    & {
+      emails: string[];
+    };
+  declare type UsersDeleteEmailsParams =
+    & {
+      emails: string[];
+    };
+  declare type UsersGetFollowersForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetFollowersParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetFollowingForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetFollowingParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersCheckFollowingParams =
+    & Username
+    ;
+  declare type UsersCheckIfOneFollowersOtherParams =
+    & Username
+    & {
+      target_user: string;
+    };
+  declare type UsersFollowUserParams =
+    & Username
+    ;
+  declare type UsersUnfollowUserParams =
+    & Username
+    ;
+  declare type UsersGetKeysForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetKeysParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetKeyParams =
+    & Id
+    ;
+  declare type UsersCreateKeyParams =
+    & Title
+    & Key
+    ;
+  declare type UsersDeleteKeyParams =
+    & Id
+    ;
+  declare type UsersGetGpgKeysForUserParams =
+    & Username
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetGpgKeysParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetGpgKeyParams =
+    & Id
+    ;
+  declare type UsersCreateGpgKeyParams =
+    & {
+      armored_public_key: string;
+    };
+  declare type UsersDeleteGpgKeyParams =
+    & Id
+    ;
+  declare type UsersPromoteParams =
+    & Username
+    ;
+  declare type UsersDemoteParams =
+    & Username
+    ;
+  declare type UsersSuspendParams =
+    & Username
+    ;
+  declare type UsersUnsuspendParams =
+    & Username
+    ;
+  declare type UsersCheckBlockedUserParams =
+    & Username
+    ;
+  declare type UsersBlockUserParams =
+    & Username
+    ;
+  declare type UsersUnblockUserParams =
+    & Username
+    ;
+  declare type UsersAcceptRepoInviteParams =
+    & InvitationId
+    ;
+  declare type UsersDeclineRepoInviteParams =
+    & InvitationId
+    ;
+  declare type UsersGetInstallationsParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetInstallationReposParams =
+    & InstallationId
+    & Page
+    & PerPage
+    ;
+  declare type UsersAddRepoToInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type UsersRemoveRepoFromInstallationParams =
+    & InstallationId
+    & RepositoryId
+    ;
+  declare type UsersGetMarketplacePurchasesParams =
+    & Page
+    & PerPage
+    ;
+  declare type UsersGetMarketplaceStubbedPurchasesParams =
+    & Page
+    & PerPage
+    ;
+  declare type EnterpriseStatsParams =
+    & {
+      type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
+    };
+  declare type EnterpriseUpdateLdapForUserParams =
+    & Username
+    & {
+      ldap_dn: string;
+    };
+  declare type EnterpriseSyncLdapForUserParams =
+    & Username
+    ;
+  declare type EnterpriseUpdateLdapForTeamParams =
+    & {
+      team_id: number;
+      ldap_dn: string;
+    };
+  declare type EnterpriseSyncLdapForTeamParams =
+    & {
+      team_id: number;
+    };
+  declare type EnterpriseGetPreReceiveEnvironmentParams =
+    & Id
+    ;
+  declare type EnterpriseCreatePreReceiveEnvironmentParams =
+    & {
+      name: string;
+      image_url: string;
+    };
+  declare type EnterpriseEditPreReceiveEnvironmentParams =
+    & Id
+    & {
+      name: string;
+      image_url: string;
+    };
+  declare type EnterpriseDeletePreReceiveEnvironmentParams =
+    & Id
+    ;
+  declare type EnterpriseGetPreReceiveEnvironmentDownloadStatusParams =
+    & Id
+    ;
+  declare type EnterpriseTriggerPreReceiveEnvironmentDownloadParams =
+    & Id
+    ;
+  declare type EnterpriseGetPreReceiveHookParams =
+    & Id
+    ;
+  declare type EnterpriseCreatePreReceiveHookParams =
+    & {
+      name: string;
+      script: string;
+      script_repository: string;
+      environment: string;
+      enforcement?: string;
+      allow_downstream_configuration?: boolean;
+    };
+  declare type EnterpriseEditPreReceiveHookParams =
+    & Id
+    & {
+      hook: string;
+    };
+  declare type EnterpriseDeletePreReceiveHookParams =
+    & Id
+    ;
+  declare type EnterpriseQueueIndexingJobParams =
+    & {
+      target: string;
+    };
+  declare type EnterpriseCreateOrgParams =
+    & {
+      login: string;
+      admin: string;
+      profile_name?: string;
+    };
+
+  declare class Github {
+    constructor(options?: Options): Github;
+    authenticate(auth: Auth): void;
+    hasNextPage(link: Link): ?string;
+    hasPreviousPage(link: Link): ?string;
+    hasLastPage(link: Link): ?string;
+    hasFirstPage(link: Link): ?string;
+    getNextPage(link: Link, headers?: {[header: Header]: any}, callback?: Callback): Promise<any>;
+    getPreviousPage(link: Link, headers?: {[header: Header]: any}, callback?: Callback): Promise<any>;
+    getLastPage(link: Link, headers?: {[header: Header]: any}, callback?: Callback): Promise<any>;
+    getFirstPage(link: Link, headers?: {[header: Header]: any}, callback?: Callback): Promise<any>;
+    authorization: {
+      getGrants(params: AuthorizationGetGrantsParams, callback?: Callback): Promise<any>;
+      getGrant(params: AuthorizationGetGrantParams, callback?: Callback): Promise<any>;
+      deleteGrant(params: AuthorizationDeleteGrantParams, callback?: Callback): Promise<any>;
+      getAll(params: AuthorizationGetAllParams, callback?: Callback): Promise<any>;
+      get(params: AuthorizationGetParams, callback?: Callback): Promise<any>;
+      create(params: AuthorizationCreateParams, callback?: Callback): Promise<any>;
+      getOrCreateAuthorizationForApp(params: AuthorizationGetOrCreateAuthorizationForAppParams, callback?: Callback): Promise<any>;
+      getOrCreateAuthorizationForAppAndFingerprint(params: AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams, callback?: Callback): Promise<any>;
+      update(params: AuthorizationUpdateParams, callback?: Callback): Promise<any>;
+      delete(params: AuthorizationDeleteParams, callback?: Callback): Promise<any>;
+      check(params: AuthorizationCheckParams, callback?: Callback): Promise<any>;
+      reset(params: AuthorizationResetParams, callback?: Callback): Promise<any>;
+      revoke(params: AuthorizationRevokeParams, callback?: Callback): Promise<any>;
+      revokeGrant(params: AuthorizationRevokeGrantParams, callback?: Callback): Promise<any>;
+    };
+    activity: {
+      getEvents(params: ActivityGetEventsParams, callback?: Callback): Promise<any>;
+      getEventsForRepo(params: ActivityGetEventsForRepoParams, callback?: Callback): Promise<any>;
+      getEventsForRepoIssues(params: ActivityGetEventsForRepoIssuesParams, callback?: Callback): Promise<any>;
+      getEventsForRepoNetwork(params: ActivityGetEventsForRepoNetworkParams, callback?: Callback): Promise<any>;
+      getEventsForOrg(params: ActivityGetEventsForOrgParams, callback?: Callback): Promise<any>;
+      getEventsReceived(params: ActivityGetEventsReceivedParams, callback?: Callback): Promise<any>;
+      getEventsReceivedPublic(params: ActivityGetEventsReceivedPublicParams, callback?: Callback): Promise<any>;
+      getEventsForUser(params: ActivityGetEventsForUserParams, callback?: Callback): Promise<any>;
+      getEventsForUserPublic(params: ActivityGetEventsForUserPublicParams, callback?: Callback): Promise<any>;
+      getEventsForUserOrg(params: ActivityGetEventsForUserOrgParams, callback?: Callback): Promise<any>;
+      getFeeds(params: EmptyParams, callback?: Callback): Promise<any>;
+      getNotifications(params: ActivityGetNotificationsParams, callback?: Callback): Promise<any>;
+      getNotificationsForUser(params: ActivityGetNotificationsForUserParams, callback?: Callback): Promise<any>;
+      markNotificationsAsRead(params: ActivityMarkNotificationsAsReadParams, callback?: Callback): Promise<any>;
+      markNotificationsAsReadForRepo(params: ActivityMarkNotificationsAsReadForRepoParams, callback?: Callback): Promise<any>;
+      getNotificationThread(params: ActivityGetNotificationThreadParams, callback?: Callback): Promise<any>;
+      markNotificationThreadAsRead(params: ActivityMarkNotificationThreadAsReadParams, callback?: Callback): Promise<any>;
+      checkNotificationThreadSubscription(params: ActivityCheckNotificationThreadSubscriptionParams, callback?: Callback): Promise<any>;
+      setNotificationThreadSubscription(params: ActivitySetNotificationThreadSubscriptionParams, callback?: Callback): Promise<any>;
+      deleteNotificationThreadSubscription(params: ActivityDeleteNotificationThreadSubscriptionParams, callback?: Callback): Promise<any>;
+      getStargazersForRepo(params: ActivityGetStargazersForRepoParams, callback?: Callback): Promise<any>;
+      getStarredReposForUser(params: ActivityGetStarredReposForUserParams, callback?: Callback): Promise<any>;
+      getStarredRepos(params: ActivityGetStarredReposParams, callback?: Callback): Promise<any>;
+      checkStarringRepo(params: ActivityCheckStarringRepoParams, callback?: Callback): Promise<any>;
+      starRepo(params: ActivityStarRepoParams, callback?: Callback): Promise<any>;
+      unstarRepo(params: ActivityUnstarRepoParams, callback?: Callback): Promise<any>;
+      getWatchersForRepo(params: ActivityGetWatchersForRepoParams, callback?: Callback): Promise<any>;
+      getWatchedReposForUser(params: ActivityGetWatchedReposForUserParams, callback?: Callback): Promise<any>;
+      getWatchedRepos(params: ActivityGetWatchedReposParams, callback?: Callback): Promise<any>;
+      getRepoSubscription(params: ActivityGetRepoSubscriptionParams, callback?: Callback): Promise<any>;
+      setRepoSubscription(params: ActivitySetRepoSubscriptionParams, callback?: Callback): Promise<any>;
+      unwatchRepo(params: ActivityUnwatchRepoParams, callback?: Callback): Promise<any>;
+    };
+    gists: {
+      getForUser(params: GistsGetForUserParams, callback?: Callback): Promise<any>;
+      getAll(params: GistsGetAllParams, callback?: Callback): Promise<any>;
+      getPublic(params: GistsGetPublicParams, callback?: Callback): Promise<any>;
+      getStarred(params: GistsGetStarredParams, callback?: Callback): Promise<any>;
+      get(params: GistsGetParams, callback?: Callback): Promise<any>;
+      getRevision(params: GistsGetRevisionParams, callback?: Callback): Promise<any>;
+      create(params: GistsCreateParams, callback?: Callback): Promise<any>;
+      edit(params: GistsEditParams, callback?: Callback): Promise<any>;
+      getCommits(params: GistsGetCommitsParams, callback?: Callback): Promise<any>;
+      star(params: GistsStarParams, callback?: Callback): Promise<any>;
+      unstar(params: GistsUnstarParams, callback?: Callback): Promise<any>;
+      checkStar(params: GistsCheckStarParams, callback?: Callback): Promise<any>;
+      fork(params: GistsForkParams, callback?: Callback): Promise<any>;
+      getForks(params: GistsGetForksParams, callback?: Callback): Promise<any>;
+      delete(params: GistsDeleteParams, callback?: Callback): Promise<any>;
+      getComments(params: GistsGetCommentsParams, callback?: Callback): Promise<any>;
+      getComment(params: GistsGetCommentParams, callback?: Callback): Promise<any>;
+      createComment(params: GistsCreateCommentParams, callback?: Callback): Promise<any>;
+      editComment(params: GistsEditCommentParams, callback?: Callback): Promise<any>;
+      deleteComment(params: GistsDeleteCommentParams, callback?: Callback): Promise<any>;
+    };
+    gitdata: {
+      getBlob(params: GitdataGetBlobParams, callback?: Callback): Promise<any>;
+      createBlob(params: GitdataCreateBlobParams, callback?: Callback): Promise<any>;
+      getCommit(params: GitdataGetCommitParams, callback?: Callback): Promise<any>;
+      createCommit(params: GitdataCreateCommitParams, callback?: Callback): Promise<any>;
+      getCommitSignatureVerification(params: GitdataGetCommitSignatureVerificationParams, callback?: Callback): Promise<any>;
+      getReference(params: GitdataGetReferenceParams, callback?: Callback): Promise<any>;
+      getReferences(params: GitdataGetReferencesParams, callback?: Callback): Promise<any>;
+      getTags(params: GitdataGetTagsParams, callback?: Callback): Promise<any>;
+      createReference(params: GitdataCreateReferenceParams, callback?: Callback): Promise<any>;
+      updateReference(params: GitdataUpdateReferenceParams, callback?: Callback): Promise<any>;
+      deleteReference(params: GitdataDeleteReferenceParams, callback?: Callback): Promise<any>;
+      getTag(params: GitdataGetTagParams, callback?: Callback): Promise<any>;
+      createTag(params: GitdataCreateTagParams, callback?: Callback): Promise<any>;
+      getTagSignatureVerification(params: GitdataGetTagSignatureVerificationParams, callback?: Callback): Promise<any>;
+      getTree(params: GitdataGetTreeParams, callback?: Callback): Promise<any>;
+      createTree(params: GitdataCreateTreeParams, callback?: Callback): Promise<any>;
+    };
+    integrations: {
+      getInstallations(params: IntegrationsGetInstallationsParams, callback?: Callback): Promise<any>;
+      createInstallationToken(params: IntegrationsCreateInstallationTokenParams, callback?: Callback): Promise<any>;
+      getInstallationRepositories(params: IntegrationsGetInstallationRepositoriesParams, callback?: Callback): Promise<any>;
+      addRepoToInstallation(params: IntegrationsAddRepoToInstallationParams, callback?: Callback): Promise<any>;
+      removeRepoFromInstallation(params: IntegrationsRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
+    };
+    apps: {
+      getForSlug(params: AppsGetForSlugParams, callback?: Callback): Promise<any>;
+      get(params: EmptyParams, callback?: Callback): Promise<any>;
+      getInstallations(params: AppsGetInstallationsParams, callback?: Callback): Promise<any>;
+      getInstallation(params: AppsGetInstallationParams, callback?: Callback): Promise<any>;
+      createInstallationToken(params: AppsCreateInstallationTokenParams, callback?: Callback): Promise<any>;
+      getInstallationRepositories(params: AppsGetInstallationRepositoriesParams, callback?: Callback): Promise<any>;
+      addRepoToInstallation(params: AppsAddRepoToInstallationParams, callback?: Callback): Promise<any>;
+      removeRepoFromInstallation(params: AppsRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingPlans(params: AppsGetMarketplaceListingPlansParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingStubbedPlans(params: AppsGetMarketplaceListingStubbedPlansParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingPlanAccounts(params: AppsGetMarketplaceListingPlanAccountsParams, callback?: Callback): Promise<any>;
+      getMarketplaceListingStubbedPlanAccounts(params: AppsGetMarketplaceListingStubbedPlanAccountsParams, callback?: Callback): Promise<any>;
+      checkMarketplaceListingAccount(params: AppsCheckMarketplaceListingAccountParams, callback?: Callback): Promise<any>;
+      checkMarketplaceListingStubbedAccount(params: AppsCheckMarketplaceListingStubbedAccountParams, callback?: Callback): Promise<any>;
+    };
+    issues: {
+      getAll(params: IssuesGetAllParams, callback?: Callback): Promise<any>;
+      getForUser(params: IssuesGetForUserParams, callback?: Callback): Promise<any>;
+      getForOrg(params: IssuesGetForOrgParams, callback?: Callback): Promise<any>;
+      getForRepo(params: IssuesGetForRepoParams, callback?: Callback): Promise<any>;
+      get(params: IssuesGetParams, callback?: Callback): Promise<any>;
+      create(params: IssuesCreateParams, callback?: Callback): Promise<any>;
+      edit(params: IssuesEditParams, callback?: Callback): Promise<any>;
+      lock(params: IssuesLockParams, callback?: Callback): Promise<any>;
+      unlock(params: IssuesUnlockParams, callback?: Callback): Promise<any>;
+      getAssignees(params: IssuesGetAssigneesParams, callback?: Callback): Promise<any>;
+      checkAssignee(params: IssuesCheckAssigneeParams, callback?: Callback): Promise<any>;
+      addAssigneesToIssue(params: IssuesAddAssigneesToIssueParams, callback?: Callback): Promise<any>;
+      removeAssigneesFromIssue(params: IssuesRemoveAssigneesFromIssueParams, callback?: Callback): Promise<any>;
+      getComments(params: IssuesGetCommentsParams, callback?: Callback): Promise<any>;
+      getCommentsForRepo(params: IssuesGetCommentsForRepoParams, callback?: Callback): Promise<any>;
+      getComment(params: IssuesGetCommentParams, callback?: Callback): Promise<any>;
+      createComment(params: IssuesCreateCommentParams, callback?: Callback): Promise<any>;
+      editComment(params: IssuesEditCommentParams, callback?: Callback): Promise<any>;
+      deleteComment(params: IssuesDeleteCommentParams, callback?: Callback): Promise<any>;
+      getEvents(params: IssuesGetEventsParams, callback?: Callback): Promise<any>;
+      getEventsForRepo(params: IssuesGetEventsForRepoParams, callback?: Callback): Promise<any>;
+      getEvent(params: IssuesGetEventParams, callback?: Callback): Promise<any>;
+      getLabels(params: IssuesGetLabelsParams, callback?: Callback): Promise<any>;
+      getLabel(params: IssuesGetLabelParams, callback?: Callback): Promise<any>;
+      createLabel(params: IssuesCreateLabelParams, callback?: Callback): Promise<any>;
+      updateLabel(params: IssuesUpdateLabelParams, callback?: Callback): Promise<any>;
+      deleteLabel(params: IssuesDeleteLabelParams, callback?: Callback): Promise<any>;
+      getIssueLabels(params: IssuesGetIssueLabelsParams, callback?: Callback): Promise<any>;
+      addLabels(params: IssuesAddLabelsParams, callback?: Callback): Promise<any>;
+      removeLabel(params: IssuesRemoveLabelParams, callback?: Callback): Promise<any>;
+      replaceAllLabels(params: IssuesReplaceAllLabelsParams, callback?: Callback): Promise<any>;
+      removeAllLabels(params: IssuesRemoveAllLabelsParams, callback?: Callback): Promise<any>;
+      getMilestoneLabels(params: IssuesGetMilestoneLabelsParams, callback?: Callback): Promise<any>;
+      getMilestones(params: IssuesGetMilestonesParams, callback?: Callback): Promise<any>;
+      getMilestone(params: IssuesGetMilestoneParams, callback?: Callback): Promise<any>;
+      createMilestone(params: IssuesCreateMilestoneParams, callback?: Callback): Promise<any>;
+      updateMilestone(params: IssuesUpdateMilestoneParams, callback?: Callback): Promise<any>;
+      deleteMilestone(params: IssuesDeleteMilestoneParams, callback?: Callback): Promise<any>;
+      getEventsTimeline(params: IssuesGetEventsTimelineParams, callback?: Callback): Promise<any>;
+    };
+    migrations: {
+      startMigration(params: MigrationsStartMigrationParams, callback?: Callback): Promise<any>;
+      getMigrations(params: MigrationsGetMigrationsParams, callback?: Callback): Promise<any>;
+      getMigrationStatus(params: MigrationsGetMigrationStatusParams, callback?: Callback): Promise<any>;
+      getMigrationArchiveLink(params: MigrationsGetMigrationArchiveLinkParams, callback?: Callback): Promise<any>;
+      deleteMigrationArchive(params: MigrationsDeleteMigrationArchiveParams, callback?: Callback): Promise<any>;
+      unlockRepoLockedForMigration(params: MigrationsUnlockRepoLockedForMigrationParams, callback?: Callback): Promise<any>;
+      startImport(params: MigrationsStartImportParams, callback?: Callback): Promise<any>;
+      getImportProgress(params: MigrationsGetImportProgressParams, callback?: Callback): Promise<any>;
+      updateImport(params: MigrationsUpdateImportParams, callback?: Callback): Promise<any>;
+      getImportCommitAuthors(params: MigrationsGetImportCommitAuthorsParams, callback?: Callback): Promise<any>;
+      mapImportCommitAuthor(params: MigrationsMapImportCommitAuthorParams, callback?: Callback): Promise<any>;
+      setImportLfsPreference(params: MigrationsSetImportLfsPreferenceParams, callback?: Callback): Promise<any>;
+      getLargeImportFiles(params: MigrationsGetLargeImportFilesParams, callback?: Callback): Promise<any>;
+      cancelImport(params: MigrationsCancelImportParams, callback?: Callback): Promise<any>;
+    };
+    misc: {
+      getCodesOfConduct(params: EmptyParams, callback?: Callback): Promise<any>;
+      getCodeOfConduct(params: MiscGetCodeOfConductParams, callback?: Callback): Promise<any>;
+      getRepoCodeOfConduct(params: MiscGetRepoCodeOfConductParams, callback?: Callback): Promise<any>;
+      getEmojis(params: EmptyParams, callback?: Callback): Promise<any>;
+      getGitignoreTemplates(params: EmptyParams, callback?: Callback): Promise<any>;
+      getGitignoreTemplate(params: MiscGetGitignoreTemplateParams, callback?: Callback): Promise<any>;
+      getLicenses(params: EmptyParams, callback?: Callback): Promise<any>;
+      getLicense(params: MiscGetLicenseParams, callback?: Callback): Promise<any>;
+      getRepoLicense(params: MiscGetRepoLicenseParams, callback?: Callback): Promise<any>;
+      renderMarkdown(params: MiscRenderMarkdownParams, callback?: Callback): Promise<any>;
+      renderMarkdownRaw(params: MiscRenderMarkdownRawParams, callback?: Callback): Promise<any>;
+      getMeta(params: EmptyParams, callback?: Callback): Promise<any>;
+      getRateLimit(params: EmptyParams, callback?: Callback): Promise<any>;
+    };
+    orgs: {
+      getAll(params: OrgsGetAllParams, callback?: Callback): Promise<any>;
+      getForUser(params: OrgsGetForUserParams, callback?: Callback): Promise<any>;
+      get(params: OrgsGetParams, callback?: Callback): Promise<any>;
+      update(params: OrgsUpdateParams, callback?: Callback): Promise<any>;
+      getMembers(params: OrgsGetMembersParams, callback?: Callback): Promise<any>;
+      checkMembership(params: OrgsCheckMembershipParams, callback?: Callback): Promise<any>;
+      removeMember(params: OrgsRemoveMemberParams, callback?: Callback): Promise<any>;
+      getPublicMembers(params: OrgsGetPublicMembersParams, callback?: Callback): Promise<any>;
+      checkPublicMembership(params: OrgsCheckPublicMembershipParams, callback?: Callback): Promise<any>;
+      publicizeMembership(params: OrgsPublicizeMembershipParams, callback?: Callback): Promise<any>;
+      concealMembership(params: OrgsConcealMembershipParams, callback?: Callback): Promise<any>;
+      getOrgMembership(params: OrgsGetOrgMembershipParams, callback?: Callback): Promise<any>;
+      addOrgMembership(params: OrgsAddOrgMembershipParams, callback?: Callback): Promise<any>;
+      removeOrgMembership(params: OrgsRemoveOrgMembershipParams, callback?: Callback): Promise<any>;
+      getPendingOrgInvites(params: OrgsGetPendingOrgInvitesParams, callback?: Callback): Promise<any>;
+      getOutsideCollaborators(params: OrgsGetOutsideCollaboratorsParams, callback?: Callback): Promise<any>;
+      removeOutsideCollaborator(params: OrgsRemoveOutsideCollaboratorParams, callback?: Callback): Promise<any>;
+      convertMemberToOutsideCollaborator(params: OrgsConvertMemberToOutsideCollaboratorParams, callback?: Callback): Promise<any>;
+      getTeams(params: OrgsGetTeamsParams, callback?: Callback): Promise<any>;
+      getTeam(params: OrgsGetTeamParams, callback?: Callback): Promise<any>;
+      createTeam(params: OrgsCreateTeamParams, callback?: Callback): Promise<any>;
+      editTeam(params: OrgsEditTeamParams, callback?: Callback): Promise<any>;
+      deleteTeam(params: OrgsDeleteTeamParams, callback?: Callback): Promise<any>;
+      getTeamMembers(params: OrgsGetTeamMembersParams, callback?: Callback): Promise<any>;
+      getChildTeams(params: OrgsGetChildTeamsParams, callback?: Callback): Promise<any>;
+      getTeamMembership(params: OrgsGetTeamMembershipParams, callback?: Callback): Promise<any>;
+      addTeamMembership(params: OrgsAddTeamMembershipParams, callback?: Callback): Promise<any>;
+      removeTeamMembership(params: OrgsRemoveTeamMembershipParams, callback?: Callback): Promise<any>;
+      getTeamRepos(params: OrgsGetTeamReposParams, callback?: Callback): Promise<any>;
+      getPendingTeamInvites(params: OrgsGetPendingTeamInvitesParams, callback?: Callback): Promise<any>;
+      checkTeamRepo(params: OrgsCheckTeamRepoParams, callback?: Callback): Promise<any>;
+      addTeamRepo(params: OrgsAddTeamRepoParams, callback?: Callback): Promise<any>;
+      deleteTeamRepo(params: OrgsDeleteTeamRepoParams, callback?: Callback): Promise<any>;
+      getHooks(params: OrgsGetHooksParams, callback?: Callback): Promise<any>;
+      getHook(params: OrgsGetHookParams, callback?: Callback): Promise<any>;
+      createHook(params: OrgsCreateHookParams, callback?: Callback): Promise<any>;
+      editHook(params: OrgsEditHookParams, callback?: Callback): Promise<any>;
+      pingHook(params: OrgsPingHookParams, callback?: Callback): Promise<any>;
+      deleteHook(params: OrgsDeleteHookParams, callback?: Callback): Promise<any>;
+      getBlockedUsers(params: OrgsGetBlockedUsersParams, callback?: Callback): Promise<any>;
+      checkBlockedUser(params: OrgsCheckBlockedUserParams, callback?: Callback): Promise<any>;
+      blockUser(params: OrgsBlockUserParams, callback?: Callback): Promise<any>;
+      unblockUser(params: OrgsUnblockUserParams, callback?: Callback): Promise<any>;
+    };
+    projects: {
+      getRepoProjects(params: ProjectsGetRepoProjectsParams, callback?: Callback): Promise<any>;
+      getOrgProjects(params: ProjectsGetOrgProjectsParams, callback?: Callback): Promise<any>;
+      getProject(params: ProjectsGetProjectParams, callback?: Callback): Promise<any>;
+      createRepoProject(params: ProjectsCreateRepoProjectParams, callback?: Callback): Promise<any>;
+      createOrgProject(params: ProjectsCreateOrgProjectParams, callback?: Callback): Promise<any>;
+      updateProject(params: ProjectsUpdateProjectParams, callback?: Callback): Promise<any>;
+      deleteProject(params: ProjectsDeleteProjectParams, callback?: Callback): Promise<any>;
+      getProjectCards(params: ProjectsGetProjectCardsParams, callback?: Callback): Promise<any>;
+      getProjectCard(params: ProjectsGetProjectCardParams, callback?: Callback): Promise<any>;
+      createProjectCard(params: ProjectsCreateProjectCardParams, callback?: Callback): Promise<any>;
+      updateProjectCard(params: ProjectsUpdateProjectCardParams, callback?: Callback): Promise<any>;
+      deleteProjectCard(params: ProjectsDeleteProjectCardParams, callback?: Callback): Promise<any>;
+      moveProjectCard(params: ProjectsMoveProjectCardParams, callback?: Callback): Promise<any>;
+      getProjectColumns(params: ProjectsGetProjectColumnsParams, callback?: Callback): Promise<any>;
+      getProjectColumn(params: ProjectsGetProjectColumnParams, callback?: Callback): Promise<any>;
+      createProjectColumn(params: ProjectsCreateProjectColumnParams, callback?: Callback): Promise<any>;
+      updateProjectColumn(params: ProjectsUpdateProjectColumnParams, callback?: Callback): Promise<any>;
+      deleteProjectColumn(params: ProjectsDeleteProjectColumnParams, callback?: Callback): Promise<any>;
+      moveProjectColumn(params: ProjectsMoveProjectColumnParams, callback?: Callback): Promise<any>;
+    };
+    pullRequests: {
+      getAll(params: PullRequestsGetAllParams, callback?: Callback): Promise<any>;
+      get(params: PullRequestsGetParams, callback?: Callback): Promise<any>;
+      create(params: PullRequestsCreateParams, callback?: Callback): Promise<any>;
+      createFromIssue(params: PullRequestsCreateFromIssueParams, callback?: Callback): Promise<any>;
+      update(params: PullRequestsUpdateParams, callback?: Callback): Promise<any>;
+      getCommits(params: PullRequestsGetCommitsParams, callback?: Callback): Promise<any>;
+      getFiles(params: PullRequestsGetFilesParams, callback?: Callback): Promise<any>;
+      checkMerged(params: PullRequestsCheckMergedParams, callback?: Callback): Promise<any>;
+      merge(params: PullRequestsMergeParams, callback?: Callback): Promise<any>;
+      getReviews(params: PullRequestsGetReviewsParams, callback?: Callback): Promise<any>;
+      getReview(params: PullRequestsGetReviewParams, callback?: Callback): Promise<any>;
+      deletePendingReview(params: PullRequestsDeletePendingReviewParams, callback?: Callback): Promise<any>;
+      getReviewComments(params: PullRequestsGetReviewCommentsParams, callback?: Callback): Promise<any>;
+      createReview(params: PullRequestsCreateReviewParams, callback?: Callback): Promise<any>;
+      submitReview(params: PullRequestsSubmitReviewParams, callback?: Callback): Promise<any>;
+      dismissReview(params: PullRequestsDismissReviewParams, callback?: Callback): Promise<any>;
+      getComments(params: PullRequestsGetCommentsParams, callback?: Callback): Promise<any>;
+      getCommentsForRepo(params: PullRequestsGetCommentsForRepoParams, callback?: Callback): Promise<any>;
+      getComment(params: PullRequestsGetCommentParams, callback?: Callback): Promise<any>;
+      createComment(params: PullRequestsCreateCommentParams, callback?: Callback): Promise<any>;
+      createCommentReply(params: PullRequestsCreateCommentReplyParams, callback?: Callback): Promise<any>;
+      editComment(params: PullRequestsEditCommentParams, callback?: Callback): Promise<any>;
+      deleteComment(params: PullRequestsDeleteCommentParams, callback?: Callback): Promise<any>;
+      getReviewRequests(params: PullRequestsGetReviewRequestsParams, callback?: Callback): Promise<any>;
+      createReviewRequest(params: PullRequestsCreateReviewRequestParams, callback?: Callback): Promise<any>;
+      deleteReviewRequest(params: PullRequestsDeleteReviewRequestParams, callback?: Callback): Promise<any>;
+    };
+    reactions: {
+      getForCommitComment(params: ReactionsGetForCommitCommentParams, callback?: Callback): Promise<any>;
+      createForCommitComment(params: ReactionsCreateForCommitCommentParams, callback?: Callback): Promise<any>;
+      getForIssue(params: ReactionsGetForIssueParams, callback?: Callback): Promise<any>;
+      createForIssue(params: ReactionsCreateForIssueParams, callback?: Callback): Promise<any>;
+      getForIssueComment(params: ReactionsGetForIssueCommentParams, callback?: Callback): Promise<any>;
+      createForIssueComment(params: ReactionsCreateForIssueCommentParams, callback?: Callback): Promise<any>;
+      getForPullRequestReviewComment(params: ReactionsGetForPullRequestReviewCommentParams, callback?: Callback): Promise<any>;
+      createForPullRequestReviewComment(params: ReactionsCreateForPullRequestReviewCommentParams, callback?: Callback): Promise<any>;
+      delete(params: ReactionsDeleteParams, callback?: Callback): Promise<any>;
+    };
+    repos: {
+      getAll(params: ReposGetAllParams, callback?: Callback): Promise<any>;
+      getForUser(params: ReposGetForUserParams, callback?: Callback): Promise<any>;
+      getForOrg(params: ReposGetForOrgParams, callback?: Callback): Promise<any>;
+      getPublic(params: ReposGetPublicParams, callback?: Callback): Promise<any>;
+      create(params: ReposCreateParams, callback?: Callback): Promise<any>;
+      createForOrg(params: ReposCreateForOrgParams, callback?: Callback): Promise<any>;
+      get(params: ReposGetParams, callback?: Callback): Promise<any>;
+      getById(params: ReposGetByIdParams, callback?: Callback): Promise<any>;
+      edit(params: ReposEditParams, callback?: Callback): Promise<any>;
+      getTopics(params: ReposGetTopicsParams, callback?: Callback): Promise<any>;
+      replaceTopics(params: ReposReplaceTopicsParams, callback?: Callback): Promise<any>;
+      getContributors(params: ReposGetContributorsParams, callback?: Callback): Promise<any>;
+      getLanguages(params: ReposGetLanguagesParams, callback?: Callback): Promise<any>;
+      getTeams(params: ReposGetTeamsParams, callback?: Callback): Promise<any>;
+      getTags(params: ReposGetTagsParams, callback?: Callback): Promise<any>;
+      delete(params: ReposDeleteParams, callback?: Callback): Promise<any>;
+      getBranches(params: ReposGetBranchesParams, callback?: Callback): Promise<any>;
+      getBranch(params: ReposGetBranchParams, callback?: Callback): Promise<any>;
+      getBranchProtection(params: ReposGetBranchProtectionParams, callback?: Callback): Promise<any>;
+      updateBranchProtection(params: ReposUpdateBranchProtectionParams, callback?: Callback): Promise<any>;
+      removeBranchProtection(params: ReposRemoveBranchProtectionParams, callback?: Callback): Promise<any>;
+      getProtectedBranchRequiredStatusChecks(params: ReposGetProtectedBranchRequiredStatusChecksParams, callback?: Callback): Promise<any>;
+      updateProtectedBranchRequiredStatusChecks(params: ReposUpdateProtectedBranchRequiredStatusChecksParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchRequiredStatusChecks(params: ReposRemoveProtectedBranchRequiredStatusChecksParams, callback?: Callback): Promise<any>;
+      getProtectedBranchRequiredStatusChecksContexts(params: ReposGetProtectedBranchRequiredStatusChecksContextsParams, callback?: Callback): Promise<any>;
+      replaceProtectedBranchRequiredStatusChecksContexts(params: ReposReplaceProtectedBranchRequiredStatusChecksContextsParams, callback?: Callback): Promise<any>;
+      addProtectedBranchRequiredStatusChecksContexts(params: ReposAddProtectedBranchRequiredStatusChecksContextsParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchRequiredStatusChecksContexts(params: ReposRemoveProtectedBranchRequiredStatusChecksContextsParams, callback?: Callback): Promise<any>;
+      getProtectedBranchPullRequestReviewEnforcement(params: ReposGetProtectedBranchPullRequestReviewEnforcementParams, callback?: Callback): Promise<any>;
+      updateProtectedBranchPullRequestReviewEnforcement(params: ReposUpdateProtectedBranchPullRequestReviewEnforcementParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchPullRequestReviewEnforcement(params: ReposRemoveProtectedBranchPullRequestReviewEnforcementParams, callback?: Callback): Promise<any>;
+      getProtectedBranchAdminEnforcement(params: ReposGetProtectedBranchAdminEnforcementParams, callback?: Callback): Promise<any>;
+      addProtectedBranchAdminEnforcement(params: ReposAddProtectedBranchAdminEnforcementParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchAdminEnforcement(params: ReposRemoveProtectedBranchAdminEnforcementParams, callback?: Callback): Promise<any>;
+      getProtectedBranchRestrictions(params: ReposGetProtectedBranchRestrictionsParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchRestrictions(params: ReposRemoveProtectedBranchRestrictionsParams, callback?: Callback): Promise<any>;
+      getProtectedBranchTeamRestrictions(params: ReposGetProtectedBranchTeamRestrictionsParams, callback?: Callback): Promise<any>;
+      replaceProtectedBranchTeamRestrictions(params: ReposReplaceProtectedBranchTeamRestrictionsParams, callback?: Callback): Promise<any>;
+      addProtectedBranchTeamRestrictions(params: ReposAddProtectedBranchTeamRestrictionsParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchTeamRestrictions(params: ReposRemoveProtectedBranchTeamRestrictionsParams, callback?: Callback): Promise<any>;
+      getProtectedBranchUserRestrictions(params: ReposGetProtectedBranchUserRestrictionsParams, callback?: Callback): Promise<any>;
+      replaceProtectedBranchUserRestrictions(params: ReposReplaceProtectedBranchUserRestrictionsParams, callback?: Callback): Promise<any>;
+      addProtectedBranchUserRestrictions(params: ReposAddProtectedBranchUserRestrictionsParams, callback?: Callback): Promise<any>;
+      removeProtectedBranchUserRestrictions(params: ReposRemoveProtectedBranchUserRestrictionsParams, callback?: Callback): Promise<any>;
+      getCollaborators(params: ReposGetCollaboratorsParams, callback?: Callback): Promise<any>;
+      checkCollaborator(params: ReposCheckCollaboratorParams, callback?: Callback): Promise<any>;
+      reviewUserPermissionLevel(params: ReposReviewUserPermissionLevelParams, callback?: Callback): Promise<any>;
+      addCollaborator(params: ReposAddCollaboratorParams, callback?: Callback): Promise<any>;
+      removeCollaborator(params: ReposRemoveCollaboratorParams, callback?: Callback): Promise<any>;
+      getAllCommitComments(params: ReposGetAllCommitCommentsParams, callback?: Callback): Promise<any>;
+      getCommitComments(params: ReposGetCommitCommentsParams, callback?: Callback): Promise<any>;
+      createCommitComment(params: ReposCreateCommitCommentParams, callback?: Callback): Promise<any>;
+      getCommitComment(params: ReposGetCommitCommentParams, callback?: Callback): Promise<any>;
+      updateCommitComment(params: ReposUpdateCommitCommentParams, callback?: Callback): Promise<any>;
+      deleteCommitComment(params: ReposDeleteCommitCommentParams, callback?: Callback): Promise<any>;
+      getCommunityProfileMetrics(params: ReposGetCommunityProfileMetricsParams, callback?: Callback): Promise<any>;
+      getCommits(params: ReposGetCommitsParams, callback?: Callback): Promise<any>;
+      getCommit(params: ReposGetCommitParams, callback?: Callback): Promise<any>;
+      getShaOfCommitRef(params: ReposGetShaOfCommitRefParams, callback?: Callback): Promise<any>;
+      compareCommits(params: ReposCompareCommitsParams, callback?: Callback): Promise<any>;
+      getReadme(params: ReposGetReadmeParams, callback?: Callback): Promise<any>;
+      getContent(params: ReposGetContentParams, callback?: Callback): Promise<any>;
+      createFile(params: ReposCreateFileParams, callback?: Callback): Promise<any>;
+      updateFile(params: ReposUpdateFileParams, callback?: Callback): Promise<any>;
+      deleteFile(params: ReposDeleteFileParams, callback?: Callback): Promise<any>;
+      getArchiveLink(params: ReposGetArchiveLinkParams, callback?: Callback): Promise<any>;
+      getDeployKeys(params: ReposGetDeployKeysParams, callback?: Callback): Promise<any>;
+      getDeployKey(params: ReposGetDeployKeyParams, callback?: Callback): Promise<any>;
+      addDeployKey(params: ReposAddDeployKeyParams, callback?: Callback): Promise<any>;
+      deleteDeployKey(params: ReposDeleteDeployKeyParams, callback?: Callback): Promise<any>;
+      getDeployments(params: ReposGetDeploymentsParams, callback?: Callback): Promise<any>;
+      getDeployment(params: ReposGetDeploymentParams, callback?: Callback): Promise<any>;
+      createDeployment(params: ReposCreateDeploymentParams, callback?: Callback): Promise<any>;
+      getDeploymentStatuses(params: ReposGetDeploymentStatusesParams, callback?: Callback): Promise<any>;
+      getDeploymentStatus(params: ReposGetDeploymentStatusParams, callback?: Callback): Promise<any>;
+      createDeploymentStatus(params: ReposCreateDeploymentStatusParams, callback?: Callback): Promise<any>;
+      getDownloads(params: ReposGetDownloadsParams, callback?: Callback): Promise<any>;
+      getDownload(params: ReposGetDownloadParams, callback?: Callback): Promise<any>;
+      deleteDownload(params: ReposDeleteDownloadParams, callback?: Callback): Promise<any>;
+      getForks(params: ReposGetForksParams, callback?: Callback): Promise<any>;
+      fork(params: ReposForkParams, callback?: Callback): Promise<any>;
+      getInvites(params: ReposGetInvitesParams, callback?: Callback): Promise<any>;
+      deleteInvite(params: ReposDeleteInviteParams, callback?: Callback): Promise<any>;
+      updateInvite(params: ReposUpdateInviteParams, callback?: Callback): Promise<any>;
+      merge(params: ReposMergeParams, callback?: Callback): Promise<any>;
+      getPages(params: ReposGetPagesParams, callback?: Callback): Promise<any>;
+      requestPageBuild(params: ReposRequestPageBuildParams, callback?: Callback): Promise<any>;
+      getPagesBuilds(params: ReposGetPagesBuildsParams, callback?: Callback): Promise<any>;
+      getLatestPagesBuild(params: ReposGetLatestPagesBuildParams, callback?: Callback): Promise<any>;
+      getPagesBuild(params: ReposGetPagesBuildParams, callback?: Callback): Promise<any>;
+      getReleases(params: ReposGetReleasesParams, callback?: Callback): Promise<any>;
+      getRelease(params: ReposGetReleaseParams, callback?: Callback): Promise<any>;
+      getLatestRelease(params: ReposGetLatestReleaseParams, callback?: Callback): Promise<any>;
+      getReleaseByTag(params: ReposGetReleaseByTagParams, callback?: Callback): Promise<any>;
+      createRelease(params: ReposCreateReleaseParams, callback?: Callback): Promise<any>;
+      editRelease(params: ReposEditReleaseParams, callback?: Callback): Promise<any>;
+      deleteRelease(params: ReposDeleteReleaseParams, callback?: Callback): Promise<any>;
+      getAssets(params: ReposGetAssetsParams, callback?: Callback): Promise<any>;
+      uploadAsset(params: ReposUploadAssetParams, callback?: Callback): Promise<any>;
+      getAsset(params: ReposGetAssetParams, callback?: Callback): Promise<any>;
+      editAsset(params: ReposEditAssetParams, callback?: Callback): Promise<any>;
+      deleteAsset(params: ReposDeleteAssetParams, callback?: Callback): Promise<any>;
+      getStatsContributors(params: ReposGetStatsContributorsParams, callback?: Callback): Promise<any>;
+      getStatsCommitActivity(params: ReposGetStatsCommitActivityParams, callback?: Callback): Promise<any>;
+      getStatsCodeFrequency(params: ReposGetStatsCodeFrequencyParams, callback?: Callback): Promise<any>;
+      getStatsParticipation(params: ReposGetStatsParticipationParams, callback?: Callback): Promise<any>;
+      getStatsPunchCard(params: ReposGetStatsPunchCardParams, callback?: Callback): Promise<any>;
+      createStatus(params: ReposCreateStatusParams, callback?: Callback): Promise<any>;
+      getStatuses(params: ReposGetStatusesParams, callback?: Callback): Promise<any>;
+      getCombinedStatusForRef(params: ReposGetCombinedStatusForRefParams, callback?: Callback): Promise<any>;
+      getReferrers(params: ReposGetReferrersParams, callback?: Callback): Promise<any>;
+      getPaths(params: ReposGetPathsParams, callback?: Callback): Promise<any>;
+      getViews(params: ReposGetViewsParams, callback?: Callback): Promise<any>;
+      getClones(params: ReposGetClonesParams, callback?: Callback): Promise<any>;
+      getHooks(params: ReposGetHooksParams, callback?: Callback): Promise<any>;
+      getHook(params: ReposGetHookParams, callback?: Callback): Promise<any>;
+      createHook(params: ReposCreateHookParams, callback?: Callback): Promise<any>;
+      editHook(params: ReposEditHookParams, callback?: Callback): Promise<any>;
+      testHook(params: ReposTestHookParams, callback?: Callback): Promise<any>;
+      pingHook(params: ReposPingHookParams, callback?: Callback): Promise<any>;
+      deleteHook(params: ReposDeleteHookParams, callback?: Callback): Promise<any>;
+    };
+    search: {
+      repos(params: SearchReposParams, callback?: Callback): Promise<any>;
+      code(params: SearchCodeParams, callback?: Callback): Promise<any>;
+      commits(params: SearchCommitsParams, callback?: Callback): Promise<any>;
+      issues(params: SearchIssuesParams, callback?: Callback): Promise<any>;
+      users(params: SearchUsersParams, callback?: Callback): Promise<any>;
+      email(params: SearchEmailParams, callback?: Callback): Promise<any>;
+    };
+    users: {
+      getForUser(params: UsersGetForUserParams, callback?: Callback): Promise<any>;
+      getById(params: UsersGetByIdParams, callback?: Callback): Promise<any>;
+      get(params: EmptyParams, callback?: Callback): Promise<any>;
+      update(params: UsersUpdateParams, callback?: Callback): Promise<any>;
+      getAll(params: UsersGetAllParams, callback?: Callback): Promise<any>;
+      getOrgs(params: UsersGetOrgsParams, callback?: Callback): Promise<any>;
+      getOrgMemberships(params: UsersGetOrgMembershipsParams, callback?: Callback): Promise<any>;
+      getOrgMembership(params: UsersGetOrgMembershipParams, callback?: Callback): Promise<any>;
+      editOrgMembership(params: UsersEditOrgMembershipParams, callback?: Callback): Promise<any>;
+      getTeams(params: UsersGetTeamsParams, callback?: Callback): Promise<any>;
+      getEmails(params: UsersGetEmailsParams, callback?: Callback): Promise<any>;
+      getPublicEmails(params: UsersGetPublicEmailsParams, callback?: Callback): Promise<any>;
+      addEmails(params: UsersAddEmailsParams, callback?: Callback): Promise<any>;
+      deleteEmails(params: UsersDeleteEmailsParams, callback?: Callback): Promise<any>;
+      togglePrimaryEmailVisibility(params: EmptyParams, callback?: Callback): Promise<any>;
+      getFollowersForUser(params: UsersGetFollowersForUserParams, callback?: Callback): Promise<any>;
+      getFollowers(params: UsersGetFollowersParams, callback?: Callback): Promise<any>;
+      getFollowingForUser(params: UsersGetFollowingForUserParams, callback?: Callback): Promise<any>;
+      getFollowing(params: UsersGetFollowingParams, callback?: Callback): Promise<any>;
+      checkFollowing(params: UsersCheckFollowingParams, callback?: Callback): Promise<any>;
+      checkIfOneFollowersOther(params: UsersCheckIfOneFollowersOtherParams, callback?: Callback): Promise<any>;
+      followUser(params: UsersFollowUserParams, callback?: Callback): Promise<any>;
+      unfollowUser(params: UsersUnfollowUserParams, callback?: Callback): Promise<any>;
+      getKeysForUser(params: UsersGetKeysForUserParams, callback?: Callback): Promise<any>;
+      getKeys(params: UsersGetKeysParams, callback?: Callback): Promise<any>;
+      getKey(params: UsersGetKeyParams, callback?: Callback): Promise<any>;
+      createKey(params: UsersCreateKeyParams, callback?: Callback): Promise<any>;
+      deleteKey(params: UsersDeleteKeyParams, callback?: Callback): Promise<any>;
+      getGpgKeysForUser(params: UsersGetGpgKeysForUserParams, callback?: Callback): Promise<any>;
+      getGpgKeys(params: UsersGetGpgKeysParams, callback?: Callback): Promise<any>;
+      getGpgKey(params: UsersGetGpgKeyParams, callback?: Callback): Promise<any>;
+      createGpgKey(params: UsersCreateGpgKeyParams, callback?: Callback): Promise<any>;
+      deleteGpgKey(params: UsersDeleteGpgKeyParams, callback?: Callback): Promise<any>;
+      promote(params: UsersPromoteParams, callback?: Callback): Promise<any>;
+      demote(params: UsersDemoteParams, callback?: Callback): Promise<any>;
+      suspend(params: UsersSuspendParams, callback?: Callback): Promise<any>;
+      unsuspend(params: UsersUnsuspendParams, callback?: Callback): Promise<any>;
+      getBlockedUsers(params: EmptyParams, callback?: Callback): Promise<any>;
+      checkBlockedUser(params: UsersCheckBlockedUserParams, callback?: Callback): Promise<any>;
+      blockUser(params: UsersBlockUserParams, callback?: Callback): Promise<any>;
+      unblockUser(params: UsersUnblockUserParams, callback?: Callback): Promise<any>;
+      getRepoInvites(params: EmptyParams, callback?: Callback): Promise<any>;
+      acceptRepoInvite(params: UsersAcceptRepoInviteParams, callback?: Callback): Promise<any>;
+      declineRepoInvite(params: UsersDeclineRepoInviteParams, callback?: Callback): Promise<any>;
+      getInstallations(params: UsersGetInstallationsParams, callback?: Callback): Promise<any>;
+      getInstallationRepos(params: UsersGetInstallationReposParams, callback?: Callback): Promise<any>;
+      addRepoToInstallation(params: UsersAddRepoToInstallationParams, callback?: Callback): Promise<any>;
+      removeRepoFromInstallation(params: UsersRemoveRepoFromInstallationParams, callback?: Callback): Promise<any>;
+      getMarketplacePurchases(params: UsersGetMarketplacePurchasesParams, callback?: Callback): Promise<any>;
+      getMarketplaceStubbedPurchases(params: UsersGetMarketplaceStubbedPurchasesParams, callback?: Callback): Promise<any>;
+    };
+    enterprise: {
+      stats(params: EnterpriseStatsParams, callback?: Callback): Promise<any>;
+      updateLdapForUser(params: EnterpriseUpdateLdapForUserParams, callback?: Callback): Promise<any>;
+      syncLdapForUser(params: EnterpriseSyncLdapForUserParams, callback?: Callback): Promise<any>;
+      updateLdapForTeam(params: EnterpriseUpdateLdapForTeamParams, callback?: Callback): Promise<any>;
+      syncLdapForTeam(params: EnterpriseSyncLdapForTeamParams, callback?: Callback): Promise<any>;
+      getLicense(params: EmptyParams, callback?: Callback): Promise<any>;
+      getPreReceiveEnvironment(params: EnterpriseGetPreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
+      getPreReceiveEnvironments(params: EmptyParams, callback?: Callback): Promise<any>;
+      createPreReceiveEnvironment(params: EnterpriseCreatePreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
+      editPreReceiveEnvironment(params: EnterpriseEditPreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
+      deletePreReceiveEnvironment(params: EnterpriseDeletePreReceiveEnvironmentParams, callback?: Callback): Promise<any>;
+      getPreReceiveEnvironmentDownloadStatus(params: EnterpriseGetPreReceiveEnvironmentDownloadStatusParams, callback?: Callback): Promise<any>;
+      triggerPreReceiveEnvironmentDownload(params: EnterpriseTriggerPreReceiveEnvironmentDownloadParams, callback?: Callback): Promise<any>;
+      getPreReceiveHook(params: EnterpriseGetPreReceiveHookParams, callback?: Callback): Promise<any>;
+      getPreReceiveHooks(params: EmptyParams, callback?: Callback): Promise<any>;
+      createPreReceiveHook(params: EnterpriseCreatePreReceiveHookParams, callback?: Callback): Promise<any>;
+      editPreReceiveHook(params: EnterpriseEditPreReceiveHookParams, callback?: Callback): Promise<any>;
+      deletePreReceiveHook(params: EnterpriseDeletePreReceiveHookParams, callback?: Callback): Promise<any>;
+      queueIndexingJob(params: EnterpriseQueueIndexingJobParams, callback?: Callback): Promise<any>;
+      createOrg(params: EnterpriseCreateOrgParams, callback?: Callback): Promise<any>;
+    };
+  }
+
+  declare var exports: Class<Github>;
+}
