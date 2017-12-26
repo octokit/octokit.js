@@ -8,8 +8,8 @@ coverage
 node_modules
 
 # type definitions are generated before publish
-# lib/index.d.ts
-# lib/index.js.flow
+lib/index.d.ts
+lib/index.js.flow
 
 # API DOCs are generated before publish
 doc/
