@@ -1,8 +1,8 @@
 {
-  "name": "github",
+  "name": "@octokit/rest.js",
   "version": "0.0.0-development",
   "description": "GitHub REST API client for Node.js",
-  "author": "Mike de Boer <info@mikedeboer.nl>",
+  "author": "Gregor Martynus (https://github.com/gr2m)",
   "contributors": [
     {
       "name": "Mike de Boer",
@@ -72,12 +72,6 @@
     "postpublish": "npm run -s deploy-docs"
   },
   "license": "MIT",
-  "licenses": [
-    {
-      "type": "The MIT License",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ],
   "files": [
     "lib"
   ],

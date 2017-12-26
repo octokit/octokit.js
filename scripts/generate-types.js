@@ -1,22 +1,10 @@
 #!/usr/bin/env node
-/** section: github, internal
- * class ApiGenerator
- *
- *    Copyright 2012 Cloud9 IDE, Inc.
- *
- *    This product includes software developed by
- *    Cloud9 IDE, Inc (http://c9.io).
- *
- *    Author: Mike de Boer <mike@c9.io>
- **/
 
-'use strict'
+const fs = require('fs')
+const pathJoin = require('path').join
 
-var fs = require('fs')
-var pathJoin = require('path').join
-
-var debug = require('debug')('octokit:rest')
-var Mustache = require('mustache')
+const debug = require('debug')('octokit:rest')
+const Mustache = require('mustache')
 
 var typeMap = {
   Json: 'string',
@@ -51,6 +39,11 @@ function replaceArrayTypes (type, name) {
     case 'emails':
       if (type === 'Array') {
         return 'string[]'
+      } else {
+        console.log(`\ntype ==============================`)
+        console.log(type)
+        console.log(`\nname ==============================`)
+        console.log(name)
       }
   }
   return type

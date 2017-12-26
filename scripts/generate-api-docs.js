@@ -1,143 +1,113 @@
 #!/usr/bin/env node
 
-var writeFileSync = require('fs').writeFileSync
-var Path = require('path')
+const writeFileSync = require('fs').writeFileSync
+const pathJoin = require('path').join
 
-var debug = require('debug')('octokit:rest')
-var toCamelCase = require('lodash/camelCase')
-var upperFirst = require('lodash/upperFirst')
+const debug = require('debug')('octokit:rest')
+const upperFirst = require('lodash/upperFirst')
 
-var ROUTES = require('../lib/routes.json')
-var DEFINITIONS = require('../lib/definitions.json')
+const ROUTES = require('../lib/routes.json')
+const DEFINITIONS = require('../lib/definitions.json')
 
-debug('Generating...')
+debug('Converting routes to functions')
+const apiDocs = Object.keys(ROUTES)
+  .map(sectionName => prepareScope(ROUTES[sectionName], sectionName))
+  .join('\n\n\n')
 
-var sections = {}
-var apidocs = ''
+function prepareScope (scope, sectionName) {
+  return [createSectionComment(sectionName)]
+    .concat(
+      Object.keys(scope).map(apiName => prepareApi(scope[apiName], apiName, sectionName))
+    ).join('\n\n\n')
+}
 
-function prepareApi (struct, baseType) {
-  if (!baseType) {
-    baseType = ''
+function prepareApi (api, apiName, sectionName) {
+  return createComment(sectionName, apiName, api)
+}
+
+function createSectionComment (sectionName) {
+  return `
+/**,
+ * ${upperFirst(sectionName)}
+ * @namespace ${upperFirst(sectionName)}
+ */`
+}
+
+function createComment (sectionName, apiName, api) {
+  if (!api.method) {
+    throw new Error(
+      `No HTTP method specified for ${sectionName}.${apiName} in routes.json`
+    )
   }
 
-  var lastSection
-  Object.keys(struct).sort().forEach(function (routePart) {
-    var block = struct[routePart]
-    if (!block) {
-      return
-    }
-    var messageType = baseType + '/' + routePart
-    if (block.url && block.params) {
-      // we ended up at an API definition part!
-      var parts = messageType.split('/')
-      var section = toCamelCase(parts[1])
+  const method = api['method'].toUpperCase()
+  const url = api['url']
 
-      if (!block.method) {
-        throw new Error('No HTTP method specified for ' + messageType +
-                      'in section ' + section)
-      }
-
-      if (lastSection !== section) {
-        apidocs += createSectionComment(section)
-        lastSection = section
-      }
-
-      // add the handler to the sections
-      if (!sections[section]) {
-        sections[section] = []
-      }
-
-      parts.splice(0, 2)
-      var funcName = toCamelCase(parts.join('-'))
-      apidocs += createComment(section, funcName, block)
-    } else {
-              // recurse into this block next:
-      prepareApi(block, messageType)
-    }
-  })
-}
-
-function createSectionComment (section) {
-  return [
+  const commentLines = [
     '/**',
-    ' * ' + upperFirst(section),
-    ' * @namespace ' + section,
-    ' */',
-    '',
-    ''
-  ].join('\n')
-}
-
-function createComment (section, funcName, block) {
-  var method = block['method'].toUpperCase()
-  var url = block['url']
-
-  var commentLines = [
-    '/**',
-    ' * @api {' + method + '} ' + url + ' ' + funcName,
-    ' * @apiName ' + funcName,
-    ' * @apiDescription ' + block['description'],
-    ' * @apiGroup ' + section,
+    ` * @api {${method}} ${url} ${apiName}`,
+    ` * @apiName ${apiName}`,
+    ` * @apiDescription ${api['description']}`,
+    ` * @apiGroup ${upperFirst(sectionName)}`,
     ' *'
   ]
 
-  var paramsObj = block['params']
+  const paramsObj = api['params']
+  const params = []
 
-      // sort params so Required come before Optional
-  var paramKeys = Object.keys(paramsObj)
-  paramKeys.sort(function (paramA, paramB) {
-    var cleanParamA = paramA.replace(/^\$/, '')
-    var cleanParamB = paramB.replace(/^\$/, '')
+  Object.keys(paramsObj)
+    .sort(sortByRequired.bind(null, paramsObj))
+    .forEach((param) => {
+      const cleanParam = param.replace(/^\$/, '')
+      params.push(cleanParam)
+      const paramInfo = paramsObj[param] || DEFINITIONS['params'][cleanParam]
 
-    var paramInfoA = paramsObj[paramA] || DEFINITIONS['params'][cleanParamA]
-    var paramInfoB = paramsObj[paramB] || DEFINITIONS['params'][cleanParamB]
+      const paramRequired = paramInfo['required']
+      const paramType = paramInfo['type'].toLowerCase()
+      const paramDescription = paramInfo['description']
+      const paramDefaultVal = paramInfo['default']
 
-    var paramRequiredA = paramInfoA['required']
-    var paramRequiredB = paramInfoB['required']
+      let paramLabel = cleanParam
 
-    if (paramRequiredA && !paramRequiredB) return -1
-    if (!paramRequiredA && paramRequiredB) return 1
-    return 0
-  })
+      // add default value if there is one
+      if (typeof paramDefaultVal !== 'undefined') {
+        paramLabel += `=${paramDefaultVal}`
+      }
 
-  paramKeys.forEach(function (param) {
-    var cleanParam = param.replace(/^\$/, '')
-    var paramInfo = paramsObj[param] || DEFINITIONS['params'][cleanParam]
+      // show param as either required or optional
+      if (!paramRequired) {
+        paramLabel = `[${paramLabel}]`
+      }
 
-    var paramRequired = paramInfo['required']
-    var paramType = paramInfo['type'].toLowerCase()
-    var paramDescription = paramInfo['description']
-    var paramDefaultVal = paramInfo['default']
+      let allowedValues = ''
+      if (paramInfo['enum']) {
+        allowedValues = `=${paramInfo['enum'].join(',')}`
+      }
 
-    var paramLabel = cleanParam
+      commentLines.push(` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`)
+    })
 
-    // add default value if there is one
-    if (typeof paramDefaultVal !== 'undefined') {
-      paramLabel += '=' + paramDefaultVal
-    }
+  commentLines.push(` * @apiExample {js} example\n * const result = await github.${sectionName}.${apiName}({${params.join(', ')}})`)
 
-    // show param as either required or optional
-    if (!paramRequired) {
-      paramLabel = '[' + paramLabel + ']'
-    }
-
-    var allowedValues = ''
-    if (paramInfo['enum']) {
-      allowedValues = '=' + paramInfo['enum'].map(function (val) {
-        return val // "\"" + val + "\"";
-      }).join(',')
-    }
-
-    commentLines.push(' * @apiParam {' + paramType + allowedValues + '} ' + paramLabel + '  ' + paramDescription)
-  })
-
-  commentLines.push(' * @apiExample {js} ex:\ngithub.' + section + '.' + funcName + '({ ... })')
-
-  return commentLines.join('\n') + '\n */\n\n'
+  return commentLines.join('\n') + '\n */'
 }
 
-debug('Converting routes to functions')
-prepareApi(ROUTES)
+function sortByRequired (api, paramA, paramB) {
+  const cleanParamA = paramA.replace(/^\$/, '')
+  const cleanParamB = paramB.replace(/^\$/, '')
 
-var apidocsPath = Path.join(__dirname, '..', 'doc', 'apidoc.js')
-writeFileSync(apidocsPath, apidocs.trim() + '\n')
+  const paramInfoA = api[paramA] || DEFINITIONS['params'][cleanParamA]
+  const paramInfoB = api[paramB] || DEFINITIONS['params'][cleanParamB]
+
+  const aIsRequired = paramInfoA['required']
+  const bIsRequired = paramInfoB['required']
+
+  if (aIsRequired && !bIsRequired) return -1
+  if (!aIsRequired && bIsRequired) return 1
+  return 0
+}
+
+writeFileSync(
+  pathJoin(__dirname, '..', 'doc', 'apidoc.js'),
+  apiDocs.trim() + '\n'
+)

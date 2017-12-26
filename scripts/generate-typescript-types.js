@@ -1,3 +1,8 @@
 #!/usr/bin/env node
 
-module.exports = require('./generate-types')('TypeScript', 'index.d.ts.tpl', 'index.d.ts')
+const generateTypes = require('./generate-types')
+module.exports = generateTypes(
+  'TypeScript',
+  'index.d.ts.tpl',
+  'index.d.ts'
+)
