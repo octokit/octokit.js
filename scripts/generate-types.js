@@ -15,7 +15,7 @@
 var fs = require('fs')
 var pathJoin = require('path').join
 
-var debug = require('debug')('node-github')
+var debug = require('debug')('octokit:rest')
 var Mustache = require('mustache')
 
 var typeMap = {

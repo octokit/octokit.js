@@ -3,7 +3,7 @@
 var writeFileSync = require('fs').writeFileSync
 var Path = require('path')
 
-var debug = require('debug')('node-github')
+var debug = require('debug')('octokit:rest')
 var toCamelCase = require('lodash/camelCase')
 var upperFirst = require('lodash/upperFirst')
 
