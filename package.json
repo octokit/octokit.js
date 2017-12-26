@@ -53,8 +53,7 @@
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2"
   },
-  "main": "lib",
-  "types": "lib/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
@@ -63,10 +62,10 @@
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
     "build:docs": "node scripts/generate-api-docs",
-    "postbuild:docs": "apidoc -i doc/ -o apidoc/",
+    "postbuild:docs": "apidoc -i doc/ -o doc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
-    "deploy-docs": "gh-pages-with-token -d apidoc",
+    "deploy-docs": "gh-pages-with-token -d doc",
     "prepublishOnly": "npm run -s build",
     "semantic-release": "semantic-release",
     "postpublish": "npm run -s deploy-docs"

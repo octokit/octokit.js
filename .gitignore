@@ -13,22 +13,3 @@ lib/index.js.flow
 
 # API DOCs are generated before publish
 doc/
-
-logs
-*.log
-npm-debug.log*
-
-*.orig
-
-.settings.xml
-.settings
-
-.c9revisions
-.DS_Store
-.idea
-
-testAuth.json
-
-apidoc/
-
-tsconfig.json
