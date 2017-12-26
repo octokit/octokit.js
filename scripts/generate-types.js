@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+module.exports = generateTypes
 
 const fs = require('fs')
 const pathJoin = require('path').join
@@ -6,15 +6,16 @@ const pathJoin = require('path').join
 const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
+const camelcase = require('lodash/camelcase')
+
+const ROUTES = require('../lib/routes.json')
+const DEFINITIONS = require('../lib/definitions.json')
 
 const typeMap = {
-  Json: 'string',
-  String: 'string',
-  Number: 'number',
-  Boolean: 'boolean'
+  Json: 'string'
 }
 
-function paramData (key, definition) {
+function parameterize (key, definition) {
   if (definition === null) {
     return {}
   }
@@ -32,12 +33,6 @@ function paramData (key, definition) {
   }
 }
 
-function camelcase (string) {
-  return string.replace(/(?:-|_)([a-z])/g, function (_, character) {
-    return upperFirst(character)
-  })
-}
-
 function pascalcase (string) {
   return upperFirst(camelcase(string))
 }
@@ -51,53 +46,39 @@ function isLocalParam (name) {
 }
 
 function entries (object) {
-  return Object.keys(object).map(function (key) {
-    return [key, object[key]]
-  })
+  return Object.keys(object).map((key) => [key, object[key]])
 }
 
-function combineParamData (params, entry) {
-  return params.concat(paramData.apply(null, entry))
+function combineParams (params, entry) {
+  return params.concat(parameterize.apply(null, entry))
 }
 
-module.exports = function (languageName, templateFile, outputFile) {
-  var templatePath = pathJoin(__dirname, 'templates', templateFile)
-  var template = fs.readFileSync(templatePath, 'utf8')
+function generateTypes (languageName, templateFile, outputFile) {
+  const templatePath = pathJoin(__dirname, 'templates', templateFile)
+  const template = fs.readFileSync(templatePath, 'utf8')
 
-    // check routes path
-  var routes = require('../lib/routes')
-  var definitions = require('../lib/definitions')
-  if (!definitions) {
-    debug('No routes defined.', 'fatal')
-    process.exit(1)
-  }
+  const requestHeaders = DEFINITIONS['request-headers']
 
-  var requestHeaders = definitions['request-headers']
+  debug(`Generating ${languageName} types...`)
 
-  debug('Generating ' + languageName + ' types...')
+  const params = entries(DEFINITIONS.params).reduce(combineParams, [])
+  const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
+    const methods = entries(ROUTES[namespace]).reduce((methods, entry) => {
+      const unionTypeNames = Object.keys(entry[1].params)
+        .filter(isGlobalParam)
+        .reduce((params, name) => {
+          return params.concat(pascalcase(name.slice(1)))
+        }, [])
 
-  var params = entries(definitions.params).reduce(combineParamData, [])
+      const ownParams = entries(entry[1].params)
+        .filter((entry) => isLocalParam(entry[0]))
+        .reduce(combineParams, [])
 
-  var namespaces = Object.keys(routes).reduce(function (namespaces, namespace) {
-    var methods = entries(routes[namespace]).reduce(function (methods, entry) {
-      var unionTypeNames = Object.keys(entry[1].params)
-                .filter(isGlobalParam)
-                .reduce(function (params, name) {
-                  return params.concat(pascalcase(name.slice(1)))
-                }, [])
+      const hasParams = unionTypeNames.length > 0 || ownParams.length > 0
 
-      var ownParams = entries(entry[1].params)
-                .filter(function (entry) { return isLocalParam(entry[0]) })
-                .reduce(combineParamData, [])
-
-      var hasParams = unionTypeNames.length > 0 || ownParams.length > 0
-
-      var paramTypeName = ''
-      if (!hasParams) {
-        paramTypeName = pascalcase('EmptyParams')
-      } else {
-        paramTypeName = pascalcase(namespace + '-' + entry[0] + 'Params')
-      }
+      let paramTypeName = hasParams
+        ? pascalcase(namespace + '-' + entry[0] + 'Params')
+        : pascalcase('EmptyParams')
 
       return methods.concat({
         method: camelcase(entry[0]),
@@ -114,13 +95,14 @@ module.exports = function (languageName, templateFile, outputFile) {
     })
   }, [])
 
-  var body = Mustache.render(template, {
+  const body = Mustache.render(template, {
     requestHeaders: requestHeaders.map(JSON.stringify),
     params: params,
     namespaces: namespaces
   })
 
-  debug('Writing ' + languageName + ' declarations file')
+  const definitionFilePath = pathJoin(__dirname, '..', 'lib', outputFile)
+  debug(`Writing ${languageName} declarations file to ${definitionFilePath}`)
 
-  fs.writeFileSync(pathJoin(__dirname, '..', 'lib', outputFile), body, 'utf8')
+  fs.writeFileSync(definitionFilePath, body, 'utf8')
 }

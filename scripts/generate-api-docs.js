@@ -11,32 +11,32 @@ const DEFINITIONS = require('../lib/definitions.json')
 
 debug('Converting routes to functions')
 const apiDocs = Object.keys(ROUTES)
-  .map(sectionName => prepareScope(ROUTES[sectionName], sectionName))
+  .map(namespaceName => prepareNamespace(ROUTES[namespaceName], namespaceName))
   .join('\n\n\n')
 
-function prepareScope (scope, sectionName) {
-  return [createSectionComment(sectionName)]
+function prepareNamespace (namespace, namespaceName) {
+  return [createSectionComment(namespaceName)]
     .concat(
-      Object.keys(scope).map(apiName => prepareApi(scope[apiName], apiName, sectionName))
+      Object.keys(namespace).map(apiName => prepareApi(namespace[apiName], apiName, namespaceName))
     ).join('\n\n\n')
 }
 
-function prepareApi (api, apiName, sectionName) {
-  return createComment(sectionName, apiName, api)
+function prepareApi (api, apiName, namespaceName) {
+  return createComment(namespaceName, apiName, api)
 }
 
-function createSectionComment (sectionName) {
+function createSectionComment (namespaceName) {
   return `
 /**,
- * ${upperFirst(sectionName)}
- * @namespace ${upperFirst(sectionName)}
+ * ${upperFirst(namespaceName)}
+ * @namespace ${upperFirst(namespaceName)}
  */`
 }
 
-function createComment (sectionName, apiName, api) {
+function createComment (namespaceName, apiName, api) {
   if (!api.method) {
     throw new Error(
-      `No HTTP method specified for ${sectionName}.${apiName} in routes.json`
+      `No HTTP method specified for ${namespaceName}.${apiName} in routes.json`
     )
   }
 
@@ -48,7 +48,7 @@ function createComment (sectionName, apiName, api) {
     ` * @api {${method}} ${url} ${apiName}`,
     ` * @apiName ${apiName}`,
     ` * @apiDescription ${api['description']}`,
-    ` * @apiGroup ${upperFirst(sectionName)}`,
+    ` * @apiGroup ${upperFirst(namespaceName)}`,
     ' *'
   ]
 
@@ -87,7 +87,7 @@ function createComment (sectionName, apiName, api) {
       commentLines.push(` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`)
     })
 
-  commentLines.push(` * @apiExample {js} example\n * const result = await github.${sectionName}.${apiName}({${params.join(', ')}})`)
+  commentLines.push(` * @apiExample {js} example\n * const result = await github.${namespaceName}.${apiName}({${params.join(', ')}})`)
 
   return commentLines.join('\n') + '\n */'
 }
