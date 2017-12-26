@@ -1,41 +1,18 @@
-# node-github
+# rest.js
 
 > GitHub REST API client for Node.js
 
-[![Build Status](https://travis-ci.org/octokit/node-github.svg?branch=master)](https://travis-ci.org/octokit/node-github)
-[![Coverage Status](https://coveralls.io/repos/github/octokit/node-github/badge.svg)](https://coveralls.io/github/octokit/node-github)
-[![Greenkeeper](https://badges.greenkeeper.io/octokit/node-github.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/octokit/rest.js.svg?branch=master)](https://travis-ci.org/octokit/rest.js)
+[![Coverage Status](https://coveralls.io/repos/github/octokit/rest.js/badge.svg)](https://coveralls.io/github/octokit/rest.js)
+[![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/github.svg)](https://www.npmjs.com/package/github)
 
-## Installation
-
-Install via npm.
-
-```bash
-npm install github
-```
-
-or install via git clone:
-
-```bash
-git clone https://github.com/octokit/node-github
-cd node-github
-npm install
-```
-
-## Documentation
-
-Client API: [octokit.github.io/node-github](https://octokit.github.io/node-github/)
-GitHub API: [developer.github.com/v3](https://developer.github.com/v3/)
-
-## Example
-
-Get all followers for user "defunkt":
+## Usage
 
 <!-- HEADS UP: when changing the options for the constructor, make sure to also
      update the type definition templates in scripts/templates/* -->
 ```js
-var GitHubApi = require('github')
+const GitHubApi = require('github')
 
 var github = new GitHubApi({
     // optional
@@ -88,7 +65,7 @@ getLastPage(link, headers, callback)
 NOTE: link is the response object or the contents of the Link header
 ```
 
-See [here](https://github.com/octokit/node-github/blob/master/examples/paginationCustomHeaders.js) and [here](https://github.com/octokit/node-github/blob/master/examples/getStarred.js) for examples.
+See [here](https://github.com/octokit/rest.js/blob/master/examples/paginationCustomHeaders.js) and [here](https://github.com/octokit/rest.js/blob/master/examples/getStarred.js) for examples.
 
 ## Authentication
 
@@ -157,7 +134,7 @@ github.authorization.create({
 
 ## DEBUG
 
-Set `DEBUG=node-github*` for additional debug logs.
+Set `DEBUG=octokit:rest*` for additional debug logs.
 
 ## Tests
 
@@ -178,7 +155,7 @@ variable (or set it in a `.env` file) to avoid running against GitHub's rate lim
 
 ## Preview APIs
 
-Accept headers for the preview APIs should be taken care of behind the scenes, but in the event a preview endpoint isn't working, see [here](https://github.com/octokit/node-github/blob/master/examples/getRawBlob.js) for an example on how to add the required custom accept header.
+Accept headers for the preview APIs should be taken care of behind the scenes, but in the event a preview endpoint isn't working, see [here](https://github.com/octokit/rest.js/blob/master/examples/getRawBlob.js) for an example on how to add the required custom accept header.
 
 For updates on endpoints under preview, see https://developer.github.com/changes/.
 
