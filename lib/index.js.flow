@@ -144,18 +144,6 @@ declare module "github" {
     & Page
     & PerPage
     ;
-  declare type AuthorizationGetParams =
-    & Id
-    ;
-  declare type AuthorizationCreateParams =
-    & Scopes
-    & Note
-    & NoteUrl
-    & ClientId
-    & Fingerprint
-    & {
-      client_secret?: string;
-    };
   declare type AuthorizationGetOrCreateAuthorizationForAppParams =
     & ClientId
     & Scopes
@@ -174,31 +162,6 @@ declare module "github" {
     & {
       client_secret: string;
     };
-  declare type AuthorizationUpdateParams =
-    & Id
-    & Scopes
-    & Note
-    & NoteUrl
-    & Fingerprint
-    & {
-      add_scopes?: string[];
-      remove_scopes?: string[];
-    };
-  declare type AuthorizationDeleteParams =
-    & Id
-    ;
-  declare type AuthorizationCheckParams =
-    & ClientId
-    & AccessToken
-    ;
-  declare type AuthorizationResetParams =
-    & ClientId
-    & AccessToken
-    ;
-  declare type AuthorizationRevokeParams =
-    & ClientId
-    & AccessToken
-    ;
   declare type AuthorizationRevokeGrantParams =
     & ClientId
     & AccessToken
@@ -384,49 +347,20 @@ declare module "github" {
   declare type GistsGetStarredParams =
     & Since
     ;
-  declare type GistsGetParams =
-    & Id
-    ;
   declare type GistsGetRevisionParams =
     & Id
     & Sha
     ;
-  declare type GistsCreateParams =
-    & Files
-    & Description
-    & {
-      public: boolean;
-    };
-  declare type GistsEditParams =
-    & Id
-    & Description
-    & Files
-    & {
-      content?: string;
-      filename?: string;
-    };
   declare type GistsGetCommitsParams =
     & Id
     ;
-  declare type GistsStarParams =
-    & Id
-    ;
-  declare type GistsUnstarParams =
-    & Id
-    ;
   declare type GistsCheckStarParams =
-    & Id
-    ;
-  declare type GistsForkParams =
     & Id
     ;
   declare type GistsGetForksParams =
     & Id
     & Page
     & PerPage
-    ;
-  declare type GistsDeleteParams =
-    & Id
     ;
   declare type GistsGetCommentsParams =
     & GistId
@@ -473,7 +407,7 @@ declare module "github" {
     & {
       message: string;
       tree: string;
-      parents: string[];
+      parents: String[];
       author?: string;
       committer?: string;
     };
@@ -676,45 +610,6 @@ declare module "github" {
       labels?: string;
       sort?: "created"|"updated"|"comments";
     };
-  declare type IssuesGetParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesCreateParams =
-    & Owner
-    & Repo
-    & Assignees
-    & {
-      title: string;
-      body?: string;
-      assignee?: string;
-      milestone?: number;
-      labels?: string[];
-    };
-  declare type IssuesEditParams =
-    & Owner
-    & Repo
-    & Number
-    & Assignees
-    & {
-      title?: string;
-      body?: string;
-      assignee?: string;
-      state?: "open"|"closed";
-      milestone?: number;
-      labels?: string[];
-    };
-  declare type IssuesLockParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesUnlockParams =
-    & Owner
-    & Repo
-    & Number
-    ;
   declare type IssuesGetAssigneesParams =
     & Owner
     & Repo
@@ -730,7 +625,7 @@ declare module "github" {
     & Repo
     & Number
     & {
-      assignees: string[];
+      assignees: String[];
     };
   declare type IssuesRemoveAssigneesFromIssueParams =
     & Owner
@@ -837,7 +732,7 @@ declare module "github" {
     & Repo
     & Number
     & {
-      labels: string[];
+      labels: String[];
     };
   declare type IssuesRemoveLabelParams =
     & Owner
@@ -851,7 +746,7 @@ declare module "github" {
     & Repo
     & Number
     & {
-      labels: string[];
+      labels: String[];
     };
   declare type IssuesRemoveAllLabelsParams =
     & Owner
@@ -912,7 +807,7 @@ declare module "github" {
   declare type MigrationsStartMigrationParams =
     & Org
     & {
-      repositories: string[];
+      repositories: String[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
@@ -1025,23 +920,6 @@ declare module "github" {
     & Page
     & PerPage
     ;
-  declare type OrgsGetParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  declare type OrgsUpdateParams =
-    & Org
-    & {
-      billing_email?: string;
-      company?: string;
-      email?: string;
-      location?: string;
-      name?: string;
-      description?: string;
-      default_repository_permission?: "read"|"write"|"admin"|"none";
-      members_can_create_repositories?: boolean;
-    };
   declare type OrgsGetMembersParams =
     & Org
     & Page
@@ -1119,8 +997,8 @@ declare module "github" {
     & Privacy
     & {
       description?: string;
-      maintainers?: string[];
-      repo_names?: string[];
+      maintainers?: String[];
+      repo_names?: String[];
       parent_team_id?: string;
     };
   declare type OrgsEditTeamParams =
@@ -1201,7 +1079,7 @@ declare module "github" {
     & {
       name: string;
       config: string;
-      events?: string[];
+      events?: String[];
       active?: boolean;
     };
   declare type OrgsEditHookParams =
@@ -1209,7 +1087,7 @@ declare module "github" {
     & Id
     & {
       config: string;
-      events?: string[];
+      events?: String[];
       active?: boolean;
     };
   declare type OrgsPingHookParams =
@@ -1333,21 +1211,6 @@ declare module "github" {
       base?: string;
       sort?: "created"|"updated"|"popularity"|"long-running";
     };
-  declare type PullRequestsGetParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type PullRequestsCreateParams =
-    & Owner
-    & Repo
-    & Head
-    & Base
-    & {
-      title: string;
-      body?: string;
-      maintainer_can_modify?: boolean;
-    };
   declare type PullRequestsCreateFromIssueParams =
     & Owner
     & Repo
@@ -1355,17 +1218,6 @@ declare module "github" {
     & Base
     & {
       issue: number;
-    };
-  declare type PullRequestsUpdateParams =
-    & Owner
-    & Repo
-    & Number
-    & {
-      title?: string;
-      body?: string;
-      state?: "open"|"closed";
-      base?: string;
-      maintainer_can_modify?: boolean;
     };
   declare type PullRequestsGetCommitsParams =
     & Owner
@@ -1388,16 +1240,6 @@ declare module "github" {
     & Page
     & PerPage
     ;
-  declare type PullRequestsMergeParams =
-    & Owner
-    & Repo
-    & Number
-    & {
-      commit_title?: string;
-      commit_message?: string;
-      sha?: string;
-      merge_method?: "merge"|"squash"|"rebase";
-    };
   declare type PullRequestsGetReviewsParams =
     & Owner
     & Repo
@@ -1433,7 +1275,7 @@ declare module "github" {
       commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
-      comments?: string[];
+      comments?: String[];
     };
   declare type PullRequestsSubmitReviewParams =
     & Owner
@@ -1516,16 +1358,16 @@ declare module "github" {
     & Repo
     & Number
     & {
-      reviewers?: string[];
-      team_reviewers?: string[];
+      reviewers?: String[];
+      team_reviewers?: String[];
     };
   declare type PullRequestsDeleteReviewRequestParams =
     & Owner
     & Repo
     & Number
     & {
-      reviewers?: string[];
-      team_reviewers?: string[];
+      reviewers?: String[];
+      team_reviewers?: String[];
     };
   declare type ReactionsGetForCommitCommentParams =
     & Owner
@@ -1583,9 +1425,6 @@ declare module "github" {
     & {
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
-  declare type ReactionsDeleteParams =
-    & Id
-    ;
   declare type ReposGetAllParams =
     & Direction
     & Page
@@ -1618,23 +1457,6 @@ declare module "github" {
     & {
       since?: string;
     };
-  declare type ReposCreateParams =
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & AutoInit
-    & GitignoreTemplate
-    & LicenseTemplate
-    & {
-      team_id?: number;
-      allow_squash_merge?: boolean;
-      allow_merge_commit?: boolean;
-      allow_rebase_merge?: boolean;
-    };
   declare type ReposCreateForOrgParams =
     & Org
     & Name
@@ -1653,29 +1475,9 @@ declare module "github" {
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
-  declare type ReposGetParams =
-    & Owner
-    & Repo
-    ;
   declare type ReposGetByIdParams =
     & Id
     ;
-  declare type ReposEditParams =
-    & Owner
-    & Repo
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & DefaultBranch
-    & {
-      allow_squash_merge?: boolean;
-      allow_merge_commit?: boolean;
-      allow_rebase_merge?: boolean;
-    };
   declare type ReposGetTopicsParams =
     & Owner
     & Repo
@@ -1686,7 +1488,7 @@ declare module "github" {
     & Owner
     & Repo
     & {
-      names: string[];
+      names: String[];
     };
   declare type ReposGetContributorsParams =
     & Owner
@@ -1713,10 +1515,6 @@ declare module "github" {
     & Repo
     & Page
     & PerPage
-    ;
-  declare type ReposDeleteParams =
-    & Owner
-    & Repo
     ;
   declare type ReposGetBranchesParams =
     & Owner
@@ -1773,7 +1571,7 @@ declare module "github" {
     & Branch
     & {
       strict?: boolean;
-      contexts?: string[];
+      contexts?: String[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksParams =
     & Owner
@@ -1792,21 +1590,21 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      contexts: string[];
+      contexts: String[];
     };
   declare type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      contexts: string[];
+      contexts: String[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
     & Owner
     & Repo
     & Branch
     & {
-      contexts: string[];
+      contexts: String[];
     };
   declare type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
     & Owner
@@ -1874,21 +1672,21 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      teams: string[];
+      teams: String[];
     };
   declare type ReposAddProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      teams: string[];
+      teams: String[];
     };
   declare type ReposRemoveProtectedBranchTeamRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      teams: string[];
+      teams: String[];
     };
   declare type ReposGetProtectedBranchUserRestrictionsParams =
     & Owner
@@ -1902,21 +1700,21 @@ declare module "github" {
     & Repo
     & Branch
     & {
-      users: string[];
+      users: String[];
     };
   declare type ReposAddProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      users: string[];
+      users: String[];
     };
   declare type ReposRemoveProtectedBranchUserRestrictionsParams =
     & Owner
     & Repo
     & Branch
     & {
-      users: string[];
+      users: String[];
     };
   declare type ReposGetCollaboratorsParams =
     & Owner
@@ -2121,7 +1919,7 @@ declare module "github" {
       ref: string;
       task?: string;
       auto_merge?: boolean;
-      required_contexts?: string[];
+      required_contexts?: String[];
       payload?: string;
       environment?: string;
       description?: string;
@@ -2176,12 +1974,6 @@ declare module "github" {
     & {
       sort?: "newest"|"oldest"|"stargazers";
     };
-  declare type ReposForkParams =
-    & Owner
-    & Repo
-    & {
-      organization?: string;
-    };
   declare type ReposGetInvitesParams =
     & Owner
     & Repo
@@ -2197,14 +1989,6 @@ declare module "github" {
     & InvitationId
     & {
       permissions?: "read"|"write"|"admin";
-    };
-  declare type ReposMergeParams =
-    & Owner
-    & Repo
-    & Base
-    & Head
-    & {
-      commit_message?: string;
     };
   declare type ReposGetPagesParams =
     & Owner
@@ -2399,7 +2183,7 @@ declare module "github" {
     & Name
     & {
       config: string;
-      events?: string[];
+      events?: String[];
       active?: boolean;
     };
   declare type ReposEditHookParams =
@@ -2409,9 +2193,9 @@ declare module "github" {
     & Name
     & {
       config: string;
-      events?: string[];
-      add_events?: string[];
-      remove_events?: string[];
+      events?: String[];
+      add_events?: String[];
+      remove_events?: String[];
       active?: boolean;
     };
   declare type ReposTestHookParams =
@@ -2429,66 +2213,12 @@ declare module "github" {
     & Repo
     & Id
     ;
-  declare type SearchReposParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
-    & {
-      sort?: "stars"|"forks"|"updated";
-    };
-  declare type SearchCodeParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
-    & {
-      sort?: "indexed";
-    };
-  declare type SearchCommitsParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
-    & {
-      sort?: "author-date"|"committer-date";
-    };
-  declare type SearchIssuesParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
-    & {
-      sort?: "comments"|"created"|"updated";
-    };
-  declare type SearchUsersParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
-    & {
-      sort?: "followers"|"repositories"|"joined";
-    };
-  declare type SearchEmailParams =
-    & {
-      email: string;
-    };
   declare type UsersGetForUserParams =
     & Username
     ;
   declare type UsersGetByIdParams =
     & Id
     ;
-  declare type UsersUpdateParams =
-    & {
-      name?: string;
-      email?: string;
-      blog?: string;
-      company?: string;
-      location?: string;
-      hireable?: boolean;
-      bio?: string;
-    };
   declare type UsersGetAllParams =
     & {
       since?: number;
@@ -2523,11 +2253,11 @@ declare module "github" {
     ;
   declare type UsersAddEmailsParams =
     & {
-      emails: string[];
+      emails: String[];
     };
   declare type UsersDeleteEmailsParams =
     & {
-      emails: string[];
+      emails: String[];
     };
   declare type UsersGetFollowersForUserParams =
     & Username
@@ -2599,18 +2329,6 @@ declare module "github" {
   declare type UsersDeleteGpgKeyParams =
     & Id
     ;
-  declare type UsersPromoteParams =
-    & Username
-    ;
-  declare type UsersDemoteParams =
-    & Username
-    ;
-  declare type UsersSuspendParams =
-    & Username
-    ;
-  declare type UsersUnsuspendParams =
-    & Username
-    ;
   declare type UsersCheckBlockedUserParams =
     & Username
     ;
@@ -2651,10 +2369,6 @@ declare module "github" {
     & Page
     & PerPage
     ;
-  declare type EnterpriseStatsParams =
-    & {
-      type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
-    };
   declare type EnterpriseUpdateLdapForUserParams =
     & Username
     & {
@@ -2742,15 +2456,8 @@ declare module "github" {
       getGrant(params: AuthorizationGetGrantParams, callback?: Callback): Promise<any>;
       deleteGrant(params: AuthorizationDeleteGrantParams, callback?: Callback): Promise<any>;
       getAll(params: AuthorizationGetAllParams, callback?: Callback): Promise<any>;
-      get(params: AuthorizationGetParams, callback?: Callback): Promise<any>;
-      create(params: AuthorizationCreateParams, callback?: Callback): Promise<any>;
       getOrCreateAuthorizationForApp(params: AuthorizationGetOrCreateAuthorizationForAppParams, callback?: Callback): Promise<any>;
       getOrCreateAuthorizationForAppAndFingerprint(params: AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams, callback?: Callback): Promise<any>;
-      update(params: AuthorizationUpdateParams, callback?: Callback): Promise<any>;
-      delete(params: AuthorizationDeleteParams, callback?: Callback): Promise<any>;
-      check(params: AuthorizationCheckParams, callback?: Callback): Promise<any>;
-      reset(params: AuthorizationResetParams, callback?: Callback): Promise<any>;
-      revoke(params: AuthorizationRevokeParams, callback?: Callback): Promise<any>;
       revokeGrant(params: AuthorizationRevokeGrantParams, callback?: Callback): Promise<any>;
     };
     activity: {
@@ -2792,17 +2499,10 @@ declare module "github" {
       getAll(params: GistsGetAllParams, callback?: Callback): Promise<any>;
       getPublic(params: GistsGetPublicParams, callback?: Callback): Promise<any>;
       getStarred(params: GistsGetStarredParams, callback?: Callback): Promise<any>;
-      get(params: GistsGetParams, callback?: Callback): Promise<any>;
       getRevision(params: GistsGetRevisionParams, callback?: Callback): Promise<any>;
-      create(params: GistsCreateParams, callback?: Callback): Promise<any>;
-      edit(params: GistsEditParams, callback?: Callback): Promise<any>;
       getCommits(params: GistsGetCommitsParams, callback?: Callback): Promise<any>;
-      star(params: GistsStarParams, callback?: Callback): Promise<any>;
-      unstar(params: GistsUnstarParams, callback?: Callback): Promise<any>;
       checkStar(params: GistsCheckStarParams, callback?: Callback): Promise<any>;
-      fork(params: GistsForkParams, callback?: Callback): Promise<any>;
       getForks(params: GistsGetForksParams, callback?: Callback): Promise<any>;
-      delete(params: GistsDeleteParams, callback?: Callback): Promise<any>;
       getComments(params: GistsGetCommentsParams, callback?: Callback): Promise<any>;
       getComment(params: GistsGetCommentParams, callback?: Callback): Promise<any>;
       createComment(params: GistsCreateCommentParams, callback?: Callback): Promise<any>;
@@ -2836,7 +2536,6 @@ declare module "github" {
     };
     apps: {
       getForSlug(params: AppsGetForSlugParams, callback?: Callback): Promise<any>;
-      get(params: EmptyParams, callback?: Callback): Promise<any>;
       getInstallations(params: AppsGetInstallationsParams, callback?: Callback): Promise<any>;
       getInstallation(params: AppsGetInstallationParams, callback?: Callback): Promise<any>;
       createInstallationToken(params: AppsCreateInstallationTokenParams, callback?: Callback): Promise<any>;
@@ -2855,11 +2554,6 @@ declare module "github" {
       getForUser(params: IssuesGetForUserParams, callback?: Callback): Promise<any>;
       getForOrg(params: IssuesGetForOrgParams, callback?: Callback): Promise<any>;
       getForRepo(params: IssuesGetForRepoParams, callback?: Callback): Promise<any>;
-      get(params: IssuesGetParams, callback?: Callback): Promise<any>;
-      create(params: IssuesCreateParams, callback?: Callback): Promise<any>;
-      edit(params: IssuesEditParams, callback?: Callback): Promise<any>;
-      lock(params: IssuesLockParams, callback?: Callback): Promise<any>;
-      unlock(params: IssuesUnlockParams, callback?: Callback): Promise<any>;
       getAssignees(params: IssuesGetAssigneesParams, callback?: Callback): Promise<any>;
       checkAssignee(params: IssuesCheckAssigneeParams, callback?: Callback): Promise<any>;
       addAssigneesToIssue(params: IssuesAddAssigneesToIssueParams, callback?: Callback): Promise<any>;
@@ -2925,8 +2619,6 @@ declare module "github" {
     orgs: {
       getAll(params: OrgsGetAllParams, callback?: Callback): Promise<any>;
       getForUser(params: OrgsGetForUserParams, callback?: Callback): Promise<any>;
-      get(params: OrgsGetParams, callback?: Callback): Promise<any>;
-      update(params: OrgsUpdateParams, callback?: Callback): Promise<any>;
       getMembers(params: OrgsGetMembersParams, callback?: Callback): Promise<any>;
       checkMembership(params: OrgsCheckMembershipParams, callback?: Callback): Promise<any>;
       removeMember(params: OrgsRemoveMemberParams, callback?: Callback): Promise<any>;
@@ -2990,14 +2682,10 @@ declare module "github" {
     };
     pullRequests: {
       getAll(params: PullRequestsGetAllParams, callback?: Callback): Promise<any>;
-      get(params: PullRequestsGetParams, callback?: Callback): Promise<any>;
-      create(params: PullRequestsCreateParams, callback?: Callback): Promise<any>;
       createFromIssue(params: PullRequestsCreateFromIssueParams, callback?: Callback): Promise<any>;
-      update(params: PullRequestsUpdateParams, callback?: Callback): Promise<any>;
       getCommits(params: PullRequestsGetCommitsParams, callback?: Callback): Promise<any>;
       getFiles(params: PullRequestsGetFilesParams, callback?: Callback): Promise<any>;
       checkMerged(params: PullRequestsCheckMergedParams, callback?: Callback): Promise<any>;
-      merge(params: PullRequestsMergeParams, callback?: Callback): Promise<any>;
       getReviews(params: PullRequestsGetReviewsParams, callback?: Callback): Promise<any>;
       getReview(params: PullRequestsGetReviewParams, callback?: Callback): Promise<any>;
       deletePendingReview(params: PullRequestsDeletePendingReviewParams, callback?: Callback): Promise<any>;
@@ -3025,25 +2713,20 @@ declare module "github" {
       createForIssueComment(params: ReactionsCreateForIssueCommentParams, callback?: Callback): Promise<any>;
       getForPullRequestReviewComment(params: ReactionsGetForPullRequestReviewCommentParams, callback?: Callback): Promise<any>;
       createForPullRequestReviewComment(params: ReactionsCreateForPullRequestReviewCommentParams, callback?: Callback): Promise<any>;
-      delete(params: ReactionsDeleteParams, callback?: Callback): Promise<any>;
     };
     repos: {
       getAll(params: ReposGetAllParams, callback?: Callback): Promise<any>;
       getForUser(params: ReposGetForUserParams, callback?: Callback): Promise<any>;
       getForOrg(params: ReposGetForOrgParams, callback?: Callback): Promise<any>;
       getPublic(params: ReposGetPublicParams, callback?: Callback): Promise<any>;
-      create(params: ReposCreateParams, callback?: Callback): Promise<any>;
       createForOrg(params: ReposCreateForOrgParams, callback?: Callback): Promise<any>;
-      get(params: ReposGetParams, callback?: Callback): Promise<any>;
       getById(params: ReposGetByIdParams, callback?: Callback): Promise<any>;
-      edit(params: ReposEditParams, callback?: Callback): Promise<any>;
       getTopics(params: ReposGetTopicsParams, callback?: Callback): Promise<any>;
       replaceTopics(params: ReposReplaceTopicsParams, callback?: Callback): Promise<any>;
       getContributors(params: ReposGetContributorsParams, callback?: Callback): Promise<any>;
       getLanguages(params: ReposGetLanguagesParams, callback?: Callback): Promise<any>;
       getTeams(params: ReposGetTeamsParams, callback?: Callback): Promise<any>;
       getTags(params: ReposGetTagsParams, callback?: Callback): Promise<any>;
-      delete(params: ReposDeleteParams, callback?: Callback): Promise<any>;
       getBranches(params: ReposGetBranchesParams, callback?: Callback): Promise<any>;
       getBranch(params: ReposGetBranchParams, callback?: Callback): Promise<any>;
       getBranchProtection(params: ReposGetBranchProtectionParams, callback?: Callback): Promise<any>;
@@ -3108,11 +2791,9 @@ declare module "github" {
       getDownload(params: ReposGetDownloadParams, callback?: Callback): Promise<any>;
       deleteDownload(params: ReposDeleteDownloadParams, callback?: Callback): Promise<any>;
       getForks(params: ReposGetForksParams, callback?: Callback): Promise<any>;
-      fork(params: ReposForkParams, callback?: Callback): Promise<any>;
       getInvites(params: ReposGetInvitesParams, callback?: Callback): Promise<any>;
       deleteInvite(params: ReposDeleteInviteParams, callback?: Callback): Promise<any>;
       updateInvite(params: ReposUpdateInviteParams, callback?: Callback): Promise<any>;
-      merge(params: ReposMergeParams, callback?: Callback): Promise<any>;
       getPages(params: ReposGetPagesParams, callback?: Callback): Promise<any>;
       requestPageBuild(params: ReposRequestPageBuildParams, callback?: Callback): Promise<any>;
       getPagesBuilds(params: ReposGetPagesBuildsParams, callback?: Callback): Promise<any>;
@@ -3151,18 +2832,10 @@ declare module "github" {
       deleteHook(params: ReposDeleteHookParams, callback?: Callback): Promise<any>;
     };
     search: {
-      repos(params: SearchReposParams, callback?: Callback): Promise<any>;
-      code(params: SearchCodeParams, callback?: Callback): Promise<any>;
-      commits(params: SearchCommitsParams, callback?: Callback): Promise<any>;
-      issues(params: SearchIssuesParams, callback?: Callback): Promise<any>;
-      users(params: SearchUsersParams, callback?: Callback): Promise<any>;
-      email(params: SearchEmailParams, callback?: Callback): Promise<any>;
     };
     users: {
       getForUser(params: UsersGetForUserParams, callback?: Callback): Promise<any>;
       getById(params: UsersGetByIdParams, callback?: Callback): Promise<any>;
-      get(params: EmptyParams, callback?: Callback): Promise<any>;
-      update(params: UsersUpdateParams, callback?: Callback): Promise<any>;
       getAll(params: UsersGetAllParams, callback?: Callback): Promise<any>;
       getOrgs(params: UsersGetOrgsParams, callback?: Callback): Promise<any>;
       getOrgMemberships(params: UsersGetOrgMembershipsParams, callback?: Callback): Promise<any>;
@@ -3192,10 +2865,6 @@ declare module "github" {
       getGpgKey(params: UsersGetGpgKeyParams, callback?: Callback): Promise<any>;
       createGpgKey(params: UsersCreateGpgKeyParams, callback?: Callback): Promise<any>;
       deleteGpgKey(params: UsersDeleteGpgKeyParams, callback?: Callback): Promise<any>;
-      promote(params: UsersPromoteParams, callback?: Callback): Promise<any>;
-      demote(params: UsersDemoteParams, callback?: Callback): Promise<any>;
-      suspend(params: UsersSuspendParams, callback?: Callback): Promise<any>;
-      unsuspend(params: UsersUnsuspendParams, callback?: Callback): Promise<any>;
       getBlockedUsers(params: EmptyParams, callback?: Callback): Promise<any>;
       checkBlockedUser(params: UsersCheckBlockedUserParams, callback?: Callback): Promise<any>;
       blockUser(params: UsersBlockUserParams, callback?: Callback): Promise<any>;
@@ -3211,7 +2880,6 @@ declare module "github" {
       getMarketplaceStubbedPurchases(params: UsersGetMarketplaceStubbedPurchasesParams, callback?: Callback): Promise<any>;
     };
     enterprise: {
-      stats(params: EnterpriseStatsParams, callback?: Callback): Promise<any>;
       updateLdapForUser(params: EnterpriseUpdateLdapForUserParams, callback?: Callback): Promise<any>;
       syncLdapForUser(params: EnterpriseSyncLdapForUserParams, callback?: Callback): Promise<any>;
       updateLdapForTeam(params: EnterpriseUpdateLdapForTeamParams, callback?: Callback): Promise<any>;

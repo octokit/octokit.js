@@ -5,8 +5,9 @@ const pathJoin = require('path').join
 
 const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
+const upperFirst = require('lodash/upperFirst')
 
-var typeMap = {
+const typeMap = {
   Json: 'string',
   String: 'string',
   Number: 'number',
@@ -18,8 +19,8 @@ function paramData (key, definition) {
     return {}
   }
 
-  var type = typeMap[definition.type] || definition.type
-  var enums = definition.enum
+  const type = typeMap[definition.type] || definition.type
+  const enums = definition.enum
         ? definition.enum.map(JSON.stringify).join('|')
         : null
 
@@ -31,18 +32,14 @@ function paramData (key, definition) {
   }
 }
 
-function capitalize (string) {
-  return string.charAt(0).toUpperCase().concat(string.slice(1))
-}
-
 function camelcase (string) {
   return string.replace(/(?:-|_)([a-z])/g, function (_, character) {
-    return capitalize(character)
+    return upperFirst(character)
   })
 }
 
 function pascalcase (string) {
-  return capitalize(camelcase(string))
+  return upperFirst(camelcase(string))
 }
 
 function isGlobalParam (name) {
