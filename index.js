@@ -1,42 +1,21 @@
 module.exports = GitHubApi
 
-var DEFINITIONS = require('./definitions.json')
+const authenticate = require('./lib/authenticate')
+const parseOptions = require('./lib/parse-options')
+const setupRoutes = require('./lib/setup-routes')
+const paginationApi = require('./lib/pagination')
+
+const DEFINITIONS = require('./lib/definitions/misc.json')
+const ROUTES = require('./lib/definitions/routes.json')
+const PREVIEW_HEADER_BY_PATH = require('./lib/definitions/routes.json')
 
 function GitHubApi (options) {
-  if (!(this instanceof Client)) {
-    return new Client(options)
-  }
-
-  options = options || {}
-  options.headers = options.headers || {}
-  this.options = options
-
-  if ('followRedirects' in options) {
-    console.warn('DEPRECATED: followRedirects option is no longer supported. All redirects are followed correctly')
-  }
-
-  if ('Promise' in options) {
-    console.warn('DEPRECATED: Promise option is no longer supported. The native Promise API is used')
-  }
-
-  var pathPrefix = ''
-    // Check if a prefix is passed in the options and strip any leading or trailing slashes from it.
-  if (typeof options.pathPrefix === 'string') {
-    pathPrefix = '/' + options.pathPrefix.replace(/(^[/]+|[/]+$)/g, '')
-    this.options.pathPrefix = pathPrefix
-  }
-
-    // store mapping of accept header to preview api endpoints
-  var mediaHash = DEFINITIONS.acceptTree
-  var mediaTypes = {}
-
-  for (var accept in mediaHash) {
-    for (var route in mediaHash[accept]) {
-      mediaTypes[mediaHash[accept][route]] = accept
-    }
-  }
-
-  this.acceptUrls = mediaTypes
-
-  this.setupRoutes()
-};
+  const state = parseOptions(options)
+  state.definitions = DEFINITIONS
+  state.routes = ROUTES
+  state.previewHeaderByPath = PREVIEW_HEADER_BY_PATH
+  const routesApi = setupRoutes(state)
+  return Object.assign(routesApi, paginationApi, {
+    authenticate: authenticate.bind(null, state)
+  })
+}
