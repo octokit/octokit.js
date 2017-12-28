@@ -742,7 +742,7 @@
           "default": "false"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -793,7 +793,7 @@
           "default": "false"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1350,7 +1350,7 @@
       "method": "POST",
       "params": {
         "files": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1392,7 +1392,7 @@
           "description": ""
         },
         "files": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -1483,7 +1483,7 @@
           "description": ""
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1512,7 +1512,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1541,7 +1541,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1555,7 +1555,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -1896,14 +1896,14 @@
           "description": "Array of the SHAs of the commits that were the parents of this commit. If omitted or empty, the commit will be written as a root commit. For a single parent, an array of one SHA should be provided, for a merge commit, an array of more than one should be provided."
         },
         "author": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "committer": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -2224,7 +2224,7 @@
           "description": "String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob."
         },
         "tagger": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2315,7 +2315,7 @@
           "description": ""
         },
         "tree": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -2997,7 +2997,7 @@
           "default": "desc"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3085,7 +3085,7 @@
           "default": "desc"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3180,7 +3180,7 @@
           "default": "desc"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3296,7 +3296,7 @@
           "default": "desc"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3430,7 +3430,7 @@
           "description": ""
         },
         "body": {
-          "type": "Json",
+          "type": "json",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
@@ -3466,7 +3466,7 @@
           "description": ""
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -3533,7 +3533,7 @@
           "default": "desc"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -4297,7 +4297,7 @@
           "description": ""
         },
         "due_on": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
@@ -4359,7 +4359,7 @@
           "description": ""
         },
         "due_on": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ",
@@ -6072,7 +6072,7 @@
           "description": "Must be passed as \"web\"."
         },
         "config": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -6115,7 +6115,7 @@
           "description": ""
         },
         "config": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -7597,7 +7597,7 @@
           "default": "desc"
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -9359,7 +9359,7 @@
           "description": ""
         },
         "required_status_checks": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "allow-null": true,
           "validation": "",
@@ -9367,7 +9367,7 @@
           "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled."
         },
         "required_pull_request_reviews": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "allow-null": true,
           "validation": "",
@@ -9375,7 +9375,7 @@
           "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators."
         },
         "dismissal_restrictions": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "allow-null": true,
           "validation": "",
@@ -9383,7 +9383,7 @@
           "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
         },
         "restrictions": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "allow-null": true,
           "validation": "",
@@ -9792,7 +9792,7 @@
           "description": ""
         },
         "dismissal_restrictions": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "allow-null": true,
           "validation": "",
@@ -10800,14 +10800,14 @@
           "description": "GitHub login or email address by which to filter by commit author."
         },
         "since": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
         },
         "until": {
-          "type": "Date",
+          "type": "date",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -11034,14 +11034,14 @@
           "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
         },
         "committer": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "author": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -11104,14 +11104,14 @@
           "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
         },
         "committer": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "author": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -11167,14 +11167,14 @@
           "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
         },
         "committer": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
           "description": ""
         },
         "author": {
-          "type": "Json",
+          "type": "json",
           "required": false,
           "validation": "",
           "invalidmsg": "",
@@ -12375,7 +12375,7 @@
           "description": "This endpoint makes use of a Hypermedia relation (https://developer.github.com/v3/#hypermedia) to determine which URL to access. This endpoint is provided by a URI template in the release's API response (https://developer.github.com/v3/repos/releases/#get-a-single-release). You need to use an HTTP client which supports SNI (https://en.wikipedia.org/wiki/Server_Name_Indication) to make calls to this endpoint."
         },
         "file": {
-          "type": "Object",
+          "type": "object",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -12997,7 +12997,7 @@
           "description": ""
         },
         "config": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -13054,7 +13054,7 @@
           "description": ""
         },
         "config": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -14632,14 +14632,14 @@
           "description": "The script that the hook runs."
         },
         "script_repository": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
           "description": "The GitHub repository where the script is kept."
         },
         "environment": {
-          "type": "Json",
+          "type": "json",
           "required": true,
           "validation": "",
           "invalidmsg": "",
@@ -14676,7 +14676,7 @@
           "description": ""
         },
         "hook": {
-          "type": "Json",
+          "type": "json",
           "sendValueAsBody": true,
           "required": true,
           "validation": "",
