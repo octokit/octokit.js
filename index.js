@@ -7,7 +7,7 @@ const paginationApi = require('./lib/pagination')
 
 const DEFINITIONS = require('./lib/definitions/misc.json')
 const ROUTES = require('./lib/definitions/routes.json')
-const PREVIEW_HEADER_BY_PATH = require('./lib/definitions/routes.json')
+const PREVIEW_HEADER_BY_PATH = require('./lib/definitions/preview-header-by-path.json')
 
 function GitHubApi (options) {
   const state = parseOptions(options)

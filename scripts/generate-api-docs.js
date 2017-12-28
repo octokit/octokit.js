@@ -7,7 +7,7 @@ const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
 
 const ROUTES = require('../lib/routes.json')
-const DEFINITIONS = require('../lib/definitions.json')
+const DEFINITIONS = require('../lib/definitions/misc.json')
 
 debug('Converting routes to functions')
 

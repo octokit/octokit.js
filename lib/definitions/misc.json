@@ -1,31 +1,10 @@
 {
   "constants": {
-    "name": "Github",
-    "description": "A Node.JS module, which provides an object oriented wrapper for the GitHub v3 API.",
     "protocol": "https",
     "host": "api.github.com",
-    "port": 443,
-    "documentation": "https://developer.github.com/v3",
-    "dateFormat": "YYYY-MM-DDTHH:MM:SSZ",
     "requestFormat": "json",
     "requestMedia": "application/vnd.github.v3+json"
   },
-  "response-headers": [
-    "X-RateLimit-Limit",
-    "X-RateLimit-Remaining",
-    "X-RateLimit-Reset",
-    "X-Oauth-Scopes",
-    "X-Poll-Interval",
-    "X-GitHub-Request-Id",
-    "X-GitHub-Media-Type",
-    "X-GitHub-SSO",
-    "Retry-After",
-    "Link",
-    "Location",
-    "Last-Modified",
-    "Etag",
-    "Status"
-  ],
   "request-headers": [
     "Authorization",
     "If-Modified-Since",

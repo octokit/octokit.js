@@ -9,7 +9,7 @@ const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelcase')
 
 const ROUTES = require('../lib/routes.json')
-const DEFINITIONS = require('../lib/definitions.json')
+const DEFINITIONS = require('../lib/definitions/misc.json')
 
 const typeMap = {
   Json: 'string'
@@ -57,8 +57,6 @@ function generateTypes (languageName, templateFile, outputFile) {
   const templatePath = pathJoin(__dirname, 'templates', templateFile)
   const template = readFileSync(templatePath, 'utf8')
 
-  const requestHeaders = DEFINITIONS['request-headers']
-
   debug(`Generating ${languageName} types...`)
 
   const params = entries(DEFINITIONS.params).reduce(toCombineParams, [])
@@ -96,7 +94,6 @@ function generateTypes (languageName, templateFile, outputFile) {
   }, [])
 
   const body = Mustache.render(template, {
-    requestHeaders: requestHeaders.map(JSON.stringify),
     params,
     namespaces
   })

@@ -3,12 +3,6 @@
  */
 
 declare namespace Github {
-  export type WellKnownHeader =
-    {{#requestHeaders}}
-    | {{{.}}}
-    {{/requestHeaders}}
-    ;
-
   export interface EmptyParams {
   }
 

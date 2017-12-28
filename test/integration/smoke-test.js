@@ -58,23 +58,23 @@ describe('smoke', () => {
     })
   })
 
-  it.only('pagination', (done) => {
+  it('pagination', (done) => {
     nock('https://smoke-test.com')
       .get('/organizations')
-      .query({page: 2, per_page: 1})
+      .query({page: 3})
       .reply(200, [{}], {
-        'Link': '<https://api.github.com/organizations?page=3>; rel="next", <https://api.github.com/organizations?page=0>; rel="first", <https://api.github.com/organizations?page=1>; rel="prev"',
+        'Link': '<https://smoke-test.com/organizations?page=4>; rel="next", <https://smoke-test.com/organizations?page=1>; rel="first", <https://smoke-test.com/organizations?page=2>; rel="prev"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
 
       .get('/organizations')
-      .query({page: 0})
-      .reply(200, [{}])
-      .get('/organizations')
       .query({page: 1})
       .reply(200, [{}])
       .get('/organizations')
-      .query({page: 3})
+      .query({page: 2})
+      .reply(200, [{}])
+      .get('/organizations')
+      .query({page: 4})
       .reply(404, {})
 
     const github = new GitHub({
@@ -82,8 +82,7 @@ describe('smoke', () => {
     })
 
     github.orgs.getAll({
-      per_page: 1,
-      page: 2
+      page: 3
     })
 
     .then((result) => {
@@ -94,6 +93,7 @@ describe('smoke', () => {
 
       const customHeaders = {foo: 'bar'}
       const callback = () => {}
+
       github.getFirstPage(result, (error, result) => {
         if (error) {
           return done(error)
@@ -106,14 +106,14 @@ describe('smoke', () => {
 
         done()
       })
-      // github.getPreviousPage(result, customHeaders)
-      // github.getNextPage(result).catch(callback)
-      // github.getLastPage(result, customHeaders, (error) => {
-      //   error.code.should.equal('404')
-      // })
-      //
-      // // test error with promise
-      // github.getLastPage(result).catch(callback)
+      github.getPreviousPage(result, customHeaders)
+      github.getNextPage(result).catch(callback)
+      github.getLastPage(result, customHeaders, (error) => {
+        error.code.should.equal('404')
+      })
+
+      // test error with promise
+      github.getLastPage(result).catch(callback)
     })
   })
 })
