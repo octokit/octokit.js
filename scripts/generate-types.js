@@ -8,8 +8,8 @@ const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelcase')
 
-const ROUTES = require('../lib/routes.json')
-const DEFINITIONS = require('../lib/definitions/misc.json')
+const ROUTES = require('../lib/definitions/routes.json')
+const PARAMS = require('../lib/definitions/params.json')
 
 const typeMap = {
   Json: 'string'
@@ -59,7 +59,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
   debug(`Generating ${languageName} types...`)
 
-  const params = entries(DEFINITIONS.params).reduce(toCombineParams, [])
+  const params = entries(PARAMS).reduce(toCombineParams, [])
   const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
     const methods = entries(ROUTES[namespace]).reduce((methods, entry) => {
       const unionTypeNames = Object.keys(entry[1].params)

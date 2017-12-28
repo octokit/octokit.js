@@ -1,0 +1,445 @@
+{
+  "files": {
+    "type": "Json",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
+  },
+  "owner": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "username": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "org": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "repo": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "branch": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "sha": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "description": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "gist_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Id (SHA1 hash) of the gist."
+  },
+  "installation_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "repository_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "commit_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "Sha of the commit to comment on.",
+    "description": "Sha of the commit to comment on."
+  },
+  "client_id": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "The 20 character OAuth app client key for which to create the token."
+  },
+  "column_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "project_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "repo_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "invitation_id": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "ref": {
+    "type": "string",
+    "required": true,
+    "allow-empty": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
+  },
+  "number": {
+    "type": "number",
+    "required": true,
+    "validation": "^[0-9]+$",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "issue_number": {
+    "type": "number",
+    "required": true,
+    "validation": "^[0-9]+$",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "name": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "direction": {
+    "type": "string",
+    "required": false,
+    "validation": "^(asc|desc)$",
+    "invalidmsg": "asc or desc, default: desc.",
+    "description": "",
+    "enum": [
+      "asc",
+      "desc"
+    ],
+    "default": "desc"
+  },
+  "since": {
+    "type": "Date",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+  },
+  "until": {
+    "type": "Date",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+  },
+  "state": {
+    "type": "string",
+    "required": false,
+    "validation": "^(open|closed|all)$",
+    "invalidmsg": "open, closed, all, default: open",
+    "description": "",
+    "enum": [
+      "open",
+      "closed",
+      "all"
+    ],
+    "default": "open"
+  },
+  "color": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "6 character hex code, without a leading #.",
+    "description": "6 character hex code, without a leading #."
+  },
+  "base": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+  },
+  "head": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "The branch (or git ref) where your changes are implemented."
+  },
+  "path": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "Relative path of the file to comment on.",
+    "description": "Relative path of the file to comment on."
+  },
+  "position": {
+    "type": "number",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "Column index in the diff to comment on.",
+    "description": "Column index in the diff to comment on."
+  },
+  "body": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "homepage": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "private": {
+    "type": "boolean",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.",
+    "default": "false"
+  },
+  "has_issues": {
+    "type": "boolean",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "True to enable issues for this repository, false to disable them. Default is true.",
+    "default": "true"
+  },
+  "has_projects": {
+    "type": "boolean",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "True to enable projects for this repository, false to disable them. Default is true.",
+    "default": "true"
+  },
+  "has_wiki": {
+    "type": "boolean",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "True to enable the wiki for this repository, false to disable it. Default is true.",
+    "default": "true"
+  },
+  "has_downloads": {
+    "type": "boolean",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "True to enable downloads for this repository, false to disable them. Default is true.",
+    "default": "true"
+  },
+  "default_branch": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Updates the default branch for this repository."
+  },
+  "title": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "key": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": ""
+  },
+  "page": {
+    "type": "number",
+    "required": false,
+    "validation": "^[0-9]+$",
+    "invalidmsg": "",
+    "description": "Page number of the results to fetch."
+  },
+  "per_page": {
+    "type": "number",
+    "required": false,
+    "validation": "^[0-9]+$",
+    "invalidmsg": "",
+    "description": "A custom page size up to 100. Default is 30.",
+    "default": "30"
+  },
+  "scopes": {
+    "type": "string[]",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "A list of scopes that this authorization is in."
+  },
+  "note": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "A note to remind you what the OAuth token is for."
+  },
+  "note_url": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "A URL to remind you what app the OAuth token is for."
+  },
+  "auto_init": {
+    "type": "boolean",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "True to create an initial commit with empty README. Default is false",
+    "default": "false"
+  },
+  "gitignore_template": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
+  },
+  "license_template": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Desired LICENSE template to apply. Use the name of the template without the extension. For example, \"mit\" or \"mozilla\"."
+  },
+  "order": {
+    "type": "string",
+    "required": false,
+    "validation": "^(asc|desc)$",
+    "invalidmsg": "The sort order if sort parameter is provided. One of asc or desc. Default: desc",
+    "description": "asc or desc",
+    "enum": [
+      "asc",
+      "desc"
+    ],
+    "default": "desc"
+  },
+  "q": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Search Term",
+    "combined": true
+  },
+  "data": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Raw data to send as the body of the request"
+  },
+  "privacy": {
+    "type": "string",
+    "required": false,
+    "validation": "^(secret|closed)$",
+    "invalidmsg": "secret, closed, default: secret",
+    "description": "The level of privacy this team should have.",
+    "enum": [
+      "secret",
+      "closed"
+    ],
+    "default": "secret"
+  },
+  "fingerprint": {
+    "type": "string",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
+  },
+  "access_token": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "OAuth token"
+  },
+  "assignees": {
+    "type": "string[]",
+    "required": false,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
+  },
+  "url": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Dynamic URL for release asset uploads returned by the release’s API response."
+  },
+  "contentType": {
+    "type": "string",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "The content type of a release asset upload."
+  },
+  "contentLength": {
+    "type": "number",
+    "required": true,
+    "validation": "",
+    "invalidmsg": "",
+    "description": "Size of release asset upload in bytes."
+  }
+}

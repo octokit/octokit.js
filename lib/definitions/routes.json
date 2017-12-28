@@ -6058,8 +6058,8 @@
       "method": "POST",
       "hasFileBody": true,
       "headers": {
-        "Content-Type": ":contentType",
-        "Content-Length": ":contentLength"
+        "content-type": ":contentType",
+        "content-length": ":contentLength"
       },
       "timeout": 0,
       "params": {

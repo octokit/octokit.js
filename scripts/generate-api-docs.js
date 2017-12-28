@@ -7,7 +7,7 @@ const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
 
 const ROUTES = require('../lib/routes.json')
-const DEFINITIONS = require('../lib/definitions/misc.json')
+const PARAMS = require('../lib/definitions/params.json')
 
 debug('Converting routes to functions')
 
@@ -72,7 +72,7 @@ function toApiComment (namespaceName, apiName, api) {
 
 function toApiParamComment (paramsObj, param) {
   const cleanParam = removeParamPrefix(param)
-  const paramInfo = paramsObj[param] || DEFINITIONS['params'][cleanParam]
+  const paramInfo = paramsObj[param] || PARAMS[cleanParam]
 
   const paramRequired = paramInfo['required']
   const paramType = paramInfo['type'].toLowerCase()
@@ -107,8 +107,8 @@ function sortByRequired (api, paramA, paramB) {
   const cleanParamA = paramA.replace(/^\$/, '')
   const cleanParamB = paramB.replace(/^\$/, '')
 
-  const paramInfoA = api[paramA] || DEFINITIONS['params'][cleanParamA]
-  const paramInfoB = api[paramB] || DEFINITIONS['params'][cleanParamB]
+  const paramInfoA = api[paramA] || PARAMS[cleanParamA]
+  const paramInfoB = api[paramB] || PARAMS[cleanParamB]
 
   const aIsRequired = paramInfoA['required']
   const bIsRequired = paramInfoB['required']
