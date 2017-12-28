@@ -61,20 +61,20 @@ describe('smoke', () => {
   it('pagination', (done) => {
     nock('https://smoke-test.com')
       .get('/organizations')
-      .query({page: 3})
+      .query({page: 3, per_page: 1})
       .reply(200, [{}], {
-        'Link': '<https://smoke-test.com/organizations?page=4>; rel="next", <https://smoke-test.com/organizations?page=1>; rel="first", <https://smoke-test.com/organizations?page=2>; rel="prev"',
+        'Link': '<https://smoke-test.com/organizations?page=4&per_page=1>; rel="next", <https://smoke-test.com/organizations?page=1&per_page=1>; rel="first", <https://smoke-test.com/organizations?page=2&per_page=1>; rel="prev"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
 
       .get('/organizations')
-      .query({page: 1})
+      .query({page: 1, per_page: 1})
       .reply(200, [{}])
       .get('/organizations')
-      .query({page: 2})
+      .query({page: 2, per_page: 1})
       .reply(200, [{}])
       .get('/organizations')
-      .query({page: 4})
+      .query({page: 4, per_page: 1})
       .reply(404, {})
 
     const github = new GitHub({
@@ -82,7 +82,8 @@ describe('smoke', () => {
     })
 
     github.orgs.getAll({
-      page: 3
+      page: 3,
+      per_page: 1
     })
 
     .then((result) => {
