@@ -92,29 +92,40 @@ describe('smoke', () => {
       github.hasFirstPage(result).should.be.a('string')
       should.not.exist(github.hasLastPage(result))
 
-      const customHeaders = {foo: 'bar'}
       const callback = () => {}
 
-      github.getFirstPage(result, (error, result) => {
-        if (error) {
-          return done(error)
-        }
+      Promise.all([
+        new Promise((resolve, reject) => {
+          github.getFirstPage(result, (error, result) => {
+            if (error) {
+              return reject(error)
+            }
 
-        should.not.throw(() => {
-          github.hasPreviousPage(result)
-        })
-        should.not.exist(github.hasPreviousPage(result))
+            should.not.throw(() => {
+              github.hasPreviousPage(result)
+            })
+            should.not.exist(github.hasPreviousPage(result))
 
-        done()
-      })
-      github.getPreviousPage(result, customHeaders)
-      github.getNextPage(result).catch(callback)
-      github.getLastPage(result, customHeaders, (error) => {
-        error.code.should.equal('404')
-      })
-
-      // test error with promise
-      github.getLastPage(result).catch(callback)
+            resolve()
+          })
+        }),
+        github.getPreviousPage(result, {foo: 'bar', accept: 'application/vnd.github.v3+json'}),
+        github.getNextPage(result).catch(callback),
+        new Promise(resolve => {
+          github.getLastPage(result, { foo: 'bar' }, (error) => {
+            error.code.should.equal('404')
+            resolve()
+          })
+        }),
+        // test error with promise
+        github.getLastPage(result).catch(callback)
+      ])
     })
+
+    .then(() => {
+      done()
+    })
+
+    .catch(done)
   })
 })
