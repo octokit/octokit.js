@@ -7,7 +7,6 @@ const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
 
 const ROUTES = require('../lib/routes.json')
-const PARAMS = require('../lib/definitions/params.json')
 
 debug('Converting routes to functions')
 
@@ -58,7 +57,7 @@ function toApiComment (namespaceName, apiName, api) {
     params.map(toApiParamComment.bind(null, paramsObj))
   )
 
-  const paramsString = params.map(removeParamPrefix).join(', ')
+  const paramsString = params.join(', ')
 
   return commentLines.concat([
     ' * @apiExample {js} async/await',
@@ -71,15 +70,14 @@ function toApiComment (namespaceName, apiName, api) {
 }
 
 function toApiParamComment (paramsObj, param) {
-  const cleanParam = removeParamPrefix(param)
-  const paramInfo = paramsObj[param] || PARAMS[cleanParam]
+  const paramInfo = paramsObj[param]
 
   const paramRequired = paramInfo['required']
   const paramType = paramInfo['type'].toLowerCase()
   const paramDescription = paramInfo['description']
   const paramDefaultVal = paramInfo['default']
 
-  let paramLabel = cleanParam
+  let paramLabel = param
 
   // add default value if there is one
   if (typeof paramDefaultVal !== 'undefined') {
@@ -99,16 +97,9 @@ function toApiParamComment (paramsObj, param) {
   return ` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`
 }
 
-function removeParamPrefix (name) {
-  return name.replace(/^\$/, '')
-}
-
 function sortByRequired (api, paramA, paramB) {
-  const cleanParamA = paramA.replace(/^\$/, '')
-  const cleanParamB = paramB.replace(/^\$/, '')
-
-  const paramInfoA = api[paramA] || PARAMS[cleanParamA]
-  const paramInfoB = api[paramB] || PARAMS[cleanParamB]
+  const paramInfoA = api[paramA]
+  const paramInfoB = api[paramB]
 
   const aIsRequired = paramInfoA['required']
   const bIsRequired = paramInfoB['required']
