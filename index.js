@@ -2,7 +2,7 @@ module.exports = GitHubApi
 
 const authenticate = require('./lib/authenticate')
 const parseClientOptions = require('./lib/parse-client-options')
-const setupApiMethods = require('./lib/setup')
+const setupApiMethods = require('./lib/setup-api-methods')
 const paginationApi = require('./lib/pagination')
 
 function GitHubApi (options) {
