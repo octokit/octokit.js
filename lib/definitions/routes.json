@@ -971,7 +971,8 @@
           "default": "30"
         }
       },
-      "description": "List Stargazers"
+      "description": "List Stargazers",
+      "preview": "application/vnd.github.v3.star+json"
     },
     "getStarredReposForUser": {
       "path": "/users/:username/starred",
@@ -1024,7 +1025,8 @@
           "default": "30"
         }
       },
-      "description": "List repositories being starred by a user"
+      "description": "List repositories being starred by a user",
+      "preview": "application/vnd.github.v3.star+json"
     },
     "getStarredRepos": {
       "path": "/user/starred",
@@ -1070,7 +1072,8 @@
           "default": "30"
         }
       },
-      "description": "List repositories being starred by the authenticated user"
+      "description": "List repositories being starred by the authenticated user",
+      "preview": "application/vnd.github.v3.star+json"
     },
     "checkStarringRepo": {
       "path": "/user/starred/:owner/:repo",
@@ -2354,7 +2357,8 @@
         }
       },
       "deprecated": "`integrations` has been renamed to `apps`",
-      "description": "List the app's installations. (In preview period. See README.)"
+      "description": "List the app's installations. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "createInstallationToken": {
       "path": "/installations/:installation_id/access_tokens",
@@ -2376,7 +2380,8 @@
         }
       },
       "deprecated": "`integrations` has been renamed to `apps`",
-      "description": "Create a new installation token. (In preview period. See README.)"
+      "description": "Create a new installation token. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getInstallationRepositories": {
       "path": "/installation/repositories",
@@ -2391,7 +2396,8 @@
         }
       },
       "deprecated": "`integrations` has been renamed to `apps`",
-      "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
+      "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "addRepoToInstallation": {
       "path": "/installations/:installation_id/repositories/:repository_id",
@@ -2413,7 +2419,8 @@
         }
       },
       "deprecated": "`integrations` has been renamed to `apps`",
-      "description": "Add a single repository to an installation. (In preview period. See README.)"
+      "description": "Add a single repository to an installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "removeRepoFromInstallation": {
       "path": "/installations/:installation_id/repositories/:repository_id",
@@ -2435,7 +2442,8 @@
         }
       },
       "deprecated": "`integrations` has been renamed to `apps`",
-      "description": "Remove a single repository from an installation. (In preview period. See README.)"
+      "description": "Remove a single repository from an installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     }
   },
   "apps": {
@@ -2457,7 +2465,8 @@
           "description": "The URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., https://github.com/settings/apps/:app_slug)."
         }
       },
-      "description": "Get a single GitHub App. (In preview period. See README.)"
+      "description": "Get a single GitHub App. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getInstallations": {
       "path": "/app/installations",
@@ -2479,7 +2488,8 @@
           "default": "30"
         }
       },
-      "description": "List the app's installations. (In preview period. See README.)"
+      "description": "List the app's installations. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getInstallation": {
       "path": "/app/installations/:installation_id",
@@ -2493,7 +2503,8 @@
           "description": ""
         }
       },
-      "description": "Get a single installation. (In preview period. See README.)"
+      "description": "Get a single installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "createInstallationToken": {
       "path": "/installations/:installation_id/access_tokens",
@@ -2514,7 +2525,8 @@
           "description": "The id of the user for whom the app is acting on behalf of."
         }
       },
-      "description": "Create a new installation token. (In preview period. See README.)"
+      "description": "Create a new installation token. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getInstallationRepositories": {
       "path": "/installation/repositories",
@@ -2528,7 +2540,8 @@
           "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
         }
       },
-      "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)"
+      "description": "List repositories that are accessible to the authenticated installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "addRepoToInstallation": {
       "path": "/installations/:installation_id/repositories/:repository_id",
@@ -2549,7 +2562,8 @@
           "description": ""
         }
       },
-      "description": "Add a single repository to an installation. (In preview period. See README.)"
+      "description": "Add a single repository to an installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "removeRepoFromInstallation": {
       "path": "/installations/:installation_id/repositories/:repository_id",
@@ -2570,7 +2584,8 @@
           "description": ""
         }
       },
-      "description": "Remove a single repository from an installation. (In preview period. See README.)"
+      "description": "Remove a single repository from an installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getMarketplaceListingPlans": {
       "path": "/marketplace_listing/plans",
@@ -2592,7 +2607,8 @@
           "default": "30"
         }
       },
-      "description": "List all plans for your Marketplace listing. (In preview period. See README.)"
+      "description": "List all plans for your Marketplace listing. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     },
     "getMarketplaceListingStubbedPlans": {
       "path": "/marketplace_listing/stubbed/plans",
@@ -2614,7 +2630,8 @@
           "default": "30"
         }
       },
-      "description": "List all stubbed plans for your Marketplace listing. (In preview period. See README.)"
+      "description": "List all stubbed plans for your Marketplace listing. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     },
     "getMarketplaceListingPlanAccounts": {
       "path": "/marketplace_listing/plans/:id/accounts",
@@ -2643,7 +2660,8 @@
           "default": "30"
         }
       },
-      "description": "List all GitHub accounts (user or organization) on a specific plan. (In preview period. See README.)"
+      "description": "List all GitHub accounts (user or organization) on a specific plan. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     },
     "getMarketplaceListingStubbedPlanAccounts": {
       "path": "/marketplace_listing/stubbed/plans/:id/accounts",
@@ -2672,7 +2690,8 @@
           "default": "30"
         }
       },
-      "description": "List all GitHub accounts (user or organization) on a specific stubbed plan. (In preview period. See README.)"
+      "description": "List all GitHub accounts (user or organization) on a specific stubbed plan. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     },
     "checkMarketplaceListingAccount": {
       "path": "/marketplace_listing/accounts/:id",
@@ -2686,7 +2705,8 @@
           "description": ""
         }
       },
-      "description": "Check if a GitHub account is associated with any Marketplace listing. (In preview period. See README.)"
+      "description": "Check if a GitHub account is associated with any Marketplace listing. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     },
     "checkMarketplaceListingStubbedAccount": {
       "path": "/marketplace_listing/stubbed/accounts/:id",
@@ -2700,7 +2720,8 @@
           "description": ""
         }
       },
-      "description": "Check if a stubbed GitHub account is associated with any Marketplace listing. (In preview period. See README.)"
+      "description": "Check if a stubbed GitHub account is associated with any Marketplace listing. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     }
   },
   "issues": {
@@ -2730,7 +2751,8 @@
           "description": ""
         }
       },
-      "description": "Get a single issue"
+      "description": "Get a single issue",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "create": {
       "path": "/repos/:owner/:repo/issues",
@@ -2793,7 +2815,8 @@
           "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
         }
       },
-      "description": "Create an issue"
+      "description": "Create an issue",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "edit": {
       "path": "/repos/:owner/:repo/issues/:number",
@@ -2875,7 +2898,8 @@
           "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
         }
       },
-      "description": "Edit an issue"
+      "description": "Edit an issue",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "lock": {
       "path": "/repos/:owner/:repo/issues/:number/lock",
@@ -3019,7 +3043,8 @@
           "default": "30"
         }
       },
-      "description": "List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories"
+      "description": "List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForUser": {
       "path": "/user/issues",
@@ -3107,7 +3132,8 @@
           "default": "30"
         }
       },
-      "description": "List all issues across owned and member repositories for the authenticated user"
+      "description": "List all issues across owned and member repositories for the authenticated user",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForOrg": {
       "path": "/orgs/:org/issues",
@@ -3202,7 +3228,8 @@
           "default": "30"
         }
       },
-      "description": "List all issues for a given organization for the authenticated user"
+      "description": "List all issues for a given organization for the authenticated user",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForRepo": {
       "path": "/repos/:owner/:repo/issues",
@@ -3318,7 +3345,8 @@
           "default": "30"
         }
       },
-      "description": "List issues for a repository"
+      "description": "List issues for a repository",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getAssignees": {
       "path": "/repos/:owner/:repo/assignees",
@@ -3488,7 +3516,8 @@
           "default": "30"
         }
       },
-      "description": "List comments on an issue"
+      "description": "List comments on an issue",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getCommentsForRepo": {
       "path": "/repos/:owner/:repo/issues/comments",
@@ -3555,7 +3584,8 @@
           "default": "30"
         }
       },
-      "description": "List comments in a repository"
+      "description": "List comments in a repository",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getComment": {
       "path": "/repos/:owner/:repo/issues/comments/:id",
@@ -3583,7 +3613,8 @@
           "description": ""
         }
       },
-      "description": "Get a single comment"
+      "description": "Get a single comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createComment": {
       "path": "/repos/:owner/:repo/issues/:number/comments",
@@ -3618,7 +3649,8 @@
           "description": ""
         }
       },
-      "description": "Create a comment"
+      "description": "Create a comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "editComment": {
       "path": "/repos/:owner/:repo/issues/comments/:id",
@@ -3653,7 +3685,8 @@
           "description": ""
         }
       },
-      "description": "Edit a comment"
+      "description": "Edit a comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "deleteComment": {
       "path": "/repos/:owner/:repo/issues/comments/:id",
@@ -3681,7 +3714,8 @@
           "description": ""
         }
       },
-      "description": "Delete a comment"
+      "description": "Delete a comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getEvents": {
       "path": "/repos/:owner/:repo/issues/:issue_number/events",
@@ -4437,7 +4471,8 @@
           "default": "30"
         }
       },
-      "description": "List events for an issue. (In preview period. See README.)"
+      "description": "List events for an issue. (In preview period. See README.)",
+      "preview": "application/vnd.github.mockingbird-preview"
     }
   },
   "migrations": {
@@ -4476,7 +4511,8 @@
           "default": "false"
         }
       },
-      "description": "Start a migration. (In preview period. See README.)"
+      "description": "Start a migration. (In preview period. See README.)",
+      "preview": "application/vnd.github.wyandotte-preview+json"
     },
     "getMigrations": {
       "path": "/orgs/:org/migrations",
@@ -4505,7 +4541,8 @@
           "default": "30"
         }
       },
-      "description": "Get a list of migrations. (In preview period. See README.)"
+      "description": "Get a list of migrations. (In preview period. See README.)",
+      "preview": "application/vnd.github.wyandotte-preview+json"
     },
     "getMigrationStatus": {
       "path": "/orgs/:org/migrations/:id",
@@ -4526,7 +4563,8 @@
           "description": ""
         }
       },
-      "description": "Get the status of a migration. (In preview period. See README.)"
+      "description": "Get the status of a migration. (In preview period. See README.)",
+      "preview": "application/vnd.github.wyandotte-preview+json"
     },
     "getMigrationArchiveLink": {
       "path": "/orgs/:org/migrations/:id/archive",
@@ -4547,7 +4585,8 @@
           "description": ""
         }
       },
-      "description": "Get the URL to a migration archive. (In preview period. See README.)"
+      "description": "Get the URL to a migration archive. (In preview period. See README.)",
+      "preview": "application/vnd.github.wyandotte-preview+json"
     },
     "deleteMigrationArchive": {
       "path": "/orgs/:org/migrations/:id/archive",
@@ -4568,7 +4607,8 @@
           "description": ""
         }
       },
-      "description": "Delete a migration archive. (In preview period. See README.)"
+      "description": "Delete a migration archive. (In preview period. See README.)",
+      "preview": "application/vnd.github.wyandotte-preview+json"
     },
     "unlockRepoLockedForMigration": {
       "path": "/orgs/:org/migrations/:id/repos/:repo_name/lock",
@@ -4596,7 +4636,8 @@
           "description": ""
         }
       },
-      "description": "Unlock a repository that was locked for migration. (In preview period. See README.)"
+      "description": "Unlock a repository that was locked for migration. (In preview period. See README.)",
+      "preview": "application/vnd.github.wyandotte-preview+json"
     },
     "startImport": {
       "path": "/repos/:owner/:repo/import",
@@ -4658,7 +4699,8 @@
           "description": "For a tfvc import, the name of the project that is being imported."
         }
       },
-      "description": "Start an import. (In preview period. See README.)"
+      "description": "Start an import. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "getImportProgress": {
       "path": "/repos/:owner/:repo/import",
@@ -4679,7 +4721,8 @@
           "description": ""
         }
       },
-      "description": "Get import progress. (In preview period. See README.)"
+      "description": "Get import progress. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "updateImport": {
       "path": "/repos/:owner/:repo/import",
@@ -4714,7 +4757,8 @@
         "invalidmsg": "",
         "description": "The password to provide to the originating repository."
       },
-      "description": "Update existing import. (In preview period. See README.)"
+      "description": "Update existing import. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "getImportCommitAuthors": {
       "path": "/repos/:owner/:repo/import/authors",
@@ -4742,7 +4786,8 @@
           "description": "Only authors found after this id are returned. Provide the highest author ID you've seen so far. New authors may be added to the list at any point while the importer is performing the raw step."
         }
       },
-      "description": "Get import commit authors. (In preview period. See README.)"
+      "description": "Get import commit authors. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "mapImportCommitAuthor": {
       "path": "/repos/:owner/:repo/import/authors/:author_id",
@@ -4784,7 +4829,8 @@
           "description": "The new Git author name."
         }
       },
-      "description": "Map a commit author. (In preview period. See README.)"
+      "description": "Map a commit author. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "setImportLfsPreference": {
       "path": "/:owner/:name/import/lfs",
@@ -4812,7 +4858,8 @@
           "description": "Can be one of `opt_in` (large files will be stored using Git LFS) or `opt_out` (large files will be removed during the import)."
         }
       },
-      "description": "Set import LFS preference. (In preview period. See README.)"
+      "description": "Set import LFS preference. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "getLargeImportFiles": {
       "path": "/:owner/:name/import/large_files",
@@ -4833,7 +4880,8 @@
           "description": ""
         }
       },
-      "description": "List files larger than 100MB found during the import. (In preview period. See README.)"
+      "description": "List files larger than 100MB found during the import. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     },
     "cancelImport": {
       "path": "/repos/:owner/:repo/import",
@@ -4854,7 +4902,8 @@
           "description": ""
         }
       },
-      "description": "Cancel an import. (In preview period. See README.)"
+      "description": "Cancel an import. (In preview period. See README.)",
+      "preview": "application/vnd.github.barred-rock-preview"
     }
   },
   "misc": {
@@ -4862,7 +4911,8 @@
       "path": "/codes_of_conduct",
       "method": "GET",
       "params": {},
-      "description": "List all codes of conduct. (In preview period. See README.)"
+      "description": "List all codes of conduct. (In preview period. See README.)",
+      "preview": "application/vnd.github.scarlet-witch-preview+json"
     },
     "getCodeOfConduct": {
       "path": "/codes_of_conduct/:key",
@@ -4876,7 +4926,8 @@
           "description": "Ex: contributor_covenant"
         }
       },
-      "description": "Get an code of conduct. (In preview period. See README.)"
+      "description": "Get an code of conduct. (In preview period. See README.)",
+      "preview": "application/vnd.github.scarlet-witch-preview+json"
     },
     "getRepoCodeOfConduct": {
       "path": "/repos/:owner/:repo/community/code_of_conduct",
@@ -4897,7 +4948,8 @@
           "description": ""
         }
       },
-      "description": "Get the contents of a repository's code of conduct. (In preview period. See README.)"
+      "description": "Get the contents of a repository's code of conduct. (In preview period. See README.)",
+      "preview": "application/vnd.github.scarlet-witch-preview+json"
     },
     "getEmojis": {
       "path": "/emojis",
@@ -4929,7 +4981,8 @@
       "path": "/licenses",
       "method": "GET",
       "params": {},
-      "description": "List all licenses. (In preview period. See README.)"
+      "description": "List all licenses. (In preview period. See README.)",
+      "preview": "application/vnd.github.drax-preview+json"
     },
     "getLicense": {
       "path": "/licenses/:license",
@@ -4943,7 +4996,8 @@
           "description": "Ex: /licenses/mit"
         }
       },
-      "description": "Get an individual license. (In preview period. See README.)"
+      "description": "Get an individual license. (In preview period. See README.)",
+      "preview": "application/vnd.github.drax-preview+json"
     },
     "getRepoLicense": {
       "path": "/repos/:owner/:repo/license",
@@ -4964,7 +5018,8 @@
           "description": ""
         }
       },
-      "description": "Get the contents of a repository's license. (In preview period. See README.)"
+      "description": "Get the contents of a repository's license. (In preview period. See README.)",
+      "preview": "application/vnd.github.drax-preview+json"
     },
     "renderMarkdown": {
       "path": "/markdown",
@@ -5565,7 +5620,8 @@
           "default": "30"
         }
       },
-      "description": "List teams"
+      "description": "List teams",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getTeam": {
       "path": "/teams/:id",
@@ -5579,7 +5635,8 @@
           "description": ""
         }
       },
-      "description": "Get team"
+      "description": "Get team",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "createTeam": {
       "path": "/orgs/:org/teams",
@@ -5640,7 +5697,8 @@
           "description": "The ID of a team to set as the parent team."
         }
       },
-      "description": "Create team"
+      "description": "Create team",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "editTeam": {
       "path": "/teams/:id",
@@ -5687,7 +5745,8 @@
           "description": "The ID of a team to set as the parent team."
         }
       },
-      "description": "Edit team"
+      "description": "Edit team",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "deleteTeam": {
       "path": "/teams/:id",
@@ -5701,7 +5760,8 @@
           "description": ""
         }
       },
-      "description": "Delete team"
+      "description": "Delete team",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getTeamMembers": {
       "path": "/teams/:id/members",
@@ -5743,7 +5803,8 @@
           "default": "30"
         }
       },
-      "description": "List team members"
+      "description": "List team members",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getChildTeams": {
       "path": "/teams/:id/teams",
@@ -5772,7 +5833,8 @@
           "default": "30"
         }
       },
-      "description": "List child teams"
+      "description": "List child teams",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getTeamMembership": {
       "path": "/teams/:id/memberships/:username",
@@ -5793,7 +5855,8 @@
           "description": ""
         }
       },
-      "description": "Get team membership"
+      "description": "Get team membership",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "addTeamMembership": {
       "path": "/teams/:id/memberships/:username",
@@ -5826,7 +5889,8 @@
           "default": "member"
         }
       },
-      "description": "Add team membership"
+      "description": "Add team membership",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "removeTeamMembership": {
       "path": "/teams/:id/memberships/:username",
@@ -5847,7 +5911,8 @@
           "description": ""
         }
       },
-      "description": "Remove team membership"
+      "description": "Remove team membership",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getTeamRepos": {
       "path": "/teams/:id/repos",
@@ -5876,7 +5941,8 @@
           "default": "30"
         }
       },
-      "description": "Get team repos"
+      "description": "Get team repos",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getPendingTeamInvites": {
       "path": "/teams/:id/invitations",
@@ -5933,7 +5999,8 @@
           "description": ""
         }
       },
-      "description": "Check if a team manages a repository"
+      "description": "Check if a team manages a repository",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "addTeamRepo": {
       "path": "/teams/:id/repos/:org/:repo",
@@ -5973,7 +6040,8 @@
           ]
         }
       },
-      "description": "Add team repository"
+      "description": "Add team repository",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "deleteTeamRepo": {
       "path": "/teams/:id/repos/:owner/:repo",
@@ -6001,7 +6069,8 @@
           "description": ""
         }
       },
-      "description": "Remove team repository"
+      "description": "Remove team repository",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getHooks": {
       "path": "/orgs/:org/hooks",
@@ -6208,7 +6277,8 @@
           "default": "30"
         }
       },
-      "description": "List blocked users. (In preview period. See README.)"
+      "description": "List blocked users. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "checkBlockedUser": {
       "path": "/orgs/:org/blocks/:username",
@@ -6229,7 +6299,8 @@
           "description": ""
         }
       },
-      "description": "Check whether you've blocked a user. (In preview period. See README.)"
+      "description": "Check whether you've blocked a user. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "blockUser": {
       "path": "/orgs/:org/blocks/:username",
@@ -6250,7 +6321,8 @@
           "description": ""
         }
       },
-      "description": "Block a user. (In preview period. See README.)"
+      "description": "Block a user. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "unblockUser": {
       "path": "/orgs/:org/blocks/:username",
@@ -6271,7 +6343,8 @@
           "description": ""
         }
       },
-      "description": "Unblock a user. (In preview period. See README.)"
+      "description": "Unblock a user. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     }
   },
   "projects": {
@@ -6307,7 +6380,8 @@
           "default": "open"
         }
       },
-      "description": "List repository projects. (In preview period. See README.)"
+      "description": "List repository projects. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "getOrgProjects": {
       "path": "/orgs/:org/projects",
@@ -6334,7 +6408,8 @@
           "default": "open"
         }
       },
-      "description": "List organization projects. (In preview period. See README.)"
+      "description": "List organization projects. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "getProject": {
       "path": "/projects/:id",
@@ -6348,7 +6423,8 @@
           "description": ""
         }
       },
-      "description": "Get a project. (In preview period. See README.)"
+      "description": "Get a project. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "createRepoProject": {
       "path": "/repos/:owner/:repo/projects",
@@ -6383,7 +6459,8 @@
           "description": ""
         }
       },
-      "description": "Create a repository project. (In preview period. See README.)"
+      "description": "Create a repository project. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "createOrgProject": {
       "path": "/orgs/:org/projects",
@@ -6411,7 +6488,8 @@
           "description": ""
         }
       },
-      "description": "Create an organization project. (In preview period. See README.)"
+      "description": "Create an organization project. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "updateProject": {
       "path": "/projects/:id",
@@ -6452,7 +6530,8 @@
           "default": "open"
         }
       },
-      "description": "Update a project. (In preview period. See README.)"
+      "description": "Update a project. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "deleteProject": {
       "path": "/projects/:id",
@@ -6466,7 +6545,8 @@
           "description": ""
         }
       },
-      "description": "Delete a project. (In preview period. See README.)"
+      "description": "Delete a project. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "getProjectCards": {
       "path": "/projects/columns/:column_id/cards",
@@ -6480,7 +6560,8 @@
           "description": ""
         }
       },
-      "description": "List project cards. (In preview period. See README.)"
+      "description": "List project cards. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "getProjectCard": {
       "path": "/projects/columns/cards/:id",
@@ -6494,7 +6575,8 @@
           "description": ""
         }
       },
-      "description": "Get project card. (In preview period. See README.)"
+      "description": "Get project card. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "createProjectCard": {
       "path": "/projects/columns/:column_id/cards",
@@ -6529,7 +6611,8 @@
           "description": "The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'."
         }
       },
-      "description": "Create a project card. (In preview period. See README.)"
+      "description": "Create a project card. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "updateProjectCard": {
       "path": "/projects/columns/cards/:id",
@@ -6550,7 +6633,8 @@
           "description": "The note of the card."
         }
       },
-      "description": "Update a project card. (In preview period. See README.)"
+      "description": "Update a project card. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "deleteProjectCard": {
       "path": "/projects/columns/cards/:id",
@@ -6564,7 +6648,8 @@
           "description": ""
         }
       },
-      "description": "Delete a project card. (In preview period. See README.)"
+      "description": "Delete a project card. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "moveProjectCard": {
       "path": "/projects/columns/cards/:id/moves",
@@ -6592,7 +6677,8 @@
           "description": "The id value of a column in the same project."
         }
       },
-      "description": "Move a project card. (In preview period. See README.)"
+      "description": "Move a project card. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "getProjectColumns": {
       "path": "/projects/:project_id/columns",
@@ -6606,7 +6692,8 @@
           "description": ""
         }
       },
-      "description": "List project columns. (In preview period. See README.)"
+      "description": "List project columns. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "getProjectColumn": {
       "path": "/projects/columns/:id",
@@ -6620,7 +6707,8 @@
           "description": ""
         }
       },
-      "description": "Get a project column. (In preview period. See README.)"
+      "description": "Get a project column. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "createProjectColumn": {
       "path": "/projects/:project_id/columns",
@@ -6641,7 +6729,8 @@
           "description": ""
         }
       },
-      "description": "Create a project column. (In preview period. See README.)"
+      "description": "Create a project column. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "updateProjectColumn": {
       "path": "/projects/columns/:id",
@@ -6662,7 +6751,8 @@
           "description": ""
         }
       },
-      "description": "Update a project column. (In preview period. See README.)"
+      "description": "Update a project column. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "deleteProjectColumn": {
       "path": "/projects/columns/:id",
@@ -6676,7 +6766,8 @@
           "description": ""
         }
       },
-      "description": "Delete a project column. (In preview period. See README.)"
+      "description": "Delete a project column. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     },
     "moveProjectColumn": {
       "path": "/projects/columns/:id/moves",
@@ -6697,7 +6788,8 @@
           "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
         }
       },
-      "description": "Move a project column. (In preview period. See README.)"
+      "description": "Move a project column. (In preview period. See README.)",
+      "preview": "application/vnd.github.inertia-preview+json"
     }
   },
   "pull-requests": {
@@ -6910,7 +7002,8 @@
           "default": "merge"
         }
       },
-      "description": "Merge a pull request (Merge Button)"
+      "description": "Merge a pull request (Merge Button)",
+      "preview": "application/vnd.github.polaris-preview"
     },
     "getAll": {
       "path": "/repos/:owner/:repo/pulls",
@@ -7170,7 +7263,8 @@
           "default": "30"
         }
       },
-      "description": "Get if a pull request has been merged"
+      "description": "Get if a pull request has been merged",
+      "preview": "application/vnd.github.polaris-preview"
     },
     "getReviews": {
       "path": "/repos/:owner/:repo/pulls/:number/reviews",
@@ -7552,7 +7646,8 @@
           "default": "30"
         }
       },
-      "description": "List comments on a pull request"
+      "description": "List comments on a pull request",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getCommentsForRepo": {
       "path": "/repos/:owner/:repo/pulls/comments",
@@ -7619,7 +7714,8 @@
           "default": "30"
         }
       },
-      "description": "List comments in a repository"
+      "description": "List comments in a repository",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getComment": {
       "path": "/repos/:owner/:repo/pulls/comments/:id",
@@ -7647,7 +7743,8 @@
           "description": ""
         }
       },
-      "description": "Get a single comment"
+      "description": "Get a single comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createComment": {
       "path": "/repos/:owner/:repo/pulls/:number/comments",
@@ -7703,7 +7800,8 @@
           "description": "Column index in the diff to comment on."
         }
       },
-      "description": "Create a comment"
+      "description": "Create a comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createCommentReply": {
       "path": "/repos/:owner/:repo/pulls/:number/comments",
@@ -7745,7 +7843,8 @@
           "description": "The comment id to reply to."
         }
       },
-      "description": "Reply to existing pull request comment"
+      "description": "Reply to existing pull request comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "editComment": {
       "path": "/repos/:owner/:repo/pulls/comments/:id",
@@ -7780,7 +7879,8 @@
           "description": ""
         }
       },
-      "description": "Edit a comment"
+      "description": "Edit a comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "deleteComment": {
       "path": "/repos/:owner/:repo/pulls/comments/:id",
@@ -7808,7 +7908,8 @@
           "description": ""
         }
       },
-      "description": "Delete a comment"
+      "description": "Delete a comment",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getReviewRequests": {
       "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -7851,7 +7952,8 @@
           "default": "30"
         }
       },
-      "description": "List review requests. (In preview period. See README.)"
+      "description": "List review requests. (In preview period. See README.)",
+      "preview": "application/vnd.github.thor-preview+json"
     },
     "createReviewRequest": {
       "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -7893,7 +7995,8 @@
           "description": "An array of team slugs that will be requested."
         }
       },
-      "description": "Create a review request. (In preview period. See README.)"
+      "description": "Create a review request. (In preview period. See README.)",
+      "preview": "application/vnd.github.thor-preview+json"
     },
     "deleteReviewRequest": {
       "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
@@ -7935,7 +8038,8 @@
           "description": "An array of team slugs that will be requested."
         }
       },
-      "description": "Delete a review request. (In preview period. See README.)"
+      "description": "Delete a review request. (In preview period. See README.)",
+      "preview": "application/vnd.github.thor-preview+json"
     }
   },
   "reactions": {
@@ -7951,7 +8055,8 @@
           "description": ""
         }
       },
-      "description": "Delete a reaction. (In preview period. See README.)"
+      "description": "Delete a reaction. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForCommitComment": {
       "path": "/repos/:owner/:repo/comments/:id/reactions",
@@ -7994,7 +8099,8 @@
           ]
         }
       },
-      "description": "List reactions for a commit comment. (In preview period. See README.)"
+      "description": "List reactions for a commit comment. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createForCommitComment": {
       "path": "/repos/:owner/:repo/comments/:id/reactions",
@@ -8037,7 +8143,8 @@
           ]
         }
       },
-      "description": "Create reaction for a commit comment. (In preview period. See README.)"
+      "description": "Create reaction for a commit comment. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForIssue": {
       "path": "/repos/:owner/:repo/issues/:number/reactions",
@@ -8080,7 +8187,8 @@
           ]
         }
       },
-      "description": "List reactions for an issue. (In preview period. See README.)"
+      "description": "List reactions for an issue. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createForIssue": {
       "path": "/repos/:owner/:repo/issues/:number/reactions",
@@ -8123,7 +8231,8 @@
           ]
         }
       },
-      "description": "Create reaction for an issue. (In preview period. See README.)"
+      "description": "Create reaction for an issue. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForIssueComment": {
       "path": "/repos/:owner/:repo/issues/comments/:id/reactions",
@@ -8166,7 +8275,8 @@
           ]
         }
       },
-      "description": "List reactions for an issue comment. (In preview period. See README.)"
+      "description": "List reactions for an issue comment. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createForIssueComment": {
       "path": "/repos/:owner/:repo/issues/comments/:id/reactions",
@@ -8209,7 +8319,8 @@
           ]
         }
       },
-      "description": "Create reaction for an issue comment. (In preview period. See README.)"
+      "description": "Create reaction for an issue comment. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "getForPullRequestReviewComment": {
       "path": "/repos/:owner/:repo/pulls/comments/:id/reactions",
@@ -8252,7 +8363,8 @@
           ]
         }
       },
-      "description": "List reactions for a pull request review comment. (In preview period. See README.)"
+      "description": "List reactions for a pull request review comment. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     },
     "createForPullRequestReviewComment": {
       "path": "/repos/:owner/:repo/pulls/comments/:id/reactions",
@@ -8295,7 +8407,8 @@
           ]
         }
       },
-      "description": "Create reaction for a pull request review comment. (In preview period. See README.)"
+      "description": "Create reaction for a pull request review comment. (In preview period. See README.)",
+      "preview": "application/vnd.github.squirrel-girl-preview"
     }
   },
   "repos": {
@@ -8431,7 +8544,8 @@
           "description": ""
         }
       },
-      "description": "Get a repo for a user."
+      "description": "Get a repo for a user.",
+      "preview": "application/vnd.github.drax-preview+json"
     },
     "edit": {
       "path": "/repos/:owner/:repo",
@@ -8536,7 +8650,8 @@
           "default": "true"
         }
       },
-      "description": "Update a repo."
+      "description": "Update a repo.",
+      "preview": "application/vnd.github.drax-preview+json"
     },
     "delete": {
       "path": "/repos/:owner/:repo",
@@ -8557,7 +8672,8 @@
           "description": ""
         }
       },
-      "description": "Delete a repository."
+      "description": "Delete a repository.",
+      "preview": "application/vnd.github.drax-preview+json"
     },
     "fork": {
       "path": "/repos/:owner/:repo/forks",
@@ -9023,7 +9139,8 @@
           "default": "30"
         }
       },
-      "description": "List all topics for a repository. (In preview period. See README.)"
+      "description": "List all topics for a repository. (In preview period. See README.)",
+      "preview": "application/vnd.github.mercy-preview+json"
     },
     "replaceTopics": {
       "path": "/repos/:owner/:repo/topics",
@@ -9051,7 +9168,8 @@
           "description": "An array of topics to add to the repository. Pass one or more topics to replace the set of existing topics. Send an empty array ([]) to clear all topics from the repository."
         }
       },
-      "description": "Replace all topics for a repository. (In preview period. See README.)"
+      "description": "Replace all topics for a repository. (In preview period. See README.)",
+      "preview": "application/vnd.github.mercy-preview+json"
     },
     "getContributors": {
       "path": "/repos/:owner/:repo/contributors",
@@ -10758,7 +10876,8 @@
           "description": ""
         }
       },
-      "description": "Retrieve community profile metrics."
+      "description": "Retrieve community profile metrics.",
+      "preview": "application/vnd.github.black-panther-preview+json"
     },
     "getCommits": {
       "path": "/repos/:owner/:repo/commits",
@@ -10857,7 +10976,8 @@
           "description": ""
         }
       },
-      "description": "Get a single commit."
+      "description": "Get a single commit.",
+      "preview": "application/vnd.github.cryptographer-preview"
     },
     "getShaOfCommitRef": {
       "path": "/repos/:owner/:repo/commits/:ref",
@@ -11423,7 +11543,8 @@
           "default": "30"
         }
       },
-      "description": "List deployments."
+      "description": "List deployments.",
+      "preview": "application/vnd.github.ant-man-preview+json"
     },
     "getDeployment": {
       "path": "/repos/:owner/:repo/deployments/:deployment_id",
@@ -11541,7 +11662,8 @@
           "description": "Specifies if the given environment is a one that end-users directly interact with. Default: true when environment is `production` and false otherwise. (In preview period. See README.)"
         }
       },
-      "description": "Create a deployment. (In preview period. See README.)"
+      "description": "Create a deployment. (In preview period. See README.)",
+      "preview": "application/vnd.github.ant-man-preview+json"
     },
     "getDeploymentStatuses": {
       "path": "/repos/:owner/:repo/deployments/:id/statuses",
@@ -11569,7 +11691,8 @@
           "description": ""
         }
       },
-      "description": "List deployment statuses. (In preview period. See README.)"
+      "description": "List deployment statuses. (In preview period. See README.)",
+      "preview": "application/vnd.github.ant-man-preview+json"
     },
     "getDeploymentStatus": {
       "path": "/repos/:owner/:repo/deployments/:id/statuses/:status_id",
@@ -11679,7 +11802,8 @@
           "default": true
         }
       },
-      "description": "Create a deployment status. (In preview period. See README.)"
+      "description": "Create a deployment status. (In preview period. See README.)",
+      "preview": "application/vnd.github.ant-man-preview+json"
     },
     "getDownloads": {
       "path": "/repos/:owner/:repo/downloads",
@@ -11945,7 +12069,8 @@
           "default": "30"
         }
       },
-      "description": "Get information about a Pages site. (In preview period. See README.)"
+      "description": "Get information about a Pages site. (In preview period. See README.)",
+      "preview": "application/vnd.github.mister-fantastic-preview+json"
     },
     "requestPageBuild": {
       "path": "/repos/:owner/:repo/pages/builds",
@@ -11966,7 +12091,8 @@
           "description": ""
         }
       },
-      "description": "Request a page build. (In preview period. See README.)"
+      "description": "Request a page build. (In preview period. See README.)",
+      "preview": "application/vnd.github.mister-fantastic-preview+json"
     },
     "getPagesBuilds": {
       "path": "/repos/:owner/:repo/pages/builds",
@@ -12002,7 +12128,8 @@
           "default": "30"
         }
       },
-      "description": "List Pages builds. (In preview period. See README.)"
+      "description": "List Pages builds. (In preview period. See README.)",
+      "preview": "application/vnd.github.mister-fantastic-preview+json"
     },
     "getLatestPagesBuild": {
       "path": "/repos/:owner/:repo/pages/builds/latest",
@@ -12023,7 +12150,8 @@
           "description": ""
         }
       },
-      "description": "Get latest Pages build. (In preview period. See README.)"
+      "description": "Get latest Pages build. (In preview period. See README.)",
+      "preview": "application/vnd.github.mister-fantastic-preview+json"
     },
     "getPagesBuild": {
       "path": "/repos/:owner/:repo/pages/builds/:id",
@@ -12051,7 +12179,8 @@
           "description": ""
         }
       },
-      "description": "Get a specific Pages build. (In preview period. See README.)"
+      "description": "Get a specific Pages build. (In preview period. See README.)",
+      "preview": "application/vnd.github.mister-fantastic-preview+json"
     },
     "getReleases": {
       "path": "/repos/:owner/:repo/releases",
@@ -13228,7 +13357,8 @@
           "default": "30"
         }
       },
-      "description": "Search repositories."
+      "description": "Search repositories.",
+      "preview": "application/vnd.github.mercy-preview+json"
     },
     "code": {
       "path": "/search/code",
@@ -13331,7 +13461,8 @@
           "default": "30"
         }
       },
-      "description": "Search commits. (In preview period. See README.)"
+      "description": "Search commits. (In preview period. See README.)",
+      "preview": "application/vnd.github.cloak-preview+json"
     },
     "issues": {
       "path": "/search/issues",
@@ -13712,7 +13843,8 @@
           "default": "30"
         }
       },
-      "description": "Get your teams."
+      "description": "Get your teams.",
+      "preview": "application/vnd.github.hellcat-preview+json"
     },
     "getEmails": {
       "path": "/user/emails",
@@ -14086,7 +14218,8 @@
           "default": "30"
         }
       },
-      "description": "Lists the GPG keys for a user. This information is accessible by anyone. (In preview period. See README.)"
+      "description": "Lists the GPG keys for a user. This information is accessible by anyone. (In preview period. See README.)",
+      "preview": "application/vnd.github.cryptographer-preview"
     },
     "getGpgKeys": {
       "path": "/user/gpg_keys",
@@ -14108,7 +14241,8 @@
           "default": "30"
         }
       },
-      "description": "List your GPG keys. (In preview period. See README.)"
+      "description": "List your GPG keys. (In preview period. See README.)",
+      "preview": "application/vnd.github.cryptographer-preview"
     },
     "getGpgKey": {
       "path": "/user/gpg_keys/:id",
@@ -14122,7 +14256,8 @@
           "description": ""
         }
       },
-      "description": "Get a single GPG key. (In preview period. See README.)"
+      "description": "Get a single GPG key. (In preview period. See README.)",
+      "preview": "application/vnd.github.cryptographer-preview"
     },
     "createGpgKey": {
       "path": "/user/gpg_keys",
@@ -14136,7 +14271,8 @@
           "description": "GPG key contents"
         }
       },
-      "description": "Create a GPG key. (In preview period. See README.)"
+      "description": "Create a GPG key. (In preview period. See README.)",
+      "preview": "application/vnd.github.cryptographer-preview"
     },
     "deleteGpgKey": {
       "path": "/user/gpg_keys/:id",
@@ -14150,13 +14286,15 @@
           "description": ""
         }
       },
-      "description": "Delete a GPG key. (In preview period. See README.)"
+      "description": "Delete a GPG key. (In preview period. See README.)",
+      "preview": "application/vnd.github.cryptographer-preview"
     },
     "getBlockedUsers": {
       "path": "/user/blocks",
       "method": "GET",
       "params": {},
-      "description": "List blocked users. (In preview period. See README.)"
+      "description": "List blocked users. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "checkBlockedUser": {
       "path": "/user/blocks/:username",
@@ -14170,7 +14308,8 @@
           "description": ""
         }
       },
-      "description": "Check whether you've blocked a user. (In preview period. See README.)"
+      "description": "Check whether you've blocked a user. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "blockUser": {
       "path": "/user/blocks/:username",
@@ -14184,7 +14323,8 @@
           "description": ""
         }
       },
-      "description": "Block a user. (In preview period. See README.)"
+      "description": "Block a user. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "unblockUser": {
       "path": "/user/blocks/:username",
@@ -14198,7 +14338,8 @@
           "description": ""
         }
       },
-      "description": "Unblock a user. (In preview period. See README.)"
+      "description": "Unblock a user. (In preview period. See README.)",
+      "preview": "application/vnd.github.giant-sentry-fist-preview+json"
     },
     "getRepoInvites": {
       "path": "/user/repository_invitations",
@@ -14254,7 +14395,8 @@
           "default": "30"
         }
       },
-      "description": "List installations. (In preview period. See README.)"
+      "description": "List installations. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getInstallationRepos": {
       "path": "/user/installations/:installation_id/repositories",
@@ -14304,7 +14446,8 @@
           "description": ""
         }
       },
-      "description": "Add a single repository to an installation. (In preview period. See README.)"
+      "description": "Add a single repository to an installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "removeRepoFromInstallation": {
       "path": "/user/installations/:installation_id/repositories/:repository_id",
@@ -14325,7 +14468,8 @@
           "description": ""
         }
       },
-      "description": "Remove a single repository from an installation. (In preview period. See README.)"
+      "description": "Remove a single repository from an installation. (In preview period. See README.)",
+      "preview": "application/vnd.github.machine-man-preview"
     },
     "getMarketplacePurchases": {
       "path": "/user/marketplace_purchases",
@@ -14347,7 +14491,8 @@
           "default": "30"
         }
       },
-      "description": "Get a user's Marketplace purchases. (In preview period. See README.)"
+      "description": "Get a user's Marketplace purchases. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     },
     "getMarketplaceStubbedPurchases": {
       "path": "/user/marketplace_purchases/stubbed",
@@ -14369,7 +14514,8 @@
           "default": "30"
         }
       },
-      "description": "Get a user's stubbed Marketplace purchases. (In preview period. See README.)"
+      "description": "Get a user's stubbed Marketplace purchases. (In preview period. See README.)",
+      "preview": "application/vnd.github.valkyrie-preview+json"
     }
   },
   "enterprise": {
@@ -14488,13 +14634,15 @@
           "description": ""
         }
       },
-      "description": "Get a single pre-receive environment. (In preview period. See README.)"
+      "description": "Get a single pre-receive environment. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "getPreReceiveEnvironments": {
       "path": "/admin/pre_receive_environments",
       "method": "GET",
       "params": {},
-      "description": "List pre-receive environments. (In preview period. See README.)"
+      "description": "List pre-receive environments. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "createPreReceiveEnvironment": {
       "path": "/admin/pre_receive_environments",
@@ -14515,7 +14663,8 @@
           "description": "URL from which to download a tarball of this environment."
         }
       },
-      "description": "Create a pre-receive environment. (In preview period. See README.)"
+      "description": "Create a pre-receive environment. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "editPreReceiveEnvironment": {
       "path": "/admin/pre_receive_environments/:id",
@@ -14571,7 +14720,8 @@
           "description": ""
         }
       },
-      "description": "Get a pre-receive environment's download status. (In preview period. See README.)"
+      "description": "Get a pre-receive environment's download status. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "triggerPreReceiveEnvironmentDownload": {
       "path": "/admin/pre_receive_environments/:id/downloads",
@@ -14585,7 +14735,8 @@
           "description": ""
         }
       },
-      "description": "Trigger a pre-receive environment download. (In preview period. See README.)"
+      "description": "Trigger a pre-receive environment download. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "getPreReceiveHook": {
       "path": "/admin/pre-receive-hooks/:id",
@@ -14599,13 +14750,15 @@
           "description": ""
         }
       },
-      "description": "Get a single pre-receive hook. (In preview period. See README.)"
+      "description": "Get a single pre-receive hook. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "getPreReceiveHooks": {
       "path": "/admin/pre-receive-hooks",
       "method": "GET",
       "params": {},
-      "description": "List pre-receive hooks. (In preview period. See README.)"
+      "description": "List pre-receive hooks. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "createPreReceiveHook": {
       "path": "/admin/pre-receive-hooks",
@@ -14656,7 +14809,8 @@
           "default": "false"
         }
       },
-      "description": "Create a pre-receive hook. (In preview period. See README.)"
+      "description": "Create a pre-receive hook. (In preview period. See README.)",
+      "preview": "application/vnd.github.eye-scream-preview"
     },
     "editPreReceiveHook": {
       "path": "/admin/pre_receive_hooks/:id",
