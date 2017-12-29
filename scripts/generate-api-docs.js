@@ -6,7 +6,7 @@ const {join: pathJoin} = require('path')
 const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
 
-const ROUTES = require('../lib/routes.json')
+const ROUTES = require('../lib/definitions/routes.json')
 
 debug('Converting routes to functions')
 
@@ -41,14 +41,14 @@ function toApiComment (namespaceName, apiName, api) {
   }
 
   const method = api['method'].toUpperCase()
-  const url = api['url']
+  const path = api['path']
   const paramsObj = api['params']
   const params = Object.keys(paramsObj)
     .sort(sortByRequired.bind(null, paramsObj))
 
   const commentLines = [
     '/**',
-    ` * @api {${method}} ${url} ${apiName}`,
+    ` * @api {${method}} ${path} ${apiName}`,
     ` * @apiName ${apiName}`,
     ` * @apiDescription ${api['description']}`,
     ` * @apiGroup ${upperFirst(namespaceName)}`,
