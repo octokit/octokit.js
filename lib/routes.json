@@ -5719,7 +5719,7 @@
       "preview": "application/vnd.github.inertia-preview+json"
     }
   },
-  "pull-requests": {
+  "pullRequests": {
     "get": {
       "path": "/repos/:owner/:repo/pulls/:number",
       "method": "GET",

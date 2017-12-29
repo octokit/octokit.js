@@ -1,7 +1,8 @@
+const fs = require('fs')
 const GitHubApi = require('github')
 const github = new GitHubApi({
   debug: true,
-  host: 'github.my-GHE-enabled-company.com',
+  host: 'github.my-ghe-enabled-company.com',
   pathPrefix: '/api/v3'
 })
 
@@ -11,9 +12,9 @@ github.authenticate({
 })
 
 github.repos.uploadAsset({
-  owner: 'foo-organization',
-  repo: 'bar-repository',
-  id: '123456',
-  filePath: 'README.md',
-  name: 'z.sh'
+  url: 'https://github.my-ghe-enabled-company.com/api/uploads',
+  file: fs.createReadStream(__filename),
+  contentType: 'text/markdown',
+  contentLength: fs.statSync(__filename).size,
+  name: 'example.js'
 })
