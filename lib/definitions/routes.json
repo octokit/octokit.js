@@ -12360,7 +12360,6 @@
     "uploadAsset": {
       "path": "/:url",
       "method": "POST",
-      "hasFileBody": true,
       "headers": {
         "content-type": ":contentType",
         "content-length": ":contentLength"
@@ -13187,8 +13186,7 @@
           "required": true,
           "validation": "",
           "invalidmsg": "",
-          "description": "Search Term",
-          "combined": true
+          "description": "Search Term"
         },
         "sort": {
           "type": "string",
@@ -13241,8 +13239,7 @@
           "required": true,
           "validation": "",
           "invalidmsg": "",
-          "description": "Search Term",
-          "combined": true
+          "description": "Search Term"
         },
         "sort": {
           "type": "string",
@@ -13293,8 +13290,7 @@
           "required": true,
           "validation": "",
           "invalidmsg": "",
-          "description": "Search Term",
-          "combined": true
+          "description": "Search Term"
         },
         "sort": {
           "type": "string",
@@ -13346,8 +13342,7 @@
           "required": true,
           "validation": "",
           "invalidmsg": "",
-          "description": "Search Term",
-          "combined": true
+          "description": "Search Term"
         },
         "sort": {
           "type": "string",
@@ -13400,8 +13395,7 @@
           "required": true,
           "validation": "",
           "invalidmsg": "",
-          "description": "Search Term",
-          "combined": true
+          "description": "Search Term"
         },
         "sort": {
           "type": "string",
