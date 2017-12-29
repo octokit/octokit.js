@@ -8,7 +8,7 @@ const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelcase')
 
-const ROUTES = require('../lib/definitions/routes.json')
+const ROUTES = require('../lib/routes.json')
 
 const typeMap = {
   Json: 'string'

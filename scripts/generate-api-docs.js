@@ -6,7 +6,7 @@ const {join: pathJoin} = require('path')
 const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
 
-const ROUTES = require('../lib/definitions/routes.json')
+const ROUTES = require('../lib/routes.json')
 
 debug('Converting routes to functions')
 

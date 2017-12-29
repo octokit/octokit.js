@@ -2,7 +2,7 @@ const chai = require('chai')
 const simple = require('simple-mock')
 
 const GitHub = require('../../')
-const ROUTES = require('../../lib/definitions/routes.json')
+const ROUTES = require('../../lib/routes.json')
 
 const mocha = require('mocha')
 const describe = mocha.describe
