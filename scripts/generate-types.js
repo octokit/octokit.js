@@ -9,7 +9,6 @@ const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelcase')
 
 const ROUTES = require('../lib/definitions/routes.json')
-const PARAMS = require('../lib/definitions/params.json')
 
 const typeMap = {
   Json: 'string'
@@ -59,7 +58,6 @@ function generateTypes (languageName, templateFile, outputFile) {
 
   debug(`Generating ${languageName} types...`)
 
-  const params = entries(PARAMS).reduce(toCombineParams, [])
   const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
     const methods = entries(ROUTES[namespace]).reduce((methods, entry) => {
       const unionTypeNames = Object.keys(entry[1].params)
@@ -94,7 +92,6 @@ function generateTypes (languageName, templateFile, outputFile) {
   }, [])
 
   const body = Mustache.render(template, {
-    params,
     namespaces
   })
 

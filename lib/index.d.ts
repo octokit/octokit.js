@@ -3,16 +3,6 @@
  */
 
 declare namespace Github {
-  export type WellKnownHeader =
-    | "Authorization"
-    | "If-Modified-Since"
-    | "If-None-Match"
-    | "Cookie"
-    | "User-Agent"
-    | "Accept"
-    | "X-GitHub-OTP"
-    ;
-
   export interface EmptyParams {
   }
 
@@ -73,208 +63,169 @@ declare namespace Github {
     (error: Error | null, result: any): any;
   }
 
-  export interface Files { files: string; }
-  export interface Owner { owner: string; }
-  export interface Username { username: string; }
-  export interface Org { org: string; }
-  export interface Repo { repo: string; }
-  export interface Branch { branch: string; }
-  export interface Sha { sha: string; }
-  export interface Description { description?: string; }
-  export interface Id { id: string; }
-  export interface GistId { gist_id: string; }
-  export interface InstallationId { installation_id: string; }
-  export interface RepositoryId { repository_id: string; }
-  export interface CommitId { commit_id: string; }
-  export interface ClientId { client_id?: string; }
-  export interface ColumnId { column_id: string; }
-  export interface ProjectId { project_id: string; }
-  export interface RepoId { repo_id: string; }
-  export interface InvitationId { invitation_id: string; }
-  export interface Ref { ref: string; }
-  export interface Number { number: number; }
-  export interface IssueNumber { issue_number: number; }
-  export interface Name { name: string; }
-  export interface Direction { direction?: "asc"|"desc"; }
-  export interface Since { since?: Date; }
-  export interface Until { until?: Date; }
-  export interface State { state?: "open"|"closed"|"all"; }
-  export interface Color { color: string; }
-  export interface Base { base: string; }
-  export interface Head { head: string; }
-  export interface Path { path: string; }
-  export interface Position { position: number; }
-  export interface Body { body: string; }
-  export interface Homepage { homepage?: string; }
-  export interface Private { private?: boolean; }
-  export interface HasIssues { has_issues?: boolean; }
-  export interface HasProjects { has_projects?: boolean; }
-  export interface HasWiki { has_wiki?: boolean; }
-  export interface HasDownloads { has_downloads?: boolean; }
-  export interface DefaultBranch { default_branch?: string; }
-  export interface Title { title: string; }
-  export interface Key { key: string; }
-  export interface Page { page?: number; }
-  export interface PerPage { per_page?: number; }
-  export interface Scopes { scopes?: string[]; }
-  export interface Note { note?: string; }
-  export interface NoteUrl { note_url?: string; }
-  export interface AutoInit { auto_init?: boolean; }
-  export interface GitignoreTemplate { gitignore_template?: string; }
-  export interface LicenseTemplate { license_template?: string; }
-  export interface Order { order?: "asc"|"desc"; }
-  export interface Q { q: string; }
-  export interface Data { data: string; }
-  export interface Privacy { privacy?: "secret"|"closed"; }
-  export interface Fingerprint { fingerprint?: string; }
-  export interface AccessToken { access_token: string; }
-  export interface Assignees { assignees?: string[]; }
-  export interface Url { url: string; }
-  export interface ContentType { contentType: string; }
-  export interface ContentLength { contentLength: number; }
 
   export type AuthorizationGetParams =
-    & Id
-    ;
-  export type AuthorizationCreateParams =
-    & Scopes
-    & Note
-    & NoteUrl
-    & ClientId
-    & Fingerprint
     & {
+      id: string;
+    };
+  export type AuthorizationCreateParams =
+    & {
+      scopes?: string[];
+      note?: string;
+      note_url?: string;
+      client_id?: string;
       client_secret?: string;
+      fingerprint?: string;
     };
   export type AuthorizationUpdateParams =
-    & Id
-    & Scopes
-    & Note
-    & NoteUrl
-    & Fingerprint
     & {
+      id: string;
+      scopes?: string[];
       add_scopes?: string[];
       remove_scopes?: string[];
+      note?: string;
+      note_url?: string;
+      fingerprint?: string;
     };
   export type AuthorizationDeleteParams =
-    & Id
-    ;
-  export type AuthorizationCheckParams =
-    & ClientId
-    & AccessToken
-    ;
-  export type AuthorizationResetParams =
-    & ClientId
-    & AccessToken
-    ;
-  export type AuthorizationRevokeParams =
-    & ClientId
-    & AccessToken
-    ;
-  export type AuthorizationGetGrantsParams =
-    & Page
-    & PerPage
-    ;
-  export type AuthorizationGetGrantParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type AuthorizationDeleteGrantParams =
-    & Id
-    ;
-  export type AuthorizationGetAllParams =
-    & Page
-    & PerPage
-    ;
-  export type AuthorizationGetOrCreateAuthorizationForAppParams =
-    & ClientId
-    & Scopes
-    & Note
-    & NoteUrl
-    & Fingerprint
     & {
+      id: string;
+    };
+  export type AuthorizationCheckParams =
+    & {
+      client_id?: string;
+      access_token: string;
+    };
+  export type AuthorizationResetParams =
+    & {
+      client_id?: string;
+      access_token: string;
+    };
+  export type AuthorizationRevokeParams =
+    & {
+      client_id?: string;
+      access_token: string;
+    };
+  export type AuthorizationGetGrantsParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type AuthorizationGetGrantParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type AuthorizationDeleteGrantParams =
+    & {
+      id: string;
+    };
+  export type AuthorizationGetAllParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type AuthorizationGetOrCreateAuthorizationForAppParams =
+    & {
+      client_id?: string;
       client_secret: string;
+      scopes?: string[];
+      note?: string;
+      note_url?: string;
+      fingerprint?: string;
     };
   export type AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams =
-    & ClientId
-    & Fingerprint
-    & Scopes
-    & Note
-    & NoteUrl
     & {
+      client_id?: string;
+      fingerprint?: string;
       client_secret: string;
+      scopes?: string[];
+      note?: string;
+      note_url?: string;
     };
   export type AuthorizationRevokeGrantParams =
-    & ClientId
-    & AccessToken
-    ;
+    & {
+      client_id?: string;
+      access_token: string;
+    };
   export type ActivityGetEventsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForRepoIssuesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForRepoNetworkParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForOrgParams =
-    & Org
-    & Page
-    & PerPage
-    ;
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsReceivedParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsReceivedPublicParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForUserPublicParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetEventsForUserOrgParams =
-    & Username
-    & Org
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
   export type ActivityGetNotificationsParams =
-    & Since
     & {
       all?: boolean;
       participating?: boolean;
+      since?: date;
       before?: string;
     };
   export type ActivityGetNotificationsForUserParams =
-    & Owner
-    & Repo
-    & Since
     & {
+      owner: string;
+      repo: string;
       all?: boolean;
       participating?: boolean;
+      since?: date;
       before?: string;
     };
   export type ActivityMarkNotificationsAsReadParams =
@@ -282,289 +233,330 @@ declare namespace Github {
       last_read_at?: string;
     };
   export type ActivityMarkNotificationsAsReadForRepoParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       last_read_at?: string;
     };
   export type ActivityGetNotificationThreadParams =
-    & Id
-    ;
-  export type ActivityMarkNotificationThreadAsReadParams =
-    & Id
-    ;
-  export type ActivityCheckNotificationThreadSubscriptionParams =
-    & Id
-    ;
-  export type ActivitySetNotificationThreadSubscriptionParams =
-    & Id
     & {
+      id: string;
+    };
+  export type ActivityMarkNotificationThreadAsReadParams =
+    & {
+      id: string;
+    };
+  export type ActivityCheckNotificationThreadSubscriptionParams =
+    & {
+      id: string;
+    };
+  export type ActivitySetNotificationThreadSubscriptionParams =
+    & {
+      id: string;
       subscribed?: boolean;
       ignored?: boolean;
     };
   export type ActivityDeleteNotificationThreadSubscriptionParams =
-    & Id
-    ;
-  export type ActivityGetStargazersForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ActivityGetStarredReposForUserParams =
-    & Username
-    & Direction
-    & Page
-    & PerPage
     & {
+      id: string;
+    };
+  export type ActivityGetStargazersForRepoParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ActivityGetStarredReposForUserParams =
+    & {
+      username: string;
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type ActivityGetStarredReposParams =
-    & Direction
-    & Page
-    & PerPage
     & {
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type ActivityCheckStarringRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ActivityStarRepoParams =
-    & Owner
-    & Repo
-    ;
-  export type ActivityUnstarRepoParams =
-    & Owner
-    & Repo
-    ;
-  export type ActivityGetWatchersForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ActivityGetWatchedReposForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  export type ActivityGetWatchedReposParams =
-    & Page
-    & PerPage
-    ;
-  export type ActivityGetRepoSubscriptionParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ActivitySetRepoSubscriptionParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ActivityStarRepoParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ActivityUnstarRepoParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ActivityGetWatchersForRepoParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ActivityGetWatchedReposForUserParams =
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ActivityGetWatchedReposParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type ActivityGetRepoSubscriptionParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ActivitySetRepoSubscriptionParams =
+    & {
+      owner: string;
+      repo: string;
       subscribed?: boolean;
       ignored?: boolean;
     };
   export type ActivityUnwatchRepoParams =
-    & Owner
-    & Repo
-    ;
-  export type GistsGetParams =
-    & Id
-    ;
-  export type GistsCreateParams =
-    & Files
-    & Description
     & {
+      owner: string;
+      repo: string;
+    };
+  export type GistsGetParams =
+    & {
+      id: string;
+    };
+  export type GistsCreateParams =
+    & {
+      files: json;
+      description?: string;
       public: boolean;
     };
   export type GistsEditParams =
-    & Id
-    & Description
-    & Files
     & {
+      id: string;
+      description?: string;
+      files: json;
       content?: string;
       filename?: string;
     };
   export type GistsStarParams =
-    & Id
-    ;
-  export type GistsUnstarParams =
-    & Id
-    ;
-  export type GistsForkParams =
-    & Id
-    ;
-  export type GistsDeleteParams =
-    & Id
-    ;
-  export type GistsGetForUserParams =
-    & Username
-    & Since
-    & Page
-    & PerPage
-    ;
-  export type GistsGetAllParams =
-    & Since
-    & Page
-    & PerPage
-    ;
-  export type GistsGetPublicParams =
-    & Since
-    ;
-  export type GistsGetStarredParams =
-    & Since
-    ;
-  export type GistsGetRevisionParams =
-    & Id
-    & Sha
-    ;
-  export type GistsGetCommitsParams =
-    & Id
-    ;
-  export type GistsCheckStarParams =
-    & Id
-    ;
-  export type GistsGetForksParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type GistsGetCommentsParams =
-    & GistId
-    ;
-  export type GistsGetCommentParams =
-    & GistId
-    & Id
-    ;
-  export type GistsCreateCommentParams =
-    & GistId
-    & Body
-    ;
-  export type GistsEditCommentParams =
-    & GistId
-    & Id
-    & Body
-    ;
-  export type GistsDeleteCommentParams =
-    & GistId
-    & Id
-    ;
-  export type GitdataGetBlobParams =
-    & Owner
-    & Repo
-    & Sha
-    & Page
-    & PerPage
-    ;
-  export type GitdataCreateBlobParams =
-    & Owner
-    & Repo
     & {
+      id: string;
+    };
+  export type GistsUnstarParams =
+    & {
+      id: string;
+    };
+  export type GistsForkParams =
+    & {
+      id: string;
+    };
+  export type GistsDeleteParams =
+    & {
+      id: string;
+    };
+  export type GistsGetForUserParams =
+    & {
+      username: string;
+      since?: date;
+      page?: number;
+      per_page?: number;
+    };
+  export type GistsGetAllParams =
+    & {
+      since?: date;
+      page?: number;
+      per_page?: number;
+    };
+  export type GistsGetPublicParams =
+    & {
+      since?: date;
+    };
+  export type GistsGetStarredParams =
+    & {
+      since?: date;
+    };
+  export type GistsGetRevisionParams =
+    & {
+      id: string;
+      sha: string;
+    };
+  export type GistsGetCommitsParams =
+    & {
+      id: string;
+    };
+  export type GistsCheckStarParams =
+    & {
+      id: string;
+    };
+  export type GistsGetForksParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type GistsGetCommentsParams =
+    & {
+      gist_id: string;
+    };
+  export type GistsGetCommentParams =
+    & {
+      gist_id: string;
+      id: string;
+    };
+  export type GistsCreateCommentParams =
+    & {
+      gist_id: string;
+      body: string;
+    };
+  export type GistsEditCommentParams =
+    & {
+      gist_id: string;
+      id: string;
+      body: string;
+    };
+  export type GistsDeleteCommentParams =
+    & {
+      gist_id: string;
+      id: string;
+    };
+  export type GitdataGetBlobParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type GitdataCreateBlobParams =
+    & {
+      owner: string;
+      repo: string;
       content: string;
       encoding: string;
     };
   export type GitdataGetCommitParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  export type GitdataCreateCommitParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  export type GitdataCreateCommitParams =
+    & {
+      owner: string;
+      repo: string;
       message: string;
       tree: string;
       parents: string[];
-      author?: string;
-      committer?: string;
+      author?: json;
+      committer?: json;
     };
   export type GitdataGetCommitSignatureVerificationParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  export type GitdataGetReferenceParams =
-    & Owner
-    & Repo
-    & Ref
-    ;
-  export type GitdataGetReferencesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type GitdataGetTagsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type GitdataCreateReferenceParams =
-    & Owner
-    & Repo
-    & Sha
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  export type GitdataGetReferenceParams =
+    & {
+      owner: string;
+      repo: string;
       ref: string;
     };
-  export type GitdataUpdateReferenceParams =
-    & Owner
-    & Repo
-    & Ref
-    & Sha
+  export type GitdataGetReferencesParams =
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type GitdataGetTagsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type GitdataCreateReferenceParams =
+    & {
+      owner: string;
+      repo: string;
+      ref: string;
+      sha: string;
+    };
+  export type GitdataUpdateReferenceParams =
+    & {
+      owner: string;
+      repo: string;
+      ref: string;
+      sha: string;
       force?: boolean;
     };
   export type GitdataDeleteReferenceParams =
-    & Owner
-    & Repo
-    & Ref
-    ;
-  export type GitdataGetTagParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  export type GitdataCreateTagParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      ref: string;
+    };
+  export type GitdataGetTagParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  export type GitdataCreateTagParams =
+    & {
+      owner: string;
+      repo: string;
       tag: string;
       message: string;
       object: string;
       type: string;
-      tagger: string;
+      tagger: json;
     };
   export type GitdataGetTagSignatureVerificationParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  export type GitdataGetTreeParams =
-    & Owner
-    & Repo
-    & Sha
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  export type GitdataGetTreeParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
       recursive?: boolean;
     };
   export type GitdataCreateTreeParams =
-    & Owner
-    & Repo
     & {
-      tree: string;
+      owner: string;
+      repo: string;
+      tree: json;
       base_tree?: string;
     };
   export type IntegrationsGetInstallationsParams =
-    & Page
-    & PerPage
-    ;
-  export type IntegrationsCreateInstallationTokenParams =
-    & InstallationId
     & {
+      page?: number;
+      per_page?: number;
+    };
+  export type IntegrationsCreateInstallationTokenParams =
+    & {
+      installation_id: string;
       user_id?: string;
     };
   export type IntegrationsGetInstallationRepositoriesParams =
@@ -572,27 +564,31 @@ declare namespace Github {
       user_id?: string;
     };
   export type IntegrationsAddRepoToInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   export type IntegrationsRemoveRepoFromInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   export type AppsGetForSlugParams =
     & {
       app_slug: string;
     };
   export type AppsGetInstallationsParams =
-    & Page
-    & PerPage
-    ;
-  export type AppsGetInstallationParams =
-    & InstallationId
-    ;
-  export type AppsCreateInstallationTokenParams =
-    & InstallationId
     & {
+      page?: number;
+      per_page?: number;
+    };
+  export type AppsGetInstallationParams =
+    & {
+      installation_id: string;
+    };
+  export type AppsCreateInstallationTokenParams =
+    & {
+      installation_id: string;
       user_id?: string;
     };
   export type AppsGetInstallationRepositoriesParams =
@@ -600,118 +596,125 @@ declare namespace Github {
       user_id?: string;
     };
   export type AppsAddRepoToInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
-  export type AppsRemoveRepoFromInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
-  export type AppsGetMarketplaceListingPlansParams =
-    & Page
-    & PerPage
-    ;
-  export type AppsGetMarketplaceListingStubbedPlansParams =
-    & Page
-    & PerPage
-    ;
-  export type AppsGetMarketplaceListingPlanAccountsParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type AppsGetMarketplaceListingStubbedPlanAccountsParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type AppsCheckMarketplaceListingAccountParams =
-    & Id
-    ;
-  export type AppsCheckMarketplaceListingStubbedAccountParams =
-    & Id
-    ;
-  export type IssuesGetParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type IssuesCreateParams =
-    & Owner
-    & Repo
-    & Assignees
     & {
+      installation_id: string;
+      repository_id: string;
+    };
+  export type AppsRemoveRepoFromInstallationParams =
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
+  export type AppsGetMarketplaceListingPlansParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type AppsGetMarketplaceListingStubbedPlansParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type AppsGetMarketplaceListingPlanAccountsParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type AppsGetMarketplaceListingStubbedPlanAccountsParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type AppsCheckMarketplaceListingAccountParams =
+    & {
+      id: string;
+    };
+  export type AppsCheckMarketplaceListingStubbedAccountParams =
+    & {
+      id: string;
+    };
+  export type IssuesGetParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type IssuesCreateParams =
+    & {
+      owner: string;
+      repo: string;
       title: string;
       body?: string;
       assignee?: string;
       milestone?: number;
       labels?: string[];
+      assignees?: string[];
     };
   export type IssuesEditParams =
-    & Owner
-    & Repo
-    & Number
-    & Assignees
     & {
+      owner: string;
+      repo: string;
+      number: number;
       title?: string;
       body?: string;
       assignee?: string;
       state?: "open"|"closed";
       milestone?: number;
       labels?: string[];
+      assignees?: string[];
     };
   export type IssuesLockParams =
-    & Owner
-    & Repo
-    & Number
-    ;
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
   export type IssuesUnlockParams =
-    & Owner
-    & Repo
-    & Number
-    ;
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
   export type IssuesGetAllParams =
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
       filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
       state?: "open"|"closed"|"all";
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   export type IssuesGetForUserParams =
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
       filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
       state?: "open"|"closed"|"all";
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   export type IssuesGetForOrgParams =
-    & Org
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      org: string;
       filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
       state?: "open"|"closed"|"all";
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   export type IssuesGetForRepoParams =
-    & Owner
-    & Repo
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       milestone?: string;
       state?: "open"|"closed"|"all";
       assignee?: string;
@@ -719,235 +722,262 @@ declare namespace Github {
       mentioned?: string;
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   export type IssuesGetAssigneesParams =
-    & Owner
-    & Repo
-    ;
-  export type IssuesCheckAssigneeParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+    };
+  export type IssuesCheckAssigneeParams =
+    & {
+      owner: string;
+      repo: string;
       assignee: string;
     };
   export type IssuesAddAssigneesToIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       assignees: string[];
     };
   export type IssuesRemoveAssigneesFromIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
-      body: string;
+      owner: string;
+      repo: string;
+      number: number;
+      body: json;
     };
   export type IssuesGetCommentsParams =
-    & Owner
-    & Repo
-    & Number
-    & Since
-    & Page
-    & PerPage
-    ;
-  export type IssuesGetCommentsForRepoParams =
-    & Owner
-    & Repo
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      since?: date;
+      page?: number;
+      per_page?: number;
+    };
+  export type IssuesGetCommentsForRepoParams =
+    & {
+      owner: string;
+      repo: string;
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   export type IssuesGetCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type IssuesCreateCommentParams =
-    & Owner
-    & Repo
-    & Number
-    & Body
-    ;
-  export type IssuesEditCommentParams =
-    & Owner
-    & Repo
-    & Id
-    & Body
-    ;
-  export type IssuesDeleteCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type IssuesGetEventsParams =
-    & Owner
-    & Repo
-    & IssueNumber
-    & Page
-    & PerPage
-    ;
-  export type IssuesGetEventsForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type IssuesGetEventParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type IssuesGetLabelsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type IssuesGetLabelParams =
-    & Owner
-    & Repo
-    & Name
-    ;
-  export type IssuesCreateLabelParams =
-    & Owner
-    & Repo
-    & Name
-    & Color
-    ;
-  export type IssuesUpdateLabelParams =
-    & Owner
-    & Repo
-    & Color
     & {
-      oldname: string;
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type IssuesCreateCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      body: string;
+    };
+  export type IssuesEditCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+      body: string;
+    };
+  export type IssuesDeleteCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type IssuesGetEventsParams =
+    & {
+      owner: string;
+      repo: string;
+      issue_number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type IssuesGetEventsForRepoParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type IssuesGetEventParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type IssuesGetLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type IssuesGetLabelParams =
+    & {
+      owner: string;
+      repo: string;
       name: string;
     };
-  export type IssuesDeleteLabelParams =
-    & Owner
-    & Repo
-    & Name
-    ;
-  export type IssuesGetIssueLabelsParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type IssuesAddLabelsParams =
-    & Owner
-    & Repo
-    & Number
+  export type IssuesCreateLabelParams =
     & {
+      owner: string;
+      repo: string;
+      name: string;
+      color: string;
+    };
+  export type IssuesUpdateLabelParams =
+    & {
+      owner: string;
+      repo: string;
+      oldname: string;
+      name: string;
+      color: string;
+    };
+  export type IssuesDeleteLabelParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
+    };
+  export type IssuesGetIssueLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type IssuesAddLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
       labels: string[];
     };
   export type IssuesRemoveLabelParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       name: string;
     };
   export type IssuesReplaceAllLabelsParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       labels: string[];
     };
   export type IssuesRemoveAllLabelsParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type IssuesGetMilestoneLabelsParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type IssuesGetMilestonesParams =
-    & Owner
-    & Repo
-    & State
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type IssuesGetMilestoneLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type IssuesGetMilestonesParams =
+    & {
+      owner: string;
+      repo: string;
+      state?: "open"|"closed"|"all";
       sort?: "due_on"|"completeness";
       direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type IssuesGetMilestoneParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type IssuesCreateMilestoneParams =
-    & Owner
-    & Repo
-    & State
-    & Description
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type IssuesCreateMilestoneParams =
+    & {
+      owner: string;
+      repo: string;
       title: string;
-      due_on?: Date;
+      state?: "open"|"closed"|"all";
+      description?: string;
+      due_on?: date;
     };
   export type IssuesUpdateMilestoneParams =
-    & Owner
-    & Repo
-    & Number
-    & State
-    & Description
     & {
+      owner: string;
+      repo: string;
+      number: number;
       title: string;
-      due_on?: Date;
+      state?: "open"|"closed"|"all";
+      description?: string;
+      due_on?: date;
     };
   export type IssuesDeleteMilestoneParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type IssuesGetEventsTimelineParams =
-    & Owner
-    & Repo
-    & IssueNumber
-    & Page
-    & PerPage
-    ;
-  export type MigrationsStartMigrationParams =
-    & Org
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type IssuesGetEventsTimelineParams =
+    & {
+      owner: string;
+      repo: string;
+      issue_number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type MigrationsStartMigrationParams =
+    & {
+      org: string;
       repositories: string[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
   export type MigrationsGetMigrationsParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  export type MigrationsGetMigrationStatusParams =
-    & Org
-    & Id
-    ;
-  export type MigrationsGetMigrationArchiveLinkParams =
-    & Org
-    & Id
-    ;
-  export type MigrationsDeleteMigrationArchiveParams =
-    & Org
-    & Id
-    ;
-  export type MigrationsUnlockRepoLockedForMigrationParams =
-    & Org
-    & Id
     & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type MigrationsGetMigrationStatusParams =
+    & {
+      org: string;
+      id: string;
+    };
+  export type MigrationsGetMigrationArchiveLinkParams =
+    & {
+      org: string;
+      id: string;
+    };
+  export type MigrationsDeleteMigrationArchiveParams =
+    & {
+      org: string;
+      id: string;
+    };
+  export type MigrationsUnlockRepoLockedForMigrationParams =
+    & {
+      org: string;
+      id: string;
       repo_name: string;
     };
   export type MigrationsStartImportParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       vcs_url: string;
       vcs?: "subversion"|"git"|"mercurial"|"tfvc";
       vcs_username?: string;
@@ -955,49 +985,54 @@ declare namespace Github {
       tfvc_project?: string;
     };
   export type MigrationsGetImportProgressParams =
-    & Owner
-    & Repo
-    ;
-  export type MigrationsUpdateImportParams =
-    & Owner
-    & Repo
-    ;
-  export type MigrationsGetImportCommitAuthorsParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+    };
+  export type MigrationsUpdateImportParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type MigrationsGetImportCommitAuthorsParams =
+    & {
+      owner: string;
+      repo: string;
       since?: string;
     };
   export type MigrationsMapImportCommitAuthorParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       author_id: string;
       email?: string;
       name?: string;
     };
   export type MigrationsSetImportLfsPreferenceParams =
-    & Owner
-    & Name
     & {
+      owner: string;
+      name: string;
       use_lfs: string;
     };
   export type MigrationsGetLargeImportFilesParams =
-    & Owner
-    & Name
-    ;
+    & {
+      owner: string;
+      name: string;
+    };
   export type MigrationsCancelImportParams =
-    & Owner
-    & Repo
-    ;
+    & {
+      owner: string;
+      repo: string;
+    };
   export type MiscGetCodeOfConductParams =
     & {
       key: string;
     };
   export type MiscGetRepoCodeOfConductParams =
-    & Owner
-    & Repo
-    ;
+    & {
+      owner: string;
+      repo: string;
+    };
   export type MiscGetGitignoreTemplateParams =
     & {
       name: string;
@@ -1007,9 +1042,10 @@ declare namespace Github {
       license: string;
     };
   export type MiscGetRepoLicenseParams =
-    & Owner
-    & Repo
-    ;
+    & {
+      owner: string;
+      repo: string;
+    };
   export type MiscRenderMarkdownParams =
     & {
       text: string;
@@ -1017,16 +1053,18 @@ declare namespace Github {
       context?: string;
     };
   export type MiscRenderMarkdownRawParams =
-    & Data
-    ;
-  export type OrgsGetParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  export type OrgsUpdateParams =
-    & Org
     & {
+      data: string;
+    };
+  export type OrgsGetParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsUpdateParams =
+    & {
+      org: string;
       billing_email?: string;
       company?: string;
       email?: string;
@@ -1037,315 +1075,358 @@ declare namespace Github {
       members_can_create_repositories?: boolean;
     };
   export type OrgsGetAllParams =
-    & Page
-    & PerPage
     & {
       since?: string;
+      page?: number;
+      per_page?: number;
     };
   export type OrgsGetForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  export type OrgsGetMembersParams =
-    & Org
-    & Page
-    & PerPage
     & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsGetMembersParams =
+    & {
+      org: string;
       filter?: "all"|"2fa_disabled";
       role?: "all"|"admin"|"member";
+      page?: number;
+      per_page?: number;
     };
   export type OrgsCheckMembershipParams =
-    & Org
-    & Username
-    ;
-  export type OrgsRemoveMemberParams =
-    & Org
-    & Username
-    ;
-  export type OrgsGetPublicMembersParams =
-    & Org
-    ;
-  export type OrgsCheckPublicMembershipParams =
-    & Org
-    & Username
-    ;
-  export type OrgsPublicizeMembershipParams =
-    & Org
-    & Username
-    ;
-  export type OrgsConcealMembershipParams =
-    & Org
-    & Username
-    ;
-  export type OrgsGetOrgMembershipParams =
-    & Org
-    & Username
-    ;
-  export type OrgsAddOrgMembershipParams =
-    & Org
-    & Username
     & {
+      org: string;
+      username: string;
+    };
+  export type OrgsRemoveMemberParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsGetPublicMembersParams =
+    & {
+      org: string;
+    };
+  export type OrgsCheckPublicMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsPublicizeMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsConcealMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsGetOrgMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsAddOrgMembershipParams =
+    & {
+      org: string;
+      username: string;
       role: "admin"|"member";
     };
   export type OrgsRemoveOrgMembershipParams =
-    & Org
-    & Username
-    ;
-  export type OrgsGetPendingOrgInvitesParams =
-    & Org
-    ;
-  export type OrgsGetOutsideCollaboratorsParams =
-    & Org
-    & Page
-    & PerPage
     & {
+      org: string;
+      username: string;
+    };
+  export type OrgsGetPendingOrgInvitesParams =
+    & {
+      org: string;
+    };
+  export type OrgsGetOutsideCollaboratorsParams =
+    & {
+      org: string;
       filter?: "all"|"2fa_disabled";
+      page?: number;
+      per_page?: number;
     };
   export type OrgsRemoveOutsideCollaboratorParams =
-    & Org
-    & Username
-    ;
-  export type OrgsConvertMemberToOutsideCollaboratorParams =
-    & Org
-    & Username
-    ;
-  export type OrgsGetTeamsParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  export type OrgsGetTeamParams =
-    & Id
-    ;
-  export type OrgsCreateTeamParams =
-    & Org
-    & Name
-    & Privacy
     & {
+      org: string;
+      username: string;
+    };
+  export type OrgsConvertMemberToOutsideCollaboratorParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsGetTeamsParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsGetTeamParams =
+    & {
+      id: string;
+    };
+  export type OrgsCreateTeamParams =
+    & {
+      org: string;
+      name: string;
       description?: string;
       maintainers?: string[];
       repo_names?: string[];
+      privacy?: "secret"|"closed";
       parent_team_id?: string;
     };
   export type OrgsEditTeamParams =
-    & Id
-    & Name
-    & Privacy
     & {
+      id: string;
+      name: string;
       description?: string;
+      privacy?: "secret"|"closed";
       parent_team_id?: string;
     };
   export type OrgsDeleteTeamParams =
-    & Id
-    ;
-  export type OrgsGetTeamMembersParams =
-    & Id
-    & Page
-    & PerPage
     & {
+      id: string;
+    };
+  export type OrgsGetTeamMembersParams =
+    & {
+      id: string;
       role?: "member"|"maintainer"|"all";
+      page?: number;
+      per_page?: number;
     };
   export type OrgsGetChildTeamsParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type OrgsGetTeamMembershipParams =
-    & Id
-    & Username
-    ;
-  export type OrgsAddTeamMembershipParams =
-    & Id
-    & Username
     & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsGetTeamMembershipParams =
+    & {
+      id: string;
+      username: string;
+    };
+  export type OrgsAddTeamMembershipParams =
+    & {
+      id: string;
+      username: string;
       role?: "member"|"maintainer";
     };
   export type OrgsRemoveTeamMembershipParams =
-    & Id
-    & Username
-    ;
-  export type OrgsGetTeamReposParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type OrgsGetPendingTeamInvitesParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type OrgsCheckTeamRepoParams =
-    & Id
-    & Owner
-    & Repo
-    ;
-  export type OrgsAddTeamRepoParams =
-    & Id
-    & Org
-    & Repo
     & {
+      id: string;
+      username: string;
+    };
+  export type OrgsGetTeamReposParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsGetPendingTeamInvitesParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsCheckTeamRepoParams =
+    & {
+      id: string;
+      owner: string;
+      repo: string;
+    };
+  export type OrgsAddTeamRepoParams =
+    & {
+      id: string;
+      org: string;
+      repo: string;
       permission?: "pull"|"push"|"admin";
     };
   export type OrgsDeleteTeamRepoParams =
-    & Id
-    & Owner
-    & Repo
-    ;
-  export type OrgsGetHooksParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  export type OrgsGetHookParams =
-    & Org
-    & Id
-    ;
-  export type OrgsCreateHookParams =
-    & Org
     & {
+      id: string;
+      owner: string;
+      repo: string;
+    };
+  export type OrgsGetHooksParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsGetHookParams =
+    & {
+      org: string;
+      id: string;
+    };
+  export type OrgsCreateHookParams =
+    & {
+      org: string;
       name: string;
-      config: string;
+      config: json;
       events?: string[];
       active?: boolean;
     };
   export type OrgsEditHookParams =
-    & Org
-    & Id
     & {
-      config: string;
+      org: string;
+      id: string;
+      config: json;
       events?: string[];
       active?: boolean;
     };
   export type OrgsPingHookParams =
-    & Org
-    & Id
-    ;
-  export type OrgsDeleteHookParams =
-    & Org
-    & Id
-    ;
-  export type OrgsGetBlockedUsersParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  export type OrgsCheckBlockedUserParams =
-    & Org
-    & Username
-    ;
-  export type OrgsBlockUserParams =
-    & Org
-    & Username
-    ;
-  export type OrgsUnblockUserParams =
-    & Org
-    & Username
-    ;
-  export type ProjectsGetRepoProjectsParams =
-    & Owner
-    & Repo
-    & State
-    ;
-  export type ProjectsGetOrgProjectsParams =
-    & Org
-    & State
-    ;
-  export type ProjectsGetProjectParams =
-    & Id
-    ;
-  export type ProjectsCreateRepoProjectParams =
-    & Owner
-    & Repo
-    & Name
     & {
+      org: string;
+      id: string;
+    };
+  export type OrgsDeleteHookParams =
+    & {
+      org: string;
+      id: string;
+    };
+  export type OrgsGetBlockedUsersParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type OrgsCheckBlockedUserParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsBlockUserParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type OrgsUnblockUserParams =
+    & {
+      org: string;
+      username: string;
+    };
+  export type ProjectsGetRepoProjectsParams =
+    & {
+      owner: string;
+      repo: string;
+      state?: "open"|"closed"|"all";
+    };
+  export type ProjectsGetOrgProjectsParams =
+    & {
+      org: string;
+      state?: "open"|"closed"|"all";
+    };
+  export type ProjectsGetProjectParams =
+    & {
+      id: string;
+    };
+  export type ProjectsCreateRepoProjectParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
       body?: string;
     };
   export type ProjectsCreateOrgProjectParams =
-    & Org
-    & Name
     & {
+      org: string;
+      name: string;
       body?: string;
     };
   export type ProjectsUpdateProjectParams =
-    & Id
-    & Name
-    & State
     & {
+      id: string;
+      name: string;
       body?: string;
+      state?: "open"|"closed"|"all";
     };
   export type ProjectsDeleteProjectParams =
-    & Id
-    ;
-  export type ProjectsGetProjectCardsParams =
-    & ColumnId
-    ;
-  export type ProjectsGetProjectCardParams =
-    & Id
-    ;
-  export type ProjectsCreateProjectCardParams =
-    & ColumnId
     & {
+      id: string;
+    };
+  export type ProjectsGetProjectCardsParams =
+    & {
+      column_id: string;
+    };
+  export type ProjectsGetProjectCardParams =
+    & {
+      id: string;
+    };
+  export type ProjectsCreateProjectCardParams =
+    & {
+      column_id: string;
       note?: string;
       content_id?: string;
       content_type?: string;
     };
   export type ProjectsUpdateProjectCardParams =
-    & Id
     & {
+      id: string;
       note?: string;
     };
   export type ProjectsDeleteProjectCardParams =
-    & Id
-    ;
-  export type ProjectsMoveProjectCardParams =
-    & Id
     & {
+      id: string;
+    };
+  export type ProjectsMoveProjectCardParams =
+    & {
+      id: string;
       position: string;
       column_id?: string;
     };
   export type ProjectsGetProjectColumnsParams =
-    & ProjectId
-    ;
-  export type ProjectsGetProjectColumnParams =
-    & Id
-    ;
-  export type ProjectsCreateProjectColumnParams =
-    & ProjectId
-    & Name
-    ;
-  export type ProjectsUpdateProjectColumnParams =
-    & Id
-    & Name
-    ;
-  export type ProjectsDeleteProjectColumnParams =
-    & Id
-    ;
-  export type ProjectsMoveProjectColumnParams =
-    & Id
     & {
+      project_id: string;
+    };
+  export type ProjectsGetProjectColumnParams =
+    & {
+      id: string;
+    };
+  export type ProjectsCreateProjectColumnParams =
+    & {
+      project_id: string;
+      name: string;
+    };
+  export type ProjectsUpdateProjectColumnParams =
+    & {
+      id: string;
+      name: string;
+    };
+  export type ProjectsDeleteProjectColumnParams =
+    & {
+      id: string;
+    };
+  export type ProjectsMoveProjectColumnParams =
+    & {
+      id: string;
       position: string;
     };
   export type PullRequestsGetParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  export type PullRequestsCreateParams =
-    & Owner
-    & Repo
-    & Head
-    & Base
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  export type PullRequestsCreateParams =
+    & {
+      owner: string;
+      repo: string;
       title: string;
+      head: string;
+      base: string;
       body?: string;
       maintainer_can_modify?: boolean;
     };
   export type PullRequestsUpdateParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       title?: string;
       body?: string;
       state?: "open"|"closed";
@@ -1353,790 +1434,840 @@ declare namespace Github {
       maintainer_can_modify?: boolean;
     };
   export type PullRequestsMergeParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       commit_title?: string;
       commit_message?: string;
       sha?: string;
       merge_method?: "merge"|"squash"|"rebase";
     };
   export type PullRequestsGetAllParams =
-    & Owner
-    & Repo
-    & State
-    & Direction
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      state?: "open"|"closed"|"all";
       head?: string;
       base?: string;
       sort?: "created"|"updated"|"popularity"|"long-running";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type PullRequestsCreateFromIssueParams =
-    & Owner
-    & Repo
-    & Head
-    & Base
     & {
+      owner: string;
+      repo: string;
       issue: number;
+      head: string;
+      base: string;
     };
   export type PullRequestsGetCommitsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsGetFilesParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsCheckMergedParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsGetReviewsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsGetReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    ;
-  export type PullRequestsDeletePendingReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    ;
-  export type PullRequestsGetReviewCommentsParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsCreateReviewParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsGetFilesParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsCheckMergedParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsGetReviewsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsGetReviewParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
+    };
+  export type PullRequestsDeletePendingReviewParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
+    };
+  export type PullRequestsGetReviewCommentsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsCreateReviewParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
       commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
     };
   export type PullRequestsSubmitReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   export type PullRequestsDismissReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
       message?: string;
+      page?: number;
+      per_page?: number;
     };
   export type PullRequestsGetCommentsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsGetCommentsForRepoParams =
-    & Owner
-    & Repo
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsGetCommentsForRepoParams =
+    & {
+      owner: string;
+      repo: string;
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   export type PullRequestsGetCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type PullRequestsCreateCommentParams =
-    & Owner
-    & Repo
-    & Number
-    & Body
-    & CommitId
-    & Path
-    & Position
-    ;
-  export type PullRequestsCreateCommentReplyParams =
-    & Owner
-    & Repo
-    & Number
-    & Body
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type PullRequestsCreateCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      body: string;
+      commit_id: string;
+      path: string;
+      position: number;
+    };
+  export type PullRequestsCreateCommentReplyParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      body: string;
       in_reply_to: number;
     };
   export type PullRequestsEditCommentParams =
-    & Owner
-    & Repo
-    & Id
-    & Body
-    ;
-  export type PullRequestsDeleteCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type PullRequestsGetReviewRequestsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  export type PullRequestsCreateReviewRequestParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      id: string;
+      body: string;
+    };
+  export type PullRequestsDeleteCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type PullRequestsGetReviewRequestsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  export type PullRequestsCreateReviewRequestParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
       reviewers?: string[];
       team_reviewers?: string[];
     };
   export type PullRequestsDeleteReviewRequestParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       reviewers?: string[];
       team_reviewers?: string[];
     };
   export type ReactionsDeleteParams =
-    & Id
-    ;
-  export type ReactionsGetForCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      id: string;
+    };
+  export type ReactionsGetForCommitCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsGetForIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsGetForIssueCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForIssueCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsGetForPullRequestReviewCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReactionsCreateForPullRequestReviewCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   export type ReposCreateParams =
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & AutoInit
-    & GitignoreTemplate
-    & LicenseTemplate
     & {
+      name: string;
+      description?: string;
+      homepage?: string;
+      private?: boolean;
+      has_issues?: boolean;
+      has_projects?: boolean;
+      has_wiki?: boolean;
       team_id?: number;
+      auto_init?: boolean;
+      gitignore_template?: string;
+      license_template?: string;
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
   export type ReposGetParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposEditParams =
-    & Owner
-    & Repo
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & DefaultBranch
     & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposEditParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
+      description?: string;
+      homepage?: string;
+      private?: boolean;
+      has_issues?: boolean;
+      has_projects?: boolean;
+      has_wiki?: boolean;
+      default_branch?: string;
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
   export type ReposDeleteParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposForkParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposForkParams =
+    & {
+      owner: string;
+      repo: string;
       organization?: string;
     };
   export type ReposMergeParams =
-    & Owner
-    & Repo
-    & Base
-    & Head
     & {
+      owner: string;
+      repo: string;
+      base: string;
+      head: string;
       commit_message?: string;
     };
   export type ReposGetAllParams =
-    & Direction
-    & Page
-    & PerPage
     & {
       visibility?: "all"|"public"|"private";
       affiliation?: string;
       type?: "all"|"owner"|"public"|"private"|"member";
       sort?: "created"|"updated"|"pushed"|"full_name";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetForUserParams =
-    & Username
-    & Direction
-    & Page
-    & PerPage
     & {
+      username: string;
       type?: "all"|"owner"|"member";
       sort?: "created"|"updated"|"pushed"|"full_name";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetForOrgParams =
-    & Org
-    & Page
-    & PerPage
     & {
+      org: string;
       type?: "all"|"public"|"private"|"forks"|"sources"|"member";
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetPublicParams =
-    & Page
-    & PerPage
     & {
       since?: string;
+      page?: number;
+      per_page?: number;
     };
   export type ReposCreateForOrgParams =
-    & Org
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & AutoInit
-    & GitignoreTemplate
-    & LicenseTemplate
     & {
+      org: string;
+      name: string;
+      description?: string;
+      homepage?: string;
+      private?: boolean;
+      has_issues?: boolean;
+      has_projects?: boolean;
+      has_wiki?: boolean;
       team_id?: number;
+      auto_init?: boolean;
+      gitignore_template?: string;
+      license_template?: string;
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
   export type ReposGetByIdParams =
-    & Id
-    ;
-  export type ReposGetTopicsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposReplaceTopicsParams =
-    & Owner
-    & Repo
     & {
+      id: string;
+    };
+  export type ReposGetTopicsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposReplaceTopicsParams =
+    & {
+      owner: string;
+      repo: string;
       names: string[];
     };
   export type ReposGetContributorsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       anon?: boolean;
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetLanguagesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetTeamsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetTagsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetBranchesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetTeamsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetTagsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetBranchesParams =
+    & {
+      owner: string;
+      repo: string;
       protected?: boolean;
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetBranchParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposGetBranchProtectionParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposUpdateBranchProtectionParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
     & {
-      required_status_checks: string;
-      required_pull_request_reviews: string;
-      dismissal_restrictions?: string;
-      restrictions: string;
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetBranchProtectionParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposUpdateBranchProtectionParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      required_status_checks: json;
+      required_pull_request_reviews: json;
+      dismissal_restrictions?: json;
+      restrictions: json;
       enforce_admins: boolean;
+      page?: number;
+      per_page?: number;
     };
   export type ReposRemoveBranchProtectionParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposGetProtectedBranchRequiredStatusChecksParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposUpdateProtectedBranchRequiredStatusChecksParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetProtectedBranchRequiredStatusChecksParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposUpdateProtectedBranchRequiredStatusChecksParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       strict?: boolean;
       contexts?: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksParams =
-    & Owner
-    & Repo
-    & Branch
-    ;
-  export type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+    };
+  export type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       contexts: string[];
     };
   export type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       contexts: string[];
     };
   export type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       contexts: string[];
     };
   export type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
     & {
-      dismissal_restrictions?: string;
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      dismissal_restrictions?: json;
       dismiss_stale_reviews?: boolean;
       require_code_owner_reviews?: boolean;
     };
   export type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    ;
-  export type ReposGetProtectedBranchAdminEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposAddProtectedBranchAdminEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposRemoveProtectedBranchAdminEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposGetProtectedBranchRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposRemoveProtectedBranchRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    ;
-  export type ReposGetProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposReplaceProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+    };
+  export type ReposGetProtectedBranchAdminEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposAddProtectedBranchAdminEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposRemoveProtectedBranchAdminEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetProtectedBranchRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposRemoveProtectedBranchRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+    };
+  export type ReposGetProtectedBranchTeamRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposReplaceProtectedBranchTeamRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       teams: string[];
     };
   export type ReposAddProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       teams: string[];
     };
   export type ReposRemoveProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       teams: string[];
     };
   export type ReposGetProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  export type ReposReplaceProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposReplaceProtectedBranchUserRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       users: string[];
     };
   export type ReposAddProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       users: string[];
     };
   export type ReposRemoveProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       users: string[];
     };
   export type ReposGetCollaboratorsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       affiliation?: "outside"|"all"|"direct";
+      page?: number;
+      per_page?: number;
     };
   export type ReposCheckCollaboratorParams =
-    & Owner
-    & Repo
-    & Username
-    ;
-  export type ReposReviewUserPermissionLevelParams =
-    & Owner
-    & Repo
-    & Username
-    ;
-  export type ReposAddCollaboratorParams =
-    & Owner
-    & Repo
-    & Username
     & {
+      owner: string;
+      repo: string;
+      username: string;
+    };
+  export type ReposReviewUserPermissionLevelParams =
+    & {
+      owner: string;
+      repo: string;
+      username: string;
+    };
+  export type ReposAddCollaboratorParams =
+    & {
+      owner: string;
+      repo: string;
+      username: string;
       permission?: "pull"|"push"|"admin";
     };
   export type ReposRemoveCollaboratorParams =
-    & Owner
-    & Repo
-    & Username
-    ;
-  export type ReposGetAllCommitCommentsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetCommitCommentsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      username: string;
+    };
+  export type ReposGetAllCommitCommentsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetCommitCommentsParams =
+    & {
+      owner: string;
+      repo: string;
       ref: string;
+      page?: number;
+      per_page?: number;
     };
   export type ReposCreateCommitCommentParams =
-    & Owner
-    & Repo
-    & Sha
-    & Body
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+      body: string;
       path?: string;
       position?: number;
     };
   export type ReposGetCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposUpdateCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
-    & Body
-    ;
-  export type ReposDeleteCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetCommunityProfileMetricsParams =
-    & Owner
-    & Name
-    ;
-  export type ReposGetCommitsParams =
-    & Owner
-    & Repo
-    & Since
-    & Until
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposUpdateCommitCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+      body: string;
+    };
+  export type ReposDeleteCommitCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetCommunityProfileMetricsParams =
+    & {
+      owner: string;
+      name: string;
+    };
+  export type ReposGetCommitsParams =
+    & {
+      owner: string;
+      repo: string;
       sha?: string;
       path?: string;
       author?: string;
+      since?: date;
+      until?: date;
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetCommitParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  export type ReposGetShaOfCommitRefParams =
-    & Owner
-    & Repo
-    & Ref
-    ;
-  export type ReposCompareCommitsParams =
-    & Owner
-    & Repo
-    & Base
-    & Head
-    ;
-  export type ReposGetReadmeParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  export type ReposGetShaOfCommitRefParams =
+    & {
+      owner: string;
+      repo: string;
+      ref: string;
+    };
+  export type ReposCompareCommitsParams =
+    & {
+      owner: string;
+      repo: string;
+      base: string;
+      head: string;
+    };
+  export type ReposGetReadmeParams =
+    & {
+      owner: string;
+      repo: string;
       ref?: string;
     };
   export type ReposGetContentParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       ref?: string;
     };
   export type ReposCreateFileParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       message: string;
       content: string;
       branch?: string;
-      committer?: string;
-      author?: string;
+      committer?: json;
+      author?: json;
     };
   export type ReposUpdateFileParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       message: string;
       content: string;
       sha: string;
       branch?: string;
-      committer?: string;
-      author?: string;
+      committer?: json;
+      author?: json;
     };
   export type ReposDeleteFileParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       message: string;
       sha: string;
       branch?: string;
-      committer?: string;
-      author?: string;
+      committer?: json;
+      author?: json;
     };
   export type ReposGetArchiveLinkParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       archive_format: "tarball"|"zipball";
       ref?: string;
     };
   export type ReposGetDeployKeysParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetDeployKeyParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposAddDeployKeyParams =
-    & Owner
-    & Repo
-    & Title
-    & Key
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetDeployKeyParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposAddDeployKeyParams =
+    & {
+      owner: string;
+      repo: string;
+      title: string;
+      key: string;
       read_only?: boolean;
     };
   export type ReposDeleteDeployKeyParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetDeploymentsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetDeploymentsParams =
+    & {
+      owner: string;
+      repo: string;
       sha?: string;
       ref?: string;
       task?: string;
       environment?: string;
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetDeploymentParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       deployment_id: string;
     };
   export type ReposCreateDeploymentParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       ref: string;
       task?: string;
       auto_merge?: boolean;
@@ -2148,22 +2279,23 @@ declare namespace Github {
       production_environment?: boolean;
     };
   export type ReposGetDeploymentStatusesParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetDeploymentStatusParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetDeploymentStatusParams =
+    & {
+      owner: string;
+      repo: string;
       id: string;
       status_id: string;
     };
   export type ReposCreateDeploymentStatusParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       state?: string;
       target_url?: string;
       log_url?: string;
@@ -2172,95 +2304,108 @@ declare namespace Github {
       auto_inactive?: boolean;
     };
   export type ReposGetDownloadsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetDownloadParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposDeleteDownloadParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetForksParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetDownloadParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposDeleteDownloadParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetForksParams =
+    & {
+      owner: string;
+      repo: string;
       sort?: "newest"|"oldest"|"stargazers";
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetInvitesParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposDeleteInviteParams =
-    & Owner
-    & Repo
-    & InvitationId
-    ;
-  export type ReposUpdateInviteParams =
-    & Owner
-    & Repo
-    & InvitationId
     & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposDeleteInviteParams =
+    & {
+      owner: string;
+      repo: string;
+      invitation_id: string;
+    };
+  export type ReposUpdateInviteParams =
+    & {
+      owner: string;
+      repo: string;
+      invitation_id: string;
       permissions?: "read"|"write"|"admin";
     };
   export type ReposGetPagesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposRequestPageBuildParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetPagesBuildsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetLatestPagesBuildParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetPagesBuildParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetReleasesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetReleaseParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetLatestReleaseParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetReleaseByTagParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposRequestPageBuildParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetPagesBuildsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetLatestPagesBuildParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetPagesBuildParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetReleasesParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetReleaseParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetLatestReleaseParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetReleaseByTagParams =
+    & {
+      owner: string;
+      repo: string;
       tag: string;
     };
   export type ReposCreateReleaseParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       tag_name: string;
       target_commitish?: string;
       name?: string;
@@ -2269,10 +2414,10 @@ declare namespace Github {
       prerelease?: boolean;
     };
   export type ReposEditReleaseParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       tag_name: string;
       target_commitish?: string;
       name?: string;
@@ -2281,198 +2426,216 @@ declare namespace Github {
       prerelease?: boolean;
     };
   export type ReposDeleteReleaseParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetAssetsParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposUploadAssetParams =
-    & Url
-    & ContentType
-    & ContentLength
     & {
-      file: Object;
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetAssetsParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposUploadAssetParams =
+    & {
+      url: string;
+      file: object;
+      contentType: string;
+      contentLength: number;
       name: string;
       label?: string;
     };
   export type ReposGetAssetParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposEditAssetParams =
-    & Owner
-    & Repo
-    & Id
-    & Name
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposEditAssetParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+      name: string;
       label?: string;
     };
   export type ReposDeleteAssetParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposGetStatsContributorsParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetStatsCommitActivityParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetStatsCodeFrequencyParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetStatsParticipationParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposGetStatsPunchCardParams =
-    & Owner
-    & Repo
-    ;
-  export type ReposCreateStatusParams =
-    & Owner
-    & Repo
-    & Sha
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposGetStatsContributorsParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetStatsCommitActivityParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetStatsCodeFrequencyParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetStatsParticipationParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposGetStatsPunchCardParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  export type ReposCreateStatusParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
       state: "pending"|"success"|"error"|"failure";
       target_url?: string;
       description?: string;
       context?: string;
     };
   export type ReposGetStatusesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       ref: string;
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetCombinedStatusForRefParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       ref: string;
+      page?: number;
+      per_page?: number;
     };
   export type ReposGetReferrersParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetPathsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetViewsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetClonesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetHooksParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  export type ReposGetHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposCreateHookParams =
-    & Owner
-    & Repo
-    & Name
     & {
-      config: string;
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetPathsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetViewsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetClonesParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetHooksParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type ReposGetHookParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposCreateHookParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
+      config: json;
       events?: string[];
       active?: boolean;
     };
   export type ReposEditHookParams =
-    & Owner
-    & Repo
-    & Id
-    & Name
     & {
-      config: string;
+      owner: string;
+      repo: string;
+      id: string;
+      name: string;
+      config: json;
       events?: string[];
       add_events?: string[];
       remove_events?: string[];
       active?: boolean;
     };
   export type ReposTestHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposPingHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type ReposDeleteHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  export type SearchReposParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposPingHookParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type ReposDeleteHookParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  export type SearchReposParams =
+    & {
+      q: string;
       sort?: "stars"|"forks"|"updated";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type SearchCodeParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "indexed";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type SearchCommitsParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "author-date"|"committer-date";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type SearchIssuesParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "comments"|"created"|"updated";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type SearchUsersParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "followers"|"repositories"|"joined";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   export type SearchEmailParams =
     & {
@@ -2489,55 +2652,66 @@ declare namespace Github {
       bio?: string;
     };
   export type UsersPromoteParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersDemoteParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersSuspendParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersUnsuspendParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersGetForUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersGetByIdParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type UsersGetAllParams =
     & {
       since?: number;
     };
   export type UsersGetOrgsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetOrgMembershipsParams =
     & {
       state?: "active"|"pending";
     };
   export type UsersGetOrgMembershipParams =
-    & Org
-    ;
-  export type UsersEditOrgMembershipParams =
-    & Org
     & {
+      org: string;
+    };
+  export type UsersEditOrgMembershipParams =
+    & {
+      org: string;
       state: "active";
     };
   export type UsersGetTeamsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetEmailsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetPublicEmailsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersAddEmailsParams =
     & {
       emails: string[];
@@ -2547,127 +2721,155 @@ declare namespace Github {
       emails: string[];
     };
   export type UsersGetFollowersForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  export type UsersGetFollowersParams =
-    & Page
-    & PerPage
-    ;
-  export type UsersGetFollowingForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  export type UsersGetFollowingParams =
-    & Page
-    & PerPage
-    ;
-  export type UsersCheckFollowingParams =
-    & Username
-    ;
-  export type UsersCheckIfOneFollowersOtherParams =
-    & Username
     & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type UsersGetFollowersParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type UsersGetFollowingForUserParams =
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  export type UsersGetFollowingParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  export type UsersCheckFollowingParams =
+    & {
+      username: string;
+    };
+  export type UsersCheckIfOneFollowersOtherParams =
+    & {
+      username: string;
       target_user: string;
     };
   export type UsersFollowUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersUnfollowUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersGetKeysForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetKeysParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type UsersCreateKeyParams =
-    & Title
-    & Key
-    ;
+    & {
+      title: string;
+      key: string;
+    };
   export type UsersDeleteKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type UsersGetGpgKeysForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetGpgKeysParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetGpgKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type UsersCreateGpgKeyParams =
     & {
       armored_public_key: string;
     };
   export type UsersDeleteGpgKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type UsersCheckBlockedUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersBlockUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersUnblockUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type UsersAcceptRepoInviteParams =
-    & InvitationId
-    ;
+    & {
+      invitation_id: string;
+    };
   export type UsersDeclineRepoInviteParams =
-    & InvitationId
-    ;
+    & {
+      invitation_id: string;
+    };
   export type UsersGetInstallationsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetInstallationReposParams =
-    & InstallationId
-    & Page
-    & PerPage
-    ;
+    & {
+      installation_id: string;
+      page?: number;
+      per_page?: number;
+    };
   export type UsersAddRepoToInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   export type UsersRemoveRepoFromInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   export type UsersGetMarketplacePurchasesParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type UsersGetMarketplaceStubbedPurchasesParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   export type EnterpriseStatsParams =
     & {
       type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
     };
   export type EnterpriseUpdateLdapForUserParams =
-    & Username
     & {
+      username: string;
       ldap_dn: string;
     };
   export type EnterpriseSyncLdapForUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   export type EnterpriseUpdateLdapForTeamParams =
     & {
       team_id: number;
@@ -2678,48 +2880,54 @@ declare namespace Github {
       team_id: number;
     };
   export type EnterpriseGetPreReceiveEnvironmentParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type EnterpriseCreatePreReceiveEnvironmentParams =
     & {
       name: string;
       image_url: string;
     };
   export type EnterpriseEditPreReceiveEnvironmentParams =
-    & Id
     & {
+      id: string;
       name: string;
       image_url: string;
     };
   export type EnterpriseDeletePreReceiveEnvironmentParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type EnterpriseGetPreReceiveEnvironmentDownloadStatusParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type EnterpriseTriggerPreReceiveEnvironmentDownloadParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type EnterpriseGetPreReceiveHookParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type EnterpriseCreatePreReceiveHookParams =
     & {
       name: string;
       script: string;
-      script_repository: string;
-      environment: string;
+      script_repository: json;
+      environment: json;
       enforcement?: string;
       allow_downstream_configuration?: boolean;
     };
   export type EnterpriseEditPreReceiveHookParams =
-    & Id
     & {
-      hook: string;
+      id: string;
+      hook: json;
     };
   export type EnterpriseDeletePreReceiveHookParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   export type EnterpriseQueueIndexingJobParams =
     & {
       target: string;

@@ -1,12 +1,5 @@
 declare module "github" {
   declare type Header =
-    | "Authorization"
-    | "If-Modified-Since"
-    | "If-None-Match"
-    | "Cookie"
-    | "User-Agent"
-    | "Accept"
-    | "X-GitHub-OTP"
     | string;
 
   declare type EmptyParams = {
@@ -68,208 +61,169 @@ declare module "github" {
 
   declare type Callback = (error: ?Error, result: ?any) => any;
 
-  declare type Files = { files: string; };
-  declare type Owner = { owner: string; };
-  declare type Username = { username: string; };
-  declare type Org = { org: string; };
-  declare type Repo = { repo: string; };
-  declare type Branch = { branch: string; };
-  declare type Sha = { sha: string; };
-  declare type Description = { description?: string; };
-  declare type Id = { id: string; };
-  declare type GistId = { gist_id: string; };
-  declare type InstallationId = { installation_id: string; };
-  declare type RepositoryId = { repository_id: string; };
-  declare type CommitId = { commit_id: string; };
-  declare type ClientId = { client_id?: string; };
-  declare type ColumnId = { column_id: string; };
-  declare type ProjectId = { project_id: string; };
-  declare type RepoId = { repo_id: string; };
-  declare type InvitationId = { invitation_id: string; };
-  declare type Ref = { ref: string; };
-  declare type Number = { number: number; };
-  declare type IssueNumber = { issue_number: number; };
-  declare type Name = { name: string; };
-  declare type Direction = { direction?: "asc"|"desc"; };
-  declare type Since = { since?: Date; };
-  declare type Until = { until?: Date; };
-  declare type State = { state?: "open"|"closed"|"all"; };
-  declare type Color = { color: string; };
-  declare type Base = { base: string; };
-  declare type Head = { head: string; };
-  declare type Path = { path: string; };
-  declare type Position = { position: number; };
-  declare type Body = { body: string; };
-  declare type Homepage = { homepage?: string; };
-  declare type Private = { private?: boolean; };
-  declare type HasIssues = { has_issues?: boolean; };
-  declare type HasProjects = { has_projects?: boolean; };
-  declare type HasWiki = { has_wiki?: boolean; };
-  declare type HasDownloads = { has_downloads?: boolean; };
-  declare type DefaultBranch = { default_branch?: string; };
-  declare type Title = { title: string; };
-  declare type Key = { key: string; };
-  declare type Page = { page?: number; };
-  declare type PerPage = { per_page?: number; };
-  declare type Scopes = { scopes?: string[]; };
-  declare type Note = { note?: string; };
-  declare type NoteUrl = { note_url?: string; };
-  declare type AutoInit = { auto_init?: boolean; };
-  declare type GitignoreTemplate = { gitignore_template?: string; };
-  declare type LicenseTemplate = { license_template?: string; };
-  declare type Order = { order?: "asc"|"desc"; };
-  declare type Q = { q: string; };
-  declare type Data = { data: string; };
-  declare type Privacy = { privacy?: "secret"|"closed"; };
-  declare type Fingerprint = { fingerprint?: string; };
-  declare type AccessToken = { access_token: string; };
-  declare type Assignees = { assignees?: string[]; };
-  declare type Url = { url: string; };
-  declare type ContentType = { contentType: string; };
-  declare type ContentLength = { contentLength: number; };
 
   declare type AuthorizationGetParams =
-    & Id
-    ;
-  declare type AuthorizationCreateParams =
-    & Scopes
-    & Note
-    & NoteUrl
-    & ClientId
-    & Fingerprint
     & {
+      id: string;
+    };
+  declare type AuthorizationCreateParams =
+    & {
+      scopes?: string[];
+      note?: string;
+      note_url?: string;
+      client_id?: string;
       client_secret?: string;
+      fingerprint?: string;
     };
   declare type AuthorizationUpdateParams =
-    & Id
-    & Scopes
-    & Note
-    & NoteUrl
-    & Fingerprint
     & {
+      id: string;
+      scopes?: string[];
       add_scopes?: string[];
       remove_scopes?: string[];
+      note?: string;
+      note_url?: string;
+      fingerprint?: string;
     };
   declare type AuthorizationDeleteParams =
-    & Id
-    ;
-  declare type AuthorizationCheckParams =
-    & ClientId
-    & AccessToken
-    ;
-  declare type AuthorizationResetParams =
-    & ClientId
-    & AccessToken
-    ;
-  declare type AuthorizationRevokeParams =
-    & ClientId
-    & AccessToken
-    ;
-  declare type AuthorizationGetGrantsParams =
-    & Page
-    & PerPage
-    ;
-  declare type AuthorizationGetGrantParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type AuthorizationDeleteGrantParams =
-    & Id
-    ;
-  declare type AuthorizationGetAllParams =
-    & Page
-    & PerPage
-    ;
-  declare type AuthorizationGetOrCreateAuthorizationForAppParams =
-    & ClientId
-    & Scopes
-    & Note
-    & NoteUrl
-    & Fingerprint
     & {
+      id: string;
+    };
+  declare type AuthorizationCheckParams =
+    & {
+      client_id?: string;
+      access_token: string;
+    };
+  declare type AuthorizationResetParams =
+    & {
+      client_id?: string;
+      access_token: string;
+    };
+  declare type AuthorizationRevokeParams =
+    & {
+      client_id?: string;
+      access_token: string;
+    };
+  declare type AuthorizationGetGrantsParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type AuthorizationGetGrantParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type AuthorizationDeleteGrantParams =
+    & {
+      id: string;
+    };
+  declare type AuthorizationGetAllParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type AuthorizationGetOrCreateAuthorizationForAppParams =
+    & {
+      client_id?: string;
       client_secret: string;
+      scopes?: string[];
+      note?: string;
+      note_url?: string;
+      fingerprint?: string;
     };
   declare type AuthorizationGetOrCreateAuthorizationForAppAndFingerprintParams =
-    & ClientId
-    & Fingerprint
-    & Scopes
-    & Note
-    & NoteUrl
     & {
+      client_id?: string;
+      fingerprint?: string;
       client_secret: string;
+      scopes?: string[];
+      note?: string;
+      note_url?: string;
     };
   declare type AuthorizationRevokeGrantParams =
-    & ClientId
-    & AccessToken
-    ;
+    & {
+      client_id?: string;
+      access_token: string;
+    };
   declare type ActivityGetEventsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForRepoIssuesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForRepoNetworkParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForOrgParams =
-    & Org
-    & Page
-    & PerPage
-    ;
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsReceivedParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsReceivedPublicParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForUserPublicParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetEventsForUserOrgParams =
-    & Username
-    & Org
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type ActivityGetNotificationsParams =
-    & Since
     & {
       all?: boolean;
       participating?: boolean;
+      since?: date;
       before?: string;
     };
   declare type ActivityGetNotificationsForUserParams =
-    & Owner
-    & Repo
-    & Since
     & {
+      owner: string;
+      repo: string;
       all?: boolean;
       participating?: boolean;
+      since?: date;
       before?: string;
     };
   declare type ActivityMarkNotificationsAsReadParams =
@@ -277,289 +231,330 @@ declare module "github" {
       last_read_at?: string;
     };
   declare type ActivityMarkNotificationsAsReadForRepoParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       last_read_at?: string;
     };
   declare type ActivityGetNotificationThreadParams =
-    & Id
-    ;
-  declare type ActivityMarkNotificationThreadAsReadParams =
-    & Id
-    ;
-  declare type ActivityCheckNotificationThreadSubscriptionParams =
-    & Id
-    ;
-  declare type ActivitySetNotificationThreadSubscriptionParams =
-    & Id
     & {
+      id: string;
+    };
+  declare type ActivityMarkNotificationThreadAsReadParams =
+    & {
+      id: string;
+    };
+  declare type ActivityCheckNotificationThreadSubscriptionParams =
+    & {
+      id: string;
+    };
+  declare type ActivitySetNotificationThreadSubscriptionParams =
+    & {
+      id: string;
       subscribed?: boolean;
       ignored?: boolean;
     };
   declare type ActivityDeleteNotificationThreadSubscriptionParams =
-    & Id
-    ;
-  declare type ActivityGetStargazersForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ActivityGetStarredReposForUserParams =
-    & Username
-    & Direction
-    & Page
-    & PerPage
     & {
+      id: string;
+    };
+  declare type ActivityGetStargazersForRepoParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ActivityGetStarredReposForUserParams =
+    & {
+      username: string;
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type ActivityGetStarredReposParams =
-    & Direction
-    & Page
-    & PerPage
     & {
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type ActivityCheckStarringRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ActivityStarRepoParams =
-    & Owner
-    & Repo
-    ;
-  declare type ActivityUnstarRepoParams =
-    & Owner
-    & Repo
-    ;
-  declare type ActivityGetWatchersForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ActivityGetWatchedReposForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  declare type ActivityGetWatchedReposParams =
-    & Page
-    & PerPage
-    ;
-  declare type ActivityGetRepoSubscriptionParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ActivitySetRepoSubscriptionParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ActivityStarRepoParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ActivityUnstarRepoParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ActivityGetWatchersForRepoParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ActivityGetWatchedReposForUserParams =
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ActivityGetWatchedReposParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type ActivityGetRepoSubscriptionParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ActivitySetRepoSubscriptionParams =
+    & {
+      owner: string;
+      repo: string;
       subscribed?: boolean;
       ignored?: boolean;
     };
   declare type ActivityUnwatchRepoParams =
-    & Owner
-    & Repo
-    ;
-  declare type GistsGetParams =
-    & Id
-    ;
-  declare type GistsCreateParams =
-    & Files
-    & Description
     & {
+      owner: string;
+      repo: string;
+    };
+  declare type GistsGetParams =
+    & {
+      id: string;
+    };
+  declare type GistsCreateParams =
+    & {
+      files: json;
+      description?: string;
       public: boolean;
     };
   declare type GistsEditParams =
-    & Id
-    & Description
-    & Files
     & {
+      id: string;
+      description?: string;
+      files: json;
       content?: string;
       filename?: string;
     };
   declare type GistsStarParams =
-    & Id
-    ;
-  declare type GistsUnstarParams =
-    & Id
-    ;
-  declare type GistsForkParams =
-    & Id
-    ;
-  declare type GistsDeleteParams =
-    & Id
-    ;
-  declare type GistsGetForUserParams =
-    & Username
-    & Since
-    & Page
-    & PerPage
-    ;
-  declare type GistsGetAllParams =
-    & Since
-    & Page
-    & PerPage
-    ;
-  declare type GistsGetPublicParams =
-    & Since
-    ;
-  declare type GistsGetStarredParams =
-    & Since
-    ;
-  declare type GistsGetRevisionParams =
-    & Id
-    & Sha
-    ;
-  declare type GistsGetCommitsParams =
-    & Id
-    ;
-  declare type GistsCheckStarParams =
-    & Id
-    ;
-  declare type GistsGetForksParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type GistsGetCommentsParams =
-    & GistId
-    ;
-  declare type GistsGetCommentParams =
-    & GistId
-    & Id
-    ;
-  declare type GistsCreateCommentParams =
-    & GistId
-    & Body
-    ;
-  declare type GistsEditCommentParams =
-    & GistId
-    & Id
-    & Body
-    ;
-  declare type GistsDeleteCommentParams =
-    & GistId
-    & Id
-    ;
-  declare type GitdataGetBlobParams =
-    & Owner
-    & Repo
-    & Sha
-    & Page
-    & PerPage
-    ;
-  declare type GitdataCreateBlobParams =
-    & Owner
-    & Repo
     & {
+      id: string;
+    };
+  declare type GistsUnstarParams =
+    & {
+      id: string;
+    };
+  declare type GistsForkParams =
+    & {
+      id: string;
+    };
+  declare type GistsDeleteParams =
+    & {
+      id: string;
+    };
+  declare type GistsGetForUserParams =
+    & {
+      username: string;
+      since?: date;
+      page?: number;
+      per_page?: number;
+    };
+  declare type GistsGetAllParams =
+    & {
+      since?: date;
+      page?: number;
+      per_page?: number;
+    };
+  declare type GistsGetPublicParams =
+    & {
+      since?: date;
+    };
+  declare type GistsGetStarredParams =
+    & {
+      since?: date;
+    };
+  declare type GistsGetRevisionParams =
+    & {
+      id: string;
+      sha: string;
+    };
+  declare type GistsGetCommitsParams =
+    & {
+      id: string;
+    };
+  declare type GistsCheckStarParams =
+    & {
+      id: string;
+    };
+  declare type GistsGetForksParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type GistsGetCommentsParams =
+    & {
+      gist_id: string;
+    };
+  declare type GistsGetCommentParams =
+    & {
+      gist_id: string;
+      id: string;
+    };
+  declare type GistsCreateCommentParams =
+    & {
+      gist_id: string;
+      body: string;
+    };
+  declare type GistsEditCommentParams =
+    & {
+      gist_id: string;
+      id: string;
+      body: string;
+    };
+  declare type GistsDeleteCommentParams =
+    & {
+      gist_id: string;
+      id: string;
+    };
+  declare type GitdataGetBlobParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type GitdataCreateBlobParams =
+    & {
+      owner: string;
+      repo: string;
       content: string;
       encoding: string;
     };
   declare type GitdataGetCommitParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  declare type GitdataCreateCommitParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  declare type GitdataCreateCommitParams =
+    & {
+      owner: string;
+      repo: string;
       message: string;
       tree: string;
       parents: string[];
-      author?: string;
-      committer?: string;
+      author?: json;
+      committer?: json;
     };
   declare type GitdataGetCommitSignatureVerificationParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  declare type GitdataGetReferenceParams =
-    & Owner
-    & Repo
-    & Ref
-    ;
-  declare type GitdataGetReferencesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type GitdataGetTagsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type GitdataCreateReferenceParams =
-    & Owner
-    & Repo
-    & Sha
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  declare type GitdataGetReferenceParams =
+    & {
+      owner: string;
+      repo: string;
       ref: string;
     };
-  declare type GitdataUpdateReferenceParams =
-    & Owner
-    & Repo
-    & Ref
-    & Sha
+  declare type GitdataGetReferencesParams =
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type GitdataGetTagsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type GitdataCreateReferenceParams =
+    & {
+      owner: string;
+      repo: string;
+      ref: string;
+      sha: string;
+    };
+  declare type GitdataUpdateReferenceParams =
+    & {
+      owner: string;
+      repo: string;
+      ref: string;
+      sha: string;
       force?: boolean;
     };
   declare type GitdataDeleteReferenceParams =
-    & Owner
-    & Repo
-    & Ref
-    ;
-  declare type GitdataGetTagParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  declare type GitdataCreateTagParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      ref: string;
+    };
+  declare type GitdataGetTagParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  declare type GitdataCreateTagParams =
+    & {
+      owner: string;
+      repo: string;
       tag: string;
       message: string;
       object: string;
       type: string;
-      tagger: string;
+      tagger: json;
     };
   declare type GitdataGetTagSignatureVerificationParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  declare type GitdataGetTreeParams =
-    & Owner
-    & Repo
-    & Sha
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  declare type GitdataGetTreeParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
       recursive?: boolean;
     };
   declare type GitdataCreateTreeParams =
-    & Owner
-    & Repo
     & {
-      tree: string;
+      owner: string;
+      repo: string;
+      tree: json;
       base_tree?: string;
     };
   declare type IntegrationsGetInstallationsParams =
-    & Page
-    & PerPage
-    ;
-  declare type IntegrationsCreateInstallationTokenParams =
-    & InstallationId
     & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type IntegrationsCreateInstallationTokenParams =
+    & {
+      installation_id: string;
       user_id?: string;
     };
   declare type IntegrationsGetInstallationRepositoriesParams =
@@ -567,27 +562,31 @@ declare module "github" {
       user_id?: string;
     };
   declare type IntegrationsAddRepoToInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   declare type IntegrationsRemoveRepoFromInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   declare type AppsGetForSlugParams =
     & {
       app_slug: string;
     };
   declare type AppsGetInstallationsParams =
-    & Page
-    & PerPage
-    ;
-  declare type AppsGetInstallationParams =
-    & InstallationId
-    ;
-  declare type AppsCreateInstallationTokenParams =
-    & InstallationId
     & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type AppsGetInstallationParams =
+    & {
+      installation_id: string;
+    };
+  declare type AppsCreateInstallationTokenParams =
+    & {
+      installation_id: string;
       user_id?: string;
     };
   declare type AppsGetInstallationRepositoriesParams =
@@ -595,118 +594,125 @@ declare module "github" {
       user_id?: string;
     };
   declare type AppsAddRepoToInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
-  declare type AppsRemoveRepoFromInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
-  declare type AppsGetMarketplaceListingPlansParams =
-    & Page
-    & PerPage
-    ;
-  declare type AppsGetMarketplaceListingStubbedPlansParams =
-    & Page
-    & PerPage
-    ;
-  declare type AppsGetMarketplaceListingPlanAccountsParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type AppsGetMarketplaceListingStubbedPlanAccountsParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type AppsCheckMarketplaceListingAccountParams =
-    & Id
-    ;
-  declare type AppsCheckMarketplaceListingStubbedAccountParams =
-    & Id
-    ;
-  declare type IssuesGetParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesCreateParams =
-    & Owner
-    & Repo
-    & Assignees
     & {
+      installation_id: string;
+      repository_id: string;
+    };
+  declare type AppsRemoveRepoFromInstallationParams =
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
+  declare type AppsGetMarketplaceListingPlansParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type AppsGetMarketplaceListingStubbedPlansParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type AppsGetMarketplaceListingPlanAccountsParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type AppsGetMarketplaceListingStubbedPlanAccountsParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type AppsCheckMarketplaceListingAccountParams =
+    & {
+      id: string;
+    };
+  declare type AppsCheckMarketplaceListingStubbedAccountParams =
+    & {
+      id: string;
+    };
+  declare type IssuesGetParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type IssuesCreateParams =
+    & {
+      owner: string;
+      repo: string;
       title: string;
       body?: string;
       assignee?: string;
       milestone?: number;
       labels?: string[];
+      assignees?: string[];
     };
   declare type IssuesEditParams =
-    & Owner
-    & Repo
-    & Number
-    & Assignees
     & {
+      owner: string;
+      repo: string;
+      number: number;
       title?: string;
       body?: string;
       assignee?: string;
       state?: "open"|"closed";
       milestone?: number;
       labels?: string[];
+      assignees?: string[];
     };
   declare type IssuesLockParams =
-    & Owner
-    & Repo
-    & Number
-    ;
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
   declare type IssuesUnlockParams =
-    & Owner
-    & Repo
-    & Number
-    ;
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
   declare type IssuesGetAllParams =
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
       filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
       state?: "open"|"closed"|"all";
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type IssuesGetForUserParams =
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
       filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
       state?: "open"|"closed"|"all";
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type IssuesGetForOrgParams =
-    & Org
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      org: string;
       filter?: "all"|"assigned"|"created"|"mentioned"|"subscribed";
       state?: "open"|"closed"|"all";
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type IssuesGetForRepoParams =
-    & Owner
-    & Repo
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       milestone?: string;
       state?: "open"|"closed"|"all";
       assignee?: string;
@@ -714,235 +720,262 @@ declare module "github" {
       mentioned?: string;
       labels?: string;
       sort?: "created"|"updated"|"comments";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type IssuesGetAssigneesParams =
-    & Owner
-    & Repo
-    ;
-  declare type IssuesCheckAssigneeParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+    };
+  declare type IssuesCheckAssigneeParams =
+    & {
+      owner: string;
+      repo: string;
       assignee: string;
     };
   declare type IssuesAddAssigneesToIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       assignees: string[];
     };
   declare type IssuesRemoveAssigneesFromIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
-      body: string;
+      owner: string;
+      repo: string;
+      number: number;
+      body: json;
     };
   declare type IssuesGetCommentsParams =
-    & Owner
-    & Repo
-    & Number
-    & Since
-    & Page
-    & PerPage
-    ;
-  declare type IssuesGetCommentsForRepoParams =
-    & Owner
-    & Repo
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      since?: date;
+      page?: number;
+      per_page?: number;
+    };
+  declare type IssuesGetCommentsForRepoParams =
+    & {
+      owner: string;
+      repo: string;
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type IssuesGetCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type IssuesCreateCommentParams =
-    & Owner
-    & Repo
-    & Number
-    & Body
-    ;
-  declare type IssuesEditCommentParams =
-    & Owner
-    & Repo
-    & Id
-    & Body
-    ;
-  declare type IssuesDeleteCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type IssuesGetEventsParams =
-    & Owner
-    & Repo
-    & IssueNumber
-    & Page
-    & PerPage
-    ;
-  declare type IssuesGetEventsForRepoParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type IssuesGetEventParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type IssuesGetLabelsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type IssuesGetLabelParams =
-    & Owner
-    & Repo
-    & Name
-    ;
-  declare type IssuesCreateLabelParams =
-    & Owner
-    & Repo
-    & Name
-    & Color
-    ;
-  declare type IssuesUpdateLabelParams =
-    & Owner
-    & Repo
-    & Color
     & {
-      oldname: string;
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type IssuesCreateCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      body: string;
+    };
+  declare type IssuesEditCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+      body: string;
+    };
+  declare type IssuesDeleteCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type IssuesGetEventsParams =
+    & {
+      owner: string;
+      repo: string;
+      issue_number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type IssuesGetEventsForRepoParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type IssuesGetEventParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type IssuesGetLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type IssuesGetLabelParams =
+    & {
+      owner: string;
+      repo: string;
       name: string;
     };
-  declare type IssuesDeleteLabelParams =
-    & Owner
-    & Repo
-    & Name
-    ;
-  declare type IssuesGetIssueLabelsParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesAddLabelsParams =
-    & Owner
-    & Repo
-    & Number
+  declare type IssuesCreateLabelParams =
     & {
+      owner: string;
+      repo: string;
+      name: string;
+      color: string;
+    };
+  declare type IssuesUpdateLabelParams =
+    & {
+      owner: string;
+      repo: string;
+      oldname: string;
+      name: string;
+      color: string;
+    };
+  declare type IssuesDeleteLabelParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
+    };
+  declare type IssuesGetIssueLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type IssuesAddLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
       labels: string[];
     };
   declare type IssuesRemoveLabelParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       name: string;
     };
   declare type IssuesReplaceAllLabelsParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       labels: string[];
     };
   declare type IssuesRemoveAllLabelsParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesGetMilestoneLabelsParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesGetMilestonesParams =
-    & Owner
-    & Repo
-    & State
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type IssuesGetMilestoneLabelsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type IssuesGetMilestonesParams =
+    & {
+      owner: string;
+      repo: string;
+      state?: "open"|"closed"|"all";
       sort?: "due_on"|"completeness";
       direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type IssuesGetMilestoneParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesCreateMilestoneParams =
-    & Owner
-    & Repo
-    & State
-    & Description
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type IssuesCreateMilestoneParams =
+    & {
+      owner: string;
+      repo: string;
       title: string;
-      due_on?: Date;
+      state?: "open"|"closed"|"all";
+      description?: string;
+      due_on?: date;
     };
   declare type IssuesUpdateMilestoneParams =
-    & Owner
-    & Repo
-    & Number
-    & State
-    & Description
     & {
+      owner: string;
+      repo: string;
+      number: number;
       title: string;
-      due_on?: Date;
+      state?: "open"|"closed"|"all";
+      description?: string;
+      due_on?: date;
     };
   declare type IssuesDeleteMilestoneParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type IssuesGetEventsTimelineParams =
-    & Owner
-    & Repo
-    & IssueNumber
-    & Page
-    & PerPage
-    ;
-  declare type MigrationsStartMigrationParams =
-    & Org
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type IssuesGetEventsTimelineParams =
+    & {
+      owner: string;
+      repo: string;
+      issue_number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type MigrationsStartMigrationParams =
+    & {
+      org: string;
       repositories: string[];
       lock_repositories?: boolean;
       exclude_attachments?: boolean;
     };
   declare type MigrationsGetMigrationsParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  declare type MigrationsGetMigrationStatusParams =
-    & Org
-    & Id
-    ;
-  declare type MigrationsGetMigrationArchiveLinkParams =
-    & Org
-    & Id
-    ;
-  declare type MigrationsDeleteMigrationArchiveParams =
-    & Org
-    & Id
-    ;
-  declare type MigrationsUnlockRepoLockedForMigrationParams =
-    & Org
-    & Id
     & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type MigrationsGetMigrationStatusParams =
+    & {
+      org: string;
+      id: string;
+    };
+  declare type MigrationsGetMigrationArchiveLinkParams =
+    & {
+      org: string;
+      id: string;
+    };
+  declare type MigrationsDeleteMigrationArchiveParams =
+    & {
+      org: string;
+      id: string;
+    };
+  declare type MigrationsUnlockRepoLockedForMigrationParams =
+    & {
+      org: string;
+      id: string;
       repo_name: string;
     };
   declare type MigrationsStartImportParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       vcs_url: string;
       vcs?: "subversion"|"git"|"mercurial"|"tfvc";
       vcs_username?: string;
@@ -950,49 +983,54 @@ declare module "github" {
       tfvc_project?: string;
     };
   declare type MigrationsGetImportProgressParams =
-    & Owner
-    & Repo
-    ;
-  declare type MigrationsUpdateImportParams =
-    & Owner
-    & Repo
-    ;
-  declare type MigrationsGetImportCommitAuthorsParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+    };
+  declare type MigrationsUpdateImportParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type MigrationsGetImportCommitAuthorsParams =
+    & {
+      owner: string;
+      repo: string;
       since?: string;
     };
   declare type MigrationsMapImportCommitAuthorParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       author_id: string;
       email?: string;
       name?: string;
     };
   declare type MigrationsSetImportLfsPreferenceParams =
-    & Owner
-    & Name
     & {
+      owner: string;
+      name: string;
       use_lfs: string;
     };
   declare type MigrationsGetLargeImportFilesParams =
-    & Owner
-    & Name
-    ;
+    & {
+      owner: string;
+      name: string;
+    };
   declare type MigrationsCancelImportParams =
-    & Owner
-    & Repo
-    ;
+    & {
+      owner: string;
+      repo: string;
+    };
   declare type MiscGetCodeOfConductParams =
     & {
       key: string;
     };
   declare type MiscGetRepoCodeOfConductParams =
-    & Owner
-    & Repo
-    ;
+    & {
+      owner: string;
+      repo: string;
+    };
   declare type MiscGetGitignoreTemplateParams =
     & {
       name: string;
@@ -1002,9 +1040,10 @@ declare module "github" {
       license: string;
     };
   declare type MiscGetRepoLicenseParams =
-    & Owner
-    & Repo
-    ;
+    & {
+      owner: string;
+      repo: string;
+    };
   declare type MiscRenderMarkdownParams =
     & {
       text: string;
@@ -1012,16 +1051,18 @@ declare module "github" {
       context?: string;
     };
   declare type MiscRenderMarkdownRawParams =
-    & Data
-    ;
-  declare type OrgsGetParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  declare type OrgsUpdateParams =
-    & Org
     & {
+      data: string;
+    };
+  declare type OrgsGetParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsUpdateParams =
+    & {
+      org: string;
       billing_email?: string;
       company?: string;
       email?: string;
@@ -1032,315 +1073,358 @@ declare module "github" {
       members_can_create_repositories?: boolean;
     };
   declare type OrgsGetAllParams =
-    & Page
-    & PerPage
     & {
       since?: string;
+      page?: number;
+      per_page?: number;
     };
   declare type OrgsGetForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  declare type OrgsGetMembersParams =
-    & Org
-    & Page
-    & PerPage
     & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsGetMembersParams =
+    & {
+      org: string;
       filter?: "all"|"2fa_disabled";
       role?: "all"|"admin"|"member";
+      page?: number;
+      per_page?: number;
     };
   declare type OrgsCheckMembershipParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsRemoveMemberParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsGetPublicMembersParams =
-    & Org
-    ;
-  declare type OrgsCheckPublicMembershipParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsPublicizeMembershipParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsConcealMembershipParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsGetOrgMembershipParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsAddOrgMembershipParams =
-    & Org
-    & Username
     & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsRemoveMemberParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsGetPublicMembersParams =
+    & {
+      org: string;
+    };
+  declare type OrgsCheckPublicMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsPublicizeMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsConcealMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsGetOrgMembershipParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsAddOrgMembershipParams =
+    & {
+      org: string;
+      username: string;
       role: "admin"|"member";
     };
   declare type OrgsRemoveOrgMembershipParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsGetPendingOrgInvitesParams =
-    & Org
-    ;
-  declare type OrgsGetOutsideCollaboratorsParams =
-    & Org
-    & Page
-    & PerPage
     & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsGetPendingOrgInvitesParams =
+    & {
+      org: string;
+    };
+  declare type OrgsGetOutsideCollaboratorsParams =
+    & {
+      org: string;
       filter?: "all"|"2fa_disabled";
+      page?: number;
+      per_page?: number;
     };
   declare type OrgsRemoveOutsideCollaboratorParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsConvertMemberToOutsideCollaboratorParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsGetTeamsParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  declare type OrgsGetTeamParams =
-    & Id
-    ;
-  declare type OrgsCreateTeamParams =
-    & Org
-    & Name
-    & Privacy
     & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsConvertMemberToOutsideCollaboratorParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsGetTeamsParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsGetTeamParams =
+    & {
+      id: string;
+    };
+  declare type OrgsCreateTeamParams =
+    & {
+      org: string;
+      name: string;
       description?: string;
       maintainers?: string[];
       repo_names?: string[];
+      privacy?: "secret"|"closed";
       parent_team_id?: string;
     };
   declare type OrgsEditTeamParams =
-    & Id
-    & Name
-    & Privacy
     & {
+      id: string;
+      name: string;
       description?: string;
+      privacy?: "secret"|"closed";
       parent_team_id?: string;
     };
   declare type OrgsDeleteTeamParams =
-    & Id
-    ;
-  declare type OrgsGetTeamMembersParams =
-    & Id
-    & Page
-    & PerPage
     & {
+      id: string;
+    };
+  declare type OrgsGetTeamMembersParams =
+    & {
+      id: string;
       role?: "member"|"maintainer"|"all";
+      page?: number;
+      per_page?: number;
     };
   declare type OrgsGetChildTeamsParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type OrgsGetTeamMembershipParams =
-    & Id
-    & Username
-    ;
-  declare type OrgsAddTeamMembershipParams =
-    & Id
-    & Username
     & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsGetTeamMembershipParams =
+    & {
+      id: string;
+      username: string;
+    };
+  declare type OrgsAddTeamMembershipParams =
+    & {
+      id: string;
+      username: string;
       role?: "member"|"maintainer";
     };
   declare type OrgsRemoveTeamMembershipParams =
-    & Id
-    & Username
-    ;
-  declare type OrgsGetTeamReposParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type OrgsGetPendingTeamInvitesParams =
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type OrgsCheckTeamRepoParams =
-    & Id
-    & Owner
-    & Repo
-    ;
-  declare type OrgsAddTeamRepoParams =
-    & Id
-    & Org
-    & Repo
     & {
+      id: string;
+      username: string;
+    };
+  declare type OrgsGetTeamReposParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsGetPendingTeamInvitesParams =
+    & {
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsCheckTeamRepoParams =
+    & {
+      id: string;
+      owner: string;
+      repo: string;
+    };
+  declare type OrgsAddTeamRepoParams =
+    & {
+      id: string;
+      org: string;
+      repo: string;
       permission?: "pull"|"push"|"admin";
     };
   declare type OrgsDeleteTeamRepoParams =
-    & Id
-    & Owner
-    & Repo
-    ;
-  declare type OrgsGetHooksParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  declare type OrgsGetHookParams =
-    & Org
-    & Id
-    ;
-  declare type OrgsCreateHookParams =
-    & Org
     & {
+      id: string;
+      owner: string;
+      repo: string;
+    };
+  declare type OrgsGetHooksParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsGetHookParams =
+    & {
+      org: string;
+      id: string;
+    };
+  declare type OrgsCreateHookParams =
+    & {
+      org: string;
       name: string;
-      config: string;
+      config: json;
       events?: string[];
       active?: boolean;
     };
   declare type OrgsEditHookParams =
-    & Org
-    & Id
     & {
-      config: string;
+      org: string;
+      id: string;
+      config: json;
       events?: string[];
       active?: boolean;
     };
   declare type OrgsPingHookParams =
-    & Org
-    & Id
-    ;
-  declare type OrgsDeleteHookParams =
-    & Org
-    & Id
-    ;
-  declare type OrgsGetBlockedUsersParams =
-    & Org
-    & Page
-    & PerPage
-    ;
-  declare type OrgsCheckBlockedUserParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsBlockUserParams =
-    & Org
-    & Username
-    ;
-  declare type OrgsUnblockUserParams =
-    & Org
-    & Username
-    ;
-  declare type ProjectsGetRepoProjectsParams =
-    & Owner
-    & Repo
-    & State
-    ;
-  declare type ProjectsGetOrgProjectsParams =
-    & Org
-    & State
-    ;
-  declare type ProjectsGetProjectParams =
-    & Id
-    ;
-  declare type ProjectsCreateRepoProjectParams =
-    & Owner
-    & Repo
-    & Name
     & {
+      org: string;
+      id: string;
+    };
+  declare type OrgsDeleteHookParams =
+    & {
+      org: string;
+      id: string;
+    };
+  declare type OrgsGetBlockedUsersParams =
+    & {
+      org: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type OrgsCheckBlockedUserParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsBlockUserParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type OrgsUnblockUserParams =
+    & {
+      org: string;
+      username: string;
+    };
+  declare type ProjectsGetRepoProjectsParams =
+    & {
+      owner: string;
+      repo: string;
+      state?: "open"|"closed"|"all";
+    };
+  declare type ProjectsGetOrgProjectsParams =
+    & {
+      org: string;
+      state?: "open"|"closed"|"all";
+    };
+  declare type ProjectsGetProjectParams =
+    & {
+      id: string;
+    };
+  declare type ProjectsCreateRepoProjectParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
       body?: string;
     };
   declare type ProjectsCreateOrgProjectParams =
-    & Org
-    & Name
     & {
+      org: string;
+      name: string;
       body?: string;
     };
   declare type ProjectsUpdateProjectParams =
-    & Id
-    & Name
-    & State
     & {
+      id: string;
+      name: string;
       body?: string;
+      state?: "open"|"closed"|"all";
     };
   declare type ProjectsDeleteProjectParams =
-    & Id
-    ;
-  declare type ProjectsGetProjectCardsParams =
-    & ColumnId
-    ;
-  declare type ProjectsGetProjectCardParams =
-    & Id
-    ;
-  declare type ProjectsCreateProjectCardParams =
-    & ColumnId
     & {
+      id: string;
+    };
+  declare type ProjectsGetProjectCardsParams =
+    & {
+      column_id: string;
+    };
+  declare type ProjectsGetProjectCardParams =
+    & {
+      id: string;
+    };
+  declare type ProjectsCreateProjectCardParams =
+    & {
+      column_id: string;
       note?: string;
       content_id?: string;
       content_type?: string;
     };
   declare type ProjectsUpdateProjectCardParams =
-    & Id
     & {
+      id: string;
       note?: string;
     };
   declare type ProjectsDeleteProjectCardParams =
-    & Id
-    ;
-  declare type ProjectsMoveProjectCardParams =
-    & Id
     & {
+      id: string;
+    };
+  declare type ProjectsMoveProjectCardParams =
+    & {
+      id: string;
       position: string;
       column_id?: string;
     };
   declare type ProjectsGetProjectColumnsParams =
-    & ProjectId
-    ;
-  declare type ProjectsGetProjectColumnParams =
-    & Id
-    ;
-  declare type ProjectsCreateProjectColumnParams =
-    & ProjectId
-    & Name
-    ;
-  declare type ProjectsUpdateProjectColumnParams =
-    & Id
-    & Name
-    ;
-  declare type ProjectsDeleteProjectColumnParams =
-    & Id
-    ;
-  declare type ProjectsMoveProjectColumnParams =
-    & Id
     & {
+      project_id: string;
+    };
+  declare type ProjectsGetProjectColumnParams =
+    & {
+      id: string;
+    };
+  declare type ProjectsCreateProjectColumnParams =
+    & {
+      project_id: string;
+      name: string;
+    };
+  declare type ProjectsUpdateProjectColumnParams =
+    & {
+      id: string;
+      name: string;
+    };
+  declare type ProjectsDeleteProjectColumnParams =
+    & {
+      id: string;
+    };
+  declare type ProjectsMoveProjectColumnParams =
+    & {
+      id: string;
       position: string;
     };
   declare type PullRequestsGetParams =
-    & Owner
-    & Repo
-    & Number
-    ;
-  declare type PullRequestsCreateParams =
-    & Owner
-    & Repo
-    & Head
-    & Base
     & {
+      owner: string;
+      repo: string;
+      number: number;
+    };
+  declare type PullRequestsCreateParams =
+    & {
+      owner: string;
+      repo: string;
       title: string;
+      head: string;
+      base: string;
       body?: string;
       maintainer_can_modify?: boolean;
     };
   declare type PullRequestsUpdateParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       title?: string;
       body?: string;
       state?: "open"|"closed";
@@ -1348,790 +1432,840 @@ declare module "github" {
       maintainer_can_modify?: boolean;
     };
   declare type PullRequestsMergeParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       commit_title?: string;
       commit_message?: string;
       sha?: string;
       merge_method?: "merge"|"squash"|"rebase";
     };
   declare type PullRequestsGetAllParams =
-    & Owner
-    & Repo
-    & State
-    & Direction
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      state?: "open"|"closed"|"all";
       head?: string;
       base?: string;
       sort?: "created"|"updated"|"popularity"|"long-running";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type PullRequestsCreateFromIssueParams =
-    & Owner
-    & Repo
-    & Head
-    & Base
     & {
+      owner: string;
+      repo: string;
       issue: number;
+      head: string;
+      base: string;
     };
   declare type PullRequestsGetCommitsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsGetFilesParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsCheckMergedParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsGetReviewsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsGetReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    ;
-  declare type PullRequestsDeletePendingReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    ;
-  declare type PullRequestsGetReviewCommentsParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsCreateReviewParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsGetFilesParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsCheckMergedParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsGetReviewsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsGetReviewParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
+    };
+  declare type PullRequestsDeletePendingReviewParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
+    };
+  declare type PullRequestsGetReviewCommentsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsCreateReviewParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
       commit_id?: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
       comments?: string[];
     };
   declare type PullRequestsSubmitReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
       body?: string;
       event?: "APPROVE"|"REQUEST_CHANGES"|"COMMENT"|"PENDING";
     };
   declare type PullRequestsDismissReviewParams =
-    & Owner
-    & Repo
-    & Number
-    & Id
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      id: string;
       message?: string;
+      page?: number;
+      per_page?: number;
     };
   declare type PullRequestsGetCommentsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsGetCommentsForRepoParams =
-    & Owner
-    & Repo
-    & Direction
-    & Since
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsGetCommentsForRepoParams =
+    & {
+      owner: string;
+      repo: string;
       sort?: "created"|"updated";
+      direction?: "asc"|"desc";
+      since?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type PullRequestsGetCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type PullRequestsCreateCommentParams =
-    & Owner
-    & Repo
-    & Number
-    & Body
-    & CommitId
-    & Path
-    & Position
-    ;
-  declare type PullRequestsCreateCommentReplyParams =
-    & Owner
-    & Repo
-    & Number
-    & Body
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type PullRequestsCreateCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      body: string;
+      commit_id: string;
+      path: string;
+      position: number;
+    };
+  declare type PullRequestsCreateCommentReplyParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      body: string;
       in_reply_to: number;
     };
   declare type PullRequestsEditCommentParams =
-    & Owner
-    & Repo
-    & Id
-    & Body
-    ;
-  declare type PullRequestsDeleteCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type PullRequestsGetReviewRequestsParams =
-    & Owner
-    & Repo
-    & Number
-    & Page
-    & PerPage
-    ;
-  declare type PullRequestsCreateReviewRequestParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      id: string;
+      body: string;
+    };
+  declare type PullRequestsDeleteCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type PullRequestsGetReviewRequestsParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
+      page?: number;
+      per_page?: number;
+    };
+  declare type PullRequestsCreateReviewRequestParams =
+    & {
+      owner: string;
+      repo: string;
+      number: number;
       reviewers?: string[];
       team_reviewers?: string[];
     };
   declare type PullRequestsDeleteReviewRequestParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       reviewers?: string[];
       team_reviewers?: string[];
     };
   declare type ReactionsDeleteParams =
-    & Id
-    ;
-  declare type ReactionsGetForCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      id: string;
+    };
+  declare type ReactionsGetForCommitCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForIssueParams =
-    & Owner
-    & Repo
-    & Number
     & {
+      owner: string;
+      repo: string;
+      number: number;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForIssueCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForIssueCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsGetForPullRequestReviewCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content?: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReactionsCreateForPullRequestReviewCommentParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       content: "+1"|"-1"|"laugh"|"confused"|"heart"|"hooray";
     };
   declare type ReposCreateParams =
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & AutoInit
-    & GitignoreTemplate
-    & LicenseTemplate
     & {
+      name: string;
+      description?: string;
+      homepage?: string;
+      private?: boolean;
+      has_issues?: boolean;
+      has_projects?: boolean;
+      has_wiki?: boolean;
       team_id?: number;
+      auto_init?: boolean;
+      gitignore_template?: string;
+      license_template?: string;
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
   declare type ReposGetParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposEditParams =
-    & Owner
-    & Repo
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & DefaultBranch
     & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposEditParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
+      description?: string;
+      homepage?: string;
+      private?: boolean;
+      has_issues?: boolean;
+      has_projects?: boolean;
+      has_wiki?: boolean;
+      default_branch?: string;
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
   declare type ReposDeleteParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposForkParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposForkParams =
+    & {
+      owner: string;
+      repo: string;
       organization?: string;
     };
   declare type ReposMergeParams =
-    & Owner
-    & Repo
-    & Base
-    & Head
     & {
+      owner: string;
+      repo: string;
+      base: string;
+      head: string;
       commit_message?: string;
     };
   declare type ReposGetAllParams =
-    & Direction
-    & Page
-    & PerPage
     & {
       visibility?: "all"|"public"|"private";
       affiliation?: string;
       type?: "all"|"owner"|"public"|"private"|"member";
       sort?: "created"|"updated"|"pushed"|"full_name";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetForUserParams =
-    & Username
-    & Direction
-    & Page
-    & PerPage
     & {
+      username: string;
       type?: "all"|"owner"|"member";
       sort?: "created"|"updated"|"pushed"|"full_name";
+      direction?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetForOrgParams =
-    & Org
-    & Page
-    & PerPage
     & {
+      org: string;
       type?: "all"|"public"|"private"|"forks"|"sources"|"member";
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetPublicParams =
-    & Page
-    & PerPage
     & {
       since?: string;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposCreateForOrgParams =
-    & Org
-    & Name
-    & Description
-    & Homepage
-    & Private
-    & HasIssues
-    & HasProjects
-    & HasWiki
-    & AutoInit
-    & GitignoreTemplate
-    & LicenseTemplate
     & {
+      org: string;
+      name: string;
+      description?: string;
+      homepage?: string;
+      private?: boolean;
+      has_issues?: boolean;
+      has_projects?: boolean;
+      has_wiki?: boolean;
       team_id?: number;
+      auto_init?: boolean;
+      gitignore_template?: string;
+      license_template?: string;
       allow_squash_merge?: boolean;
       allow_merge_commit?: boolean;
       allow_rebase_merge?: boolean;
     };
   declare type ReposGetByIdParams =
-    & Id
-    ;
-  declare type ReposGetTopicsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposReplaceTopicsParams =
-    & Owner
-    & Repo
     & {
+      id: string;
+    };
+  declare type ReposGetTopicsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposReplaceTopicsParams =
+    & {
+      owner: string;
+      repo: string;
       names: string[];
     };
   declare type ReposGetContributorsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       anon?: boolean;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetLanguagesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetTeamsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetTagsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetBranchesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetTeamsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetTagsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetBranchesParams =
+    & {
+      owner: string;
+      repo: string;
       protected?: boolean;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetBranchParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetBranchProtectionParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposUpdateBranchProtectionParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
     & {
-      required_status_checks: string;
-      required_pull_request_reviews: string;
-      dismissal_restrictions?: string;
-      restrictions: string;
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetBranchProtectionParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposUpdateBranchProtectionParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      required_status_checks: json;
+      required_pull_request_reviews: json;
+      dismissal_restrictions?: json;
+      restrictions: json;
       enforce_admins: boolean;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposRemoveBranchProtectionParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetProtectedBranchRequiredStatusChecksParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposUpdateProtectedBranchRequiredStatusChecksParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetProtectedBranchRequiredStatusChecksParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposUpdateProtectedBranchRequiredStatusChecksParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       strict?: boolean;
       contexts?: string[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksParams =
-    & Owner
-    & Repo
-    & Branch
-    ;
-  declare type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+    };
+  declare type ReposGetProtectedBranchRequiredStatusChecksContextsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposReplaceProtectedBranchRequiredStatusChecksContextsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       contexts: string[];
     };
   declare type ReposAddProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       contexts: string[];
     };
   declare type ReposRemoveProtectedBranchRequiredStatusChecksContextsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       contexts: string[];
     };
   declare type ReposGetProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
     & {
-      dismissal_restrictions?: string;
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposUpdateProtectedBranchPullRequestReviewEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      dismissal_restrictions?: json;
       dismiss_stale_reviews?: boolean;
       require_code_owner_reviews?: boolean;
     };
   declare type ReposRemoveProtectedBranchPullRequestReviewEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    ;
-  declare type ReposGetProtectedBranchAdminEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposAddProtectedBranchAdminEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposRemoveProtectedBranchAdminEnforcementParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetProtectedBranchRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposRemoveProtectedBranchRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    ;
-  declare type ReposGetProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposReplaceProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+    };
+  declare type ReposGetProtectedBranchAdminEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposAddProtectedBranchAdminEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposRemoveProtectedBranchAdminEnforcementParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetProtectedBranchRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposRemoveProtectedBranchRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+    };
+  declare type ReposGetProtectedBranchTeamRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposReplaceProtectedBranchTeamRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       teams: string[];
     };
   declare type ReposAddProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       teams: string[];
     };
   declare type ReposRemoveProtectedBranchTeamRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       teams: string[];
     };
   declare type ReposGetProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
-    & Page
-    & PerPage
-    ;
-  declare type ReposReplaceProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposReplaceProtectedBranchUserRestrictionsParams =
+    & {
+      owner: string;
+      repo: string;
+      branch: string;
       users: string[];
     };
   declare type ReposAddProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       users: string[];
     };
   declare type ReposRemoveProtectedBranchUserRestrictionsParams =
-    & Owner
-    & Repo
-    & Branch
     & {
+      owner: string;
+      repo: string;
+      branch: string;
       users: string[];
     };
   declare type ReposGetCollaboratorsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       affiliation?: "outside"|"all"|"direct";
+      page?: number;
+      per_page?: number;
     };
   declare type ReposCheckCollaboratorParams =
-    & Owner
-    & Repo
-    & Username
-    ;
-  declare type ReposReviewUserPermissionLevelParams =
-    & Owner
-    & Repo
-    & Username
-    ;
-  declare type ReposAddCollaboratorParams =
-    & Owner
-    & Repo
-    & Username
     & {
+      owner: string;
+      repo: string;
+      username: string;
+    };
+  declare type ReposReviewUserPermissionLevelParams =
+    & {
+      owner: string;
+      repo: string;
+      username: string;
+    };
+  declare type ReposAddCollaboratorParams =
+    & {
+      owner: string;
+      repo: string;
+      username: string;
       permission?: "pull"|"push"|"admin";
     };
   declare type ReposRemoveCollaboratorParams =
-    & Owner
-    & Repo
-    & Username
-    ;
-  declare type ReposGetAllCommitCommentsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetCommitCommentsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      username: string;
+    };
+  declare type ReposGetAllCommitCommentsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetCommitCommentsParams =
+    & {
+      owner: string;
+      repo: string;
       ref: string;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposCreateCommitCommentParams =
-    & Owner
-    & Repo
-    & Sha
-    & Body
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+      body: string;
       path?: string;
       position?: number;
     };
   declare type ReposGetCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposUpdateCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
-    & Body
-    ;
-  declare type ReposDeleteCommitCommentParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetCommunityProfileMetricsParams =
-    & Owner
-    & Name
-    ;
-  declare type ReposGetCommitsParams =
-    & Owner
-    & Repo
-    & Since
-    & Until
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposUpdateCommitCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+      body: string;
+    };
+  declare type ReposDeleteCommitCommentParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetCommunityProfileMetricsParams =
+    & {
+      owner: string;
+      name: string;
+    };
+  declare type ReposGetCommitsParams =
+    & {
+      owner: string;
+      repo: string;
       sha?: string;
       path?: string;
       author?: string;
+      since?: date;
+      until?: date;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetCommitParams =
-    & Owner
-    & Repo
-    & Sha
-    ;
-  declare type ReposGetShaOfCommitRefParams =
-    & Owner
-    & Repo
-    & Ref
-    ;
-  declare type ReposCompareCommitsParams =
-    & Owner
-    & Repo
-    & Base
-    & Head
-    ;
-  declare type ReposGetReadmeParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      sha: string;
+    };
+  declare type ReposGetShaOfCommitRefParams =
+    & {
+      owner: string;
+      repo: string;
+      ref: string;
+    };
+  declare type ReposCompareCommitsParams =
+    & {
+      owner: string;
+      repo: string;
+      base: string;
+      head: string;
+    };
+  declare type ReposGetReadmeParams =
+    & {
+      owner: string;
+      repo: string;
       ref?: string;
     };
   declare type ReposGetContentParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       ref?: string;
     };
   declare type ReposCreateFileParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       message: string;
       content: string;
       branch?: string;
-      committer?: string;
-      author?: string;
+      committer?: json;
+      author?: json;
     };
   declare type ReposUpdateFileParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       message: string;
       content: string;
       sha: string;
       branch?: string;
-      committer?: string;
-      author?: string;
+      committer?: json;
+      author?: json;
     };
   declare type ReposDeleteFileParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       path: string;
       message: string;
       sha: string;
       branch?: string;
-      committer?: string;
-      author?: string;
+      committer?: json;
+      author?: json;
     };
   declare type ReposGetArchiveLinkParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       archive_format: "tarball"|"zipball";
       ref?: string;
     };
   declare type ReposGetDeployKeysParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetDeployKeyParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposAddDeployKeyParams =
-    & Owner
-    & Repo
-    & Title
-    & Key
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetDeployKeyParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposAddDeployKeyParams =
+    & {
+      owner: string;
+      repo: string;
+      title: string;
+      key: string;
       read_only?: boolean;
     };
   declare type ReposDeleteDeployKeyParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetDeploymentsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetDeploymentsParams =
+    & {
+      owner: string;
+      repo: string;
       sha?: string;
       ref?: string;
       task?: string;
       environment?: string;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetDeploymentParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       deployment_id: string;
     };
   declare type ReposCreateDeploymentParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       ref: string;
       task?: string;
       auto_merge?: boolean;
@@ -2143,22 +2277,23 @@ declare module "github" {
       production_environment?: boolean;
     };
   declare type ReposGetDeploymentStatusesParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetDeploymentStatusParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetDeploymentStatusParams =
+    & {
+      owner: string;
+      repo: string;
       id: string;
       status_id: string;
     };
   declare type ReposCreateDeploymentStatusParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       state?: string;
       target_url?: string;
       log_url?: string;
@@ -2167,95 +2302,108 @@ declare module "github" {
       auto_inactive?: boolean;
     };
   declare type ReposGetDownloadsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetDownloadParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposDeleteDownloadParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetForksParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetDownloadParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposDeleteDownloadParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetForksParams =
+    & {
+      owner: string;
+      repo: string;
       sort?: "newest"|"oldest"|"stargazers";
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetInvitesParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposDeleteInviteParams =
-    & Owner
-    & Repo
-    & InvitationId
-    ;
-  declare type ReposUpdateInviteParams =
-    & Owner
-    & Repo
-    & InvitationId
     & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposDeleteInviteParams =
+    & {
+      owner: string;
+      repo: string;
+      invitation_id: string;
+    };
+  declare type ReposUpdateInviteParams =
+    & {
+      owner: string;
+      repo: string;
+      invitation_id: string;
       permissions?: "read"|"write"|"admin";
     };
   declare type ReposGetPagesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposRequestPageBuildParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetPagesBuildsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetLatestPagesBuildParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetPagesBuildParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetReleasesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetReleaseParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetLatestReleaseParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetReleaseByTagParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposRequestPageBuildParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetPagesBuildsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetLatestPagesBuildParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetPagesBuildParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetReleasesParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetReleaseParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetLatestReleaseParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetReleaseByTagParams =
+    & {
+      owner: string;
+      repo: string;
       tag: string;
     };
   declare type ReposCreateReleaseParams =
-    & Owner
-    & Repo
     & {
+      owner: string;
+      repo: string;
       tag_name: string;
       target_commitish?: string;
       name?: string;
@@ -2264,10 +2412,10 @@ declare module "github" {
       prerelease?: boolean;
     };
   declare type ReposEditReleaseParams =
-    & Owner
-    & Repo
-    & Id
     & {
+      owner: string;
+      repo: string;
+      id: string;
       tag_name: string;
       target_commitish?: string;
       name?: string;
@@ -2276,198 +2424,216 @@ declare module "github" {
       prerelease?: boolean;
     };
   declare type ReposDeleteReleaseParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetAssetsParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposUploadAssetParams =
-    & Url
-    & ContentType
-    & ContentLength
     & {
-      file: Object;
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetAssetsParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposUploadAssetParams =
+    & {
+      url: string;
+      file: object;
+      contentType: string;
+      contentLength: number;
       name: string;
       label?: string;
     };
   declare type ReposGetAssetParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposEditAssetParams =
-    & Owner
-    & Repo
-    & Id
-    & Name
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposEditAssetParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+      name: string;
       label?: string;
     };
   declare type ReposDeleteAssetParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposGetStatsContributorsParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetStatsCommitActivityParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetStatsCodeFrequencyParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetStatsParticipationParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposGetStatsPunchCardParams =
-    & Owner
-    & Repo
-    ;
-  declare type ReposCreateStatusParams =
-    & Owner
-    & Repo
-    & Sha
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposGetStatsContributorsParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetStatsCommitActivityParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetStatsCodeFrequencyParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetStatsParticipationParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposGetStatsPunchCardParams =
+    & {
+      owner: string;
+      repo: string;
+    };
+  declare type ReposCreateStatusParams =
+    & {
+      owner: string;
+      repo: string;
+      sha: string;
       state: "pending"|"success"|"error"|"failure";
       target_url?: string;
       description?: string;
       context?: string;
     };
   declare type ReposGetStatusesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       ref: string;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetCombinedStatusForRefParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
       ref: string;
+      page?: number;
+      per_page?: number;
     };
   declare type ReposGetReferrersParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetPathsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetViewsParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetClonesParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetHooksParams =
-    & Owner
-    & Repo
-    & Page
-    & PerPage
-    ;
-  declare type ReposGetHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposCreateHookParams =
-    & Owner
-    & Repo
-    & Name
     & {
-      config: string;
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetPathsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetViewsParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetClonesParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetHooksParams =
+    & {
+      owner: string;
+      repo: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type ReposGetHookParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposCreateHookParams =
+    & {
+      owner: string;
+      repo: string;
+      name: string;
+      config: json;
       events?: string[];
       active?: boolean;
     };
   declare type ReposEditHookParams =
-    & Owner
-    & Repo
-    & Id
-    & Name
     & {
-      config: string;
+      owner: string;
+      repo: string;
+      id: string;
+      name: string;
+      config: json;
       events?: string[];
       add_events?: string[];
       remove_events?: string[];
       active?: boolean;
     };
   declare type ReposTestHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposPingHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type ReposDeleteHookParams =
-    & Owner
-    & Repo
-    & Id
-    ;
-  declare type SearchReposParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposPingHookParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type ReposDeleteHookParams =
+    & {
+      owner: string;
+      repo: string;
+      id: string;
+    };
+  declare type SearchReposParams =
+    & {
+      q: string;
       sort?: "stars"|"forks"|"updated";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type SearchCodeParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "indexed";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type SearchCommitsParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "author-date"|"committer-date";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type SearchIssuesParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "comments"|"created"|"updated";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type SearchUsersParams =
-    & Q
-    & Order
-    & Page
-    & PerPage
     & {
+      q: string;
       sort?: "followers"|"repositories"|"joined";
+      order?: "asc"|"desc";
+      page?: number;
+      per_page?: number;
     };
   declare type SearchEmailParams =
     & {
@@ -2484,55 +2650,66 @@ declare module "github" {
       bio?: string;
     };
   declare type UsersPromoteParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersDemoteParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersSuspendParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersUnsuspendParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersGetForUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersGetByIdParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type UsersGetAllParams =
     & {
       since?: number;
     };
   declare type UsersGetOrgsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetOrgMembershipsParams =
     & {
       state?: "active"|"pending";
     };
   declare type UsersGetOrgMembershipParams =
-    & Org
-    ;
-  declare type UsersEditOrgMembershipParams =
-    & Org
     & {
+      org: string;
+    };
+  declare type UsersEditOrgMembershipParams =
+    & {
+      org: string;
       state: "active";
     };
   declare type UsersGetTeamsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetEmailsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetPublicEmailsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersAddEmailsParams =
     & {
       emails: string[];
@@ -2542,127 +2719,155 @@ declare module "github" {
       emails: string[];
     };
   declare type UsersGetFollowersForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  declare type UsersGetFollowersParams =
-    & Page
-    & PerPage
-    ;
-  declare type UsersGetFollowingForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
-  declare type UsersGetFollowingParams =
-    & Page
-    & PerPage
-    ;
-  declare type UsersCheckFollowingParams =
-    & Username
-    ;
-  declare type UsersCheckIfOneFollowersOtherParams =
-    & Username
     & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type UsersGetFollowersParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type UsersGetFollowingForUserParams =
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
+  declare type UsersGetFollowingParams =
+    & {
+      page?: number;
+      per_page?: number;
+    };
+  declare type UsersCheckFollowingParams =
+    & {
+      username: string;
+    };
+  declare type UsersCheckIfOneFollowersOtherParams =
+    & {
+      username: string;
       target_user: string;
     };
   declare type UsersFollowUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersUnfollowUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersGetKeysForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetKeysParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type UsersCreateKeyParams =
-    & Title
-    & Key
-    ;
+    & {
+      title: string;
+      key: string;
+    };
   declare type UsersDeleteKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type UsersGetGpgKeysForUserParams =
-    & Username
-    & Page
-    & PerPage
-    ;
+    & {
+      username: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetGpgKeysParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetGpgKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type UsersCreateGpgKeyParams =
     & {
       armored_public_key: string;
     };
   declare type UsersDeleteGpgKeyParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type UsersCheckBlockedUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersBlockUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersUnblockUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type UsersAcceptRepoInviteParams =
-    & InvitationId
-    ;
+    & {
+      invitation_id: string;
+    };
   declare type UsersDeclineRepoInviteParams =
-    & InvitationId
-    ;
+    & {
+      invitation_id: string;
+    };
   declare type UsersGetInstallationsParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetInstallationReposParams =
-    & InstallationId
-    & Page
-    & PerPage
-    ;
+    & {
+      installation_id: string;
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersAddRepoToInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   declare type UsersRemoveRepoFromInstallationParams =
-    & InstallationId
-    & RepositoryId
-    ;
+    & {
+      installation_id: string;
+      repository_id: string;
+    };
   declare type UsersGetMarketplacePurchasesParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type UsersGetMarketplaceStubbedPurchasesParams =
-    & Page
-    & PerPage
-    ;
+    & {
+      page?: number;
+      per_page?: number;
+    };
   declare type EnterpriseStatsParams =
     & {
       type: "issues"|"hooks"|"milestones"|"orgs"|"comments"|"pages"|"users"|"gists"|"pulls"|"repos"|"all";
     };
   declare type EnterpriseUpdateLdapForUserParams =
-    & Username
     & {
+      username: string;
       ldap_dn: string;
     };
   declare type EnterpriseSyncLdapForUserParams =
-    & Username
-    ;
+    & {
+      username: string;
+    };
   declare type EnterpriseUpdateLdapForTeamParams =
     & {
       team_id: number;
@@ -2673,48 +2878,54 @@ declare module "github" {
       team_id: number;
     };
   declare type EnterpriseGetPreReceiveEnvironmentParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type EnterpriseCreatePreReceiveEnvironmentParams =
     & {
       name: string;
       image_url: string;
     };
   declare type EnterpriseEditPreReceiveEnvironmentParams =
-    & Id
     & {
+      id: string;
       name: string;
       image_url: string;
     };
   declare type EnterpriseDeletePreReceiveEnvironmentParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type EnterpriseGetPreReceiveEnvironmentDownloadStatusParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type EnterpriseTriggerPreReceiveEnvironmentDownloadParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type EnterpriseGetPreReceiveHookParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type EnterpriseCreatePreReceiveHookParams =
     & {
       name: string;
       script: string;
-      script_repository: string;
-      environment: string;
+      script_repository: json;
+      environment: json;
       enforcement?: string;
       allow_downstream_configuration?: boolean;
     };
   declare type EnterpriseEditPreReceiveHookParams =
-    & Id
     & {
-      hook: string;
+      id: string;
+      hook: json;
     };
   declare type EnterpriseDeletePreReceiveHookParams =
-    & Id
-    ;
+    & {
+      id: string;
+    };
   declare type EnterpriseQueueIndexingJobParams =
     & {
       target: string;
