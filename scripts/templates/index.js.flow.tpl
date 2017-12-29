@@ -1,8 +1,5 @@
 declare module "github" {
   declare type Header =
-    {{#requestHeaders}}
-    | {{{.}}}
-    {{/requestHeaders}}
     | string;
 
   declare type EmptyParams = {

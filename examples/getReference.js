@@ -5,6 +5,6 @@ const github = new GitHubApi({
 
 github.gitdata.getReference({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   ref: 'heads/master'
 })

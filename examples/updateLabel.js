@@ -10,7 +10,7 @@ github.authenticate({
 
 github.issues.updateLabel({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   oldname: 'labelA',
   name: 'labelB',
   color: '0052cc'

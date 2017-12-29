@@ -9,6 +9,6 @@ const customHeaders = {
 
 github.issues.getForRepo({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   headers: customHeaders
 })

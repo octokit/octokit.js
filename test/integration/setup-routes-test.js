@@ -2,7 +2,7 @@ const chai = require('chai')
 const simple = require('simple-mock')
 
 const GitHub = require('../../')
-const DEFINITIONS = require('../../lib/definitions.json')
+const ROUTES = require('../../lib/routes.json')
 
 const mocha = require('mocha')
 const describe = mocha.describe
@@ -13,9 +13,7 @@ describe('setup routes', () => {
   it('missing param definition', () => {
     const github = new GitHub()
 
-    const definitionsShallowCopy = Object.assign({}, DEFINITIONS.params)
-    delete definitionsShallowCopy.gist_id
-    simple.mock(DEFINITIONS, 'params', definitionsShallowCopy)
+    simple.mock(ROUTES.gists.createComment.params, 'gist_id', undefined)
     github.gists.createComment({gist_id: 'abc4567', body: 'foo bar'})
 
     .catch(error => {
@@ -24,12 +22,11 @@ describe('setup routes', () => {
 
     simple.restore()
   })
+
   it('missing param definition with callback', (done) => {
     const github = new GitHub()
 
-    const definitionsShallowCopy = Object.assign({}, DEFINITIONS.params)
-    delete definitionsShallowCopy.gist_id
-    simple.mock(DEFINITIONS, 'params', definitionsShallowCopy)
+    simple.mock(ROUTES.gists.createComment.params, 'gist_id', undefined)
     github.gists.createComment({gist_id: 'abc4567', body: 'foo bar'}, (error) => {
       error.code.should.equal('400')
       done()
