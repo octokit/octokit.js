@@ -183,6 +183,11 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 | Timeline                | application/vnd.github.mockingbird-preview            |
 | Topics                  | application/vnd.github.mercy-preview+json             |
 
+## Credits
+
+`@octokit/rest` was originally created as `node-github` in 2012 by Mike de Boer from Cloud9 IDE, Inc.
+It was renamed adopted by GitHub in 2017
+
 ## LICENSE
 
 [MIT](LICENSE)
