@@ -2938,7 +2938,7 @@
         "body": {
           "type": "json",
           "required": true,
-          "location": "query"
+          "location": "body"
         }
       },
       "description": "Remove assignees from an issue."
@@ -3390,7 +3390,7 @@
       },
       "description": "List labels on an issue"
     },
-      "addLabels": {
+    "addLabels": {
       "path": "/repos/:owner/:repo/issues/:number/labels",
       "method": "POST",
       "params": {
@@ -3412,7 +3412,7 @@
         "labels": {
           "type": "string[]",
           "required": true,
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Add labels to an issue"
@@ -3467,7 +3467,7 @@
           "type": "string[]",
           "required": true,
           "description": "Sending an empty array ([]) will remove all Labels from the Issue.",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Replace all labels for an issue"
@@ -8192,7 +8192,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Replace required status checks contexts of protected branch."
@@ -8220,7 +8220,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Add required status checks contexts of protected branch."
@@ -8248,7 +8248,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).",
-          "location": "query"
+          "location": "body"
         }
       },
       "description": "Remove required status checks contexts of protected branch."
@@ -8571,7 +8571,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of team slugs (e.g. justice-league).",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Replace team restrictions of protected branch."
@@ -8599,7 +8599,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of team slugs (e.g. justice-league).",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Add team restrictions of protected branch."
@@ -8627,7 +8627,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of team slugs (e.g. justice-league).",
-          "location": "query"
+          "location": "body"
         }
       },
       "description": "Remove team restrictions of protected branch."
@@ -8690,7 +8690,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of team slugs (e.g. justice-league).",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Replace user restrictions of protected branch."
@@ -8718,7 +8718,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of team slugs (e.g. justice-league).",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Add user restrictions of protected branch."
@@ -8746,7 +8746,7 @@
           "type": "string[]",
           "required": true,
           "description": "An array of team slugs (e.g. justice-league).",
-          "location": "query"
+          "location": "body"
         }
       },
       "description": "Remove user restrictions of protected branch."
@@ -11611,7 +11611,7 @@
           "type": "string[]",
           "required": true,
           "description": "You can post a single email address or an array of addresses.",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Add email address(es)."
@@ -11624,7 +11624,7 @@
           "type": "string[]",
           "required": true,
           "description": "You can post a single email address or an array of addresses.",
-          "location": "query"
+          "location": "body"
         }
       },
       "description": "Delete email address(es)."
@@ -12426,7 +12426,7 @@
           "type": "json",
           "required": true,
           "description": "JSON object that contains pre-receive hook info.",
-          "location": "bodykey"
+          "location": "body"
         }
       },
       "description": "Edit a pre-receive hook. (In preview period. See README.)"
