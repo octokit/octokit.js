@@ -41,28 +41,6 @@ describe('params validations', () => {
     })
   })
 
-  it.skip('null for github.repo.updateBranchProtection({enforce_admins})', () => {
-    const github = new GitHub()
-
-    return github.repos.updateBranchProtection({
-      owner: 'foo',
-      repo: 'bar',
-      branch: 'master',
-      required_status_checks: [],
-      required_pull_request_reviews: [],
-      restrictions: [],
-      enforce_admins: null
-    })
-
-    .catch(error => {
-      error.toJSON().should.deep.equal({
-        code: '400',
-        message: 'Empty value for parameter \'enforce_admins\': null',
-        status: 'Bad Request'
-      })
-    })
-  })
-
   it('invalid value for github.issues.getAll({filter})', () => {
     const github = new GitHub()
 
