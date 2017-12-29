@@ -10,6 +10,6 @@ github.authenticate({
 
 github.issues.lock({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   number: 3
 })

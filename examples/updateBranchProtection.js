@@ -10,7 +10,7 @@ github.authenticate({
 
 github.repos.updateBranchProtection({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   branch: 'a',
   required_status_checks: null,
   restrictions: null,

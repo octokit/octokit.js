@@ -10,7 +10,7 @@ github.authenticate({
 
 github.issues.addLabels({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   number: '1',
   labels: ['bug', 'help wanted', 'question']
 })

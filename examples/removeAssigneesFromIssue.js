@@ -10,7 +10,7 @@ github.authenticate({
 
 github.issues.removeAssigneesFromIssue({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   number: '4',
   body: { 'assignees': ['first9890'] }
 })

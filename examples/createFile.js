@@ -10,7 +10,7 @@ github.authenticate({
 
 github.repos.createFile({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   path: 'blah.txt',
   message: 'blah blah',
   content: 'YmxlZXAgYmxvb3A=' // base64-encoded "bleep bloop"

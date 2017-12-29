@@ -5,6 +5,6 @@ const github = new GitHubApi({
 
 github.issues.getEventsTimeline({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   issue_number: '447'
 })

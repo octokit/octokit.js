@@ -5,7 +5,7 @@ const github = new GitHubApi({
 
 github.pullRequests.getReviews({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   number: 640
 })
 
@@ -14,7 +14,7 @@ github.pullRequests.getReviews({
 
   return github.pullRequests.getReview({
     owner: 'octokit',
-    repo: 'rest.js',
+    repo: 'node-github',
     number: 640,
     id: firstReviewId
   })

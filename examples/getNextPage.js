@@ -5,7 +5,7 @@ const github = new GitHubApi({
 
 github.repos.getAll({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   affiliation: 'owner,organization_member'
 })
 

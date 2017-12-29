@@ -5,6 +5,6 @@ const github = new GitHubApi({
 
 github.reactions.getForIssue({
   owner: 'octokit',
-  repo: 'rest.js',
+  repo: 'node-github',
   number: '365'
 })
