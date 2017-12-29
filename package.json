@@ -1,5 +1,5 @@
 {
-  "name": "@octokit/rest.js",
+  "name": "@octokit/rest",
   "version": "0.0.0-development",
   "description": "GitHub REST API client for Node.js",
   "author": "Gregor Martynus (https://github.com/gr2m)",
