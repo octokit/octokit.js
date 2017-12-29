@@ -5,6 +5,6 @@ const github = new GitHubApi({
 
 github.repos.getContent({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   path: ''
 })

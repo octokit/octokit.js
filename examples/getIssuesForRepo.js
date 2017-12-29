@@ -5,5 +5,5 @@ const github = new GitHubApi({
 
 github.issues.getForRepo({
   owner: 'octokit',
-  repo: 'node-github'
+  repo: 'rest.js'
 })

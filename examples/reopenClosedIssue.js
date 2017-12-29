@@ -10,7 +10,7 @@ github.authenticate({
 
 github.issues.edit({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   number: 2,
   state: 'open'
 })

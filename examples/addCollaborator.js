@@ -10,6 +10,6 @@ github.authenticate({
 
 github.repos.addCollaborator({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   username: 'defunkt'
 })
