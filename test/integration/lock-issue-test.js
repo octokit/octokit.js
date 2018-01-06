@@ -9,7 +9,7 @@ const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
-  it('github.isues.{lock,unlock}()', () => {
+  it('github.issues.{lock,unlock}()', () => {
     const GitHubMock = fixtures.mock('api.github.com/lock-issue')
 
     const github = new GitHub()
