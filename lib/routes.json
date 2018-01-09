@@ -6733,13 +6733,13 @@
           "type": "string[]",
           "required": false,
           "description": "An array of user logins that will be requested.",
-          "location": "query"
+          "location": "bodykey"
         },
         "team_reviewers": {
           "type": "string[]",
           "required": false,
           "description": "An array of team slugs that will be requested.",
-          "location": "query"
+          "location": "bodykey"
         }
       },
       "description": "Delete a review request. (In preview period. See README.)",
@@ -8026,19 +8026,6 @@
           "type": "string",
           "required": true,
           "location": "path"
-        },
-        "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch.",
-          "location": "query"
-        },
-        "per_page": {
-          "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
-          "default": "30",
-          "location": "query"
         }
       },
       "description": "Remove branch protection."
@@ -8439,19 +8426,6 @@
           "type": "string",
           "required": true,
           "location": "path"
-        },
-        "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch.",
-          "location": "query"
-        },
-        "per_page": {
-          "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
-          "default": "30",
-          "location": "query"
         }
       },
       "description": "Remove admin enforcement of protected branch."
@@ -9407,29 +9381,29 @@
           "type": "string",
           "required": true,
           "description": "The commit message.",
-          "location": "query"
+          "location": "bodykey"
         },
         "sha": {
           "type": "string",
           "required": true,
           "description": "The blob SHA of the file being removed.",
-          "location": "query"
+          "location": "bodykey"
         },
         "branch": {
           "type": "string",
           "required": false,
           "description": "The branch name. If not provided, uses the repository’s default branch (usually master).",
-          "location": "query"
+          "location": "bodykey"
         },
         "committer": {
           "type": "json",
           "required": false,
-          "location": "query"
+          "location": "bodykey"
         },
         "author": {
           "type": "json",
           "required": false,
-          "location": "query"
+          "location": "bodykey"
         }
       },
       "description": "Delete a file."
