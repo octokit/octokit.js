@@ -3974,17 +3974,17 @@
           "type": "string",
           "required": true,
           "location": "path"
+        },
+        "vcs_username": {
+          "type": "string",
+          "required": false,
+          "description": "The username to provide to the originating repository."
+        },
+        "vcs_password": {
+          "type": "string",
+          "required": false,
+          "description": "The password to provide to the originating repository."
         }
-      },
-      "vcs_username": {
-        "type": "string",
-        "required": false,
-        "description": "The username to provide to the originating repository."
-      },
-      "vcs_password": {
-        "type": "string",
-        "required": false,
-        "description": "The password to provide to the originating repository."
       },
       "description": "Update existing import. (In preview period. See README.)",
       "preview": "application/vnd.github.barred-rock-preview"

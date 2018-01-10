@@ -1,10 +1,12 @@
-module.exports = {
-  getFirstPage: require('./get-first-page'),
-  getLastPage: require('./get-last-page'),
-  getNextPage: require('./get-next-page'),
-  getPreviousPage: require('./get-previous-page'),
-  hasFirstPage: require('./has-first-page'),
-  hasLastPage: require('./has-last-page'),
-  hasNextPage: require('./has-next-page'),
-  hasPreviousPage: require('./has-previous-page')
+module.exports = paginationPlugin
+
+function paginationPlugin (github) {
+  github.getFirstPage = require('./get-first-page')
+  github.getLastPage = require('./get-last-page')
+  github.getNextPage = require('./get-next-page')
+  github.getPreviousPage = require('./get-previous-page')
+  github.hasFirstPage = require('./has-first-page')
+  github.hasLastPage = require('./has-last-page')
+  github.hasNextPage = require('./has-next-page')
+  github.hasPreviousPage = require('./has-previous-page')
 }

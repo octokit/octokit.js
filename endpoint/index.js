@@ -10,7 +10,8 @@ const DEFAULTS = {
   headers: {
     accept: 'application/vnd.github.v3+json',
     'user-agent': `octokit/rest.js v${pkg.version}`
-  }
+  },
+  request: {}
 }
 
 function restEndpoint (defaults, options) {
@@ -18,6 +19,7 @@ function restEndpoint (defaults, options) {
     method,
     baseUrl,
     url,
+    body,
     headers,
     ...remainingOptions
   } = _.defaultsDeep({}, options, defaults)
@@ -31,31 +33,25 @@ function restEndpoint (defaults, options) {
     throw new Error(`Missing parameters: ${result.variables.missing.join(', ')}`)
   }
 
-  remainingOptions = _.omit(remainingOptions, result.variables.used)
+  const requestOptions = remainingOptions.request || {}
+  remainingOptions = _.omit(remainingOptions, result.variables.used.concat('request'))
 
   if (method === 'get' || method === 'head') {
-    return {
-      method,
-      url: addQueryParameters(url, remainingOptions),
-      headers
+    url = addQueryParameters(url, remainingOptions)
+  } else {
+    if (!/\bjson\b/.test(headers.accept)) {
+      body = remainingOptions.input
+    } else {
+      body = 'input' in remainingOptions ? remainingOptions.input : remainingOptions
     }
   }
 
-  if (!/\bjson\b/.test(headers.accept)) {
-    return {
-      method,
-      url,
-      headers,
-      body: remainingOptions.input
-    }
-  }
-
-  return {
+  return Object.assign(requestOptions, {
     method,
     url,
     headers,
-    body: 'input' in remainingOptions ? remainingOptions.input : remainingOptions
-  }
+    body
+  })
 }
 
 module.exports = restEndpoint.bind(null, DEFAULTS)

@@ -1,21 +1,19 @@
 module.exports = apiPlugin
 
+const _ = require('lodash')
+
 const method = require('./method')
 const deprecate = require('./deprecate')
 
-const ROUTES = require('../../lib/routes.json')
+const ENDPOINT_DEFAULTS = require('./endpoint-defaults.json')
 
 function apiPlugin (github) {
-  Object.keys(ROUTES).forEach(namespaceName => {
+  Object.keys(ENDPOINT_DEFAULTS).forEach(namespaceName => {
     github[namespaceName] = {}
 
-    Object.keys(ROUTES[namespaceName]).forEach(apiName => {
-      const apiOptions = ROUTES[namespaceName][apiName]
-      const endpointDefaults = {
-        method: apiOptions.method,
-        url: apiOptions.url,
-        headers: apiOptions.headers
-      }
+    Object.keys(ENDPOINT_DEFAULTS[namespaceName]).forEach(apiName => {
+      const apiOptions = ENDPOINT_DEFAULTS[namespaceName][apiName]
+      const endpointDefaults = _.pick(apiOptions, ['method', 'url', 'headers', 'request'])
 
       github[namespaceName][apiName] = method.bind(null, github, endpointDefaults)
 

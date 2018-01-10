@@ -2,9 +2,9 @@ module.exports = getPage
 
 const urlParse = require('url').parse
 
-const errors = require('../errors')
+const errors = require('../../request/errors')
 const getPageLinks = require('./get-page-links')
-const request = require('../request/request')
+const request = require('../../request/request')
 
 function getPage (link, which, headers, callback) {
   if (typeof headers === 'function') {

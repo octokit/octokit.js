@@ -16,18 +16,16 @@ const PLUGINS = [
 
 function GitHubApi (options) {
   const state = parseClientOptions(options)
-  const requestwithDefaults = request.defaults(state)
+  const requestWithDefaults = request.defaults(state)
 
   const hook = new Hook()
   const api = {
-    plugin (pluginFunction) {
-      pluginFunction(api)
-    },
     hook,
+    plugin: (pluginFunction) => pluginFunction(api),
     request: (options) => api.hook(
       'request',
-      defaultsDeep(options, ENDPOINT_DEFAULTS),
-      requestwithDefaults
+      defaultsDeep(state, ENDPOINT_DEFAULTS),
+      requestWithDefaults
     )
   }
 
