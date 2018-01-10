@@ -15,7 +15,7 @@ function apiPlugin (github) {
       const apiOptions = ENDPOINT_DEFAULTS[namespaceName][apiName]
       const endpointDefaults = _.pick(apiOptions, ['method', 'url', 'headers', 'request'])
 
-      github[namespaceName][apiName] = method.bind(null, github, endpointDefaults)
+      github[namespaceName][apiName] = method.bind(null, github, endpointDefaults, apiOptions.params)
 
       // log deprecation warning for APIs flagged as deprecated
       if (apiOptions.deprecated) {

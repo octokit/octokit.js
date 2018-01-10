@@ -2,9 +2,14 @@ module.exports = apiMethod
 
 const defaultsDeep = require('lodash/defaultsDeep')
 
-function apiMethod (github, endpointDefaults, options, callback) {
+const validate = require('./validate')
+
+function apiMethod (github, endpointDefaults, endpointParams, options, callback) {
   const endpointOptions = defaultsDeep(options, endpointDefaults)
-  const promise = github.request(endpointOptions)
+
+  const promise = Promise.resolve(endpointOptions)
+    .then(validate.bind(null, endpointParams))
+    .then(github.request)
 
   if (callback) {
     promise.then(callback.bind(null, null)).catch(callback)

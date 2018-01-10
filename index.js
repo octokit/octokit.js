@@ -8,10 +8,9 @@ const request = require('./request')
 const ENDPOINT_DEFAULTS = require('./endpoint').DEFAULTS
 
 const PLUGINS = [
-  require('./plugins/api'),
   require('./plugins/authentication'),
-  require('./plugins/pagination'),
-  require('./plugins/validation')
+  require('./plugins/endpoint-methods'),
+  require('./plugins/pagination')
 ]
 
 function GitHubApi (options) {

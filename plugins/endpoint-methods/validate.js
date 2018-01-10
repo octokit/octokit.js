@@ -1,24 +1,10 @@
-module.exports = validationBeforeRequest
+module.exports = validate
 
 const errors = require('../../request/errors')
-const ENDPOINT_PARAMETERS = require('./endpoint-parameters.json')
 
-function validationBeforeRequest (options) {
-  let endpointParameters
-
-  if (options.request.endpoint) {
-    endpointParameters = ENDPOINT_PARAMETERS[options.request.endpoint]
-  } else {
-    const method = options.method.toLowerCase() === 'head' ? 'get' : options.method.toLowerCase()
-    endpointParameters = ENDPOINT_PARAMETERS[`${method.toUpperCase()} ${options.url}`]
-  }
-
-  if (!endpointParameters) {
-    return
-  }
-
-  Object.keys(endpointParameters).forEach(parameterName => {
-    const parameter = endpointParameters[parameterName]
+function validate (endpointParams, options) {
+  Object.keys(endpointParams).forEach(parameterName => {
+    const parameter = endpointParams[parameterName]
     const expectedType = parameter.type
     let value = options[parameterName]
 
@@ -72,4 +58,6 @@ function validationBeforeRequest (options) {
 
     options[parameterName] = value
   })
+
+  return options
 }
