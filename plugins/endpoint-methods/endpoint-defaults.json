@@ -15,34 +15,22 @@
       "method": "POST",
       "params": {
         "scopes": {
-          "type": "string[]",
-          "required": false,
-          "description": "A list of scopes that this authorization is in."
+          "type": "string[]"
         },
         "note": {
-          "type": "string",
-          "required": false,
-          "description": "A note to remind you what the OAuth token is for."
+          "type": "string"
         },
         "note_url": {
-          "type": "string",
-          "required": false,
-          "description": "A URL to remind you what app the OAuth token is for."
+          "type": "string"
         },
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "client_secret": {
-          "type": "string",
-          "required": false,
-          "description": "The 40 character OAuth app client secret for which to create the token."
+          "type": "string"
         },
         "fingerprint": {
-          "type": "string",
-          "required": false,
-          "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
+          "type": "string"
         }
       }
     },
@@ -55,34 +43,22 @@
           "required": true
         },
         "scopes": {
-          "type": "string[]",
-          "required": false,
-          "description": "A list of scopes that this authorization is in."
+          "type": "string[]"
         },
         "add_scopes": {
-          "type": "string[]",
-          "required": false,
-          "description": "A list of scopes to add to this authorization."
+          "type": "string[]"
         },
         "remove_scopes": {
-          "type": "string[]",
-          "required": false,
-          "description": "A list of scopes to remove from this authorization."
+          "type": "string[]"
         },
         "note": {
-          "type": "string",
-          "required": false,
-          "description": "A note to remind you what the OAuth token is for."
+          "type": "string"
         },
         "note_url": {
-          "type": "string",
-          "required": false,
-          "description": "A URL to remind you what app the OAuth token is for."
+          "type": "string"
         },
         "fingerprint": {
-          "type": "string",
-          "required": false,
-          "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
+          "type": "string"
         }
       }
     },
@@ -101,14 +77,11 @@
       "method": "GET",
       "params": {
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "access_token": {
           "type": "string",
-          "required": true,
-          "description": "OAuth token"
+          "required": true
         }
       }
     },
@@ -117,14 +90,11 @@
       "method": "POST",
       "params": {
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "access_token": {
           "type": "string",
-          "required": true,
-          "description": "OAuth token"
+          "required": true
         }
       }
     },
@@ -133,14 +103,11 @@
       "method": "DELETE",
       "params": {
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "access_token": {
           "type": "string",
-          "required": true,
-          "description": "OAuth token"
+          "required": true
         }
       }
     },
@@ -149,14 +116,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -170,14 +133,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -197,14 +156,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -214,34 +169,23 @@
       "method": "PUT",
       "params": {
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "client_secret": {
           "type": "string",
-          "required": true,
-          "description": "The 40 character OAuth app client secret associated with the client ID specified in the URL."
+          "required": true
         },
         "scopes": {
-          "type": "string[]",
-          "required": false,
-          "description": "A list of scopes that this authorization is in."
+          "type": "string[]"
         },
         "note": {
-          "type": "string",
-          "required": false,
-          "description": "A note to remind you what the OAuth token is for."
+          "type": "string"
         },
         "note_url": {
-          "type": "string",
-          "required": false,
-          "description": "A URL to remind you what app the OAuth token is for."
+          "type": "string"
         },
         "fingerprint": {
-          "type": "string",
-          "required": false,
-          "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
+          "type": "string"
         }
       }
     },
@@ -250,34 +194,23 @@
       "method": "PUT",
       "params": {
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "fingerprint": {
-          "type": "string",
-          "required": false,
-          "description": "A unique string to distinguish an authorization from others created for the same client ID and user."
+          "type": "string"
         },
         "client_secret": {
           "type": "string",
-          "required": true,
-          "description": "The 40 character OAuth app client secret associated with the client ID specified in the URL."
+          "required": true
         },
         "scopes": {
-          "type": "string[]",
-          "required": false,
-          "description": "A list of scopes that this authorization is in."
+          "type": "string[]"
         },
         "note": {
-          "type": "string",
-          "required": false,
-          "description": "A note to remind you what the OAuth token is for."
+          "type": "string"
         },
         "note_url": {
-          "type": "string",
-          "required": false,
-          "description": "A URL to remind you what app the OAuth token is for."
+          "type": "string"
         }
       }
     },
@@ -286,14 +219,11 @@
       "method": "DELETE",
       "params": {
         "client_id": {
-          "type": "string",
-          "required": false,
-          "description": "The 20 character OAuth app client key for which to create the token."
+          "type": "string"
         },
         "access_token": {
           "type": "string",
-          "required": true,
-          "description": "OAuth token"
+          "required": true
         }
       }
     }
@@ -304,14 +234,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -329,14 +255,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -354,14 +276,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -379,14 +297,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -400,14 +314,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -421,14 +331,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -442,14 +348,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -463,14 +365,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -484,14 +382,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -509,14 +403,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -532,25 +422,17 @@
       "params": {
         "all": {
           "type": "boolean",
-          "required": false,
-          "description": "If true, show notifications marked as read. Default: false",
           "default": "false"
         },
         "participating": {
           "type": "boolean",
-          "required": false,
-          "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false",
           "default": "false"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "before": {
-          "type": "string",
-          "required": false,
-          "description": "Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
+          "type": "string"
         }
       }
     },
@@ -568,25 +450,17 @@
         },
         "all": {
           "type": "boolean",
-          "required": false,
-          "description": "If true, show notifications marked as read. Default: false",
           "default": "false"
         },
         "participating": {
           "type": "boolean",
-          "required": false,
-          "description": "If true, only shows notifications in which the user is directly participating or mentioned. Default: false",
           "default": "false"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "before": {
-          "type": "string",
-          "required": false,
-          "description": "Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
+          "type": "string"
         }
       }
     },
@@ -596,8 +470,6 @@
       "params": {
         "last_read_at": {
           "type": "string",
-          "required": false,
-          "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now",
           "default": "Time.now"
         }
       }
@@ -616,8 +488,6 @@
         },
         "last_read_at": {
           "type": "string",
-          "required": false,
-          "description": "Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now",
           "default": "Time.now"
         }
       }
@@ -661,14 +531,10 @@
           "required": true
         },
         "subscribed": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines if notifications should be received from this thread"
+          "type": "boolean"
         },
         "ignored": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines if all notifications should be blocked from this thread"
+          "type": "boolean"
         }
       }
     },
@@ -698,14 +564,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -723,7 +585,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated"
@@ -732,7 +593,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -740,14 +600,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -761,7 +617,6 @@
       "params": {
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated"
@@ -770,7 +625,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -778,14 +632,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -803,14 +653,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -856,14 +702,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -877,14 +719,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -894,14 +732,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -919,14 +753,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -944,14 +774,10 @@
           "required": true
         },
         "subscribed": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines if notifications should be received from this repository."
+          "type": "boolean"
         },
         "ignored": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines if all notifications should be blocked from this repository."
+          "type": "boolean"
         }
       }
     },
@@ -987,12 +813,10 @@
       "params": {
         "files": {
           "type": "json",
-          "required": true,
-          "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
+          "required": true
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "public": {
           "type": "boolean",
@@ -1009,23 +833,17 @@
           "required": true
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "files": {
           "type": "json",
-          "required": true,
-          "description": "Files that make up this gist. The key of which should be a required string filename and the value another required hash with parameters: 'content'"
+          "required": true
         },
         "content": {
-          "type": "string",
-          "required": false,
-          "description": "Updated file contents."
+          "type": "string"
         },
         "filename": {
-          "type": "string",
-          "required": false,
-          "description": "New name for this file."
+          "type": "string"
         }
       }
     },
@@ -1078,19 +896,13 @@
           "required": true
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1100,19 +912,13 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1122,9 +928,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         }
       }
     },
@@ -1133,9 +937,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         }
       }
     },
@@ -1182,14 +984,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1200,8 +998,7 @@
       "params": {
         "gist_id": {
           "type": "string",
-          "required": true,
-          "description": "Id (SHA1 hash) of the gist."
+          "required": true
         }
       }
     },
@@ -1211,8 +1008,7 @@
       "params": {
         "gist_id": {
           "type": "string",
-          "required": true,
-          "description": "Id (SHA1 hash) of the gist."
+          "required": true
         },
         "id": {
           "type": "string",
@@ -1226,8 +1022,7 @@
       "params": {
         "gist_id": {
           "type": "string",
-          "required": true,
-          "description": "Id (SHA1 hash) of the gist."
+          "required": true
         },
         "body": {
           "type": "string",
@@ -1241,8 +1036,7 @@
       "params": {
         "gist_id": {
           "type": "string",
-          "required": true,
-          "description": "Id (SHA1 hash) of the gist."
+          "required": true
         },
         "id": {
           "type": "string",
@@ -1260,8 +1054,7 @@
       "params": {
         "gist_id": {
           "type": "string",
-          "required": true,
-          "description": "Id (SHA1 hash) of the gist."
+          "required": true
         },
         "id": {
           "type": "string",
@@ -1288,14 +1081,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1355,26 +1144,21 @@
         },
         "message": {
           "type": "string",
-          "required": true,
-          "description": "String of the commit message"
+          "required": true
         },
         "tree": {
           "type": "string",
-          "required": true,
-          "description": "String of the SHA of the tree object this commit points to"
+          "required": true
         },
         "parents": {
           "type": "string[]",
-          "required": true,
-          "description": "Array of the SHAs of the commits that were the parents of this commit. If omitted or empty, the commit will be written as a root commit. For a single parent, an array of one SHA should be provided, for a merge commit, an array of more than one should be provided."
+          "required": true
         },
         "author": {
-          "type": "json",
-          "required": false
+          "type": "json"
         },
         "committer": {
-          "type": "json",
-          "required": false
+          "type": "json"
         }
       }
     },
@@ -1411,8 +1195,7 @@
         "ref": {
           "type": "string",
           "required": true,
-          "allow-empty": true,
-          "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
+          "allow-empty": true
         }
       }
     },
@@ -1429,14 +1212,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1454,14 +1233,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1480,8 +1255,7 @@
         },
         "ref": {
           "type": "string",
-          "required": true,
-          "description": "The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected. NOTE: After creating the reference, on calling (get|update|delete)Reference, drop the leading 'refs/' when providing the 'ref' param."
+          "required": true
         },
         "sha": {
           "type": "string",
@@ -1504,8 +1278,7 @@
         "ref": {
           "type": "string",
           "required": true,
-          "allow-empty": true,
-          "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
+          "allow-empty": true
         },
         "sha": {
           "type": "string",
@@ -1513,8 +1286,6 @@
         },
         "force": {
           "type": "boolean",
-          "required": false,
-          "description": "Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.",
           "default": "false"
         }
       }
@@ -1534,8 +1305,7 @@
         "ref": {
           "type": "string",
           "required": true,
-          "allow-empty": true,
-          "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
+          "allow-empty": true
         }
       }
     },
@@ -1571,28 +1341,23 @@
         },
         "tag": {
           "type": "string",
-          "required": true,
-          "description": "String of the tag"
+          "required": true
         },
         "message": {
           "type": "string",
-          "required": true,
-          "description": "String of the tag message"
+          "required": true
         },
         "object": {
           "type": "string",
-          "required": true,
-          "description": "String of the SHA of the git object this is tagging"
+          "required": true
         },
         "type": {
           "type": "string",
-          "required": true,
-          "description": "String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob."
+          "required": true
         },
         "tagger": {
           "type": "json",
-          "required": true,
-          "description": "JSON object that contains the following keys: `name` - String of the name of the author of the tag, `email` - String of the email of the author of the tag, `date` - Timestamp of when this object was tagged"
+          "required": true
         }
       }
     },
@@ -1631,8 +1396,7 @@
           "required": true
         },
         "recursive": {
-          "type": "boolean",
-          "required": false
+          "type": "boolean"
         }
       }
     },
@@ -1650,13 +1414,10 @@
         },
         "tree": {
           "type": "json",
-          "required": true,
-          "description": "Array of Hash objects (of path, mode, type and sha) specifying a tree structure"
+          "required": true
         },
         "base_tree": {
-          "type": "string",
-          "required": false,
-          "description": "String of the SHA1 of the tree you want to update with new data"
+          "type": "string"
         }
       }
     }
@@ -1671,14 +1432,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1696,9 +1453,7 @@
           "required": true
         },
         "user_id": {
-          "type": "string",
-          "required": false,
-          "description": "The id of the user for whom the app is acting on behalf of."
+          "type": "string"
         }
       }
     },
@@ -1711,9 +1466,7 @@
       },
       "params": {
         "user_id": {
-          "type": "string",
-          "required": false,
-          "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
+          "type": "string"
         }
       }
     },
@@ -1769,8 +1522,7 @@
       "params": {
         "app_slug": {
           "type": "string",
-          "required": true,
-          "description": "The URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., https://github.com/settings/apps/:app_slug)."
+          "required": true
         }
       }
     },
@@ -1782,14 +1534,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1819,9 +1567,7 @@
           "required": true
         },
         "user_id": {
-          "type": "string",
-          "required": false,
-          "description": "The id of the user for whom the app is acting on behalf of."
+          "type": "string"
         }
       }
     },
@@ -1833,9 +1579,7 @@
       },
       "params": {
         "user_id": {
-          "type": "string",
-          "required": false,
-          "description": "The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user."
+          "type": "string"
         }
       }
     },
@@ -1881,14 +1625,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1901,14 +1641,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1925,14 +1661,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -1949,14 +1681,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2030,28 +1758,19 @@
           "required": true
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "assignee": {
-          "type": "string",
-          "required": false,
-          "description": "Login for the user that this issue should be assigned to."
+          "type": "string"
         },
         "milestone": {
-          "type": "number",
-          "required": false,
-          "description": "Milestone to associate this issue with."
+          "type": "number"
         },
         "labels": {
-          "type": "string[]",
-          "required": false,
-          "description": "Array of strings - Labels to associate with this issue."
+          "type": "string[]"
         },
         "assignees": {
-          "type": "string[]",
-          "required": false,
-          "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
+          "type": "string[]"
         }
       }
     },
@@ -2075,22 +1794,16 @@
           "required": true
         },
         "title": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "assignee": {
-          "type": "string",
-          "required": false,
-          "description": "Login for the user that this issue should be assigned to."
+          "type": "string"
         },
         "state": {
           "type": "string",
-          "required": false,
-          "description": "open or closed",
           "enum": [
             "open",
             "closed"
@@ -2098,19 +1811,13 @@
           "default": "open"
         },
         "milestone": {
-          "type": "number",
-          "required": false,
-          "description": "Milestone to associate this issue with."
+          "type": "number"
         },
         "labels": {
-          "type": "string[]",
-          "required": false,
-          "description": "Array of strings - Labels to associate with this issue."
+          "type": "string[]"
         },
         "assignees": {
-          "type": "string[]",
-          "required": false,
-          "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
+          "type": "string[]"
         }
       }
     },
@@ -2159,7 +1866,6 @@
       "params": {
         "filter": {
           "type": "string",
-          "required": false,
           "enum": [
             "all",
             "assigned",
@@ -2170,8 +1876,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
-          "description": "open, closed, or all",
           "enum": [
             "open",
             "closed",
@@ -2180,13 +1884,10 @@
           "default": "open"
         },
         "labels": {
-          "type": "string",
-          "required": false,
-          "description": "String list of comma separated Label names. Example: bug,ui,@high"
+          "type": "string"
         },
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated",
@@ -2196,7 +1897,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -2204,19 +1904,13 @@
           "default": "desc"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2230,7 +1924,6 @@
       "params": {
         "filter": {
           "type": "string",
-          "required": false,
           "enum": [
             "all",
             "assigned",
@@ -2241,8 +1934,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
-          "description": "open, closed, or all",
           "enum": [
             "open",
             "closed",
@@ -2251,13 +1942,10 @@
           "default": "open"
         },
         "labels": {
-          "type": "string",
-          "required": false,
-          "description": "String list of comma separated Label names. Example: bug,ui,@high"
+          "type": "string"
         },
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated",
@@ -2267,7 +1955,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -2275,19 +1962,13 @@
           "default": "desc"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2305,7 +1986,6 @@
         },
         "filter": {
           "type": "string",
-          "required": false,
           "enum": [
             "all",
             "assigned",
@@ -2316,8 +1996,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
-          "description": "open, closed, or all",
           "enum": [
             "open",
             "closed",
@@ -2326,13 +2004,10 @@
           "default": "open"
         },
         "labels": {
-          "type": "string",
-          "required": false,
-          "description": "String list of comma separated Label names. Example: bug,ui,@high"
+          "type": "string"
         },
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated",
@@ -2342,7 +2017,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -2350,19 +2024,13 @@
           "default": "desc"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2384,13 +2052,10 @@
         },
         "milestone": {
           "type": "string",
-          "required": false,
           "validation": "^([0-9]+|none|\\*)$"
         },
         "state": {
           "type": "string",
-          "required": false,
-          "description": "open, closed, or all",
           "enum": [
             "open",
             "closed",
@@ -2399,28 +2064,19 @@
           "default": "open"
         },
         "assignee": {
-          "type": "string",
-          "required": false,
-          "description": "String User login, `none` for Issues with no assigned User. `*` for Issues with any assigned User."
+          "type": "string"
         },
         "creator": {
-          "type": "string",
-          "required": false,
-          "description": "The user that created the issue."
+          "type": "string"
         },
         "mentioned": {
-          "type": "string",
-          "required": false,
-          "description": "String User login."
+          "type": "string"
         },
         "labels": {
-          "type": "string",
-          "required": false,
-          "description": "String list of comma separated Label names. Example: bug,ui,@high"
+          "type": "string"
         },
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated",
@@ -2430,7 +2086,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -2438,19 +2093,13 @@
           "default": "desc"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2483,8 +2132,7 @@
         },
         "assignee": {
           "type": "string",
-          "required": true,
-          "description": "Login for the user that this issue should be assigned to."
+          "required": true
         }
       }
     },
@@ -2506,8 +2154,7 @@
         },
         "assignees": {
           "type": "string[]",
-          "required": true,
-          "description": "Logins for the users that should be added to the issue."
+          "required": true
         }
       }
     },
@@ -2553,19 +2200,13 @@
           "required": true
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2587,7 +2228,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
           "enum": [
             "created",
             "updated"
@@ -2596,7 +2236,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -2604,19 +2243,13 @@
           "default": "desc"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2730,14 +2363,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2755,14 +2384,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2798,14 +2423,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -2846,8 +2467,7 @@
         },
         "color": {
           "type": "string",
-          "required": true,
-          "description": "6 character hex code, without a leading #."
+          "required": true
         }
       }
     },
@@ -2865,18 +2485,15 @@
         },
         "oldname": {
           "type": "string",
-          "required": true,
-          "description": "The old name of the label."
+          "required": true
         },
         "name": {
           "type": "string",
-          "required": true,
-          "description": "The new name of the label."
+          "required": true
         },
         "color": {
           "type": "string",
-          "required": true,
-          "description": "6 character hex code, without a leading #."
+          "required": true
         }
       }
     },
@@ -2980,7 +2597,6 @@
         "labels": {
           "type": "string[]",
           "required": true,
-          "description": "Sending an empty array ([]) will remove all Labels from the Issue.",
           "mapTo": "input"
         }
       }
@@ -3035,7 +2651,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -3045,8 +2660,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "due_on, completeness, default: due_on",
           "enum": [
             "due_on",
             "completeness"
@@ -3055,7 +2668,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -3063,14 +2675,10 @@
           "default": "asc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3111,7 +2719,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -3120,13 +2727,10 @@
           "default": "open"
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "due_on": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         }
       }
     },
@@ -3152,7 +2756,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -3161,13 +2764,10 @@
           "default": "open"
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "due_on": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         }
       }
     },
@@ -3209,14 +2809,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3236,19 +2832,14 @@
         },
         "repositories": {
           "type": "string[]",
-          "required": true,
-          "description": "A list of arrays indicating which repositories should be migrated."
+          "required": true
         },
         "lock_repositories": {
           "type": "boolean",
-          "required": false,
-          "description": "Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false.",
           "default": "false"
         },
         "exclude_attachments": {
           "type": "boolean",
-          "required": false,
-          "description": "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false.",
           "default": "false"
         }
       }
@@ -3265,14 +2856,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3366,13 +2953,10 @@
         },
         "vcs_url": {
           "type": "string",
-          "required": true,
-          "description": "The URL of the originating repository."
+          "required": true
         },
         "vcs": {
           "type": "string",
-          "required": false,
-          "description": "The originating VCS type. Please be aware that without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.",
           "enum": [
             "subversion",
             "git",
@@ -3381,19 +2965,13 @@
           ]
         },
         "vcs_username": {
-          "type": "string",
-          "required": false,
-          "description": "If authentication is required, the username to provide to vcs_url."
+          "type": "string"
         },
         "vcs_password": {
-          "type": "string",
-          "required": false,
-          "description": "If authentication is required, the password to provide to vcs_url."
+          "type": "string"
         },
         "tfvc_project": {
-          "type": "string",
-          "required": false,
-          "description": "For a tfvc import, the name of the project that is being imported."
+          "type": "string"
         }
       }
     },
@@ -3430,14 +3008,10 @@
           "required": true
         },
         "vcs_username": {
-          "type": "string",
-          "required": false,
-          "description": "The username to provide to the originating repository."
+          "type": "string"
         },
         "vcs_password": {
-          "type": "string",
-          "required": false,
-          "description": "The password to provide to the originating repository."
+          "type": "string"
         }
       }
     },
@@ -3457,9 +3031,7 @@
           "required": true
         },
         "since": {
-          "type": "string",
-          "required": false,
-          "description": "Only authors found after this id are returned. Provide the highest author ID you've seen so far. New authors may be added to the list at any point while the importer is performing the raw step."
+          "type": "string"
         }
       }
     },
@@ -3480,18 +3052,13 @@
         },
         "author_id": {
           "type": "string",
-          "required": true,
-          "description": "The commit author id."
+          "required": true
         },
         "email": {
-          "type": "string",
-          "required": false,
-          "description": "The new Git author email."
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": false,
-          "description": "The new Git author name."
+          "type": "string"
         }
       }
     },
@@ -3512,8 +3079,7 @@
         },
         "use_lfs": {
           "type": "string",
-          "required": true,
-          "description": "Can be one of `opt_in` (large files will be stored using Git LFS) or `opt_out` (large files will be removed during the import)."
+          "required": true
         }
       }
     },
@@ -3570,8 +3136,7 @@
       "params": {
         "key": {
           "type": "string",
-          "required": true,
-          "description": "Ex: contributor_covenant"
+          "required": true
         }
       }
     },
@@ -3608,8 +3173,7 @@
       "params": {
         "name": {
           "type": "string",
-          "required": true,
-          "description": "The name of the .gitignore template to get e.g. 'C'"
+          "required": true
         }
       }
     },
@@ -3630,8 +3194,7 @@
       "params": {
         "license": {
           "type": "string",
-          "required": true,
-          "description": "Ex: /licenses/mit"
+          "required": true
         }
       }
     },
@@ -3658,13 +3221,10 @@
       "params": {
         "text": {
           "type": "string",
-          "required": true,
-          "description": "The Markdown text to render"
+          "required": true
         },
         "mode": {
           "type": "string",
-          "required": false,
-          "description": "The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.",
           "enum": [
             "markdown",
             "gfm"
@@ -3672,9 +3232,7 @@
           "default": "markdown"
         },
         "context": {
-          "type": "string",
-          "required": false,
-          "description": "The repository context. Only taken into account when rendering as `gfm`"
+          "type": "string"
         }
       }
     },
@@ -3688,7 +3246,6 @@
         "data": {
           "type": "string",
           "required": true,
-          "description": "Raw data to send as the body of the request",
           "mapTo": "input"
         }
       }
@@ -3714,14 +3271,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3735,39 +3288,25 @@
           "required": true
         },
         "billing_email": {
-          "type": "string",
-          "required": false,
-          "description": "Billing email address. This address is not publicized."
+          "type": "string"
         },
         "company": {
-          "type": "string",
-          "required": false,
-          "description": "The company name."
+          "type": "string"
         },
         "email": {
-          "type": "string",
-          "required": false,
-          "description": "The publicly visible email address."
+          "type": "string"
         },
         "location": {
-          "type": "string",
-          "required": false,
-          "description": "The location."
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": false,
-          "description": "The shorthand name of the company."
+          "type": "string"
         },
         "description": {
-          "type": "string",
-          "required": false,
-          "description": "The description of the company."
+          "type": "string"
         },
         "default_repository_permission": {
           "type": "string",
-          "required": false,
-          "description": "Default permission level members have for organization repositories.",
           "enum": [
             "read",
             "write",
@@ -3778,8 +3317,6 @@
         },
         "members_can_create_repositories": {
           "type": "boolean",
-          "required": false,
-          "description": "Toggles ability of non-admin organization members to create repositories.",
           "default": true
         }
       }
@@ -3789,19 +3326,13 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "string",
-          "required": false,
-          "description": "The integer ID of the last Organization that you've seen."
+          "type": "string"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3815,14 +3346,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3837,8 +3364,6 @@
         },
         "filter": {
           "type": "string",
-          "required": false,
-          "description": "Filter members returned in the list.",
           "enum": [
             "all",
             "2fa_disabled"
@@ -3847,8 +3372,6 @@
         },
         "role": {
           "type": "string",
-          "required": false,
-          "description": "Filter members returned by their role.",
           "enum": [
             "all",
             "admin",
@@ -3857,14 +3380,10 @@
           "default": "all"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -3978,7 +3497,6 @@
         "role": {
           "type": "string",
           "required": true,
-          "description": "The role to give the user in the organization.",
           "enum": [
             "admin",
             "member"
@@ -4021,8 +3539,6 @@
         },
         "filter": {
           "type": "string",
-          "required": false,
-          "description": "Filter the list of outside collaborators.",
           "enum": [
             "all",
             "2fa_disabled"
@@ -4030,14 +3546,10 @@
           "default": "all"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4082,14 +3594,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4123,24 +3631,16 @@
           "required": true
         },
         "description": {
-          "type": "string",
-          "required": false,
-          "description": "The description of the team."
+          "type": "string"
         },
         "maintainers": {
-          "type": "string[]",
-          "required": false,
-          "description": "The logins of organization members to add as maintainers of the team."
+          "type": "string[]"
         },
         "repo_names": {
-          "type": "string[]",
-          "required": false,
-          "description": "The full name (e.g., \"organization-name/repository-name\") of repositories to add the team to."
+          "type": "string[]"
         },
         "privacy": {
           "type": "string",
-          "required": false,
-          "description": "The level of privacy this team should have.",
           "enum": [
             "secret",
             "closed"
@@ -4148,9 +3648,7 @@
           "default": "secret"
         },
         "parent_team_id": {
-          "type": "string",
-          "required": false,
-          "description": "The ID of a team to set as the parent team."
+          "type": "string"
         }
       }
     },
@@ -4170,14 +3668,10 @@
           "required": true
         },
         "description": {
-          "type": "string",
-          "required": false,
-          "description": "The description of the team."
+          "type": "string"
         },
         "privacy": {
           "type": "string",
-          "required": false,
-          "description": "The level of privacy this team should have.",
           "enum": [
             "secret",
             "closed"
@@ -4185,9 +3679,7 @@
           "default": "secret"
         },
         "parent_team_id": {
-          "type": "string",
-          "required": false,
-          "description": "The ID of a team to set as the parent team."
+          "type": "string"
         }
       }
     },
@@ -4217,8 +3709,6 @@
         },
         "role": {
           "type": "string",
-          "required": false,
-          "description": "Filters members returned by their role in the team.",
           "enum": [
             "member",
             "maintainer",
@@ -4227,14 +3717,10 @@
           "default": "all"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4251,14 +3737,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4297,8 +3779,6 @@
         },
         "role": {
           "type": "string",
-          "required": false,
-          "description": "The role that this user should have in the team.",
           "enum": [
             "member",
             "maintainer"
@@ -4336,14 +3816,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4357,14 +3833,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4411,8 +3883,6 @@
         },
         "permission": {
           "type": "string",
-          "required": false,
-          "description": "`pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository.",
           "enum": [
             "pull",
             "push",
@@ -4451,14 +3921,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4487,24 +3953,18 @@
         },
         "name": {
           "type": "string",
-          "required": true,
-          "description": "Must be passed as \"web\"."
+          "required": true
         },
         "config": {
           "type": "json",
-          "required": true,
-          "description": "Key/value pairs to provide settings for this webhook"
+          "required": true
         },
         "events": {
           "type": "string[]",
-          "required": false,
-          "description": "Determines what events the hook is triggered for. Default: [\"push\"].",
           "default": "[\"push\"]"
         },
         "active": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines whether the hook is actually triggered on pushes."
+          "type": "boolean"
         }
       }
     },
@@ -4522,19 +3982,14 @@
         },
         "config": {
           "type": "json",
-          "required": true,
-          "description": "Key/value pairs to provide settings for this webhook"
+          "required": true
         },
         "events": {
           "type": "string[]",
-          "required": false,
-          "description": "Determines what events the hook is triggered for. Default: [\"push\"].",
           "default": "[\"push\"]"
         },
         "active": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines whether the hook is actually triggered on pushes."
+          "type": "boolean"
         }
       }
     },
@@ -4578,14 +4033,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -4660,7 +4111,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -4683,7 +4133,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -4726,8 +4175,7 @@
           "required": true
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         }
       }
     },
@@ -4747,8 +4195,7 @@
           "required": true
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         }
       }
     },
@@ -4768,12 +4215,10 @@
           "required": true
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -4834,19 +4279,13 @@
           "required": true
         },
         "note": {
-          "type": "string",
-          "required": false,
-          "description": "The note of the card."
+          "type": "string"
         },
         "content_id": {
-          "type": "string",
-          "required": false,
-          "description": "The id of the Issue or Pull Request to associate with this card."
+          "type": "string"
         },
         "content_type": {
-          "type": "string",
-          "required": false,
-          "description": "The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'."
+          "type": "string"
         }
       }
     },
@@ -4862,9 +4301,7 @@
           "required": true
         },
         "note": {
-          "type": "string",
-          "required": false,
-          "description": "The note of the card."
+          "type": "string"
         }
       }
     },
@@ -4895,13 +4332,10 @@
         "position": {
           "type": "string",
           "required": true,
-          "validation": "^(top|bottom|after:\\d+)$",
-          "description": "Can be one of top, bottom, or after:<card-id>, where <card-id> is the id value of a card in the same project."
+          "validation": "^(top|bottom|after:\\d+)$"
         },
         "column_id": {
-          "type": "string",
-          "required": false,
-          "description": "The id value of a column in the same project."
+          "type": "string"
         }
       }
     },
@@ -4992,8 +4426,7 @@
         "position": {
           "type": "string",
           "required": true,
-          "validation": "^(first|last|after:\\d+)$",
-          "description": "Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project."
+          "validation": "^(first|last|after:\\d+)$"
         }
       }
     }
@@ -5031,18 +4464,15 @@
         },
         "issue": {
           "type": "number",
-          "required": true,
-          "description": "The issue number in this repository to turn into a Pull Request."
+          "required": true
         },
         "head": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) where your changes are implemented."
+          "required": true
         },
         "base": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+          "required": true
         }
       }
     },
@@ -5063,34 +4493,24 @@
           "required": true
         },
         "title": {
-          "type": "string",
-          "required": false,
-          "description": "The title of the pull request."
+          "type": "string"
         },
         "body": {
-          "type": "string",
-          "required": false,
-          "description": "The contents of the pull request."
+          "type": "string"
         },
         "state": {
           "type": "string",
-          "required": false,
-          "description": "open or closed",
           "enum": [
             "open",
             "closed"
           ]
         },
         "base": {
-          "type": "string",
-          "required": false,
-          "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+          "type": "string"
         },
         "maintainer_can_modify": {
           "type": "boolean",
-          "required": false,
-          "default": "true",
-          "description": "Indicates whether maintainers can modify the pull request."
+          "default": "true"
         }
       }
     },
@@ -5114,24 +4534,16 @@
           "required": true
         },
         "commit_title": {
-          "type": "string",
-          "required": false,
-          "description": "Title for the automatic commit message. (In preview period. See README.)"
+          "type": "string"
         },
         "commit_message": {
-          "type": "string",
-          "required": false,
-          "description": "Extra detail to append to automatic commit message."
+          "type": "string"
         },
         "sha": {
-          "type": "string",
-          "required": false,
-          "description": "SHA that pull request head must match to allow merge"
+          "type": "string"
         },
         "merge_method": {
           "type": "string",
-          "required": false,
-          "description": "Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)",
           "enum": [
             "merge",
             "squash",
@@ -5155,7 +4567,6 @@
         },
         "state": {
           "type": "string",
-          "required": false,
           "enum": [
             "open",
             "closed",
@@ -5164,19 +4575,13 @@
           "default": "open"
         },
         "head": {
-          "type": "string",
-          "required": false,
-          "description": "Filter pulls by head user and branch name in the format of user:ref-name. Example: github:new-script-format."
+          "type": "string"
         },
         "base": {
-          "type": "string",
-          "required": false,
-          "description": "Filter pulls by base branch name. Example: gh-pages."
+          "type": "string"
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "Possible values are: `created`, `updated`, `popularity`, `long-running`, Default: `created`",
           "enum": [
             "created",
             "updated",
@@ -5187,7 +4592,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -5195,14 +4599,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5221,18 +4621,15 @@
         },
         "issue": {
           "type": "number",
-          "required": true,
-          "description": "The issue number in this repository to turn into a Pull Request."
+          "required": true
         },
         "head": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) where your changes are implemented."
+          "required": true
         },
         "base": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+          "required": true
         }
       }
     },
@@ -5253,14 +4650,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5282,14 +4675,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5314,14 +4703,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5343,14 +4728,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5420,14 +4801,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5449,19 +4826,13 @@
           "required": true
         },
         "commit_id": {
-          "type": "string",
-          "required": false,
-          "description": "Sha of the commit to comment on."
+          "type": "string"
         },
         "body": {
-          "type": "string",
-          "required": false,
-          "description": "The body text of the pull request review."
+          "type": "string"
         },
         "event": {
           "type": "string",
-          "required": false,
-          "description": "The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.",
           "enum": [
             "APPROVE",
             "REQUEST_CHANGES",
@@ -5471,9 +4842,7 @@
           "default": "PENDING"
         },
         "comments": {
-          "type": "string[]",
-          "required": false,
-          "description": "An array of draft review comment objects. Draft review comments must include a `path`, `position`, and `body`."
+          "type": "string[]"
         }
       }
     },
@@ -5498,14 +4867,10 @@
           "required": true
         },
         "body": {
-          "type": "string",
-          "required": false,
-          "description": "The body text of the pull request review."
+          "type": "string"
         },
         "event": {
           "type": "string",
-          "required": false,
-          "description": "The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.",
           "enum": [
             "APPROVE",
             "REQUEST_CHANGES",
@@ -5537,19 +4902,13 @@
           "required": true
         },
         "message": {
-          "type": "string",
-          "required": false,
-          "description": "The message for the pull request review dismissal."
+          "type": "string"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5574,14 +4933,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5603,8 +4958,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "Possible values are: `created`, `updated`, Default: `created`",
           "enum": [
             "created",
             "updated"
@@ -5613,7 +4966,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -5621,19 +4973,13 @@
           "default": "desc"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5684,8 +5030,7 @@
         },
         "in_reply_to": {
           "type": "number",
-          "required": true,
-          "description": "The comment id to reply to."
+          "required": true
         }
       }
     },
@@ -5714,8 +5059,7 @@
         },
         "in_reply_to": {
           "type": "number",
-          "required": true,
-          "description": "The comment id to reply to."
+          "required": true
         }
       }
     },
@@ -5785,14 +5129,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -5817,14 +5157,10 @@
           "required": true
         },
         "reviewers": {
-          "type": "string[]",
-          "required": false,
-          "description": "An array of user logins that will be requested."
+          "type": "string[]"
         },
         "team_reviewers": {
-          "type": "string[]",
-          "required": false,
-          "description": "An array of team slugs that will be requested."
+          "type": "string[]"
         }
       }
     },
@@ -5848,14 +5184,10 @@
           "required": true
         },
         "reviewers": {
-          "type": "string[]",
-          "required": false,
-          "description": "An array of user logins that will be requested."
+          "type": "string[]"
         },
         "team_reviewers": {
-          "type": "string[]",
-          "required": false,
-          "description": "An array of team slugs that will be requested."
+          "type": "string[]"
         }
       }
     }
@@ -5895,8 +5227,6 @@
         },
         "content": {
           "type": "string",
-          "required": false,
-          "description": "Indicates which type of reaction to return.",
           "enum": [
             "+1",
             "-1",
@@ -5930,7 +5260,6 @@
         "content": {
           "type": "string",
           "required": true,
-          "description": "The reaction type.",
           "enum": [
             "+1",
             "-1",
@@ -5963,8 +5292,6 @@
         },
         "content": {
           "type": "string",
-          "required": false,
-          "description": "Indicates which type of reaction to return.",
           "enum": [
             "+1",
             "-1",
@@ -5998,7 +5325,6 @@
         "content": {
           "type": "string",
           "required": true,
-          "description": "The reaction type.",
           "enum": [
             "+1",
             "-1",
@@ -6031,8 +5357,6 @@
         },
         "content": {
           "type": "string",
-          "required": false,
-          "description": "Indicates which type of reaction to return.",
           "enum": [
             "+1",
             "-1",
@@ -6066,7 +5390,6 @@
         "content": {
           "type": "string",
           "required": true,
-          "description": "The reaction type.",
           "enum": [
             "+1",
             "-1",
@@ -6099,8 +5422,6 @@
         },
         "content": {
           "type": "string",
-          "required": false,
-          "description": "Indicates which type of reaction to return.",
           "enum": [
             "+1",
             "-1",
@@ -6134,7 +5455,6 @@
         "content": {
           "type": "string",
           "required": true,
-          "description": "The reaction type.",
           "enum": [
             "+1",
             "-1",
@@ -6157,74 +5477,50 @@
           "required": true
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "homepage": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "private": {
           "type": "boolean",
-          "required": false,
-          "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.",
           "default": "false"
         },
         "has_issues": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable issues for this repository, false to disable them. Default is true.",
           "default": "true"
         },
         "has_projects": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable projects for this repository, false to disable them. Default is true.",
           "default": "true"
         },
         "has_wiki": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable the wiki for this repository, false to disable it. Default is true.",
           "default": "true"
         },
         "team_id": {
-          "type": "number",
-          "required": false,
-          "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+          "type": "number"
         },
         "auto_init": {
           "type": "boolean",
-          "required": false,
-          "description": "True to create an initial commit with empty README. Default is false",
           "default": "false"
         },
         "gitignore_template": {
-          "type": "string",
-          "required": false,
-          "description": "Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
+          "type": "string"
         },
         "license_template": {
-          "type": "string",
-          "required": false,
-          "description": "Desired LICENSE template to apply. Use the name of the template without the extension. For example, \"mit\" or \"mozilla\"."
+          "type": "string"
         },
         "allow_squash_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
           "default": "true"
         },
         "allow_merge_commit": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
           "default": "true"
         },
         "allow_rebase_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
           "default": "true"
         }
       }
@@ -6266,58 +5562,40 @@
           "required": true
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "homepage": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "private": {
           "type": "boolean",
-          "required": false,
-          "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.",
           "default": "false"
         },
         "has_issues": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable issues for this repository, false to disable them. Default is true.",
           "default": "true"
         },
         "has_projects": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable projects for this repository, false to disable them. Default is true.",
           "default": "true"
         },
         "has_wiki": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable the wiki for this repository, false to disable it. Default is true.",
           "default": "true"
         },
         "default_branch": {
-          "type": "string",
-          "required": false,
-          "description": "Updates the default branch for this repository."
+          "type": "string"
         },
         "allow_squash_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
           "default": "true"
         },
         "allow_merge_commit": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
           "default": "true"
         },
         "allow_rebase_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
           "default": "true"
         }
       }
@@ -6352,9 +5630,7 @@
           "required": true
         },
         "organization": {
-          "type": "string",
-          "required": false,
-          "description": "Optional parameter to specify the organization name if forking into an organization."
+          "type": "string"
         }
       }
     },
@@ -6372,18 +5648,14 @@
         },
         "base": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+          "required": true
         },
         "head": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) where your changes are implemented."
+          "required": true
         },
         "commit_message": {
-          "type": "string",
-          "required": false,
-          "description": "Commit message to use for the merge commit. If omitted, a default message will be used."
+          "type": "string"
         }
       }
     },
@@ -6393,8 +5665,6 @@
       "params": {
         "visibility": {
           "type": "string",
-          "required": false,
-          "description": "Can be one of `all`, `public`, or `private`. Default: `all`.",
           "enum": [
             "all",
             "public",
@@ -6404,14 +5674,10 @@
         },
         "affiliation": {
           "type": "string",
-          "required": false,
-          "description": "Comma-separated list of values. Can include: `owner`, `collaborator`, `organization_member`.",
           "default": "owner,collaborator,organization_member"
         },
         "type": {
           "type": "string",
-          "required": false,
-          "description": "Possible values: `all`, `owner`, `public`, `private`, `member`. Default: `all`.",
           "enum": [
             "all",
             "owner",
@@ -6423,8 +5689,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
           "enum": [
             "created",
             "updated",
@@ -6435,7 +5699,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -6443,14 +5706,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6465,8 +5724,6 @@
         },
         "type": {
           "type": "string",
-          "required": false,
-          "description": "Possible values: `all`, `owner`, `member`. Default: `owner`.",
           "enum": [
             "all",
             "owner",
@@ -6476,8 +5733,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "Possible values: `created`, `updated`, `pushed`, `full_name`. Default: `full_name`.",
           "enum": [
             "created",
             "updated",
@@ -6488,7 +5743,6 @@
         },
         "direction": {
           "type": "string",
-          "required": false,
           "enum": [
             "asc",
             "desc"
@@ -6496,14 +5750,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6518,8 +5768,6 @@
         },
         "type": {
           "type": "string",
-          "required": false,
-          "description": "Possible values: `all`, `public`, `private`, `forks`, `sources`, `member`. Default: `all`.",
           "enum": [
             "all",
             "public",
@@ -6531,14 +5779,10 @@
           "default": "all"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6548,19 +5792,13 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "string",
-          "required": false,
-          "description": "The integer ID of the last Repository that you've seen."
+          "type": "string"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6578,74 +5816,50 @@
           "required": true
         },
         "description": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "homepage": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "private": {
           "type": "boolean",
-          "required": false,
-          "description": "True to create a private repository, false to create a public one. Creating private repositories requires a paid GitHub account. Default is false.",
           "default": "false"
         },
         "has_issues": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable issues for this repository, false to disable them. Default is true.",
           "default": "true"
         },
         "has_projects": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable projects for this repository, false to disable them. Default is true.",
           "default": "true"
         },
         "has_wiki": {
           "type": "boolean",
-          "required": false,
-          "description": "True to enable the wiki for this repository, false to disable it. Default is true.",
           "default": "true"
         },
         "team_id": {
-          "type": "number",
-          "required": false,
-          "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+          "type": "number"
         },
         "auto_init": {
           "type": "boolean",
-          "required": false,
-          "description": "True to create an initial commit with empty README. Default is false",
           "default": "false"
         },
         "gitignore_template": {
-          "type": "string",
-          "required": false,
-          "description": "Desired language or platform .gitignore template to apply. Ignored if auto_init parameter is not provided."
+          "type": "string"
         },
         "license_template": {
-          "type": "string",
-          "required": false,
-          "description": "Desired LICENSE template to apply. Use the name of the template without the extension. For example, \"mit\" or \"mozilla\"."
+          "type": "string"
         },
         "allow_squash_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow squash-merging pull requests, or false to prevent squash-merging. Default: true. (In preview period. See README.)",
           "default": "true"
         },
         "allow_merge_commit": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)",
           "default": "true"
         },
         "allow_rebase_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Either true to allow rebase-merging pull requests, or false to prevent rebase-merging. Default: true. (In preview period. See README.)",
           "default": "true"
         }
       }
@@ -6676,14 +5890,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6705,8 +5915,7 @@
         },
         "names": {
           "type": "string[]",
-          "required": true,
-          "description": "An array of topics to add to the repository. Pass one or more topics to replace the set of existing topics. Send an empty array ([]) to clear all topics from the repository."
+          "required": true
         }
       }
     },
@@ -6723,19 +5932,13 @@
           "required": true
         },
         "anon": {
-          "type": "boolean",
-          "required": false,
-          "description": "Set to 1 or true to include anonymous contributors in results."
+          "type": "boolean"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6753,14 +5956,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6778,14 +5977,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6803,14 +5998,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6828,19 +6019,13 @@
           "required": true
         },
         "protected": {
-          "type": "boolean",
-          "required": false,
-          "description": "Set to true to only return protected branches"
+          "type": "boolean"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6862,14 +6047,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6891,14 +6072,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6922,42 +6099,32 @@
         "required_status_checks": {
           "type": "json",
           "required": true,
-          "allow-null": true,
-          "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators, `strict` - Require branches to be up to date before merging, `contexts` - The list of status checks to require in order to merge into this branch. This object can have the value of `null` for disabled."
+          "allow-null": true
         },
         "required_pull_request_reviews": {
           "type": "json",
           "required": true,
-          "allow-null": true,
-          "description": "JSON object that contains the following keys: `include_admins` - Enforce required status checks for repository administrators."
+          "allow-null": true
         },
         "dismissal_restrictions": {
           "type": "json",
-          "required": false,
-          "allow-null": true,
-          "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
+          "allow-null": true
         },
         "restrictions": {
           "type": "json",
           "required": true,
-          "allow-null": true,
-          "description": "JSON object that contains the following keys: `users` - The list of user logins with push access, `teams` - The list of team slugs with push access. This object can have the value of `null` for disabled."
+          "allow-null": true
         },
         "enforce_admins": {
           "type": "boolean",
           "required": true,
-          "allow-null": false,
-          "description": "Enforces required status checks for repository administrators."
+          "allow-null": false
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -6997,14 +6164,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7026,14 +6189,10 @@
           "required": true
         },
         "strict": {
-          "type": "boolean",
-          "required": false,
-          "description": "Require branches to be up to date before merging."
+          "type": "boolean"
         },
         "contexts": {
-          "type": "string[]",
-          "required": false,
-          "description": "The list of status checks to require in order to merge into this branch."
+          "type": "string[]"
         }
       }
     },
@@ -7072,14 +6231,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7103,7 +6258,6 @@
         "contexts": {
           "type": "string[]",
           "required": true,
-          "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).",
           "mapTo": "input"
         }
       }
@@ -7127,7 +6281,6 @@
         "contexts": {
           "type": "string[]",
           "required": true,
-          "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).",
           "mapTo": "input"
         }
       }
@@ -7151,7 +6304,6 @@
         "contexts": {
           "type": "string[]",
           "required": true,
-          "description": "An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).",
           "mapTo": "input"
         }
       }
@@ -7173,14 +6325,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7203,19 +6351,13 @@
         },
         "dismissal_restrictions": {
           "type": "json",
-          "required": false,
-          "allow-null": true,
-          "description": "JSON object that contains the following keys: `users` - The list of user logins with dismissal access, `teams` - The list of team slugs with dismissal access. This object can have the value of `null` for disabled."
+          "allow-null": true
         },
         "dismiss_stale_reviews": {
-          "type": "boolean",
-          "required": false,
-          "description": "Dismiss approved reviews automatically when a new commit is pushed."
+          "type": "boolean"
         },
         "require_code_owner_reviews": {
-          "type": "boolean",
-          "required": false,
-          "description": "Blocks merge until code owners have reviewed."
+          "type": "boolean"
         }
       }
     },
@@ -7254,14 +6396,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7283,14 +6421,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7330,14 +6464,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7377,14 +6507,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7408,7 +6534,6 @@
         "teams": {
           "type": "string[]",
           "required": true,
-          "description": "An array of team slugs (e.g. justice-league).",
           "mapTo": "input"
         }
       }
@@ -7432,7 +6557,6 @@
         "teams": {
           "type": "string[]",
           "required": true,
-          "description": "An array of team slugs (e.g. justice-league).",
           "mapTo": "input"
         }
       }
@@ -7456,7 +6580,6 @@
         "teams": {
           "type": "string[]",
           "required": true,
-          "description": "An array of team slugs (e.g. justice-league).",
           "mapTo": "input"
         }
       }
@@ -7478,14 +6601,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7509,7 +6628,6 @@
         "users": {
           "type": "string[]",
           "required": true,
-          "description": "An array of team slugs (e.g. justice-league).",
           "mapTo": "input"
         }
       }
@@ -7533,7 +6651,6 @@
         "users": {
           "type": "string[]",
           "required": true,
-          "description": "An array of team slugs (e.g. justice-league).",
           "mapTo": "input"
         }
       }
@@ -7557,7 +6674,6 @@
         "users": {
           "type": "string[]",
           "required": true,
-          "description": "An array of team slugs (e.g. justice-league).",
           "mapTo": "input"
         }
       }
@@ -7576,8 +6692,6 @@
         },
         "affiliation": {
           "type": "string",
-          "required": false,
-          "description": "Filter collaborators returned by their affiliation.",
           "enum": [
             "outside",
             "all",
@@ -7586,14 +6700,10 @@
           "default": "all"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7652,8 +6762,6 @@
         },
         "permission": {
           "type": "string",
-          "required": false,
-          "description": "`pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.",
           "enum": [
             "pull",
             "push",
@@ -7694,14 +6802,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7723,14 +6827,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7756,14 +6856,10 @@
           "required": true
         },
         "path": {
-          "type": "string",
-          "required": false,
-          "description": "Relative path of the file to comment on."
+          "type": "string"
         },
         "position": {
-          "type": "number",
-          "required": false,
-          "description": "Line index in the diff to comment on."
+          "type": "number"
         }
       }
     },
@@ -7855,39 +6951,25 @@
           "required": true
         },
         "sha": {
-          "type": "string",
-          "required": false,
-          "description": "Sha or branch to start listing commits from."
+          "type": "string"
         },
         "path": {
-          "type": "string",
-          "required": false,
-          "description": "Only commits containing this file path will be returned."
+          "type": "string"
         },
         "author": {
-          "type": "string",
-          "required": false,
-          "description": "GitHub login or email address by which to filter by commit author."
+          "type": "string"
         },
         "since": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "until": {
-          "type": "date",
-          "required": false,
-          "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
+          "type": "date"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -7928,8 +7010,7 @@
         "ref": {
           "type": "string",
           "required": true,
-          "allow-empty": true,
-          "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
+          "allow-empty": true
         }
       }
     },
@@ -7947,13 +7028,11 @@
         },
         "base": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
+          "required": true
         },
         "head": {
           "type": "string",
-          "required": true,
-          "description": "The branch (or git ref) where your changes are implemented."
+          "required": true
         }
       }
     },
@@ -7970,9 +7049,7 @@
           "required": true
         },
         "ref": {
-          "type": "string",
-          "required": false,
-          "description": "The name of the commit/branch/tag. Default: the repository’s default branch (usually master)"
+          "type": "string"
         }
       }
     },
@@ -7991,13 +7068,10 @@
         "path": {
           "type": "string",
           "required": true,
-          "allow-empty": true,
-          "description": "The content path."
+          "allow-empty": true
         },
         "ref": {
-          "type": "string",
-          "required": false,
-          "description": "The String name of the Commit/Branch/Tag. Defaults to master."
+          "type": "string"
         }
       }
     },
@@ -8015,36 +7089,28 @@
         },
         "path": {
           "type": "string",
-          "required": true,
-          "description": "The content path."
+          "required": true
         },
         "message": {
           "type": "string",
-          "required": true,
-          "description": "The commit message."
+          "required": true
         },
         "content": {
           "type": "string",
-          "required": true,
-          "description": "The updated file content, Base64 encoded."
+          "required": true
         },
         "sha": {
           "type": "string",
-          "required": true,
-          "description": "The blob SHA of the file being replaced."
+          "required": true
         },
         "branch": {
-          "type": "string",
-          "required": false,
-          "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
+          "type": "string"
         },
         "committer": {
-          "type": "json",
-          "required": false
+          "type": "json"
         },
         "author": {
-          "type": "json",
-          "required": false
+          "type": "json"
         }
       }
     },
@@ -8062,36 +7128,28 @@
         },
         "path": {
           "type": "string",
-          "required": true,
-          "description": "The content path."
+          "required": true
         },
         "message": {
           "type": "string",
-          "required": true,
-          "description": "The commit message."
+          "required": true
         },
         "content": {
           "type": "string",
-          "required": true,
-          "description": "The updated file content, Base64 encoded."
+          "required": true
         },
         "sha": {
           "type": "string",
-          "required": true,
-          "description": "The blob SHA of the file being replaced."
+          "required": true
         },
         "branch": {
-          "type": "string",
-          "required": false,
-          "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
+          "type": "string"
         },
         "committer": {
-          "type": "json",
-          "required": false
+          "type": "json"
         },
         "author": {
-          "type": "json",
-          "required": false
+          "type": "json"
         }
       }
     },
@@ -8109,31 +7167,24 @@
         },
         "path": {
           "type": "string",
-          "required": true,
-          "description": "The content path."
+          "required": true
         },
         "message": {
           "type": "string",
-          "required": true,
-          "description": "The commit message."
+          "required": true
         },
         "sha": {
           "type": "string",
-          "required": true,
-          "description": "The blob SHA of the file being removed."
+          "required": true
         },
         "branch": {
-          "type": "string",
-          "required": false,
-          "description": "The branch name. If not provided, uses the repository’s default branch (usually master)."
+          "type": "string"
         },
         "committer": {
-          "type": "json",
-          "required": false
+          "type": "json"
         },
         "author": {
-          "type": "json",
-          "required": false
+          "type": "json"
         }
       }
     },
@@ -8152,7 +7203,6 @@
         "archive_format": {
           "type": "string",
           "required": true,
-          "description": "Either tarball or zipball, Deafult: tarball.",
           "enum": [
             "tarball",
             "zipball"
@@ -8160,9 +7210,7 @@
           "default": "tarball"
         },
         "ref": {
-          "type": "string",
-          "required": false,
-          "description": "A valid Git reference. Default: the repository’s default branch (usually master)."
+          "type": "string"
         }
       }
     },
@@ -8179,14 +7227,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8230,9 +7274,7 @@
           "required": true
         },
         "read_only": {
-          "type": "boolean",
-          "required": false,
-          "description": "If true, the key will only be able to read repository contents. Otherwise, the key will be able to read and write."
+          "type": "boolean"
         }
       }
     },
@@ -8271,37 +7313,25 @@
         },
         "sha": {
           "type": "string",
-          "required": false,
-          "description": "The short or long sha that was recorded at creation time. Default: none.",
           "default": "none"
         },
         "ref": {
           "type": "string",
-          "required": false,
-          "description": "The name of the ref. This can be a branch, tag, or sha. Default: none.",
           "default": "none"
         },
         "task": {
           "type": "string",
-          "required": false,
-          "description": "The name of the task for the deployment. e.g. deploy or deploy:migrations. Default: none.",
           "default": "none"
         },
         "environment": {
           "type": "string",
-          "required": false,
-          "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none.",
           "default": "none"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8320,8 +7350,7 @@
         },
         "deployment_id": {
           "type": "string",
-          "required": true,
-          "description": "The deployment id."
+          "required": true
         }
       }
     },
@@ -8342,54 +7371,37 @@
         },
         "ref": {
           "type": "string",
-          "required": true,
-          "description": "The ref to deploy. This can be a branch, tag, or sha."
+          "required": true
         },
         "task": {
           "type": "string",
-          "required": false,
-          "description": "The named task to execute. e.g. deploy or deploy:migrations. Default: deploy",
           "default": "deploy"
         },
         "auto_merge": {
           "type": "boolean",
-          "required": false,
-          "description": "Optional parameter to merge the default branch into the requested ref if it is behind the default branch. Default: true",
           "default": "true"
         },
         "required_contexts": {
-          "type": "string[]",
-          "required": false,
-          "description": "Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts."
+          "type": "string[]"
         },
         "payload": {
           "type": "string",
-          "required": false,
-          "description": "Optional JSON payload with extra information about the deployment. Default: \"\"",
           "default": "\"\""
         },
         "environment": {
           "type": "string",
-          "required": false,
-          "description": "The name of the environment that was deployed to. e.g. staging or production. Default: none.",
           "default": "none"
         },
         "description": {
           "type": "string",
-          "required": false,
-          "description": "Optional short description. Default: \"\"",
           "default": "\"\""
         },
         "transient_environment": {
           "type": "boolean",
-          "required": false,
-          "description": "Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: false. (In preview period. See README.)",
           "default": false
         },
         "production_environment": {
-          "type": "boolean",
-          "required": false,
-          "description": "Specifies if the given environment is a one that end-users directly interact with. Default: true when environment is `production` and false otherwise. (In preview period. See README.)"
+          "type": "boolean"
         }
       }
     },
@@ -8428,13 +7440,11 @@
         },
         "id": {
           "type": "string",
-          "required": true,
-          "description": "The Deployment ID to list the statuses from."
+          "required": true
         },
         "status_id": {
           "type": "string",
-          "required": true,
-          "description": "The Deployment Status ID."
+          "required": true
         }
       }
     },
@@ -8458,38 +7468,26 @@
           "required": true
         },
         "state": {
-          "type": "string",
-          "required": false,
-          "description": "The state of the status. Can be one of pending, success, error, or failure."
+          "type": "string"
         },
         "target_url": {
           "type": "string",
-          "required": false,
-          "description": "The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. Default: \"\"",
           "default": "\"\""
         },
         "log_url": {
           "type": "string",
-          "required": false,
-          "description": "Functionally equivalent to target_url. Default: \"\". (In preview period. See README.)",
           "default": "\"\""
         },
         "description": {
           "type": "string",
-          "required": false,
-          "description": "A short description of the status. Default: \"\"",
           "default": "\"\""
         },
         "environment_url": {
           "type": "string",
-          "required": false,
-          "description": "URL for accessing the deployment environment. Default: \"\". (In preview period. See README.)",
           "default": "\"\""
         },
         "auto_inactive": {
           "type": "boolean",
-          "required": false,
-          "description": "When true the new `inactive` status is added to all other non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. Default: true. (In preview period. See README.)",
           "default": true
         }
       }
@@ -8507,14 +7505,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8569,8 +7563,6 @@
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "Possible values: `newest`, `oldest`, `stargazers`, default: `newest`.",
           "enum": [
             "newest",
             "oldest",
@@ -8579,14 +7571,10 @@
           "default": "newest"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8641,8 +7629,6 @@
         },
         "permissions": {
           "type": "string",
-          "required": false,
-          "description": "The permissions that the associated user will have on the repository.",
           "enum": [
             "read",
             "write",
@@ -8667,14 +7653,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8712,14 +7694,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8775,14 +7753,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -8833,8 +7807,7 @@
         },
         "tag": {
           "type": "string",
-          "required": true,
-          "description": "String of the tag"
+          "required": true
         }
       }
     },
@@ -8852,30 +7825,23 @@
         },
         "tag_name": {
           "type": "string",
-          "required": true,
-          "description": "String of the tag"
+          "required": true
         },
         "target_commitish": {
-          "type": "string",
-          "required": false,
-          "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "draft": {
           "type": "boolean",
-          "description": "true to create a draft (unpublished) release, false to create a published one. Default: false",
           "default": "false"
         },
         "prerelease": {
           "type": "boolean",
-          "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false",
           "default": "false"
         }
       }
@@ -8898,32 +7864,23 @@
         },
         "tag_name": {
           "type": "string",
-          "required": true,
-          "description": "String of the tag"
+          "required": true
         },
         "target_commitish": {
-          "type": "string",
-          "required": false,
-          "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually master)."
+          "type": "string"
         },
         "name": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "body": {
-          "type": "string",
-          "required": false
+          "type": "string"
         },
         "draft": {
           "type": "boolean",
-          "required": false,
-          "description": "true to create a draft (unpublished) release, false to create a published one. Default: false",
           "default": "false"
         },
         "prerelease": {
           "type": "boolean",
-          "required": false,
-          "description": "true to identify the release as a prerelease. false to identify the release as a full release. Default: false",
           "default": "false"
         }
       }
@@ -8973,36 +7930,29 @@
       "params": {
         "url": {
           "type": "string",
-          "required": true,
-          "description": "This endpoint makes use of a Hypermedia relation (https://developer.github.com/v3/#hypermedia) to determine which URL to access. This endpoint is provided by a URI template in the release's API response (https://developer.github.com/v3/repos/releases/#get-a-single-release). You need to use an HTTP client which supports SNI (https://en.wikipedia.org/wiki/Server_Name_Indication) to make calls to this endpoint."
+          "required": true
         },
         "file": {
           "type": "object",
           "required": true,
-          "description": "A file read stream, a String or a Buffer.",
           "mapTo": "input"
         },
         "contentType": {
           "type": "string",
           "required": true,
-          "description": "The content type of the asset. This should be set in the Header. Example: 'application/zip'. For a list of acceptable types, refer this list of media types (https://www.iana.org/assignments/media-types/media-types.xhtml)",
           "mapTo": "headers.content-type"
         },
         "contentLength": {
           "type": "number",
           "required": true,
-          "description": "File size in bytes.",
           "mapTo": "headers.content-length"
         },
         "name": {
           "type": "string",
-          "required": true,
-          "description": "The file name of the asset. This should be set in a URI query parameter."
+          "required": true
         },
         "label": {
-          "type": "string",
-          "required": false,
-          "description": "An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter."
+          "type": "string"
         }
       }
     },
@@ -9045,9 +7995,7 @@
           "required": true
         },
         "label": {
-          "type": "string",
-          "required": false,
-          "description": "An alternate short description of the asset. Used in place of the filename."
+          "type": "string"
         }
       }
     },
@@ -9158,7 +8106,6 @@
         "state": {
           "type": "string",
           "required": true,
-          "description": "State of the status - can be one of pending, success, error, or failure.",
           "enum": [
             "pending",
             "success",
@@ -9167,19 +8114,13 @@
           ]
         },
         "target_url": {
-          "type": "string",
-          "required": false,
-          "description": "Target url to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the ‘source’ of the Status."
+          "type": "string"
         },
         "description": {
-          "type": "string",
-          "required": false,
-          "description": "Short description of the status."
+          "type": "string"
         },
         "context": {
-          "type": "string",
-          "required": false,
-          "description": "A string label to differentiate this status from the status of other systems."
+          "type": "string"
         }
       }
     },
@@ -9197,18 +8138,13 @@
         },
         "ref": {
           "type": "string",
-          "required": true,
-          "description": "Ref to list the statuses from. It can be a SHA, a branch name, or a tag name."
+          "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9227,18 +8163,13 @@
         },
         "ref": {
           "type": "string",
-          "required": true,
-          "description": "Ref to fetch the status for. It can be a SHA, a branch name, or a tag name."
+          "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9256,14 +8187,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9281,14 +8208,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9306,14 +8229,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9331,14 +8250,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9356,14 +8271,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9404,19 +8315,14 @@
         },
         "config": {
           "type": "json",
-          "required": true,
-          "description": "A Hash containing key/value pairs to provide settings for this hook. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
+          "required": true
         },
         "events": {
           "type": "string[]",
-          "required": false,
-          "description": "Determines what events the hook is triggered for. Default: `['push']`.",
           "default": "[\"push\"]"
         },
         "active": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines whether the hook is actually triggered on pushes."
+          "type": "boolean"
         }
       }
     },
@@ -9442,29 +8348,20 @@
         },
         "config": {
           "type": "json",
-          "required": true,
-          "description": "A Hash containing key/value pairs to provide settings for this hook. Modifying this will replace the entire config object. These settings vary between the services and are defined in the github-services repo. Booleans are stored internally as `1` for true, and `0` for false. Any JSON true/false values will be converted automatically."
+          "required": true
         },
         "events": {
           "type": "string[]",
-          "required": false,
-          "description": "Determines what events the hook is triggered for. This replaces the entire array of events. Default: `['push']`.",
           "default": "[\"push\"]"
         },
         "add_events": {
-          "type": "string[]",
-          "required": false,
-          "description": "Determines a list of events to be added to the list of events that the Hook triggers for."
+          "type": "string[]"
         },
         "remove_events": {
-          "type": "string[]",
-          "required": false,
-          "description": "Determines a list of events to be removed from the list of events that the Hook triggers for."
+          "type": "string[]"
         },
         "active": {
-          "type": "boolean",
-          "required": false,
-          "description": "Determines whether the hook is actually triggered on pushes."
+          "type": "boolean"
         }
       }
     },
@@ -9533,13 +8430,10 @@
       "params": {
         "q": {
           "type": "string",
-          "required": true,
-          "description": "Search Term"
+          "required": true
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "stars, forks, or updated",
           "enum": [
             "stars",
             "forks",
@@ -9548,8 +8442,6 @@
         },
         "order": {
           "type": "string",
-          "required": false,
-          "description": "asc or desc",
           "enum": [
             "asc",
             "desc"
@@ -9557,14 +8449,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9575,21 +8463,16 @@
       "params": {
         "q": {
           "type": "string",
-          "required": true,
-          "description": "Search Term"
+          "required": true
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "The sort field. Can only be indexed, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: results are sorted by best match.",
           "enum": [
             "indexed"
           ]
         },
         "order": {
           "type": "string",
-          "required": false,
-          "description": "asc or desc",
           "enum": [
             "asc",
             "desc"
@@ -9597,14 +8480,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9618,13 +8497,10 @@
       "params": {
         "q": {
           "type": "string",
-          "required": true,
-          "description": "Search Term"
+          "required": true
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "The sort field. Can be author-date or committer-date. Default: best match.",
           "enum": [
             "author-date",
             "committer-date"
@@ -9632,8 +8508,6 @@
         },
         "order": {
           "type": "string",
-          "required": false,
-          "description": "asc or desc",
           "enum": [
             "asc",
             "desc"
@@ -9641,14 +8515,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9659,13 +8529,10 @@
       "params": {
         "q": {
           "type": "string",
-          "required": true,
-          "description": "Search Term"
+          "required": true
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match.",
           "enum": [
             "comments",
             "created",
@@ -9674,8 +8541,6 @@
         },
         "order": {
           "type": "string",
-          "required": false,
-          "description": "asc or desc",
           "enum": [
             "asc",
             "desc"
@@ -9683,14 +8548,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9701,13 +8562,10 @@
       "params": {
         "q": {
           "type": "string",
-          "required": true,
-          "description": "Search Term"
+          "required": true
         },
         "sort": {
           "type": "string",
-          "required": false,
-          "description": "The sort field. Can be followers, repositories, or joined. Default: results are sorted by best match.",
           "enum": [
             "followers",
             "repositories",
@@ -9716,8 +8574,6 @@
         },
         "order": {
           "type": "string",
-          "required": false,
-          "description": "asc or desc",
           "enum": [
             "asc",
             "desc"
@@ -9725,14 +8581,10 @@
           "default": "desc"
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9743,8 +8595,7 @@
       "params": {
         "email": {
           "type": "string",
-          "required": true,
-          "description": "The email address"
+          "required": true
         }
       }
     }
@@ -9760,39 +8611,25 @@
       "method": "PATCH",
       "params": {
         "name": {
-          "type": "string",
-          "required": false,
-          "description": "The new name of the user"
+          "type": "string"
         },
         "email": {
-          "type": "string",
-          "required": false,
-          "description": "Publicly visible email address."
+          "type": "string"
         },
         "blog": {
-          "type": "string",
-          "required": false,
-          "description": "The new blog URL of the user."
+          "type": "string"
         },
         "company": {
-          "type": "string",
-          "required": false,
-          "description": "The new company of the user."
+          "type": "string"
         },
         "location": {
-          "type": "string",
-          "required": false,
-          "description": "The new location of the user."
+          "type": "string"
         },
         "hireable": {
-          "type": "boolean",
-          "required": false,
-          "description": "The new hiring availability of the user."
+          "type": "boolean"
         },
         "bio": {
-          "type": "string",
-          "required": false,
-          "description": "The new short biography of the user."
+          "type": "string"
         }
       }
     },
@@ -9861,9 +8698,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "number",
-          "required": false,
-          "description": "The integer ID of the last User that you’ve seen."
+          "type": "number"
         }
       }
     },
@@ -9872,14 +8707,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9890,8 +8721,6 @@
       "params": {
         "state": {
           "type": "string",
-          "required": false,
-          "description": "Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned.",
           "enum": [
             "active",
             "pending"
@@ -9920,7 +8749,6 @@
         "state": {
           "type": "string",
           "required": true,
-          "description": "The state that the membership should be in. Only \"active\" will be accepted.",
           "enum": [
             "active"
           ]
@@ -9935,14 +8763,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9952,14 +8776,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9969,14 +8789,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -9988,7 +8804,6 @@
         "emails": {
           "type": "string[]",
           "required": true,
-          "description": "You can post a single email address or an array of addresses.",
           "mapTo": "input"
         }
       }
@@ -10000,7 +8815,6 @@
         "emails": {
           "type": "string[]",
           "required": true,
-          "description": "You can post a single email address or an array of addresses.",
           "mapTo": "input"
         }
       }
@@ -10019,14 +8833,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10036,14 +8846,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10057,14 +8863,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10074,14 +8876,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10139,14 +8937,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10156,14 +8950,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10214,14 +9004,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10234,14 +9020,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10268,8 +9050,7 @@
       "params": {
         "armored_public_key": {
           "type": "string",
-          "required": true,
-          "description": "GPG key contents"
+          "required": true
         }
       }
     },
@@ -10366,14 +9147,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10387,14 +9164,10 @@
           "required": true
         },
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10441,14 +9214,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10461,14 +9230,10 @@
       },
       "params": {
         "page": {
-          "type": "number",
-          "required": false,
-          "description": "Page number of the results to fetch."
+          "type": "number"
         },
         "per_page": {
           "type": "number",
-          "required": false,
-          "description": "A custom page size up to 100. Default is 30.",
           "default": "30"
         }
       }
@@ -10482,7 +9247,6 @@
         "type": {
           "type": "string",
           "required": true,
-          "description": "Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.",
           "enum": [
             "issues",
             "hooks",
@@ -10509,8 +9273,7 @@
         },
         "ldap_dn": {
           "type": "string",
-          "required": true,
-          "description": "LDAP DN for user"
+          "required": true
         }
       }
     },
@@ -10534,8 +9297,7 @@
         },
         "ldap_dn": {
           "type": "string",
-          "required": true,
-          "description": "LDAP DN for user"
+          "required": true
         }
       }
     },
@@ -10584,13 +9346,11 @@
       "params": {
         "name": {
           "type": "string",
-          "required": true,
-          "description": "The new pre-receive environment's name."
+          "required": true
         },
         "image_url": {
           "type": "string",
-          "required": true,
-          "description": "URL from which to download a tarball of this environment."
+          "required": true
         }
       }
     },
@@ -10604,13 +9364,11 @@
         },
         "name": {
           "type": "string",
-          "required": true,
-          "description": "This pre-receive environment's new name."
+          "required": true
         },
         "image_url": {
           "type": "string",
-          "required": true,
-          "description": "URL from which to download a tarball of this environment."
+          "required": true
         }
       }
     },
@@ -10680,34 +9438,26 @@
       "params": {
         "name": {
           "type": "string",
-          "required": true,
-          "description": "The name of the hook."
+          "required": true
         },
         "script": {
           "type": "string",
-          "required": true,
-          "description": "The script that the hook runs."
+          "required": true
         },
         "script_repository": {
           "type": "json",
-          "required": true,
-          "description": "The GitHub repository where the script is kept."
+          "required": true
         },
         "environment": {
           "type": "json",
-          "required": true,
-          "description": "The pre-receive environment where the script is executed."
+          "required": true
         },
         "enforcement": {
           "type": "string",
-          "required": false,
-          "description": "The state of enforcement for this hook. default: disabled",
           "default": "disabled"
         },
         "allow_downstream_configuration": {
           "type": "boolean",
-          "required": false,
-          "description": "Whether enforcement can be overridden at the org or repo level. default: false",
           "default": "false"
         }
       }
@@ -10723,7 +9473,6 @@
         "hook": {
           "type": "json",
           "required": true,
-          "description": "JSON object that contains pre-receive hook info.",
           "mapTo": "input"
         }
       }
@@ -10744,8 +9493,7 @@
       "params": {
         "target": {
           "type": "string",
-          "required": true,
-          "description": "A string representing the item to index."
+          "required": true
         }
       }
     },
@@ -10755,18 +9503,14 @@
       "params": {
         "login": {
           "type": "string",
-          "required": true,
-          "description": "The organization's username."
+          "required": true
         },
         "admin": {
           "type": "string",
-          "required": true,
-          "description": "The login of the user who will manage this organization."
+          "required": true
         },
         "profile_name": {
-          "type": "string",
-          "required": false,
-          "description": "The organization's display name."
+          "type": "string"
         }
       }
     }
