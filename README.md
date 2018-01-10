@@ -186,7 +186,7 @@ For updates on endpoints under preview, see https://developer.github.com/changes
 ## Credits
 
 `@octokit/rest` was originally created as `node-github` in 2012 by Mike de Boer from Cloud9 IDE, Inc.
-It was renamed adopted by GitHub in 2017
+It was adopted and renamed by GitHub in 2017
 
 ## LICENSE
 
