@@ -1,4 +1,4 @@
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })
@@ -20,7 +20,7 @@ function getAllOrgRepos (orgName) {
     .then(pager)
 }
 
-getAllOrgRepos('github')
+getAllOrgRepos('@octokit/rest')
   .then((orgRepos) => {
     // orgRepos is array of all repositories meta data
   })

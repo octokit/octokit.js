@@ -1,4 +1,4 @@
-const GithubApi = require('github')
+const GithubApi = require('@octokit/rest')
 
 const github1 = new GithubApi()
 const github2 = new GithubApi()

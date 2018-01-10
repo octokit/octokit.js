@@ -1,5 +1,5 @@
 const fs = require('fs')
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true,
   host: 'github.my-ghe-enabled-company.com',

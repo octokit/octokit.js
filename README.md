@@ -12,7 +12,7 @@
 <!-- HEADS UP: when changing the options for the constructor, make sure to also
      update the type definition templates in scripts/templates/* -->
 ```js
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 
 var github = new GitHubApi({
     // optional
