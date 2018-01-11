@@ -16,7 +16,7 @@ examplesPaths.forEach(runExample)
 
 function runExample (name, i) {
   proxyquire(`../examples/${name}`, {
-    'github': function (options) {
+    '@octokit/rest': function (options) {
       if (!options) options = {}
       options.debug = false
       const github = new GitHubApi(options)

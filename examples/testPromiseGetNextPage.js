@@ -1,7 +1,6 @@
 'use strict'
 
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
@@ -11,14 +10,14 @@ function getAllOrgRepos (orgName) {
   function pager (result) {
     repos = repos.concat(result.data)
 
-    if (github.hasNextPage(result)) {
-      return github.getNextPage(result).then(pager)
+    if (octokit.hasNextPage(result)) {
+      return octokit.getNextPage(result).then(pager)
     }
 
     return repos
   }
 
-  return github.repos.getForOrg({ org: orgName })
+  return octokit.repos.getForOrg({ org: orgName })
     .then(pager)
 }
 

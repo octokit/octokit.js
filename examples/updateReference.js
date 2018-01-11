@@ -1,14 +1,13 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.authenticate({
+octokit.authenticate({
   type: 'oauth',
   token: 'add-your-real-token-here'
 })
 
-github.gitdata.updateReference({
+octokit.gitdata.updateReference({
   owner: 'octokit',
   repo: 'rest.js',
   ref: 'heads/master',

@@ -1,6 +1,5 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.users.getById({ id: '429706' })
+octokit.users.getById({ id: '429706' })

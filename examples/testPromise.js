@@ -1,13 +1,11 @@
-const GithubApi = require('@octokit/rest')
-
-var github = new GithubApi({
-  debug: false
+const octokit = require('@octokit/rest')({
+  debug: true
 })
 
-github.orgs.getAll({
+octokit.orgs.getAll({
   page: 5,
   per_page: 100
 }).then(function (res) {
-  return github.users.getById({ id: '429706' })
+  return octokit.users.getById({ id: '429706' })
 }).then(function (res) {
 })

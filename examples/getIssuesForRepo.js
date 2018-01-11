@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: false
 })
 
-github.issues.getForRepo({
+octokit.issues.getForRepo({
   owner: 'octokit',
   repo: 'rest.js'
 })

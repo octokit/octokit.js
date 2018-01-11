@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.orgs.getAll({
+octokit.orgs.getAll({
   page: 5,
   per_page: 100
 })

@@ -1,6 +1,5 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.activity.getStarredRepos({per_page: 100})
+octokit.activity.getStarredRepos({per_page: 100})

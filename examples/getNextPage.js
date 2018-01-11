@@ -1,17 +1,16 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.repos.getAll({
+octokit.repos.getAll({
   owner: 'octokit',
   repo: 'rest.js',
   affiliation: 'owner,organization_member'
 })
 
 .then(result => {
-  if (github.hasNextPage(result)) {
-    return github.getNextPage(result)
+  if (octokit.hasNextPage(result)) {
+    return octokit.getNextPage(result)
 
     .then(handleResults)
   }

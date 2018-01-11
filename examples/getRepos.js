@@ -1,13 +1,12 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.authenticate({
+octokit.authenticate({
   type: 'oauth',
   token: 'add-your-real-token-here'
 })
 
-github.repos.getAll({
+octokit.repos.getAll({
   'affiliation': 'owner,organization_member'
 })

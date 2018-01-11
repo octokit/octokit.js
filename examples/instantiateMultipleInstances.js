@@ -1,14 +1,14 @@
-const GithubApi = require('@octokit/rest')
+const Octokit = require('@octokit/rest')
 
-const github1 = new GithubApi()
-const github2 = new GithubApi()
+const octokit1 = new Octokit()
+const octokit2 = new Octokit()
 
-github1.authenticate({
+octokit1.authenticate({
   type: 'oauth',
   token: 'add-a-real-token-here'
 })
 
-github2.authenticate({
+octokit2.authenticate({
   type: 'oauth',
   token: 'add-a-different-token-here'
 })

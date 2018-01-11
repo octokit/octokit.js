@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.pullRequests.getReviews({
+octokit.pullRequests.getReviews({
   owner: 'octokit',
   repo: 'rest.js',
   number: 640
@@ -12,7 +11,7 @@ github.pullRequests.getReviews({
 .then(result => {
   const firstReviewId = result.data[0].id
 
-  return github.pullRequests.getReview({
+  return octokit.pullRequests.getReview({
     owner: 'octokit',
     repo: 'rest.js',
     number: 640,

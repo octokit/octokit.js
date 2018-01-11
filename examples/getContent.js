@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.repos.getContent({
+octokit.repos.getContent({
   owner: 'octokit',
   repo: 'rest.js',
   path: ''
