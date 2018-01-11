@@ -6,7 +6,7 @@ require('dotenv').config()
 const glob = require('glob')
 const proxyquire = require('proxyquire').noCallThru()
 
-const GitHubApi = require('../lib')
+const GitHubApi = require('../')
 
 const examplesPaths = glob.sync('*.js', {
   cwd: pathResolve(process.cwd(), 'examples')
@@ -46,7 +46,7 @@ process.on('unhandledRejection', (error) => {
     return
   }
 
-  if (/getaddrinfo ENOTFOUND github.my-GHE-enabled-company.com/.test(error.message)) {
+  if (/getaddrinfo ENOTFOUND github.my-ghe-enabled-company.com/.test(error.message)) {
     // expected error from enterpriseUploadAsset, ignore
     return
   }
