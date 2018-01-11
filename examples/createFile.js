@@ -1,4 +1,4 @@
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })
@@ -10,7 +10,7 @@ github.authenticate({
 
 github.repos.createFile({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   path: 'blah.txt',
   message: 'blah blah',
   content: 'YmxlZXAgYmxvb3A=' // base64-encoded "bleep bloop"
