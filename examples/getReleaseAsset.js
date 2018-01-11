@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.repos.getReleases({
+octokit.repos.getReleases({
   owner: 'octokit',
   repo: 'rest.js'
 })
@@ -16,7 +15,7 @@ github.repos.getReleases({
 
   // get id of first release
   const firstRelease = result.data.pop()
-  return github.repos.getAssets({
+  return octokit.repos.getAssets({
     owner: 'octokit',
     repo: 'rest.js',
     id: firstRelease.id
@@ -31,7 +30,7 @@ github.repos.getReleases({
 
   // get id of first asset
   const assetId = result.data[0].id
-  return github.repos.getAsset({
+  return octokit.repos.getAsset({
     owner: 'octokit',
     repo: 'rest.js',
     id: assetId

@@ -1,5 +1,4 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
@@ -7,7 +6,7 @@ const customHeaders = {
   'User-Agent': 'blah'
 }
 
-github.issues.getForRepo({
+octokit.issues.getForRepo({
   owner: 'octokit',
   repo: 'rest.js',
   headers: customHeaders

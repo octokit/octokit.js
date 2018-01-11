@@ -1,10 +1,9 @@
 const assert = require('assert')
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.orgs.get({
+octokit.orgs.get({
   org: 'octokit'
 }).then(result => {
   // result.data looks like https://developer.github.com/v3/orgs/#response-3

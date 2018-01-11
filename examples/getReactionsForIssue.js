@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.reactions.getForIssue({
+octokit.reactions.getForIssue({
   owner: 'octokit',
   repo: 'rest.js',
   number: '365'

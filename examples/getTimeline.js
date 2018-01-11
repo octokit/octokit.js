@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.issues.getEventsTimeline({
+octokit.issues.getEventsTimeline({
   owner: 'octokit',
   repo: 'rest.js',
   issue_number: '447'

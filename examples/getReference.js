@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.gitdata.getReference({
+octokit.gitdata.getReference({
   owner: 'octokit',
   repo: 'rest.js',
   ref: 'heads/master'

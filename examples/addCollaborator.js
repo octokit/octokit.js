@@ -1,14 +1,13 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.authenticate({
+octokit.authenticate({
   type: 'oauth',
   token: 'add-your-real-token-here'
 })
 
-github.repos.addCollaborator({
+octokit.repos.addCollaborator({
   owner: 'octokit',
   repo: 'rest.js',
   username: 'defunkt'

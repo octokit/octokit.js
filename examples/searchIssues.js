@@ -1,8 +1,7 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.search.issues({
+octokit.search.issues({
   q: 'bazinga'
 })

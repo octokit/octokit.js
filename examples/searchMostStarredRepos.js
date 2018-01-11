@@ -1,9 +1,8 @@
-const GitHubApi = require('@octokit/rest')
-const github = new GitHubApi({
+const octokit = require('@octokit/rest')({
   debug: true
 })
 
-github.search.repos({
+octokit.search.repos({
   q: 'stars:>=20000',
   sort: 'stars',
   order: 'desc'
