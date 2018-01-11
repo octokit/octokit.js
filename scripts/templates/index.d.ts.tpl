@@ -9,7 +9,7 @@ declare namespace Github {
     data: any
 
     /** Request metadata */
-    meta:{ 
+    meta:{
       'x-ratelimit-limit': string,
       'x-ratelimit-remaining': string,
       'x-ratelimit-reset': string,
@@ -18,7 +18,7 @@ declare namespace Github {
       link: string,
       'last-modified': string,
       etag: string,
-      status: string  
+      status: string
     }
   }
 

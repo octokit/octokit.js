@@ -1,69 +1,26 @@
-#!/usr/bin/env node
-/** section: github, internal
- * class ApiGenerator
- *
- *    Copyright 2012 Cloud9 IDE, Inc.
- *
- *    This product includes software developed by
- *    Cloud9 IDE, Inc (http://c9.io).
- *
- *    Author: Mike de Boer <mike@c9.io>
- **/
+module.exports = generateTypes
 
-'use strict'
+const {readFileSync, writeFileSync} = require('fs')
+const {join: pathJoin} = require('path')
 
-var fs = require('fs')
-var pathJoin = require('path').join
+const debug = require('debug')('octokit:rest')
+const Mustache = require('mustache')
+const upperFirst = require('lodash/upperFirst')
+const camelcase = require('lodash/camelcase')
 
-var debug = require('debug')('node-github')
-var Mustache = require('mustache')
+const ROUTES = require('../lib/routes.json')
 
-var typeMap = {
-  Json: 'string',
-  String: 'string',
-  Number: 'number',
-  Boolean: 'boolean'
+const typeMap = {
+  Json: 'string'
 }
 
-// XXX: maybe a better idea to update routes.json to include array value types.
-function replaceArrayTypes (type, name) {
-  switch (name) {
-    case 'scopes':
-    case 'add_scopes':
-    case 'remove_scopes':
-    case 'parents':
-    case 'assignees':
-    case 'repositories':
-    case 'repo_names':
-    case 'events':
-    case 'add_events':
-    case 'remove_events':
-    case 'contexts':
-    case 'required_contexts':
-    case 'maintainers':
-    case 'reviewers':
-    case 'team_reviewers':
-    case 'comments':
-    case 'labels':
-    case 'teams':
-    case 'users':
-    case 'names':
-    case 'emails':
-      if (type === 'Array') {
-        return 'string[]'
-      }
-  }
-  return type
-}
-
-function paramData (key, definition) {
+function parameterize (key, definition) {
   if (definition === null) {
     return {}
   }
 
-  var typeName = typeMap[definition.type] || definition.type
-  var type = replaceArrayTypes(typeName, key)
-  var enums = definition.enum
+  const type = typeMap[definition.type] || definition.type
+  const enums = definition.enum
         ? definition.enum.map(JSON.stringify).join('|')
         : null
 
@@ -75,18 +32,8 @@ function paramData (key, definition) {
   }
 }
 
-function capitalize (string) {
-  return string.charAt(0).toUpperCase().concat(string.slice(1))
-}
-
-function camelcase (string) {
-  return string.replace(/(?:-|_)([a-z])/g, function (_, character) {
-    return capitalize(character)
-  })
-}
-
 function pascalcase (string) {
-  return capitalize(camelcase(string))
+  return upperFirst(camelcase(string))
 }
 
 function isGlobalParam (name) {
@@ -98,57 +45,40 @@ function isLocalParam (name) {
 }
 
 function entries (object) {
-  return Object.keys(object).map(function (key) {
-    return [key, object[key]]
-  })
+  return Object.keys(object).map((key) => [key, object[key]])
 }
 
-function combineParamData (params, entry) {
-  return params.concat(paramData.apply(null, entry))
+function toCombineParams (params, entry) {
+  return params.concat(parameterize.apply(null, entry))
 }
 
-module.exports = function (languageName, templateFile, outputFile) {
-  var templatePath = pathJoin(__dirname, 'templates', templateFile)
-  var template = fs.readFileSync(templatePath, 'utf8')
+function generateTypes (languageName, templateFile, outputFile) {
+  const templatePath = pathJoin(__dirname, 'templates', templateFile)
+  const template = readFileSync(templatePath, 'utf8')
 
-    // check routes path
-  var routes = require('../lib/routes')
-  var definitions = require('../lib/definitions')
-  if (!definitions) {
-    debug('No routes defined.', 'fatal')
-    process.exit(1)
-  }
+  debug(`Generating ${languageName} types...`)
 
-  var requestHeaders = definitions['request-headers']
+  const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
+    const methods = entries(ROUTES[namespace]).reduce((methods, entry) => {
+      const unionTypeNames = Object.keys(entry[1].params)
+        .filter(isGlobalParam)
+        .reduce((params, name) => {
+          return params.concat(pascalcase(name.slice(1)))
+        }, [])
 
-  debug('Generating ' + languageName + ' types...')
+      const ownParams = entries(entry[1].params)
+        .filter((entry) => isLocalParam(entry[0]))
+        .reduce(toCombineParams, [])
 
-  var params = entries(definitions.params).reduce(combineParamData, [])
+      const hasParams = unionTypeNames.length > 0 || ownParams.length > 0
 
-  var namespaces = Object.keys(routes).reduce(function (namespaces, namespace) {
-    var methods = entries(routes[namespace]).reduce(function (methods, entry) {
-      var unionTypeNames = Object.keys(entry[1].params)
-                .filter(isGlobalParam)
-                .reduce(function (params, name) {
-                  return params.concat(pascalcase(name.slice(1)))
-                }, [])
-
-      var ownParams = entries(entry[1].params)
-                .filter(function (entry) { return isLocalParam(entry[0]) })
-                .reduce(combineParamData, [])
-
-      var hasParams = unionTypeNames.length > 0 || ownParams.length > 0
-
-      var paramTypeName = ''
-      if (!hasParams) {
-        paramTypeName = pascalcase('EmptyParams')
-      } else {
-        paramTypeName = pascalcase(namespace + '-' + entry[0] + 'Params')
-      }
+      let paramTypeName = hasParams
+        ? pascalcase(`${namespace}-${entry[0]}Params`)
+        : pascalcase('EmptyParams')
 
       return methods.concat({
         method: camelcase(entry[0]),
-        paramTypeName: paramTypeName,
+        paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
         exclude: !hasParams
@@ -157,17 +87,16 @@ module.exports = function (languageName, templateFile, outputFile) {
 
     return namespaces.concat({
       namespace: camelcase(namespace),
-      methods: methods
+      methods
     })
   }, [])
 
-  var body = Mustache.render(template, {
-    requestHeaders: requestHeaders.map(JSON.stringify),
-    params: params,
-    namespaces: namespaces
+  const body = Mustache.render(template, {
+    namespaces
   })
 
-  debug('Writing ' + languageName + ' declarations file')
+  const definitionFilePath = pathJoin(__dirname, '..', outputFile)
+  debug(`Writing ${languageName} declarations file to ${definitionFilePath}`)
 
-  fs.writeFileSync(pathJoin(__dirname, '..', 'lib', outputFile), body, 'utf8')
+  writeFileSync(definitionFilePath, body, 'utf8')
 }
