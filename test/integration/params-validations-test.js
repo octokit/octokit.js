@@ -55,6 +55,20 @@ describe('params validations', () => {
     })
   })
 
+  it('invalid value for github.projects.moveProjectCard({position})', () => {
+    const github = new GitHub()
+
+    return github.projects.moveProjectCard({id: 123, position: 'foo'})
+
+    .catch(error => {
+      error.toJSON().should.deep.equal({
+        code: '400',
+        message: 'Invalid value for parameter \'position\': foo',
+        status: 'Bad Request'
+      })
+    })
+  })
+
   it('Not a number for github.repos.createCommitComment({..., position})', () => {
     const github = new GitHub()
 
