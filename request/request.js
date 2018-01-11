@@ -9,7 +9,6 @@ const https = require('https')
 const _ = require('lodash')
 const debug = require('debug')('octokit:rest')
 const isStream = require('is-stream')
-const parseUrl = require('url').parse
 
 const errors = require('./errors')
 
