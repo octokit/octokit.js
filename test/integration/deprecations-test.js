@@ -22,6 +22,8 @@ describe('deprecations', () => {
     return github.integrations.getInstallations({})
 
     .then(() => {
+      console.warn.callCount.should.equal(2)
+
       simple.restore()
     })
   })
@@ -31,6 +33,7 @@ describe('deprecations', () => {
     GitHub({
       followRedirects: false
     })
+    console.warn.callCount.should.equal(1)
     simple.restore()
   })
 
@@ -39,6 +42,7 @@ describe('deprecations', () => {
     GitHub({
       Promise: {}
     })
+    console.warn.callCount.should.equal(1)
     simple.restore()
   })
 })
