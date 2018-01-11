@@ -1,8 +1,8 @@
 {
-  "name": "github",
+  "name": "@octokit/rest",
   "version": "0.0.0-development",
   "description": "GitHub REST API client for Node.js",
-  "author": "Mike de Boer <info@mikedeboer.nl>",
+  "author": "Gregor Martynus (https://github.com/gr2m)",
   "contributors": [
     {
       "name": "Mike de Boer",
@@ -21,11 +21,12 @@
       "url": "https://github.com/gr2m"
     }
   ],
-  "repository": "https://github.com/octokit/node-github",
+  "repository": "https://github.com/octokit/rest.js",
   "engines": {
     "node": ">=4"
   },
   "dependencies": {
+    "before-after-hook": "^1.1.0",
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
     "https-proxy-agent": "^2.1.0",
@@ -53,8 +54,7 @@
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2"
   },
-  "main": "lib",
-  "types": "lib/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
@@ -64,22 +64,17 @@
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
     "build:docs": "node scripts/generate-api-docs",
-    "postbuild:docs": "apidoc -i doc/ -o apidoc/",
+    "postbuild:docs": "apidoc -i doc/ -o doc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
-    "deploy-docs": "gh-pages-with-token -d apidoc",
-    "presemantic-release": "npm run -s build",
+    "deploy-docs": "gh-pages-with-token -d doc",
+    "prepublishOnly": "npm run -s build",
     "semantic-release": "semantic-release",
     "postpublish": "npm run -s deploy-docs"
   },
   "license": "MIT",
-  "licenses": [
-    {
-      "type": "The MIT License",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ],
   "files": [
+    "index.js",
     "lib"
   ],
   "apidoc": {
