@@ -1,5 +1,6 @@
 module.exports = validate
 
+const set = require('lodash/set')
 const errors = require('../../request/errors')
 
 function validate (endpointParams, options) {
@@ -56,7 +57,11 @@ function validate (endpointParams, options) {
       value = new Date(value)
     }
 
-    options[parameterName] = value
+    if (parameter.mapTo) {
+
+    }
+
+    set(options, parameter.mapTo || parameterName, value)
   })
 
   return options

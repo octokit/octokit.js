@@ -18,4 +18,5 @@ function addQueryParameters (url, parameters) {
 
       return `${name}=${encodeURIComponent(parameters[name])}`
     })
+    .join('&')
 }

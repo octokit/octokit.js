@@ -14,18 +14,13 @@ const PLUGINS = [
 ]
 
 function GitHubApi (options) {
-  const state = parseClientOptions(options)
-  const requestWithDefaults = request.defaults(state)
+  const defaults = defaultsDeep(parseClientOptions(options), ENDPOINT_DEFAULTS)
 
   const hook = new Hook()
   const api = {
     hook,
     plugin: (pluginFunction) => pluginFunction(api),
-    request: (options) => api.hook(
-      'request',
-      defaultsDeep(state, ENDPOINT_DEFAULTS),
-      requestWithDefaults
-    )
+    request: (options) => api.hook('request', defaultsDeep(options, defaults), request)
   }
 
   PLUGINS.forEach(api.plugin)

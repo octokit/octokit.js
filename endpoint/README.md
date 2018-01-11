@@ -24,7 +24,7 @@ const options = restEndpoint({
   org: 'octokit',
   type: 'private',
   per_page: 20,
-  page: 2,
+  page: 2
 })
 ```
 
@@ -35,7 +35,7 @@ const options = restEndpoint({
   method: 'GET',
   url: 'https://api.github.com/orgs/octokit/repos?type=private&per_page=20&page=2',
   headers: {
-    'user-agent': 'octokit/rest.js v1.2.3'
+    'user-agent': 'octokit/rest.js v1.2.3',
     accept: 'application/vnd.github.mercy-preview+json'
   }
 }

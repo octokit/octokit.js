@@ -44,7 +44,7 @@ function httpRequest (requestOptions) {
     requestOptions.headers['content-length'] = parseInt(requestOptions.headers['content-length'], 10)
   }
 
-  const reqModule = requestOptions.protocol === 'http' ? http : https
+  const reqModule = requestOptions.protocol === 'http:' ? http : https
   delete requestOptions.protocol
 
   return new Promise((resolve, reject) => {
@@ -64,7 +64,7 @@ function httpRequest (requestOptions) {
       })
       response.on('end', () => {
         if (response.statusCode >= 301 && response.statusCode <= 307) {
-          requestOptions.path = parseUrl(response.headers.location, true).path
+          requestOptions.url = response.headers.location
           httpRequest(requestOptions).then(resolve, reject)
           return
         }

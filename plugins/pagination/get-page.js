@@ -1,7 +1,5 @@
 module.exports = getPage
 
-const urlParse = require('url').parse
-
 const errors = require('../../request/errors')
 const getPageLinks = require('./get-page-links')
 const request = require('../../request/request')
@@ -22,22 +20,19 @@ function getPage (link, which, headers, callback) {
     return Promise.reject(urlError)
   }
 
-  const requestOptions = urlParse(url)
-  requestOptions.headers = applyAcceptHeader(link, headers)
-
-  if (callback) {
-    return request(requestOptions, callback)
+  const requestOptions = {
+    url,
+    headers: applyAcceptHeader(link, headers)
   }
 
-  return new Promise((resolve, reject) => {
-    request(requestOptions, (error, response) => {
-      if (error) {
-        return reject(error)
-      }
+  const promise = request(requestOptions)
 
-      resolve(response)
-    })
-  })
+  if (callback) {
+    promise.then(callback.bind(null, null), callback)
+    return
+  }
+
+  return promise
 }
 
 function applyAcceptHeader (res, headers) {

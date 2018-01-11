@@ -14,6 +14,11 @@ const DEFAULTS = {
   request: {}
 }
 
+const NON_PARAMETERS = [
+  'request',
+  'baseUrl'
+]
+
 function restEndpoint (defaults, options) {
   let {
     method,
@@ -26,23 +31,28 @@ function restEndpoint (defaults, options) {
 
   method = method.toLowerCase()
   headers = _.mapKeys(headers, (value, key) => key.toLowerCase())
+
   const result = parseUrlTemplate(url, remainingOptions)
-  url = DEFAULTS.baseUrl + result.url
+  url = result.url
+
+  if (!/^http/.test(result.url)) {
+    url = (options.baseUrl || defaults.baseUrl) + url
+  }
 
   if (result.variables.missing.length) {
     throw new Error(`Missing parameters: ${result.variables.missing.join(', ')}`)
   }
 
   const requestOptions = remainingOptions.request || {}
-  remainingOptions = _.omit(remainingOptions, result.variables.used.concat('request'))
+  remainingOptions = _.omit(remainingOptions, result.variables.used.concat(NON_PARAMETERS))
 
   if (method === 'get' || method === 'head') {
     url = addQueryParameters(url, remainingOptions)
   } else {
-    if (!/\bjson\b/.test(headers.accept)) {
+    if ('input' in remainingOptions) {
       body = remainingOptions.input
     } else {
-      body = 'input' in remainingOptions ? remainingOptions.input : remainingOptions
+      body = Object.keys(remainingOptions).length ? remainingOptions : undefined
     }
   }
 
@@ -57,8 +67,7 @@ function restEndpoint (defaults, options) {
 module.exports = restEndpoint.bind(null, DEFAULTS)
 module.exports.defaults = function defaults (options) {
   return restEndpoint.bind(null, _.defaultsDeep(
-    {},
-    _.pick(options, ['method, baseUrl, headers']),
+    _.pick(options, ['method', 'baseUrl', 'headers', 'request']),
     DEFAULTS
   ))
 }

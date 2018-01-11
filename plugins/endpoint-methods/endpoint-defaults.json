@@ -7099,10 +7099,6 @@
           "type": "string",
           "required": true
         },
-        "sha": {
-          "type": "string",
-          "required": true
-        },
         "branch": {
           "type": "string"
         },

@@ -12,7 +12,7 @@ function apiMethod (github, endpointDefaults, endpointParams, options, callback)
     .then(github.request)
 
   if (callback) {
-    promise.then(callback.bind(null, null)).catch(callback)
+    promise.then(callback.bind(null, null), callback)
     return
   }
 

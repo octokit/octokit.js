@@ -24,14 +24,14 @@ function authenticationBeforeRequest (state, options) {
     return
   }
 
-  options.path += options.path.indexOf('?') === -1 ? '?' : '&'
+  options.url += options.url.indexOf('?') === -1 ? '?' : '&'
 
   if (state.auth.token) {
-    options.path += `access_token=${encodeURIComponent(state.auth.token)}`
+    options.url += `access_token=${encodeURIComponent(state.auth.token)}`
     return
   }
 
   const key = encodeURIComponent(state.auth.key)
   const secret = encodeURIComponent(state.auth.secret)
-  options.path += `client_id=${key}&client_secret=${secret}`
+  options.url += `client_id=${key}&client_secret=${secret}`
 }
