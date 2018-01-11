@@ -30,7 +30,7 @@ describe('api.github.com', () => {
       username: 'octokit-fixture-user-b'
     })
 
-    .then((response) => {
+    .then(() => {
       return githubUserA.repos.getInvites({
         owner: 'octokit-fixture-org',
         repo: 'add-and-remove-repository-collaborator'
