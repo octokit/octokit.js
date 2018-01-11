@@ -1,7 +1,7 @@
-const Github = require('./../lib/index')
+const GithubApi = require('./../lib/index')
 
-const github1 = new Github()
-const github2 = new Github()
+const github1 = new GithubApi()
+const github2 = new GithubApi()
 
 github1.authenticate({
   type: 'oauth',
