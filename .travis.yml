@@ -19,6 +19,10 @@ branches:
 install:
   - travis_retry npm install
 
+script:
+  - npm test
+  - npm run test:examples
+
 after_success:
   - npm run coverage:upload
   - npm run semantic-release
