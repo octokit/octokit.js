@@ -1,4 +1,4 @@
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })
@@ -10,7 +10,7 @@ github.authenticate({
 
 github.issues.edit({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   number: 2,
   state: 'open'
 })

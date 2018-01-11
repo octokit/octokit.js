@@ -1,5 +1,5 @@
 const assert = require('assert')
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })

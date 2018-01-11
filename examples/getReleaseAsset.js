@@ -1,11 +1,11 @@
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })
 
 github.repos.getReleases({
   owner: 'octokit',
-  repo: 'node-github'
+  repo: 'rest.js'
 })
 
 .then(result => {
@@ -18,7 +18,7 @@ github.repos.getReleases({
   const firstRelease = result.data.pop()
   return github.repos.getAssets({
     owner: 'octokit',
-    repo: 'node-github',
+    repo: 'rest.js',
     id: firstRelease.id
   })
 })
@@ -33,7 +33,7 @@ github.repos.getReleases({
   const assetId = result.data[0].id
   return github.repos.getAsset({
     owner: 'octokit',
-    repo: 'node-github',
+    repo: 'rest.js',
     id: assetId
   })
 })

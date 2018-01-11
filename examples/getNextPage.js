@@ -1,11 +1,11 @@
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })
 
 github.repos.getAll({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   affiliation: 'owner,organization_member'
 })
 

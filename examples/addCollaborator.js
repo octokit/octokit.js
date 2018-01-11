@@ -1,4 +1,4 @@
-const GitHubApi = require('github')
+const GitHubApi = require('@octokit/rest')
 const github = new GitHubApi({
   debug: true
 })
@@ -10,6 +10,6 @@ github.authenticate({
 
 github.repos.addCollaborator({
   owner: 'octokit',
-  repo: 'node-github',
+  repo: 'rest.js',
   username: 'defunkt'
 })

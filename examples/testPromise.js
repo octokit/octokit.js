@@ -1,4 +1,4 @@
-const GithubApi = require('github')
+const GithubApi = require('@octokit/rest')
 
 var github = new GithubApi({
   debug: false
