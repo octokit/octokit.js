@@ -1,3 +1,8 @@
 #!/usr/bin/env node
 
-module.exports = require('./generate-types')('Flow', 'index.js.flow.tpl', 'index.js.flow')
+const generateTypes = require('./generate-types')
+module.exports = generateTypes(
+  'Flow',
+  'index.js.flow.tpl',
+  'index.js.flow'
+)
