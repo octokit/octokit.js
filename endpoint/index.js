@@ -1,3 +1,5 @@
+module.exports = restEndpoint
+
 const _ = require('lodash')
 const parseUrlTemplate = require('@octokit/rest-url-template')
 
@@ -13,13 +15,14 @@ const DEFAULTS = {
   },
   request: {}
 }
+module.exports.DEFAULTS = DEFAULTS
 
 const NON_PARAMETERS = [
   'request',
   'baseUrl'
 ]
 
-function restEndpoint (defaults, options) {
+function restEndpoint (options) {
   let {
     method,
     baseUrl,
@@ -27,7 +30,7 @@ function restEndpoint (defaults, options) {
     body,
     headers,
     ...remainingOptions
-  } = _.defaultsDeep({}, options, defaults)
+  } = _.defaultsDeep({}, options, DEFAULTS)
 
   method = method.toLowerCase()
   headers = _.mapKeys(headers, (value, key) => key.toLowerCase())
@@ -36,7 +39,7 @@ function restEndpoint (defaults, options) {
   url = result.url
 
   if (!/^http/.test(result.url)) {
-    url = (options.baseUrl || defaults.baseUrl) + url
+    url = (options.baseUrl || DEFAULTS.baseUrl) + url
   }
 
   if (result.variables.missing.length) {
@@ -63,12 +66,3 @@ function restEndpoint (defaults, options) {
     body
   })
 }
-
-module.exports = restEndpoint.bind(null, DEFAULTS)
-module.exports.defaults = function defaults (options) {
-  return restEndpoint.bind(null, _.defaultsDeep(
-    _.pick(options, ['method', 'baseUrl', 'headers', 'request']),
-    DEFAULTS
-  ))
-}
-module.exports.DEFAULTS = DEFAULTS
