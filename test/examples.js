@@ -14,15 +14,15 @@ const examplesPaths = glob.sync('*.js', {
 
 examplesPaths.forEach(runExample)
 
-function runExample (name) {
+function runExample (name, i) {
   proxyquire(`../examples/${name}`, {
     'github': function (options) {
       if (!options) options = {}
       options.debug = false
       const github = new GitHubApi(options)
 
-      // set a EXAMPLES_GITHUB_TOKEN environment variable to avoid
-      // running against GitHub's rate limiting
+        // set a EXAMPLES_GITHUB_TOKEN environment variable to avoid
+        // running against GitHub's rate limiting
       if (process.env.EXAMPLES_GITHUB_TOKEN) {
         github.authenticate({
           type: 'token',
