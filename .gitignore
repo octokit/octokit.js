@@ -8,27 +8,8 @@ coverage
 node_modules
 
 # type definitions are generated before publish
-lib/index.d.ts
-lib/index.js.flow
+index.d.ts
+index.js.flow
 
 # API DOCs are generated before publish
 doc/
-
-logs
-*.log
-npm-debug.log*
-
-*.orig
-
-.settings.xml
-.settings
-
-.c9revisions
-.DS_Store
-.idea
-
-testAuth.json
-
-apidoc/
-
-tsconfig.json
