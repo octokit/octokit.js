@@ -4,13 +4,13 @@ const defaultsDeep = require('lodash/defaultsDeep')
 const Hook = require('before-after-hook')
 
 const parseClientOptions = require('./lib/parse-client-options')
-const request = require('./request')
-const ENDPOINT_DEFAULTS = require('./endpoint').DEFAULTS
+const request = require('./lib/request')
+const ENDPOINT_DEFAULTS = require('./lib/endpoint').DEFAULTS
 
 const PLUGINS = [
-  require('./plugins/authentication'),
-  require('./plugins/endpoint-methods'),
-  require('./plugins/pagination')
+  require('./lib/plugins/authentication'),
+  require('./lib/plugins/endpoint-methods'),
+  require('./lib/plugins/pagination')
 ]
 
 function GitHubApi (options) {
@@ -18,6 +18,8 @@ function GitHubApi (options) {
 
   const hook = new Hook()
   const api = {
+    // NOTE: github.hook, github.plugin and github.request are experimental APIs
+    //       at this point and can change at any time
     hook,
     plugin: (pluginFunction) => pluginFunction(api),
     request: (options) => api.hook('request', defaultsDeep(options, defaults), request)

@@ -26,7 +26,7 @@
     "node": ">=4"
   },
   "dependencies": {
-    "@octokit/rest-url-template": "github:gr2m/octokit-rest-url-template",
+    "@octokit/rest-url-template": "github:gr2m/octokit-rest-url-template#initial-version",
     "before-after-hook": "^1.0.1",
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",

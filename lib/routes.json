@@ -8814,9 +8814,6 @@
     "uploadAsset": {
       "method": "POST",
       "url": ":url",
-      "request": {
-        "timeout": 0
-      },
       "params": {
         "url": {
           "type": "string",
