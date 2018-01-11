@@ -1,7 +1,7 @@
 const GitHubApi = require('github')
 const github = new GitHubApi({
   debug: true,
-  host: 'github.my-GHE-enabled-company.com',
+  host: 'github.my-ghe-enabled-company.com',
   pathPrefix: '/api/v3'
 })
 
@@ -10,10 +10,19 @@ github.authenticate({
   token: 'add-your-real-token-here'
 })
 
-github.repos.uploadAsset({
-  owner: 'foo-organization',
-  repo: 'bar-repository',
-  id: '123456',
-  filePath: 'README.md',
-  name: 'z.sh'
+github.repos.getReleaseByTag({
+  owner: 'octokit-fixture-org',
+  repo: 'release-assets',
+  tag: 'v1.0.0'
+})
+
+.then(result => {
+  return github.repos.uploadAsset({
+    url: result.data.upload_url,
+    file: 'Hello, world!\n',
+    contentType: 'text/plain',
+    contentLength: 14,
+    name: 'test-upload.txt',
+    label: 'test'
+  })
 })
