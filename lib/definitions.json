@@ -524,6 +524,7 @@
             "/apps/:app_slug",
             "/app/installations/:installation_id",
             "/user/installations",
+            "/user/installations/:installation_id/repositories",
             "/user/installations/:installation_id/repositories/:repository_id"
         ],
         "application/vnd.github.drax-preview+json": [
