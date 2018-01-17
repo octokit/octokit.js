@@ -1,12 +1,12 @@
 language: node_js
-node_js:
-  - "9"
-  - "8"
-  - "6"
-  - "4"
 cache:
   directories:
     - ~/.npm
+node_js:
+  - 9
+  - 8
+  - 6
+  - 4
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -14,14 +14,6 @@ branches:
   only:
     - master
     - /^greenkeeper.*$/
-
-# Retry install on fail to avoid failing a build on network/disk/external errors
-install:
-  - travis_retry npm install
-
-script:
-  - npm test
-  - npm run test:examples
 
 after_success:
   - npm run coverage:upload
