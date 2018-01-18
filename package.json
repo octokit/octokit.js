@@ -70,6 +70,7 @@
     "postbuild:docs": "apidoc -i doc/ -o doc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
+    "validate:dts": "npx --package typescript tsc index.d.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release"
   },

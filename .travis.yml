@@ -17,7 +17,7 @@ stages:
 
 jobs:
   include:
-    # test stage: run Node in all maintained versions. Run coverage only in the last
+    # test stage: run Node in all maintained versions. Run unique checks only in the last
     - node_js: 4
     - node_js: 6
     - node_js: 8
@@ -25,6 +25,8 @@ jobs:
       script:
         - npm run test
         - npm run coverage:upload
+        - npm run build:ts
+        - npm run validate:dts
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
