@@ -6,7 +6,7 @@ const {join: pathJoin} = require('path')
 const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
-const camelcase = require('lodash/camelcase')
+const camelcase = require('lodash/camelCase')
 
 const ROUTES = require('../lib/routes.json')
 
