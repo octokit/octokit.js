@@ -29,6 +29,8 @@ jobs:
     - stage: release
       node_js: lts/*
       script:
+        - npm run build:flow
+        - npm run build:ts
         - npm run semantic-release
     - node_js: lts/*
       script:
