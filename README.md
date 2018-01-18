@@ -9,6 +9,8 @@
 
 ## Usage
 
+Install with `npm install @octokit/rest`.
+
 <!-- HEADS UP: when changing the options for the constructor, make sure to also
      update the type definition templates in scripts/templates/* -->
 ```js
