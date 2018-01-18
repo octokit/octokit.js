@@ -71,7 +71,6 @@
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
     "deploy-docs": "gh-pages-with-token -d doc",
-    "prepublishOnly": "npm run build:flow && npm run build:ts",
     "semantic-release": "semantic-release"
   },
   "license": "MIT",
