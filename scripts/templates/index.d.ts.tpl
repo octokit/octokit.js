@@ -3,6 +3,8 @@
  */
 
 declare namespace Github {
+  type json = any
+  type date = string
 
   export interface AnyResponse {
     /** This is the data you would see in https://developer.github.com/v3/ */
@@ -21,12 +23,6 @@ declare namespace Github {
       status: string
     }
   }
-
-  export type WellKnownHeader =
-    {{#requestHeaders}}
-    | {{{.}}}
-    {{/requestHeaders}}
-    ;
 
   export interface EmptyParams {
   }
