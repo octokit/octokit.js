@@ -2,11 +2,6 @@ language: node_js
 cache:
   directories:
     - ~/.npm
-node_js:
-  - 9
-  - 8
-  - 6
-  - 4
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -15,6 +10,27 @@ branches:
     - master
     - /^greenkeeper.*$/
 
-after_success:
-  - npm run coverage:upload
-  - npm run semantic-release
+stages:
+  - test
+  - name: release
+    if: branch = master AND type IN (push)
+
+jobs:
+  include:
+    # test stage: run Node in all maintained versions. Run coverage only in the last
+    - node_js: 4
+    - node_js: 6
+    - node_js: 8
+    - node_js: 9
+      script:
+        - npm run test
+        - npm run coverage:upload
+    # release stage: run semantic release & update the docs
+    - stage: release
+      node_js: lts/*
+      script:
+        - npm run semantic-release
+    - node_js: lts/*
+      script:
+        - npm run build:docs
+        - npm run deploy-docs
