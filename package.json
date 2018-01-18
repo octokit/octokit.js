@@ -78,6 +78,8 @@
   "license": "MIT",
   "files": [
     "index.js",
+    "index.d.ts",
+    "index.js.flow",
     "lib"
   ],
   "apidoc": {
