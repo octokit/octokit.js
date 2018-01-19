@@ -114,7 +114,7 @@ Usage
 
 ```js
 async function paginate (method) {
-  let response = method({per_page: 100})
+  let response = await method({per_page: 100})
   let {data} = response
   while (octokit.hasNextPage(response)) {
     response = await octokit.getNextPage(response)
