@@ -55,7 +55,8 @@
     "semantic-release": "^12.2.2",
     "simple-mock": "^0.8.0",
     "standard": "^10.0.3",
-    "standard-markdown": "^4.0.2"
+    "standard-markdown": "^4.0.2",
+    "typescript": "^2.6.2"
   },
   "types": "index.d.ts",
   "scripts": {
@@ -70,6 +71,8 @@
     "postbuild:docs": "apidoc -i doc/ -o doc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
+    "prevalidate:ts": "npm run -s build:ts",
+    "validate:ts": "tsc index.d.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release"
   },
