@@ -9,24 +9,23 @@
 ## Usage
 
 ```js
-const RestClient = require('@octokit/rest')
-const github = new RestClient()
+const octokit = require('@octokit/rest')()
 
-function myPlugin (github) {
-  github.myMethod = function () {
+function myPlugin (octokit) {
+  octokit.myMethod = function () {
     // ...
   }
-  github.hook.before('request', (options) => {
+  octokit.hook.before('request', (options) => {
     // change options or cancel request.
     // return promise for async methods
   })
-  github.hook.after('request', (result, options) => {
+  octokit.hook.after('request', (result, options) => {
     // ...
   })
 }
 
-github.plugin(myPlugin)
+octokit.plugin(myPlugin)
 
-github.myMethod()
-github.request({url: '/'}) // runs before/after hooks defined above
+octokit.myMethod()
+octokit.request({url: '/'}) // runs before/after hooks defined above
 ```
