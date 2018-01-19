@@ -59,14 +59,18 @@ describe('smoke', () => {
   })
 
   it('pagination', (done) => {
-    nock('https://smoke-test.com')
+    nock('https://smoke-test.com', {
+      reqheaders: {
+        authorization: 'token secrettoken123',
+        'user-agent': `octokit/rest.js v0.0.0-semantically-released`
+      }
+    })
       .get('/organizations')
       .query({page: 3, per_page: 1})
       .reply(200, [{}], {
         'Link': '<https://smoke-test.com/organizations?page=4&per_page=1>; rel="next", <https://smoke-test.com/organizations?page=1&per_page=1>; rel="first", <https://smoke-test.com/organizations?page=2&per_page=1>; rel="prev"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
-
       .get('/organizations')
       .query({page: 1, per_page: 1})
       .reply(200, [{}])
@@ -79,6 +83,11 @@ describe('smoke', () => {
 
     const github = new GitHub({
       host: 'smoke-test.com'
+    })
+
+    github.authenticate({
+      type: 'token',
+      token: 'secrettoken123'
     })
 
     github.orgs.getAll({
@@ -94,7 +103,7 @@ describe('smoke', () => {
 
       const callback = () => {}
 
-      Promise.all([
+      return Promise.all([
         new Promise((resolve, reject) => {
           github.getFirstPage(result, (error, result) => {
             if (error) {
