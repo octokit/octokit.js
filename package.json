@@ -39,7 +39,7 @@
     "url-template": "^2.0.8"
   },
   "devDependencies": {
-    "@octokit/fixtures": "^5.4.0",
+    "@octokit/fixtures": "^6.0.0",
     "apidoc": "^0.17.6",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
