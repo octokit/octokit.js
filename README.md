@@ -78,7 +78,7 @@ octokit.authenticate({
 octokit.authenticate({
   type: 'oauth',
   key: 'client_id',
-  secret: 'client_secert'
+  secret: 'client_secret'
 })
 
 // token (https://github.com/settings/tokens)
