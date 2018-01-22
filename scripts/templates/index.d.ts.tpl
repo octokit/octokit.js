@@ -22,7 +22,7 @@ declare namespace Github {
       etag: string,
       status: string
     }
-    
+
     [Symbol.iterator](): Iterator<any>
   }
 
