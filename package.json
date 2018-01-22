@@ -72,7 +72,7 @@
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
     "prevalidate:ts": "npm run -s build:ts",
-    "validate:ts": "tsc index.d.ts",
+    "validate:ts": "tsc --target es6 index.d.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release"
   },
