@@ -13,3 +13,6 @@ index.js.flow
 
 # API DOCs are generated before publish
 doc/
+
+# browser builds
+dist/
