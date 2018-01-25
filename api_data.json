@@ -19229,7 +19229,7 @@
             "type": "string",
             "optional": false,
             "field": "id",
-            "description": ""
+            "description": "<p>Numerical ID of the repository.</p>"
           }
         ]
       }
@@ -25509,7 +25509,7 @@
     "url": "/user/:id",
     "title": "getById",
     "name": "getById",
-    "description": "<p>Get a single user by GitHub ID</p>",
+    "description": "<p>Get a single user by GitHub ID. This method uses numerical user ID. Use users.getForUser method if you need to get a user by username.</p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -25519,7 +25519,7 @@
             "type": "string",
             "optional": false,
             "field": "id",
-            "description": ""
+            "description": "<p>Numerical ID of the user.</p>"
           }
         ]
       }

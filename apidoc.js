@@ -5150,7 +5150,7 @@
  * @apiDescription Get a single repo by id.
  * @apiGroup Repos
  *
- * @apiParam {string} id  
+ * @apiParam {string} id  Numerical ID of the repository.
  * @apiExample {js} async/await
  * const result = await github.repos.getById({id})
  * @apiExample {js} Promise
@@ -7514,10 +7514,10 @@
 /**
  * @api {GET} /user/:id getById
  * @apiName getById
- * @apiDescription Get a single user by GitHub ID
+ * @apiDescription Get a single user by GitHub ID. This method uses numerical user ID. Use users.getForUser method if you need to get a user by username.
  * @apiGroup Users
  *
- * @apiParam {string} id  
+ * @apiParam {string} id  Numerical ID of the user.
  * @apiExample {js} async/await
  * const result = await github.users.getById({id})
  * @apiExample {js} Promise
