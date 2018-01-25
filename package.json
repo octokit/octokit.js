@@ -45,6 +45,9 @@
   "devDependencies": {
     "@octokit/fixtures": "^6.0.0",
     "apidoc": "^0.17.6",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browserify": "^15.2.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "dotenv": "^5.0.0",
@@ -62,7 +65,8 @@
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2",
     "string-to-arraybuffer": "^1.0.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "uglify-js": "^3.3.8"
   },
   "types": "index.d.ts",
   "scripts": {
