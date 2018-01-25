@@ -2,6 +2,25 @@
 
 This fork is work-in-progress exploration towards [Browser Support for @gr2m/octokit-rest-browser-experimental](https://github.com/octokit/rest.js/milestone/2).
 
+## Browser usage
+
+1. Download `octokit-rest.es2015.min.js` from the latest release: https://github.com/gr2m/octokit-rest-browser-experimental/releases
+
+2. Load it as script into your web application:
+
+   ```html
+   <script scr="octokit-rest.es2015.min.js"></script>
+   ```
+
+3. Initialize `octokit`
+
+   ```js
+   const octokit = new Octokit()
+   ```
+
+
+---
+
 > GitHub REST API client for Node.js
 
 [![Build Status](https://travis-ci.org/gr2m/octokit-rest-browser-experimental.svg?branch=master)](https://travis-ci.org/gr2m/octokit-rest-browser-experimental)
