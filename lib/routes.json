@@ -6535,7 +6535,8 @@
       "params": {
         "id": {
           "type": "string",
-          "required": true
+          "required": true,
+          "description": "Numerical ID of the repository."
         }
       },
       "description": "Get a single repo by id."
@@ -9680,10 +9681,11 @@
       "params": {
         "id": {
           "type": "string",
-          "required": true
+          "required": true,
+          "description": "Numerical ID of the user."
         }
       },
-      "description": "Get a single user by GitHub ID"
+      "description": "Get a single user by GitHub ID. This method uses numerical user ID. Use users.getForUser method if you need to get a user by username."
     },
     "getAll": {
       "url": "/users",
