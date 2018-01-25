@@ -33,6 +33,7 @@ jobs:
         - npm run build:flow
         - npm run build:ts
         - npm run build:browser
+        - npm run generate-bundle-report
         - npm run semantic-release
     - node_js: lts/*
       script:
