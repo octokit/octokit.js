@@ -61,11 +61,11 @@ function toApiComment (namespaceName, apiName, api) {
 
   return commentLines.concat([
     ' * @apiExample {js} async/await',
-    ` * const result = await github.${namespaceName}.${apiName}({${paramsString}})`,
+    ` * const result = await octokit.${namespaceName}.${apiName}({${paramsString}})`,
     ' * @apiExample {js} Promise',
-    ` * github.${namespaceName}.${apiName}({${paramsString}}).then(result => {})`,
+    ` * octokit.${namespaceName}.${apiName}({${paramsString}}).then(result => {})`,
     ' * @apiExample {js} Callback',
-    ` * github.${namespaceName}.${apiName}({${paramsString}}, (error, result) => {})`
+    ` * octokit.${namespaceName}.${apiName}({${paramsString}}, (error, result) => {})`
   ]).join('\n') + '\n */'
 }
 
