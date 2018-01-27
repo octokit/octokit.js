@@ -33,6 +33,7 @@
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
     "https-proxy-agent": "^2.1.0",
+    "is-array-buffer": "^1.0.0",
     "is-stream": "^1.1.0",
     "lodash": "^4.17.4",
     "proxy-from-env": "^1.0.0",
@@ -56,6 +57,7 @@
     "simple-mock": "^0.8.0",
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2",
+    "string-to-arraybuffer": "^1.0.0",
     "typescript": "^2.6.2"
   },
   "types": "index.d.ts",
