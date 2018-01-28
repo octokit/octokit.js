@@ -5,6 +5,12 @@
     "access": "public"
   },
   "description": "GitHub REST API client for Node.js",
+  "keywords": [
+    "octokit",
+    "github",
+    "rest",
+    "api-client"
+  ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "contributors": [
     {
