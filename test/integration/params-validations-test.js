@@ -127,4 +127,24 @@ describe('params validations', () => {
       due_on: new Date('2012-10-09T23:39:01Z')
     })
   })
+
+  it('Date is passed in correct format for notifications (#716)', () => {
+    const github = new GitHub({
+      host: 'notifications-test-host.com'
+    })
+
+    nock('https://notifications-test-host.com')
+      .get('/notifications')
+      .query(query => {
+        query.should.eql({
+          since: '2018-01-21T23:27:31.000Z'
+        })
+        return true
+      })
+      .reply(200, {})
+
+    return github.activity.getNotifications({
+      since: '2018-01-21T23:27:31.000Z'
+    })
+  })
 })
