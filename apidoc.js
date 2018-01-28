@@ -12,11 +12,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.authorization.get({id})
+ * const result = await octokit.authorization.get({id})
  * @apiExample {js} Promise
- * github.authorization.get({id}).then(result => {})
+ * octokit.authorization.get({id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.get({id}, (error, result) => {})
+ * octokit.authorization.get({id}, (error, result) => {})
  */
 
 
@@ -33,11 +33,11 @@
  * @apiParam {string} [client_secret]  The 40 character OAuth app client secret for which to create the token.
  * @apiParam {string} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
  * @apiExample {js} async/await
- * const result = await github.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint})
+ * const result = await octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint})
  * @apiExample {js} Promise
- * github.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}).then(result => {})
+ * octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}, (error, result) => {})
+ * octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}, (error, result) => {})
  */
 
 
@@ -55,11 +55,11 @@
  * @apiParam {string} [note_url]  A URL to remind you what app the OAuth token is for.
  * @apiParam {string} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
  * @apiExample {js} async/await
- * const result = await github.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})
+ * const result = await octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})
  * @apiExample {js} Promise
- * github.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})
+ * octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})
+ * octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})
  */
 
 
@@ -71,11 +71,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.authorization.delete({id})
+ * const result = await octokit.authorization.delete({id})
  * @apiExample {js} Promise
- * github.authorization.delete({id}).then(result => {})
+ * octokit.authorization.delete({id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.delete({id}, (error, result) => {})
+ * octokit.authorization.delete({id}, (error, result) => {})
  */
 
 
@@ -88,11 +88,11 @@
  * @apiParam {string} access_token  OAuth token
  * @apiParam {string} [client_id]  The 20 character OAuth app client key for which to create the token.
  * @apiExample {js} async/await
- * const result = await github.authorization.check({access_token, client_id})
+ * const result = await octokit.authorization.check({access_token, client_id})
  * @apiExample {js} Promise
- * github.authorization.check({access_token, client_id}).then(result => {})
+ * octokit.authorization.check({access_token, client_id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.check({access_token, client_id}, (error, result) => {})
+ * octokit.authorization.check({access_token, client_id}, (error, result) => {})
  */
 
 
@@ -105,11 +105,11 @@
  * @apiParam {string} access_token  OAuth token
  * @apiParam {string} [client_id]  The 20 character OAuth app client key for which to create the token.
  * @apiExample {js} async/await
- * const result = await github.authorization.reset({access_token, client_id})
+ * const result = await octokit.authorization.reset({access_token, client_id})
  * @apiExample {js} Promise
- * github.authorization.reset({access_token, client_id}).then(result => {})
+ * octokit.authorization.reset({access_token, client_id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.reset({access_token, client_id}, (error, result) => {})
+ * octokit.authorization.reset({access_token, client_id}, (error, result) => {})
  */
 
 
@@ -122,11 +122,11 @@
  * @apiParam {string} access_token  OAuth token
  * @apiParam {string} [client_id]  The 20 character OAuth app client key for which to create the token.
  * @apiExample {js} async/await
- * const result = await github.authorization.revoke({access_token, client_id})
+ * const result = await octokit.authorization.revoke({access_token, client_id})
  * @apiExample {js} Promise
- * github.authorization.revoke({access_token, client_id}).then(result => {})
+ * octokit.authorization.revoke({access_token, client_id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.revoke({access_token, client_id}, (error, result) => {})
+ * octokit.authorization.revoke({access_token, client_id}, (error, result) => {})
  */
 
 
@@ -139,11 +139,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.authorization.getGrants({page, per_page})
+ * const result = await octokit.authorization.getGrants({page, per_page})
  * @apiExample {js} Promise
- * github.authorization.getGrants({page, per_page}).then(result => {})
+ * octokit.authorization.getGrants({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.getGrants({page, per_page}, (error, result) => {})
+ * octokit.authorization.getGrants({page, per_page}, (error, result) => {})
  */
 
 
@@ -157,11 +157,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.authorization.getGrant({id, page, per_page})
+ * const result = await octokit.authorization.getGrant({id, page, per_page})
  * @apiExample {js} Promise
- * github.authorization.getGrant({id, page, per_page}).then(result => {})
+ * octokit.authorization.getGrant({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.getGrant({id, page, per_page}, (error, result) => {})
+ * octokit.authorization.getGrant({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -173,11 +173,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.authorization.deleteGrant({id})
+ * const result = await octokit.authorization.deleteGrant({id})
  * @apiExample {js} Promise
- * github.authorization.deleteGrant({id}).then(result => {})
+ * octokit.authorization.deleteGrant({id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.deleteGrant({id}, (error, result) => {})
+ * octokit.authorization.deleteGrant({id}, (error, result) => {})
  */
 
 
@@ -190,11 +190,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.authorization.getAll({page, per_page})
+ * const result = await octokit.authorization.getAll({page, per_page})
  * @apiExample {js} Promise
- * github.authorization.getAll({page, per_page}).then(result => {})
+ * octokit.authorization.getAll({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.getAll({page, per_page}, (error, result) => {})
+ * octokit.authorization.getAll({page, per_page}, (error, result) => {})
  */
 
 
@@ -211,11 +211,11 @@
  * @apiParam {string} [note_url]  A URL to remind you what app the OAuth token is for.
  * @apiParam {string} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
  * @apiExample {js} async/await
- * const result = await github.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint})
+ * const result = await octokit.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint})
  * @apiExample {js} Promise
- * github.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}).then(result => {})
+ * octokit.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}, (error, result) => {})
+ * octokit.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}, (error, result) => {})
  */
 
 
@@ -232,11 +232,11 @@
  * @apiParam {string} [note]  A note to remind you what the OAuth token is for.
  * @apiParam {string} [note_url]  A URL to remind you what app the OAuth token is for.
  * @apiExample {js} async/await
- * const result = await github.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url})
+ * const result = await octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url})
  * @apiExample {js} Promise
- * github.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}).then(result => {})
+ * octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}, (error, result) => {})
+ * octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}, (error, result) => {})
  */
 
 
@@ -249,11 +249,11 @@
  * @apiParam {string} access_token  OAuth token
  * @apiParam {string} [client_id]  The 20 character OAuth app client key for which to create the token.
  * @apiExample {js} async/await
- * const result = await github.authorization.revokeGrant({access_token, client_id})
+ * const result = await octokit.authorization.revokeGrant({access_token, client_id})
  * @apiExample {js} Promise
- * github.authorization.revokeGrant({access_token, client_id}).then(result => {})
+ * octokit.authorization.revokeGrant({access_token, client_id}).then(result => {})
  * @apiExample {js} Callback
- * github.authorization.revokeGrant({access_token, client_id}, (error, result) => {})
+ * octokit.authorization.revokeGrant({access_token, client_id}, (error, result) => {})
  */
 
 
@@ -273,11 +273,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEvents({page, per_page})
+ * const result = await octokit.activity.getEvents({page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEvents({page, per_page}).then(result => {})
+ * octokit.activity.getEvents({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEvents({page, per_page}, (error, result) => {})
+ * octokit.activity.getEvents({page, per_page}, (error, result) => {})
  */
 
 
@@ -292,11 +292,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForRepo({owner, repo, page, per_page})
+ * const result = await octokit.activity.getEventsForRepo({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForRepo({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForRepo({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -311,11 +311,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForRepoIssues({owner, repo, page, per_page})
+ * const result = await octokit.activity.getEventsForRepoIssues({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForRepoIssues({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForRepoIssues({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForRepoIssues({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForRepoIssues({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -330,11 +330,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForRepoNetwork({owner, repo, page, per_page})
+ * const result = await octokit.activity.getEventsForRepoNetwork({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForRepoNetwork({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForRepoNetwork({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForRepoNetwork({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForRepoNetwork({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -348,11 +348,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForOrg({org, page, per_page})
+ * const result = await octokit.activity.getEventsForOrg({org, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForOrg({org, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForOrg({org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForOrg({org, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForOrg({org, page, per_page}, (error, result) => {})
  */
 
 
@@ -366,11 +366,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsReceived({username, page, per_page})
+ * const result = await octokit.activity.getEventsReceived({username, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsReceived({username, page, per_page}).then(result => {})
+ * octokit.activity.getEventsReceived({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsReceived({username, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsReceived({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -384,11 +384,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsReceivedPublic({username, page, per_page})
+ * const result = await octokit.activity.getEventsReceivedPublic({username, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsReceivedPublic({username, page, per_page}).then(result => {})
+ * octokit.activity.getEventsReceivedPublic({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsReceivedPublic({username, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsReceivedPublic({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -402,11 +402,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForUser({username, page, per_page})
+ * const result = await octokit.activity.getEventsForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForUser({username, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForUser({username, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -420,11 +420,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForUserPublic({username, page, per_page})
+ * const result = await octokit.activity.getEventsForUserPublic({username, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForUserPublic({username, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForUserPublic({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForUserPublic({username, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForUserPublic({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -439,11 +439,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getEventsForUserOrg({username, org, page, per_page})
+ * const result = await octokit.activity.getEventsForUserOrg({username, org, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getEventsForUserOrg({username, org, page, per_page}).then(result => {})
+ * octokit.activity.getEventsForUserOrg({username, org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getEventsForUserOrg({username, org, page, per_page}, (error, result) => {})
+ * octokit.activity.getEventsForUserOrg({username, org, page, per_page}, (error, result) => {})
  */
 
 
@@ -454,11 +454,11 @@
  * @apiGroup Activity
  *
  * @apiExample {js} async/await
- * const result = await github.activity.getFeeds({})
+ * const result = await octokit.activity.getFeeds({})
  * @apiExample {js} Promise
- * github.activity.getFeeds({}).then(result => {})
+ * octokit.activity.getFeeds({}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getFeeds({}, (error, result) => {})
+ * octokit.activity.getFeeds({}, (error, result) => {})
  */
 
 
@@ -473,11 +473,11 @@
  * @apiParam {date} [since]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {string} [before]  Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
  * @apiExample {js} async/await
- * const result = await github.activity.getNotifications({all, participating, since, before})
+ * const result = await octokit.activity.getNotifications({all, participating, since, before})
  * @apiExample {js} Promise
- * github.activity.getNotifications({all, participating, since, before}).then(result => {})
+ * octokit.activity.getNotifications({all, participating, since, before}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getNotifications({all, participating, since, before}, (error, result) => {})
+ * octokit.activity.getNotifications({all, participating, since, before}, (error, result) => {})
  */
 
 
@@ -494,11 +494,11 @@
  * @apiParam {date} [since]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiParam {string} [before]  Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
  * @apiExample {js} async/await
- * const result = await github.activity.getNotificationsForUser({owner, repo, all, participating, since, before})
+ * const result = await octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before})
  * @apiExample {js} Promise
- * github.activity.getNotificationsForUser({owner, repo, all, participating, since, before}).then(result => {})
+ * octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getNotificationsForUser({owner, repo, all, participating, since, before}, (error, result) => {})
+ * octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before}, (error, result) => {})
  */
 
 
@@ -510,11 +510,11 @@
  *
  * @apiParam {string} [last_read_at=Time.now]  Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now
  * @apiExample {js} async/await
- * const result = await github.activity.markNotificationsAsRead({last_read_at})
+ * const result = await octokit.activity.markNotificationsAsRead({last_read_at})
  * @apiExample {js} Promise
- * github.activity.markNotificationsAsRead({last_read_at}).then(result => {})
+ * octokit.activity.markNotificationsAsRead({last_read_at}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.markNotificationsAsRead({last_read_at}, (error, result) => {})
+ * octokit.activity.markNotificationsAsRead({last_read_at}, (error, result) => {})
  */
 
 
@@ -528,11 +528,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} [last_read_at=Time.now]  Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Default: Time.now
  * @apiExample {js} async/await
- * const result = await github.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at})
+ * const result = await octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at})
  * @apiExample {js} Promise
- * github.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}).then(result => {})
+ * octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}, (error, result) => {})
+ * octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}, (error, result) => {})
  */
 
 
@@ -544,11 +544,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.activity.getNotificationThread({id})
+ * const result = await octokit.activity.getNotificationThread({id})
  * @apiExample {js} Promise
- * github.activity.getNotificationThread({id}).then(result => {})
+ * octokit.activity.getNotificationThread({id}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getNotificationThread({id}, (error, result) => {})
+ * octokit.activity.getNotificationThread({id}, (error, result) => {})
  */
 
 
@@ -560,11 +560,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.activity.markNotificationThreadAsRead({id})
+ * const result = await octokit.activity.markNotificationThreadAsRead({id})
  * @apiExample {js} Promise
- * github.activity.markNotificationThreadAsRead({id}).then(result => {})
+ * octokit.activity.markNotificationThreadAsRead({id}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.markNotificationThreadAsRead({id}, (error, result) => {})
+ * octokit.activity.markNotificationThreadAsRead({id}, (error, result) => {})
  */
 
 
@@ -576,11 +576,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.activity.checkNotificationThreadSubscription({id})
+ * const result = await octokit.activity.checkNotificationThreadSubscription({id})
  * @apiExample {js} Promise
- * github.activity.checkNotificationThreadSubscription({id}).then(result => {})
+ * octokit.activity.checkNotificationThreadSubscription({id}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.checkNotificationThreadSubscription({id}, (error, result) => {})
+ * octokit.activity.checkNotificationThreadSubscription({id}, (error, result) => {})
  */
 
 
@@ -594,11 +594,11 @@
  * @apiParam {boolean} [subscribed]  Determines if notifications should be received from this thread
  * @apiParam {boolean} [ignored]  Determines if all notifications should be blocked from this thread
  * @apiExample {js} async/await
- * const result = await github.activity.setNotificationThreadSubscription({id, subscribed, ignored})
+ * const result = await octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored})
  * @apiExample {js} Promise
- * github.activity.setNotificationThreadSubscription({id, subscribed, ignored}).then(result => {})
+ * octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.setNotificationThreadSubscription({id, subscribed, ignored}, (error, result) => {})
+ * octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}, (error, result) => {})
  */
 
 
@@ -610,11 +610,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.activity.deleteNotificationThreadSubscription({id})
+ * const result = await octokit.activity.deleteNotificationThreadSubscription({id})
  * @apiExample {js} Promise
- * github.activity.deleteNotificationThreadSubscription({id}).then(result => {})
+ * octokit.activity.deleteNotificationThreadSubscription({id}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.deleteNotificationThreadSubscription({id}, (error, result) => {})
+ * octokit.activity.deleteNotificationThreadSubscription({id}, (error, result) => {})
  */
 
 
@@ -629,11 +629,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getStargazersForRepo({owner, repo, page, per_page})
+ * const result = await octokit.activity.getStargazersForRepo({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getStargazersForRepo({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.getStargazersForRepo({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getStargazersForRepo({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.getStargazersForRepo({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -649,11 +649,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getStarredReposForUser({username, sort, direction, page, per_page})
+ * const result = await octokit.activity.getStarredReposForUser({username, sort, direction, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getStarredReposForUser({username, sort, direction, page, per_page}).then(result => {})
+ * octokit.activity.getStarredReposForUser({username, sort, direction, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getStarredReposForUser({username, sort, direction, page, per_page}, (error, result) => {})
+ * octokit.activity.getStarredReposForUser({username, sort, direction, page, per_page}, (error, result) => {})
  */
 
 
@@ -668,11 +668,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getStarredRepos({sort, direction, page, per_page})
+ * const result = await octokit.activity.getStarredRepos({sort, direction, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getStarredRepos({sort, direction, page, per_page}).then(result => {})
+ * octokit.activity.getStarredRepos({sort, direction, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getStarredRepos({sort, direction, page, per_page}, (error, result) => {})
+ * octokit.activity.getStarredRepos({sort, direction, page, per_page}, (error, result) => {})
  */
 
 
@@ -687,11 +687,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.checkStarringRepo({owner, repo, page, per_page})
+ * const result = await octokit.activity.checkStarringRepo({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.checkStarringRepo({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.checkStarringRepo({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.checkStarringRepo({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.checkStarringRepo({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -704,11 +704,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.activity.starRepo({owner, repo})
+ * const result = await octokit.activity.starRepo({owner, repo})
  * @apiExample {js} Promise
- * github.activity.starRepo({owner, repo}).then(result => {})
+ * octokit.activity.starRepo({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.starRepo({owner, repo}, (error, result) => {})
+ * octokit.activity.starRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -721,11 +721,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.activity.unstarRepo({owner, repo})
+ * const result = await octokit.activity.unstarRepo({owner, repo})
  * @apiExample {js} Promise
- * github.activity.unstarRepo({owner, repo}).then(result => {})
+ * octokit.activity.unstarRepo({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.unstarRepo({owner, repo}, (error, result) => {})
+ * octokit.activity.unstarRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -740,11 +740,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getWatchersForRepo({owner, repo, page, per_page})
+ * const result = await octokit.activity.getWatchersForRepo({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getWatchersForRepo({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.getWatchersForRepo({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getWatchersForRepo({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.getWatchersForRepo({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -758,11 +758,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getWatchedReposForUser({username, page, per_page})
+ * const result = await octokit.activity.getWatchedReposForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getWatchedReposForUser({username, page, per_page}).then(result => {})
+ * octokit.activity.getWatchedReposForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getWatchedReposForUser({username, page, per_page}, (error, result) => {})
+ * octokit.activity.getWatchedReposForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -775,11 +775,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getWatchedRepos({page, per_page})
+ * const result = await octokit.activity.getWatchedRepos({page, per_page})
  * @apiExample {js} Promise
- * github.activity.getWatchedRepos({page, per_page}).then(result => {})
+ * octokit.activity.getWatchedRepos({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getWatchedRepos({page, per_page}, (error, result) => {})
+ * octokit.activity.getWatchedRepos({page, per_page}, (error, result) => {})
  */
 
 
@@ -794,11 +794,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.activity.getRepoSubscription({owner, repo, page, per_page})
+ * const result = await octokit.activity.getRepoSubscription({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.activity.getRepoSubscription({owner, repo, page, per_page}).then(result => {})
+ * octokit.activity.getRepoSubscription({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.getRepoSubscription({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.activity.getRepoSubscription({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -813,11 +813,11 @@
  * @apiParam {boolean} [subscribed]  Determines if notifications should be received from this repository.
  * @apiParam {boolean} [ignored]  Determines if all notifications should be blocked from this repository.
  * @apiExample {js} async/await
- * const result = await github.activity.setRepoSubscription({owner, repo, subscribed, ignored})
+ * const result = await octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored})
  * @apiExample {js} Promise
- * github.activity.setRepoSubscription({owner, repo, subscribed, ignored}).then(result => {})
+ * octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.setRepoSubscription({owner, repo, subscribed, ignored}, (error, result) => {})
+ * octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}, (error, result) => {})
  */
 
 
@@ -830,11 +830,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.activity.unwatchRepo({owner, repo})
+ * const result = await octokit.activity.unwatchRepo({owner, repo})
  * @apiExample {js} Promise
- * github.activity.unwatchRepo({owner, repo}).then(result => {})
+ * octokit.activity.unwatchRepo({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.activity.unwatchRepo({owner, repo}, (error, result) => {})
+ * octokit.activity.unwatchRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -853,11 +853,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.get({id})
+ * const result = await octokit.gists.get({id})
  * @apiExample {js} Promise
- * github.gists.get({id}).then(result => {})
+ * octokit.gists.get({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.get({id}, (error, result) => {})
+ * octokit.gists.get({id}, (error, result) => {})
  */
 
 
@@ -871,11 +871,11 @@
  * @apiParam {boolean} public  
  * @apiParam {string} [description]  
  * @apiExample {js} async/await
- * const result = await github.gists.create({files, public, description})
+ * const result = await octokit.gists.create({files, public, description})
  * @apiExample {js} Promise
- * github.gists.create({files, public, description}).then(result => {})
+ * octokit.gists.create({files, public, description}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.create({files, public, description}, (error, result) => {})
+ * octokit.gists.create({files, public, description}, (error, result) => {})
  */
 
 
@@ -891,11 +891,11 @@
  * @apiParam {string} [content]  Updated file contents.
  * @apiParam {string} [filename]  New name for this file.
  * @apiExample {js} async/await
- * const result = await github.gists.edit({id, files, description, content, filename})
+ * const result = await octokit.gists.edit({id, files, description, content, filename})
  * @apiExample {js} Promise
- * github.gists.edit({id, files, description, content, filename}).then(result => {})
+ * octokit.gists.edit({id, files, description, content, filename}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.edit({id, files, description, content, filename}, (error, result) => {})
+ * octokit.gists.edit({id, files, description, content, filename}, (error, result) => {})
  */
 
 
@@ -907,11 +907,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.star({id})
+ * const result = await octokit.gists.star({id})
  * @apiExample {js} Promise
- * github.gists.star({id}).then(result => {})
+ * octokit.gists.star({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.star({id}, (error, result) => {})
+ * octokit.gists.star({id}, (error, result) => {})
  */
 
 
@@ -923,11 +923,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.unstar({id})
+ * const result = await octokit.gists.unstar({id})
  * @apiExample {js} Promise
- * github.gists.unstar({id}).then(result => {})
+ * octokit.gists.unstar({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.unstar({id}, (error, result) => {})
+ * octokit.gists.unstar({id}, (error, result) => {})
  */
 
 
@@ -939,11 +939,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.fork({id})
+ * const result = await octokit.gists.fork({id})
  * @apiExample {js} Promise
- * github.gists.fork({id}).then(result => {})
+ * octokit.gists.fork({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.fork({id}, (error, result) => {})
+ * octokit.gists.fork({id}, (error, result) => {})
  */
 
 
@@ -955,11 +955,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.delete({id})
+ * const result = await octokit.gists.delete({id})
  * @apiExample {js} Promise
- * github.gists.delete({id}).then(result => {})
+ * octokit.gists.delete({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.delete({id}, (error, result) => {})
+ * octokit.gists.delete({id}, (error, result) => {})
  */
 
 
@@ -974,11 +974,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.gists.getForUser({username, since, page, per_page})
+ * const result = await octokit.gists.getForUser({username, since, page, per_page})
  * @apiExample {js} Promise
- * github.gists.getForUser({username, since, page, per_page}).then(result => {})
+ * octokit.gists.getForUser({username, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getForUser({username, since, page, per_page}, (error, result) => {})
+ * octokit.gists.getForUser({username, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -992,11 +992,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.gists.getAll({since, page, per_page})
+ * const result = await octokit.gists.getAll({since, page, per_page})
  * @apiExample {js} Promise
- * github.gists.getAll({since, page, per_page}).then(result => {})
+ * octokit.gists.getAll({since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getAll({since, page, per_page}, (error, result) => {})
+ * octokit.gists.getAll({since, page, per_page}, (error, result) => {})
  */
 
 
@@ -1008,11 +1008,11 @@
  *
  * @apiParam {date} [since]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} async/await
- * const result = await github.gists.getPublic({since})
+ * const result = await octokit.gists.getPublic({since})
  * @apiExample {js} Promise
- * github.gists.getPublic({since}).then(result => {})
+ * octokit.gists.getPublic({since}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getPublic({since}, (error, result) => {})
+ * octokit.gists.getPublic({since}, (error, result) => {})
  */
 
 
@@ -1024,11 +1024,11 @@
  *
  * @apiParam {date} [since]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} async/await
- * const result = await github.gists.getStarred({since})
+ * const result = await octokit.gists.getStarred({since})
  * @apiExample {js} Promise
- * github.gists.getStarred({since}).then(result => {})
+ * octokit.gists.getStarred({since}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getStarred({since}, (error, result) => {})
+ * octokit.gists.getStarred({since}, (error, result) => {})
  */
 
 
@@ -1041,11 +1041,11 @@
  * @apiParam {string} id  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.gists.getRevision({id, sha})
+ * const result = await octokit.gists.getRevision({id, sha})
  * @apiExample {js} Promise
- * github.gists.getRevision({id, sha}).then(result => {})
+ * octokit.gists.getRevision({id, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getRevision({id, sha}, (error, result) => {})
+ * octokit.gists.getRevision({id, sha}, (error, result) => {})
  */
 
 
@@ -1057,11 +1057,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.getCommits({id})
+ * const result = await octokit.gists.getCommits({id})
  * @apiExample {js} Promise
- * github.gists.getCommits({id}).then(result => {})
+ * octokit.gists.getCommits({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getCommits({id}, (error, result) => {})
+ * octokit.gists.getCommits({id}, (error, result) => {})
  */
 
 
@@ -1073,11 +1073,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.checkStar({id})
+ * const result = await octokit.gists.checkStar({id})
  * @apiExample {js} Promise
- * github.gists.checkStar({id}).then(result => {})
+ * octokit.gists.checkStar({id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.checkStar({id}, (error, result) => {})
+ * octokit.gists.checkStar({id}, (error, result) => {})
  */
 
 
@@ -1091,11 +1091,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.gists.getForks({id, page, per_page})
+ * const result = await octokit.gists.getForks({id, page, per_page})
  * @apiExample {js} Promise
- * github.gists.getForks({id, page, per_page}).then(result => {})
+ * octokit.gists.getForks({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getForks({id, page, per_page}, (error, result) => {})
+ * octokit.gists.getForks({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -1107,11 +1107,11 @@
  *
  * @apiParam {string} gist_id  Id (SHA1 hash) of the gist.
  * @apiExample {js} async/await
- * const result = await github.gists.getComments({gist_id})
+ * const result = await octokit.gists.getComments({gist_id})
  * @apiExample {js} Promise
- * github.gists.getComments({gist_id}).then(result => {})
+ * octokit.gists.getComments({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getComments({gist_id}, (error, result) => {})
+ * octokit.gists.getComments({gist_id}, (error, result) => {})
  */
 
 
@@ -1124,11 +1124,11 @@
  * @apiParam {string} gist_id  Id (SHA1 hash) of the gist.
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.getComment({gist_id, id})
+ * const result = await octokit.gists.getComment({gist_id, id})
  * @apiExample {js} Promise
- * github.gists.getComment({gist_id, id}).then(result => {})
+ * octokit.gists.getComment({gist_id, id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.getComment({gist_id, id}, (error, result) => {})
+ * octokit.gists.getComment({gist_id, id}, (error, result) => {})
  */
 
 
@@ -1141,11 +1141,11 @@
  * @apiParam {string} gist_id  Id (SHA1 hash) of the gist.
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.gists.createComment({gist_id, body})
+ * const result = await octokit.gists.createComment({gist_id, body})
  * @apiExample {js} Promise
- * github.gists.createComment({gist_id, body}).then(result => {})
+ * octokit.gists.createComment({gist_id, body}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.createComment({gist_id, body}, (error, result) => {})
+ * octokit.gists.createComment({gist_id, body}, (error, result) => {})
  */
 
 
@@ -1159,11 +1159,11 @@
  * @apiParam {string} id  
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.gists.editComment({gist_id, id, body})
+ * const result = await octokit.gists.editComment({gist_id, id, body})
  * @apiExample {js} Promise
- * github.gists.editComment({gist_id, id, body}).then(result => {})
+ * octokit.gists.editComment({gist_id, id, body}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.editComment({gist_id, id, body}, (error, result) => {})
+ * octokit.gists.editComment({gist_id, id, body}, (error, result) => {})
  */
 
 
@@ -1176,11 +1176,11 @@
  * @apiParam {string} gist_id  Id (SHA1 hash) of the gist.
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.gists.deleteComment({gist_id, id})
+ * const result = await octokit.gists.deleteComment({gist_id, id})
  * @apiExample {js} Promise
- * github.gists.deleteComment({gist_id, id}).then(result => {})
+ * octokit.gists.deleteComment({gist_id, id}).then(result => {})
  * @apiExample {js} Callback
- * github.gists.deleteComment({gist_id, id}, (error, result) => {})
+ * octokit.gists.deleteComment({gist_id, id}, (error, result) => {})
  */
 
 
@@ -1203,11 +1203,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.gitdata.getBlob({owner, repo, sha, page, per_page})
+ * const result = await octokit.gitdata.getBlob({owner, repo, sha, page, per_page})
  * @apiExample {js} Promise
- * github.gitdata.getBlob({owner, repo, sha, page, per_page}).then(result => {})
+ * octokit.gitdata.getBlob({owner, repo, sha, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getBlob({owner, repo, sha, page, per_page}, (error, result) => {})
+ * octokit.gitdata.getBlob({owner, repo, sha, page, per_page}, (error, result) => {})
  */
 
 
@@ -1222,11 +1222,11 @@
  * @apiParam {string} content  
  * @apiParam {string} encoding  
  * @apiExample {js} async/await
- * const result = await github.gitdata.createBlob({owner, repo, content, encoding})
+ * const result = await octokit.gitdata.createBlob({owner, repo, content, encoding})
  * @apiExample {js} Promise
- * github.gitdata.createBlob({owner, repo, content, encoding}).then(result => {})
+ * octokit.gitdata.createBlob({owner, repo, content, encoding}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.createBlob({owner, repo, content, encoding}, (error, result) => {})
+ * octokit.gitdata.createBlob({owner, repo, content, encoding}, (error, result) => {})
  */
 
 
@@ -1240,11 +1240,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.gitdata.getCommit({owner, repo, sha})
+ * const result = await octokit.gitdata.getCommit({owner, repo, sha})
  * @apiExample {js} Promise
- * github.gitdata.getCommit({owner, repo, sha}).then(result => {})
+ * octokit.gitdata.getCommit({owner, repo, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getCommit({owner, repo, sha}, (error, result) => {})
+ * octokit.gitdata.getCommit({owner, repo, sha}, (error, result) => {})
  */
 
 
@@ -1262,11 +1262,11 @@
  * @apiParam {json} [author]  
  * @apiParam {json} [committer]  
  * @apiExample {js} async/await
- * const result = await github.gitdata.createCommit({owner, repo, message, tree, parents, author, committer})
+ * const result = await octokit.gitdata.createCommit({owner, repo, message, tree, parents, author, committer})
  * @apiExample {js} Promise
- * github.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}).then(result => {})
+ * octokit.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}, (error, result) => {})
+ * octokit.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}, (error, result) => {})
  */
 
 
@@ -1280,11 +1280,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.gitdata.getCommitSignatureVerification({owner, repo, sha})
+ * const result = await octokit.gitdata.getCommitSignatureVerification({owner, repo, sha})
  * @apiExample {js} Promise
- * github.gitdata.getCommitSignatureVerification({owner, repo, sha}).then(result => {})
+ * octokit.gitdata.getCommitSignatureVerification({owner, repo, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getCommitSignatureVerification({owner, repo, sha}, (error, result) => {})
+ * octokit.gitdata.getCommitSignatureVerification({owner, repo, sha}, (error, result) => {})
  */
 
 
@@ -1298,11 +1298,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} async/await
- * const result = await github.gitdata.getReference({owner, repo, ref})
+ * const result = await octokit.gitdata.getReference({owner, repo, ref})
  * @apiExample {js} Promise
- * github.gitdata.getReference({owner, repo, ref}).then(result => {})
+ * octokit.gitdata.getReference({owner, repo, ref}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getReference({owner, repo, ref}, (error, result) => {})
+ * octokit.gitdata.getReference({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -1317,11 +1317,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.gitdata.getReferences({owner, repo, page, per_page})
+ * const result = await octokit.gitdata.getReferences({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.gitdata.getReferences({owner, repo, page, per_page}).then(result => {})
+ * octokit.gitdata.getReferences({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getReferences({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.gitdata.getReferences({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -1336,11 +1336,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.gitdata.getTags({owner, repo, page, per_page})
+ * const result = await octokit.gitdata.getTags({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.gitdata.getTags({owner, repo, page, per_page}).then(result => {})
+ * octokit.gitdata.getTags({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getTags({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.gitdata.getTags({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -1355,11 +1355,11 @@
  * @apiParam {string} ref  The name of the fully qualified reference (ie: refs/heads/master). If it doesn't start with 'refs' and have at least two slashes, it will be rejected. NOTE: After creating the reference, on calling (get|update|delete)Reference, drop the leading 'refs/' when providing the 'ref' param.
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.gitdata.createReference({owner, repo, ref, sha})
+ * const result = await octokit.gitdata.createReference({owner, repo, ref, sha})
  * @apiExample {js} Promise
- * github.gitdata.createReference({owner, repo, ref, sha}).then(result => {})
+ * octokit.gitdata.createReference({owner, repo, ref, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.createReference({owner, repo, ref, sha}, (error, result) => {})
+ * octokit.gitdata.createReference({owner, repo, ref, sha}, (error, result) => {})
  */
 
 
@@ -1375,11 +1375,11 @@
  * @apiParam {string} sha  
  * @apiParam {boolean} [force=false]  Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work.
  * @apiExample {js} async/await
- * const result = await github.gitdata.updateReference({owner, repo, ref, sha, force})
+ * const result = await octokit.gitdata.updateReference({owner, repo, ref, sha, force})
  * @apiExample {js} Promise
- * github.gitdata.updateReference({owner, repo, ref, sha, force}).then(result => {})
+ * octokit.gitdata.updateReference({owner, repo, ref, sha, force}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.updateReference({owner, repo, ref, sha, force}, (error, result) => {})
+ * octokit.gitdata.updateReference({owner, repo, ref, sha, force}, (error, result) => {})
  */
 
 
@@ -1393,11 +1393,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} async/await
- * const result = await github.gitdata.deleteReference({owner, repo, ref})
+ * const result = await octokit.gitdata.deleteReference({owner, repo, ref})
  * @apiExample {js} Promise
- * github.gitdata.deleteReference({owner, repo, ref}).then(result => {})
+ * octokit.gitdata.deleteReference({owner, repo, ref}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.deleteReference({owner, repo, ref}, (error, result) => {})
+ * octokit.gitdata.deleteReference({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -1411,11 +1411,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.gitdata.getTag({owner, repo, sha})
+ * const result = await octokit.gitdata.getTag({owner, repo, sha})
  * @apiExample {js} Promise
- * github.gitdata.getTag({owner, repo, sha}).then(result => {})
+ * octokit.gitdata.getTag({owner, repo, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getTag({owner, repo, sha}, (error, result) => {})
+ * octokit.gitdata.getTag({owner, repo, sha}, (error, result) => {})
  */
 
 
@@ -1433,11 +1433,11 @@
  * @apiParam {string} type  String of the type of the object we’re tagging. Normally this is a commit but it can also be a tree or a blob.
  * @apiParam {json} tagger  JSON object that contains the following keys: `name` - String of the name of the author of the tag, `email` - String of the email of the author of the tag, `date` - Timestamp of when this object was tagged
  * @apiExample {js} async/await
- * const result = await github.gitdata.createTag({owner, repo, tag, message, object, type, tagger})
+ * const result = await octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger})
  * @apiExample {js} Promise
- * github.gitdata.createTag({owner, repo, tag, message, object, type, tagger}).then(result => {})
+ * octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.createTag({owner, repo, tag, message, object, type, tagger}, (error, result) => {})
+ * octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger}, (error, result) => {})
  */
 
 
@@ -1451,11 +1451,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.gitdata.getTagSignatureVerification({owner, repo, sha})
+ * const result = await octokit.gitdata.getTagSignatureVerification({owner, repo, sha})
  * @apiExample {js} Promise
- * github.gitdata.getTagSignatureVerification({owner, repo, sha}).then(result => {})
+ * octokit.gitdata.getTagSignatureVerification({owner, repo, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getTagSignatureVerification({owner, repo, sha}, (error, result) => {})
+ * octokit.gitdata.getTagSignatureVerification({owner, repo, sha}, (error, result) => {})
  */
 
 
@@ -1470,11 +1470,11 @@
  * @apiParam {string} sha  
  * @apiParam {boolean} [recursive]  
  * @apiExample {js} async/await
- * const result = await github.gitdata.getTree({owner, repo, sha, recursive})
+ * const result = await octokit.gitdata.getTree({owner, repo, sha, recursive})
  * @apiExample {js} Promise
- * github.gitdata.getTree({owner, repo, sha, recursive}).then(result => {})
+ * octokit.gitdata.getTree({owner, repo, sha, recursive}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.getTree({owner, repo, sha, recursive}, (error, result) => {})
+ * octokit.gitdata.getTree({owner, repo, sha, recursive}, (error, result) => {})
  */
 
 
@@ -1489,11 +1489,11 @@
  * @apiParam {json} tree  Array of Hash objects (of path, mode, type and sha) specifying a tree structure
  * @apiParam {string} [base_tree]  String of the SHA1 of the tree you want to update with new data
  * @apiExample {js} async/await
- * const result = await github.gitdata.createTree({owner, repo, tree, base_tree})
+ * const result = await octokit.gitdata.createTree({owner, repo, tree, base_tree})
  * @apiExample {js} Promise
- * github.gitdata.createTree({owner, repo, tree, base_tree}).then(result => {})
+ * octokit.gitdata.createTree({owner, repo, tree, base_tree}).then(result => {})
  * @apiExample {js} Callback
- * github.gitdata.createTree({owner, repo, tree, base_tree}, (error, result) => {})
+ * octokit.gitdata.createTree({owner, repo, tree, base_tree}, (error, result) => {})
  */
 
 
@@ -1513,11 +1513,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.integrations.getInstallations({page, per_page})
+ * const result = await octokit.integrations.getInstallations({page, per_page})
  * @apiExample {js} Promise
- * github.integrations.getInstallations({page, per_page}).then(result => {})
+ * octokit.integrations.getInstallations({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.integrations.getInstallations({page, per_page}, (error, result) => {})
+ * octokit.integrations.getInstallations({page, per_page}, (error, result) => {})
  */
 
 
@@ -1530,11 +1530,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} [user_id]  The id of the user for whom the app is acting on behalf of.
  * @apiExample {js} async/await
- * const result = await github.integrations.createInstallationToken({installation_id, user_id})
+ * const result = await octokit.integrations.createInstallationToken({installation_id, user_id})
  * @apiExample {js} Promise
- * github.integrations.createInstallationToken({installation_id, user_id}).then(result => {})
+ * octokit.integrations.createInstallationToken({installation_id, user_id}).then(result => {})
  * @apiExample {js} Callback
- * github.integrations.createInstallationToken({installation_id, user_id}, (error, result) => {})
+ * octokit.integrations.createInstallationToken({installation_id, user_id}, (error, result) => {})
  */
 
 
@@ -1546,11 +1546,11 @@
  *
  * @apiParam {string} [user_id]  The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user.
  * @apiExample {js} async/await
- * const result = await github.integrations.getInstallationRepositories({user_id})
+ * const result = await octokit.integrations.getInstallationRepositories({user_id})
  * @apiExample {js} Promise
- * github.integrations.getInstallationRepositories({user_id}).then(result => {})
+ * octokit.integrations.getInstallationRepositories({user_id}).then(result => {})
  * @apiExample {js} Callback
- * github.integrations.getInstallationRepositories({user_id}, (error, result) => {})
+ * octokit.integrations.getInstallationRepositories({user_id}, (error, result) => {})
  */
 
 
@@ -1563,11 +1563,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} repository_id  
  * @apiExample {js} async/await
- * const result = await github.integrations.addRepoToInstallation({installation_id, repository_id})
+ * const result = await octokit.integrations.addRepoToInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
- * github.integrations.addRepoToInstallation({installation_id, repository_id}).then(result => {})
+ * octokit.integrations.addRepoToInstallation({installation_id, repository_id}).then(result => {})
  * @apiExample {js} Callback
- * github.integrations.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
+ * octokit.integrations.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -1580,11 +1580,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} repository_id  
  * @apiExample {js} async/await
- * const result = await github.integrations.removeRepoFromInstallation({installation_id, repository_id})
+ * const result = await octokit.integrations.removeRepoFromInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
- * github.integrations.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
+ * octokit.integrations.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
  * @apiExample {js} Callback
- * github.integrations.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
+ * octokit.integrations.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -1602,11 +1602,11 @@
  * @apiGroup Apps
  *
  * @apiExample {js} async/await
- * const result = await github.apps.get({})
+ * const result = await octokit.apps.get({})
  * @apiExample {js} Promise
- * github.apps.get({}).then(result => {})
+ * octokit.apps.get({}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.get({}, (error, result) => {})
+ * octokit.apps.get({}, (error, result) => {})
  */
 
 
@@ -1618,11 +1618,11 @@
  *
  * @apiParam {string} app_slug  The URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., https://github.com/settings/apps/:app_slug).
  * @apiExample {js} async/await
- * const result = await github.apps.getForSlug({app_slug})
+ * const result = await octokit.apps.getForSlug({app_slug})
  * @apiExample {js} Promise
- * github.apps.getForSlug({app_slug}).then(result => {})
+ * octokit.apps.getForSlug({app_slug}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getForSlug({app_slug}, (error, result) => {})
+ * octokit.apps.getForSlug({app_slug}, (error, result) => {})
  */
 
 
@@ -1635,11 +1635,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.apps.getInstallations({page, per_page})
+ * const result = await octokit.apps.getInstallations({page, per_page})
  * @apiExample {js} Promise
- * github.apps.getInstallations({page, per_page}).then(result => {})
+ * octokit.apps.getInstallations({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getInstallations({page, per_page}, (error, result) => {})
+ * octokit.apps.getInstallations({page, per_page}, (error, result) => {})
  */
 
 
@@ -1651,11 +1651,11 @@
  *
  * @apiParam {string} installation_id  
  * @apiExample {js} async/await
- * const result = await github.apps.getInstallation({installation_id})
+ * const result = await octokit.apps.getInstallation({installation_id})
  * @apiExample {js} Promise
- * github.apps.getInstallation({installation_id}).then(result => {})
+ * octokit.apps.getInstallation({installation_id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getInstallation({installation_id}, (error, result) => {})
+ * octokit.apps.getInstallation({installation_id}, (error, result) => {})
  */
 
 
@@ -1668,11 +1668,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} [user_id]  The id of the user for whom the app is acting on behalf of.
  * @apiExample {js} async/await
- * const result = await github.apps.createInstallationToken({installation_id, user_id})
+ * const result = await octokit.apps.createInstallationToken({installation_id, user_id})
  * @apiExample {js} Promise
- * github.apps.createInstallationToken({installation_id, user_id}).then(result => {})
+ * octokit.apps.createInstallationToken({installation_id, user_id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.createInstallationToken({installation_id, user_id}, (error, result) => {})
+ * octokit.apps.createInstallationToken({installation_id, user_id}, (error, result) => {})
  */
 
 
@@ -1684,11 +1684,11 @@
  *
  * @apiParam {string} [user_id]  The integer ID of a user, to filter results to repositories that are visible to both the installation and the given user.
  * @apiExample {js} async/await
- * const result = await github.apps.getInstallationRepositories({user_id})
+ * const result = await octokit.apps.getInstallationRepositories({user_id})
  * @apiExample {js} Promise
- * github.apps.getInstallationRepositories({user_id}).then(result => {})
+ * octokit.apps.getInstallationRepositories({user_id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getInstallationRepositories({user_id}, (error, result) => {})
+ * octokit.apps.getInstallationRepositories({user_id}, (error, result) => {})
  */
 
 
@@ -1701,11 +1701,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} repository_id  
  * @apiExample {js} async/await
- * const result = await github.apps.addRepoToInstallation({installation_id, repository_id})
+ * const result = await octokit.apps.addRepoToInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
- * github.apps.addRepoToInstallation({installation_id, repository_id}).then(result => {})
+ * octokit.apps.addRepoToInstallation({installation_id, repository_id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
+ * octokit.apps.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -1718,11 +1718,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} repository_id  
  * @apiExample {js} async/await
- * const result = await github.apps.removeRepoFromInstallation({installation_id, repository_id})
+ * const result = await octokit.apps.removeRepoFromInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
- * github.apps.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
+ * octokit.apps.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
+ * octokit.apps.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -1735,11 +1735,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.apps.getMarketplaceListingPlans({page, per_page})
+ * const result = await octokit.apps.getMarketplaceListingPlans({page, per_page})
  * @apiExample {js} Promise
- * github.apps.getMarketplaceListingPlans({page, per_page}).then(result => {})
+ * octokit.apps.getMarketplaceListingPlans({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getMarketplaceListingPlans({page, per_page}, (error, result) => {})
+ * octokit.apps.getMarketplaceListingPlans({page, per_page}, (error, result) => {})
  */
 
 
@@ -1752,11 +1752,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.apps.getMarketplaceListingStubbedPlans({page, per_page})
+ * const result = await octokit.apps.getMarketplaceListingStubbedPlans({page, per_page})
  * @apiExample {js} Promise
- * github.apps.getMarketplaceListingStubbedPlans({page, per_page}).then(result => {})
+ * octokit.apps.getMarketplaceListingStubbedPlans({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getMarketplaceListingStubbedPlans({page, per_page}, (error, result) => {})
+ * octokit.apps.getMarketplaceListingStubbedPlans({page, per_page}, (error, result) => {})
  */
 
 
@@ -1770,11 +1770,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.apps.getMarketplaceListingPlanAccounts({id, page, per_page})
+ * const result = await octokit.apps.getMarketplaceListingPlanAccounts({id, page, per_page})
  * @apiExample {js} Promise
- * github.apps.getMarketplaceListingPlanAccounts({id, page, per_page}).then(result => {})
+ * octokit.apps.getMarketplaceListingPlanAccounts({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getMarketplaceListingPlanAccounts({id, page, per_page}, (error, result) => {})
+ * octokit.apps.getMarketplaceListingPlanAccounts({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -1788,11 +1788,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page})
+ * const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page})
  * @apiExample {js} Promise
- * github.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}).then(result => {})
+ * octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}, (error, result) => {})
+ * octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -1804,11 +1804,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.apps.checkMarketplaceListingAccount({id})
+ * const result = await octokit.apps.checkMarketplaceListingAccount({id})
  * @apiExample {js} Promise
- * github.apps.checkMarketplaceListingAccount({id}).then(result => {})
+ * octokit.apps.checkMarketplaceListingAccount({id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.checkMarketplaceListingAccount({id}, (error, result) => {})
+ * octokit.apps.checkMarketplaceListingAccount({id}, (error, result) => {})
  */
 
 
@@ -1820,11 +1820,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.apps.checkMarketplaceListingStubbedAccount({id})
+ * const result = await octokit.apps.checkMarketplaceListingStubbedAccount({id})
  * @apiExample {js} Promise
- * github.apps.checkMarketplaceListingStubbedAccount({id}).then(result => {})
+ * octokit.apps.checkMarketplaceListingStubbedAccount({id}).then(result => {})
  * @apiExample {js} Callback
- * github.apps.checkMarketplaceListingStubbedAccount({id}, (error, result) => {})
+ * octokit.apps.checkMarketplaceListingStubbedAccount({id}, (error, result) => {})
  */
 
 
@@ -1845,11 +1845,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.get({owner, repo, number})
+ * const result = await octokit.issues.get({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.get({owner, repo, number}).then(result => {})
+ * octokit.issues.get({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.get({owner, repo, number}, (error, result) => {})
+ * octokit.issues.get({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -1868,11 +1868,11 @@
  * @apiParam {string[]} [labels]  Array of strings - Labels to associate with this issue.
  * @apiParam {string[]} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} async/await
- * const result = await github.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees})
+ * const result = await octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees})
  * @apiExample {js} Promise
- * github.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}).then(result => {})
+ * octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}, (error, result) => {})
+ * octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}, (error, result) => {})
  */
 
 
@@ -1893,11 +1893,11 @@
  * @apiParam {string[]} [labels]  Array of strings - Labels to associate with this issue.
  * @apiParam {string[]} [assignees]  Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.
  * @apiExample {js} async/await
- * const result = await github.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees})
+ * const result = await octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees})
  * @apiExample {js} Promise
- * github.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}).then(result => {})
+ * octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}, (error, result) => {})
+ * octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}, (error, result) => {})
  */
 
 
@@ -1911,11 +1911,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.lock({owner, repo, number})
+ * const result = await octokit.issues.lock({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.lock({owner, repo, number}).then(result => {})
+ * octokit.issues.lock({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.lock({owner, repo, number}, (error, result) => {})
+ * octokit.issues.lock({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -1929,11 +1929,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.unlock({owner, repo, number})
+ * const result = await octokit.issues.unlock({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.unlock({owner, repo, number}).then(result => {})
+ * octokit.issues.unlock({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.unlock({owner, repo, number}, (error, result) => {})
+ * octokit.issues.unlock({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -1952,11 +1952,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getAll({filter, state, labels, sort, direction, since, page, per_page})
+ * const result = await octokit.issues.getAll({filter, state, labels, sort, direction, since, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})
+ * octokit.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})
+ * octokit.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -1975,11 +1975,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page})
+ * const result = await octokit.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})
+ * octokit.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})
+ * octokit.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -1999,11 +1999,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page})
+ * const result = await octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}).then(result => {})
+ * octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})
+ * octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -2027,11 +2027,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {string} [mentioned]  String User login.
  * @apiExample {js} async/await
- * const result = await github.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned})
+ * const result = await octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned})
  * @apiExample {js} Promise
- * github.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}).then(result => {})
+ * octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}, (error, result) => {})
+ * octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}, (error, result) => {})
  */
 
 
@@ -2044,11 +2044,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.issues.getAssignees({owner, repo})
+ * const result = await octokit.issues.getAssignees({owner, repo})
  * @apiExample {js} Promise
- * github.issues.getAssignees({owner, repo}).then(result => {})
+ * octokit.issues.getAssignees({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getAssignees({owner, repo}, (error, result) => {})
+ * octokit.issues.getAssignees({owner, repo}, (error, result) => {})
  */
 
 
@@ -2062,11 +2062,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} assignee  Login for the user that this issue should be assigned to.
  * @apiExample {js} async/await
- * const result = await github.issues.checkAssignee({owner, repo, assignee})
+ * const result = await octokit.issues.checkAssignee({owner, repo, assignee})
  * @apiExample {js} Promise
- * github.issues.checkAssignee({owner, repo, assignee}).then(result => {})
+ * octokit.issues.checkAssignee({owner, repo, assignee}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.checkAssignee({owner, repo, assignee}, (error, result) => {})
+ * octokit.issues.checkAssignee({owner, repo, assignee}, (error, result) => {})
  */
 
 
@@ -2081,11 +2081,11 @@
  * @apiParam {number} number  
  * @apiParam {string[]} assignees  Logins for the users that should be added to the issue.
  * @apiExample {js} async/await
- * const result = await github.issues.addAssigneesToIssue({owner, repo, number, assignees})
+ * const result = await octokit.issues.addAssigneesToIssue({owner, repo, number, assignees})
  * @apiExample {js} Promise
- * github.issues.addAssigneesToIssue({owner, repo, number, assignees}).then(result => {})
+ * octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.addAssigneesToIssue({owner, repo, number, assignees}, (error, result) => {})
+ * octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}, (error, result) => {})
  */
 
 
@@ -2100,11 +2100,11 @@
  * @apiParam {number} number  
  * @apiParam {json} body  
  * @apiExample {js} async/await
- * const result = await github.issues.removeAssigneesFromIssue({owner, repo, number, body})
+ * const result = await octokit.issues.removeAssigneesFromIssue({owner, repo, number, body})
  * @apiExample {js} Promise
- * github.issues.removeAssigneesFromIssue({owner, repo, number, body}).then(result => {})
+ * octokit.issues.removeAssigneesFromIssue({owner, repo, number, body}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.removeAssigneesFromIssue({owner, repo, number, body}, (error, result) => {})
+ * octokit.issues.removeAssigneesFromIssue({owner, repo, number, body}, (error, result) => {})
  */
 
 
@@ -2121,11 +2121,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getComments({owner, repo, number, since, page, per_page})
+ * const result = await octokit.issues.getComments({owner, repo, number, since, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getComments({owner, repo, number, since, page, per_page}).then(result => {})
+ * octokit.issues.getComments({owner, repo, number, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getComments({owner, repo, number, since, page, per_page}, (error, result) => {})
+ * octokit.issues.getComments({owner, repo, number, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -2143,11 +2143,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})
+ * const result = await octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})
+ * octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})
+ * octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -2161,11 +2161,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.issues.getComment({owner, repo, id})
+ * const result = await octokit.issues.getComment({owner, repo, id})
  * @apiExample {js} Promise
- * github.issues.getComment({owner, repo, id}).then(result => {})
+ * octokit.issues.getComment({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getComment({owner, repo, id}, (error, result) => {})
+ * octokit.issues.getComment({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -2180,11 +2180,11 @@
  * @apiParam {number} number  
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.issues.createComment({owner, repo, number, body})
+ * const result = await octokit.issues.createComment({owner, repo, number, body})
  * @apiExample {js} Promise
- * github.issues.createComment({owner, repo, number, body}).then(result => {})
+ * octokit.issues.createComment({owner, repo, number, body}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.createComment({owner, repo, number, body}, (error, result) => {})
+ * octokit.issues.createComment({owner, repo, number, body}, (error, result) => {})
  */
 
 
@@ -2199,11 +2199,11 @@
  * @apiParam {string} id  
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.issues.editComment({owner, repo, id, body})
+ * const result = await octokit.issues.editComment({owner, repo, id, body})
  * @apiExample {js} Promise
- * github.issues.editComment({owner, repo, id, body}).then(result => {})
+ * octokit.issues.editComment({owner, repo, id, body}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.editComment({owner, repo, id, body}, (error, result) => {})
+ * octokit.issues.editComment({owner, repo, id, body}, (error, result) => {})
  */
 
 
@@ -2217,11 +2217,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.issues.deleteComment({owner, repo, id})
+ * const result = await octokit.issues.deleteComment({owner, repo, id})
  * @apiExample {js} Promise
- * github.issues.deleteComment({owner, repo, id}).then(result => {})
+ * octokit.issues.deleteComment({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.deleteComment({owner, repo, id}, (error, result) => {})
+ * octokit.issues.deleteComment({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -2237,11 +2237,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getEvents({owner, repo, issue_number, page, per_page})
+ * const result = await octokit.issues.getEvents({owner, repo, issue_number, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getEvents({owner, repo, issue_number, page, per_page}).then(result => {})
+ * octokit.issues.getEvents({owner, repo, issue_number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getEvents({owner, repo, issue_number, page, per_page}, (error, result) => {})
+ * octokit.issues.getEvents({owner, repo, issue_number, page, per_page}, (error, result) => {})
  */
 
 
@@ -2256,11 +2256,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getEventsForRepo({owner, repo, page, per_page})
+ * const result = await octokit.issues.getEventsForRepo({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getEventsForRepo({owner, repo, page, per_page}).then(result => {})
+ * octokit.issues.getEventsForRepo({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.issues.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -2274,11 +2274,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.issues.getEvent({owner, repo, id})
+ * const result = await octokit.issues.getEvent({owner, repo, id})
  * @apiExample {js} Promise
- * github.issues.getEvent({owner, repo, id}).then(result => {})
+ * octokit.issues.getEvent({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getEvent({owner, repo, id}, (error, result) => {})
+ * octokit.issues.getEvent({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -2293,11 +2293,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getLabels({owner, repo, page, per_page})
+ * const result = await octokit.issues.getLabels({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getLabels({owner, repo, page, per_page}).then(result => {})
+ * octokit.issues.getLabels({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getLabels({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.issues.getLabels({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -2311,11 +2311,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.issues.getLabel({owner, repo, name})
+ * const result = await octokit.issues.getLabel({owner, repo, name})
  * @apiExample {js} Promise
- * github.issues.getLabel({owner, repo, name}).then(result => {})
+ * octokit.issues.getLabel({owner, repo, name}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getLabel({owner, repo, name}, (error, result) => {})
+ * octokit.issues.getLabel({owner, repo, name}, (error, result) => {})
  */
 
 
@@ -2330,11 +2330,11 @@
  * @apiParam {string} name  
  * @apiParam {string} color  6 character hex code, without a leading #.
  * @apiExample {js} async/await
- * const result = await github.issues.createLabel({owner, repo, name, color})
+ * const result = await octokit.issues.createLabel({owner, repo, name, color})
  * @apiExample {js} Promise
- * github.issues.createLabel({owner, repo, name, color}).then(result => {})
+ * octokit.issues.createLabel({owner, repo, name, color}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.createLabel({owner, repo, name, color}, (error, result) => {})
+ * octokit.issues.createLabel({owner, repo, name, color}, (error, result) => {})
  */
 
 
@@ -2350,11 +2350,11 @@
  * @apiParam {string} name  The new name of the label.
  * @apiParam {string} color  6 character hex code, without a leading #.
  * @apiExample {js} async/await
- * const result = await github.issues.updateLabel({owner, repo, oldname, name, color})
+ * const result = await octokit.issues.updateLabel({owner, repo, oldname, name, color})
  * @apiExample {js} Promise
- * github.issues.updateLabel({owner, repo, oldname, name, color}).then(result => {})
+ * octokit.issues.updateLabel({owner, repo, oldname, name, color}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.updateLabel({owner, repo, oldname, name, color}, (error, result) => {})
+ * octokit.issues.updateLabel({owner, repo, oldname, name, color}, (error, result) => {})
  */
 
 
@@ -2368,11 +2368,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.issues.deleteLabel({owner, repo, name})
+ * const result = await octokit.issues.deleteLabel({owner, repo, name})
  * @apiExample {js} Promise
- * github.issues.deleteLabel({owner, repo, name}).then(result => {})
+ * octokit.issues.deleteLabel({owner, repo, name}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.deleteLabel({owner, repo, name}, (error, result) => {})
+ * octokit.issues.deleteLabel({owner, repo, name}, (error, result) => {})
  */
 
 
@@ -2386,11 +2386,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.getIssueLabels({owner, repo, number})
+ * const result = await octokit.issues.getIssueLabels({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.getIssueLabels({owner, repo, number}).then(result => {})
+ * octokit.issues.getIssueLabels({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getIssueLabels({owner, repo, number}, (error, result) => {})
+ * octokit.issues.getIssueLabels({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2405,11 +2405,11 @@
  * @apiParam {number} number  
  * @apiParam {string[]} labels  
  * @apiExample {js} async/await
- * const result = await github.issues.addLabels({owner, repo, number, labels})
+ * const result = await octokit.issues.addLabels({owner, repo, number, labels})
  * @apiExample {js} Promise
- * github.issues.addLabels({owner, repo, number, labels}).then(result => {})
+ * octokit.issues.addLabels({owner, repo, number, labels}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.addLabels({owner, repo, number, labels}, (error, result) => {})
+ * octokit.issues.addLabels({owner, repo, number, labels}, (error, result) => {})
  */
 
 
@@ -2424,11 +2424,11 @@
  * @apiParam {number} number  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.issues.removeLabel({owner, repo, number, name})
+ * const result = await octokit.issues.removeLabel({owner, repo, number, name})
  * @apiExample {js} Promise
- * github.issues.removeLabel({owner, repo, number, name}).then(result => {})
+ * octokit.issues.removeLabel({owner, repo, number, name}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.removeLabel({owner, repo, number, name}, (error, result) => {})
+ * octokit.issues.removeLabel({owner, repo, number, name}, (error, result) => {})
  */
 
 
@@ -2443,11 +2443,11 @@
  * @apiParam {number} number  
  * @apiParam {string[]} labels  Sending an empty array ([]) will remove all Labels from the Issue.
  * @apiExample {js} async/await
- * const result = await github.issues.replaceAllLabels({owner, repo, number, labels})
+ * const result = await octokit.issues.replaceAllLabels({owner, repo, number, labels})
  * @apiExample {js} Promise
- * github.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})
+ * octokit.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})
+ * octokit.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})
  */
 
 
@@ -2461,11 +2461,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.removeAllLabels({owner, repo, number})
+ * const result = await octokit.issues.removeAllLabels({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.removeAllLabels({owner, repo, number}).then(result => {})
+ * octokit.issues.removeAllLabels({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.removeAllLabels({owner, repo, number}, (error, result) => {})
+ * octokit.issues.removeAllLabels({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2479,11 +2479,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.getMilestoneLabels({owner, repo, number})
+ * const result = await octokit.issues.getMilestoneLabels({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.getMilestoneLabels({owner, repo, number}).then(result => {})
+ * octokit.issues.getMilestoneLabels({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getMilestoneLabels({owner, repo, number}, (error, result) => {})
+ * octokit.issues.getMilestoneLabels({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2501,11 +2501,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getMilestones({owner, repo, state, sort, direction, page, per_page})
+ * const result = await octokit.issues.getMilestones({owner, repo, state, sort, direction, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}).then(result => {})
+ * octokit.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}, (error, result) => {})
+ * octokit.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}, (error, result) => {})
  */
 
 
@@ -2519,11 +2519,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.getMilestone({owner, repo, number})
+ * const result = await octokit.issues.getMilestone({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.getMilestone({owner, repo, number}).then(result => {})
+ * octokit.issues.getMilestone({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getMilestone({owner, repo, number}, (error, result) => {})
+ * octokit.issues.getMilestone({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2540,11 +2540,11 @@
  * @apiParam {string} [description]  
  * @apiParam {date} [due_on]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} async/await
- * const result = await github.issues.createMilestone({owner, repo, title, state, description, due_on})
+ * const result = await octokit.issues.createMilestone({owner, repo, title, state, description, due_on})
  * @apiExample {js} Promise
- * github.issues.createMilestone({owner, repo, title, state, description, due_on}).then(result => {})
+ * octokit.issues.createMilestone({owner, repo, title, state, description, due_on}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.createMilestone({owner, repo, title, state, description, due_on}, (error, result) => {})
+ * octokit.issues.createMilestone({owner, repo, title, state, description, due_on}, (error, result) => {})
  */
 
 
@@ -2562,11 +2562,11 @@
  * @apiParam {string} [description]  
  * @apiParam {date} [due_on]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
  * @apiExample {js} async/await
- * const result = await github.issues.updateMilestone({owner, repo, number, title, state, description, due_on})
+ * const result = await octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on})
  * @apiExample {js} Promise
- * github.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})
+ * octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})
+ * octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})
  */
 
 
@@ -2580,11 +2580,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.issues.deleteMilestone({owner, repo, number})
+ * const result = await octokit.issues.deleteMilestone({owner, repo, number})
  * @apiExample {js} Promise
- * github.issues.deleteMilestone({owner, repo, number}).then(result => {})
+ * octokit.issues.deleteMilestone({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.deleteMilestone({owner, repo, number}, (error, result) => {})
+ * octokit.issues.deleteMilestone({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2600,11 +2600,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.issues.getEventsTimeline({owner, repo, issue_number, page, per_page})
+ * const result = await octokit.issues.getEventsTimeline({owner, repo, issue_number, page, per_page})
  * @apiExample {js} Promise
- * github.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}).then(result => {})
+ * octokit.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}, (error, result) => {})
+ * octokit.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}, (error, result) => {})
  */
 
 
@@ -2626,11 +2626,11 @@
  * @apiParam {boolean} [lock_repositories=false]  Indicates whether repositories should be locked (to prevent manipulation) while migrating data. Default: false.
  * @apiParam {boolean} [exclude_attachments=false]  Indicates whether attachments should be excluded from the migration (to reduce migration archive file size). Default: false.
  * @apiExample {js} async/await
- * const result = await github.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments})
+ * const result = await octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments})
  * @apiExample {js} Promise
- * github.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})
+ * octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})
+ * octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})
  */
 
 
@@ -2644,11 +2644,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.migrations.getMigrations({org, page, per_page})
+ * const result = await octokit.migrations.getMigrations({org, page, per_page})
  * @apiExample {js} Promise
- * github.migrations.getMigrations({org, page, per_page}).then(result => {})
+ * octokit.migrations.getMigrations({org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.getMigrations({org, page, per_page}, (error, result) => {})
+ * octokit.migrations.getMigrations({org, page, per_page}, (error, result) => {})
  */
 
 
@@ -2661,11 +2661,11 @@
  * @apiParam {string} org  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.migrations.getMigrationStatus({org, id})
+ * const result = await octokit.migrations.getMigrationStatus({org, id})
  * @apiExample {js} Promise
- * github.migrations.getMigrationStatus({org, id}).then(result => {})
+ * octokit.migrations.getMigrationStatus({org, id}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.getMigrationStatus({org, id}, (error, result) => {})
+ * octokit.migrations.getMigrationStatus({org, id}, (error, result) => {})
  */
 
 
@@ -2678,11 +2678,11 @@
  * @apiParam {string} org  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.migrations.getMigrationArchiveLink({org, id})
+ * const result = await octokit.migrations.getMigrationArchiveLink({org, id})
  * @apiExample {js} Promise
- * github.migrations.getMigrationArchiveLink({org, id}).then(result => {})
+ * octokit.migrations.getMigrationArchiveLink({org, id}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.getMigrationArchiveLink({org, id}, (error, result) => {})
+ * octokit.migrations.getMigrationArchiveLink({org, id}, (error, result) => {})
  */
 
 
@@ -2695,11 +2695,11 @@
  * @apiParam {string} org  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.migrations.deleteMigrationArchive({org, id})
+ * const result = await octokit.migrations.deleteMigrationArchive({org, id})
  * @apiExample {js} Promise
- * github.migrations.deleteMigrationArchive({org, id}).then(result => {})
+ * octokit.migrations.deleteMigrationArchive({org, id}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.deleteMigrationArchive({org, id}, (error, result) => {})
+ * octokit.migrations.deleteMigrationArchive({org, id}, (error, result) => {})
  */
 
 
@@ -2713,11 +2713,11 @@
  * @apiParam {string} id  
  * @apiParam {string} repo_name  
  * @apiExample {js} async/await
- * const result = await github.migrations.unlockRepoLockedForMigration({org, id, repo_name})
+ * const result = await octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name})
  * @apiExample {js} Promise
- * github.migrations.unlockRepoLockedForMigration({org, id, repo_name}).then(result => {})
+ * octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.unlockRepoLockedForMigration({org, id, repo_name}, (error, result) => {})
+ * octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}, (error, result) => {})
  */
 
 
@@ -2735,11 +2735,11 @@
  * @apiParam {string} [vcs_password]  If authentication is required, the password to provide to vcs_url.
  * @apiParam {string} [tfvc_project]  For a tfvc import, the name of the project that is being imported.
  * @apiExample {js} async/await
- * const result = await github.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project})
+ * const result = await octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project})
  * @apiExample {js} Promise
- * github.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}).then(result => {})
+ * octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}, (error, result) => {})
+ * octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}, (error, result) => {})
  */
 
 
@@ -2752,11 +2752,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.migrations.getImportProgress({owner, repo})
+ * const result = await octokit.migrations.getImportProgress({owner, repo})
  * @apiExample {js} Promise
- * github.migrations.getImportProgress({owner, repo}).then(result => {})
+ * octokit.migrations.getImportProgress({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.getImportProgress({owner, repo}, (error, result) => {})
+ * octokit.migrations.getImportProgress({owner, repo}, (error, result) => {})
  */
 
 
@@ -2771,11 +2771,11 @@
  * @apiParam {string} [vcs_username]  The username to provide to the originating repository.
  * @apiParam {string} [vcs_password]  The password to provide to the originating repository.
  * @apiExample {js} async/await
- * const result = await github.migrations.updateImport({owner, repo, vcs_username, vcs_password})
+ * const result = await octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password})
  * @apiExample {js} Promise
- * github.migrations.updateImport({owner, repo, vcs_username, vcs_password}).then(result => {})
+ * octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.updateImport({owner, repo, vcs_username, vcs_password}, (error, result) => {})
+ * octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}, (error, result) => {})
  */
 
 
@@ -2789,11 +2789,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} [since]  Only authors found after this id are returned. Provide the highest author ID you've seen so far. New authors may be added to the list at any point while the importer is performing the raw step.
  * @apiExample {js} async/await
- * const result = await github.migrations.getImportCommitAuthors({owner, repo, since})
+ * const result = await octokit.migrations.getImportCommitAuthors({owner, repo, since})
  * @apiExample {js} Promise
- * github.migrations.getImportCommitAuthors({owner, repo, since}).then(result => {})
+ * octokit.migrations.getImportCommitAuthors({owner, repo, since}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.getImportCommitAuthors({owner, repo, since}, (error, result) => {})
+ * octokit.migrations.getImportCommitAuthors({owner, repo, since}, (error, result) => {})
  */
 
 
@@ -2809,11 +2809,11 @@
  * @apiParam {string} [email]  The new Git author email.
  * @apiParam {string} [name]  The new Git author name.
  * @apiExample {js} async/await
- * const result = await github.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name})
+ * const result = await octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name})
  * @apiExample {js} Promise
- * github.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}).then(result => {})
+ * octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}, (error, result) => {})
+ * octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}, (error, result) => {})
  */
 
 
@@ -2827,11 +2827,11 @@
  * @apiParam {string} name  
  * @apiParam {string} use_lfs  Can be one of `opt_in` (large files will be stored using Git LFS) or `opt_out` (large files will be removed during the import).
  * @apiExample {js} async/await
- * const result = await github.migrations.setImportLfsPreference({owner, name, use_lfs})
+ * const result = await octokit.migrations.setImportLfsPreference({owner, name, use_lfs})
  * @apiExample {js} Promise
- * github.migrations.setImportLfsPreference({owner, name, use_lfs}).then(result => {})
+ * octokit.migrations.setImportLfsPreference({owner, name, use_lfs}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.setImportLfsPreference({owner, name, use_lfs}, (error, result) => {})
+ * octokit.migrations.setImportLfsPreference({owner, name, use_lfs}, (error, result) => {})
  */
 
 
@@ -2844,11 +2844,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.migrations.getLargeImportFiles({owner, name})
+ * const result = await octokit.migrations.getLargeImportFiles({owner, name})
  * @apiExample {js} Promise
- * github.migrations.getLargeImportFiles({owner, name}).then(result => {})
+ * octokit.migrations.getLargeImportFiles({owner, name}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.getLargeImportFiles({owner, name}, (error, result) => {})
+ * octokit.migrations.getLargeImportFiles({owner, name}, (error, result) => {})
  */
 
 
@@ -2861,11 +2861,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.migrations.cancelImport({owner, repo})
+ * const result = await octokit.migrations.cancelImport({owner, repo})
  * @apiExample {js} Promise
- * github.migrations.cancelImport({owner, repo}).then(result => {})
+ * octokit.migrations.cancelImport({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.migrations.cancelImport({owner, repo}, (error, result) => {})
+ * octokit.migrations.cancelImport({owner, repo}, (error, result) => {})
  */
 
 
@@ -2883,11 +2883,11 @@
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
- * const result = await github.misc.getCodesOfConduct({})
+ * const result = await octokit.misc.getCodesOfConduct({})
  * @apiExample {js} Promise
- * github.misc.getCodesOfConduct({}).then(result => {})
+ * octokit.misc.getCodesOfConduct({}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getCodesOfConduct({}, (error, result) => {})
+ * octokit.misc.getCodesOfConduct({}, (error, result) => {})
  */
 
 
@@ -2899,11 +2899,11 @@
  *
  * @apiParam {string} key  Ex: contributor_covenant
  * @apiExample {js} async/await
- * const result = await github.misc.getCodeOfConduct({key})
+ * const result = await octokit.misc.getCodeOfConduct({key})
  * @apiExample {js} Promise
- * github.misc.getCodeOfConduct({key}).then(result => {})
+ * octokit.misc.getCodeOfConduct({key}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getCodeOfConduct({key}, (error, result) => {})
+ * octokit.misc.getCodeOfConduct({key}, (error, result) => {})
  */
 
 
@@ -2916,11 +2916,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.misc.getRepoCodeOfConduct({owner, repo})
+ * const result = await octokit.misc.getRepoCodeOfConduct({owner, repo})
  * @apiExample {js} Promise
- * github.misc.getRepoCodeOfConduct({owner, repo}).then(result => {})
+ * octokit.misc.getRepoCodeOfConduct({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getRepoCodeOfConduct({owner, repo}, (error, result) => {})
+ * octokit.misc.getRepoCodeOfConduct({owner, repo}, (error, result) => {})
  */
 
 
@@ -2931,11 +2931,11 @@
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
- * const result = await github.misc.getEmojis({})
+ * const result = await octokit.misc.getEmojis({})
  * @apiExample {js} Promise
- * github.misc.getEmojis({}).then(result => {})
+ * octokit.misc.getEmojis({}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getEmojis({}, (error, result) => {})
+ * octokit.misc.getEmojis({}, (error, result) => {})
  */
 
 
@@ -2946,11 +2946,11 @@
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
- * const result = await github.misc.getGitignoreTemplates({})
+ * const result = await octokit.misc.getGitignoreTemplates({})
  * @apiExample {js} Promise
- * github.misc.getGitignoreTemplates({}).then(result => {})
+ * octokit.misc.getGitignoreTemplates({}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getGitignoreTemplates({}, (error, result) => {})
+ * octokit.misc.getGitignoreTemplates({}, (error, result) => {})
  */
 
 
@@ -2962,11 +2962,11 @@
  *
  * @apiParam {string} name  The name of the .gitignore template to get e.g. 'C'
  * @apiExample {js} async/await
- * const result = await github.misc.getGitignoreTemplate({name})
+ * const result = await octokit.misc.getGitignoreTemplate({name})
  * @apiExample {js} Promise
- * github.misc.getGitignoreTemplate({name}).then(result => {})
+ * octokit.misc.getGitignoreTemplate({name}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getGitignoreTemplate({name}, (error, result) => {})
+ * octokit.misc.getGitignoreTemplate({name}, (error, result) => {})
  */
 
 
@@ -2977,11 +2977,11 @@
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
- * const result = await github.misc.getLicenses({})
+ * const result = await octokit.misc.getLicenses({})
  * @apiExample {js} Promise
- * github.misc.getLicenses({}).then(result => {})
+ * octokit.misc.getLicenses({}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getLicenses({}, (error, result) => {})
+ * octokit.misc.getLicenses({}, (error, result) => {})
  */
 
 
@@ -2993,11 +2993,11 @@
  *
  * @apiParam {string} license  Ex: /licenses/mit
  * @apiExample {js} async/await
- * const result = await github.misc.getLicense({license})
+ * const result = await octokit.misc.getLicense({license})
  * @apiExample {js} Promise
- * github.misc.getLicense({license}).then(result => {})
+ * octokit.misc.getLicense({license}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getLicense({license}, (error, result) => {})
+ * octokit.misc.getLicense({license}, (error, result) => {})
  */
 
 
@@ -3010,11 +3010,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.misc.getRepoLicense({owner, repo})
+ * const result = await octokit.misc.getRepoLicense({owner, repo})
  * @apiExample {js} Promise
- * github.misc.getRepoLicense({owner, repo}).then(result => {})
+ * octokit.misc.getRepoLicense({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getRepoLicense({owner, repo}, (error, result) => {})
+ * octokit.misc.getRepoLicense({owner, repo}, (error, result) => {})
  */
 
 
@@ -3028,11 +3028,11 @@
  * @apiParam {string=markdown,gfm} [mode=markdown]  The rendering mode, `markdown` to render a document as plain Markdown, just like README files are rendered. `gfm` to render a document as user-content, e.g. like user comments or issues are rendered. In GFM mode, hard line breaks are always taken into account, and issue and user mentions are linked accordingly.
  * @apiParam {string} [context]  The repository context. Only taken into account when rendering as `gfm`
  * @apiExample {js} async/await
- * const result = await github.misc.renderMarkdown({text, mode, context})
+ * const result = await octokit.misc.renderMarkdown({text, mode, context})
  * @apiExample {js} Promise
- * github.misc.renderMarkdown({text, mode, context}).then(result => {})
+ * octokit.misc.renderMarkdown({text, mode, context}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.renderMarkdown({text, mode, context}, (error, result) => {})
+ * octokit.misc.renderMarkdown({text, mode, context}, (error, result) => {})
  */
 
 
@@ -3044,11 +3044,11 @@
  *
  * @apiParam {string} data  Raw data to send as the body of the request
  * @apiExample {js} async/await
- * const result = await github.misc.renderMarkdownRaw({data})
+ * const result = await octokit.misc.renderMarkdownRaw({data})
  * @apiExample {js} Promise
- * github.misc.renderMarkdownRaw({data}).then(result => {})
+ * octokit.misc.renderMarkdownRaw({data}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.renderMarkdownRaw({data}, (error, result) => {})
+ * octokit.misc.renderMarkdownRaw({data}, (error, result) => {})
  */
 
 
@@ -3059,11 +3059,11 @@
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
- * const result = await github.misc.getMeta({})
+ * const result = await octokit.misc.getMeta({})
  * @apiExample {js} Promise
- * github.misc.getMeta({}).then(result => {})
+ * octokit.misc.getMeta({}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getMeta({}, (error, result) => {})
+ * octokit.misc.getMeta({}, (error, result) => {})
  */
 
 
@@ -3074,11 +3074,11 @@
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
- * const result = await github.misc.getRateLimit({})
+ * const result = await octokit.misc.getRateLimit({})
  * @apiExample {js} Promise
- * github.misc.getRateLimit({}).then(result => {})
+ * octokit.misc.getRateLimit({}).then(result => {})
  * @apiExample {js} Callback
- * github.misc.getRateLimit({}, (error, result) => {})
+ * octokit.misc.getRateLimit({}, (error, result) => {})
  */
 
 
@@ -3099,11 +3099,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.get({org, page, per_page})
+ * const result = await octokit.orgs.get({org, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.get({org, page, per_page}).then(result => {})
+ * octokit.orgs.get({org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.get({org, page, per_page}, (error, result) => {})
+ * octokit.orgs.get({org, page, per_page}, (error, result) => {})
  */
 
 
@@ -3123,11 +3123,11 @@
  * @apiParam {string=read,write,admin,none} [default_repository_permission=read]  Default permission level members have for organization repositories.
  * @apiParam {boolean} [members_can_create_repositories=true]  Toggles ability of non-admin organization members to create repositories.
  * @apiExample {js} async/await
- * const result = await github.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories})
+ * const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories})
  * @apiExample {js} Promise
- * github.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}).then(result => {})
+ * octokit.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}, (error, result) => {})
+ * octokit.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}, (error, result) => {})
  */
 
 
@@ -3141,11 +3141,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getAll({since, page, per_page})
+ * const result = await octokit.orgs.getAll({since, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getAll({since, page, per_page}).then(result => {})
+ * octokit.orgs.getAll({since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getAll({since, page, per_page}, (error, result) => {})
+ * octokit.orgs.getAll({since, page, per_page}, (error, result) => {})
  */
 
 
@@ -3159,11 +3159,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getForUser({username, page, per_page})
+ * const result = await octokit.orgs.getForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getForUser({username, page, per_page}).then(result => {})
+ * octokit.orgs.getForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getForUser({username, page, per_page}, (error, result) => {})
+ * octokit.orgs.getForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -3179,11 +3179,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getMembers({org, filter, role, page, per_page})
+ * const result = await octokit.orgs.getMembers({org, filter, role, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getMembers({org, filter, role, page, per_page}).then(result => {})
+ * octokit.orgs.getMembers({org, filter, role, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getMembers({org, filter, role, page, per_page}, (error, result) => {})
+ * octokit.orgs.getMembers({org, filter, role, page, per_page}, (error, result) => {})
  */
 
 
@@ -3196,11 +3196,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.checkMembership({org, username})
+ * const result = await octokit.orgs.checkMembership({org, username})
  * @apiExample {js} Promise
- * github.orgs.checkMembership({org, username}).then(result => {})
+ * octokit.orgs.checkMembership({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.checkMembership({org, username}, (error, result) => {})
+ * octokit.orgs.checkMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3213,11 +3213,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.removeMember({org, username})
+ * const result = await octokit.orgs.removeMember({org, username})
  * @apiExample {js} Promise
- * github.orgs.removeMember({org, username}).then(result => {})
+ * octokit.orgs.removeMember({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.removeMember({org, username}, (error, result) => {})
+ * octokit.orgs.removeMember({org, username}, (error, result) => {})
  */
 
 
@@ -3229,11 +3229,11 @@
  *
  * @apiParam {string} org  
  * @apiExample {js} async/await
- * const result = await github.orgs.getPublicMembers({org})
+ * const result = await octokit.orgs.getPublicMembers({org})
  * @apiExample {js} Promise
- * github.orgs.getPublicMembers({org}).then(result => {})
+ * octokit.orgs.getPublicMembers({org}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getPublicMembers({org}, (error, result) => {})
+ * octokit.orgs.getPublicMembers({org}, (error, result) => {})
  */
 
 
@@ -3246,11 +3246,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.checkPublicMembership({org, username})
+ * const result = await octokit.orgs.checkPublicMembership({org, username})
  * @apiExample {js} Promise
- * github.orgs.checkPublicMembership({org, username}).then(result => {})
+ * octokit.orgs.checkPublicMembership({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.checkPublicMembership({org, username}, (error, result) => {})
+ * octokit.orgs.checkPublicMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3263,11 +3263,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.publicizeMembership({org, username})
+ * const result = await octokit.orgs.publicizeMembership({org, username})
  * @apiExample {js} Promise
- * github.orgs.publicizeMembership({org, username}).then(result => {})
+ * octokit.orgs.publicizeMembership({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.publicizeMembership({org, username}, (error, result) => {})
+ * octokit.orgs.publicizeMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3280,11 +3280,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.concealMembership({org, username})
+ * const result = await octokit.orgs.concealMembership({org, username})
  * @apiExample {js} Promise
- * github.orgs.concealMembership({org, username}).then(result => {})
+ * octokit.orgs.concealMembership({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.concealMembership({org, username}, (error, result) => {})
+ * octokit.orgs.concealMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3297,11 +3297,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.getOrgMembership({org, username})
+ * const result = await octokit.orgs.getOrgMembership({org, username})
  * @apiExample {js} Promise
- * github.orgs.getOrgMembership({org, username}).then(result => {})
+ * octokit.orgs.getOrgMembership({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getOrgMembership({org, username}, (error, result) => {})
+ * octokit.orgs.getOrgMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3315,11 +3315,11 @@
  * @apiParam {string} username  
  * @apiParam {string=admin,member} role=member  The role to give the user in the organization.
  * @apiExample {js} async/await
- * const result = await github.orgs.addOrgMembership({org, username, role})
+ * const result = await octokit.orgs.addOrgMembership({org, username, role})
  * @apiExample {js} Promise
- * github.orgs.addOrgMembership({org, username, role}).then(result => {})
+ * octokit.orgs.addOrgMembership({org, username, role}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.addOrgMembership({org, username, role}, (error, result) => {})
+ * octokit.orgs.addOrgMembership({org, username, role}, (error, result) => {})
  */
 
 
@@ -3332,11 +3332,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.removeOrgMembership({org, username})
+ * const result = await octokit.orgs.removeOrgMembership({org, username})
  * @apiExample {js} Promise
- * github.orgs.removeOrgMembership({org, username}).then(result => {})
+ * octokit.orgs.removeOrgMembership({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.removeOrgMembership({org, username}, (error, result) => {})
+ * octokit.orgs.removeOrgMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3348,11 +3348,11 @@
  *
  * @apiParam {string} org  
  * @apiExample {js} async/await
- * const result = await github.orgs.getPendingOrgInvites({org})
+ * const result = await octokit.orgs.getPendingOrgInvites({org})
  * @apiExample {js} Promise
- * github.orgs.getPendingOrgInvites({org}).then(result => {})
+ * octokit.orgs.getPendingOrgInvites({org}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getPendingOrgInvites({org}, (error, result) => {})
+ * octokit.orgs.getPendingOrgInvites({org}, (error, result) => {})
  */
 
 
@@ -3367,11 +3367,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getOutsideCollaborators({org, filter, page, per_page})
+ * const result = await octokit.orgs.getOutsideCollaborators({org, filter, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getOutsideCollaborators({org, filter, page, per_page}).then(result => {})
+ * octokit.orgs.getOutsideCollaborators({org, filter, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getOutsideCollaborators({org, filter, page, per_page}, (error, result) => {})
+ * octokit.orgs.getOutsideCollaborators({org, filter, page, per_page}, (error, result) => {})
  */
 
 
@@ -3384,11 +3384,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.removeOutsideCollaborator({org, username})
+ * const result = await octokit.orgs.removeOutsideCollaborator({org, username})
  * @apiExample {js} Promise
- * github.orgs.removeOutsideCollaborator({org, username}).then(result => {})
+ * octokit.orgs.removeOutsideCollaborator({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.removeOutsideCollaborator({org, username}, (error, result) => {})
+ * octokit.orgs.removeOutsideCollaborator({org, username}, (error, result) => {})
  */
 
 
@@ -3401,11 +3401,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.convertMemberToOutsideCollaborator({org, username})
+ * const result = await octokit.orgs.convertMemberToOutsideCollaborator({org, username})
  * @apiExample {js} Promise
- * github.orgs.convertMemberToOutsideCollaborator({org, username}).then(result => {})
+ * octokit.orgs.convertMemberToOutsideCollaborator({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.convertMemberToOutsideCollaborator({org, username}, (error, result) => {})
+ * octokit.orgs.convertMemberToOutsideCollaborator({org, username}, (error, result) => {})
  */
 
 
@@ -3419,11 +3419,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getTeams({org, page, per_page})
+ * const result = await octokit.orgs.getTeams({org, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getTeams({org, page, per_page}).then(result => {})
+ * octokit.orgs.getTeams({org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getTeams({org, page, per_page}, (error, result) => {})
+ * octokit.orgs.getTeams({org, page, per_page}, (error, result) => {})
  */
 
 
@@ -3435,11 +3435,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.orgs.getTeam({id})
+ * const result = await octokit.orgs.getTeam({id})
  * @apiExample {js} Promise
- * github.orgs.getTeam({id}).then(result => {})
+ * octokit.orgs.getTeam({id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getTeam({id}, (error, result) => {})
+ * octokit.orgs.getTeam({id}, (error, result) => {})
  */
 
 
@@ -3457,11 +3457,11 @@
  * @apiParam {string=secret,closed} [privacy=secret]  The level of privacy this team should have.
  * @apiParam {string} [parent_team_id]  The ID of a team to set as the parent team.
  * @apiExample {js} async/await
- * const result = await github.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id})
+ * const result = await octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id})
  * @apiExample {js} Promise
- * github.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}).then(result => {})
+ * octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}, (error, result) => {})
+ * octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}, (error, result) => {})
  */
 
 
@@ -3477,11 +3477,11 @@
  * @apiParam {string=secret,closed} [privacy=secret]  The level of privacy this team should have.
  * @apiParam {string} [parent_team_id]  The ID of a team to set as the parent team.
  * @apiExample {js} async/await
- * const result = await github.orgs.editTeam({id, name, description, privacy, parent_team_id})
+ * const result = await octokit.orgs.editTeam({id, name, description, privacy, parent_team_id})
  * @apiExample {js} Promise
- * github.orgs.editTeam({id, name, description, privacy, parent_team_id}).then(result => {})
+ * octokit.orgs.editTeam({id, name, description, privacy, parent_team_id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.editTeam({id, name, description, privacy, parent_team_id}, (error, result) => {})
+ * octokit.orgs.editTeam({id, name, description, privacy, parent_team_id}, (error, result) => {})
  */
 
 
@@ -3493,11 +3493,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.orgs.deleteTeam({id})
+ * const result = await octokit.orgs.deleteTeam({id})
  * @apiExample {js} Promise
- * github.orgs.deleteTeam({id}).then(result => {})
+ * octokit.orgs.deleteTeam({id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.deleteTeam({id}, (error, result) => {})
+ * octokit.orgs.deleteTeam({id}, (error, result) => {})
  */
 
 
@@ -3512,11 +3512,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getTeamMembers({id, role, page, per_page})
+ * const result = await octokit.orgs.getTeamMembers({id, role, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getTeamMembers({id, role, page, per_page}).then(result => {})
+ * octokit.orgs.getTeamMembers({id, role, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getTeamMembers({id, role, page, per_page}, (error, result) => {})
+ * octokit.orgs.getTeamMembers({id, role, page, per_page}, (error, result) => {})
  */
 
 
@@ -3530,11 +3530,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getChildTeams({id, page, per_page})
+ * const result = await octokit.orgs.getChildTeams({id, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getChildTeams({id, page, per_page}).then(result => {})
+ * octokit.orgs.getChildTeams({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getChildTeams({id, page, per_page}, (error, result) => {})
+ * octokit.orgs.getChildTeams({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -3547,11 +3547,11 @@
  * @apiParam {string} id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.getTeamMembership({id, username})
+ * const result = await octokit.orgs.getTeamMembership({id, username})
  * @apiExample {js} Promise
- * github.orgs.getTeamMembership({id, username}).then(result => {})
+ * octokit.orgs.getTeamMembership({id, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getTeamMembership({id, username}, (error, result) => {})
+ * octokit.orgs.getTeamMembership({id, username}, (error, result) => {})
  */
 
 
@@ -3565,11 +3565,11 @@
  * @apiParam {string} username  
  * @apiParam {string=member,maintainer} [role=member]  The role that this user should have in the team.
  * @apiExample {js} async/await
- * const result = await github.orgs.addTeamMembership({id, username, role})
+ * const result = await octokit.orgs.addTeamMembership({id, username, role})
  * @apiExample {js} Promise
- * github.orgs.addTeamMembership({id, username, role}).then(result => {})
+ * octokit.orgs.addTeamMembership({id, username, role}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.addTeamMembership({id, username, role}, (error, result) => {})
+ * octokit.orgs.addTeamMembership({id, username, role}, (error, result) => {})
  */
 
 
@@ -3582,11 +3582,11 @@
  * @apiParam {string} id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.removeTeamMembership({id, username})
+ * const result = await octokit.orgs.removeTeamMembership({id, username})
  * @apiExample {js} Promise
- * github.orgs.removeTeamMembership({id, username}).then(result => {})
+ * octokit.orgs.removeTeamMembership({id, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.removeTeamMembership({id, username}, (error, result) => {})
+ * octokit.orgs.removeTeamMembership({id, username}, (error, result) => {})
  */
 
 
@@ -3600,11 +3600,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getTeamRepos({id, page, per_page})
+ * const result = await octokit.orgs.getTeamRepos({id, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getTeamRepos({id, page, per_page}).then(result => {})
+ * octokit.orgs.getTeamRepos({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getTeamRepos({id, page, per_page}, (error, result) => {})
+ * octokit.orgs.getTeamRepos({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -3618,11 +3618,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getPendingTeamInvites({id, page, per_page})
+ * const result = await octokit.orgs.getPendingTeamInvites({id, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getPendingTeamInvites({id, page, per_page}).then(result => {})
+ * octokit.orgs.getPendingTeamInvites({id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getPendingTeamInvites({id, page, per_page}, (error, result) => {})
+ * octokit.orgs.getPendingTeamInvites({id, page, per_page}, (error, result) => {})
  */
 
 
@@ -3636,11 +3636,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.orgs.checkTeamRepo({id, owner, repo})
+ * const result = await octokit.orgs.checkTeamRepo({id, owner, repo})
  * @apiExample {js} Promise
- * github.orgs.checkTeamRepo({id, owner, repo}).then(result => {})
+ * octokit.orgs.checkTeamRepo({id, owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.checkTeamRepo({id, owner, repo}, (error, result) => {})
+ * octokit.orgs.checkTeamRepo({id, owner, repo}, (error, result) => {})
  */
 
 
@@ -3655,11 +3655,11 @@
  * @apiParam {string} repo  
  * @apiParam {string=pull,push,admin} [permission]  `pull` - team members can pull, but not push or administer this repository, `push` - team members can pull and push, but not administer this repository, `admin` - team members can pull, push and administer this repository.
  * @apiExample {js} async/await
- * const result = await github.orgs.addTeamRepo({id, org, repo, permission})
+ * const result = await octokit.orgs.addTeamRepo({id, org, repo, permission})
  * @apiExample {js} Promise
- * github.orgs.addTeamRepo({id, org, repo, permission}).then(result => {})
+ * octokit.orgs.addTeamRepo({id, org, repo, permission}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.addTeamRepo({id, org, repo, permission}, (error, result) => {})
+ * octokit.orgs.addTeamRepo({id, org, repo, permission}, (error, result) => {})
  */
 
 
@@ -3673,11 +3673,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.orgs.deleteTeamRepo({id, owner, repo})
+ * const result = await octokit.orgs.deleteTeamRepo({id, owner, repo})
  * @apiExample {js} Promise
- * github.orgs.deleteTeamRepo({id, owner, repo}).then(result => {})
+ * octokit.orgs.deleteTeamRepo({id, owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.deleteTeamRepo({id, owner, repo}, (error, result) => {})
+ * octokit.orgs.deleteTeamRepo({id, owner, repo}, (error, result) => {})
  */
 
 
@@ -3691,11 +3691,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getHooks({org, page, per_page})
+ * const result = await octokit.orgs.getHooks({org, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getHooks({org, page, per_page}).then(result => {})
+ * octokit.orgs.getHooks({org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getHooks({org, page, per_page}, (error, result) => {})
+ * octokit.orgs.getHooks({org, page, per_page}, (error, result) => {})
  */
 
 
@@ -3708,11 +3708,11 @@
  * @apiParam {string} org  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.orgs.getHook({org, id})
+ * const result = await octokit.orgs.getHook({org, id})
  * @apiExample {js} Promise
- * github.orgs.getHook({org, id}).then(result => {})
+ * octokit.orgs.getHook({org, id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getHook({org, id}, (error, result) => {})
+ * octokit.orgs.getHook({org, id}, (error, result) => {})
  */
 
 
@@ -3728,11 +3728,11 @@
  * @apiParam {string[]} [events=["push"]]  Determines what events the hook is triggered for. Default: ["push"].
  * @apiParam {boolean} [active]  Determines whether the hook is actually triggered on pushes.
  * @apiExample {js} async/await
- * const result = await github.orgs.createHook({org, name, config, events, active})
+ * const result = await octokit.orgs.createHook({org, name, config, events, active})
  * @apiExample {js} Promise
- * github.orgs.createHook({org, name, config, events, active}).then(result => {})
+ * octokit.orgs.createHook({org, name, config, events, active}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.createHook({org, name, config, events, active}, (error, result) => {})
+ * octokit.orgs.createHook({org, name, config, events, active}, (error, result) => {})
  */
 
 
@@ -3748,11 +3748,11 @@
  * @apiParam {string[]} [events=["push"]]  Determines what events the hook is triggered for. Default: ["push"].
  * @apiParam {boolean} [active]  Determines whether the hook is actually triggered on pushes.
  * @apiExample {js} async/await
- * const result = await github.orgs.editHook({org, id, config, events, active})
+ * const result = await octokit.orgs.editHook({org, id, config, events, active})
  * @apiExample {js} Promise
- * github.orgs.editHook({org, id, config, events, active}).then(result => {})
+ * octokit.orgs.editHook({org, id, config, events, active}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.editHook({org, id, config, events, active}, (error, result) => {})
+ * octokit.orgs.editHook({org, id, config, events, active}, (error, result) => {})
  */
 
 
@@ -3765,11 +3765,11 @@
  * @apiParam {string} org  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.orgs.pingHook({org, id})
+ * const result = await octokit.orgs.pingHook({org, id})
  * @apiExample {js} Promise
- * github.orgs.pingHook({org, id}).then(result => {})
+ * octokit.orgs.pingHook({org, id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.pingHook({org, id}, (error, result) => {})
+ * octokit.orgs.pingHook({org, id}, (error, result) => {})
  */
 
 
@@ -3782,11 +3782,11 @@
  * @apiParam {string} org  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.orgs.deleteHook({org, id})
+ * const result = await octokit.orgs.deleteHook({org, id})
  * @apiExample {js} Promise
- * github.orgs.deleteHook({org, id}).then(result => {})
+ * octokit.orgs.deleteHook({org, id}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.deleteHook({org, id}, (error, result) => {})
+ * octokit.orgs.deleteHook({org, id}, (error, result) => {})
  */
 
 
@@ -3800,11 +3800,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.orgs.getBlockedUsers({org, page, per_page})
+ * const result = await octokit.orgs.getBlockedUsers({org, page, per_page})
  * @apiExample {js} Promise
- * github.orgs.getBlockedUsers({org, page, per_page}).then(result => {})
+ * octokit.orgs.getBlockedUsers({org, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.getBlockedUsers({org, page, per_page}, (error, result) => {})
+ * octokit.orgs.getBlockedUsers({org, page, per_page}, (error, result) => {})
  */
 
 
@@ -3817,11 +3817,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.checkBlockedUser({org, username})
+ * const result = await octokit.orgs.checkBlockedUser({org, username})
  * @apiExample {js} Promise
- * github.orgs.checkBlockedUser({org, username}).then(result => {})
+ * octokit.orgs.checkBlockedUser({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.checkBlockedUser({org, username}, (error, result) => {})
+ * octokit.orgs.checkBlockedUser({org, username}, (error, result) => {})
  */
 
 
@@ -3834,11 +3834,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.blockUser({org, username})
+ * const result = await octokit.orgs.blockUser({org, username})
  * @apiExample {js} Promise
- * github.orgs.blockUser({org, username}).then(result => {})
+ * octokit.orgs.blockUser({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.blockUser({org, username}, (error, result) => {})
+ * octokit.orgs.blockUser({org, username}, (error, result) => {})
  */
 
 
@@ -3851,11 +3851,11 @@
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.orgs.unblockUser({org, username})
+ * const result = await octokit.orgs.unblockUser({org, username})
  * @apiExample {js} Promise
- * github.orgs.unblockUser({org, username}).then(result => {})
+ * octokit.orgs.unblockUser({org, username}).then(result => {})
  * @apiExample {js} Callback
- * github.orgs.unblockUser({org, username}, (error, result) => {})
+ * octokit.orgs.unblockUser({org, username}, (error, result) => {})
  */
 
 
@@ -3876,11 +3876,11 @@
  * @apiParam {string} repo  
  * @apiParam {string=open,closed,all} [state=open]  
  * @apiExample {js} async/await
- * const result = await github.projects.getRepoProjects({owner, repo, state})
+ * const result = await octokit.projects.getRepoProjects({owner, repo, state})
  * @apiExample {js} Promise
- * github.projects.getRepoProjects({owner, repo, state}).then(result => {})
+ * octokit.projects.getRepoProjects({owner, repo, state}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getRepoProjects({owner, repo, state}, (error, result) => {})
+ * octokit.projects.getRepoProjects({owner, repo, state}, (error, result) => {})
  */
 
 
@@ -3893,11 +3893,11 @@
  * @apiParam {string} org  
  * @apiParam {string=open,closed,all} [state=open]  
  * @apiExample {js} async/await
- * const result = await github.projects.getOrgProjects({org, state})
+ * const result = await octokit.projects.getOrgProjects({org, state})
  * @apiExample {js} Promise
- * github.projects.getOrgProjects({org, state}).then(result => {})
+ * octokit.projects.getOrgProjects({org, state}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getOrgProjects({org, state}, (error, result) => {})
+ * octokit.projects.getOrgProjects({org, state}, (error, result) => {})
  */
 
 
@@ -3909,11 +3909,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.projects.getProject({id})
+ * const result = await octokit.projects.getProject({id})
  * @apiExample {js} Promise
- * github.projects.getProject({id}).then(result => {})
+ * octokit.projects.getProject({id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getProject({id}, (error, result) => {})
+ * octokit.projects.getProject({id}, (error, result) => {})
  */
 
 
@@ -3928,11 +3928,11 @@
  * @apiParam {string} name  
  * @apiParam {string} [body]  
  * @apiExample {js} async/await
- * const result = await github.projects.createRepoProject({owner, repo, name, body})
+ * const result = await octokit.projects.createRepoProject({owner, repo, name, body})
  * @apiExample {js} Promise
- * github.projects.createRepoProject({owner, repo, name, body}).then(result => {})
+ * octokit.projects.createRepoProject({owner, repo, name, body}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.createRepoProject({owner, repo, name, body}, (error, result) => {})
+ * octokit.projects.createRepoProject({owner, repo, name, body}, (error, result) => {})
  */
 
 
@@ -3946,11 +3946,11 @@
  * @apiParam {string} name  
  * @apiParam {string} [body]  
  * @apiExample {js} async/await
- * const result = await github.projects.createOrgProject({org, name, body})
+ * const result = await octokit.projects.createOrgProject({org, name, body})
  * @apiExample {js} Promise
- * github.projects.createOrgProject({org, name, body}).then(result => {})
+ * octokit.projects.createOrgProject({org, name, body}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.createOrgProject({org, name, body}, (error, result) => {})
+ * octokit.projects.createOrgProject({org, name, body}, (error, result) => {})
  */
 
 
@@ -3965,11 +3965,11 @@
  * @apiParam {string} [body]  
  * @apiParam {string=open,closed,all} [state=open]  
  * @apiExample {js} async/await
- * const result = await github.projects.updateProject({id, name, body, state})
+ * const result = await octokit.projects.updateProject({id, name, body, state})
  * @apiExample {js} Promise
- * github.projects.updateProject({id, name, body, state}).then(result => {})
+ * octokit.projects.updateProject({id, name, body, state}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.updateProject({id, name, body, state}, (error, result) => {})
+ * octokit.projects.updateProject({id, name, body, state}, (error, result) => {})
  */
 
 
@@ -3981,11 +3981,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.projects.deleteProject({id})
+ * const result = await octokit.projects.deleteProject({id})
  * @apiExample {js} Promise
- * github.projects.deleteProject({id}).then(result => {})
+ * octokit.projects.deleteProject({id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.deleteProject({id}, (error, result) => {})
+ * octokit.projects.deleteProject({id}, (error, result) => {})
  */
 
 
@@ -3997,11 +3997,11 @@
  *
  * @apiParam {string} column_id  
  * @apiExample {js} async/await
- * const result = await github.projects.getProjectCards({column_id})
+ * const result = await octokit.projects.getProjectCards({column_id})
  * @apiExample {js} Promise
- * github.projects.getProjectCards({column_id}).then(result => {})
+ * octokit.projects.getProjectCards({column_id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getProjectCards({column_id}, (error, result) => {})
+ * octokit.projects.getProjectCards({column_id}, (error, result) => {})
  */
 
 
@@ -4013,11 +4013,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.projects.getProjectCard({id})
+ * const result = await octokit.projects.getProjectCard({id})
  * @apiExample {js} Promise
- * github.projects.getProjectCard({id}).then(result => {})
+ * octokit.projects.getProjectCard({id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getProjectCard({id}, (error, result) => {})
+ * octokit.projects.getProjectCard({id}, (error, result) => {})
  */
 
 
@@ -4032,11 +4032,11 @@
  * @apiParam {string} [content_id]  The id of the Issue or Pull Request to associate with this card.
  * @apiParam {string} [content_type]  The type of content to associate with this card. Can be either 'Issue' or 'PullRequest'.
  * @apiExample {js} async/await
- * const result = await github.projects.createProjectCard({column_id, note, content_id, content_type})
+ * const result = await octokit.projects.createProjectCard({column_id, note, content_id, content_type})
  * @apiExample {js} Promise
- * github.projects.createProjectCard({column_id, note, content_id, content_type}).then(result => {})
+ * octokit.projects.createProjectCard({column_id, note, content_id, content_type}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.createProjectCard({column_id, note, content_id, content_type}, (error, result) => {})
+ * octokit.projects.createProjectCard({column_id, note, content_id, content_type}, (error, result) => {})
  */
 
 
@@ -4049,11 +4049,11 @@
  * @apiParam {string} id  
  * @apiParam {string} [note]  The note of the card.
  * @apiExample {js} async/await
- * const result = await github.projects.updateProjectCard({id, note})
+ * const result = await octokit.projects.updateProjectCard({id, note})
  * @apiExample {js} Promise
- * github.projects.updateProjectCard({id, note}).then(result => {})
+ * octokit.projects.updateProjectCard({id, note}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.updateProjectCard({id, note}, (error, result) => {})
+ * octokit.projects.updateProjectCard({id, note}, (error, result) => {})
  */
 
 
@@ -4065,11 +4065,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.projects.deleteProjectCard({id})
+ * const result = await octokit.projects.deleteProjectCard({id})
  * @apiExample {js} Promise
- * github.projects.deleteProjectCard({id}).then(result => {})
+ * octokit.projects.deleteProjectCard({id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.deleteProjectCard({id}, (error, result) => {})
+ * octokit.projects.deleteProjectCard({id}, (error, result) => {})
  */
 
 
@@ -4083,11 +4083,11 @@
  * @apiParam {string} position  Can be one of top, bottom, or after:<card-id>, where <card-id> is the id value of a card in the same project.
  * @apiParam {string} [column_id]  The id value of a column in the same project.
  * @apiExample {js} async/await
- * const result = await github.projects.moveProjectCard({id, position, column_id})
+ * const result = await octokit.projects.moveProjectCard({id, position, column_id})
  * @apiExample {js} Promise
- * github.projects.moveProjectCard({id, position, column_id}).then(result => {})
+ * octokit.projects.moveProjectCard({id, position, column_id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.moveProjectCard({id, position, column_id}, (error, result) => {})
+ * octokit.projects.moveProjectCard({id, position, column_id}, (error, result) => {})
  */
 
 
@@ -4099,11 +4099,11 @@
  *
  * @apiParam {string} project_id  
  * @apiExample {js} async/await
- * const result = await github.projects.getProjectColumns({project_id})
+ * const result = await octokit.projects.getProjectColumns({project_id})
  * @apiExample {js} Promise
- * github.projects.getProjectColumns({project_id}).then(result => {})
+ * octokit.projects.getProjectColumns({project_id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getProjectColumns({project_id}, (error, result) => {})
+ * octokit.projects.getProjectColumns({project_id}, (error, result) => {})
  */
 
 
@@ -4115,11 +4115,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.projects.getProjectColumn({id})
+ * const result = await octokit.projects.getProjectColumn({id})
  * @apiExample {js} Promise
- * github.projects.getProjectColumn({id}).then(result => {})
+ * octokit.projects.getProjectColumn({id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.getProjectColumn({id}, (error, result) => {})
+ * octokit.projects.getProjectColumn({id}, (error, result) => {})
  */
 
 
@@ -4132,11 +4132,11 @@
  * @apiParam {string} project_id  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.projects.createProjectColumn({project_id, name})
+ * const result = await octokit.projects.createProjectColumn({project_id, name})
  * @apiExample {js} Promise
- * github.projects.createProjectColumn({project_id, name}).then(result => {})
+ * octokit.projects.createProjectColumn({project_id, name}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.createProjectColumn({project_id, name}, (error, result) => {})
+ * octokit.projects.createProjectColumn({project_id, name}, (error, result) => {})
  */
 
 
@@ -4149,11 +4149,11 @@
  * @apiParam {string} id  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.projects.updateProjectColumn({id, name})
+ * const result = await octokit.projects.updateProjectColumn({id, name})
  * @apiExample {js} Promise
- * github.projects.updateProjectColumn({id, name}).then(result => {})
+ * octokit.projects.updateProjectColumn({id, name}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.updateProjectColumn({id, name}, (error, result) => {})
+ * octokit.projects.updateProjectColumn({id, name}, (error, result) => {})
  */
 
 
@@ -4165,11 +4165,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.projects.deleteProjectColumn({id})
+ * const result = await octokit.projects.deleteProjectColumn({id})
  * @apiExample {js} Promise
- * github.projects.deleteProjectColumn({id}).then(result => {})
+ * octokit.projects.deleteProjectColumn({id}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.deleteProjectColumn({id}, (error, result) => {})
+ * octokit.projects.deleteProjectColumn({id}, (error, result) => {})
  */
 
 
@@ -4182,11 +4182,11 @@
  * @apiParam {string} id  
  * @apiParam {string} position  Can be one of first, last, or after:<column-id>, where <column-id> is the id value of a column in the same project.
  * @apiExample {js} async/await
- * const result = await github.projects.moveProjectColumn({id, position})
+ * const result = await octokit.projects.moveProjectColumn({id, position})
  * @apiExample {js} Promise
- * github.projects.moveProjectColumn({id, position}).then(result => {})
+ * octokit.projects.moveProjectColumn({id, position}).then(result => {})
  * @apiExample {js} Callback
- * github.projects.moveProjectColumn({id, position}, (error, result) => {})
+ * octokit.projects.moveProjectColumn({id, position}, (error, result) => {})
  */
 
 
@@ -4207,11 +4207,11 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.get({owner, repo, number})
+ * const result = await octokit.pullRequests.get({owner, repo, number})
  * @apiExample {js} Promise
- * github.pullRequests.get({owner, repo, number}).then(result => {})
+ * octokit.pullRequests.get({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.get({owner, repo, number}, (error, result) => {})
+ * octokit.pullRequests.get({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -4226,11 +4226,11 @@
  * @apiParam {string} head  The branch (or git ref) where your changes are implemented.
  * @apiParam {string} base  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.create({owner, repo, head, base})
+ * const result = await octokit.pullRequests.create({owner, repo, head, base})
  * @apiExample {js} Promise
- * github.pullRequests.create({owner, repo, head, base}).then(result => {})
+ * octokit.pullRequests.create({owner, repo, head, base}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.create({owner, repo, head, base}, (error, result) => {})
+ * octokit.pullRequests.create({owner, repo, head, base}, (error, result) => {})
  */
 
 
@@ -4249,11 +4249,11 @@
  * @apiParam {string} [base]  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {boolean} [maintainer_can_modify=true]  Indicates whether maintainers can modify the pull request.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify})
+ * const result = await octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify})
  * @apiExample {js} Promise
- * github.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}).then(result => {})
+ * octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}, (error, result) => {})
+ * octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}, (error, result) => {})
  */
 
 
@@ -4271,11 +4271,11 @@
  * @apiParam {string} [sha]  SHA that pull request head must match to allow merge
  * @apiParam {string=merge,squash,rebase} [merge_method=merge]  Merge method to use. Possible values are `merge`, `squash`, or `rebase`. (In preview period. See README.)
  * @apiExample {js} async/await
- * const result = await github.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method})
+ * const result = await octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method})
  * @apiExample {js} Promise
- * github.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}).then(result => {})
+ * octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}, (error, result) => {})
+ * octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}, (error, result) => {})
  */
 
 
@@ -4295,11 +4295,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page})
+ * const result = await octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}).then(result => {})
+ * octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}, (error, result) => {})
  */
 
 
@@ -4315,11 +4315,11 @@
  * @apiParam {string} head  The branch (or git ref) where your changes are implemented.
  * @apiParam {string} base  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.createFromIssue({owner, repo, issue, head, base})
+ * const result = await octokit.pullRequests.createFromIssue({owner, repo, issue, head, base})
  * @apiExample {js} Promise
- * github.pullRequests.createFromIssue({owner, repo, issue, head, base}).then(result => {})
+ * octokit.pullRequests.createFromIssue({owner, repo, issue, head, base}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.createFromIssue({owner, repo, issue, head, base}, (error, result) => {})
+ * octokit.pullRequests.createFromIssue({owner, repo, issue, head, base}, (error, result) => {})
  */
 
 
@@ -4335,11 +4335,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getCommits({owner, repo, number, page, per_page})
+ * const result = await octokit.pullRequests.getCommits({owner, repo, number, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getCommits({owner, repo, number, page, per_page}).then(result => {})
+ * octokit.pullRequests.getCommits({owner, repo, number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getCommits({owner, repo, number, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getCommits({owner, repo, number, page, per_page}, (error, result) => {})
  */
 
 
@@ -4355,11 +4355,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getFiles({owner, repo, number, page, per_page})
+ * const result = await octokit.pullRequests.getFiles({owner, repo, number, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getFiles({owner, repo, number, page, per_page}).then(result => {})
+ * octokit.pullRequests.getFiles({owner, repo, number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getFiles({owner, repo, number, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getFiles({owner, repo, number, page, per_page}, (error, result) => {})
  */
 
 
@@ -4375,11 +4375,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.checkMerged({owner, repo, number, page, per_page})
+ * const result = await octokit.pullRequests.checkMerged({owner, repo, number, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.checkMerged({owner, repo, number, page, per_page}).then(result => {})
+ * octokit.pullRequests.checkMerged({owner, repo, number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.checkMerged({owner, repo, number, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.checkMerged({owner, repo, number, page, per_page}, (error, result) => {})
  */
 
 
@@ -4395,11 +4395,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getReviews({owner, repo, number, page, per_page})
+ * const result = await octokit.pullRequests.getReviews({owner, repo, number, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getReviews({owner, repo, number, page, per_page}).then(result => {})
+ * octokit.pullRequests.getReviews({owner, repo, number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getReviews({owner, repo, number, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getReviews({owner, repo, number, page, per_page}, (error, result) => {})
  */
 
 
@@ -4414,11 +4414,11 @@
  * @apiParam {number} number  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getReview({owner, repo, number, id})
+ * const result = await octokit.pullRequests.getReview({owner, repo, number, id})
  * @apiExample {js} Promise
- * github.pullRequests.getReview({owner, repo, number, id}).then(result => {})
+ * octokit.pullRequests.getReview({owner, repo, number, id}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getReview({owner, repo, number, id}, (error, result) => {})
+ * octokit.pullRequests.getReview({owner, repo, number, id}, (error, result) => {})
  */
 
 
@@ -4433,11 +4433,11 @@
  * @apiParam {number} number  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.deletePendingReview({owner, repo, number, id})
+ * const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, id})
  * @apiExample {js} Promise
- * github.pullRequests.deletePendingReview({owner, repo, number, id}).then(result => {})
+ * octokit.pullRequests.deletePendingReview({owner, repo, number, id}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.deletePendingReview({owner, repo, number, id}, (error, result) => {})
+ * octokit.pullRequests.deletePendingReview({owner, repo, number, id}, (error, result) => {})
  */
 
 
@@ -4454,11 +4454,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getReviewComments({owner, repo, number, id, page, per_page})
+ * const result = await octokit.pullRequests.getReviewComments({owner, repo, number, id, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}).then(result => {})
+ * octokit.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}, (error, result) => {})
  */
 
 
@@ -4476,11 +4476,11 @@
  * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT,PENDING} [event=PENDING]  The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.
  * @apiParam {string[]} [comments]  An array of draft review comment objects. Draft review comments must include a `path`, `position`, and `body`.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments})
+ * const result = await octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments})
  * @apiExample {js} Promise
- * github.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}).then(result => {})
+ * octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}, (error, result) => {})
+ * octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}, (error, result) => {})
  */
 
 
@@ -4497,11 +4497,11 @@
  * @apiParam {string} [body]  The body text of the pull request review.
  * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT,PENDING} [event=PENDING]  The event to perform on the review upon submission, can be one of APPROVE, REQUEST_CHANGES, or COMMENT. If left blank, the review will be in the PENDING state.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.submitReview({owner, repo, number, id, body, event})
+ * const result = await octokit.pullRequests.submitReview({owner, repo, number, id, body, event})
  * @apiExample {js} Promise
- * github.pullRequests.submitReview({owner, repo, number, id, body, event}).then(result => {})
+ * octokit.pullRequests.submitReview({owner, repo, number, id, body, event}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.submitReview({owner, repo, number, id, body, event}, (error, result) => {})
+ * octokit.pullRequests.submitReview({owner, repo, number, id, body, event}, (error, result) => {})
  */
 
 
@@ -4519,11 +4519,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page})
+ * const result = await octokit.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}).then(result => {})
+ * octokit.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}, (error, result) => {})
  */
 
 
@@ -4539,11 +4539,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getComments({owner, repo, number, page, per_page})
+ * const result = await octokit.pullRequests.getComments({owner, repo, number, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getComments({owner, repo, number, page, per_page}).then(result => {})
+ * octokit.pullRequests.getComments({owner, repo, number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getComments({owner, repo, number, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getComments({owner, repo, number, page, per_page}, (error, result) => {})
  */
 
 
@@ -4561,11 +4561,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})
+ * const result = await octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})
+ * octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})
  */
 
 
@@ -4579,11 +4579,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getComment({owner, repo, id})
+ * const result = await octokit.pullRequests.getComment({owner, repo, id})
  * @apiExample {js} Promise
- * github.pullRequests.getComment({owner, repo, id}).then(result => {})
+ * octokit.pullRequests.getComment({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getComment({owner, repo, id}, (error, result) => {})
+ * octokit.pullRequests.getComment({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -4598,11 +4598,11 @@
  * @apiParam {number} number  
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.createComment({owner, repo, number, body})
+ * const result = await octokit.pullRequests.createComment({owner, repo, number, body})
  * @apiExample {js} Promise
- * github.pullRequests.createComment({owner, repo, number, body}).then(result => {})
+ * octokit.pullRequests.createComment({owner, repo, number, body}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.createComment({owner, repo, number, body}, (error, result) => {})
+ * octokit.pullRequests.createComment({owner, repo, number, body}, (error, result) => {})
  */
 
 
@@ -4618,11 +4618,11 @@
  * @apiParam {string} body  
  * @apiParam {number} in_reply_to  The comment id to reply to.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to})
+ * const result = await octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to})
  * @apiExample {js} Promise
- * github.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}).then(result => {})
+ * octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}, (error, result) => {})
+ * octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}, (error, result) => {})
  */
 
 
@@ -4637,11 +4637,11 @@
  * @apiParam {string} id  
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.editComment({owner, repo, id, body})
+ * const result = await octokit.pullRequests.editComment({owner, repo, id, body})
  * @apiExample {js} Promise
- * github.pullRequests.editComment({owner, repo, id, body}).then(result => {})
+ * octokit.pullRequests.editComment({owner, repo, id, body}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.editComment({owner, repo, id, body}, (error, result) => {})
+ * octokit.pullRequests.editComment({owner, repo, id, body}, (error, result) => {})
  */
 
 
@@ -4655,11 +4655,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.pullRequests.deleteComment({owner, repo, id})
+ * const result = await octokit.pullRequests.deleteComment({owner, repo, id})
  * @apiExample {js} Promise
- * github.pullRequests.deleteComment({owner, repo, id}).then(result => {})
+ * octokit.pullRequests.deleteComment({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.deleteComment({owner, repo, id}, (error, result) => {})
+ * octokit.pullRequests.deleteComment({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -4675,11 +4675,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.getReviewRequests({owner, repo, number, page, per_page})
+ * const result = await octokit.pullRequests.getReviewRequests({owner, repo, number, page, per_page})
  * @apiExample {js} Promise
- * github.pullRequests.getReviewRequests({owner, repo, number, page, per_page}).then(result => {})
+ * octokit.pullRequests.getReviewRequests({owner, repo, number, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.getReviewRequests({owner, repo, number, page, per_page}, (error, result) => {})
+ * octokit.pullRequests.getReviewRequests({owner, repo, number, page, per_page}, (error, result) => {})
  */
 
 
@@ -4695,11 +4695,11 @@
  * @apiParam {string[]} [reviewers]  An array of user logins that will be requested.
  * @apiParam {string[]} [team_reviewers]  An array of team slugs that will be requested.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers})
+ * const result = await octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers})
  * @apiExample {js} Promise
- * github.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})
+ * octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})
+ * octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})
  */
 
 
@@ -4715,11 +4715,11 @@
  * @apiParam {string[]} [reviewers]  An array of user logins that will be requested.
  * @apiParam {string[]} [team_reviewers]  An array of team slugs that will be requested.
  * @apiExample {js} async/await
- * const result = await github.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers})
+ * const result = await octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers})
  * @apiExample {js} Promise
- * github.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})
+ * octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})
  * @apiExample {js} Callback
- * github.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})
+ * octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})
  */
 
 
@@ -4738,11 +4738,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.reactions.delete({id})
+ * const result = await octokit.reactions.delete({id})
  * @apiExample {js} Promise
- * github.reactions.delete({id}).then(result => {})
+ * octokit.reactions.delete({id}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.delete({id}, (error, result) => {})
+ * octokit.reactions.delete({id}, (error, result) => {})
  */
 
 
@@ -4757,11 +4757,11 @@
  * @apiParam {string} id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Indicates which type of reaction to return.
  * @apiExample {js} async/await
- * const result = await github.reactions.getForCommitComment({owner, repo, id, content})
+ * const result = await octokit.reactions.getForCommitComment({owner, repo, id, content})
  * @apiExample {js} Promise
- * github.reactions.getForCommitComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.getForCommitComment({owner, repo, id, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.getForCommitComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.getForCommitComment({owner, repo, id, content}, (error, result) => {})
  */
 
 
@@ -4776,11 +4776,11 @@
  * @apiParam {string} id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The reaction type.
  * @apiExample {js} async/await
- * const result = await github.reactions.createForCommitComment({owner, repo, id, content})
+ * const result = await octokit.reactions.createForCommitComment({owner, repo, id, content})
  * @apiExample {js} Promise
- * github.reactions.createForCommitComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.createForCommitComment({owner, repo, id, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.createForCommitComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.createForCommitComment({owner, repo, id, content}, (error, result) => {})
  */
 
 
@@ -4795,11 +4795,11 @@
  * @apiParam {number} number  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Indicates which type of reaction to return.
  * @apiExample {js} async/await
- * const result = await github.reactions.getForIssue({owner, repo, number, content})
+ * const result = await octokit.reactions.getForIssue({owner, repo, number, content})
  * @apiExample {js} Promise
- * github.reactions.getForIssue({owner, repo, number, content}).then(result => {})
+ * octokit.reactions.getForIssue({owner, repo, number, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.getForIssue({owner, repo, number, content}, (error, result) => {})
+ * octokit.reactions.getForIssue({owner, repo, number, content}, (error, result) => {})
  */
 
 
@@ -4814,11 +4814,11 @@
  * @apiParam {number} number  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The reaction type.
  * @apiExample {js} async/await
- * const result = await github.reactions.createForIssue({owner, repo, number, content})
+ * const result = await octokit.reactions.createForIssue({owner, repo, number, content})
  * @apiExample {js} Promise
- * github.reactions.createForIssue({owner, repo, number, content}).then(result => {})
+ * octokit.reactions.createForIssue({owner, repo, number, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.createForIssue({owner, repo, number, content}, (error, result) => {})
+ * octokit.reactions.createForIssue({owner, repo, number, content}, (error, result) => {})
  */
 
 
@@ -4833,11 +4833,11 @@
  * @apiParam {string} id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Indicates which type of reaction to return.
  * @apiExample {js} async/await
- * const result = await github.reactions.getForIssueComment({owner, repo, id, content})
+ * const result = await octokit.reactions.getForIssueComment({owner, repo, id, content})
  * @apiExample {js} Promise
- * github.reactions.getForIssueComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.getForIssueComment({owner, repo, id, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.getForIssueComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.getForIssueComment({owner, repo, id, content}, (error, result) => {})
  */
 
 
@@ -4852,11 +4852,11 @@
  * @apiParam {string} id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The reaction type.
  * @apiExample {js} async/await
- * const result = await github.reactions.createForIssueComment({owner, repo, id, content})
+ * const result = await octokit.reactions.createForIssueComment({owner, repo, id, content})
  * @apiExample {js} Promise
- * github.reactions.createForIssueComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.createForIssueComment({owner, repo, id, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.createForIssueComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.createForIssueComment({owner, repo, id, content}, (error, result) => {})
  */
 
 
@@ -4871,11 +4871,11 @@
  * @apiParam {string} id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Indicates which type of reaction to return.
  * @apiExample {js} async/await
- * const result = await github.reactions.getForPullRequestReviewComment({owner, repo, id, content})
+ * const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content})
  * @apiExample {js} Promise
- * github.reactions.getForPullRequestReviewComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.getForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})
  */
 
 
@@ -4890,11 +4890,11 @@
  * @apiParam {string} id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The reaction type.
  * @apiExample {js} async/await
- * const result = await github.reactions.createForPullRequestReviewComment({owner, repo, id, content})
+ * const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content})
  * @apiExample {js} Promise
- * github.reactions.createForPullRequestReviewComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}).then(result => {})
  * @apiExample {js} Callback
- * github.reactions.createForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})
  */
 
 
@@ -4926,11 +4926,11 @@
  * @apiParam {boolean} [allow_merge_commit=true]  Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)
  * @apiParam {number} [team_id]  The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.
  * @apiExample {js} async/await
- * const result = await github.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id})
+ * const result = await octokit.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id})
  * @apiExample {js} Promise
- * github.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}).then(result => {})
+ * octokit.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}, (error, result) => {})
+ * octokit.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}, (error, result) => {})
  */
 
 
@@ -4943,11 +4943,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.get({owner, repo})
+ * const result = await octokit.repos.get({owner, repo})
  * @apiExample {js} Promise
- * github.repos.get({owner, repo}).then(result => {})
+ * octokit.repos.get({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.get({owner, repo}, (error, result) => {})
+ * octokit.repos.get({owner, repo}, (error, result) => {})
  */
 
 
@@ -4971,11 +4971,11 @@
  * @apiParam {boolean} [allow_merge_commit=true]  Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)
  * @apiParam {boolean} [has_issues=true]  True to enable issues for this repository, false to disable them. Default is true.
  * @apiExample {js} async/await
- * const result = await github.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues})
+ * const result = await octokit.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues})
  * @apiExample {js} Promise
- * github.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}).then(result => {})
+ * octokit.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}, (error, result) => {})
+ * octokit.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}, (error, result) => {})
  */
 
 
@@ -4988,11 +4988,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.delete({owner, repo})
+ * const result = await octokit.repos.delete({owner, repo})
  * @apiExample {js} Promise
- * github.repos.delete({owner, repo}).then(result => {})
+ * octokit.repos.delete({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.delete({owner, repo}, (error, result) => {})
+ * octokit.repos.delete({owner, repo}, (error, result) => {})
  */
 
 
@@ -5006,11 +5006,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} [organization]  Optional parameter to specify the organization name if forking into an organization.
  * @apiExample {js} async/await
- * const result = await github.repos.fork({owner, repo, organization})
+ * const result = await octokit.repos.fork({owner, repo, organization})
  * @apiExample {js} Promise
- * github.repos.fork({owner, repo, organization}).then(result => {})
+ * octokit.repos.fork({owner, repo, organization}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.fork({owner, repo, organization}, (error, result) => {})
+ * octokit.repos.fork({owner, repo, organization}, (error, result) => {})
  */
 
 
@@ -5026,11 +5026,11 @@
  * @apiParam {string} head  The branch (or git ref) where your changes are implemented.
  * @apiParam {string} [commit_message]  Commit message to use for the merge commit. If omitted, a default message will be used.
  * @apiExample {js} async/await
- * const result = await github.repos.merge({owner, repo, base, head, commit_message})
+ * const result = await octokit.repos.merge({owner, repo, base, head, commit_message})
  * @apiExample {js} Promise
- * github.repos.merge({owner, repo, base, head, commit_message}).then(result => {})
+ * octokit.repos.merge({owner, repo, base, head, commit_message}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.merge({owner, repo, base, head, commit_message}, (error, result) => {})
+ * octokit.repos.merge({owner, repo, base, head, commit_message}, (error, result) => {})
  */
 
 
@@ -5048,11 +5048,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page})
+ * const result = await octokit.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}).then(result => {})
+ * octokit.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}, (error, result) => {})
+ * octokit.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}, (error, result) => {})
  */
 
 
@@ -5069,11 +5069,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getForUser({username, type, sort, direction, page, per_page})
+ * const result = await octokit.repos.getForUser({username, type, sort, direction, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getForUser({username, type, sort, direction, page, per_page}).then(result => {})
+ * octokit.repos.getForUser({username, type, sort, direction, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getForUser({username, type, sort, direction, page, per_page}, (error, result) => {})
+ * octokit.repos.getForUser({username, type, sort, direction, page, per_page}, (error, result) => {})
  */
 
 
@@ -5088,11 +5088,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getForOrg({org, type, page, per_page})
+ * const result = await octokit.repos.getForOrg({org, type, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getForOrg({org, type, page, per_page}).then(result => {})
+ * octokit.repos.getForOrg({org, type, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getForOrg({org, type, page, per_page}, (error, result) => {})
+ * octokit.repos.getForOrg({org, type, page, per_page}, (error, result) => {})
  */
 
 
@@ -5106,11 +5106,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getPublic({since, page, per_page})
+ * const result = await octokit.repos.getPublic({since, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getPublic({since, page, per_page}).then(result => {})
+ * octokit.repos.getPublic({since, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getPublic({since, page, per_page}, (error, result) => {})
+ * octokit.repos.getPublic({since, page, per_page}, (error, result) => {})
  */
 
 
@@ -5136,11 +5136,11 @@
  * @apiParam {boolean} [allow_merge_commit=true]  Either true to allow merging pull requests with a merge commit, or false to prevent merging pull requests with merge commits. Default: true. (In preview period. See README.)
  * @apiParam {boolean} [has_wiki=true]  True to enable the wiki for this repository, false to disable it. Default is true.
  * @apiExample {js} async/await
- * const result = await github.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki})
+ * const result = await octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki})
  * @apiExample {js} Promise
- * github.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}).then(result => {})
+ * octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}, (error, result) => {})
+ * octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}, (error, result) => {})
  */
 
 
@@ -5152,11 +5152,11 @@
  *
  * @apiParam {string} id  Numerical ID of the repository.
  * @apiExample {js} async/await
- * const result = await github.repos.getById({id})
+ * const result = await octokit.repos.getById({id})
  * @apiExample {js} Promise
- * github.repos.getById({id}).then(result => {})
+ * octokit.repos.getById({id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getById({id}, (error, result) => {})
+ * octokit.repos.getById({id}, (error, result) => {})
  */
 
 
@@ -5171,11 +5171,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getTopics({owner, repo, page, per_page})
+ * const result = await octokit.repos.getTopics({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getTopics({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getTopics({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getTopics({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getTopics({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -5189,11 +5189,11 @@
  * @apiParam {string} repo  
  * @apiParam {string[]} names  An array of topics to add to the repository. Pass one or more topics to replace the set of existing topics. Send an empty array ([]) to clear all topics from the repository.
  * @apiExample {js} async/await
- * const result = await github.repos.replaceTopics({owner, repo, names})
+ * const result = await octokit.repos.replaceTopics({owner, repo, names})
  * @apiExample {js} Promise
- * github.repos.replaceTopics({owner, repo, names}).then(result => {})
+ * octokit.repos.replaceTopics({owner, repo, names}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.replaceTopics({owner, repo, names}, (error, result) => {})
+ * octokit.repos.replaceTopics({owner, repo, names}, (error, result) => {})
  */
 
 
@@ -5209,11 +5209,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getContributors({owner, repo, anon, page, per_page})
+ * const result = await octokit.repos.getContributors({owner, repo, anon, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getContributors({owner, repo, anon, page, per_page}).then(result => {})
+ * octokit.repos.getContributors({owner, repo, anon, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getContributors({owner, repo, anon, page, per_page}, (error, result) => {})
+ * octokit.repos.getContributors({owner, repo, anon, page, per_page}, (error, result) => {})
  */
 
 
@@ -5228,11 +5228,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getLanguages({owner, repo, page, per_page})
+ * const result = await octokit.repos.getLanguages({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getLanguages({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getLanguages({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getLanguages({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getLanguages({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -5247,11 +5247,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getTeams({owner, repo, page, per_page})
+ * const result = await octokit.repos.getTeams({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getTeams({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getTeams({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getTeams({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getTeams({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -5266,11 +5266,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getTags({owner, repo, page, per_page})
+ * const result = await octokit.repos.getTags({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getTags({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getTags({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getTags({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getTags({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -5286,11 +5286,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getBranches({owner, repo, protected, page, per_page})
+ * const result = await octokit.repos.getBranches({owner, repo, protected, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getBranches({owner, repo, protected, page, per_page}).then(result => {})
+ * octokit.repos.getBranches({owner, repo, protected, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getBranches({owner, repo, protected, page, per_page}, (error, result) => {})
+ * octokit.repos.getBranches({owner, repo, protected, page, per_page}, (error, result) => {})
  */
 
 
@@ -5306,11 +5306,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getBranch({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getBranch({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getBranch({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getBranch({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getBranch({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getBranch({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5326,11 +5326,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getBranchProtection({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getBranchProtection({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getBranchProtection({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getBranchProtection({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getBranchProtection({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getBranchProtection({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5351,11 +5351,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page})
+ * const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page})
  * @apiExample {js} Promise
- * github.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}).then(result => {})
+ * octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}, (error, result) => {})
+ * octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}, (error, result) => {})
  */
 
 
@@ -5369,11 +5369,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} branch  
  * @apiExample {js} async/await
- * const result = await github.repos.removeBranchProtection({owner, repo, branch})
+ * const result = await octokit.repos.removeBranchProtection({owner, repo, branch})
  * @apiExample {js} Promise
- * github.repos.removeBranchProtection({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeBranchProtection({owner, repo, branch}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeBranchProtection({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeBranchProtection({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5389,11 +5389,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5409,11 +5409,11 @@
  * @apiParam {boolean} [strict]  Require branches to be up to date before merging.
  * @apiParam {string[]} [contexts]  The list of status checks to require in order to merge into this branch.
  * @apiExample {js} async/await
- * const result = await github.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts})
+ * const result = await octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts})
  * @apiExample {js} Promise
- * github.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}).then(result => {})
+ * octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}, (error, result) => {})
+ * octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}, (error, result) => {})
  */
 
 
@@ -5427,11 +5427,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} branch  
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5447,11 +5447,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5466,11 +5466,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} contexts  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
  * @apiExample {js} async/await
- * const result = await github.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
+ * const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
- * github.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
+ * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
+ * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -5485,11 +5485,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} contexts  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
  * @apiExample {js} async/await
- * const result = await github.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
+ * const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
- * github.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
+ * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
+ * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -5504,11 +5504,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} contexts  An array of protected branch required status checks contexts (e.g. continuous-integration/jenkins).
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
+ * const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
+ * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -5524,11 +5524,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5545,11 +5545,11 @@
  * @apiParam {boolean} [dismiss_stale_reviews]  Dismiss approved reviews automatically when a new commit is pushed.
  * @apiParam {boolean} [require_code_owner_reviews]  Blocks merge until code owners have reviewed.
  * @apiExample {js} async/await
- * const result = await github.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews})
+ * const result = await octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews})
  * @apiExample {js} Promise
- * github.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}).then(result => {})
+ * octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}, (error, result) => {})
+ * octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}, (error, result) => {})
  */
 
 
@@ -5563,11 +5563,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} branch  
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5583,11 +5583,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5603,11 +5603,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5621,11 +5621,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} branch  
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5641,11 +5641,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5659,11 +5659,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} branch  
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5679,11 +5679,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5698,11 +5698,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} teams  An array of team slugs (e.g. justice-league).
  * @apiExample {js} async/await
- * const result = await github.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})
+ * const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
- * github.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
+ * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
+ * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -5717,11 +5717,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} teams  An array of team slugs (e.g. justice-league).
  * @apiExample {js} async/await
- * const result = await github.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})
+ * const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
- * github.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
+ * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
+ * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -5736,11 +5736,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} teams  An array of team slugs (e.g. justice-league).
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})
+ * const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
+ * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -5756,11 +5756,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page})
+ * const result = await octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}).then(result => {})
+ * octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})
+ * octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})
  */
 
 
@@ -5775,11 +5775,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} users  An array of team slugs (e.g. justice-league).
  * @apiExample {js} async/await
- * const result = await github.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})
+ * const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
- * github.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
+ * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
+ * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -5794,11 +5794,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} users  An array of team slugs (e.g. justice-league).
  * @apiExample {js} async/await
- * const result = await github.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})
+ * const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
- * github.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
+ * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
+ * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -5813,11 +5813,11 @@
  * @apiParam {string} branch  
  * @apiParam {string[]} users  An array of team slugs (e.g. justice-league).
  * @apiExample {js} async/await
- * const result = await github.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})
+ * const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
- * github.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
+ * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -5833,11 +5833,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getCollaborators({owner, repo, affiliation, page, per_page})
+ * const result = await octokit.repos.getCollaborators({owner, repo, affiliation, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getCollaborators({owner, repo, affiliation, page, per_page}).then(result => {})
+ * octokit.repos.getCollaborators({owner, repo, affiliation, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCollaborators({owner, repo, affiliation, page, per_page}, (error, result) => {})
+ * octokit.repos.getCollaborators({owner, repo, affiliation, page, per_page}, (error, result) => {})
  */
 
 
@@ -5851,11 +5851,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.repos.checkCollaborator({owner, repo, username})
+ * const result = await octokit.repos.checkCollaborator({owner, repo, username})
  * @apiExample {js} Promise
- * github.repos.checkCollaborator({owner, repo, username}).then(result => {})
+ * octokit.repos.checkCollaborator({owner, repo, username}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.checkCollaborator({owner, repo, username}, (error, result) => {})
+ * octokit.repos.checkCollaborator({owner, repo, username}, (error, result) => {})
  */
 
 
@@ -5869,11 +5869,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.repos.reviewUserPermissionLevel({owner, repo, username})
+ * const result = await octokit.repos.reviewUserPermissionLevel({owner, repo, username})
  * @apiExample {js} Promise
- * github.repos.reviewUserPermissionLevel({owner, repo, username}).then(result => {})
+ * octokit.repos.reviewUserPermissionLevel({owner, repo, username}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.reviewUserPermissionLevel({owner, repo, username}, (error, result) => {})
+ * octokit.repos.reviewUserPermissionLevel({owner, repo, username}, (error, result) => {})
  */
 
 
@@ -5888,11 +5888,11 @@
  * @apiParam {string} username  
  * @apiParam {string=pull,push,admin} [permission=push]  `pull` - can pull, but not push to or administer this repository, `push` - can pull and push, but not administer this repository, `admin` - can pull, push and administer this repository.
  * @apiExample {js} async/await
- * const result = await github.repos.addCollaborator({owner, repo, username, permission})
+ * const result = await octokit.repos.addCollaborator({owner, repo, username, permission})
  * @apiExample {js} Promise
- * github.repos.addCollaborator({owner, repo, username, permission}).then(result => {})
+ * octokit.repos.addCollaborator({owner, repo, username, permission}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.addCollaborator({owner, repo, username, permission}, (error, result) => {})
+ * octokit.repos.addCollaborator({owner, repo, username, permission}, (error, result) => {})
  */
 
 
@@ -5906,11 +5906,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.repos.removeCollaborator({owner, repo, username})
+ * const result = await octokit.repos.removeCollaborator({owner, repo, username})
  * @apiExample {js} Promise
- * github.repos.removeCollaborator({owner, repo, username}).then(result => {})
+ * octokit.repos.removeCollaborator({owner, repo, username}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.removeCollaborator({owner, repo, username}, (error, result) => {})
+ * octokit.repos.removeCollaborator({owner, repo, username}, (error, result) => {})
  */
 
 
@@ -5925,11 +5925,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getAllCommitComments({owner, repo, page, per_page})
+ * const result = await octokit.repos.getAllCommitComments({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getAllCommitComments({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getAllCommitComments({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getAllCommitComments({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getAllCommitComments({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -5945,11 +5945,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getCommitComments({owner, repo, ref, page, per_page})
+ * const result = await octokit.repos.getCommitComments({owner, repo, ref, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getCommitComments({owner, repo, ref, page, per_page}).then(result => {})
+ * octokit.repos.getCommitComments({owner, repo, ref, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCommitComments({owner, repo, ref, page, per_page}, (error, result) => {})
+ * octokit.repos.getCommitComments({owner, repo, ref, page, per_page}, (error, result) => {})
  */
 
 
@@ -5966,11 +5966,11 @@
  * @apiParam {string} [path]  Relative path of the file to comment on.
  * @apiParam {number} [position]  Line index in the diff to comment on.
  * @apiExample {js} async/await
- * const result = await github.repos.createCommitComment({owner, repo, sha, body, path, position})
+ * const result = await octokit.repos.createCommitComment({owner, repo, sha, body, path, position})
  * @apiExample {js} Promise
- * github.repos.createCommitComment({owner, repo, sha, body, path, position}).then(result => {})
+ * octokit.repos.createCommitComment({owner, repo, sha, body, path, position}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createCommitComment({owner, repo, sha, body, path, position}, (error, result) => {})
+ * octokit.repos.createCommitComment({owner, repo, sha, body, path, position}, (error, result) => {})
  */
 
 
@@ -5984,11 +5984,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getCommitComment({owner, repo, id})
+ * const result = await octokit.repos.getCommitComment({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getCommitComment({owner, repo, id}).then(result => {})
+ * octokit.repos.getCommitComment({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCommitComment({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getCommitComment({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6003,11 +6003,11 @@
  * @apiParam {string} id  
  * @apiParam {string} body  
  * @apiExample {js} async/await
- * const result = await github.repos.updateCommitComment({owner, repo, id, body})
+ * const result = await octokit.repos.updateCommitComment({owner, repo, id, body})
  * @apiExample {js} Promise
- * github.repos.updateCommitComment({owner, repo, id, body}).then(result => {})
+ * octokit.repos.updateCommitComment({owner, repo, id, body}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.updateCommitComment({owner, repo, id, body}, (error, result) => {})
+ * octokit.repos.updateCommitComment({owner, repo, id, body}, (error, result) => {})
  */
 
 
@@ -6021,11 +6021,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteCommitComment({owner, repo, id})
+ * const result = await octokit.repos.deleteCommitComment({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.deleteCommitComment({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteCommitComment({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteCommitComment({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteCommitComment({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6038,11 +6038,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} name  
  * @apiExample {js} async/await
- * const result = await github.repos.getCommunityProfileMetrics({owner, name})
+ * const result = await octokit.repos.getCommunityProfileMetrics({owner, name})
  * @apiExample {js} Promise
- * github.repos.getCommunityProfileMetrics({owner, name}).then(result => {})
+ * octokit.repos.getCommunityProfileMetrics({owner, name}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCommunityProfileMetrics({owner, name}, (error, result) => {})
+ * octokit.repos.getCommunityProfileMetrics({owner, name}, (error, result) => {})
  */
 
 
@@ -6062,11 +6062,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page})
+ * const result = await octokit.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}).then(result => {})
+ * octokit.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}, (error, result) => {})
+ * octokit.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}, (error, result) => {})
  */
 
 
@@ -6080,11 +6080,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await github.repos.getCommit({owner, repo, sha})
+ * const result = await octokit.repos.getCommit({owner, repo, sha})
  * @apiExample {js} Promise
- * github.repos.getCommit({owner, repo, sha}).then(result => {})
+ * octokit.repos.getCommit({owner, repo, sha}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCommit({owner, repo, sha}, (error, result) => {})
+ * octokit.repos.getCommit({owner, repo, sha}, (error, result) => {})
  */
 
 
@@ -6098,11 +6098,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} ref  String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected.
  * @apiExample {js} async/await
- * const result = await github.repos.getShaOfCommitRef({owner, repo, ref})
+ * const result = await octokit.repos.getShaOfCommitRef({owner, repo, ref})
  * @apiExample {js} Promise
- * github.repos.getShaOfCommitRef({owner, repo, ref}).then(result => {})
+ * octokit.repos.getShaOfCommitRef({owner, repo, ref}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getShaOfCommitRef({owner, repo, ref}, (error, result) => {})
+ * octokit.repos.getShaOfCommitRef({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -6117,11 +6117,11 @@
  * @apiParam {string} base  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
  * @apiParam {string} head  The branch (or git ref) where your changes are implemented.
  * @apiExample {js} async/await
- * const result = await github.repos.compareCommits({owner, repo, base, head})
+ * const result = await octokit.repos.compareCommits({owner, repo, base, head})
  * @apiExample {js} Promise
- * github.repos.compareCommits({owner, repo, base, head}).then(result => {})
+ * octokit.repos.compareCommits({owner, repo, base, head}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.compareCommits({owner, repo, base, head}, (error, result) => {})
+ * octokit.repos.compareCommits({owner, repo, base, head}, (error, result) => {})
  */
 
 
@@ -6135,11 +6135,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} [ref]  The name of the commit/branch/tag. Default: the repository’s default branch (usually master)
  * @apiExample {js} async/await
- * const result = await github.repos.getReadme({owner, repo, ref})
+ * const result = await octokit.repos.getReadme({owner, repo, ref})
  * @apiExample {js} Promise
- * github.repos.getReadme({owner, repo, ref}).then(result => {})
+ * octokit.repos.getReadme({owner, repo, ref}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getReadme({owner, repo, ref}, (error, result) => {})
+ * octokit.repos.getReadme({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -6154,11 +6154,11 @@
  * @apiParam {string} path  The content path.
  * @apiParam {string} [ref]  The String name of the Commit/Branch/Tag. Defaults to master.
  * @apiExample {js} async/await
- * const result = await github.repos.getContent({owner, repo, path, ref})
+ * const result = await octokit.repos.getContent({owner, repo, path, ref})
  * @apiExample {js} Promise
- * github.repos.getContent({owner, repo, path, ref}).then(result => {})
+ * octokit.repos.getContent({owner, repo, path, ref}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getContent({owner, repo, path, ref}, (error, result) => {})
+ * octokit.repos.getContent({owner, repo, path, ref}, (error, result) => {})
  */
 
 
@@ -6177,11 +6177,11 @@
  * @apiParam {json} [committer]  
  * @apiParam {json} [author]  
  * @apiExample {js} async/await
- * const result = await github.repos.createFile({owner, repo, path, message, content, branch, committer, author})
+ * const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author})
  * @apiExample {js} Promise
- * github.repos.createFile({owner, repo, path, message, content, branch, committer, author}).then(result => {})
+ * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createFile({owner, repo, path, message, content, branch, committer, author}, (error, result) => {})
+ * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}, (error, result) => {})
  */
 
 
@@ -6201,11 +6201,11 @@
  * @apiParam {json} [committer]  
  * @apiParam {json} [author]  
  * @apiExample {js} async/await
- * const result = await github.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author})
+ * const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author})
  * @apiExample {js} Promise
- * github.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}).then(result => {})
+ * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}, (error, result) => {})
+ * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}, (error, result) => {})
  */
 
 
@@ -6224,11 +6224,11 @@
  * @apiParam {json} [committer]  
  * @apiParam {json} [author]  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author})
+ * const result = await octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author})
  * @apiExample {js} Promise
- * github.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}).then(result => {})
+ * octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}, (error, result) => {})
+ * octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}, (error, result) => {})
  */
 
 
@@ -6243,11 +6243,11 @@
  * @apiParam {string=tarball,zipball} archive_format=tarball  Either tarball or zipball, Deafult: tarball.
  * @apiParam {string} [ref]  A valid Git reference. Default: the repository’s default branch (usually master).
  * @apiExample {js} async/await
- * const result = await github.repos.getArchiveLink({owner, repo, archive_format, ref})
+ * const result = await octokit.repos.getArchiveLink({owner, repo, archive_format, ref})
  * @apiExample {js} Promise
- * github.repos.getArchiveLink({owner, repo, archive_format, ref}).then(result => {})
+ * octokit.repos.getArchiveLink({owner, repo, archive_format, ref}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getArchiveLink({owner, repo, archive_format, ref}, (error, result) => {})
+ * octokit.repos.getArchiveLink({owner, repo, archive_format, ref}, (error, result) => {})
  */
 
 
@@ -6262,11 +6262,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getDeployKeys({owner, repo, page, per_page})
+ * const result = await octokit.repos.getDeployKeys({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getDeployKeys({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getDeployKeys({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDeployKeys({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getDeployKeys({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -6280,11 +6280,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getDeployKey({owner, repo, id})
+ * const result = await octokit.repos.getDeployKey({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getDeployKey({owner, repo, id}).then(result => {})
+ * octokit.repos.getDeployKey({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDeployKey({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getDeployKey({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6300,11 +6300,11 @@
  * @apiParam {string} key  
  * @apiParam {boolean} [read_only]  If true, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.
  * @apiExample {js} async/await
- * const result = await github.repos.addDeployKey({owner, repo, title, key, read_only})
+ * const result = await octokit.repos.addDeployKey({owner, repo, title, key, read_only})
  * @apiExample {js} Promise
- * github.repos.addDeployKey({owner, repo, title, key, read_only}).then(result => {})
+ * octokit.repos.addDeployKey({owner, repo, title, key, read_only}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.addDeployKey({owner, repo, title, key, read_only}, (error, result) => {})
+ * octokit.repos.addDeployKey({owner, repo, title, key, read_only}, (error, result) => {})
  */
 
 
@@ -6318,11 +6318,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteDeployKey({owner, repo, id})
+ * const result = await octokit.repos.deleteDeployKey({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.deleteDeployKey({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteDeployKey({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteDeployKey({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteDeployKey({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6341,11 +6341,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page})
+ * const result = await octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}).then(result => {})
+ * octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}, (error, result) => {})
+ * octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}, (error, result) => {})
  */
 
 
@@ -6359,11 +6359,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} deployment_id  The deployment id.
  * @apiExample {js} async/await
- * const result = await github.repos.getDeployment({owner, repo, deployment_id})
+ * const result = await octokit.repos.getDeployment({owner, repo, deployment_id})
  * @apiExample {js} Promise
- * github.repos.getDeployment({owner, repo, deployment_id}).then(result => {})
+ * octokit.repos.getDeployment({owner, repo, deployment_id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})
+ * octokit.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})
  */
 
 
@@ -6385,11 +6385,11 @@
  * @apiParam {boolean} [transient_environment=false]  Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: false. (In preview period. See README.)
  * @apiParam {string[]} [required_contexts]  Optional array of status contexts verified against commit status checks. If this parameter is omitted from the parameters then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
  * @apiExample {js} async/await
- * const result = await github.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts})
+ * const result = await octokit.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts})
  * @apiExample {js} Promise
- * github.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}).then(result => {})
+ * octokit.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}, (error, result) => {})
+ * octokit.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}, (error, result) => {})
  */
 
 
@@ -6403,11 +6403,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getDeploymentStatuses({owner, repo, id})
+ * const result = await octokit.repos.getDeploymentStatuses({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getDeploymentStatuses({owner, repo, id}).then(result => {})
+ * octokit.repos.getDeploymentStatuses({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDeploymentStatuses({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getDeploymentStatuses({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6422,11 +6422,11 @@
  * @apiParam {string} id  The Deployment ID to list the statuses from.
  * @apiParam {string} status_id  The Deployment Status ID.
  * @apiExample {js} async/await
- * const result = await github.repos.getDeploymentStatus({owner, repo, id, status_id})
+ * const result = await octokit.repos.getDeploymentStatus({owner, repo, id, status_id})
  * @apiExample {js} Promise
- * github.repos.getDeploymentStatus({owner, repo, id, status_id}).then(result => {})
+ * octokit.repos.getDeploymentStatus({owner, repo, id, status_id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDeploymentStatus({owner, repo, id, status_id}, (error, result) => {})
+ * octokit.repos.getDeploymentStatus({owner, repo, id, status_id}, (error, result) => {})
  */
 
 
@@ -6446,11 +6446,11 @@
  * @apiParam {string} [environment_url=""]  URL for accessing the deployment environment. Default: "". (In preview period. See README.)
  * @apiParam {boolean} [auto_inactive=true]  When true the new `inactive` status is added to all other non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. Default: true. (In preview period. See README.)
  * @apiExample {js} async/await
- * const result = await github.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive})
+ * const result = await octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive})
  * @apiExample {js} Promise
- * github.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})
+ * octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})
+ * octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})
  */
 
 
@@ -6465,11 +6465,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getDownloads({owner, repo, page, per_page})
+ * const result = await octokit.repos.getDownloads({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getDownloads({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getDownloads({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDownloads({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getDownloads({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -6483,11 +6483,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getDownload({owner, repo, id})
+ * const result = await octokit.repos.getDownload({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getDownload({owner, repo, id}).then(result => {})
+ * octokit.repos.getDownload({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getDownload({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getDownload({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6501,11 +6501,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteDownload({owner, repo, id})
+ * const result = await octokit.repos.deleteDownload({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.deleteDownload({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteDownload({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteDownload({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteDownload({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6521,11 +6521,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getForks({owner, repo, sort, page, per_page})
+ * const result = await octokit.repos.getForks({owner, repo, sort, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getForks({owner, repo, sort, page, per_page}).then(result => {})
+ * octokit.repos.getForks({owner, repo, sort, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getForks({owner, repo, sort, page, per_page}, (error, result) => {})
+ * octokit.repos.getForks({owner, repo, sort, page, per_page}, (error, result) => {})
  */
 
 
@@ -6538,11 +6538,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getInvites({owner, repo})
+ * const result = await octokit.repos.getInvites({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getInvites({owner, repo}).then(result => {})
+ * octokit.repos.getInvites({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getInvites({owner, repo}, (error, result) => {})
+ * octokit.repos.getInvites({owner, repo}, (error, result) => {})
  */
 
 
@@ -6556,11 +6556,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} invitation_id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteInvite({owner, repo, invitation_id})
+ * const result = await octokit.repos.deleteInvite({owner, repo, invitation_id})
  * @apiExample {js} Promise
- * github.repos.deleteInvite({owner, repo, invitation_id}).then(result => {})
+ * octokit.repos.deleteInvite({owner, repo, invitation_id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteInvite({owner, repo, invitation_id}, (error, result) => {})
+ * octokit.repos.deleteInvite({owner, repo, invitation_id}, (error, result) => {})
  */
 
 
@@ -6575,11 +6575,11 @@
  * @apiParam {string} invitation_id  
  * @apiParam {string=read,write,admin} [permissions]  The permissions that the associated user will have on the repository.
  * @apiExample {js} async/await
- * const result = await github.repos.updateInvite({owner, repo, invitation_id, permissions})
+ * const result = await octokit.repos.updateInvite({owner, repo, invitation_id, permissions})
  * @apiExample {js} Promise
- * github.repos.updateInvite({owner, repo, invitation_id, permissions}).then(result => {})
+ * octokit.repos.updateInvite({owner, repo, invitation_id, permissions}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.updateInvite({owner, repo, invitation_id, permissions}, (error, result) => {})
+ * octokit.repos.updateInvite({owner, repo, invitation_id, permissions}, (error, result) => {})
  */
 
 
@@ -6594,11 +6594,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getPages({owner, repo, page, per_page})
+ * const result = await octokit.repos.getPages({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getPages({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getPages({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getPages({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getPages({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -6611,11 +6611,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.requestPageBuild({owner, repo})
+ * const result = await octokit.repos.requestPageBuild({owner, repo})
  * @apiExample {js} Promise
- * github.repos.requestPageBuild({owner, repo}).then(result => {})
+ * octokit.repos.requestPageBuild({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.requestPageBuild({owner, repo}, (error, result) => {})
+ * octokit.repos.requestPageBuild({owner, repo}, (error, result) => {})
  */
 
 
@@ -6630,11 +6630,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getPagesBuilds({owner, repo, page, per_page})
+ * const result = await octokit.repos.getPagesBuilds({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getPagesBuilds({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getPagesBuilds({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getPagesBuilds({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getPagesBuilds({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -6647,11 +6647,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getLatestPagesBuild({owner, repo})
+ * const result = await octokit.repos.getLatestPagesBuild({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getLatestPagesBuild({owner, repo}).then(result => {})
+ * octokit.repos.getLatestPagesBuild({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getLatestPagesBuild({owner, repo}, (error, result) => {})
+ * octokit.repos.getLatestPagesBuild({owner, repo}, (error, result) => {})
  */
 
 
@@ -6665,11 +6665,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getPagesBuild({owner, repo, id})
+ * const result = await octokit.repos.getPagesBuild({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getPagesBuild({owner, repo, id}).then(result => {})
+ * octokit.repos.getPagesBuild({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getPagesBuild({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getPagesBuild({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6684,11 +6684,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getReleases({owner, repo, page, per_page})
+ * const result = await octokit.repos.getReleases({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getReleases({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getReleases({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getReleases({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getReleases({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -6702,11 +6702,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getRelease({owner, repo, id})
+ * const result = await octokit.repos.getRelease({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getRelease({owner, repo, id}).then(result => {})
+ * octokit.repos.getRelease({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getRelease({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getRelease({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6719,11 +6719,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getLatestRelease({owner, repo})
+ * const result = await octokit.repos.getLatestRelease({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getLatestRelease({owner, repo}).then(result => {})
+ * octokit.repos.getLatestRelease({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getLatestRelease({owner, repo}, (error, result) => {})
+ * octokit.repos.getLatestRelease({owner, repo}, (error, result) => {})
  */
 
 
@@ -6737,11 +6737,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} tag  String of the tag
  * @apiExample {js} async/await
- * const result = await github.repos.getReleaseByTag({owner, repo, tag})
+ * const result = await octokit.repos.getReleaseByTag({owner, repo, tag})
  * @apiExample {js} Promise
- * github.repos.getReleaseByTag({owner, repo, tag}).then(result => {})
+ * octokit.repos.getReleaseByTag({owner, repo, tag}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getReleaseByTag({owner, repo, tag}, (error, result) => {})
+ * octokit.repos.getReleaseByTag({owner, repo, tag}, (error, result) => {})
  */
 
 
@@ -6760,11 +6760,11 @@
  * @apiParam {boolean} [draft=false]  true to create a draft (unpublished) release, false to create a published one. Default: false
  * @apiParam {boolean} [prerelease=false]  true to identify the release as a prerelease. false to identify the release as a full release. Default: false
  * @apiExample {js} async/await
- * const result = await github.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease})
+ * const result = await octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease})
  * @apiExample {js} Promise
- * github.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
+ * octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
+ * octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
  */
 
 
@@ -6784,11 +6784,11 @@
  * @apiParam {boolean} [draft=false]  true to create a draft (unpublished) release, false to create a published one. Default: false
  * @apiParam {boolean} [prerelease=false]  true to identify the release as a prerelease. false to identify the release as a full release. Default: false
  * @apiExample {js} async/await
- * const result = await github.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease})
+ * const result = await octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease})
  * @apiExample {js} Promise
- * github.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
+ * octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
+ * octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
  */
 
 
@@ -6802,11 +6802,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteRelease({owner, repo, id})
+ * const result = await octokit.repos.deleteRelease({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.deleteRelease({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteRelease({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteRelease({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteRelease({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6820,11 +6820,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getAssets({owner, repo, id})
+ * const result = await octokit.repos.getAssets({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getAssets({owner, repo, id}).then(result => {})
+ * octokit.repos.getAssets({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getAssets({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getAssets({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6841,11 +6841,11 @@
  * @apiParam {string} name  The file name of the asset. This should be set in a URI query parameter.
  * @apiParam {string} [label]  An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.
  * @apiExample {js} async/await
- * const result = await github.repos.uploadAsset({url, file, contentType, contentLength, name, label})
+ * const result = await octokit.repos.uploadAsset({url, file, contentType, contentLength, name, label})
  * @apiExample {js} Promise
- * github.repos.uploadAsset({url, file, contentType, contentLength, name, label}).then(result => {})
+ * octokit.repos.uploadAsset({url, file, contentType, contentLength, name, label}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.uploadAsset({url, file, contentType, contentLength, name, label}, (error, result) => {})
+ * octokit.repos.uploadAsset({url, file, contentType, contentLength, name, label}, (error, result) => {})
  */
 
 
@@ -6859,11 +6859,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getAsset({owner, repo, id})
+ * const result = await octokit.repos.getAsset({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getAsset({owner, repo, id}).then(result => {})
+ * octokit.repos.getAsset({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getAsset({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getAsset({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6879,11 +6879,11 @@
  * @apiParam {string} name  
  * @apiParam {string} [label]  An alternate short description of the asset. Used in place of the filename.
  * @apiExample {js} async/await
- * const result = await github.repos.editAsset({owner, repo, id, name, label})
+ * const result = await octokit.repos.editAsset({owner, repo, id, name, label})
  * @apiExample {js} Promise
- * github.repos.editAsset({owner, repo, id, name, label}).then(result => {})
+ * octokit.repos.editAsset({owner, repo, id, name, label}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.editAsset({owner, repo, id, name, label}, (error, result) => {})
+ * octokit.repos.editAsset({owner, repo, id, name, label}, (error, result) => {})
  */
 
 
@@ -6897,11 +6897,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteAsset({owner, repo, id})
+ * const result = await octokit.repos.deleteAsset({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.deleteAsset({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteAsset({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteAsset({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteAsset({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -6914,11 +6914,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getStatsContributors({owner, repo})
+ * const result = await octokit.repos.getStatsContributors({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getStatsContributors({owner, repo}).then(result => {})
+ * octokit.repos.getStatsContributors({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getStatsContributors({owner, repo}, (error, result) => {})
+ * octokit.repos.getStatsContributors({owner, repo}, (error, result) => {})
  */
 
 
@@ -6931,11 +6931,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getStatsCommitActivity({owner, repo})
+ * const result = await octokit.repos.getStatsCommitActivity({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getStatsCommitActivity({owner, repo}).then(result => {})
+ * octokit.repos.getStatsCommitActivity({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getStatsCommitActivity({owner, repo}, (error, result) => {})
+ * octokit.repos.getStatsCommitActivity({owner, repo}, (error, result) => {})
  */
 
 
@@ -6948,11 +6948,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getStatsCodeFrequency({owner, repo})
+ * const result = await octokit.repos.getStatsCodeFrequency({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getStatsCodeFrequency({owner, repo}).then(result => {})
+ * octokit.repos.getStatsCodeFrequency({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getStatsCodeFrequency({owner, repo}, (error, result) => {})
+ * octokit.repos.getStatsCodeFrequency({owner, repo}, (error, result) => {})
  */
 
 
@@ -6965,11 +6965,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getStatsParticipation({owner, repo})
+ * const result = await octokit.repos.getStatsParticipation({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getStatsParticipation({owner, repo}).then(result => {})
+ * octokit.repos.getStatsParticipation({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getStatsParticipation({owner, repo}, (error, result) => {})
+ * octokit.repos.getStatsParticipation({owner, repo}, (error, result) => {})
  */
 
 
@@ -6982,11 +6982,11 @@
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await github.repos.getStatsPunchCard({owner, repo})
+ * const result = await octokit.repos.getStatsPunchCard({owner, repo})
  * @apiExample {js} Promise
- * github.repos.getStatsPunchCard({owner, repo}).then(result => {})
+ * octokit.repos.getStatsPunchCard({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getStatsPunchCard({owner, repo}, (error, result) => {})
+ * octokit.repos.getStatsPunchCard({owner, repo}, (error, result) => {})
  */
 
 
@@ -7004,11 +7004,11 @@
  * @apiParam {string} [description]  Short description of the status.
  * @apiParam {string} [context]  A string label to differentiate this status from the status of other systems.
  * @apiExample {js} async/await
- * const result = await github.repos.createStatus({owner, repo, sha, state, target_url, description, context})
+ * const result = await octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context})
  * @apiExample {js} Promise
- * github.repos.createStatus({owner, repo, sha, state, target_url, description, context}).then(result => {})
+ * octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createStatus({owner, repo, sha, state, target_url, description, context}, (error, result) => {})
+ * octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}, (error, result) => {})
  */
 
 
@@ -7024,11 +7024,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getStatuses({owner, repo, ref, page, per_page})
+ * const result = await octokit.repos.getStatuses({owner, repo, ref, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getStatuses({owner, repo, ref, page, per_page}).then(result => {})
+ * octokit.repos.getStatuses({owner, repo, ref, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getStatuses({owner, repo, ref, page, per_page}, (error, result) => {})
+ * octokit.repos.getStatuses({owner, repo, ref, page, per_page}, (error, result) => {})
  */
 
 
@@ -7044,11 +7044,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page})
+ * const result = await octokit.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}).then(result => {})
+ * octokit.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}, (error, result) => {})
+ * octokit.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}, (error, result) => {})
  */
 
 
@@ -7063,11 +7063,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getReferrers({owner, repo, page, per_page})
+ * const result = await octokit.repos.getReferrers({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getReferrers({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getReferrers({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getReferrers({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getReferrers({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -7082,11 +7082,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getPaths({owner, repo, page, per_page})
+ * const result = await octokit.repos.getPaths({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getPaths({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getPaths({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getPaths({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getPaths({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -7101,11 +7101,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getViews({owner, repo, page, per_page})
+ * const result = await octokit.repos.getViews({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getViews({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getViews({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getViews({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getViews({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -7120,11 +7120,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getClones({owner, repo, page, per_page})
+ * const result = await octokit.repos.getClones({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getClones({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getClones({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getClones({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getClones({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -7139,11 +7139,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.repos.getHooks({owner, repo, page, per_page})
+ * const result = await octokit.repos.getHooks({owner, repo, page, per_page})
  * @apiExample {js} Promise
- * github.repos.getHooks({owner, repo, page, per_page}).then(result => {})
+ * octokit.repos.getHooks({owner, repo, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getHooks({owner, repo, page, per_page}, (error, result) => {})
+ * octokit.repos.getHooks({owner, repo, page, per_page}, (error, result) => {})
  */
 
 
@@ -7157,11 +7157,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.getHook({owner, repo, id})
+ * const result = await octokit.repos.getHook({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.getHook({owner, repo, id}).then(result => {})
+ * octokit.repos.getHook({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.getHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getHook({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -7178,11 +7178,11 @@
  * @apiParam {string[]} [events=["push"]]  Determines what events the hook is triggered for. Default: `['push']`.
  * @apiParam {boolean} [active]  Determines whether the hook is actually triggered on pushes.
  * @apiExample {js} async/await
- * const result = await github.repos.createHook({owner, repo, name, config, events, active})
+ * const result = await octokit.repos.createHook({owner, repo, name, config, events, active})
  * @apiExample {js} Promise
- * github.repos.createHook({owner, repo, name, config, events, active}).then(result => {})
+ * octokit.repos.createHook({owner, repo, name, config, events, active}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.createHook({owner, repo, name, config, events, active}, (error, result) => {})
+ * octokit.repos.createHook({owner, repo, name, config, events, active}, (error, result) => {})
  */
 
 
@@ -7202,11 +7202,11 @@
  * @apiParam {string[]} [remove_events]  Determines a list of events to be removed from the list of events that the Hook triggers for.
  * @apiParam {boolean} [active]  Determines whether the hook is actually triggered on pushes.
  * @apiExample {js} async/await
- * const result = await github.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active})
+ * const result = await octokit.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active})
  * @apiExample {js} Promise
- * github.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}).then(result => {})
+ * octokit.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}, (error, result) => {})
+ * octokit.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}, (error, result) => {})
  */
 
 
@@ -7220,11 +7220,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.testHook({owner, repo, id})
+ * const result = await octokit.repos.testHook({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.testHook({owner, repo, id}).then(result => {})
+ * octokit.repos.testHook({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.testHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.testHook({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -7238,11 +7238,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.pingHook({owner, repo, id})
+ * const result = await octokit.repos.pingHook({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.pingHook({owner, repo, id}).then(result => {})
+ * octokit.repos.pingHook({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.pingHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.pingHook({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -7256,11 +7256,11 @@
  * @apiParam {string} repo  
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.repos.deleteHook({owner, repo, id})
+ * const result = await octokit.repos.deleteHook({owner, repo, id})
  * @apiExample {js} Promise
- * github.repos.deleteHook({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteHook({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
- * github.repos.deleteHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteHook({owner, repo, id}, (error, result) => {})
  */
 
 
@@ -7283,11 +7283,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.search.repos({q, sort, order, page, per_page})
+ * const result = await octokit.search.repos({q, sort, order, page, per_page})
  * @apiExample {js} Promise
- * github.search.repos({q, sort, order, page, per_page}).then(result => {})
+ * octokit.search.repos({q, sort, order, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.search.repos({q, sort, order, page, per_page}, (error, result) => {})
+ * octokit.search.repos({q, sort, order, page, per_page}, (error, result) => {})
  */
 
 
@@ -7303,11 +7303,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.search.code({q, sort, order, page, per_page})
+ * const result = await octokit.search.code({q, sort, order, page, per_page})
  * @apiExample {js} Promise
- * github.search.code({q, sort, order, page, per_page}).then(result => {})
+ * octokit.search.code({q, sort, order, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.search.code({q, sort, order, page, per_page}, (error, result) => {})
+ * octokit.search.code({q, sort, order, page, per_page}, (error, result) => {})
  */
 
 
@@ -7323,11 +7323,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.search.commits({q, sort, order, page, per_page})
+ * const result = await octokit.search.commits({q, sort, order, page, per_page})
  * @apiExample {js} Promise
- * github.search.commits({q, sort, order, page, per_page}).then(result => {})
+ * octokit.search.commits({q, sort, order, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.search.commits({q, sort, order, page, per_page}, (error, result) => {})
+ * octokit.search.commits({q, sort, order, page, per_page}, (error, result) => {})
  */
 
 
@@ -7343,11 +7343,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.search.issues({q, sort, order, page, per_page})
+ * const result = await octokit.search.issues({q, sort, order, page, per_page})
  * @apiExample {js} Promise
- * github.search.issues({q, sort, order, page, per_page}).then(result => {})
+ * octokit.search.issues({q, sort, order, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.search.issues({q, sort, order, page, per_page}, (error, result) => {})
+ * octokit.search.issues({q, sort, order, page, per_page}, (error, result) => {})
  */
 
 
@@ -7363,11 +7363,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.search.users({q, sort, order, page, per_page})
+ * const result = await octokit.search.users({q, sort, order, page, per_page})
  * @apiExample {js} Promise
- * github.search.users({q, sort, order, page, per_page}).then(result => {})
+ * octokit.search.users({q, sort, order, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.search.users({q, sort, order, page, per_page}, (error, result) => {})
+ * octokit.search.users({q, sort, order, page, per_page}, (error, result) => {})
  */
 
 
@@ -7379,11 +7379,11 @@
  *
  * @apiParam {string} email  The email address
  * @apiExample {js} async/await
- * const result = await github.search.email({email})
+ * const result = await octokit.search.email({email})
  * @apiExample {js} Promise
- * github.search.email({email}).then(result => {})
+ * octokit.search.email({email}).then(result => {})
  * @apiExample {js} Callback
- * github.search.email({email}, (error, result) => {})
+ * octokit.search.email({email}, (error, result) => {})
  */
 
 
@@ -7401,11 +7401,11 @@
  * @apiGroup Users
  *
  * @apiExample {js} async/await
- * const result = await github.users.get({})
+ * const result = await octokit.users.get({})
  * @apiExample {js} Promise
- * github.users.get({}).then(result => {})
+ * octokit.users.get({}).then(result => {})
  * @apiExample {js} Callback
- * github.users.get({}, (error, result) => {})
+ * octokit.users.get({}, (error, result) => {})
  */
 
 
@@ -7423,11 +7423,11 @@
  * @apiParam {boolean} [hireable]  The new hiring availability of the user.
  * @apiParam {string} [bio]  The new short biography of the user.
  * @apiExample {js} async/await
- * const result = await github.users.update({name, email, blog, company, location, hireable, bio})
+ * const result = await octokit.users.update({name, email, blog, company, location, hireable, bio})
  * @apiExample {js} Promise
- * github.users.update({name, email, blog, company, location, hireable, bio}).then(result => {})
+ * octokit.users.update({name, email, blog, company, location, hireable, bio}).then(result => {})
  * @apiExample {js} Callback
- * github.users.update({name, email, blog, company, location, hireable, bio}, (error, result) => {})
+ * octokit.users.update({name, email, blog, company, location, hireable, bio}, (error, result) => {})
  */
 
 
@@ -7439,11 +7439,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.promote({username})
+ * const result = await octokit.users.promote({username})
  * @apiExample {js} Promise
- * github.users.promote({username}).then(result => {})
+ * octokit.users.promote({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.promote({username}, (error, result) => {})
+ * octokit.users.promote({username}, (error, result) => {})
  */
 
 
@@ -7455,11 +7455,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.demote({username})
+ * const result = await octokit.users.demote({username})
  * @apiExample {js} Promise
- * github.users.demote({username}).then(result => {})
+ * octokit.users.demote({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.demote({username}, (error, result) => {})
+ * octokit.users.demote({username}, (error, result) => {})
  */
 
 
@@ -7471,11 +7471,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.suspend({username})
+ * const result = await octokit.users.suspend({username})
  * @apiExample {js} Promise
- * github.users.suspend({username}).then(result => {})
+ * octokit.users.suspend({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.suspend({username}, (error, result) => {})
+ * octokit.users.suspend({username}, (error, result) => {})
  */
 
 
@@ -7487,11 +7487,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.unsuspend({username})
+ * const result = await octokit.users.unsuspend({username})
  * @apiExample {js} Promise
- * github.users.unsuspend({username}).then(result => {})
+ * octokit.users.unsuspend({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.unsuspend({username}, (error, result) => {})
+ * octokit.users.unsuspend({username}, (error, result) => {})
  */
 
 
@@ -7503,11 +7503,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.getForUser({username})
+ * const result = await octokit.users.getForUser({username})
  * @apiExample {js} Promise
- * github.users.getForUser({username}).then(result => {})
+ * octokit.users.getForUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getForUser({username}, (error, result) => {})
+ * octokit.users.getForUser({username}, (error, result) => {})
  */
 
 
@@ -7519,11 +7519,11 @@
  *
  * @apiParam {string} id  Numerical ID of the user.
  * @apiExample {js} async/await
- * const result = await github.users.getById({id})
+ * const result = await octokit.users.getById({id})
  * @apiExample {js} Promise
- * github.users.getById({id}).then(result => {})
+ * octokit.users.getById({id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getById({id}, (error, result) => {})
+ * octokit.users.getById({id}, (error, result) => {})
  */
 
 
@@ -7535,11 +7535,11 @@
  *
  * @apiParam {number} [since]  The integer ID of the last User that you’ve seen.
  * @apiExample {js} async/await
- * const result = await github.users.getAll({since})
+ * const result = await octokit.users.getAll({since})
  * @apiExample {js} Promise
- * github.users.getAll({since}).then(result => {})
+ * octokit.users.getAll({since}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getAll({since}, (error, result) => {})
+ * octokit.users.getAll({since}, (error, result) => {})
  */
 
 
@@ -7552,11 +7552,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getOrgs({page, per_page})
+ * const result = await octokit.users.getOrgs({page, per_page})
  * @apiExample {js} Promise
- * github.users.getOrgs({page, per_page}).then(result => {})
+ * octokit.users.getOrgs({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getOrgs({page, per_page}, (error, result) => {})
+ * octokit.users.getOrgs({page, per_page}, (error, result) => {})
  */
 
 
@@ -7568,11 +7568,11 @@
  *
  * @apiParam {string=active,pending} [state]  Indicates the state of the memberships to return. Can be either active or pending. If not specified, both active and pending memberships are returned.
  * @apiExample {js} async/await
- * const result = await github.users.getOrgMemberships({state})
+ * const result = await octokit.users.getOrgMemberships({state})
  * @apiExample {js} Promise
- * github.users.getOrgMemberships({state}).then(result => {})
+ * octokit.users.getOrgMemberships({state}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getOrgMemberships({state}, (error, result) => {})
+ * octokit.users.getOrgMemberships({state}, (error, result) => {})
  */
 
 
@@ -7584,11 +7584,11 @@
  *
  * @apiParam {string} org  
  * @apiExample {js} async/await
- * const result = await github.users.getOrgMembership({org})
+ * const result = await octokit.users.getOrgMembership({org})
  * @apiExample {js} Promise
- * github.users.getOrgMembership({org}).then(result => {})
+ * octokit.users.getOrgMembership({org}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getOrgMembership({org}, (error, result) => {})
+ * octokit.users.getOrgMembership({org}, (error, result) => {})
  */
 
 
@@ -7601,11 +7601,11 @@
  * @apiParam {string} org  
  * @apiParam {string=active} state  The state that the membership should be in. Only "active" will be accepted.
  * @apiExample {js} async/await
- * const result = await github.users.editOrgMembership({org, state})
+ * const result = await octokit.users.editOrgMembership({org, state})
  * @apiExample {js} Promise
- * github.users.editOrgMembership({org, state}).then(result => {})
+ * octokit.users.editOrgMembership({org, state}).then(result => {})
  * @apiExample {js} Callback
- * github.users.editOrgMembership({org, state}, (error, result) => {})
+ * octokit.users.editOrgMembership({org, state}, (error, result) => {})
  */
 
 
@@ -7618,11 +7618,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getTeams({page, per_page})
+ * const result = await octokit.users.getTeams({page, per_page})
  * @apiExample {js} Promise
- * github.users.getTeams({page, per_page}).then(result => {})
+ * octokit.users.getTeams({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getTeams({page, per_page}, (error, result) => {})
+ * octokit.users.getTeams({page, per_page}, (error, result) => {})
  */
 
 
@@ -7635,11 +7635,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getEmails({page, per_page})
+ * const result = await octokit.users.getEmails({page, per_page})
  * @apiExample {js} Promise
- * github.users.getEmails({page, per_page}).then(result => {})
+ * octokit.users.getEmails({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getEmails({page, per_page}, (error, result) => {})
+ * octokit.users.getEmails({page, per_page}, (error, result) => {})
  */
 
 
@@ -7652,11 +7652,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getPublicEmails({page, per_page})
+ * const result = await octokit.users.getPublicEmails({page, per_page})
  * @apiExample {js} Promise
- * github.users.getPublicEmails({page, per_page}).then(result => {})
+ * octokit.users.getPublicEmails({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getPublicEmails({page, per_page}, (error, result) => {})
+ * octokit.users.getPublicEmails({page, per_page}, (error, result) => {})
  */
 
 
@@ -7668,11 +7668,11 @@
  *
  * @apiParam {string[]} emails  You can post a single email address or an array of addresses.
  * @apiExample {js} async/await
- * const result = await github.users.addEmails({emails})
+ * const result = await octokit.users.addEmails({emails})
  * @apiExample {js} Promise
- * github.users.addEmails({emails}).then(result => {})
+ * octokit.users.addEmails({emails}).then(result => {})
  * @apiExample {js} Callback
- * github.users.addEmails({emails}, (error, result) => {})
+ * octokit.users.addEmails({emails}, (error, result) => {})
  */
 
 
@@ -7684,11 +7684,11 @@
  *
  * @apiParam {string[]} emails  You can post a single email address or an array of addresses.
  * @apiExample {js} async/await
- * const result = await github.users.deleteEmails({emails})
+ * const result = await octokit.users.deleteEmails({emails})
  * @apiExample {js} Promise
- * github.users.deleteEmails({emails}).then(result => {})
+ * octokit.users.deleteEmails({emails}).then(result => {})
  * @apiExample {js} Callback
- * github.users.deleteEmails({emails}, (error, result) => {})
+ * octokit.users.deleteEmails({emails}, (error, result) => {})
  */
 
 
@@ -7699,11 +7699,11 @@
  * @apiGroup Users
  *
  * @apiExample {js} async/await
- * const result = await github.users.togglePrimaryEmailVisibility({})
+ * const result = await octokit.users.togglePrimaryEmailVisibility({})
  * @apiExample {js} Promise
- * github.users.togglePrimaryEmailVisibility({}).then(result => {})
+ * octokit.users.togglePrimaryEmailVisibility({}).then(result => {})
  * @apiExample {js} Callback
- * github.users.togglePrimaryEmailVisibility({}, (error, result) => {})
+ * octokit.users.togglePrimaryEmailVisibility({}, (error, result) => {})
  */
 
 
@@ -7717,11 +7717,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getFollowersForUser({username, page, per_page})
+ * const result = await octokit.users.getFollowersForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.users.getFollowersForUser({username, page, per_page}).then(result => {})
+ * octokit.users.getFollowersForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getFollowersForUser({username, page, per_page}, (error, result) => {})
+ * octokit.users.getFollowersForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -7734,11 +7734,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getFollowers({page, per_page})
+ * const result = await octokit.users.getFollowers({page, per_page})
  * @apiExample {js} Promise
- * github.users.getFollowers({page, per_page}).then(result => {})
+ * octokit.users.getFollowers({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getFollowers({page, per_page}, (error, result) => {})
+ * octokit.users.getFollowers({page, per_page}, (error, result) => {})
  */
 
 
@@ -7752,11 +7752,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getFollowingForUser({username, page, per_page})
+ * const result = await octokit.users.getFollowingForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.users.getFollowingForUser({username, page, per_page}).then(result => {})
+ * octokit.users.getFollowingForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getFollowingForUser({username, page, per_page}, (error, result) => {})
+ * octokit.users.getFollowingForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -7769,11 +7769,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getFollowing({page, per_page})
+ * const result = await octokit.users.getFollowing({page, per_page})
  * @apiExample {js} Promise
- * github.users.getFollowing({page, per_page}).then(result => {})
+ * octokit.users.getFollowing({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getFollowing({page, per_page}, (error, result) => {})
+ * octokit.users.getFollowing({page, per_page}, (error, result) => {})
  */
 
 
@@ -7785,11 +7785,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.checkFollowing({username})
+ * const result = await octokit.users.checkFollowing({username})
  * @apiExample {js} Promise
- * github.users.checkFollowing({username}).then(result => {})
+ * octokit.users.checkFollowing({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.checkFollowing({username}, (error, result) => {})
+ * octokit.users.checkFollowing({username}, (error, result) => {})
  */
 
 
@@ -7802,11 +7802,11 @@
  * @apiParam {string} username  
  * @apiParam {string} target_user  
  * @apiExample {js} async/await
- * const result = await github.users.checkIfOneFollowersOther({username, target_user})
+ * const result = await octokit.users.checkIfOneFollowersOther({username, target_user})
  * @apiExample {js} Promise
- * github.users.checkIfOneFollowersOther({username, target_user}).then(result => {})
+ * octokit.users.checkIfOneFollowersOther({username, target_user}).then(result => {})
  * @apiExample {js} Callback
- * github.users.checkIfOneFollowersOther({username, target_user}, (error, result) => {})
+ * octokit.users.checkIfOneFollowersOther({username, target_user}, (error, result) => {})
  */
 
 
@@ -7818,11 +7818,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.followUser({username})
+ * const result = await octokit.users.followUser({username})
  * @apiExample {js} Promise
- * github.users.followUser({username}).then(result => {})
+ * octokit.users.followUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.followUser({username}, (error, result) => {})
+ * octokit.users.followUser({username}, (error, result) => {})
  */
 
 
@@ -7834,11 +7834,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.unfollowUser({username})
+ * const result = await octokit.users.unfollowUser({username})
  * @apiExample {js} Promise
- * github.users.unfollowUser({username}).then(result => {})
+ * octokit.users.unfollowUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.unfollowUser({username}, (error, result) => {})
+ * octokit.users.unfollowUser({username}, (error, result) => {})
  */
 
 
@@ -7852,11 +7852,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getKeysForUser({username, page, per_page})
+ * const result = await octokit.users.getKeysForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.users.getKeysForUser({username, page, per_page}).then(result => {})
+ * octokit.users.getKeysForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getKeysForUser({username, page, per_page}, (error, result) => {})
+ * octokit.users.getKeysForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -7869,11 +7869,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getKeys({page, per_page})
+ * const result = await octokit.users.getKeys({page, per_page})
  * @apiExample {js} Promise
- * github.users.getKeys({page, per_page}).then(result => {})
+ * octokit.users.getKeys({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getKeys({page, per_page}, (error, result) => {})
+ * octokit.users.getKeys({page, per_page}, (error, result) => {})
  */
 
 
@@ -7885,11 +7885,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.users.getKey({id})
+ * const result = await octokit.users.getKey({id})
  * @apiExample {js} Promise
- * github.users.getKey({id}).then(result => {})
+ * octokit.users.getKey({id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getKey({id}, (error, result) => {})
+ * octokit.users.getKey({id}, (error, result) => {})
  */
 
 
@@ -7902,11 +7902,11 @@
  * @apiParam {string} title  
  * @apiParam {string} key  
  * @apiExample {js} async/await
- * const result = await github.users.createKey({title, key})
+ * const result = await octokit.users.createKey({title, key})
  * @apiExample {js} Promise
- * github.users.createKey({title, key}).then(result => {})
+ * octokit.users.createKey({title, key}).then(result => {})
  * @apiExample {js} Callback
- * github.users.createKey({title, key}, (error, result) => {})
+ * octokit.users.createKey({title, key}, (error, result) => {})
  */
 
 
@@ -7918,11 +7918,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.users.deleteKey({id})
+ * const result = await octokit.users.deleteKey({id})
  * @apiExample {js} Promise
- * github.users.deleteKey({id}).then(result => {})
+ * octokit.users.deleteKey({id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.deleteKey({id}, (error, result) => {})
+ * octokit.users.deleteKey({id}, (error, result) => {})
  */
 
 
@@ -7936,11 +7936,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getGpgKeysForUser({username, page, per_page})
+ * const result = await octokit.users.getGpgKeysForUser({username, page, per_page})
  * @apiExample {js} Promise
- * github.users.getGpgKeysForUser({username, page, per_page}).then(result => {})
+ * octokit.users.getGpgKeysForUser({username, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getGpgKeysForUser({username, page, per_page}, (error, result) => {})
+ * octokit.users.getGpgKeysForUser({username, page, per_page}, (error, result) => {})
  */
 
 
@@ -7953,11 +7953,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getGpgKeys({page, per_page})
+ * const result = await octokit.users.getGpgKeys({page, per_page})
  * @apiExample {js} Promise
- * github.users.getGpgKeys({page, per_page}).then(result => {})
+ * octokit.users.getGpgKeys({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getGpgKeys({page, per_page}, (error, result) => {})
+ * octokit.users.getGpgKeys({page, per_page}, (error, result) => {})
  */
 
 
@@ -7969,11 +7969,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.users.getGpgKey({id})
+ * const result = await octokit.users.getGpgKey({id})
  * @apiExample {js} Promise
- * github.users.getGpgKey({id}).then(result => {})
+ * octokit.users.getGpgKey({id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getGpgKey({id}, (error, result) => {})
+ * octokit.users.getGpgKey({id}, (error, result) => {})
  */
 
 
@@ -7985,11 +7985,11 @@
  *
  * @apiParam {string} armored_public_key  GPG key contents
  * @apiExample {js} async/await
- * const result = await github.users.createGpgKey({armored_public_key})
+ * const result = await octokit.users.createGpgKey({armored_public_key})
  * @apiExample {js} Promise
- * github.users.createGpgKey({armored_public_key}).then(result => {})
+ * octokit.users.createGpgKey({armored_public_key}).then(result => {})
  * @apiExample {js} Callback
- * github.users.createGpgKey({armored_public_key}, (error, result) => {})
+ * octokit.users.createGpgKey({armored_public_key}, (error, result) => {})
  */
 
 
@@ -8001,11 +8001,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.users.deleteGpgKey({id})
+ * const result = await octokit.users.deleteGpgKey({id})
  * @apiExample {js} Promise
- * github.users.deleteGpgKey({id}).then(result => {})
+ * octokit.users.deleteGpgKey({id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.deleteGpgKey({id}, (error, result) => {})
+ * octokit.users.deleteGpgKey({id}, (error, result) => {})
  */
 
 
@@ -8016,11 +8016,11 @@
  * @apiGroup Users
  *
  * @apiExample {js} async/await
- * const result = await github.users.getBlockedUsers({})
+ * const result = await octokit.users.getBlockedUsers({})
  * @apiExample {js} Promise
- * github.users.getBlockedUsers({}).then(result => {})
+ * octokit.users.getBlockedUsers({}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getBlockedUsers({}, (error, result) => {})
+ * octokit.users.getBlockedUsers({}, (error, result) => {})
  */
 
 
@@ -8032,11 +8032,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.checkBlockedUser({username})
+ * const result = await octokit.users.checkBlockedUser({username})
  * @apiExample {js} Promise
- * github.users.checkBlockedUser({username}).then(result => {})
+ * octokit.users.checkBlockedUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.checkBlockedUser({username}, (error, result) => {})
+ * octokit.users.checkBlockedUser({username}, (error, result) => {})
  */
 
 
@@ -8048,11 +8048,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.blockUser({username})
+ * const result = await octokit.users.blockUser({username})
  * @apiExample {js} Promise
- * github.users.blockUser({username}).then(result => {})
+ * octokit.users.blockUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.blockUser({username}, (error, result) => {})
+ * octokit.users.blockUser({username}, (error, result) => {})
  */
 
 
@@ -8064,11 +8064,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.users.unblockUser({username})
+ * const result = await octokit.users.unblockUser({username})
  * @apiExample {js} Promise
- * github.users.unblockUser({username}).then(result => {})
+ * octokit.users.unblockUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.users.unblockUser({username}, (error, result) => {})
+ * octokit.users.unblockUser({username}, (error, result) => {})
  */
 
 
@@ -8079,11 +8079,11 @@
  * @apiGroup Users
  *
  * @apiExample {js} async/await
- * const result = await github.users.getRepoInvites({})
+ * const result = await octokit.users.getRepoInvites({})
  * @apiExample {js} Promise
- * github.users.getRepoInvites({}).then(result => {})
+ * octokit.users.getRepoInvites({}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getRepoInvites({}, (error, result) => {})
+ * octokit.users.getRepoInvites({}, (error, result) => {})
  */
 
 
@@ -8095,11 +8095,11 @@
  *
  * @apiParam {string} invitation_id  
  * @apiExample {js} async/await
- * const result = await github.users.acceptRepoInvite({invitation_id})
+ * const result = await octokit.users.acceptRepoInvite({invitation_id})
  * @apiExample {js} Promise
- * github.users.acceptRepoInvite({invitation_id}).then(result => {})
+ * octokit.users.acceptRepoInvite({invitation_id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.acceptRepoInvite({invitation_id}, (error, result) => {})
+ * octokit.users.acceptRepoInvite({invitation_id}, (error, result) => {})
  */
 
 
@@ -8111,11 +8111,11 @@
  *
  * @apiParam {string} invitation_id  
  * @apiExample {js} async/await
- * const result = await github.users.declineRepoInvite({invitation_id})
+ * const result = await octokit.users.declineRepoInvite({invitation_id})
  * @apiExample {js} Promise
- * github.users.declineRepoInvite({invitation_id}).then(result => {})
+ * octokit.users.declineRepoInvite({invitation_id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.declineRepoInvite({invitation_id}, (error, result) => {})
+ * octokit.users.declineRepoInvite({invitation_id}, (error, result) => {})
  */
 
 
@@ -8128,11 +8128,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getInstallations({page, per_page})
+ * const result = await octokit.users.getInstallations({page, per_page})
  * @apiExample {js} Promise
- * github.users.getInstallations({page, per_page}).then(result => {})
+ * octokit.users.getInstallations({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getInstallations({page, per_page}, (error, result) => {})
+ * octokit.users.getInstallations({page, per_page}, (error, result) => {})
  */
 
 
@@ -8146,11 +8146,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getInstallationRepos({installation_id, page, per_page})
+ * const result = await octokit.users.getInstallationRepos({installation_id, page, per_page})
  * @apiExample {js} Promise
- * github.users.getInstallationRepos({installation_id, page, per_page}).then(result => {})
+ * octokit.users.getInstallationRepos({installation_id, page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getInstallationRepos({installation_id, page, per_page}, (error, result) => {})
+ * octokit.users.getInstallationRepos({installation_id, page, per_page}, (error, result) => {})
  */
 
 
@@ -8163,11 +8163,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} repository_id  
  * @apiExample {js} async/await
- * const result = await github.users.addRepoToInstallation({installation_id, repository_id})
+ * const result = await octokit.users.addRepoToInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
- * github.users.addRepoToInstallation({installation_id, repository_id}).then(result => {})
+ * octokit.users.addRepoToInstallation({installation_id, repository_id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
+ * octokit.users.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -8180,11 +8180,11 @@
  * @apiParam {string} installation_id  
  * @apiParam {string} repository_id  
  * @apiExample {js} async/await
- * const result = await github.users.removeRepoFromInstallation({installation_id, repository_id})
+ * const result = await octokit.users.removeRepoFromInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
- * github.users.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
+ * octokit.users.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
  * @apiExample {js} Callback
- * github.users.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
+ * octokit.users.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -8197,11 +8197,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getMarketplacePurchases({page, per_page})
+ * const result = await octokit.users.getMarketplacePurchases({page, per_page})
  * @apiExample {js} Promise
- * github.users.getMarketplacePurchases({page, per_page}).then(result => {})
+ * octokit.users.getMarketplacePurchases({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getMarketplacePurchases({page, per_page}, (error, result) => {})
+ * octokit.users.getMarketplacePurchases({page, per_page}, (error, result) => {})
  */
 
 
@@ -8214,11 +8214,11 @@
  * @apiParam {number} [page]  Page number of the results to fetch.
  * @apiParam {number} [per_page=30]  A custom page size up to 100. Default is 30.
  * @apiExample {js} async/await
- * const result = await github.users.getMarketplaceStubbedPurchases({page, per_page})
+ * const result = await octokit.users.getMarketplaceStubbedPurchases({page, per_page})
  * @apiExample {js} Promise
- * github.users.getMarketplaceStubbedPurchases({page, per_page}).then(result => {})
+ * octokit.users.getMarketplaceStubbedPurchases({page, per_page}).then(result => {})
  * @apiExample {js} Callback
- * github.users.getMarketplaceStubbedPurchases({page, per_page}, (error, result) => {})
+ * octokit.users.getMarketplaceStubbedPurchases({page, per_page}, (error, result) => {})
  */
 
 
@@ -8237,11 +8237,11 @@
  *
  * @apiParam {string=issues,hooks,milestones,orgs,comments,pages,users,gists,pulls,repos,all} type  Possible values: issues, hooks, milestones, orgs, comments, pages, users, gists, pulls, repos, all.
  * @apiExample {js} async/await
- * const result = await github.enterprise.stats({type})
+ * const result = await octokit.enterprise.stats({type})
  * @apiExample {js} Promise
- * github.enterprise.stats({type}).then(result => {})
+ * octokit.enterprise.stats({type}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.stats({type}, (error, result) => {})
+ * octokit.enterprise.stats({type}, (error, result) => {})
  */
 
 
@@ -8254,11 +8254,11 @@
  * @apiParam {string} username  
  * @apiParam {string} ldap_dn  LDAP DN for user
  * @apiExample {js} async/await
- * const result = await github.enterprise.updateLdapForUser({username, ldap_dn})
+ * const result = await octokit.enterprise.updateLdapForUser({username, ldap_dn})
  * @apiExample {js} Promise
- * github.enterprise.updateLdapForUser({username, ldap_dn}).then(result => {})
+ * octokit.enterprise.updateLdapForUser({username, ldap_dn}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.updateLdapForUser({username, ldap_dn}, (error, result) => {})
+ * octokit.enterprise.updateLdapForUser({username, ldap_dn}, (error, result) => {})
  */
 
 
@@ -8270,11 +8270,11 @@
  *
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await github.enterprise.syncLdapForUser({username})
+ * const result = await octokit.enterprise.syncLdapForUser({username})
  * @apiExample {js} Promise
- * github.enterprise.syncLdapForUser({username}).then(result => {})
+ * octokit.enterprise.syncLdapForUser({username}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.syncLdapForUser({username}, (error, result) => {})
+ * octokit.enterprise.syncLdapForUser({username}, (error, result) => {})
  */
 
 
@@ -8287,11 +8287,11 @@
  * @apiParam {number} team_id  
  * @apiParam {string} ldap_dn  LDAP DN for user
  * @apiExample {js} async/await
- * const result = await github.enterprise.updateLdapForTeam({team_id, ldap_dn})
+ * const result = await octokit.enterprise.updateLdapForTeam({team_id, ldap_dn})
  * @apiExample {js} Promise
- * github.enterprise.updateLdapForTeam({team_id, ldap_dn}).then(result => {})
+ * octokit.enterprise.updateLdapForTeam({team_id, ldap_dn}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.updateLdapForTeam({team_id, ldap_dn}, (error, result) => {})
+ * octokit.enterprise.updateLdapForTeam({team_id, ldap_dn}, (error, result) => {})
  */
 
 
@@ -8303,11 +8303,11 @@
  *
  * @apiParam {number} team_id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.syncLdapForTeam({team_id})
+ * const result = await octokit.enterprise.syncLdapForTeam({team_id})
  * @apiExample {js} Promise
- * github.enterprise.syncLdapForTeam({team_id}).then(result => {})
+ * octokit.enterprise.syncLdapForTeam({team_id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.syncLdapForTeam({team_id}, (error, result) => {})
+ * octokit.enterprise.syncLdapForTeam({team_id}, (error, result) => {})
  */
 
 
@@ -8318,11 +8318,11 @@
  * @apiGroup Enterprise
  *
  * @apiExample {js} async/await
- * const result = await github.enterprise.getLicense({})
+ * const result = await octokit.enterprise.getLicense({})
  * @apiExample {js} Promise
- * github.enterprise.getLicense({}).then(result => {})
+ * octokit.enterprise.getLicense({}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.getLicense({}, (error, result) => {})
+ * octokit.enterprise.getLicense({}, (error, result) => {})
  */
 
 
@@ -8334,11 +8334,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.getPreReceiveEnvironment({id})
+ * const result = await octokit.enterprise.getPreReceiveEnvironment({id})
  * @apiExample {js} Promise
- * github.enterprise.getPreReceiveEnvironment({id}).then(result => {})
+ * octokit.enterprise.getPreReceiveEnvironment({id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.getPreReceiveEnvironment({id}, (error, result) => {})
+ * octokit.enterprise.getPreReceiveEnvironment({id}, (error, result) => {})
  */
 
 
@@ -8349,11 +8349,11 @@
  * @apiGroup Enterprise
  *
  * @apiExample {js} async/await
- * const result = await github.enterprise.getPreReceiveEnvironments({})
+ * const result = await octokit.enterprise.getPreReceiveEnvironments({})
  * @apiExample {js} Promise
- * github.enterprise.getPreReceiveEnvironments({}).then(result => {})
+ * octokit.enterprise.getPreReceiveEnvironments({}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.getPreReceiveEnvironments({}, (error, result) => {})
+ * octokit.enterprise.getPreReceiveEnvironments({}, (error, result) => {})
  */
 
 
@@ -8366,11 +8366,11 @@
  * @apiParam {string} name  The new pre-receive environment's name.
  * @apiParam {string} image_url  URL from which to download a tarball of this environment.
  * @apiExample {js} async/await
- * const result = await github.enterprise.createPreReceiveEnvironment({name, image_url})
+ * const result = await octokit.enterprise.createPreReceiveEnvironment({name, image_url})
  * @apiExample {js} Promise
- * github.enterprise.createPreReceiveEnvironment({name, image_url}).then(result => {})
+ * octokit.enterprise.createPreReceiveEnvironment({name, image_url}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.createPreReceiveEnvironment({name, image_url}, (error, result) => {})
+ * octokit.enterprise.createPreReceiveEnvironment({name, image_url}, (error, result) => {})
  */
 
 
@@ -8384,11 +8384,11 @@
  * @apiParam {string} name  This pre-receive environment's new name.
  * @apiParam {string} image_url  URL from which to download a tarball of this environment.
  * @apiExample {js} async/await
- * const result = await github.enterprise.editPreReceiveEnvironment({id, name, image_url})
+ * const result = await octokit.enterprise.editPreReceiveEnvironment({id, name, image_url})
  * @apiExample {js} Promise
- * github.enterprise.editPreReceiveEnvironment({id, name, image_url}).then(result => {})
+ * octokit.enterprise.editPreReceiveEnvironment({id, name, image_url}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.editPreReceiveEnvironment({id, name, image_url}, (error, result) => {})
+ * octokit.enterprise.editPreReceiveEnvironment({id, name, image_url}, (error, result) => {})
  */
 
 
@@ -8400,11 +8400,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.deletePreReceiveEnvironment({id})
+ * const result = await octokit.enterprise.deletePreReceiveEnvironment({id})
  * @apiExample {js} Promise
- * github.enterprise.deletePreReceiveEnvironment({id}).then(result => {})
+ * octokit.enterprise.deletePreReceiveEnvironment({id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.deletePreReceiveEnvironment({id}, (error, result) => {})
+ * octokit.enterprise.deletePreReceiveEnvironment({id}, (error, result) => {})
  */
 
 
@@ -8416,11 +8416,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.getPreReceiveEnvironmentDownloadStatus({id})
+ * const result = await octokit.enterprise.getPreReceiveEnvironmentDownloadStatus({id})
  * @apiExample {js} Promise
- * github.enterprise.getPreReceiveEnvironmentDownloadStatus({id}).then(result => {})
+ * octokit.enterprise.getPreReceiveEnvironmentDownloadStatus({id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.getPreReceiveEnvironmentDownloadStatus({id}, (error, result) => {})
+ * octokit.enterprise.getPreReceiveEnvironmentDownloadStatus({id}, (error, result) => {})
  */
 
 
@@ -8432,11 +8432,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.triggerPreReceiveEnvironmentDownload({id})
+ * const result = await octokit.enterprise.triggerPreReceiveEnvironmentDownload({id})
  * @apiExample {js} Promise
- * github.enterprise.triggerPreReceiveEnvironmentDownload({id}).then(result => {})
+ * octokit.enterprise.triggerPreReceiveEnvironmentDownload({id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.triggerPreReceiveEnvironmentDownload({id}, (error, result) => {})
+ * octokit.enterprise.triggerPreReceiveEnvironmentDownload({id}, (error, result) => {})
  */
 
 
@@ -8448,11 +8448,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.getPreReceiveHook({id})
+ * const result = await octokit.enterprise.getPreReceiveHook({id})
  * @apiExample {js} Promise
- * github.enterprise.getPreReceiveHook({id}).then(result => {})
+ * octokit.enterprise.getPreReceiveHook({id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.getPreReceiveHook({id}, (error, result) => {})
+ * octokit.enterprise.getPreReceiveHook({id}, (error, result) => {})
  */
 
 
@@ -8463,11 +8463,11 @@
  * @apiGroup Enterprise
  *
  * @apiExample {js} async/await
- * const result = await github.enterprise.getPreReceiveHooks({})
+ * const result = await octokit.enterprise.getPreReceiveHooks({})
  * @apiExample {js} Promise
- * github.enterprise.getPreReceiveHooks({}).then(result => {})
+ * octokit.enterprise.getPreReceiveHooks({}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.getPreReceiveHooks({}, (error, result) => {})
+ * octokit.enterprise.getPreReceiveHooks({}, (error, result) => {})
  */
 
 
@@ -8484,11 +8484,11 @@
  * @apiParam {string} [enforcement=disabled]  The state of enforcement for this hook. default: disabled
  * @apiParam {boolean} [allow_downstream_configuration=false]  Whether enforcement can be overridden at the org or repo level. default: false
  * @apiExample {js} async/await
- * const result = await github.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration})
+ * const result = await octokit.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration})
  * @apiExample {js} Promise
- * github.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}).then(result => {})
+ * octokit.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}, (error, result) => {})
+ * octokit.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}, (error, result) => {})
  */
 
 
@@ -8501,11 +8501,11 @@
  * @apiParam {string} id  
  * @apiParam {json} hook  JSON object that contains pre-receive hook info.
  * @apiExample {js} async/await
- * const result = await github.enterprise.editPreReceiveHook({id, hook})
+ * const result = await octokit.enterprise.editPreReceiveHook({id, hook})
  * @apiExample {js} Promise
- * github.enterprise.editPreReceiveHook({id, hook}).then(result => {})
+ * octokit.enterprise.editPreReceiveHook({id, hook}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.editPreReceiveHook({id, hook}, (error, result) => {})
+ * octokit.enterprise.editPreReceiveHook({id, hook}, (error, result) => {})
  */
 
 
@@ -8517,11 +8517,11 @@
  *
  * @apiParam {string} id  
  * @apiExample {js} async/await
- * const result = await github.enterprise.deletePreReceiveHook({id})
+ * const result = await octokit.enterprise.deletePreReceiveHook({id})
  * @apiExample {js} Promise
- * github.enterprise.deletePreReceiveHook({id}).then(result => {})
+ * octokit.enterprise.deletePreReceiveHook({id}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.deletePreReceiveHook({id}, (error, result) => {})
+ * octokit.enterprise.deletePreReceiveHook({id}, (error, result) => {})
  */
 
 
@@ -8533,11 +8533,11 @@
  *
  * @apiParam {string} target  A string representing the item to index.
  * @apiExample {js} async/await
- * const result = await github.enterprise.queueIndexingJob({target})
+ * const result = await octokit.enterprise.queueIndexingJob({target})
  * @apiExample {js} Promise
- * github.enterprise.queueIndexingJob({target}).then(result => {})
+ * octokit.enterprise.queueIndexingJob({target}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.queueIndexingJob({target}, (error, result) => {})
+ * octokit.enterprise.queueIndexingJob({target}, (error, result) => {})
  */
 
 
@@ -8551,9 +8551,9 @@
  * @apiParam {string} admin  The login of the user who will manage this organization.
  * @apiParam {string} [profile_name]  The organization's display name.
  * @apiExample {js} async/await
- * const result = await github.enterprise.createOrg({login, admin, profile_name})
+ * const result = await octokit.enterprise.createOrg({login, admin, profile_name})
  * @apiExample {js} Promise
- * github.enterprise.createOrg({login, admin, profile_name}).then(result => {})
+ * octokit.enterprise.createOrg({login, admin, profile_name}).then(result => {})
  * @apiExample {js} Callback
- * github.enterprise.createOrg({login, admin, profile_name}, (error, result) => {})
+ * octokit.enterprise.createOrg({login, admin, profile_name}, (error, result) => {})
  */

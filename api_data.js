@@ -22,17 +22,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.checkNotificationThreadSubscription({id})",
+        "content": "const result = await octokit.activity.checkNotificationThreadSubscription({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.checkNotificationThreadSubscription({id}).then(result => {})",
+        "content": "octokit.activity.checkNotificationThreadSubscription({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.checkNotificationThreadSubscription({id}, (error, result) => {})",
+        "content": "octokit.activity.checkNotificationThreadSubscription({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -85,17 +85,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.checkStarringRepo({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.checkStarringRepo({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.checkStarringRepo({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.checkStarringRepo({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.checkStarringRepo({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.checkStarringRepo({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -126,17 +126,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.deleteNotificationThreadSubscription({id})",
+        "content": "const result = await octokit.activity.deleteNotificationThreadSubscription({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.deleteNotificationThreadSubscription({id}).then(result => {})",
+        "content": "octokit.activity.deleteNotificationThreadSubscription({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.deleteNotificationThreadSubscription({id}, (error, result) => {})",
+        "content": "octokit.activity.deleteNotificationThreadSubscription({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -175,17 +175,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEvents({page, per_page})",
+        "content": "const result = await octokit.activity.getEvents({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEvents({page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEvents({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEvents({page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEvents({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -231,17 +231,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForOrg({org, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForOrg({org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForOrg({org, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForOrg({org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForOrg({org, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForOrg({org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -294,17 +294,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForRepo({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForRepo({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForRepo({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForRepo({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -357,17 +357,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForRepoIssues({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForRepoIssues({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForRepoIssues({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForRepoIssues({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForRepoIssues({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForRepoIssues({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -420,17 +420,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForRepoNetwork({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForRepoNetwork({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForRepoNetwork({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForRepoNetwork({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForRepoNetwork({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForRepoNetwork({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -476,17 +476,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForUser({username, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -539,17 +539,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForUserOrg({username, org, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForUserOrg({username, org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForUserOrg({username, org, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForUserOrg({username, org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForUserOrg({username, org, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForUserOrg({username, org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -595,17 +595,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsForUserPublic({username, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsForUserPublic({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsForUserPublic({username, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsForUserPublic({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsForUserPublic({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsForUserPublic({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -651,17 +651,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsReceived({username, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsReceived({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsReceived({username, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsReceived({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsReceived({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsReceived({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -707,17 +707,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getEventsReceivedPublic({username, page, per_page})",
+        "content": "const result = await octokit.activity.getEventsReceivedPublic({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getEventsReceivedPublic({username, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getEventsReceivedPublic({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getEventsReceivedPublic({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getEventsReceivedPublic({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -735,17 +735,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getFeeds({})",
+        "content": "const result = await octokit.activity.getFeeds({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getFeeds({}).then(result => {})",
+        "content": "octokit.activity.getFeeds({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getFeeds({}, (error, result) => {})",
+        "content": "octokit.activity.getFeeds({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -776,17 +776,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getNotificationThread({id})",
+        "content": "const result = await octokit.activity.getNotificationThread({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getNotificationThread({id}).then(result => {})",
+        "content": "octokit.activity.getNotificationThread({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getNotificationThread({id}, (error, result) => {})",
+        "content": "octokit.activity.getNotificationThread({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -840,17 +840,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getNotifications({all, participating, since, before})",
+        "content": "const result = await octokit.activity.getNotifications({all, participating, since, before})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getNotifications({all, participating, since, before}).then(result => {})",
+        "content": "octokit.activity.getNotifications({all, participating, since, before}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getNotifications({all, participating, since, before}, (error, result) => {})",
+        "content": "octokit.activity.getNotifications({all, participating, since, before}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -918,17 +918,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getNotificationsForUser({owner, repo, all, participating, since, before})",
+        "content": "const result = await octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getNotificationsForUser({owner, repo, all, participating, since, before}).then(result => {})",
+        "content": "octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getNotificationsForUser({owner, repo, all, participating, since, before}, (error, result) => {})",
+        "content": "octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -981,17 +981,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getRepoSubscription({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.getRepoSubscription({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getRepoSubscription({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getRepoSubscription({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getRepoSubscription({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getRepoSubscription({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1044,17 +1044,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getStargazersForRepo({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.getStargazersForRepo({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getStargazersForRepo({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getStargazersForRepo({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getStargazersForRepo({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getStargazersForRepo({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1117,17 +1117,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getStarredRepos({sort, direction, page, per_page})",
+        "content": "const result = await octokit.activity.getStarredRepos({sort, direction, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getStarredRepos({sort, direction, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getStarredRepos({sort, direction, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getStarredRepos({sort, direction, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getStarredRepos({sort, direction, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1197,17 +1197,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getStarredReposForUser({username, sort, direction, page, per_page})",
+        "content": "const result = await octokit.activity.getStarredReposForUser({username, sort, direction, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getStarredReposForUser({username, sort, direction, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getStarredReposForUser({username, sort, direction, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getStarredReposForUser({username, sort, direction, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getStarredReposForUser({username, sort, direction, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1246,17 +1246,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getWatchedRepos({page, per_page})",
+        "content": "const result = await octokit.activity.getWatchedRepos({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getWatchedRepos({page, per_page}).then(result => {})",
+        "content": "octokit.activity.getWatchedRepos({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getWatchedRepos({page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getWatchedRepos({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1302,17 +1302,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getWatchedReposForUser({username, page, per_page})",
+        "content": "const result = await octokit.activity.getWatchedReposForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getWatchedReposForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getWatchedReposForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getWatchedReposForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getWatchedReposForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1365,17 +1365,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.getWatchersForRepo({owner, repo, page, per_page})",
+        "content": "const result = await octokit.activity.getWatchersForRepo({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.getWatchersForRepo({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.activity.getWatchersForRepo({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.getWatchersForRepo({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.activity.getWatchersForRepo({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1406,17 +1406,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.markNotificationThreadAsRead({id})",
+        "content": "const result = await octokit.activity.markNotificationThreadAsRead({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.markNotificationThreadAsRead({id}).then(result => {})",
+        "content": "octokit.activity.markNotificationThreadAsRead({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.markNotificationThreadAsRead({id}, (error, result) => {})",
+        "content": "octokit.activity.markNotificationThreadAsRead({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1448,17 +1448,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.markNotificationsAsRead({last_read_at})",
+        "content": "const result = await octokit.activity.markNotificationsAsRead({last_read_at})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.markNotificationsAsRead({last_read_at}).then(result => {})",
+        "content": "octokit.activity.markNotificationsAsRead({last_read_at}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.markNotificationsAsRead({last_read_at}, (error, result) => {})",
+        "content": "octokit.activity.markNotificationsAsRead({last_read_at}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1504,17 +1504,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at})",
+        "content": "const result = await octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}).then(result => {})",
+        "content": "octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}, (error, result) => {})",
+        "content": "octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1559,17 +1559,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.setNotificationThreadSubscription({id, subscribed, ignored})",
+        "content": "const result = await octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.setNotificationThreadSubscription({id, subscribed, ignored}).then(result => {})",
+        "content": "octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.setNotificationThreadSubscription({id, subscribed, ignored}, (error, result) => {})",
+        "content": "octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1621,17 +1621,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.setRepoSubscription({owner, repo, subscribed, ignored})",
+        "content": "const result = await octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.setRepoSubscription({owner, repo, subscribed, ignored}).then(result => {})",
+        "content": "octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.setRepoSubscription({owner, repo, subscribed, ignored}, (error, result) => {})",
+        "content": "octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1669,17 +1669,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.starRepo({owner, repo})",
+        "content": "const result = await octokit.activity.starRepo({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.starRepo({owner, repo}).then(result => {})",
+        "content": "octokit.activity.starRepo({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.starRepo({owner, repo}, (error, result) => {})",
+        "content": "octokit.activity.starRepo({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1717,17 +1717,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.unstarRepo({owner, repo})",
+        "content": "const result = await octokit.activity.unstarRepo({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.unstarRepo({owner, repo}).then(result => {})",
+        "content": "octokit.activity.unstarRepo({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.unstarRepo({owner, repo}, (error, result) => {})",
+        "content": "octokit.activity.unstarRepo({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1765,17 +1765,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.activity.unwatchRepo({owner, repo})",
+        "content": "const result = await octokit.activity.unwatchRepo({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.activity.unwatchRepo({owner, repo}).then(result => {})",
+        "content": "octokit.activity.unwatchRepo({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.activity.unwatchRepo({owner, repo}, (error, result) => {})",
+        "content": "octokit.activity.unwatchRepo({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1813,17 +1813,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.addRepoToInstallation({installation_id, repository_id})",
+        "content": "const result = await octokit.apps.addRepoToInstallation({installation_id, repository_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
+        "content": "octokit.apps.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
+        "content": "octokit.apps.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1854,17 +1854,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.checkMarketplaceListingAccount({id})",
+        "content": "const result = await octokit.apps.checkMarketplaceListingAccount({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.checkMarketplaceListingAccount({id}).then(result => {})",
+        "content": "octokit.apps.checkMarketplaceListingAccount({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.checkMarketplaceListingAccount({id}, (error, result) => {})",
+        "content": "octokit.apps.checkMarketplaceListingAccount({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1895,17 +1895,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.checkMarketplaceListingStubbedAccount({id})",
+        "content": "const result = await octokit.apps.checkMarketplaceListingStubbedAccount({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.checkMarketplaceListingStubbedAccount({id}).then(result => {})",
+        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.checkMarketplaceListingStubbedAccount({id}, (error, result) => {})",
+        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1943,17 +1943,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.createInstallationToken({installation_id, user_id})",
+        "content": "const result = await octokit.apps.createInstallationToken({installation_id, user_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.createInstallationToken({installation_id, user_id}).then(result => {})",
+        "content": "octokit.apps.createInstallationToken({installation_id, user_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.createInstallationToken({installation_id, user_id}, (error, result) => {})",
+        "content": "octokit.apps.createInstallationToken({installation_id, user_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1971,17 +1971,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.get({})",
+        "content": "const result = await octokit.apps.get({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.get({}).then(result => {})",
+        "content": "octokit.apps.get({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.get({}, (error, result) => {})",
+        "content": "octokit.apps.get({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2012,17 +2012,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getForSlug({app_slug})",
+        "content": "const result = await octokit.apps.getForSlug({app_slug})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getForSlug({app_slug}).then(result => {})",
+        "content": "octokit.apps.getForSlug({app_slug}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getForSlug({app_slug}, (error, result) => {})",
+        "content": "octokit.apps.getForSlug({app_slug}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2053,17 +2053,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getInstallation({installation_id})",
+        "content": "const result = await octokit.apps.getInstallation({installation_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getInstallation({installation_id}).then(result => {})",
+        "content": "octokit.apps.getInstallation({installation_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getInstallation({installation_id}, (error, result) => {})",
+        "content": "octokit.apps.getInstallation({installation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2094,17 +2094,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getInstallationRepositories({user_id})",
+        "content": "const result = await octokit.apps.getInstallationRepositories({user_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getInstallationRepositories({user_id}).then(result => {})",
+        "content": "octokit.apps.getInstallationRepositories({user_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getInstallationRepositories({user_id}, (error, result) => {})",
+        "content": "octokit.apps.getInstallationRepositories({user_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2143,17 +2143,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getInstallations({page, per_page})",
+        "content": "const result = await octokit.apps.getInstallations({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getInstallations({page, per_page}).then(result => {})",
+        "content": "octokit.apps.getInstallations({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getInstallations({page, per_page}, (error, result) => {})",
+        "content": "octokit.apps.getInstallations({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2199,17 +2199,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getMarketplaceListingPlanAccounts({id, page, per_page})",
+        "content": "const result = await octokit.apps.getMarketplaceListingPlanAccounts({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getMarketplaceListingPlanAccounts({id, page, per_page}).then(result => {})",
+        "content": "octokit.apps.getMarketplaceListingPlanAccounts({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getMarketplaceListingPlanAccounts({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.apps.getMarketplaceListingPlanAccounts({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2248,17 +2248,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getMarketplaceListingPlans({page, per_page})",
+        "content": "const result = await octokit.apps.getMarketplaceListingPlans({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getMarketplaceListingPlans({page, per_page}).then(result => {})",
+        "content": "octokit.apps.getMarketplaceListingPlans({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getMarketplaceListingPlans({page, per_page}, (error, result) => {})",
+        "content": "octokit.apps.getMarketplaceListingPlans({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2304,17 +2304,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page})",
+        "content": "const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}).then(result => {})",
+        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2353,17 +2353,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.getMarketplaceListingStubbedPlans({page, per_page})",
+        "content": "const result = await octokit.apps.getMarketplaceListingStubbedPlans({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.getMarketplaceListingStubbedPlans({page, per_page}).then(result => {})",
+        "content": "octokit.apps.getMarketplaceListingStubbedPlans({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.getMarketplaceListingStubbedPlans({page, per_page}, (error, result) => {})",
+        "content": "octokit.apps.getMarketplaceListingStubbedPlans({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2401,17 +2401,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.apps.removeRepoFromInstallation({installation_id, repository_id})",
+        "content": "const result = await octokit.apps.removeRepoFromInstallation({installation_id, repository_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.apps.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
+        "content": "octokit.apps.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.apps.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
+        "content": "octokit.apps.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2449,17 +2449,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.check({access_token, client_id})",
+        "content": "const result = await octokit.authorization.check({access_token, client_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.check({access_token, client_id}).then(result => {})",
+        "content": "octokit.authorization.check({access_token, client_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.check({access_token, client_id}, (error, result) => {})",
+        "content": "octokit.authorization.check({access_token, client_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2525,17 +2525,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint})",
+        "content": "const result = await octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}).then(result => {})",
+        "content": "octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}, (error, result) => {})",
+        "content": "octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2566,17 +2566,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.delete({id})",
+        "content": "const result = await octokit.authorization.delete({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.delete({id}).then(result => {})",
+        "content": "octokit.authorization.delete({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.delete({id}, (error, result) => {})",
+        "content": "octokit.authorization.delete({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2607,17 +2607,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.deleteGrant({id})",
+        "content": "const result = await octokit.authorization.deleteGrant({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.deleteGrant({id}).then(result => {})",
+        "content": "octokit.authorization.deleteGrant({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.deleteGrant({id}, (error, result) => {})",
+        "content": "octokit.authorization.deleteGrant({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2648,17 +2648,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.get({id})",
+        "content": "const result = await octokit.authorization.get({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.get({id}).then(result => {})",
+        "content": "octokit.authorization.get({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.get({id}, (error, result) => {})",
+        "content": "octokit.authorization.get({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2697,17 +2697,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.getAll({page, per_page})",
+        "content": "const result = await octokit.authorization.getAll({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.getAll({page, per_page}).then(result => {})",
+        "content": "octokit.authorization.getAll({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.getAll({page, per_page}, (error, result) => {})",
+        "content": "octokit.authorization.getAll({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2753,17 +2753,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.getGrant({id, page, per_page})",
+        "content": "const result = await octokit.authorization.getGrant({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.getGrant({id, page, per_page}).then(result => {})",
+        "content": "octokit.authorization.getGrant({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.getGrant({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.authorization.getGrant({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2802,17 +2802,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.getGrants({page, per_page})",
+        "content": "const result = await octokit.authorization.getGrants({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.getGrants({page, per_page}).then(result => {})",
+        "content": "octokit.authorization.getGrants({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.getGrants({page, per_page}, (error, result) => {})",
+        "content": "octokit.authorization.getGrants({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2878,17 +2878,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint})",
+        "content": "const result = await octokit.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}).then(result => {})",
+        "content": "octokit.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}, (error, result) => {})",
+        "content": "octokit.authorization.getOrCreateAuthorizationForApp({client_secret, client_id, scopes, note, note_url, fingerprint}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2954,17 +2954,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url})",
+        "content": "const result = await octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}).then(result => {})",
+        "content": "octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}, (error, result) => {})",
+        "content": "octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_secret, client_id, fingerprint, scopes, note, note_url}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3002,17 +3002,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.reset({access_token, client_id})",
+        "content": "const result = await octokit.authorization.reset({access_token, client_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.reset({access_token, client_id}).then(result => {})",
+        "content": "octokit.authorization.reset({access_token, client_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.reset({access_token, client_id}, (error, result) => {})",
+        "content": "octokit.authorization.reset({access_token, client_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3050,17 +3050,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.revoke({access_token, client_id})",
+        "content": "const result = await octokit.authorization.revoke({access_token, client_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.revoke({access_token, client_id}).then(result => {})",
+        "content": "octokit.authorization.revoke({access_token, client_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.revoke({access_token, client_id}, (error, result) => {})",
+        "content": "octokit.authorization.revoke({access_token, client_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3098,17 +3098,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.revokeGrant({access_token, client_id})",
+        "content": "const result = await octokit.authorization.revokeGrant({access_token, client_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.revokeGrant({access_token, client_id}).then(result => {})",
+        "content": "octokit.authorization.revokeGrant({access_token, client_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.revokeGrant({access_token, client_id}, (error, result) => {})",
+        "content": "octokit.authorization.revokeGrant({access_token, client_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3181,17 +3181,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})",
+        "content": "const result = await octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})",
+        "content": "octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})",
+        "content": "octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3236,17 +3236,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.createOrg({login, admin, profile_name})",
+        "content": "const result = await octokit.enterprise.createOrg({login, admin, profile_name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.createOrg({login, admin, profile_name}).then(result => {})",
+        "content": "octokit.enterprise.createOrg({login, admin, profile_name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.createOrg({login, admin, profile_name}, (error, result) => {})",
+        "content": "octokit.enterprise.createOrg({login, admin, profile_name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3284,17 +3284,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.createPreReceiveEnvironment({name, image_url})",
+        "content": "const result = await octokit.enterprise.createPreReceiveEnvironment({name, image_url})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.createPreReceiveEnvironment({name, image_url}).then(result => {})",
+        "content": "octokit.enterprise.createPreReceiveEnvironment({name, image_url}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.createPreReceiveEnvironment({name, image_url}, (error, result) => {})",
+        "content": "octokit.enterprise.createPreReceiveEnvironment({name, image_url}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3362,17 +3362,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration})",
+        "content": "const result = await octokit.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}).then(result => {})",
+        "content": "octokit.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}, (error, result) => {})",
+        "content": "octokit.enterprise.createPreReceiveHook({name, script, script_repository, environment, enforcement, allow_downstream_configuration}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3403,17 +3403,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.deletePreReceiveEnvironment({id})",
+        "content": "const result = await octokit.enterprise.deletePreReceiveEnvironment({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.deletePreReceiveEnvironment({id}).then(result => {})",
+        "content": "octokit.enterprise.deletePreReceiveEnvironment({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.deletePreReceiveEnvironment({id}, (error, result) => {})",
+        "content": "octokit.enterprise.deletePreReceiveEnvironment({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3444,17 +3444,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.deletePreReceiveHook({id})",
+        "content": "const result = await octokit.enterprise.deletePreReceiveHook({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.deletePreReceiveHook({id}).then(result => {})",
+        "content": "octokit.enterprise.deletePreReceiveHook({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.deletePreReceiveHook({id}, (error, result) => {})",
+        "content": "octokit.enterprise.deletePreReceiveHook({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3499,17 +3499,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.editPreReceiveEnvironment({id, name, image_url})",
+        "content": "const result = await octokit.enterprise.editPreReceiveEnvironment({id, name, image_url})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.editPreReceiveEnvironment({id, name, image_url}).then(result => {})",
+        "content": "octokit.enterprise.editPreReceiveEnvironment({id, name, image_url}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.editPreReceiveEnvironment({id, name, image_url}, (error, result) => {})",
+        "content": "octokit.enterprise.editPreReceiveEnvironment({id, name, image_url}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3547,17 +3547,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.editPreReceiveHook({id, hook})",
+        "content": "const result = await octokit.enterprise.editPreReceiveHook({id, hook})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.editPreReceiveHook({id, hook}).then(result => {})",
+        "content": "octokit.enterprise.editPreReceiveHook({id, hook}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.editPreReceiveHook({id, hook}, (error, result) => {})",
+        "content": "octokit.enterprise.editPreReceiveHook({id, hook}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3575,17 +3575,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.getLicense({})",
+        "content": "const result = await octokit.enterprise.getLicense({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.getLicense({}).then(result => {})",
+        "content": "octokit.enterprise.getLicense({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.getLicense({}, (error, result) => {})",
+        "content": "octokit.enterprise.getLicense({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3616,17 +3616,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.getPreReceiveEnvironment({id})",
+        "content": "const result = await octokit.enterprise.getPreReceiveEnvironment({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.getPreReceiveEnvironment({id}).then(result => {})",
+        "content": "octokit.enterprise.getPreReceiveEnvironment({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.getPreReceiveEnvironment({id}, (error, result) => {})",
+        "content": "octokit.enterprise.getPreReceiveEnvironment({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3657,17 +3657,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.getPreReceiveEnvironmentDownloadStatus({id})",
+        "content": "const result = await octokit.enterprise.getPreReceiveEnvironmentDownloadStatus({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.getPreReceiveEnvironmentDownloadStatus({id}).then(result => {})",
+        "content": "octokit.enterprise.getPreReceiveEnvironmentDownloadStatus({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.getPreReceiveEnvironmentDownloadStatus({id}, (error, result) => {})",
+        "content": "octokit.enterprise.getPreReceiveEnvironmentDownloadStatus({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3685,17 +3685,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.getPreReceiveEnvironments({})",
+        "content": "const result = await octokit.enterprise.getPreReceiveEnvironments({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.getPreReceiveEnvironments({}).then(result => {})",
+        "content": "octokit.enterprise.getPreReceiveEnvironments({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.getPreReceiveEnvironments({}, (error, result) => {})",
+        "content": "octokit.enterprise.getPreReceiveEnvironments({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3726,17 +3726,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.getPreReceiveHook({id})",
+        "content": "const result = await octokit.enterprise.getPreReceiveHook({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.getPreReceiveHook({id}).then(result => {})",
+        "content": "octokit.enterprise.getPreReceiveHook({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.getPreReceiveHook({id}, (error, result) => {})",
+        "content": "octokit.enterprise.getPreReceiveHook({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3754,17 +3754,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.getPreReceiveHooks({})",
+        "content": "const result = await octokit.enterprise.getPreReceiveHooks({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.getPreReceiveHooks({}).then(result => {})",
+        "content": "octokit.enterprise.getPreReceiveHooks({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.getPreReceiveHooks({}, (error, result) => {})",
+        "content": "octokit.enterprise.getPreReceiveHooks({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3795,17 +3795,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.queueIndexingJob({target})",
+        "content": "const result = await octokit.enterprise.queueIndexingJob({target})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.queueIndexingJob({target}).then(result => {})",
+        "content": "octokit.enterprise.queueIndexingJob({target}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.queueIndexingJob({target}, (error, result) => {})",
+        "content": "octokit.enterprise.queueIndexingJob({target}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3849,17 +3849,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.stats({type})",
+        "content": "const result = await octokit.enterprise.stats({type})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.stats({type}).then(result => {})",
+        "content": "octokit.enterprise.stats({type}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.stats({type}, (error, result) => {})",
+        "content": "octokit.enterprise.stats({type}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3890,17 +3890,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.syncLdapForTeam({team_id})",
+        "content": "const result = await octokit.enterprise.syncLdapForTeam({team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.syncLdapForTeam({team_id}).then(result => {})",
+        "content": "octokit.enterprise.syncLdapForTeam({team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.syncLdapForTeam({team_id}, (error, result) => {})",
+        "content": "octokit.enterprise.syncLdapForTeam({team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3931,17 +3931,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.syncLdapForUser({username})",
+        "content": "const result = await octokit.enterprise.syncLdapForUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.syncLdapForUser({username}).then(result => {})",
+        "content": "octokit.enterprise.syncLdapForUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.syncLdapForUser({username}, (error, result) => {})",
+        "content": "octokit.enterprise.syncLdapForUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3972,17 +3972,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.triggerPreReceiveEnvironmentDownload({id})",
+        "content": "const result = await octokit.enterprise.triggerPreReceiveEnvironmentDownload({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.triggerPreReceiveEnvironmentDownload({id}).then(result => {})",
+        "content": "octokit.enterprise.triggerPreReceiveEnvironmentDownload({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.triggerPreReceiveEnvironmentDownload({id}, (error, result) => {})",
+        "content": "octokit.enterprise.triggerPreReceiveEnvironmentDownload({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4020,17 +4020,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.updateLdapForTeam({team_id, ldap_dn})",
+        "content": "const result = await octokit.enterprise.updateLdapForTeam({team_id, ldap_dn})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.updateLdapForTeam({team_id, ldap_dn}).then(result => {})",
+        "content": "octokit.enterprise.updateLdapForTeam({team_id, ldap_dn}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.updateLdapForTeam({team_id, ldap_dn}, (error, result) => {})",
+        "content": "octokit.enterprise.updateLdapForTeam({team_id, ldap_dn}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4068,17 +4068,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.enterprise.updateLdapForUser({username, ldap_dn})",
+        "content": "const result = await octokit.enterprise.updateLdapForUser({username, ldap_dn})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.enterprise.updateLdapForUser({username, ldap_dn}).then(result => {})",
+        "content": "octokit.enterprise.updateLdapForUser({username, ldap_dn}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.enterprise.updateLdapForUser({username, ldap_dn}, (error, result) => {})",
+        "content": "octokit.enterprise.updateLdapForUser({username, ldap_dn}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4109,17 +4109,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.checkStar({id})",
+        "content": "const result = await octokit.gists.checkStar({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.checkStar({id}).then(result => {})",
+        "content": "octokit.gists.checkStar({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.checkStar({id}, (error, result) => {})",
+        "content": "octokit.gists.checkStar({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4164,17 +4164,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.create({files, public, description})",
+        "content": "const result = await octokit.gists.create({files, public, description})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.create({files, public, description}).then(result => {})",
+        "content": "octokit.gists.create({files, public, description}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.create({files, public, description}, (error, result) => {})",
+        "content": "octokit.gists.create({files, public, description}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4212,17 +4212,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.createComment({gist_id, body})",
+        "content": "const result = await octokit.gists.createComment({gist_id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.createComment({gist_id, body}).then(result => {})",
+        "content": "octokit.gists.createComment({gist_id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.createComment({gist_id, body}, (error, result) => {})",
+        "content": "octokit.gists.createComment({gist_id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4253,17 +4253,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.delete({id})",
+        "content": "const result = await octokit.gists.delete({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.delete({id}).then(result => {})",
+        "content": "octokit.gists.delete({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.delete({id}, (error, result) => {})",
+        "content": "octokit.gists.delete({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4301,17 +4301,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.deleteComment({gist_id, id})",
+        "content": "const result = await octokit.gists.deleteComment({gist_id, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.deleteComment({gist_id, id}).then(result => {})",
+        "content": "octokit.gists.deleteComment({gist_id, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.deleteComment({gist_id, id}, (error, result) => {})",
+        "content": "octokit.gists.deleteComment({gist_id, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4370,17 +4370,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.edit({id, files, description, content, filename})",
+        "content": "const result = await octokit.gists.edit({id, files, description, content, filename})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.edit({id, files, description, content, filename}).then(result => {})",
+        "content": "octokit.gists.edit({id, files, description, content, filename}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.edit({id, files, description, content, filename}, (error, result) => {})",
+        "content": "octokit.gists.edit({id, files, description, content, filename}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4425,17 +4425,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.editComment({gist_id, id, body})",
+        "content": "const result = await octokit.gists.editComment({gist_id, id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.editComment({gist_id, id, body}).then(result => {})",
+        "content": "octokit.gists.editComment({gist_id, id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.editComment({gist_id, id, body}, (error, result) => {})",
+        "content": "octokit.gists.editComment({gist_id, id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4466,17 +4466,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.fork({id})",
+        "content": "const result = await octokit.gists.fork({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.fork({id}).then(result => {})",
+        "content": "octokit.gists.fork({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.fork({id}, (error, result) => {})",
+        "content": "octokit.gists.fork({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4507,17 +4507,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.get({id})",
+        "content": "const result = await octokit.gists.get({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.get({id}).then(result => {})",
+        "content": "octokit.gists.get({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.get({id}, (error, result) => {})",
+        "content": "octokit.gists.get({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4563,17 +4563,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getAll({since, page, per_page})",
+        "content": "const result = await octokit.gists.getAll({since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getAll({since, page, per_page}).then(result => {})",
+        "content": "octokit.gists.getAll({since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getAll({since, page, per_page}, (error, result) => {})",
+        "content": "octokit.gists.getAll({since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4611,17 +4611,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getComment({gist_id, id})",
+        "content": "const result = await octokit.gists.getComment({gist_id, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getComment({gist_id, id}).then(result => {})",
+        "content": "octokit.gists.getComment({gist_id, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getComment({gist_id, id}, (error, result) => {})",
+        "content": "octokit.gists.getComment({gist_id, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4652,17 +4652,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getComments({gist_id})",
+        "content": "const result = await octokit.gists.getComments({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getComments({gist_id}).then(result => {})",
+        "content": "octokit.gists.getComments({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getComments({gist_id}, (error, result) => {})",
+        "content": "octokit.gists.getComments({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4693,17 +4693,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getCommits({id})",
+        "content": "const result = await octokit.gists.getCommits({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getCommits({id}).then(result => {})",
+        "content": "octokit.gists.getCommits({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getCommits({id}, (error, result) => {})",
+        "content": "octokit.gists.getCommits({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4756,17 +4756,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getForUser({username, since, page, per_page})",
+        "content": "const result = await octokit.gists.getForUser({username, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getForUser({username, since, page, per_page}).then(result => {})",
+        "content": "octokit.gists.getForUser({username, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getForUser({username, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.gists.getForUser({username, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4812,17 +4812,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getForks({id, page, per_page})",
+        "content": "const result = await octokit.gists.getForks({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getForks({id, page, per_page}).then(result => {})",
+        "content": "octokit.gists.getForks({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getForks({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.gists.getForks({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4853,17 +4853,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getPublic({since})",
+        "content": "const result = await octokit.gists.getPublic({since})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getPublic({since}).then(result => {})",
+        "content": "octokit.gists.getPublic({since}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getPublic({since}, (error, result) => {})",
+        "content": "octokit.gists.getPublic({since}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4901,17 +4901,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getRevision({id, sha})",
+        "content": "const result = await octokit.gists.getRevision({id, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getRevision({id, sha}).then(result => {})",
+        "content": "octokit.gists.getRevision({id, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getRevision({id, sha}, (error, result) => {})",
+        "content": "octokit.gists.getRevision({id, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4942,17 +4942,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.getStarred({since})",
+        "content": "const result = await octokit.gists.getStarred({since})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.getStarred({since}).then(result => {})",
+        "content": "octokit.gists.getStarred({since}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.getStarred({since}, (error, result) => {})",
+        "content": "octokit.gists.getStarred({since}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4983,17 +4983,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.star({id})",
+        "content": "const result = await octokit.gists.star({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.star({id}).then(result => {})",
+        "content": "octokit.gists.star({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.star({id}, (error, result) => {})",
+        "content": "octokit.gists.star({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5024,17 +5024,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gists.unstar({id})",
+        "content": "const result = await octokit.gists.unstar({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gists.unstar({id}).then(result => {})",
+        "content": "octokit.gists.unstar({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gists.unstar({id}, (error, result) => {})",
+        "content": "octokit.gists.unstar({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5086,17 +5086,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.createBlob({owner, repo, content, encoding})",
+        "content": "const result = await octokit.gitdata.createBlob({owner, repo, content, encoding})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.createBlob({owner, repo, content, encoding}).then(result => {})",
+        "content": "octokit.gitdata.createBlob({owner, repo, content, encoding}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.createBlob({owner, repo, content, encoding}, (error, result) => {})",
+        "content": "octokit.gitdata.createBlob({owner, repo, content, encoding}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5169,17 +5169,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.createCommit({owner, repo, message, tree, parents, author, committer})",
+        "content": "const result = await octokit.gitdata.createCommit({owner, repo, message, tree, parents, author, committer})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}).then(result => {})",
+        "content": "octokit.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}, (error, result) => {})",
+        "content": "octokit.gitdata.createCommit({owner, repo, message, tree, parents, author, committer}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5231,17 +5231,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.createReference({owner, repo, ref, sha})",
+        "content": "const result = await octokit.gitdata.createReference({owner, repo, ref, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.createReference({owner, repo, ref, sha}).then(result => {})",
+        "content": "octokit.gitdata.createReference({owner, repo, ref, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.createReference({owner, repo, ref, sha}, (error, result) => {})",
+        "content": "octokit.gitdata.createReference({owner, repo, ref, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5314,17 +5314,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.createTag({owner, repo, tag, message, object, type, tagger})",
+        "content": "const result = await octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.createTag({owner, repo, tag, message, object, type, tagger}).then(result => {})",
+        "content": "octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.createTag({owner, repo, tag, message, object, type, tagger}, (error, result) => {})",
+        "content": "octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5376,17 +5376,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.createTree({owner, repo, tree, base_tree})",
+        "content": "const result = await octokit.gitdata.createTree({owner, repo, tree, base_tree})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.createTree({owner, repo, tree, base_tree}).then(result => {})",
+        "content": "octokit.gitdata.createTree({owner, repo, tree, base_tree}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.createTree({owner, repo, tree, base_tree}, (error, result) => {})",
+        "content": "octokit.gitdata.createTree({owner, repo, tree, base_tree}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5431,17 +5431,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.deleteReference({owner, repo, ref})",
+        "content": "const result = await octokit.gitdata.deleteReference({owner, repo, ref})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.deleteReference({owner, repo, ref}).then(result => {})",
+        "content": "octokit.gitdata.deleteReference({owner, repo, ref}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.deleteReference({owner, repo, ref}, (error, result) => {})",
+        "content": "octokit.gitdata.deleteReference({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5501,17 +5501,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getBlob({owner, repo, sha, page, per_page})",
+        "content": "const result = await octokit.gitdata.getBlob({owner, repo, sha, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getBlob({owner, repo, sha, page, per_page}).then(result => {})",
+        "content": "octokit.gitdata.getBlob({owner, repo, sha, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getBlob({owner, repo, sha, page, per_page}, (error, result) => {})",
+        "content": "octokit.gitdata.getBlob({owner, repo, sha, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5556,17 +5556,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getCommit({owner, repo, sha})",
+        "content": "const result = await octokit.gitdata.getCommit({owner, repo, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getCommit({owner, repo, sha}).then(result => {})",
+        "content": "octokit.gitdata.getCommit({owner, repo, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getCommit({owner, repo, sha}, (error, result) => {})",
+        "content": "octokit.gitdata.getCommit({owner, repo, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5611,17 +5611,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getCommitSignatureVerification({owner, repo, sha})",
+        "content": "const result = await octokit.gitdata.getCommitSignatureVerification({owner, repo, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getCommitSignatureVerification({owner, repo, sha}).then(result => {})",
+        "content": "octokit.gitdata.getCommitSignatureVerification({owner, repo, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getCommitSignatureVerification({owner, repo, sha}, (error, result) => {})",
+        "content": "octokit.gitdata.getCommitSignatureVerification({owner, repo, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5666,17 +5666,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getReference({owner, repo, ref})",
+        "content": "const result = await octokit.gitdata.getReference({owner, repo, ref})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getReference({owner, repo, ref}).then(result => {})",
+        "content": "octokit.gitdata.getReference({owner, repo, ref}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getReference({owner, repo, ref}, (error, result) => {})",
+        "content": "octokit.gitdata.getReference({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5729,17 +5729,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getReferences({owner, repo, page, per_page})",
+        "content": "const result = await octokit.gitdata.getReferences({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getReferences({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.gitdata.getReferences({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getReferences({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.gitdata.getReferences({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5784,17 +5784,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getTag({owner, repo, sha})",
+        "content": "const result = await octokit.gitdata.getTag({owner, repo, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getTag({owner, repo, sha}).then(result => {})",
+        "content": "octokit.gitdata.getTag({owner, repo, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getTag({owner, repo, sha}, (error, result) => {})",
+        "content": "octokit.gitdata.getTag({owner, repo, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5839,17 +5839,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getTagSignatureVerification({owner, repo, sha})",
+        "content": "const result = await octokit.gitdata.getTagSignatureVerification({owner, repo, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getTagSignatureVerification({owner, repo, sha}).then(result => {})",
+        "content": "octokit.gitdata.getTagSignatureVerification({owner, repo, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getTagSignatureVerification({owner, repo, sha}, (error, result) => {})",
+        "content": "octokit.gitdata.getTagSignatureVerification({owner, repo, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5902,17 +5902,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getTags({owner, repo, page, per_page})",
+        "content": "const result = await octokit.gitdata.getTags({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getTags({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.gitdata.getTags({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getTags({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.gitdata.getTags({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5964,17 +5964,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.getTree({owner, repo, sha, recursive})",
+        "content": "const result = await octokit.gitdata.getTree({owner, repo, sha, recursive})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.getTree({owner, repo, sha, recursive}).then(result => {})",
+        "content": "octokit.gitdata.getTree({owner, repo, sha, recursive}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.getTree({owner, repo, sha, recursive}, (error, result) => {})",
+        "content": "octokit.gitdata.getTree({owner, repo, sha, recursive}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6034,17 +6034,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.gitdata.updateReference({owner, repo, ref, sha, force})",
+        "content": "const result = await octokit.gitdata.updateReference({owner, repo, ref, sha, force})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.gitdata.updateReference({owner, repo, ref, sha, force}).then(result => {})",
+        "content": "octokit.gitdata.updateReference({owner, repo, ref, sha, force}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.gitdata.updateReference({owner, repo, ref, sha, force}, (error, result) => {})",
+        "content": "octokit.gitdata.updateReference({owner, repo, ref, sha, force}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6082,17 +6082,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.integrations.addRepoToInstallation({installation_id, repository_id})",
+        "content": "const result = await octokit.integrations.addRepoToInstallation({installation_id, repository_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.integrations.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
+        "content": "octokit.integrations.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.integrations.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
+        "content": "octokit.integrations.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6130,17 +6130,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.integrations.createInstallationToken({installation_id, user_id})",
+        "content": "const result = await octokit.integrations.createInstallationToken({installation_id, user_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.integrations.createInstallationToken({installation_id, user_id}).then(result => {})",
+        "content": "octokit.integrations.createInstallationToken({installation_id, user_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.integrations.createInstallationToken({installation_id, user_id}, (error, result) => {})",
+        "content": "octokit.integrations.createInstallationToken({installation_id, user_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6171,17 +6171,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.integrations.getInstallationRepositories({user_id})",
+        "content": "const result = await octokit.integrations.getInstallationRepositories({user_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.integrations.getInstallationRepositories({user_id}).then(result => {})",
+        "content": "octokit.integrations.getInstallationRepositories({user_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.integrations.getInstallationRepositories({user_id}, (error, result) => {})",
+        "content": "octokit.integrations.getInstallationRepositories({user_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6220,17 +6220,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.integrations.getInstallations({page, per_page})",
+        "content": "const result = await octokit.integrations.getInstallations({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.integrations.getInstallations({page, per_page}).then(result => {})",
+        "content": "octokit.integrations.getInstallations({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.integrations.getInstallations({page, per_page}, (error, result) => {})",
+        "content": "octokit.integrations.getInstallations({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6268,17 +6268,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.integrations.removeRepoFromInstallation({installation_id, repository_id})",
+        "content": "const result = await octokit.integrations.removeRepoFromInstallation({installation_id, repository_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.integrations.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
+        "content": "octokit.integrations.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.integrations.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
+        "content": "octokit.integrations.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6330,17 +6330,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.addAssigneesToIssue({owner, repo, number, assignees})",
+        "content": "const result = await octokit.issues.addAssigneesToIssue({owner, repo, number, assignees})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.addAssigneesToIssue({owner, repo, number, assignees}).then(result => {})",
+        "content": "octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.addAssigneesToIssue({owner, repo, number, assignees}, (error, result) => {})",
+        "content": "octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6392,17 +6392,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.addLabels({owner, repo, number, labels})",
+        "content": "const result = await octokit.issues.addLabels({owner, repo, number, labels})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.addLabels({owner, repo, number, labels}).then(result => {})",
+        "content": "octokit.issues.addLabels({owner, repo, number, labels}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.addLabels({owner, repo, number, labels}, (error, result) => {})",
+        "content": "octokit.issues.addLabels({owner, repo, number, labels}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6447,17 +6447,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.checkAssignee({owner, repo, assignee})",
+        "content": "const result = await octokit.issues.checkAssignee({owner, repo, assignee})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.checkAssignee({owner, repo, assignee}).then(result => {})",
+        "content": "octokit.issues.checkAssignee({owner, repo, assignee}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.checkAssignee({owner, repo, assignee}, (error, result) => {})",
+        "content": "octokit.issues.checkAssignee({owner, repo, assignee}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6537,17 +6537,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees})",
+        "content": "const result = await octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}).then(result => {})",
+        "content": "octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}, (error, result) => {})",
+        "content": "octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6599,17 +6599,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.createComment({owner, repo, number, body})",
+        "content": "const result = await octokit.issues.createComment({owner, repo, number, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.createComment({owner, repo, number, body}).then(result => {})",
+        "content": "octokit.issues.createComment({owner, repo, number, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.createComment({owner, repo, number, body}, (error, result) => {})",
+        "content": "octokit.issues.createComment({owner, repo, number, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6661,17 +6661,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.createLabel({owner, repo, name, color})",
+        "content": "const result = await octokit.issues.createLabel({owner, repo, name, color})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.createLabel({owner, repo, name, color}).then(result => {})",
+        "content": "octokit.issues.createLabel({owner, repo, name, color}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.createLabel({owner, repo, name, color}, (error, result) => {})",
+        "content": "octokit.issues.createLabel({owner, repo, name, color}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6743,17 +6743,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.createMilestone({owner, repo, title, state, description, due_on})",
+        "content": "const result = await octokit.issues.createMilestone({owner, repo, title, state, description, due_on})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.createMilestone({owner, repo, title, state, description, due_on}).then(result => {})",
+        "content": "octokit.issues.createMilestone({owner, repo, title, state, description, due_on}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.createMilestone({owner, repo, title, state, description, due_on}, (error, result) => {})",
+        "content": "octokit.issues.createMilestone({owner, repo, title, state, description, due_on}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6798,17 +6798,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.deleteComment({owner, repo, id})",
+        "content": "const result = await octokit.issues.deleteComment({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.deleteComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.issues.deleteComment({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.deleteComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.issues.deleteComment({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6853,17 +6853,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.deleteLabel({owner, repo, name})",
+        "content": "const result = await octokit.issues.deleteLabel({owner, repo, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.deleteLabel({owner, repo, name}).then(result => {})",
+        "content": "octokit.issues.deleteLabel({owner, repo, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.deleteLabel({owner, repo, name}, (error, result) => {})",
+        "content": "octokit.issues.deleteLabel({owner, repo, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6908,17 +6908,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.deleteMilestone({owner, repo, number})",
+        "content": "const result = await octokit.issues.deleteMilestone({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.deleteMilestone({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.deleteMilestone({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.deleteMilestone({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.deleteMilestone({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7017,17 +7017,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees})",
+        "content": "const result = await octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}).then(result => {})",
+        "content": "octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}, (error, result) => {})",
+        "content": "octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7079,17 +7079,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.editComment({owner, repo, id, body})",
+        "content": "const result = await octokit.issues.editComment({owner, repo, id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.editComment({owner, repo, id, body}).then(result => {})",
+        "content": "octokit.issues.editComment({owner, repo, id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.editComment({owner, repo, id, body}, (error, result) => {})",
+        "content": "octokit.issues.editComment({owner, repo, id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7134,17 +7134,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.get({owner, repo, number})",
+        "content": "const result = await octokit.issues.get({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.get({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.get({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.get({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.get({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7249,17 +7249,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getAll({filter, state, labels, sort, direction, since, page, per_page})",
+        "content": "const result = await octokit.issues.getAll({filter, state, labels, sort, direction, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getAll({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7297,17 +7297,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getAssignees({owner, repo})",
+        "content": "const result = await octokit.issues.getAssignees({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getAssignees({owner, repo}).then(result => {})",
+        "content": "octokit.issues.getAssignees({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getAssignees({owner, repo}, (error, result) => {})",
+        "content": "octokit.issues.getAssignees({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7352,17 +7352,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getComment({owner, repo, id})",
+        "content": "const result = await octokit.issues.getComment({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.issues.getComment({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.issues.getComment({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7429,17 +7429,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getComments({owner, repo, number, since, page, per_page})",
+        "content": "const result = await octokit.issues.getComments({owner, repo, number, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getComments({owner, repo, number, since, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getComments({owner, repo, number, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getComments({owner, repo, number, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getComments({owner, repo, number, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7523,17 +7523,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})",
+        "content": "const result = await octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7578,17 +7578,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getEvent({owner, repo, id})",
+        "content": "const result = await octokit.issues.getEvent({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getEvent({owner, repo, id}).then(result => {})",
+        "content": "octokit.issues.getEvent({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getEvent({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.issues.getEvent({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7648,17 +7648,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getEvents({owner, repo, issue_number, page, per_page})",
+        "content": "const result = await octokit.issues.getEvents({owner, repo, issue_number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getEvents({owner, repo, issue_number, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getEvents({owner, repo, issue_number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getEvents({owner, repo, issue_number, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getEvents({owner, repo, issue_number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7711,17 +7711,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getEventsForRepo({owner, repo, page, per_page})",
+        "content": "const result = await octokit.issues.getEventsForRepo({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getEventsForRepo({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getEventsForRepo({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getEventsForRepo({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7781,17 +7781,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getEventsTimeline({owner, repo, issue_number, page, per_page})",
+        "content": "const result = await octokit.issues.getEventsTimeline({owner, repo, issue_number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getEventsTimeline({owner, repo, issue_number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7903,17 +7903,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page})",
+        "content": "const result = await octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8046,17 +8046,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned})",
+        "content": "const result = await octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}).then(result => {})",
+        "content": "octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}, (error, result) => {})",
+        "content": "octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, per_page, labels, sort, direction, since, page, mentioned}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8161,17 +8161,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page})",
+        "content": "const result = await octokit.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getForUser({filter, state, labels, sort, direction, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8216,17 +8216,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getIssueLabels({owner, repo, number})",
+        "content": "const result = await octokit.issues.getIssueLabels({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getIssueLabels({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.getIssueLabels({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getIssueLabels({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.getIssueLabels({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8271,17 +8271,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getLabel({owner, repo, name})",
+        "content": "const result = await octokit.issues.getLabel({owner, repo, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getLabel({owner, repo, name}).then(result => {})",
+        "content": "octokit.issues.getLabel({owner, repo, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getLabel({owner, repo, name}, (error, result) => {})",
+        "content": "octokit.issues.getLabel({owner, repo, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8334,17 +8334,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getLabels({owner, repo, page, per_page})",
+        "content": "const result = await octokit.issues.getLabels({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getLabels({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getLabels({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getLabels({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getLabels({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8389,17 +8389,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getMilestone({owner, repo, number})",
+        "content": "const result = await octokit.issues.getMilestone({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getMilestone({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.getMilestone({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getMilestone({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.getMilestone({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8444,17 +8444,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getMilestoneLabels({owner, repo, number})",
+        "content": "const result = await octokit.issues.getMilestoneLabels({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getMilestoneLabels({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.getMilestoneLabels({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getMilestoneLabels({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.getMilestoneLabels({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8544,17 +8544,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.getMilestones({owner, repo, state, sort, direction, page, per_page})",
+        "content": "const result = await octokit.issues.getMilestones({owner, repo, state, sort, direction, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}).then(result => {})",
+        "content": "octokit.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}, (error, result) => {})",
+        "content": "octokit.issues.getMilestones({owner, repo, state, sort, direction, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8599,17 +8599,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.lock({owner, repo, number})",
+        "content": "const result = await octokit.issues.lock({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.lock({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.lock({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.lock({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.lock({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8654,17 +8654,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.removeAllLabels({owner, repo, number})",
+        "content": "const result = await octokit.issues.removeAllLabels({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.removeAllLabels({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.removeAllLabels({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.removeAllLabels({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.removeAllLabels({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8716,17 +8716,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.removeAssigneesFromIssue({owner, repo, number, body})",
+        "content": "const result = await octokit.issues.removeAssigneesFromIssue({owner, repo, number, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.removeAssigneesFromIssue({owner, repo, number, body}).then(result => {})",
+        "content": "octokit.issues.removeAssigneesFromIssue({owner, repo, number, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.removeAssigneesFromIssue({owner, repo, number, body}, (error, result) => {})",
+        "content": "octokit.issues.removeAssigneesFromIssue({owner, repo, number, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8778,17 +8778,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.removeLabel({owner, repo, number, name})",
+        "content": "const result = await octokit.issues.removeLabel({owner, repo, number, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.removeLabel({owner, repo, number, name}).then(result => {})",
+        "content": "octokit.issues.removeLabel({owner, repo, number, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.removeLabel({owner, repo, number, name}, (error, result) => {})",
+        "content": "octokit.issues.removeLabel({owner, repo, number, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8840,17 +8840,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.replaceAllLabels({owner, repo, number, labels})",
+        "content": "const result = await octokit.issues.replaceAllLabels({owner, repo, number, labels})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})",
+        "content": "octokit.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})",
+        "content": "octokit.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8895,17 +8895,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.unlock({owner, repo, number})",
+        "content": "const result = await octokit.issues.unlock({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.unlock({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.unlock({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.unlock({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.unlock({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8964,17 +8964,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.updateLabel({owner, repo, oldname, name, color})",
+        "content": "const result = await octokit.issues.updateLabel({owner, repo, oldname, name, color})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.updateLabel({owner, repo, oldname, name, color}).then(result => {})",
+        "content": "octokit.issues.updateLabel({owner, repo, oldname, name, color}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.updateLabel({owner, repo, oldname, name, color}, (error, result) => {})",
+        "content": "octokit.issues.updateLabel({owner, repo, oldname, name, color}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9053,17 +9053,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.issues.updateMilestone({owner, repo, number, title, state, description, due_on})",
+        "content": "const result = await octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})",
+        "content": "octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})",
+        "content": "octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9101,17 +9101,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.cancelImport({owner, repo})",
+        "content": "const result = await octokit.migrations.cancelImport({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.cancelImport({owner, repo}).then(result => {})",
+        "content": "octokit.migrations.cancelImport({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.cancelImport({owner, repo}, (error, result) => {})",
+        "content": "octokit.migrations.cancelImport({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9149,17 +9149,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.deleteMigrationArchive({org, id})",
+        "content": "const result = await octokit.migrations.deleteMigrationArchive({org, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.deleteMigrationArchive({org, id}).then(result => {})",
+        "content": "octokit.migrations.deleteMigrationArchive({org, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.deleteMigrationArchive({org, id}, (error, result) => {})",
+        "content": "octokit.migrations.deleteMigrationArchive({org, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9204,17 +9204,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.getImportCommitAuthors({owner, repo, since})",
+        "content": "const result = await octokit.migrations.getImportCommitAuthors({owner, repo, since})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.getImportCommitAuthors({owner, repo, since}).then(result => {})",
+        "content": "octokit.migrations.getImportCommitAuthors({owner, repo, since}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.getImportCommitAuthors({owner, repo, since}, (error, result) => {})",
+        "content": "octokit.migrations.getImportCommitAuthors({owner, repo, since}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9252,17 +9252,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.getImportProgress({owner, repo})",
+        "content": "const result = await octokit.migrations.getImportProgress({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.getImportProgress({owner, repo}).then(result => {})",
+        "content": "octokit.migrations.getImportProgress({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.getImportProgress({owner, repo}, (error, result) => {})",
+        "content": "octokit.migrations.getImportProgress({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9300,17 +9300,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.getLargeImportFiles({owner, name})",
+        "content": "const result = await octokit.migrations.getLargeImportFiles({owner, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.getLargeImportFiles({owner, name}).then(result => {})",
+        "content": "octokit.migrations.getLargeImportFiles({owner, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.getLargeImportFiles({owner, name}, (error, result) => {})",
+        "content": "octokit.migrations.getLargeImportFiles({owner, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9348,17 +9348,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.getMigrationArchiveLink({org, id})",
+        "content": "const result = await octokit.migrations.getMigrationArchiveLink({org, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.getMigrationArchiveLink({org, id}).then(result => {})",
+        "content": "octokit.migrations.getMigrationArchiveLink({org, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.getMigrationArchiveLink({org, id}, (error, result) => {})",
+        "content": "octokit.migrations.getMigrationArchiveLink({org, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9396,17 +9396,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.getMigrationStatus({org, id})",
+        "content": "const result = await octokit.migrations.getMigrationStatus({org, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.getMigrationStatus({org, id}).then(result => {})",
+        "content": "octokit.migrations.getMigrationStatus({org, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.getMigrationStatus({org, id}, (error, result) => {})",
+        "content": "octokit.migrations.getMigrationStatus({org, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9452,17 +9452,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.getMigrations({org, page, per_page})",
+        "content": "const result = await octokit.migrations.getMigrations({org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.getMigrations({org, page, per_page}).then(result => {})",
+        "content": "octokit.migrations.getMigrations({org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.getMigrations({org, page, per_page}, (error, result) => {})",
+        "content": "octokit.migrations.getMigrations({org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9521,17 +9521,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name})",
+        "content": "const result = await octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}).then(result => {})",
+        "content": "octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}, (error, result) => {})",
+        "content": "octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9576,17 +9576,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.setImportLfsPreference({owner, name, use_lfs})",
+        "content": "const result = await octokit.migrations.setImportLfsPreference({owner, name, use_lfs})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.setImportLfsPreference({owner, name, use_lfs}).then(result => {})",
+        "content": "octokit.migrations.setImportLfsPreference({owner, name, use_lfs}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.setImportLfsPreference({owner, name, use_lfs}, (error, result) => {})",
+        "content": "octokit.migrations.setImportLfsPreference({owner, name, use_lfs}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9665,17 +9665,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project})",
+        "content": "const result = await octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}).then(result => {})",
+        "content": "octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}, (error, result) => {})",
+        "content": "octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9729,17 +9729,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments})",
+        "content": "const result = await octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})",
+        "content": "octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})",
+        "content": "octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9784,17 +9784,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.unlockRepoLockedForMigration({org, id, repo_name})",
+        "content": "const result = await octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.unlockRepoLockedForMigration({org, id, repo_name}).then(result => {})",
+        "content": "octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.unlockRepoLockedForMigration({org, id, repo_name}, (error, result) => {})",
+        "content": "octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9846,17 +9846,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.migrations.updateImport({owner, repo, vcs_username, vcs_password})",
+        "content": "const result = await octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.migrations.updateImport({owner, repo, vcs_username, vcs_password}).then(result => {})",
+        "content": "octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.migrations.updateImport({owner, repo, vcs_username, vcs_password}, (error, result) => {})",
+        "content": "octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9887,17 +9887,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getCodeOfConduct({key})",
+        "content": "const result = await octokit.misc.getCodeOfConduct({key})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getCodeOfConduct({key}).then(result => {})",
+        "content": "octokit.misc.getCodeOfConduct({key}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getCodeOfConduct({key}, (error, result) => {})",
+        "content": "octokit.misc.getCodeOfConduct({key}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9915,17 +9915,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getCodesOfConduct({})",
+        "content": "const result = await octokit.misc.getCodesOfConduct({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getCodesOfConduct({}).then(result => {})",
+        "content": "octokit.misc.getCodesOfConduct({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getCodesOfConduct({}, (error, result) => {})",
+        "content": "octokit.misc.getCodesOfConduct({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9943,17 +9943,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getEmojis({})",
+        "content": "const result = await octokit.misc.getEmojis({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getEmojis({}).then(result => {})",
+        "content": "octokit.misc.getEmojis({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getEmojis({}, (error, result) => {})",
+        "content": "octokit.misc.getEmojis({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9984,17 +9984,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getGitignoreTemplate({name})",
+        "content": "const result = await octokit.misc.getGitignoreTemplate({name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getGitignoreTemplate({name}).then(result => {})",
+        "content": "octokit.misc.getGitignoreTemplate({name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getGitignoreTemplate({name}, (error, result) => {})",
+        "content": "octokit.misc.getGitignoreTemplate({name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10012,17 +10012,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getGitignoreTemplates({})",
+        "content": "const result = await octokit.misc.getGitignoreTemplates({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getGitignoreTemplates({}).then(result => {})",
+        "content": "octokit.misc.getGitignoreTemplates({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getGitignoreTemplates({}, (error, result) => {})",
+        "content": "octokit.misc.getGitignoreTemplates({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10053,17 +10053,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getLicense({license})",
+        "content": "const result = await octokit.misc.getLicense({license})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getLicense({license}).then(result => {})",
+        "content": "octokit.misc.getLicense({license}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getLicense({license}, (error, result) => {})",
+        "content": "octokit.misc.getLicense({license}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10081,17 +10081,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getLicenses({})",
+        "content": "const result = await octokit.misc.getLicenses({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getLicenses({}).then(result => {})",
+        "content": "octokit.misc.getLicenses({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getLicenses({}, (error, result) => {})",
+        "content": "octokit.misc.getLicenses({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10109,17 +10109,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getMeta({})",
+        "content": "const result = await octokit.misc.getMeta({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getMeta({}).then(result => {})",
+        "content": "octokit.misc.getMeta({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getMeta({}, (error, result) => {})",
+        "content": "octokit.misc.getMeta({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10137,17 +10137,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getRateLimit({})",
+        "content": "const result = await octokit.misc.getRateLimit({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getRateLimit({}).then(result => {})",
+        "content": "octokit.misc.getRateLimit({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getRateLimit({}, (error, result) => {})",
+        "content": "octokit.misc.getRateLimit({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10185,17 +10185,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getRepoCodeOfConduct({owner, repo})",
+        "content": "const result = await octokit.misc.getRepoCodeOfConduct({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getRepoCodeOfConduct({owner, repo}).then(result => {})",
+        "content": "octokit.misc.getRepoCodeOfConduct({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getRepoCodeOfConduct({owner, repo}, (error, result) => {})",
+        "content": "octokit.misc.getRepoCodeOfConduct({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10233,17 +10233,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.getRepoLicense({owner, repo})",
+        "content": "const result = await octokit.misc.getRepoLicense({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.getRepoLicense({owner, repo}).then(result => {})",
+        "content": "octokit.misc.getRepoLicense({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.getRepoLicense({owner, repo}, (error, result) => {})",
+        "content": "octokit.misc.getRepoLicense({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10293,17 +10293,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.renderMarkdown({text, mode, context})",
+        "content": "const result = await octokit.misc.renderMarkdown({text, mode, context})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.renderMarkdown({text, mode, context}).then(result => {})",
+        "content": "octokit.misc.renderMarkdown({text, mode, context}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.renderMarkdown({text, mode, context}, (error, result) => {})",
+        "content": "octokit.misc.renderMarkdown({text, mode, context}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10334,17 +10334,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.misc.renderMarkdownRaw({data})",
+        "content": "const result = await octokit.misc.renderMarkdownRaw({data})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.misc.renderMarkdownRaw({data}).then(result => {})",
+        "content": "octokit.misc.renderMarkdownRaw({data}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.misc.renderMarkdownRaw({data}, (error, result) => {})",
+        "content": "octokit.misc.renderMarkdownRaw({data}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10394,17 +10394,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.addOrgMembership({org, username, role})",
+        "content": "const result = await octokit.orgs.addOrgMembership({org, username, role})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.addOrgMembership({org, username, role}).then(result => {})",
+        "content": "octokit.orgs.addOrgMembership({org, username, role}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.addOrgMembership({org, username, role}, (error, result) => {})",
+        "content": "octokit.orgs.addOrgMembership({org, username, role}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10454,17 +10454,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.addTeamMembership({id, username, role})",
+        "content": "const result = await octokit.orgs.addTeamMembership({id, username, role})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.addTeamMembership({id, username, role}).then(result => {})",
+        "content": "octokit.orgs.addTeamMembership({id, username, role}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.addTeamMembership({id, username, role}, (error, result) => {})",
+        "content": "octokit.orgs.addTeamMembership({id, username, role}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10521,17 +10521,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.addTeamRepo({id, org, repo, permission})",
+        "content": "const result = await octokit.orgs.addTeamRepo({id, org, repo, permission})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.addTeamRepo({id, org, repo, permission}).then(result => {})",
+        "content": "octokit.orgs.addTeamRepo({id, org, repo, permission}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.addTeamRepo({id, org, repo, permission}, (error, result) => {})",
+        "content": "octokit.orgs.addTeamRepo({id, org, repo, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10569,17 +10569,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.blockUser({org, username})",
+        "content": "const result = await octokit.orgs.blockUser({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.blockUser({org, username}).then(result => {})",
+        "content": "octokit.orgs.blockUser({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.blockUser({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.blockUser({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10617,17 +10617,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.checkBlockedUser({org, username})",
+        "content": "const result = await octokit.orgs.checkBlockedUser({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.checkBlockedUser({org, username}).then(result => {})",
+        "content": "octokit.orgs.checkBlockedUser({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.checkBlockedUser({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.checkBlockedUser({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10665,17 +10665,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.checkMembership({org, username})",
+        "content": "const result = await octokit.orgs.checkMembership({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.checkMembership({org, username}).then(result => {})",
+        "content": "octokit.orgs.checkMembership({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.checkMembership({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.checkMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10713,17 +10713,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.checkPublicMembership({org, username})",
+        "content": "const result = await octokit.orgs.checkPublicMembership({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.checkPublicMembership({org, username}).then(result => {})",
+        "content": "octokit.orgs.checkPublicMembership({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.checkPublicMembership({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.checkPublicMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10768,17 +10768,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.checkTeamRepo({id, owner, repo})",
+        "content": "const result = await octokit.orgs.checkTeamRepo({id, owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.checkTeamRepo({id, owner, repo}).then(result => {})",
+        "content": "octokit.orgs.checkTeamRepo({id, owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.checkTeamRepo({id, owner, repo}, (error, result) => {})",
+        "content": "octokit.orgs.checkTeamRepo({id, owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10816,17 +10816,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.concealMembership({org, username})",
+        "content": "const result = await octokit.orgs.concealMembership({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.concealMembership({org, username}).then(result => {})",
+        "content": "octokit.orgs.concealMembership({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.concealMembership({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.concealMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10864,17 +10864,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.convertMemberToOutsideCollaborator({org, username})",
+        "content": "const result = await octokit.orgs.convertMemberToOutsideCollaborator({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.convertMemberToOutsideCollaborator({org, username}).then(result => {})",
+        "content": "octokit.orgs.convertMemberToOutsideCollaborator({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.convertMemberToOutsideCollaborator({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.convertMemberToOutsideCollaborator({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10934,17 +10934,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.createHook({org, name, config, events, active})",
+        "content": "const result = await octokit.orgs.createHook({org, name, config, events, active})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.createHook({org, name, config, events, active}).then(result => {})",
+        "content": "octokit.orgs.createHook({org, name, config, events, active}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.createHook({org, name, config, events, active}, (error, result) => {})",
+        "content": "octokit.orgs.createHook({org, name, config, events, active}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11022,17 +11022,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id})",
+        "content": "const result = await octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}).then(result => {})",
+        "content": "octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}, (error, result) => {})",
+        "content": "octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11070,17 +11070,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.deleteHook({org, id})",
+        "content": "const result = await octokit.orgs.deleteHook({org, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.deleteHook({org, id}).then(result => {})",
+        "content": "octokit.orgs.deleteHook({org, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.deleteHook({org, id}, (error, result) => {})",
+        "content": "octokit.orgs.deleteHook({org, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11111,17 +11111,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.deleteTeam({id})",
+        "content": "const result = await octokit.orgs.deleteTeam({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.deleteTeam({id}).then(result => {})",
+        "content": "octokit.orgs.deleteTeam({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.deleteTeam({id}, (error, result) => {})",
+        "content": "octokit.orgs.deleteTeam({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11166,17 +11166,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.deleteTeamRepo({id, owner, repo})",
+        "content": "const result = await octokit.orgs.deleteTeamRepo({id, owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.deleteTeamRepo({id, owner, repo}).then(result => {})",
+        "content": "octokit.orgs.deleteTeamRepo({id, owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.deleteTeamRepo({id, owner, repo}, (error, result) => {})",
+        "content": "octokit.orgs.deleteTeamRepo({id, owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11236,17 +11236,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.editHook({org, id, config, events, active})",
+        "content": "const result = await octokit.orgs.editHook({org, id, config, events, active})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.editHook({org, id, config, events, active}).then(result => {})",
+        "content": "octokit.orgs.editHook({org, id, config, events, active}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.editHook({org, id, config, events, active}, (error, result) => {})",
+        "content": "octokit.orgs.editHook({org, id, config, events, active}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11310,17 +11310,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.editTeam({id, name, description, privacy, parent_team_id})",
+        "content": "const result = await octokit.orgs.editTeam({id, name, description, privacy, parent_team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.editTeam({id, name, description, privacy, parent_team_id}).then(result => {})",
+        "content": "octokit.orgs.editTeam({id, name, description, privacy, parent_team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.editTeam({id, name, description, privacy, parent_team_id}, (error, result) => {})",
+        "content": "octokit.orgs.editTeam({id, name, description, privacy, parent_team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11366,17 +11366,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.get({org, page, per_page})",
+        "content": "const result = await octokit.orgs.get({org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.get({org, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.get({org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.get({org, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.get({org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11422,17 +11422,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getAll({since, page, per_page})",
+        "content": "const result = await octokit.orgs.getAll({since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getAll({since, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getAll({since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getAll({since, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getAll({since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11478,17 +11478,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getBlockedUsers({org, page, per_page})",
+        "content": "const result = await octokit.orgs.getBlockedUsers({org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getBlockedUsers({org, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getBlockedUsers({org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getBlockedUsers({org, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getBlockedUsers({org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11534,17 +11534,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getChildTeams({id, page, per_page})",
+        "content": "const result = await octokit.orgs.getChildTeams({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getChildTeams({id, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getChildTeams({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getChildTeams({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getChildTeams({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11590,17 +11590,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getForUser({username, page, per_page})",
+        "content": "const result = await octokit.orgs.getForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11638,17 +11638,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getHook({org, id})",
+        "content": "const result = await octokit.orgs.getHook({org, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getHook({org, id}).then(result => {})",
+        "content": "octokit.orgs.getHook({org, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getHook({org, id}, (error, result) => {})",
+        "content": "octokit.orgs.getHook({org, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11694,17 +11694,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getHooks({org, page, per_page})",
+        "content": "const result = await octokit.orgs.getHooks({org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getHooks({org, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getHooks({org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getHooks({org, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getHooks({org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11775,17 +11775,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getMembers({org, filter, role, page, per_page})",
+        "content": "const result = await octokit.orgs.getMembers({org, filter, role, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getMembers({org, filter, role, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getMembers({org, filter, role, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getMembers({org, filter, role, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getMembers({org, filter, role, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11823,17 +11823,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getOrgMembership({org, username})",
+        "content": "const result = await octokit.orgs.getOrgMembership({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getOrgMembership({org, username}).then(result => {})",
+        "content": "octokit.orgs.getOrgMembership({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getOrgMembership({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.getOrgMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11891,17 +11891,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getOutsideCollaborators({org, filter, page, per_page})",
+        "content": "const result = await octokit.orgs.getOutsideCollaborators({org, filter, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getOutsideCollaborators({org, filter, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getOutsideCollaborators({org, filter, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getOutsideCollaborators({org, filter, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getOutsideCollaborators({org, filter, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11932,17 +11932,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getPendingOrgInvites({org})",
+        "content": "const result = await octokit.orgs.getPendingOrgInvites({org})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getPendingOrgInvites({org}).then(result => {})",
+        "content": "octokit.orgs.getPendingOrgInvites({org}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getPendingOrgInvites({org}, (error, result) => {})",
+        "content": "octokit.orgs.getPendingOrgInvites({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11988,17 +11988,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getPendingTeamInvites({id, page, per_page})",
+        "content": "const result = await octokit.orgs.getPendingTeamInvites({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getPendingTeamInvites({id, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getPendingTeamInvites({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getPendingTeamInvites({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getPendingTeamInvites({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12029,17 +12029,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getPublicMembers({org})",
+        "content": "const result = await octokit.orgs.getPublicMembers({org})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getPublicMembers({org}).then(result => {})",
+        "content": "octokit.orgs.getPublicMembers({org}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getPublicMembers({org}, (error, result) => {})",
+        "content": "octokit.orgs.getPublicMembers({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12070,17 +12070,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getTeam({id})",
+        "content": "const result = await octokit.orgs.getTeam({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getTeam({id}).then(result => {})",
+        "content": "octokit.orgs.getTeam({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getTeam({id}, (error, result) => {})",
+        "content": "octokit.orgs.getTeam({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12139,17 +12139,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getTeamMembers({id, role, page, per_page})",
+        "content": "const result = await octokit.orgs.getTeamMembers({id, role, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getTeamMembers({id, role, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getTeamMembers({id, role, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getTeamMembers({id, role, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getTeamMembers({id, role, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12187,17 +12187,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getTeamMembership({id, username})",
+        "content": "const result = await octokit.orgs.getTeamMembership({id, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getTeamMembership({id, username}).then(result => {})",
+        "content": "octokit.orgs.getTeamMembership({id, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getTeamMembership({id, username}, (error, result) => {})",
+        "content": "octokit.orgs.getTeamMembership({id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12243,17 +12243,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getTeamRepos({id, page, per_page})",
+        "content": "const result = await octokit.orgs.getTeamRepos({id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getTeamRepos({id, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getTeamRepos({id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getTeamRepos({id, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getTeamRepos({id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12299,17 +12299,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.getTeams({org, page, per_page})",
+        "content": "const result = await octokit.orgs.getTeams({org, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.getTeams({org, page, per_page}).then(result => {})",
+        "content": "octokit.orgs.getTeams({org, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.getTeams({org, page, per_page}, (error, result) => {})",
+        "content": "octokit.orgs.getTeams({org, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12347,17 +12347,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.pingHook({org, id})",
+        "content": "const result = await octokit.orgs.pingHook({org, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.pingHook({org, id}).then(result => {})",
+        "content": "octokit.orgs.pingHook({org, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.pingHook({org, id}, (error, result) => {})",
+        "content": "octokit.orgs.pingHook({org, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12395,17 +12395,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.publicizeMembership({org, username})",
+        "content": "const result = await octokit.orgs.publicizeMembership({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.publicizeMembership({org, username}).then(result => {})",
+        "content": "octokit.orgs.publicizeMembership({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.publicizeMembership({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.publicizeMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12443,17 +12443,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.removeMember({org, username})",
+        "content": "const result = await octokit.orgs.removeMember({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.removeMember({org, username}).then(result => {})",
+        "content": "octokit.orgs.removeMember({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.removeMember({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.removeMember({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12491,17 +12491,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.removeOrgMembership({org, username})",
+        "content": "const result = await octokit.orgs.removeOrgMembership({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.removeOrgMembership({org, username}).then(result => {})",
+        "content": "octokit.orgs.removeOrgMembership({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.removeOrgMembership({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.removeOrgMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12539,17 +12539,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.removeOutsideCollaborator({org, username})",
+        "content": "const result = await octokit.orgs.removeOutsideCollaborator({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.removeOutsideCollaborator({org, username}).then(result => {})",
+        "content": "octokit.orgs.removeOutsideCollaborator({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.removeOutsideCollaborator({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.removeOutsideCollaborator({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12587,17 +12587,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.removeTeamMembership({id, username})",
+        "content": "const result = await octokit.orgs.removeTeamMembership({id, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.removeTeamMembership({id, username}).then(result => {})",
+        "content": "octokit.orgs.removeTeamMembership({id, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.removeTeamMembership({id, username}, (error, result) => {})",
+        "content": "octokit.orgs.removeTeamMembership({id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12635,17 +12635,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.unblockUser({org, username})",
+        "content": "const result = await octokit.orgs.unblockUser({org, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.unblockUser({org, username}).then(result => {})",
+        "content": "octokit.orgs.unblockUser({org, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.unblockUser({org, username}, (error, result) => {})",
+        "content": "octokit.orgs.unblockUser({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12740,17 +12740,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories})",
+        "content": "const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}).then(result => {})",
+        "content": "octokit.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}, (error, result) => {})",
+        "content": "octokit.orgs.update({org, billing_email, company, email, location, name, description, default_repository_permission, members_can_create_repositories}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12795,17 +12795,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.createOrgProject({org, name, body})",
+        "content": "const result = await octokit.projects.createOrgProject({org, name, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.createOrgProject({org, name, body}).then(result => {})",
+        "content": "octokit.projects.createOrgProject({org, name, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.createOrgProject({org, name, body}, (error, result) => {})",
+        "content": "octokit.projects.createOrgProject({org, name, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12857,17 +12857,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.createProjectCard({column_id, note, content_id, content_type})",
+        "content": "const result = await octokit.projects.createProjectCard({column_id, note, content_id, content_type})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.createProjectCard({column_id, note, content_id, content_type}).then(result => {})",
+        "content": "octokit.projects.createProjectCard({column_id, note, content_id, content_type}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.createProjectCard({column_id, note, content_id, content_type}, (error, result) => {})",
+        "content": "octokit.projects.createProjectCard({column_id, note, content_id, content_type}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12905,17 +12905,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.createProjectColumn({project_id, name})",
+        "content": "const result = await octokit.projects.createProjectColumn({project_id, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.createProjectColumn({project_id, name}).then(result => {})",
+        "content": "octokit.projects.createProjectColumn({project_id, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.createProjectColumn({project_id, name}, (error, result) => {})",
+        "content": "octokit.projects.createProjectColumn({project_id, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12967,17 +12967,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.createRepoProject({owner, repo, name, body})",
+        "content": "const result = await octokit.projects.createRepoProject({owner, repo, name, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.createRepoProject({owner, repo, name, body}).then(result => {})",
+        "content": "octokit.projects.createRepoProject({owner, repo, name, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.createRepoProject({owner, repo, name, body}, (error, result) => {})",
+        "content": "octokit.projects.createRepoProject({owner, repo, name, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13008,17 +13008,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.deleteProject({id})",
+        "content": "const result = await octokit.projects.deleteProject({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.deleteProject({id}).then(result => {})",
+        "content": "octokit.projects.deleteProject({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.deleteProject({id}, (error, result) => {})",
+        "content": "octokit.projects.deleteProject({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13049,17 +13049,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.deleteProjectCard({id})",
+        "content": "const result = await octokit.projects.deleteProjectCard({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.deleteProjectCard({id}).then(result => {})",
+        "content": "octokit.projects.deleteProjectCard({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.deleteProjectCard({id}, (error, result) => {})",
+        "content": "octokit.projects.deleteProjectCard({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13090,17 +13090,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.deleteProjectColumn({id})",
+        "content": "const result = await octokit.projects.deleteProjectColumn({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.deleteProjectColumn({id}).then(result => {})",
+        "content": "octokit.projects.deleteProjectColumn({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.deleteProjectColumn({id}, (error, result) => {})",
+        "content": "octokit.projects.deleteProjectColumn({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13144,17 +13144,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getOrgProjects({org, state})",
+        "content": "const result = await octokit.projects.getOrgProjects({org, state})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getOrgProjects({org, state}).then(result => {})",
+        "content": "octokit.projects.getOrgProjects({org, state}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getOrgProjects({org, state}, (error, result) => {})",
+        "content": "octokit.projects.getOrgProjects({org, state}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13185,17 +13185,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getProject({id})",
+        "content": "const result = await octokit.projects.getProject({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getProject({id}).then(result => {})",
+        "content": "octokit.projects.getProject({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getProject({id}, (error, result) => {})",
+        "content": "octokit.projects.getProject({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13226,17 +13226,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getProjectCard({id})",
+        "content": "const result = await octokit.projects.getProjectCard({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getProjectCard({id}).then(result => {})",
+        "content": "octokit.projects.getProjectCard({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getProjectCard({id}, (error, result) => {})",
+        "content": "octokit.projects.getProjectCard({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13267,17 +13267,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getProjectCards({column_id})",
+        "content": "const result = await octokit.projects.getProjectCards({column_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getProjectCards({column_id}).then(result => {})",
+        "content": "octokit.projects.getProjectCards({column_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getProjectCards({column_id}, (error, result) => {})",
+        "content": "octokit.projects.getProjectCards({column_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13308,17 +13308,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getProjectColumn({id})",
+        "content": "const result = await octokit.projects.getProjectColumn({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getProjectColumn({id}).then(result => {})",
+        "content": "octokit.projects.getProjectColumn({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getProjectColumn({id}, (error, result) => {})",
+        "content": "octokit.projects.getProjectColumn({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13349,17 +13349,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getProjectColumns({project_id})",
+        "content": "const result = await octokit.projects.getProjectColumns({project_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getProjectColumns({project_id}).then(result => {})",
+        "content": "octokit.projects.getProjectColumns({project_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getProjectColumns({project_id}, (error, result) => {})",
+        "content": "octokit.projects.getProjectColumns({project_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13410,17 +13410,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.getRepoProjects({owner, repo, state})",
+        "content": "const result = await octokit.projects.getRepoProjects({owner, repo, state})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.getRepoProjects({owner, repo, state}).then(result => {})",
+        "content": "octokit.projects.getRepoProjects({owner, repo, state}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.getRepoProjects({owner, repo, state}, (error, result) => {})",
+        "content": "octokit.projects.getRepoProjects({owner, repo, state}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13465,17 +13465,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.moveProjectCard({id, position, column_id})",
+        "content": "const result = await octokit.projects.moveProjectCard({id, position, column_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.moveProjectCard({id, position, column_id}).then(result => {})",
+        "content": "octokit.projects.moveProjectCard({id, position, column_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.moveProjectCard({id, position, column_id}, (error, result) => {})",
+        "content": "octokit.projects.moveProjectCard({id, position, column_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13513,17 +13513,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.moveProjectColumn({id, position})",
+        "content": "const result = await octokit.projects.moveProjectColumn({id, position})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.moveProjectColumn({id, position}).then(result => {})",
+        "content": "octokit.projects.moveProjectColumn({id, position}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.moveProjectColumn({id, position}, (error, result) => {})",
+        "content": "octokit.projects.moveProjectColumn({id, position}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13581,17 +13581,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.updateProject({id, name, body, state})",
+        "content": "const result = await octokit.projects.updateProject({id, name, body, state})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.updateProject({id, name, body, state}).then(result => {})",
+        "content": "octokit.projects.updateProject({id, name, body, state}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.updateProject({id, name, body, state}, (error, result) => {})",
+        "content": "octokit.projects.updateProject({id, name, body, state}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13629,17 +13629,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.updateProjectCard({id, note})",
+        "content": "const result = await octokit.projects.updateProjectCard({id, note})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.updateProjectCard({id, note}).then(result => {})",
+        "content": "octokit.projects.updateProjectCard({id, note}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.updateProjectCard({id, note}, (error, result) => {})",
+        "content": "octokit.projects.updateProjectCard({id, note}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13677,17 +13677,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.projects.updateProjectColumn({id, name})",
+        "content": "const result = await octokit.projects.updateProjectColumn({id, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.projects.updateProjectColumn({id, name}).then(result => {})",
+        "content": "octokit.projects.updateProjectColumn({id, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.projects.updateProjectColumn({id, name}, (error, result) => {})",
+        "content": "octokit.projects.updateProjectColumn({id, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13747,17 +13747,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.checkMerged({owner, repo, number, page, per_page})",
+        "content": "const result = await octokit.pullRequests.checkMerged({owner, repo, number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.checkMerged({owner, repo, number, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.checkMerged({owner, repo, number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.checkMerged({owner, repo, number, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.checkMerged({owner, repo, number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13809,17 +13809,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.create({owner, repo, head, base})",
+        "content": "const result = await octokit.pullRequests.create({owner, repo, head, base})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.create({owner, repo, head, base}).then(result => {})",
+        "content": "octokit.pullRequests.create({owner, repo, head, base}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.create({owner, repo, head, base}, (error, result) => {})",
+        "content": "octokit.pullRequests.create({owner, repo, head, base}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13871,17 +13871,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.createComment({owner, repo, number, body})",
+        "content": "const result = await octokit.pullRequests.createComment({owner, repo, number, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.createComment({owner, repo, number, body}).then(result => {})",
+        "content": "octokit.pullRequests.createComment({owner, repo, number, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.createComment({owner, repo, number, body}, (error, result) => {})",
+        "content": "octokit.pullRequests.createComment({owner, repo, number, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13940,17 +13940,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to})",
+        "content": "const result = await octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}).then(result => {})",
+        "content": "octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}, (error, result) => {})",
+        "content": "octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14009,17 +14009,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.createFromIssue({owner, repo, issue, head, base})",
+        "content": "const result = await octokit.pullRequests.createFromIssue({owner, repo, issue, head, base})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.createFromIssue({owner, repo, issue, head, base}).then(result => {})",
+        "content": "octokit.pullRequests.createFromIssue({owner, repo, issue, head, base}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.createFromIssue({owner, repo, issue, head, base}, (error, result) => {})",
+        "content": "octokit.pullRequests.createFromIssue({owner, repo, issue, head, base}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14099,17 +14099,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments})",
+        "content": "const result = await octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}).then(result => {})",
+        "content": "octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}, (error, result) => {})",
+        "content": "octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14168,17 +14168,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers})",
+        "content": "const result = await octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})",
+        "content": "octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})",
+        "content": "octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14223,17 +14223,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.deleteComment({owner, repo, id})",
+        "content": "const result = await octokit.pullRequests.deleteComment({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.deleteComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.pullRequests.deleteComment({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.deleteComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.deleteComment({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14285,17 +14285,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.deletePendingReview({owner, repo, number, id})",
+        "content": "const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.deletePendingReview({owner, repo, number, id}).then(result => {})",
+        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.deletePendingReview({owner, repo, number, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14354,17 +14354,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers})",
+        "content": "const result = await octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})",
+        "content": "octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})",
+        "content": "octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14438,17 +14438,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page})",
+        "content": "const result = await octokit.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.dismissReview({owner, repo, number, id, message, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14500,17 +14500,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.editComment({owner, repo, id, body})",
+        "content": "const result = await octokit.pullRequests.editComment({owner, repo, id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.editComment({owner, repo, id, body}).then(result => {})",
+        "content": "octokit.pullRequests.editComment({owner, repo, id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.editComment({owner, repo, id, body}, (error, result) => {})",
+        "content": "octokit.pullRequests.editComment({owner, repo, id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14555,17 +14555,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.get({owner, repo, number})",
+        "content": "const result = await octokit.pullRequests.get({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.get({owner, repo, number}).then(result => {})",
+        "content": "octokit.pullRequests.get({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.get({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.pullRequests.get({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14671,17 +14671,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14726,17 +14726,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getComment({owner, repo, id})",
+        "content": "const result = await octokit.pullRequests.getComment({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.pullRequests.getComment({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.getComment({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14796,17 +14796,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getComments({owner, repo, number, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getComments({owner, repo, number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getComments({owner, repo, number, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getComments({owner, repo, number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getComments({owner, repo, number, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getComments({owner, repo, number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14890,17 +14890,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14960,17 +14960,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getCommits({owner, repo, number, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getCommits({owner, repo, number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getCommits({owner, repo, number, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getCommits({owner, repo, number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getCommits({owner, repo, number, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getCommits({owner, repo, number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15030,17 +15030,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getFiles({owner, repo, number, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getFiles({owner, repo, number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getFiles({owner, repo, number, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getFiles({owner, repo, number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getFiles({owner, repo, number, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getFiles({owner, repo, number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15092,17 +15092,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getReview({owner, repo, number, id})",
+        "content": "const result = await octokit.pullRequests.getReview({owner, repo, number, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getReview({owner, repo, number, id}).then(result => {})",
+        "content": "octokit.pullRequests.getReview({owner, repo, number, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getReview({owner, repo, number, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.getReview({owner, repo, number, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15169,17 +15169,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getReviewComments({owner, repo, number, id, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getReviewComments({owner, repo, number, id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15239,17 +15239,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getReviewRequests({owner, repo, number, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getReviewRequests({owner, repo, number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getReviewRequests({owner, repo, number, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getReviewRequests({owner, repo, number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getReviewRequests({owner, repo, number, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getReviewRequests({owner, repo, number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15309,17 +15309,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.getReviews({owner, repo, number, page, per_page})",
+        "content": "const result = await octokit.pullRequests.getReviews({owner, repo, number, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.getReviews({owner, repo, number, page, per_page}).then(result => {})",
+        "content": "octokit.pullRequests.getReviews({owner, repo, number, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.getReviews({owner, repo, number, page, per_page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getReviews({owner, repo, number, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15398,17 +15398,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method})",
+        "content": "const result = await octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}).then(result => {})",
+        "content": "octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}, (error, result) => {})",
+        "content": "octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15481,17 +15481,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.submitReview({owner, repo, number, id, body, event})",
+        "content": "const result = await octokit.pullRequests.submitReview({owner, repo, number, id, body, event})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.submitReview({owner, repo, number, id, body, event}).then(result => {})",
+        "content": "octokit.pullRequests.submitReview({owner, repo, number, id, body, event}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.submitReview({owner, repo, number, id, body, event}, (error, result) => {})",
+        "content": "octokit.pullRequests.submitReview({owner, repo, number, id, body, event}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15576,17 +15576,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify})",
+        "content": "const result = await octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}).then(result => {})",
+        "content": "octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}, (error, result) => {})",
+        "content": "octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15646,17 +15646,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.createForCommitComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.createForCommitComment({owner, repo, id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.createForCommitComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.createForCommitComment({owner, repo, id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.createForCommitComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForCommitComment({owner, repo, id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15716,17 +15716,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.createForIssue({owner, repo, number, content})",
+        "content": "const result = await octokit.reactions.createForIssue({owner, repo, number, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.createForIssue({owner, repo, number, content}).then(result => {})",
+        "content": "octokit.reactions.createForIssue({owner, repo, number, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.createForIssue({owner, repo, number, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForIssue({owner, repo, number, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15786,17 +15786,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.createForIssueComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.createForIssueComment({owner, repo, id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.createForIssueComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.createForIssueComment({owner, repo, id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.createForIssueComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForIssueComment({owner, repo, id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15856,17 +15856,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.createForPullRequestReviewComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.createForPullRequestReviewComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.createForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15897,17 +15897,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.delete({id})",
+        "content": "const result = await octokit.reactions.delete({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.delete({id}).then(result => {})",
+        "content": "octokit.reactions.delete({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.delete({id}, (error, result) => {})",
+        "content": "octokit.reactions.delete({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15967,17 +15967,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.getForCommitComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.getForCommitComment({owner, repo, id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.getForCommitComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.getForCommitComment({owner, repo, id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.getForCommitComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.getForCommitComment({owner, repo, id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16037,17 +16037,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.getForIssue({owner, repo, number, content})",
+        "content": "const result = await octokit.reactions.getForIssue({owner, repo, number, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.getForIssue({owner, repo, number, content}).then(result => {})",
+        "content": "octokit.reactions.getForIssue({owner, repo, number, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.getForIssue({owner, repo, number, content}, (error, result) => {})",
+        "content": "octokit.reactions.getForIssue({owner, repo, number, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16107,17 +16107,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.getForIssueComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.getForIssueComment({owner, repo, id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.getForIssueComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.getForIssueComment({owner, repo, id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.getForIssueComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.getForIssueComment({owner, repo, id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16177,17 +16177,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.reactions.getForPullRequestReviewComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.reactions.getForPullRequestReviewComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.reactions.getForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16245,17 +16245,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.addCollaborator({owner, repo, username, permission})",
+        "content": "const result = await octokit.repos.addCollaborator({owner, repo, username, permission})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.addCollaborator({owner, repo, username, permission}).then(result => {})",
+        "content": "octokit.repos.addCollaborator({owner, repo, username, permission}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.addCollaborator({owner, repo, username, permission}, (error, result) => {})",
+        "content": "octokit.repos.addCollaborator({owner, repo, username, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16314,17 +16314,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.addDeployKey({owner, repo, title, key, read_only})",
+        "content": "const result = await octokit.repos.addDeployKey({owner, repo, title, key, read_only})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.addDeployKey({owner, repo, title, key, read_only}).then(result => {})",
+        "content": "octokit.repos.addDeployKey({owner, repo, title, key, read_only}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.addDeployKey({owner, repo, title, key, read_only}, (error, result) => {})",
+        "content": "octokit.repos.addDeployKey({owner, repo, title, key, read_only}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16384,17 +16384,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16446,17 +16446,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
+        "content": "const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16508,17 +16508,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
+        "content": "const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16570,17 +16570,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})",
+        "content": "const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16625,17 +16625,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.checkCollaborator({owner, repo, username})",
+        "content": "const result = await octokit.repos.checkCollaborator({owner, repo, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.checkCollaborator({owner, repo, username}).then(result => {})",
+        "content": "octokit.repos.checkCollaborator({owner, repo, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.checkCollaborator({owner, repo, username}, (error, result) => {})",
+        "content": "octokit.repos.checkCollaborator({owner, repo, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16687,17 +16687,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.compareCommits({owner, repo, base, head})",
+        "content": "const result = await octokit.repos.compareCommits({owner, repo, base, head})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.compareCommits({owner, repo, base, head}).then(result => {})",
+        "content": "octokit.repos.compareCommits({owner, repo, base, head}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.compareCommits({owner, repo, base, head}, (error, result) => {})",
+        "content": "octokit.repos.compareCommits({owner, repo, base, head}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16827,17 +16827,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id})",
+        "content": "const result = await octokit.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}).then(result => {})",
+        "content": "octokit.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}, (error, result) => {})",
+        "content": "octokit.repos.create({name, allow_rebase_merge, homepage, private, has_issues, has_projects, has_wiki, description, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16903,17 +16903,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createCommitComment({owner, repo, sha, body, path, position})",
+        "content": "const result = await octokit.repos.createCommitComment({owner, repo, sha, body, path, position})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createCommitComment({owner, repo, sha, body, path, position}).then(result => {})",
+        "content": "octokit.repos.createCommitComment({owner, repo, sha, body, path, position}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createCommitComment({owner, repo, sha, body, path, position}, (error, result) => {})",
+        "content": "octokit.repos.createCommitComment({owner, repo, sha, body, path, position}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17018,17 +17018,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts})",
+        "content": "const result = await octokit.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}).then(result => {})",
+        "content": "octokit.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}, (error, result) => {})",
+        "content": "octokit.repos.createDeployment({owner, ref, repo, task, auto_merge, production_environment, payload, environment, description, transient_environment, required_contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17116,17 +17116,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive})",
+        "content": "const result = await octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})",
+        "content": "octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})",
+        "content": "octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17206,17 +17206,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createFile({owner, repo, path, message, content, branch, committer, author})",
+        "content": "const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createFile({owner, repo, path, message, content, branch, committer, author}).then(result => {})",
+        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createFile({owner, repo, path, message, content, branch, committer, author}, (error, result) => {})",
+        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17353,17 +17353,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki})",
+        "content": "const result = await octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}).then(result => {})",
+        "content": "octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}, (error, result) => {})",
+        "content": "octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, allow_rebase_merge, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, has_wiki}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17430,17 +17430,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createHook({owner, repo, name, config, events, active})",
+        "content": "const result = await octokit.repos.createHook({owner, repo, name, config, events, active})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createHook({owner, repo, name, config, events, active}).then(result => {})",
+        "content": "octokit.repos.createHook({owner, repo, name, config, events, active}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createHook({owner, repo, name, config, events, active}, (error, result) => {})",
+        "content": "octokit.repos.createHook({owner, repo, name, config, events, active}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17522,17 +17522,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease})",
+        "content": "const result = await octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
+        "content": "octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
+        "content": "octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17611,17 +17611,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.createStatus({owner, repo, sha, state, target_url, description, context})",
+        "content": "const result = await octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.createStatus({owner, repo, sha, state, target_url, description, context}).then(result => {})",
+        "content": "octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.createStatus({owner, repo, sha, state, target_url, description, context}, (error, result) => {})",
+        "content": "octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17659,17 +17659,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.delete({owner, repo})",
+        "content": "const result = await octokit.repos.delete({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.delete({owner, repo}).then(result => {})",
+        "content": "octokit.repos.delete({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.delete({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.delete({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17714,17 +17714,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteAsset({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteAsset({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteAsset({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteAsset({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteAsset({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteAsset({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17769,17 +17769,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteCommitComment({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteCommitComment({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteCommitComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteCommitComment({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteCommitComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteCommitComment({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17824,17 +17824,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteDeployKey({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteDeployKey({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteDeployKey({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteDeployKey({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteDeployKey({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteDeployKey({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17879,17 +17879,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteDownload({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteDownload({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteDownload({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteDownload({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteDownload({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteDownload({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17969,17 +17969,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author})",
+        "content": "const result = await octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}).then(result => {})",
+        "content": "octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}, (error, result) => {})",
+        "content": "octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18024,17 +18024,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteHook({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteHook({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteHook({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18079,17 +18079,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteInvite({owner, repo, invitation_id})",
+        "content": "const result = await octokit.repos.deleteInvite({owner, repo, invitation_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteInvite({owner, repo, invitation_id}).then(result => {})",
+        "content": "octokit.repos.deleteInvite({owner, repo, invitation_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteInvite({owner, repo, invitation_id}, (error, result) => {})",
+        "content": "octokit.repos.deleteInvite({owner, repo, invitation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18134,17 +18134,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.deleteRelease({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteRelease({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.deleteRelease({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteRelease({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.deleteRelease({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteRelease({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18266,17 +18266,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues})",
+        "content": "const result = await octokit.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}).then(result => {})",
+        "content": "octokit.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}, (error, result) => {})",
+        "content": "octokit.repos.edit({owner, name, repo, description, homepage, private, allow_rebase_merge, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, has_issues}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18335,17 +18335,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.editAsset({owner, repo, id, name, label})",
+        "content": "const result = await octokit.repos.editAsset({owner, repo, id, name, label})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.editAsset({owner, repo, id, name, label}).then(result => {})",
+        "content": "octokit.repos.editAsset({owner, repo, id, name, label}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.editAsset({owner, repo, id, name, label}, (error, result) => {})",
+        "content": "octokit.repos.editAsset({owner, repo, id, name, label}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18433,17 +18433,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active})",
+        "content": "const result = await octokit.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}).then(result => {})",
+        "content": "octokit.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}, (error, result) => {})",
+        "content": "octokit.repos.editHook({owner, repo, id, name, config, events, add_events, remove_events, active}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18532,17 +18532,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease})",
+        "content": "const result = await octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
+        "content": "octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
+        "content": "octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18587,17 +18587,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.fork({owner, repo, organization})",
+        "content": "const result = await octokit.repos.fork({owner, repo, organization})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.fork({owner, repo, organization}).then(result => {})",
+        "content": "octokit.repos.fork({owner, repo, organization}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.fork({owner, repo, organization}, (error, result) => {})",
+        "content": "octokit.repos.fork({owner, repo, organization}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18635,17 +18635,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.get({owner, repo})",
+        "content": "const result = await octokit.repos.get({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.get({owner, repo}).then(result => {})",
+        "content": "octokit.repos.get({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.get({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.get({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18746,17 +18746,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page})",
+        "content": "const result = await octokit.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getAll({visibility, affiliation, type, sort, direction, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18809,17 +18809,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getAllCommitComments({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getAllCommitComments({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getAllCommitComments({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getAllCommitComments({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getAllCommitComments({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getAllCommitComments({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18876,17 +18876,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getArchiveLink({owner, repo, archive_format, ref})",
+        "content": "const result = await octokit.repos.getArchiveLink({owner, repo, archive_format, ref})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getArchiveLink({owner, repo, archive_format, ref}).then(result => {})",
+        "content": "octokit.repos.getArchiveLink({owner, repo, archive_format, ref}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getArchiveLink({owner, repo, archive_format, ref}, (error, result) => {})",
+        "content": "octokit.repos.getArchiveLink({owner, repo, archive_format, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18931,17 +18931,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getAsset({owner, repo, id})",
+        "content": "const result = await octokit.repos.getAsset({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getAsset({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getAsset({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getAsset({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getAsset({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18986,17 +18986,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getAssets({owner, repo, id})",
+        "content": "const result = await octokit.repos.getAssets({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getAssets({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getAssets({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getAssets({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getAssets({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19056,17 +19056,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getBranch({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getBranch({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getBranch({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getBranch({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getBranch({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getBranch({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19126,17 +19126,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getBranchProtection({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getBranchProtection({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getBranchProtection({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getBranchProtection({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getBranchProtection({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getBranchProtection({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19196,17 +19196,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getBranches({owner, repo, protected, page, per_page})",
+        "content": "const result = await octokit.repos.getBranches({owner, repo, protected, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getBranches({owner, repo, protected, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getBranches({owner, repo, protected, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getBranches({owner, repo, protected, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getBranches({owner, repo, protected, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19237,17 +19237,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getById({id})",
+        "content": "const result = await octokit.repos.getById({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getById({id}).then(result => {})",
+        "content": "octokit.repos.getById({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getById({id}, (error, result) => {})",
+        "content": "octokit.repos.getById({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19300,17 +19300,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getClones({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getClones({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getClones({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getClones({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getClones({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getClones({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19376,17 +19376,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCollaborators({owner, repo, affiliation, page, per_page})",
+        "content": "const result = await octokit.repos.getCollaborators({owner, repo, affiliation, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCollaborators({owner, repo, affiliation, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getCollaborators({owner, repo, affiliation, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCollaborators({owner, repo, affiliation, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getCollaborators({owner, repo, affiliation, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19446,17 +19446,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page})",
+        "content": "const result = await octokit.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getCombinedStatusForRef({owner, repo, ref, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19501,17 +19501,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCommit({owner, repo, sha})",
+        "content": "const result = await octokit.repos.getCommit({owner, repo, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCommit({owner, repo, sha}).then(result => {})",
+        "content": "octokit.repos.getCommit({owner, repo, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCommit({owner, repo, sha}, (error, result) => {})",
+        "content": "octokit.repos.getCommit({owner, repo, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19556,17 +19556,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCommitComment({owner, repo, id})",
+        "content": "const result = await octokit.repos.getCommitComment({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCommitComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getCommitComment({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCommitComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getCommitComment({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19626,17 +19626,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCommitComments({owner, repo, ref, page, per_page})",
+        "content": "const result = await octokit.repos.getCommitComments({owner, repo, ref, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCommitComments({owner, repo, ref, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getCommitComments({owner, repo, ref, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCommitComments({owner, repo, ref, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getCommitComments({owner, repo, ref, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19724,17 +19724,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page})",
+        "content": "const result = await octokit.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getCommits({owner, repo, sha, path, author, since, until, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19772,17 +19772,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getCommunityProfileMetrics({owner, name})",
+        "content": "const result = await octokit.repos.getCommunityProfileMetrics({owner, name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getCommunityProfileMetrics({owner, name}).then(result => {})",
+        "content": "octokit.repos.getCommunityProfileMetrics({owner, name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getCommunityProfileMetrics({owner, name}, (error, result) => {})",
+        "content": "octokit.repos.getCommunityProfileMetrics({owner, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19834,17 +19834,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getContent({owner, repo, path, ref})",
+        "content": "const result = await octokit.repos.getContent({owner, repo, path, ref})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getContent({owner, repo, path, ref}).then(result => {})",
+        "content": "octokit.repos.getContent({owner, repo, path, ref}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getContent({owner, repo, path, ref}, (error, result) => {})",
+        "content": "octokit.repos.getContent({owner, repo, path, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19904,17 +19904,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getContributors({owner, repo, anon, page, per_page})",
+        "content": "const result = await octokit.repos.getContributors({owner, repo, anon, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getContributors({owner, repo, anon, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getContributors({owner, repo, anon, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getContributors({owner, repo, anon, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getContributors({owner, repo, anon, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19959,17 +19959,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDeployKey({owner, repo, id})",
+        "content": "const result = await octokit.repos.getDeployKey({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDeployKey({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getDeployKey({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDeployKey({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getDeployKey({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20022,17 +20022,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDeployKeys({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getDeployKeys({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDeployKeys({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getDeployKeys({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDeployKeys({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getDeployKeys({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20077,17 +20077,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDeployment({owner, repo, deployment_id})",
+        "content": "const result = await octokit.repos.getDeployment({owner, repo, deployment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDeployment({owner, repo, deployment_id}).then(result => {})",
+        "content": "octokit.repos.getDeployment({owner, repo, deployment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})",
+        "content": "octokit.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20139,17 +20139,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDeploymentStatus({owner, repo, id, status_id})",
+        "content": "const result = await octokit.repos.getDeploymentStatus({owner, repo, id, status_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDeploymentStatus({owner, repo, id, status_id}).then(result => {})",
+        "content": "octokit.repos.getDeploymentStatus({owner, repo, id, status_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDeploymentStatus({owner, repo, id, status_id}, (error, result) => {})",
+        "content": "octokit.repos.getDeploymentStatus({owner, repo, id, status_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20194,17 +20194,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDeploymentStatuses({owner, repo, id})",
+        "content": "const result = await octokit.repos.getDeploymentStatuses({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDeploymentStatuses({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getDeploymentStatuses({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDeploymentStatuses({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getDeploymentStatuses({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20289,17 +20289,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page})",
+        "content": "const result = await octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20344,17 +20344,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDownload({owner, repo, id})",
+        "content": "const result = await octokit.repos.getDownload({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDownload({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getDownload({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDownload({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getDownload({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20407,17 +20407,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getDownloads({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getDownloads({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getDownloads({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getDownloads({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getDownloads({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getDownloads({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20479,17 +20479,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getForOrg({org, type, page, per_page})",
+        "content": "const result = await octokit.repos.getForOrg({org, type, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getForOrg({org, type, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getForOrg({org, type, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getForOrg({org, type, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getForOrg({org, type, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20574,17 +20574,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getForUser({username, type, sort, direction, page, per_page})",
+        "content": "const result = await octokit.repos.getForUser({username, type, sort, direction, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getForUser({username, type, sort, direction, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getForUser({username, type, sort, direction, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getForUser({username, type, sort, direction, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getForUser({username, type, sort, direction, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20650,17 +20650,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getForks({owner, repo, sort, page, per_page})",
+        "content": "const result = await octokit.repos.getForks({owner, repo, sort, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getForks({owner, repo, sort, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getForks({owner, repo, sort, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getForks({owner, repo, sort, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getForks({owner, repo, sort, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20705,17 +20705,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.getHook({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getHook({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getHook({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20768,17 +20768,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getHooks({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getHooks({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getHooks({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getHooks({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getHooks({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getHooks({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20816,17 +20816,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getInvites({owner, repo})",
+        "content": "const result = await octokit.repos.getInvites({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getInvites({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getInvites({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getInvites({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getInvites({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20879,17 +20879,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getLanguages({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getLanguages({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getLanguages({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getLanguages({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getLanguages({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getLanguages({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20927,17 +20927,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getLatestPagesBuild({owner, repo})",
+        "content": "const result = await octokit.repos.getLatestPagesBuild({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getLatestPagesBuild({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getLatestPagesBuild({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getLatestPagesBuild({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getLatestPagesBuild({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20975,17 +20975,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getLatestRelease({owner, repo})",
+        "content": "const result = await octokit.repos.getLatestRelease({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getLatestRelease({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getLatestRelease({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getLatestRelease({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getLatestRelease({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21038,17 +21038,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getPages({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getPages({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getPages({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getPages({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getPages({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getPages({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21093,17 +21093,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getPagesBuild({owner, repo, id})",
+        "content": "const result = await octokit.repos.getPagesBuild({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getPagesBuild({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getPagesBuild({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getPagesBuild({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getPagesBuild({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21156,17 +21156,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getPagesBuilds({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getPagesBuilds({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getPagesBuilds({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getPagesBuilds({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getPagesBuilds({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getPagesBuilds({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21219,17 +21219,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getPaths({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getPaths({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getPaths({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getPaths({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getPaths({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getPaths({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21289,17 +21289,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21359,17 +21359,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21429,17 +21429,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21499,17 +21499,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21569,17 +21569,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21639,17 +21639,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21709,17 +21709,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page})",
+        "content": "const result = await octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21765,17 +21765,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getPublic({since, page, per_page})",
+        "content": "const result = await octokit.repos.getPublic({since, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getPublic({since, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getPublic({since, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getPublic({since, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getPublic({since, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21820,17 +21820,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getReadme({owner, repo, ref})",
+        "content": "const result = await octokit.repos.getReadme({owner, repo, ref})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getReadme({owner, repo, ref}).then(result => {})",
+        "content": "octokit.repos.getReadme({owner, repo, ref}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getReadme({owner, repo, ref}, (error, result) => {})",
+        "content": "octokit.repos.getReadme({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21883,17 +21883,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getReferrers({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getReferrers({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getReferrers({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getReferrers({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getReferrers({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getReferrers({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21938,17 +21938,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getRelease({owner, repo, id})",
+        "content": "const result = await octokit.repos.getRelease({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getRelease({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getRelease({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getRelease({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getRelease({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21993,17 +21993,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getReleaseByTag({owner, repo, tag})",
+        "content": "const result = await octokit.repos.getReleaseByTag({owner, repo, tag})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getReleaseByTag({owner, repo, tag}).then(result => {})",
+        "content": "octokit.repos.getReleaseByTag({owner, repo, tag}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getReleaseByTag({owner, repo, tag}, (error, result) => {})",
+        "content": "octokit.repos.getReleaseByTag({owner, repo, tag}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22056,17 +22056,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getReleases({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getReleases({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getReleases({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getReleases({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getReleases({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getReleases({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22111,17 +22111,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getShaOfCommitRef({owner, repo, ref})",
+        "content": "const result = await octokit.repos.getShaOfCommitRef({owner, repo, ref})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getShaOfCommitRef({owner, repo, ref}).then(result => {})",
+        "content": "octokit.repos.getShaOfCommitRef({owner, repo, ref}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getShaOfCommitRef({owner, repo, ref}, (error, result) => {})",
+        "content": "octokit.repos.getShaOfCommitRef({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22159,17 +22159,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getStatsCodeFrequency({owner, repo})",
+        "content": "const result = await octokit.repos.getStatsCodeFrequency({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getStatsCodeFrequency({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getStatsCodeFrequency({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getStatsCodeFrequency({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getStatsCodeFrequency({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22207,17 +22207,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getStatsCommitActivity({owner, repo})",
+        "content": "const result = await octokit.repos.getStatsCommitActivity({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getStatsCommitActivity({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getStatsCommitActivity({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getStatsCommitActivity({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getStatsCommitActivity({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22255,17 +22255,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getStatsContributors({owner, repo})",
+        "content": "const result = await octokit.repos.getStatsContributors({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getStatsContributors({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getStatsContributors({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getStatsContributors({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getStatsContributors({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22303,17 +22303,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getStatsParticipation({owner, repo})",
+        "content": "const result = await octokit.repos.getStatsParticipation({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getStatsParticipation({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getStatsParticipation({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getStatsParticipation({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getStatsParticipation({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22351,17 +22351,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getStatsPunchCard({owner, repo})",
+        "content": "const result = await octokit.repos.getStatsPunchCard({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getStatsPunchCard({owner, repo}).then(result => {})",
+        "content": "octokit.repos.getStatsPunchCard({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getStatsPunchCard({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.getStatsPunchCard({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22421,17 +22421,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getStatuses({owner, repo, ref, page, per_page})",
+        "content": "const result = await octokit.repos.getStatuses({owner, repo, ref, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getStatuses({owner, repo, ref, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getStatuses({owner, repo, ref, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getStatuses({owner, repo, ref, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getStatuses({owner, repo, ref, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22484,17 +22484,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getTags({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getTags({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getTags({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getTags({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getTags({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getTags({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22547,17 +22547,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getTeams({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getTeams({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getTeams({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getTeams({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getTeams({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getTeams({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22610,17 +22610,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getTopics({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getTopics({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getTopics({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getTopics({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getTopics({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getTopics({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22673,17 +22673,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.getViews({owner, repo, page, per_page})",
+        "content": "const result = await octokit.repos.getViews({owner, repo, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.getViews({owner, repo, page, per_page}).then(result => {})",
+        "content": "octokit.repos.getViews({owner, repo, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.getViews({owner, repo, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.getViews({owner, repo, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22742,17 +22742,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.merge({owner, repo, base, head, commit_message})",
+        "content": "const result = await octokit.repos.merge({owner, repo, base, head, commit_message})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.merge({owner, repo, base, head, commit_message}).then(result => {})",
+        "content": "octokit.repos.merge({owner, repo, base, head, commit_message}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.merge({owner, repo, base, head, commit_message}, (error, result) => {})",
+        "content": "octokit.repos.merge({owner, repo, base, head, commit_message}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22797,17 +22797,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.pingHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.pingHook({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.pingHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.pingHook({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.pingHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.pingHook({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22852,17 +22852,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeBranchProtection({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeBranchProtection({owner, repo, branch})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeBranchProtection({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeBranchProtection({owner, repo, branch}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeBranchProtection({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeBranchProtection({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22907,17 +22907,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeCollaborator({owner, repo, username})",
+        "content": "const result = await octokit.repos.removeCollaborator({owner, repo, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeCollaborator({owner, repo, username}).then(result => {})",
+        "content": "octokit.repos.removeCollaborator({owner, repo, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeCollaborator({owner, repo, username}, (error, result) => {})",
+        "content": "octokit.repos.removeCollaborator({owner, repo, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22962,17 +22962,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23017,17 +23017,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23072,17 +23072,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23134,17 +23134,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
+        "content": "const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23189,17 +23189,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23251,17 +23251,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
+        "content": "const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23313,17 +23313,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})",
+        "content": "const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23375,17 +23375,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
+        "content": "const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
+        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
+        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23437,17 +23437,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
+        "content": "const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
+        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
+        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23499,17 +23499,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})",
+        "content": "const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
+        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
+        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23554,17 +23554,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.replaceTopics({owner, repo, names})",
+        "content": "const result = await octokit.repos.replaceTopics({owner, repo, names})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.replaceTopics({owner, repo, names}).then(result => {})",
+        "content": "octokit.repos.replaceTopics({owner, repo, names}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.replaceTopics({owner, repo, names}, (error, result) => {})",
+        "content": "octokit.repos.replaceTopics({owner, repo, names}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23602,17 +23602,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.requestPageBuild({owner, repo})",
+        "content": "const result = await octokit.repos.requestPageBuild({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.requestPageBuild({owner, repo}).then(result => {})",
+        "content": "octokit.repos.requestPageBuild({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.requestPageBuild({owner, repo}, (error, result) => {})",
+        "content": "octokit.repos.requestPageBuild({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23657,17 +23657,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.reviewUserPermissionLevel({owner, repo, username})",
+        "content": "const result = await octokit.repos.reviewUserPermissionLevel({owner, repo, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.reviewUserPermissionLevel({owner, repo, username}).then(result => {})",
+        "content": "octokit.repos.reviewUserPermissionLevel({owner, repo, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.reviewUserPermissionLevel({owner, repo, username}, (error, result) => {})",
+        "content": "octokit.repos.reviewUserPermissionLevel({owner, repo, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23712,17 +23712,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.testHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.testHook({owner, repo, id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.testHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.testHook({owner, repo, id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.testHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.testHook({owner, repo, id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23817,17 +23817,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page})",
+        "content": "const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}).then(result => {})",
+        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}, (error, result) => {})",
+        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_pull_request_reviews, restrictions, enforce_admins, dismissal_restrictions, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23879,17 +23879,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.updateCommitComment({owner, repo, id, body})",
+        "content": "const result = await octokit.repos.updateCommitComment({owner, repo, id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.updateCommitComment({owner, repo, id, body}).then(result => {})",
+        "content": "octokit.repos.updateCommitComment({owner, repo, id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.updateCommitComment({owner, repo, id, body}, (error, result) => {})",
+        "content": "octokit.repos.updateCommitComment({owner, repo, id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23976,17 +23976,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author})",
+        "content": "const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}).then(result => {})",
+        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}, (error, result) => {})",
+        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24043,17 +24043,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.updateInvite({owner, repo, invitation_id, permissions})",
+        "content": "const result = await octokit.repos.updateInvite({owner, repo, invitation_id, permissions})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.updateInvite({owner, repo, invitation_id, permissions}).then(result => {})",
+        "content": "octokit.repos.updateInvite({owner, repo, invitation_id, permissions}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.updateInvite({owner, repo, invitation_id, permissions}, (error, result) => {})",
+        "content": "octokit.repos.updateInvite({owner, repo, invitation_id, permissions}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24119,17 +24119,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews})",
+        "content": "const result = await octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}).then(result => {})",
+        "content": "octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}, (error, result) => {})",
+        "content": "octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismiss_stale_reviews, require_code_owner_reviews}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24188,17 +24188,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts})",
+        "content": "const result = await octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}).then(result => {})",
+        "content": "octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}, (error, result) => {})",
+        "content": "octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24264,17 +24264,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.repos.uploadAsset({url, file, contentType, contentLength, name, label})",
+        "content": "const result = await octokit.repos.uploadAsset({url, file, contentType, contentLength, name, label})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.repos.uploadAsset({url, file, contentType, contentLength, name, label}).then(result => {})",
+        "content": "octokit.repos.uploadAsset({url, file, contentType, contentLength, name, label}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.repos.uploadAsset({url, file, contentType, contentLength, name, label}, (error, result) => {})",
+        "content": "octokit.repos.uploadAsset({url, file, contentType, contentLength, name, label}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24342,17 +24342,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.search.code({q, sort, order, page, per_page})",
+        "content": "const result = await octokit.search.code({q, sort, order, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.search.code({q, sort, order, page, per_page}).then(result => {})",
+        "content": "octokit.search.code({q, sort, order, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.search.code({q, sort, order, page, per_page}, (error, result) => {})",
+        "content": "octokit.search.code({q, sort, order, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24421,17 +24421,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.search.commits({q, sort, order, page, per_page})",
+        "content": "const result = await octokit.search.commits({q, sort, order, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.search.commits({q, sort, order, page, per_page}).then(result => {})",
+        "content": "octokit.search.commits({q, sort, order, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.search.commits({q, sort, order, page, per_page}, (error, result) => {})",
+        "content": "octokit.search.commits({q, sort, order, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24462,17 +24462,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.search.email({email})",
+        "content": "const result = await octokit.search.email({email})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.search.email({email}).then(result => {})",
+        "content": "octokit.search.email({email}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.search.email({email}, (error, result) => {})",
+        "content": "octokit.search.email({email}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24542,17 +24542,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.search.issues({q, sort, order, page, per_page})",
+        "content": "const result = await octokit.search.issues({q, sort, order, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.search.issues({q, sort, order, page, per_page}).then(result => {})",
+        "content": "octokit.search.issues({q, sort, order, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.search.issues({q, sort, order, page, per_page}, (error, result) => {})",
+        "content": "octokit.search.issues({q, sort, order, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24622,17 +24622,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.search.repos({q, sort, order, page, per_page})",
+        "content": "const result = await octokit.search.repos({q, sort, order, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.search.repos({q, sort, order, page, per_page}).then(result => {})",
+        "content": "octokit.search.repos({q, sort, order, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.search.repos({q, sort, order, page, per_page}, (error, result) => {})",
+        "content": "octokit.search.repos({q, sort, order, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24702,17 +24702,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.search.users({q, sort, order, page, per_page})",
+        "content": "const result = await octokit.search.users({q, sort, order, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.search.users({q, sort, order, page, per_page}).then(result => {})",
+        "content": "octokit.search.users({q, sort, order, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.search.users({q, sort, order, page, per_page}, (error, result) => {})",
+        "content": "octokit.search.users({q, sort, order, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24743,17 +24743,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.acceptRepoInvite({invitation_id})",
+        "content": "const result = await octokit.users.acceptRepoInvite({invitation_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.acceptRepoInvite({invitation_id}).then(result => {})",
+        "content": "octokit.users.acceptRepoInvite({invitation_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.acceptRepoInvite({invitation_id}, (error, result) => {})",
+        "content": "octokit.users.acceptRepoInvite({invitation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24784,17 +24784,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.addEmails({emails})",
+        "content": "const result = await octokit.users.addEmails({emails})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.addEmails({emails}).then(result => {})",
+        "content": "octokit.users.addEmails({emails}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.addEmails({emails}, (error, result) => {})",
+        "content": "octokit.users.addEmails({emails}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24832,17 +24832,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.addRepoToInstallation({installation_id, repository_id})",
+        "content": "const result = await octokit.users.addRepoToInstallation({installation_id, repository_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
+        "content": "octokit.users.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
+        "content": "octokit.users.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24873,17 +24873,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.blockUser({username})",
+        "content": "const result = await octokit.users.blockUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.blockUser({username}).then(result => {})",
+        "content": "octokit.users.blockUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.blockUser({username}, (error, result) => {})",
+        "content": "octokit.users.blockUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24914,17 +24914,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.checkBlockedUser({username})",
+        "content": "const result = await octokit.users.checkBlockedUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.checkBlockedUser({username}).then(result => {})",
+        "content": "octokit.users.checkBlockedUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.checkBlockedUser({username}, (error, result) => {})",
+        "content": "octokit.users.checkBlockedUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24955,17 +24955,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.checkFollowing({username})",
+        "content": "const result = await octokit.users.checkFollowing({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.checkFollowing({username}).then(result => {})",
+        "content": "octokit.users.checkFollowing({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.checkFollowing({username}, (error, result) => {})",
+        "content": "octokit.users.checkFollowing({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25003,17 +25003,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.checkIfOneFollowersOther({username, target_user})",
+        "content": "const result = await octokit.users.checkIfOneFollowersOther({username, target_user})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.checkIfOneFollowersOther({username, target_user}).then(result => {})",
+        "content": "octokit.users.checkIfOneFollowersOther({username, target_user}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.checkIfOneFollowersOther({username, target_user}, (error, result) => {})",
+        "content": "octokit.users.checkIfOneFollowersOther({username, target_user}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25044,17 +25044,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.createGpgKey({armored_public_key})",
+        "content": "const result = await octokit.users.createGpgKey({armored_public_key})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.createGpgKey({armored_public_key}).then(result => {})",
+        "content": "octokit.users.createGpgKey({armored_public_key}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.createGpgKey({armored_public_key}, (error, result) => {})",
+        "content": "octokit.users.createGpgKey({armored_public_key}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25092,17 +25092,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.createKey({title, key})",
+        "content": "const result = await octokit.users.createKey({title, key})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.createKey({title, key}).then(result => {})",
+        "content": "octokit.users.createKey({title, key}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.createKey({title, key}, (error, result) => {})",
+        "content": "octokit.users.createKey({title, key}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25133,17 +25133,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.declineRepoInvite({invitation_id})",
+        "content": "const result = await octokit.users.declineRepoInvite({invitation_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.declineRepoInvite({invitation_id}).then(result => {})",
+        "content": "octokit.users.declineRepoInvite({invitation_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.declineRepoInvite({invitation_id}, (error, result) => {})",
+        "content": "octokit.users.declineRepoInvite({invitation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25174,17 +25174,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.deleteEmails({emails})",
+        "content": "const result = await octokit.users.deleteEmails({emails})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.deleteEmails({emails}).then(result => {})",
+        "content": "octokit.users.deleteEmails({emails}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.deleteEmails({emails}, (error, result) => {})",
+        "content": "octokit.users.deleteEmails({emails}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25215,17 +25215,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.deleteGpgKey({id})",
+        "content": "const result = await octokit.users.deleteGpgKey({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.deleteGpgKey({id}).then(result => {})",
+        "content": "octokit.users.deleteGpgKey({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.deleteGpgKey({id}, (error, result) => {})",
+        "content": "octokit.users.deleteGpgKey({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25256,17 +25256,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.deleteKey({id})",
+        "content": "const result = await octokit.users.deleteKey({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.deleteKey({id}).then(result => {})",
+        "content": "octokit.users.deleteKey({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.deleteKey({id}, (error, result) => {})",
+        "content": "octokit.users.deleteKey({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25297,17 +25297,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.demote({username})",
+        "content": "const result = await octokit.users.demote({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.demote({username}).then(result => {})",
+        "content": "octokit.users.demote({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.demote({username}, (error, result) => {})",
+        "content": "octokit.users.demote({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25348,17 +25348,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.editOrgMembership({org, state})",
+        "content": "const result = await octokit.users.editOrgMembership({org, state})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.editOrgMembership({org, state}).then(result => {})",
+        "content": "octokit.users.editOrgMembership({org, state}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.editOrgMembership({org, state}, (error, result) => {})",
+        "content": "octokit.users.editOrgMembership({org, state}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25389,17 +25389,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.followUser({username})",
+        "content": "const result = await octokit.users.followUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.followUser({username}).then(result => {})",
+        "content": "octokit.users.followUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.followUser({username}, (error, result) => {})",
+        "content": "octokit.users.followUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25417,17 +25417,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.get({})",
+        "content": "const result = await octokit.users.get({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.get({}).then(result => {})",
+        "content": "octokit.users.get({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.get({}, (error, result) => {})",
+        "content": "octokit.users.get({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25458,17 +25458,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getAll({since})",
+        "content": "const result = await octokit.users.getAll({since})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getAll({since}).then(result => {})",
+        "content": "octokit.users.getAll({since}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getAll({since}, (error, result) => {})",
+        "content": "octokit.users.getAll({since}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25486,17 +25486,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getBlockedUsers({})",
+        "content": "const result = await octokit.users.getBlockedUsers({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getBlockedUsers({}).then(result => {})",
+        "content": "octokit.users.getBlockedUsers({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getBlockedUsers({}, (error, result) => {})",
+        "content": "octokit.users.getBlockedUsers({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25527,17 +25527,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getById({id})",
+        "content": "const result = await octokit.users.getById({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getById({id}).then(result => {})",
+        "content": "octokit.users.getById({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getById({id}, (error, result) => {})",
+        "content": "octokit.users.getById({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25576,17 +25576,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getEmails({page, per_page})",
+        "content": "const result = await octokit.users.getEmails({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getEmails({page, per_page}).then(result => {})",
+        "content": "octokit.users.getEmails({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getEmails({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getEmails({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25625,17 +25625,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getFollowers({page, per_page})",
+        "content": "const result = await octokit.users.getFollowers({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getFollowers({page, per_page}).then(result => {})",
+        "content": "octokit.users.getFollowers({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getFollowers({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getFollowers({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25681,17 +25681,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getFollowersForUser({username, page, per_page})",
+        "content": "const result = await octokit.users.getFollowersForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getFollowersForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.users.getFollowersForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getFollowersForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getFollowersForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25730,17 +25730,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getFollowing({page, per_page})",
+        "content": "const result = await octokit.users.getFollowing({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getFollowing({page, per_page}).then(result => {})",
+        "content": "octokit.users.getFollowing({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getFollowing({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getFollowing({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25786,17 +25786,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getFollowingForUser({username, page, per_page})",
+        "content": "const result = await octokit.users.getFollowingForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getFollowingForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.users.getFollowingForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getFollowingForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getFollowingForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25827,17 +25827,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getForUser({username})",
+        "content": "const result = await octokit.users.getForUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getForUser({username}).then(result => {})",
+        "content": "octokit.users.getForUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getForUser({username}, (error, result) => {})",
+        "content": "octokit.users.getForUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25868,17 +25868,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getGpgKey({id})",
+        "content": "const result = await octokit.users.getGpgKey({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getGpgKey({id}).then(result => {})",
+        "content": "octokit.users.getGpgKey({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getGpgKey({id}, (error, result) => {})",
+        "content": "octokit.users.getGpgKey({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25917,17 +25917,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getGpgKeys({page, per_page})",
+        "content": "const result = await octokit.users.getGpgKeys({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getGpgKeys({page, per_page}).then(result => {})",
+        "content": "octokit.users.getGpgKeys({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getGpgKeys({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getGpgKeys({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25973,17 +25973,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getGpgKeysForUser({username, page, per_page})",
+        "content": "const result = await octokit.users.getGpgKeysForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getGpgKeysForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.users.getGpgKeysForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getGpgKeysForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getGpgKeysForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26029,17 +26029,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getInstallationRepos({installation_id, page, per_page})",
+        "content": "const result = await octokit.users.getInstallationRepos({installation_id, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getInstallationRepos({installation_id, page, per_page}).then(result => {})",
+        "content": "octokit.users.getInstallationRepos({installation_id, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getInstallationRepos({installation_id, page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getInstallationRepos({installation_id, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26078,17 +26078,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getInstallations({page, per_page})",
+        "content": "const result = await octokit.users.getInstallations({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getInstallations({page, per_page}).then(result => {})",
+        "content": "octokit.users.getInstallations({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getInstallations({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getInstallations({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26119,17 +26119,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getKey({id})",
+        "content": "const result = await octokit.users.getKey({id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getKey({id}).then(result => {})",
+        "content": "octokit.users.getKey({id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getKey({id}, (error, result) => {})",
+        "content": "octokit.users.getKey({id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26168,17 +26168,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getKeys({page, per_page})",
+        "content": "const result = await octokit.users.getKeys({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getKeys({page, per_page}).then(result => {})",
+        "content": "octokit.users.getKeys({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getKeys({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getKeys({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26224,17 +26224,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getKeysForUser({username, page, per_page})",
+        "content": "const result = await octokit.users.getKeysForUser({username, page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getKeysForUser({username, page, per_page}).then(result => {})",
+        "content": "octokit.users.getKeysForUser({username, page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getKeysForUser({username, page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getKeysForUser({username, page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26273,17 +26273,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getMarketplacePurchases({page, per_page})",
+        "content": "const result = await octokit.users.getMarketplacePurchases({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getMarketplacePurchases({page, per_page}).then(result => {})",
+        "content": "octokit.users.getMarketplacePurchases({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getMarketplacePurchases({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getMarketplacePurchases({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26322,17 +26322,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getMarketplaceStubbedPurchases({page, per_page})",
+        "content": "const result = await octokit.users.getMarketplaceStubbedPurchases({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getMarketplaceStubbedPurchases({page, per_page}).then(result => {})",
+        "content": "octokit.users.getMarketplaceStubbedPurchases({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getMarketplaceStubbedPurchases({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getMarketplaceStubbedPurchases({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26363,17 +26363,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getOrgMembership({org})",
+        "content": "const result = await octokit.users.getOrgMembership({org})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getOrgMembership({org}).then(result => {})",
+        "content": "octokit.users.getOrgMembership({org}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getOrgMembership({org}, (error, result) => {})",
+        "content": "octokit.users.getOrgMembership({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26408,17 +26408,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getOrgMemberships({state})",
+        "content": "const result = await octokit.users.getOrgMemberships({state})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getOrgMemberships({state}).then(result => {})",
+        "content": "octokit.users.getOrgMemberships({state}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getOrgMemberships({state}, (error, result) => {})",
+        "content": "octokit.users.getOrgMemberships({state}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26457,17 +26457,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getOrgs({page, per_page})",
+        "content": "const result = await octokit.users.getOrgs({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getOrgs({page, per_page}).then(result => {})",
+        "content": "octokit.users.getOrgs({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getOrgs({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getOrgs({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26506,17 +26506,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getPublicEmails({page, per_page})",
+        "content": "const result = await octokit.users.getPublicEmails({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getPublicEmails({page, per_page}).then(result => {})",
+        "content": "octokit.users.getPublicEmails({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getPublicEmails({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getPublicEmails({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26534,17 +26534,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getRepoInvites({})",
+        "content": "const result = await octokit.users.getRepoInvites({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getRepoInvites({}).then(result => {})",
+        "content": "octokit.users.getRepoInvites({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getRepoInvites({}, (error, result) => {})",
+        "content": "octokit.users.getRepoInvites({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26583,17 +26583,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.getTeams({page, per_page})",
+        "content": "const result = await octokit.users.getTeams({page, per_page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.getTeams({page, per_page}).then(result => {})",
+        "content": "octokit.users.getTeams({page, per_page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.getTeams({page, per_page}, (error, result) => {})",
+        "content": "octokit.users.getTeams({page, per_page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26624,17 +26624,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.promote({username})",
+        "content": "const result = await octokit.users.promote({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.promote({username}).then(result => {})",
+        "content": "octokit.users.promote({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.promote({username}, (error, result) => {})",
+        "content": "octokit.users.promote({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26672,17 +26672,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.removeRepoFromInstallation({installation_id, repository_id})",
+        "content": "const result = await octokit.users.removeRepoFromInstallation({installation_id, repository_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
+        "content": "octokit.users.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
+        "content": "octokit.users.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26713,17 +26713,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.suspend({username})",
+        "content": "const result = await octokit.users.suspend({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.suspend({username}).then(result => {})",
+        "content": "octokit.users.suspend({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.suspend({username}, (error, result) => {})",
+        "content": "octokit.users.suspend({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26741,17 +26741,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.togglePrimaryEmailVisibility({})",
+        "content": "const result = await octokit.users.togglePrimaryEmailVisibility({})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.togglePrimaryEmailVisibility({}).then(result => {})",
+        "content": "octokit.users.togglePrimaryEmailVisibility({}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.togglePrimaryEmailVisibility({}, (error, result) => {})",
+        "content": "octokit.users.togglePrimaryEmailVisibility({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26782,17 +26782,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.unblockUser({username})",
+        "content": "const result = await octokit.users.unblockUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.unblockUser({username}).then(result => {})",
+        "content": "octokit.users.unblockUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.unblockUser({username}, (error, result) => {})",
+        "content": "octokit.users.unblockUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26823,17 +26823,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.unfollowUser({username})",
+        "content": "const result = await octokit.users.unfollowUser({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.unfollowUser({username}).then(result => {})",
+        "content": "octokit.users.unfollowUser({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.unfollowUser({username}, (error, result) => {})",
+        "content": "octokit.users.unfollowUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26864,17 +26864,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.unsuspend({username})",
+        "content": "const result = await octokit.users.unsuspend({username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.unsuspend({username}).then(result => {})",
+        "content": "octokit.users.unsuspend({username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.unsuspend({username}, (error, result) => {})",
+        "content": "octokit.users.unsuspend({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26947,17 +26947,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await github.users.update({name, email, blog, company, location, hireable, bio})",
+        "content": "const result = await octokit.users.update({name, email, blog, company, location, hireable, bio})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "github.users.update({name, email, blog, company, location, hireable, bio}).then(result => {})",
+        "content": "octokit.users.update({name, email, blog, company, location, hireable, bio}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "github.users.update({name, email, blog, company, location, hireable, bio}, (error, result) => {})",
+        "content": "octokit.users.update({name, email, blog, company, location, hireable, bio}, (error, result) => {})",
         "type": "js"
       }
     ],
