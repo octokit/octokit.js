@@ -73,9 +73,12 @@ function toApiParamComment (paramsObj, param) {
   const paramInfo = paramsObj[param]
 
   const paramRequired = paramInfo['required']
-  const paramType = paramInfo['type'].toLowerCase()
   const paramDescription = paramInfo['description'] || ''
   const paramDefaultVal = paramInfo['default']
+  const paramType = paramInfo['type']
+    .toLowerCase()
+    // https://github.com/octokit/rest.js/issues/721
+    .replace('string | object', 'object')
 
   let paramLabel = param
 
