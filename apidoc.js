@@ -6835,7 +6835,7 @@
  * @apiGroup Repos
  *
  * @apiParam {string} url  This endpoint makes use of a Hypermedia relation (https://developer.github.com/v3/#hypermedia) to determine which URL to access. This endpoint is provided by a URI template in the release's API response (https://developer.github.com/v3/repos/releases/#get-a-single-release). You need to use an HTTP client which supports SNI (https://en.wikipedia.org/wiki/Server_Name_Indication) to make calls to this endpoint.
- * @apiParam {object} file  A file read stream, a String or a Buffer.
+ * @apiParam {string | object} file  A file read stream, a String or a Buffer.
  * @apiParam {string} contentType  The content type of the asset. This should be set in the Header. Example: 'application/zip'. For a list of acceptable types, refer this list of media types (https://www.iana.org/assignments/media-types/media-types.xhtml)
  * @apiParam {number} contentLength  File size in bytes.
  * @apiParam {string} name  The file name of the asset. This should be set in a URI query parameter.
