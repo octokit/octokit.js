@@ -6,6 +6,16 @@ const GitHub = require('../../')
 chai.should()
 
 describe('authentication', () => {
+  let github
+
+  beforeEach(() => {
+    github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+    github.plugin(require('../../lib/plugins/authentication'))
+  })
+
   it('basic', () => {
     nock('https://authentication-test-host.com', {
       reqheaders: {
@@ -14,10 +24,6 @@ describe('authentication', () => {
     })
       .get('/orgs/myorg')
       .reply(200, {})
-
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
 
     github.authenticate({
       type: 'basic',
@@ -37,10 +43,6 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
     github.authenticate({
       type: 'token',
       token: 'abc4567'
@@ -54,10 +56,6 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .query({access_token: 'abc4567'})
       .reply(200, {})
-
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
 
     github.authenticate({
       type: 'oauth',
@@ -73,10 +71,6 @@ describe('authentication', () => {
       .query({per_page: 1, access_token: 'abc4567'})
       .reply(200, [])
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
     github.authenticate({
       type: 'oauth',
       token: 'abc4567'
@@ -90,10 +84,6 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .query({client_id: 'oauthkey', client_secret: 'oauthsecret'})
       .reply(200, {})
-
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
 
     github.authenticate({
       type: 'oauth',
@@ -109,10 +99,6 @@ describe('authentication', () => {
       .get('/orgs/myorg/repos')
       .query({per_page: 1, client_id: 'oauthkey', client_secret: 'oauthsecret'})
       .reply(200, [])
-
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
 
     github.authenticate({
       type: 'oauth',
@@ -132,10 +118,6 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
     github.authenticate({
       type: 'integration',
       token: 'abc4567'
@@ -145,17 +127,10 @@ describe('authentication', () => {
   })
 
   it('authenticate without options', () => {
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
     github.authenticate()
   })
 
   it('authenticate errors', () => {
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
     ;(() => {
       github.authenticate({})
     }).should.throw(Error)

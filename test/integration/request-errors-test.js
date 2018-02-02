@@ -16,6 +16,7 @@ describe('request errors', () => {
       host: 'request-errors-test.com',
       timeout: 1000
     })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.orgs.get({org: 'myorg'})
 
@@ -30,9 +31,9 @@ describe('request errors', () => {
       .replyWithError('ooops')
 
     const github = new GitHub({
-      host: 'request-errors-test.com',
-      timeout: 1000
+      host: 'request-errors-test.com'
     })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.orgs.get({org: 'myorg'})
 

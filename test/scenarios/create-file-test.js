@@ -11,6 +11,8 @@ describe('api.github.com', () => {
       protocol: 'http',
       host: 'localhost:3000'
     })
+    github.plugin(require('../../lib/plugins/authentication'))
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     github.authenticate({
       type: 'token',
