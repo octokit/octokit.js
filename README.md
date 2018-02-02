@@ -18,6 +18,31 @@ This fork is work-in-progress exploration towards [Browser Support for `@octokit
    const octokit = new Octokit()
    ```
 
+## Breaking changes
+
+The endpoint methods like `octokit.repos.get()` are generated from the
+[lib/routes.json](lib/routes.json) file, which is used. The internal
+implementation already moved it into a plugin so we take advantage of that now.
+Instead of loading these plugins by default:
+
+- [authentication](lib/plugins/authentication)
+- [endpoint-methods](lib/plugins/endpoint-methods)
+- [pagination](lib/plugins/pagination)
+
+You will now have to load them manually, like so
+
+```js
+const octokit = require('@gr2m/octokit-rest-browser-experimental')()
+// add octokit.authenticate() method
+octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/authentication'))
+
+// add endpoint methods
+octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/endpoint-methods'))
+
+// add pagination methods
+octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/pagination'))
+```
+
 ## Testing with Puppeteer
 
 [Puppeteer](https://github.com/GoogleChrome/puppeteer) is library to control a
