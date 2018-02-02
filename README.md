@@ -1,6 +1,6 @@
 # Temporary fork [octokit/rest.js](https://github.com/octokit/rest.js) with browser-support
 
-This fork is work-in-progress exploration towards [Browser Support for @gr2m/octokit-rest-browser-experimental](https://github.com/octokit/rest.js/milestone/2).
+This fork is work-in-progress exploration towards [Browser Support for `@octokit/rest`](https://github.com/octokit/rest.js/milestone/2).
 
 ## Browser usage
 
