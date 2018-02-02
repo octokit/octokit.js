@@ -1,18 +1,15 @@
 const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
   it('github.repos.{get,update,remove}BranchProtection()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/branch-protection')
-
-    const github = new GitHub()
+    const github = new GitHub({
+      protocol: 'http',
+      host: 'localhost:3000'
+    })
 
     github.authenticate({
       type: 'token',
@@ -79,11 +76,5 @@ describe('api.github.com', () => {
         branch: 'master'
       })
     })
-
-    .then((response) => {
-      GitHubMock.pending().should.deep.equal([])
-    })
-
-    .catch(GitHubMock.explain)
   })
 })
