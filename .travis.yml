@@ -38,7 +38,7 @@ jobs:
         - sleep 3 # give xvfb some time to start
         # do actual tests
         - npm run test
-        - npm run test:browser
+        - travis_retry npm run test:browser
         - npm run coverage:upload
         - npm run validate:ts
     # release stage: run semantic release & update the docs
