@@ -11,6 +11,8 @@ describe('api.github.com', () => {
       host: 'localhost:3000'
     })
 
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+
     return github.repos.get({
       owner: 'octokit-fixture-org',
       repo: 'hello-world',
