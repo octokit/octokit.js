@@ -18,6 +18,16 @@ This fork is work-in-progress exploration towards [Browser Support for `@octokit
    const octokit = new Octokit()
    ```
 
+## Testing with Puppeteer
+
+[Puppeteer](https://github.com/GoogleChrome/puppeteer) is library to control a
+headless. The install is heavy and fails on Node < 6, so is run with [npx](https://www.npmjs.com/package/npx)
+and installed upon first usage. When testing locally, you can install `mocha-puppeteer`
+globally with `npm install --global mocha-puppeteer` and then
+
+1. start fixtures server with `npm run start-fixtures-server`
+2. In a 2nd terminal, run `mocha-puppeteer test/scenarios/*-test.js`
+3. Once you are done, stop the fixtures server in the 1st terminal with ctrl + c
 
 ---
 
