@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "before-after-hook": "^1.1.0",
+    "btoa-lite": "^1.0.0",
     "debug": "^3.1.0",
     "is-array-buffer": "^1.0.0",
     "is-stream": "^1.1.0",
@@ -51,10 +52,12 @@
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "disc": "^1.3.3",
+    "dotenv": "^5.0.0",
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
     "mkdirp": "^0.5.1",
     "mocha": "^5.0.0",
+    "mocha-puppeteer": "^0.13.0",
     "mustache": "^2.2.1",
     "nock": "^9.1.0",
     "nyc": "^11.2.1",
@@ -64,7 +67,6 @@
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2",
     "string-to-arraybuffer": "^1.0.0",
-    "tape-run": "^3.0.2",
     "typescript": "^2.6.2",
     "uglify-js": "^3.3.8"
   },
@@ -75,8 +77,9 @@
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
-    "pretest": "standard && standard-markdown",
-    "test": "nyc mocha 'test/**/*-test.js'",
+    "pretest": "standard; standard-markdown; npm run -s start-fixtures-server &",
+    "test": "nyc mocha 'test/**/*-test.js' && mocha-puppeteer test/scenarios/*-test.js || npm run -s stop-fixtures-server",
+    "posttest": "npm run -s stop-fixtures-server",
     "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
@@ -90,7 +93,15 @@
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 index.d.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "start-fixtures-server": "octokit-fixtures-server",
+    "stop-fixtures-server": "pkill -f octokit-fixtures-server",
+    "pretest:browser": "npm run -s start-fixtures-server &",
+    "test:browser": "mocha-puppeteer test/scenarios/*-test.js || npm run -s stop-fixtures-server",
+    "posttest:browser": "npm run -s stop-fixtures-server",
+    "pretest:node": "npm run -s start-fixtures-server &",
+    "test:node": "mocha test/scenarios/*-test.js || npm run -s stop-fixtures-server",
+    "posttest:node": "npm run -s stop-fixtures-server"
   },
   "license": "MIT",
   "files": [
@@ -119,6 +130,12 @@
           "dist/*.js"
         ]
       }
+    ]
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
     ]
   }
 }
