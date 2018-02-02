@@ -132,6 +132,7 @@
   "standard": {
     "globals": [
       "describe",
+      "beforeEach",
       "it"
     ]
   }
