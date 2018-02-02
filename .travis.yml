@@ -2,6 +2,9 @@ language: node_js
 cache:
   directories:
     - ~/.npm
+    # mocha-puppeteer
+    - node_modules/puppeteer/.local-chromium/
+    - .cache
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -32,6 +35,8 @@ jobs:
       script:
         - npm run build:flow
         - npm run build:ts
+        - npm run build:browser
+        - npm run generate-bundle-report
         - npm run semantic-release
     - node_js: lts/*
       script:

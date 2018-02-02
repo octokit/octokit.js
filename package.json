@@ -1,5 +1,5 @@
 {
-  "name": "@octokit/rest",
+  "name": "@gr2m/octokit-rest-browser-experimental",
   "version": "0.0.0-semantically-released",
   "publishConfig": {
     "access": "public"
@@ -30,12 +30,13 @@
       "url": "https://github.com/gr2m"
     }
   ],
-  "repository": "https://github.com/octokit/rest.js",
+  "repository": "https://github.com/gr2m/octokit-rest-browser-experimental",
   "engines": {
     "node": ">=4"
   },
   "dependencies": {
     "before-after-hook": "^1.1.0",
+    "btoa-lite": "^1.0.0",
     "debug": "^3.1.0",
     "is-array-buffer": "^1.0.0",
     "is-stream": "^1.1.0",
@@ -45,16 +46,20 @@
   "devDependencies": {
     "@octokit/fixtures": "^6.0.0",
     "apidoc": "^0.17.6",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browserify": "^15.2.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
+    "disc": "^1.3.3",
     "dotenv": "^5.0.0",
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
     "mkdirp": "^0.5.1",
     "mocha": "^5.0.0",
+    "mocha-puppeteer": "^0.13.0",
     "mustache": "^2.2.1",
     "nock": "^9.1.0",
-    "npm-run-all": "^4.1.1",
     "nyc": "^11.2.1",
     "proxyquire": "^1.8.0",
     "semantic-release": "^12.2.2",
@@ -62,14 +67,19 @@
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2",
     "string-to-arraybuffer": "^1.0.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "uglify-js": "^3.3.8"
+  },
+  "browser": {
+    "./lib/request/request.js": "./lib/request/request-browser.js"
   },
   "types": "index.d.ts",
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
-    "pretest": "standard && standard-markdown",
-    "test": "nyc mocha 'test/**/*-test.js'",
+    "pretest": "standard; standard-markdown; npm run -s start-fixtures-server &",
+    "test": "nyc mocha 'test/**/*-test.js' && mocha-puppeteer test/scenarios/*-test.js || npm run -s stop-fixtures-server",
+    "posttest": "npm run -s stop-fixtures-server",
     "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
@@ -77,10 +87,21 @@
     "postbuild:docs": "apidoc -i doc/ -o doc/",
     "build:flow": "node scripts/generate-flow-types",
     "build:ts": "node scripts/generate-typescript-types",
+    "build:browser": "browserify index.js --outfile dist/octokit-rest.js --standalone Octokit --full-paths",
+    "postbuild:browser": "babel dist/octokit-rest.js --presets es2015 --out-file dist/octokit-rest.es2015.js && uglifyjs dist/octokit-rest.es2015.js -o dist/octokit-rest.es2015.min.js -c -m",
+    "generate-bundle-report": "discify dist/octokit-rest.js > dist/bundle-report.html",
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 index.d.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "start-fixtures-server": "octokit-fixtures-server",
+    "stop-fixtures-server": "pkill -f octokit-fixtures-server",
+    "pretest:browser": "npm run -s start-fixtures-server &",
+    "test:browser": "mocha-puppeteer test/scenarios/*-test.js || npm run -s stop-fixtures-server",
+    "posttest:browser": "npm run -s stop-fixtures-server",
+    "pretest:node": "npm run -s start-fixtures-server &",
+    "test:node": "mocha test/scenarios/*-test.js || npm run -s stop-fixtures-server",
+    "posttest:node": "npm run -s stop-fixtures-server"
   },
   "license": "MIT",
   "files": [
@@ -98,6 +119,23 @@
     "ignore": [
       "examples",
       "test"
+    ]
+  },
+  "release": {
+    "publish": [
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/github",
+        "assets": [
+          "dist/*.js"
+        ]
+      }
+    ]
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
     ]
   }
 }
