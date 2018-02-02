@@ -4,9 +4,6 @@ const simple = require('simple-mock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('deprecations', () => {
