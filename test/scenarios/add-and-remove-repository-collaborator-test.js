@@ -15,6 +15,11 @@ describe('api.github.com', () => {
       host: 'localhost:3000'
     })
 
+    githubUserA.plugin(require('../../lib/plugins/authentication'))
+    githubUserA.plugin(require('../../lib/plugins/endpoint-methods'))
+    githubUserB.plugin(require('../../lib/plugins/authentication'))
+    githubUserB.plugin(require('../../lib/plugins/endpoint-methods'))
+
     githubUserA.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'

@@ -10,6 +10,7 @@ describe('api.github.com', () => {
       protocol: 'http',
       host: 'localhost:3000'
     })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.orgs.get({org: 'octokit-fixture-org'})
 

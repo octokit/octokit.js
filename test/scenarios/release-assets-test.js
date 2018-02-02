@@ -7,20 +7,23 @@ chai.should()
 describe('api.github.com', () => {
   // @todo github.repos.uploadAsset is not working due to change of host in fixtures
   it.skip('github.repos.*Assets', () => {
-    const githubUserA = new GitHub({
+    const github = new GitHub({
       protocol: 'http',
       host: 'localhost:3000'
     })
 
+    github.plugin(require('../../lib/plugins/authentication'))
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+
     var releaseId
     var assetId
 
-    githubUserA.authenticate({
+    github.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
     })
 
-    return githubUserA.repos.getReleaseByTag({
+    return github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -29,7 +32,7 @@ describe('api.github.com', () => {
     .then(result => {
       releaseId = result.data.id
 
-      return githubUserA.repos.uploadAsset({
+      return github.repos.uploadAsset({
         url: result.data.upload_url,
         file: 'Hello, world!\n',
         contentType: 'text/plain',
@@ -42,7 +45,7 @@ describe('api.github.com', () => {
     .then(result => {
       assetId = releaseId
 
-      return githubUserA.repos.getAssets({
+      return github.repos.getAssets({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: releaseId
@@ -50,7 +53,7 @@ describe('api.github.com', () => {
     })
 
     .then(result => {
-      return githubUserA.repos.getAsset({
+      return github.repos.getAsset({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: assetId
@@ -58,7 +61,7 @@ describe('api.github.com', () => {
     })
 
     .then(result => {
-      return githubUserA.repos.editAsset({
+      return github.repos.editAsset({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: assetId,
@@ -68,7 +71,7 @@ describe('api.github.com', () => {
     })
 
     .then(result => {
-      return githubUserA.repos.deleteAsset({
+      return github.repos.deleteAsset({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: assetId

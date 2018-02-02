@@ -3,10 +3,16 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
-chai.should()
-
 describe('authentication', () => {
-  it('basic', () => {
+  beforeEach(function () {
+    this.github = new GitHub({
+      host: 'authentication-test-host.com'
+    })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+    github.plugin(require('../../lib/plugins/authentication'))
+  })
+
+  it('basic', function () {
     nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
@@ -15,20 +21,16 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'basic',
       username: 'username',
       password: 'password'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return this.github.orgs.get({org: 'myorg'})
   })
 
-  it('token', () => {
+  it('token', function () {
     nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'token abc4567'
@@ -37,93 +39,73 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'token',
       token: 'abc4567'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return this.github.orgs.get({org: 'myorg'})
   })
 
-  it('oauth token', () => {
+  it('oauth token', function () {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
       .query({access_token: 'abc4567'})
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'oauth',
       token: 'abc4567'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return this.github.orgs.get({org: 'myorg'})
   })
 
-  it('oauth token with query', () => {
+  it('oauth token with query', function () {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg/repos')
       .query({per_page: 1, access_token: 'abc4567'})
       .reply(200, [])
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'oauth',
       token: 'abc4567'
     })
 
-    return github.repos.getForOrg({org: 'myorg', per_page: 1})
+    return this.github.repos.getForOrg({org: 'myorg', per_page: 1})
   })
 
-  it('oauth key & secret', () => {
+  it('oauth key & secret', function () {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
       .query({client_id: 'oauthkey', client_secret: 'oauthsecret'})
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'oauth',
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return this.github.orgs.get({org: 'myorg'})
   })
 
-  it('oauth key & secret with query', () => {
+  it('oauth key & secret with query', function () {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg/repos')
       .query({per_page: 1, client_id: 'oauthkey', client_secret: 'oauthsecret'})
       .reply(200, [])
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'oauth',
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
 
-    return github.repos.getForOrg({org: 'myorg', per_page: 1})
+    return this.github.repos.getForOrg({org: 'myorg', per_page: 1})
   })
 
-  it('integration', () => {
+  it('integration', function () {
     nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'Bearer abc4567'
@@ -132,44 +114,33 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-
-    github.authenticate({
+    this.github.authenticate({
       type: 'integration',
       token: 'abc4567'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return this.github.orgs.get({org: 'myorg'})
   })
 
-  it('authenticate without options', () => {
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
-    github.authenticate()
+  it('authenticate without options', function () {
+    this.github.authenticate()
   })
 
-  it('authenticate errors', () => {
-    const github = new GitHub({
-      host: 'authentication-test-host.com'
-    })
+  it('authenticate errors', function () {
+    expect(() => {
+      this.github.authenticate({})
+    }).to.throw(Error)
 
-    ;(() => {
-      github.authenticate({})
-    }).should.throw(Error)
+    expect(() => {
+      this.github.authenticate({type: 'basic'})
+    }).to.throw(Error)
 
-    ;(() => {
-      github.authenticate({type: 'basic'})
-    }).should.throw(Error)
+    expect(() => {
+      this.github.authenticate({type: 'oauth'})
+    }).to.throw(Error)
 
-    ;(() => {
-      github.authenticate({type: 'oauth'})
-    }).should.throw(Error)
-
-    ;(() => {
-      github.authenticate({type: 'token'})
-    }).should.throw(Error)
+    expect(() => {
+      this.github.authenticate({type: 'token'})
+    }).to.throw(Error)
   })
 })
