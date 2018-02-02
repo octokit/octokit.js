@@ -16,3 +16,7 @@ doc/
 
 # browser builds
 dist/
+
+# mocha-puppeteer
+.mocha-puppeteer
+.cache
