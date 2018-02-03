@@ -49,7 +49,7 @@ jobs:
         # test in node & browser
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
-        - npm run test:browser
+        - travis_retry npm run test:browser
     - node_js: lts/*
       env: BUNDLE_SIZE,TYPESCRIPT_VALIDATION
       script:
