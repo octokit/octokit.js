@@ -1,18 +1,17 @@
 const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
   it('github.misc.renderMarkdown() & .renderMarkdownRaw()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/markdown')
+    const github = new GitHub({
+      protocol: 'http',
+      host: 'localhost:3000'
+    })
 
-    const github = new GitHub()
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.misc.renderMarkdown({
       text: `### Hello
@@ -39,7 +38,5 @@ b597b5d`,
         }
       })
     })
-
-    .catch(GitHubMock.explain)
   })
 })

@@ -1,18 +1,17 @@
 const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
   it('github.repos.createStatus()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/create-status')
-
-    const github = new GitHub()
+    const github = new GitHub({
+      protocol: 'http',
+      host: 'localhost:3000'
+    })
+    github.plugin(require('../../lib/plugins/authentication'))
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     github.authenticate({
       type: 'token',
@@ -59,9 +58,6 @@ describe('api.github.com', () => {
     })
     .then((response) => {
       response.data.state.should.equal('failure')
-      GitHubMock.pending().should.deep.equal([])
     })
-
-    .catch(GitHubMock.explain)
   })
 })

@@ -3,9 +3,6 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 const should = chai.should()
 
 describe('smoke', () => {
@@ -24,6 +21,8 @@ describe('smoke', () => {
       pathPrefix: '/my/api/'
     })
 
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+
     return github.orgs.get({org: 'myorg'})
   })
 
@@ -36,6 +35,8 @@ describe('smoke', () => {
       host: 'smoke-test.com'
     })
 
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+
     github.orgs.get({org: 'myorg'}, done)
   })
 
@@ -47,6 +48,8 @@ describe('smoke', () => {
     const github = new GitHub({
       host: 'smoke-test.com'
     })
+
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     const customHeaders = {
       'User-Agent': 'blah'
@@ -84,6 +87,10 @@ describe('smoke', () => {
     const github = new GitHub({
       host: 'smoke-test.com'
     })
+
+    github.plugin(require('../../lib/plugins/authentication'))
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+    github.plugin(require('../../lib/plugins/pagination'))
 
     github.authenticate({
       type: 'token',

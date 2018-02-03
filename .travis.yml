@@ -1,7 +1,13 @@
+sudo: required
+addons:
+  chrome: stable
 language: node_js
 cache:
   directories:
     - ~/.npm
+    # mocha-puppeteer
+    - .mocha-puppeteer
+    - .cache
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -18,20 +24,35 @@ stages:
 jobs:
   include:
     # test stage: run Node in all maintained versions. Run unique checks only in the last
-    - node_js: 4
     - node_js: 6
+      script: npm run test
     - node_js: 8
+      script: npm run test
     - node_js: 9
       script:
+        # make puppeteer work
+        - sudo chown root /opt/google/chrome/chrome-sandbox
+        - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+        - sleep 3 # give xvfb some time to start
+        # test in node & browser
         - npm run test
+        - travis_retry npm run test:browser
+        # coverage
         - npm run coverage:upload
+        # test typescript definitions
         - npm run validate:ts
+        # test bundle size
+        - npx bundlesize
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
       script:
         - npm run build:flow
         - npm run build:ts
+        - npm run build:browser
+        - npm run generate-bundle-report
         - npm run semantic-release
     - node_js: lts/*
       script:

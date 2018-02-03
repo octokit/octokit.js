@@ -4,21 +4,24 @@ const simple = require('simple-mock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('deprecations', () => {
+  let github
+
+  beforeEach(() => {
+    github = new GitHub({
+      host: 'deprecations-test.com'
+    })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+  })
+
   it('github.integrations.*', () => {
     simple.mock(console, 'warn', () => {})
     nock('https://deprecations-test.com')
       .get('/app/installations')
       .reply(200, [])
 
-    const github = new GitHub({
-      host: 'deprecations-test.com'
-    })
     return github.integrations.getInstallations({})
 
     .then(() => {

@@ -5,15 +5,14 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('github.repos.uploadAsset', () => {
   it('accepts file stream (#675)', () => {
     const github = new GitHub()
     const size = fs.statSync(__filename).size
+
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     nock('https://upload.test')
       .post('/', function (data) {

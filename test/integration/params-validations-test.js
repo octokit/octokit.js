@@ -3,14 +3,12 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('params validations', () => {
   it('github.orgs.get({})', () => {
     const github = new GitHub()
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.orgs.get({})
 
@@ -29,6 +27,7 @@ describe('params validations', () => {
       host: '127.0.0.1',
       port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.orgs.get({org: 'foo'})
 
@@ -43,6 +42,7 @@ describe('params validations', () => {
 
   it('invalid value for github.issues.getAll({filter})', () => {
     const github = new GitHub()
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.issues.getAll({filter: 'foo'})
 
@@ -57,6 +57,7 @@ describe('params validations', () => {
 
   it('invalid value for github.projects.moveProjectCard({position})', () => {
     const github = new GitHub()
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.projects.moveProjectCard({id: 123, position: 'foo'})
 
@@ -71,6 +72,7 @@ describe('params validations', () => {
 
   it('Not a number for github.repos.createCommitComment({..., position})', () => {
     const github = new GitHub()
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.repos.createCommitComment({
       owner: 'foo',
@@ -91,6 +93,7 @@ describe('params validations', () => {
 
   it('Not a valid JSON string for github.repos.createHook({..., config})', () => {
     const github = new GitHub()
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     return github.repos.createHook({
       owner: 'foo',
@@ -112,6 +115,7 @@ describe('params validations', () => {
     const github = new GitHub({
       host: 'milestones-test-host.com'
     })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     nock('https://milestones-test-host.com')
       .post('/repos/foo/bar/milestones', (body) => {
@@ -132,6 +136,7 @@ describe('params validations', () => {
     const github = new GitHub({
       host: 'notifications-test-host.com'
     })
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     nock('https://notifications-test-host.com')
       .get('/notifications')

@@ -1,24 +1,24 @@
 const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
 
 const GitHub = require('../../')
-
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
   it('github.issues.*', () => {
-    const GitHubMock = fixtures.mock('api.github.com/labels')
-    const githubUserA = new GitHub()
+    const github = new GitHub({
+      protocol: 'http',
+      host: 'localhost:3000'
+    })
 
-    githubUserA.authenticate({
+    github.plugin(require('../../lib/plugins/authentication'))
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
+
+    github.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
     })
 
-    return githubUserA.issues.getLabels({
+    return github.issues.getLabels({
       owner: 'octokit-fixture-org',
       repo: 'labels'
     })
@@ -26,7 +26,7 @@ describe('api.github.com', () => {
     .then((result) => {
       result.data.should.be.an('array')
 
-      return githubUserA.issues.createLabel({
+      return github.issues.createLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label',
@@ -37,7 +37,7 @@ describe('api.github.com', () => {
     .then((result) => {
       result.data.name.should.equal('test-label')
 
-      return githubUserA.issues.getLabel({
+      return github.issues.getLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label'
@@ -45,7 +45,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return githubUserA.issues.updateLabel({
+      return github.issues.updateLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         oldname: 'test-label',
@@ -57,7 +57,7 @@ describe('api.github.com', () => {
     .then((result) => {
       result.data.name.should.equal('test-label-updated')
 
-      return githubUserA.issues.deleteLabel({
+      return github.issues.deleteLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label-updated'
@@ -66,10 +66,6 @@ describe('api.github.com', () => {
 
     .then((result) => {
       result.data.should.equal('')
-
-      GitHubMock.pending().should.deep.equal([])
     })
-
-    .catch(GitHubMock.explain)
   })
 })

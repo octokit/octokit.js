@@ -3,21 +3,23 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('authentication plugin', () => {
+  let github
+
+  beforeEach(() => {
+    github = new GitHub({
+      host: 'authentication-plugin-test-host.com'
+    })
+    github.plugin(require('../../lib/plugins/authentication'))
+  })
+
   it('OAuth authentication with URL containing ?', () => {
     nock('https://authentication-plugin-test-host.com')
       .get('/')
       .query({foo: 'bar', client_id: 'oauthkey', client_secret: 'oauthsecret'})
       .reply(200, {})
-
-    const github = new GitHub({
-      host: 'authentication-plugin-test-host.com'
-    })
 
     github.authenticate({
       type: 'oauth',

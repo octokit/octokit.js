@@ -1,18 +1,18 @@
+const btoa = require('btoa-lite')
 const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
 chai.should()
 
 describe('api.github.com', () => {
   it('github.repos.createFile()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/create-file')
-
-    const github = new GitHub()
+    const github = new GitHub({
+      protocol: 'http',
+      host: 'localhost:3000'
+    })
+    github.plugin(require('../../lib/plugins/authentication'))
+    github.plugin(require('../../lib/plugins/endpoint-methods'))
 
     github.authenticate({
       type: 'token',
@@ -24,14 +24,11 @@ describe('api.github.com', () => {
       repo: 'create-file',
       path: 'test.txt',
       message: 'create test.txt',
-      content: Buffer.from('Test content').toString('base64')
+      content: btoa('Test content')
     })
 
     .then((response) => {
       response.data.content.type.should.equal('file')
-      GitHubMock.pending().should.deep.equal([])
     })
-
-    .catch(GitHubMock.explain)
   })
 })

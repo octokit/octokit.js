@@ -13,3 +13,10 @@ index.js.flow
 
 # API DOCs are generated before publish
 doc/
+
+# browser builds
+dist/
+
+# mocha-puppeteer
+.mocha-puppeteer
+.cache
