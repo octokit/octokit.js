@@ -36,11 +36,15 @@ jobs:
         - export DISPLAY=:99.0
         - sh -e /etc/init.d/xvfb start
         - sleep 3 # give xvfb some time to start
-        # do actual tests
+        # test in node & browser
         - npm run test
         - travis_retry npm run test:browser
+        # coverage
         - npm run coverage:upload
+        # test typescript definitions
         - npm run validate:ts
+        # test bundle size
+        - npx bundlesize
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
