@@ -38,12 +38,11 @@ jobs:
         - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
         - export DISPLAY=:99.0
         - sh -e /etc/init.d/xvfb start
-        - sleep 3 # give xvfb some time to start
         # test in node & browser
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
-        - travis_retry npm run test:browser
+        - npm run test:browser
         # coverage
         - npm run coverage:upload
         # test typescript definitions

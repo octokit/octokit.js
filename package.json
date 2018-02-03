@@ -77,9 +77,8 @@
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
-    "pretest": "standard; standard-markdown; npm run -s start-fixtures-server & sleep 3",
-    "test": "nyc mocha 'test/**/*-test.js' || (npm run -s stop-fixtures-server && exit 1)",
-    "posttest": "npm run -s stop-fixtures-server || true",
+    "pretest": "standard && standard-markdown",
+    "test": "nyc mocha 'test/**/*-test.js'",
     "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
@@ -97,10 +96,7 @@
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release",
     "start-fixtures-server": "octokit-fixtures-server",
-    "stop-fixtures-server": "pkill -f octokit-fixtures-server",
-    "pretest:browser": "npm run -s start-fixtures-server & sleep 3",
-    "test:browser": "npx mocha-puppeteer test/scenarios/*-test.js || (npm run -s stop-fixtures-server && exit 1)",
-    "posttest:browser": "npm run -s stop-fixtures-server || true"
+    "test:browser": "npx mocha-puppeteer test/scenarios/*-test.js"
   },
   "license": "MIT",
   "files": [
