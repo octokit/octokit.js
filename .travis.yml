@@ -27,7 +27,10 @@ jobs:
         - sleep 3 # give server some time to start
         - npm run test
     - node_js: 8
-      script: npm run test
+      script:
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
+        - npm run test
     - node_js: 9
       script:
         # make puppeteer work
@@ -36,11 +39,18 @@ jobs:
         - export DISPLAY=:99.0
         - sh -e /etc/init.d/xvfb start
         - sleep 3 # give xvfb some time to start
-        # do actual tests
+        # test in node & browser
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
         - npm run test
         - travis_retry npm run test:browser
+        # coverage
         - npm run coverage:upload
+        # test typescript definitions
         - npm run validate:ts
+        # test bundle size
+        - npm run build:browser
+        - npx bundlesize
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
