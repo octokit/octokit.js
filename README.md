@@ -4,12 +4,12 @@ This fork is work-in-progress exploration towards [Browser Support for `@octokit
 
 ## Browser usage
 
-1. Download `octokit-rest.es2015.min.js` from the latest release: https://github.com/gr2m/octokit-rest-browser-experimental/releases
+1. Download `octokit-rest.min.js` from the latest release: https://github.com/gr2m/octokit-rest-browser-experimental/releases
 
 2. Load it as script into your web application:
 
    ```html
-   <script scr="octokit-rest.es2015.min.js"></script>
+   <script scr="octokit-rest.min.js"></script>
    ```
 
 3. Initialize `octokit`
