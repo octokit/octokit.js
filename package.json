@@ -46,6 +46,7 @@
   "devDependencies": {
     "@octokit/fixtures": "^6.0.0",
     "apidoc": "^0.17.6",
+    "bundlesize": "^0.16.0",
     "chai": "^4.1.2",
     "compression-webpack-plugin": "^1.1.6",
     "coveralls": "^3.0.0",
@@ -136,5 +137,11 @@
       "beforeEach",
       "it"
     ]
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/octokit-rest.min.js.gz",
+      "maxSize": "15 kB"
+    }
+  ]
 }
