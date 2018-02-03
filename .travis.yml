@@ -33,6 +33,14 @@ jobs:
         - npm run test
     - node_js: 9
       script:
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
+        - npm run test
+        # coverage
+        - npm run coverage:upload
+    - node_js: lts/*
+      env: BROWSER_TESTS
+      script:
         # make puppeteer work
         - sudo chown root /opt/google/chrome/chrome-sandbox
         - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
@@ -41,15 +49,15 @@ jobs:
         # test in node & browser
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
-        - npm run test
         - npm run test:browser
-        # coverage
-        - npm run coverage:upload
-        # test typescript definitions
-        - npm run validate:ts
+    - node_js: lts/*
+      env: BUNDLE_SIZE,TYPESCRIPT_VALIDATION
+      script:
         # test bundle size
         - npm run build:browser
         - npx bundlesize
+        # test typescript definitions
+        - npm run validate:ts
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
