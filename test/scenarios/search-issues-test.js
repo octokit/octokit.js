@@ -1,8 +1,4 @@
-const chai = require('chai')
-
 const GitHub = require('../../')
-
-chai.should()
 
 describe('api.github.com', () => {
   it('github.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
@@ -22,7 +18,7 @@ describe('api.github.com', () => {
     return github.search.issues({q: 'sesame repo:octokit-fixture-org/search-issues'})
 
     .then((response) => {
-      response.data.total_count.should.equal(2)
+      expect(response.data.total_count).to.equal(2)
     })
   })
 })

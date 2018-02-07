@@ -1,8 +1,4 @@
-const chai = require('chai')
-
 const GitHub = require('../../')
-
-chai.should()
 
 describe('api.github.com', () => {
   it('add-and-remove-repository-collaborator-test', () => {
@@ -44,7 +40,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(1)
+      expect(response.data.length).to.equal(1)
 
       return githubUserB.users.acceptRepoInvite({
         invitation_id: response.data[0].id
@@ -59,7 +55,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(2)
+      expect(response.data.length).to.equal(2)
 
       return githubUserA.repos.removeCollaborator({
         owner: 'octokit-fixture-org',
@@ -77,7 +73,7 @@ describe('api.github.com', () => {
 
     .then((response) => {
       // @todo: githubUserA.repos.getCollaborators() returns two items because of the .persist call in octokit-fixtures-server
-      // response.data.length.should.equal(1)
+      // expect(response.data.length).to.equal(1)
     })
   })
 })

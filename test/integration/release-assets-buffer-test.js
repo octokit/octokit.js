@@ -1,13 +1,7 @@
-const chai = require('chai')
 const fixtures = require('@octokit/fixtures')
 const stringToArrayBuffer = require('string-to-arraybuffer')
 
 const GitHub = require('../../')
-
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
 
 describe('api.github.com', () => {
   let github

@@ -1,8 +1,4 @@
-const chai = require('chai')
-
 const GitHub = require('../../')
-
-chai.should()
 
 describe('api.github.com', () => {
   // @todo github.repos.uploadAsset is not working due to change of host in fixtures

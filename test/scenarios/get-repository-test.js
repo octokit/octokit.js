@@ -1,8 +1,4 @@
-const chai = require('chai')
-
 const GitHub = require('../../')
-
-chai.should()
 
 describe('api.github.com', () => {
   it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
@@ -23,7 +19,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.owner.login.should.equal('octokit-fixture-org')
+      expect(response.data.owner.login).to.equal('octokit-fixture-org')
     })
   })
 })

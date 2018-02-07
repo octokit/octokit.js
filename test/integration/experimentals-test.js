@@ -1,9 +1,6 @@
-const chai = require('chai')
 const nock = require('nock')
 
 const GitHub = require('../../')
-
-chai.should()
 
 describe('authentication plugin', () => {
   beforeEach(function () {

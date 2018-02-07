@@ -1,9 +1,6 @@
 const btoa = require('btoa-lite')
-const chai = require('chai')
 
 const GitHub = require('../../')
-
-chai.should()
 
 describe('api.github.com', () => {
   it('github.repos.createFile()', () => {
@@ -28,7 +25,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.content.type.should.equal('file')
+      expect(response.data.content.type).to.equal('file')
     })
   })
 })
