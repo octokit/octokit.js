@@ -50,6 +50,7 @@
     "chai": "^4.1.2",
     "compression-webpack-plugin": "^1.1.6",
     "coveralls": "^3.0.0",
+    "cypress": "^1.4.2",
     "dotenv": "^5.0.0",
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
@@ -61,7 +62,8 @@
     "nyc": "^11.2.1",
     "proxyquire": "^1.8.0",
     "semantic-release": "^12.2.2",
-    "simple-mock": "^0.8.0",
+    "sinon": "^4.2.2",
+    "sinon-chai": "^2.14.0",
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2",
     "string-to-arraybuffer": "^1.0.0",
@@ -78,7 +80,8 @@
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
     "pretest": "standard && standard-markdown",
-    "test": "nyc mocha 'test/**/*-test.js'",
+    "test": "nyc mocha test/mocha-node-setup.js 'test/**/*-test.js'",
+    "test:browser": "cypress run",
     "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
@@ -95,8 +98,7 @@
     "validate:ts": "tsc --target es6 index.d.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release",
-    "start-fixtures-server": "octokit-fixtures-server",
-    "test:browser": "npx mocha-puppeteer test/scenarios/*-test.js"
+    "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
   "files": [
@@ -131,7 +133,10 @@
     "globals": [
       "describe",
       "beforeEach",
-      "it"
+      "afterEach",
+      "it",
+      "expect",
+      "cy"
     ]
   },
   "bundlesize": [
