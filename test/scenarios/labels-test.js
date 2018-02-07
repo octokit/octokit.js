@@ -1,7 +1,4 @@
-const chai = require('chai')
-
 const GitHub = require('../../')
-chai.should()
 
 describe('api.github.com', () => {
   it('github.issues.*', () => {
@@ -24,7 +21,7 @@ describe('api.github.com', () => {
     })
 
     .then((result) => {
-      result.data.should.be.an('array')
+      expect(result.data).to.be.an('array')
 
       return github.issues.createLabel({
         owner: 'octokit-fixture-org',
@@ -35,7 +32,7 @@ describe('api.github.com', () => {
     })
 
     .then((result) => {
-      result.data.name.should.equal('test-label')
+      expect(result.data.name).to.equal('test-label')
 
       return github.issues.getLabel({
         owner: 'octokit-fixture-org',
@@ -55,7 +52,7 @@ describe('api.github.com', () => {
     })
 
     .then((result) => {
-      result.data.name.should.equal('test-label-updated')
+      expect(result.data.name).to.equal('test-label-updated')
 
       return github.issues.deleteLabel({
         owner: 'octokit-fixture-org',
@@ -65,7 +62,7 @@ describe('api.github.com', () => {
     })
 
     .then((result) => {
-      result.data.should.equal('')
+      expect(result.data).to.equal('')
     })
   })
 })

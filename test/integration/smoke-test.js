@@ -1,9 +1,6 @@
-const chai = require('chai')
 const nock = require('nock')
 
 const GitHub = require('../../')
-
-const should = chai.should()
 
 describe('smoke', () => {
   it('called as function', () => {
@@ -103,10 +100,10 @@ describe('smoke', () => {
     })
 
     .then((result) => {
-      github.hasNextPage(result).should.be.a('string')
-      github.hasPreviousPage(result).should.be.a('string')
-      github.hasFirstPage(result).should.be.a('string')
-      should.not.exist(github.hasLastPage(result))
+      expect(github.hasNextPage(result)).to.be.a('string')
+      expect(github.hasPreviousPage(result)).to.be.a('string')
+      expect(github.hasFirstPage(result)).to.be.a('string')
+      expect(github.hasLastPage(result)).to.be.an('undefined')
 
       const callback = () => {}
 
@@ -117,10 +114,10 @@ describe('smoke', () => {
               return reject(error)
             }
 
-            should.not.throw(() => {
+            expect(() => {
               github.hasPreviousPage(result)
-            })
-            should.not.exist(github.hasPreviousPage(result))
+            }).to.not.throw()
+            expect(github.hasPreviousPage(result)).to.be.an('undefined')
 
             resolve()
           })
@@ -129,7 +126,7 @@ describe('smoke', () => {
         github.getNextPage(result).catch(callback),
         new Promise(resolve => {
           github.getLastPage(result, { foo: 'bar' }, (error) => {
-            error.code.should.equal(404)
+            expect(error.code).to.equal(404)
             resolve()
           })
         }),

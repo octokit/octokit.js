@@ -1,8 +1,4 @@
-const chai = require('chai')
-
 const GitHub = require('../../')
-
-chai.should()
 
 describe('api.github.com', () => {
   it('github.repos.createStatus()', () => {
@@ -48,7 +44,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(2)
+      expect(response.data.length).to.equal(2)
 
       return github.repos.getCombinedStatusForRef({
         owner: 'octokit-fixture-org',
@@ -57,7 +53,7 @@ describe('api.github.com', () => {
       })
     })
     .then((response) => {
-      response.data.state.should.equal('failure')
+      expect(response.data.state).to.equal('failure')
     })
   })
 })
