@@ -2,9 +2,7 @@ language: node_js
 cache:
   directories:
     - ~/.npm
-    # mocha-puppeteer
-    - .mocha-puppeteer
-    - .cache
+    - node_modules/cypress/dist
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -49,7 +47,7 @@ jobs:
         # test in node & browser
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
-        - travis_retry npm run test:browser
+        - npm run test:browser
     - node_js: lts/*
       env: BUNDLE_SIZE,TYPESCRIPT_VALIDATION
       script:
