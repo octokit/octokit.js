@@ -122,7 +122,7 @@ describe('smoke', () => {
         github.getNextPage(result).catch(callback),
         new Promise(resolve => {
           github.getLastPage(result, { foo: 'bar' }, (error) => {
-            error.code.should.equal('404')
+            error.code.should.equal(404)
             resolve()
           })
         }),
