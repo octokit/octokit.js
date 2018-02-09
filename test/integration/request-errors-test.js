@@ -23,7 +23,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.code.should.equal('504')
+      error.code.should.equal(504)
     })
   })
 
@@ -40,7 +40,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.code.should.equal('500')
+      error.code.should.equal(500)
     })
   })
 })

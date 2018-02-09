@@ -17,7 +17,7 @@ describe('params validations', () => {
     .catch(error => {
       error.toString().should.equal('Empty value for parameter \'org\': undefined')
       error.toJSON().should.deep.equal({
-        code: '400',
+        code: 400,
         message: 'Empty value for parameter \'org\': undefined',
         status: 'Bad Request'
       })
@@ -34,7 +34,7 @@ describe('params validations', () => {
 
     .catch(error => {
       error.toJSON().should.deep.equal({
-        code: '500',
+        code: 500,
         message: 'connect ECONNREFUSED 127.0.0.1:8',
         status: 'Internal Server Error'
       })
@@ -48,7 +48,7 @@ describe('params validations', () => {
 
     .catch(error => {
       error.toJSON().should.deep.equal({
-        code: '400',
+        code: 400,
         message: 'Invalid value for parameter \'filter\': foo',
         status: 'Bad Request'
       })
@@ -62,7 +62,7 @@ describe('params validations', () => {
 
     .catch(error => {
       error.toJSON().should.deep.equal({
-        code: '400',
+        code: 400,
         message: 'Invalid value for parameter \'position\': foo',
         status: 'Bad Request'
       })
@@ -82,7 +82,7 @@ describe('params validations', () => {
 
     .catch(error => {
       error.toJSON().should.deep.equal({
-        code: '400',
+        code: 400,
         message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
         status: 'Bad Request'
       })
@@ -101,7 +101,7 @@ describe('params validations', () => {
 
     .catch(error => {
       error.toJSON().should.deep.equal({
-        code: '400',
+        code: 400,
         message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
         status: 'Bad Request'
       })
