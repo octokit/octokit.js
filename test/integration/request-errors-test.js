@@ -23,7 +23,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('GatewayTimeout')
+      error.name.should.equal('HttpError')
       error.code.should.equal(504)
       error.should.have.property('stack')
     })
@@ -42,7 +42,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('InternalServerError')
+      error.name.should.equal('HttpError')
       error.code.should.equal(500)
       error.should.have.property('stack')
     })
@@ -61,7 +61,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('NotFound')
+      error.name.should.equal('HttpError')
       error.code.should.equal(404)
       error.should.have.property('stack')
     })
