@@ -23,6 +23,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
+      error.name.should.equal('GatewayTimeout')
       error.code.should.equal(504)
       error.should.have.property('stack')
     })
@@ -41,6 +42,7 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
+      error.name.should.equal('InternalServerError')
       error.code.should.equal(500)
       error.should.have.property('stack')
     })
@@ -59,7 +61,27 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
+      error.name.should.equal('NotFound')
       error.code.should.equal(404)
+      error.should.have.property('stack')
+    })
+  })
+
+  it('401', () => {
+    nock('https://request-errors-test.com')
+      .get('/orgs/myorg')
+      .reply(401)
+
+    const github = new GitHub({
+      host: 'request-errors-test.com',
+      timeout: 1000
+    })
+
+    return github.orgs.get({org: 'myorg'})
+
+    .catch(error => {
+      error.name.should.equal('HttpError')
+      error.code.should.equal(401)
       error.should.have.property('stack')
     })
   })
