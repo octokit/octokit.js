@@ -122,6 +122,7 @@ declare namespace Github {
       [key: string]: string // The URL to the emoji
     };
     export type String = string;
+    export type Boolean = boolean;
 
   {{#each responseTypes}}
     export type {{@key}} = {
@@ -156,7 +157,7 @@ declare class Github {
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
-    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>): Promise<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#yields}}Github.Response.{{& this}}{{/yields}}{{^yields}}any{{/yields}}{{/if}}>>;
+    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>): Promise<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>>;
     {{/methods}}
   };
   {{/namespaces}}

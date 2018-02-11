@@ -3742,6 +3742,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": false, "yields": "Organization",
       "description": "Get an organization"
     },
     "update": {
@@ -3793,6 +3794,7 @@
           "description": "Toggles ability of non-admin organization members to create repositories."
         }
       },
+      "yields_array": false, "yields": "Organization",
       "description": "Edit an organization"
     },
     "getAll": {
@@ -3813,6 +3815,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "OrganizationSlug",
       "description": "List all organizations"
     },
     "getForUser": {
@@ -3833,6 +3836,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "OrganizationSlug",
       "description": "List public organization memberships for the specified user."
     },
     "getMembers": {
@@ -3872,6 +3876,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserWithName",
       "description": "Members list"
     },
     "checkMembership": {
@@ -3887,6 +3892,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Check membership"
     },
     "removeMember": {
@@ -3902,6 +3908,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields_is_empty": true,
       "description": "Remove a member"
     },
     "getPublicMembers": {
@@ -3913,6 +3920,7 @@
           "required": true
         }
       },
+      "yields_array": true, "yields": "UserWithName",
       "description": "Public members list"
     },
     "checkPublicMembership": {
@@ -3928,6 +3936,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Check public membership"
     },
     "publicizeMembership": {
@@ -3943,6 +3952,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Publicize a user's membership"
     },
     "concealMembership": {
@@ -3958,6 +3968,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields_is_empty": true,
       "description": "Conceal a user's membership"
     },
     "getOrgMembership": {
@@ -3973,6 +3984,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Get organization membership"
     },
     "addOrgMembership": {
@@ -4106,6 +4118,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RootTeam",
       "description": "List teams"
     },
     "getTeam": {
@@ -4120,6 +4133,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RootTeam",
       "description": "Get team"
     },
     "createTeam": {
@@ -4163,6 +4177,7 @@
           "description": "The ID of a team to set as the parent team."
         }
       },
+      "yields_array": false, "yields": "RootTeam",
       "description": "Create team"
     },
     "editTeam": {
@@ -5035,6 +5050,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoPullRequest",
       "description": "Get a single pull request"
     },
     "create": {
@@ -5060,6 +5076,7 @@
           "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
         }
       },
+      "yields_array": false, "yields": "RepoPullRequest",
       "description": "Create a pull request"
     },
     "update": {
@@ -5208,6 +5225,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoPullRequest",
       "description": "List pull requests"
     },
     "createFromIssue": {
@@ -5266,6 +5284,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoCommitItem",
       "description": "List commits on a pull request"
     },
     "getFiles": {
@@ -5294,6 +5313,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "GitPatch",
       "description": "List pull requests files"
     },
     "checkMerged": {
@@ -5353,6 +5373,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoPullRequestReview",
       "description": "List reviews on a pull request."
     },
     "getReview": {
@@ -5376,6 +5397,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoPullRequestReview",
       "description": "Get a single pull request review."
     },
     "deletePendingReview": {
@@ -5431,6 +5453,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoComment",
       "description": "Get comments for a pull request review."
     },
     "createReview": {
@@ -5473,6 +5496,7 @@
           "description": "An array of draft review comment objects. Draft review comments must include a `path`, `position`, and `body`."
         }
       },
+      "yields_array": false, "yields": "RepoPullRequestReview",
       "description": "Create a pull request review."
     },
     "submitReview": {
@@ -5578,6 +5602,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoComment",
       "description": "List comments on a pull request"
     },
     "getCommentsForRepo": {
@@ -5626,6 +5651,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoComment",
       "description": "List comments in a repository"
     },
     "getComment": {
@@ -5648,6 +5674,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoComment",
       "description": "Get a single comment"
     },
     "createComment": {
@@ -5674,6 +5701,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoComment",
       "description": "Create a comment"
     },
     "createCommentReply": {
@@ -5731,6 +5759,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoComment",
       "description": "Edit a comment"
     },
     "deleteComment": {
@@ -6225,6 +6254,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Repository",
       "description": "Get a repo for a user."
     },
     "edit": {
@@ -6420,6 +6450,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Repository",
       "description": "List your repositories"
     },
     "getForUser": {
@@ -6469,6 +6500,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Repository",
       "description": "List public repositories for the specified user."
     },
     "getForOrg": {
@@ -6502,6 +6534,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Repository",
       "description": "List repositories for the specified org."
     },
     "getPublic": {
@@ -6522,6 +6555,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoSlug",
       "description": "List all public repositories"
     },
     "createForOrg": {
@@ -6607,6 +6641,7 @@
           "description": "Numerical ID of the repository."
         }
       },
+      "yields_array": false, "yields": "Repository",
       "description": "Get a single repo by id."
     },
     "getTopics": {
@@ -6685,6 +6720,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoContributors",
       "description": "Get contributors for the specified repository."
     },
     "getLanguages": {
@@ -6785,6 +6821,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoBranch",
       "description": "List branches."
     },
     "getBranch": {
@@ -6813,6 +6850,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": false, "yields": "RepoBranch",
       "description": "Get branch."
     },
     "getBranchProtection": {
@@ -7535,6 +7573,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "List collaborators"
     },
     "checkCollaborator": {
@@ -7573,6 +7612,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoPermission",
       "description": "Review a user's permission level."
     },
     "addCollaborator": {
@@ -7645,6 +7685,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoComment",
       "description": "List commit comments for a repository."
     },
     "getCommitComments": {
@@ -7673,6 +7714,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoComment",
       "description": "List comments for a single commit."
     },
     "createCommitComment": {
@@ -7723,6 +7765,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoComment",
       "description": "Get a single commit comment."
     },
     "updateCommitComment": {
@@ -7746,6 +7789,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoComment",
       "description": "Update a commit comment."
     },
     "deleteCommitComment": {
@@ -7827,6 +7871,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoCommitItem",
       "description": "List commits on a repository."
     },
     "getCommit": {
@@ -7849,6 +7894,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoCommitSingle",
       "description": "Get a single commit."
     },
     "getShaOfCommitRef": {
@@ -7870,6 +7916,7 @@
           "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
         }
       },
+      "yields_array": false, "yields": "RepoCommitSingle",
       "description": "Get the SHA-1 of a commit reference."
     },
     "compareCommits": {
@@ -7914,6 +7961,7 @@
           "description": "The name of the commit/branch/tag. Default: the repository’s default branch (usually master)"
         }
       },
+      "yields_array": false, "yields": "RepoReadmeFile",
       "description": "Get the README for the given repository."
     },
     "getContent": {
@@ -8229,6 +8277,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoDeployment",
       "description": "List deployments."
     },
     "getDeployment": {
@@ -8249,6 +8298,7 @@
           "description": "The deployment id."
         }
       },
+      "yields_array": false, "yields": "RepoDeployment",
       "description": "Get a single Deployment. (In preview period. See README.)"
     },
     "createDeployment": {
@@ -8310,6 +8360,7 @@
           "description": "Specifies if the given environment is a one that end-users directly interact with. Default: true when environment is `production` and false otherwise. (In preview period. See README.)"
         }
       },
+      "yields_array": false, "yields": "RepoDeployment",
       "description": "Create a deployment. (In preview period. See README.)"
     },
     "getDeploymentStatuses": {
@@ -8638,6 +8689,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoPagesBuild",
       "description": "List Pages builds. (In preview period. See README.)"
     },
     "getLatestPagesBuild": {
@@ -8656,6 +8708,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoPagesBuild",
       "description": "Get latest Pages build. (In preview period. See README.)"
     },
     "getPagesBuild": {
@@ -8678,6 +8731,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoPagesBuild",
       "description": "Get a specific Pages build. (In preview period. See README.)"
     },
     "getReleases": {
@@ -9042,6 +9096,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoStatsParticipation",
       "description": "Get the weekly commit count for the repository owner and everyone else."
     },
     "getStatsPunchCard": {
@@ -9157,6 +9212,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": false, "yields": "RepoCommitStatus",
       "description": "Get the combined status for a specific ref."
     },
     "getReferrers": {
@@ -9181,6 +9237,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoTrafficReferrer",
       "description": "Get the top 10 referrers over the last 14 days."
     },
     "getPaths": {
@@ -9205,6 +9262,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoTrafficPath",
       "description": "Get the top 10 popular contents over the last 14 days."
     },
     "getViews": {
@@ -9229,6 +9287,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoTrafficViews",
       "description": "Get the total number of views and breakdown per day or week for the last 14 days."
     },
     "getClones": {
@@ -9253,6 +9312,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoTrafficClones",
       "description": "Get the total number of clones and breakdown per day or week for the last 14 days."
     },
     "getHooks": {
@@ -9475,6 +9535,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Repository",
       "description": "Search repositories."
     },
     "code": {
@@ -9631,6 +9692,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserWithName",
       "description": "Search users."
     },
     "email": {
@@ -9651,6 +9713,7 @@
       "url": "/user",
       "method": "GET",
       "params": {},
+      "yields_array": false, "yields": "UserWithName",
       "description": "Get the authenticated user"
     },
     "update": {
@@ -9741,6 +9804,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "UserWithName",
       "description": "Get a single user"
     },
     "getById": {
@@ -9753,6 +9817,7 @@
           "description": "Numerical ID of the user."
         }
       },
+      "yields_array": false, "yields": "UserWithName",
       "description": "Get a single user by GitHub ID. This method uses numerical user ID. Use users.getForUser method if you need to get a user by username."
     },
     "getAll": {
@@ -9764,6 +9829,7 @@
           "description": "The integer ID of the last User that you’ve seen."
         }
       },
+      "yields_array": false, "yields": "UserNoName",
       "description": "Get all users"
     },
     "getOrgs": {
@@ -9780,6 +9846,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "OrganizationSlug",
       "description": "List organizations for the authenticated user."
     },
     "getOrgMemberships": {
@@ -9844,6 +9911,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RootTeam",
       "description": "Get your teams."
     },
     "getEmails": {
@@ -9860,6 +9928,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserEmail",
       "description": "List email addresses for a user."
     },
     "getPublicEmails": {
@@ -9876,6 +9945,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserEmail",
       "description": "List public email addresses for a user."
     },
     "addEmails": {
@@ -9928,6 +9998,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "List a user's followers"
     },
     "getFollowers": {
@@ -9944,6 +10015,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "List the authenticated user's followers"
     },
     "getFollowingForUser": {
@@ -9964,6 +10036,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "List who a user is following"
     },
     "getFollowing": {
@@ -9980,6 +10053,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "List who the authenticated user is following"
     },
     "checkFollowing": {
@@ -9991,6 +10065,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Check if you are following a user"
     },
     "checkIfOneFollowersOther": {
@@ -10006,6 +10081,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Check if one user follows another"
     },
     "followUser": {
@@ -10017,6 +10093,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Boolean",
       "description": "Follow a user"
     },
     "unfollowUser": {
