@@ -1331,6 +1331,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "GitCommit",
       "description": "Get a Commit"
     },
     "createCommit": {
@@ -1367,6 +1368,7 @@
           "type": "json"
         }
       },
+      "yields_array": false, "yields": "GitCommit",
       "description": "Create a Commit"
     },
     "getCommitSignatureVerification": {
@@ -1386,6 +1388,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "GitCommit",
       "description": "Get a Commit Signature Verification. (In preview period. See README.)"
     },
     "getReference": {
@@ -1407,6 +1410,7 @@
           "description": "String of the name of the fully qualified reference (ie: heads/master). If it doesn’t have at least one slash, it will be rejected."
         }
       },
+      "yields_array": false, "yields": "GitCommit",
       "description": "Get a Reference"
     },
     "getReferences": {
@@ -1431,6 +1435,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "GitCommit",
       "description": "Get all References"
     },
     "getTags": {
@@ -1455,6 +1460,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "GitCommit",
       "description": "Get all tag References"
     },
     "createReference": {
@@ -1479,6 +1485,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "GitRef",
       "description": "Create a Reference"
     },
     "updateReference": {
@@ -1509,6 +1516,7 @@
           "description": "Boolean indicating whether to force the update or to make sure the update is a fast-forward update. The default is false, so leaving this out or setting it to false will make sure you’re not overwriting work."
         }
       },
+      "yields_array": false, "yields": "GitRef",
       "description": "Update a Reference"
     },
     "deleteReference": {
@@ -2008,6 +2016,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RepoIssue",
       "description": "Get a single issue"
     },
     "create": {
@@ -2049,6 +2058,7 @@
           "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
         }
       },
+      "yields_array": false, "yields": "RepoIssue",
       "description": "Create an issue"
     },
     "edit": {
@@ -2102,6 +2112,7 @@
           "description": "Logins for Users to assign to this issue. NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise."
         }
       },
+      "yields_array": false, "yields": "RepoIssue",
       "description": "Edit an issue"
     },
     "lock": {
@@ -2204,6 +2215,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoIssue",
       "description": "List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories"
     },
     "getForUser": {
@@ -2268,6 +2280,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoIssue",
       "description": "List all issues across owned and member repositories for the authenticated user"
     },
     "getForOrg": {
@@ -2336,6 +2349,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoIssue",
       "description": "List all issues for a given organization for the authenticated user"
     },
     "getForRepo": {
@@ -2414,6 +2428,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoIssue",
       "description": "List issues for a repository"
     },
     "getAssignees": {
@@ -2429,6 +2444,7 @@
           "required": true
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "List assignees"
     },
     "checkAssignee": {
@@ -2496,6 +2512,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields_is_empty": true,
       "description": "Remove assignees from an issue."
     },
     "getComments": {
@@ -2531,6 +2548,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "IssueComment",
       "description": "List comments on an issue"
     },
     "getCommentsForRepo": {
@@ -2578,6 +2596,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "IssueComment",
       "description": "List comments in a repository"
     },
     "getComment": {
@@ -2600,6 +2619,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "IssueComment",
       "description": "Get a single comment"
     },
     "createComment": {
@@ -2626,6 +2646,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "IssueComment",
       "description": "Create a comment"
     },
     "editComment": {
@@ -2652,6 +2673,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "IssueComment",
       "description": "Edit a comment"
     },
     "deleteComment": {
@@ -2674,6 +2696,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields_is_empty": true,
       "description": "Delete a comment"
     },
     "getEvents": {
@@ -2702,6 +2725,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "IssueEvent",
       "description": "List events for an issue"
     },
     "getEventsForRepo": {
@@ -2726,6 +2750,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "IssueEvent",
       "description": "List events for a repository"
     },
     "getEvent": {
@@ -2745,6 +2770,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "IssueEvent",
       "description": "Get a single event"
     },
     "getLabels": {
@@ -2769,6 +2795,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "IssueLabel",
       "description": "List all labels for this repository"
     },
     "getLabel": {
@@ -2788,6 +2815,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "IssueLabel",
       "description": "Get a single label"
     },
     "createLabel": {
@@ -2812,6 +2840,7 @@
           "description": "6 character hex code, without a leading #."
         }
       },
+      "yields_array": false, "yields": "IssueLabel",
       "description": "Create a label"
     },
     "updateLabel": {
@@ -2842,6 +2871,7 @@
           "description": "6 character hex code, without a leading #."
         }
       },
+      "yields_array": false, "yields": "IssueLabel",
       "description": "Update a label"
     },
     "deleteLabel": {
@@ -2861,6 +2891,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields_is_empty": true,
       "description": "Delete a label"
     },
     "getIssueLabels": {
@@ -2880,6 +2911,7 @@
           "required": true
         }
       },
+      "yields_array": true, "yields": "IssueLabel",
       "description": "List labels on an issue"
     },
     "addLabels": {
@@ -2927,6 +2959,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields_is_empty": true,
       "description": "Remove a label from an issue"
     },
     "replaceAllLabels": {
@@ -2990,6 +3023,7 @@
           "required": true
         }
       },
+      "yields_array": true, "yields": "IssueLabel",
       "description": "Get labels for every issue in a milestone"
     },
     "getMilestones": {
@@ -3564,12 +3598,14 @@
       "url": "/emojis",
       "method": "GET",
       "params": {},
+      "yields_array": false, "yields": "Emojis",
       "description": "Lists all the emojis available to use on GitHub."
     },
     "getGitignoreTemplates": {
       "url": "/gitignore/templates",
       "method": "GET",
       "params": {},
+      "yields_array": true, "yields": "String",
       "description": "Lists available gitignore templates"
     },
     "getGitignoreTemplate": {
@@ -3582,6 +3618,7 @@
           "description": "The name of the .gitignore template to get e.g. 'C'"
         }
       },
+      "yields_array": false, "yields": "String",
       "description": "Get a single gitignore template"
     },
     "getLicenses": {
@@ -3591,6 +3628,7 @@
         "accept": "application/vnd.github.drax-preview+json"
       },
       "params": {},
+      "yields_array": true, "yields": "RootLicense",
       "description": "List all licenses. (In preview period. See README.)"
     },
     "getLicense": {
@@ -3606,6 +3644,7 @@
           "description": "Ex: /licenses/mit"
         }
       },
+      "yields_array": false, "yields": "RootLicense",
       "description": "Get an individual license. (In preview period. See README.)"
     },
     "getRepoLicense": {
@@ -3624,6 +3663,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "RootLicense",
       "description": "Get the contents of a repository's license. (In preview period. See README.)"
     },
     "renderMarkdown": {
@@ -3649,6 +3689,7 @@
           "description": "The repository context. Only taken into account when rendering as `gfm`"
         }
       },
+      "yields_array": false, "yields": "String",
       "description": "Render an arbitrary Markdown document"
     },
     "renderMarkdownRaw": {
@@ -3671,12 +3712,14 @@
       "url": "/meta",
       "method": "GET",
       "params": {},
+      "yields_array": false, "yields": "RootMeta",
       "description": "This endpoint provides information about GitHub.com, the service. Or, if you access this endpoint on your organization's GitHub Enterprise installation, this endpoint provides information about that installation."
     },
     "getRateLimit": {
       "url": "/rate_limit",
       "method": "GET",
       "params": {},
+      "yields_array": false, "yields": "RootRate",
       "description": "Get your current rate limit status"
     }
   },

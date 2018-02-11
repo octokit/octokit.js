@@ -117,7 +117,12 @@ declare namespace Github {
   namespace Response {
     export type FilesMap = {
       [key: string]: any // TODO: Figure out this specific type
-    }
+    };
+    export type Emojis = {
+      [key: string]: string // The URL to the emoji
+    };
+    export type String = string;
+
   {{#each responseTypes}}
     export type {{@key}} = {
       {{#each .}}
@@ -136,22 +141,22 @@ declare class Github {
   hasLastPage(link: Github.Link): string | undefined;
   hasFirstPage(link: Github.Link): string | undefined;
 
-  getNextPage(link: Github.Link, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
-  getNextPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
+  getNextPage<T>(link: Github.Link, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
+  getNextPage<T>(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
 
-  getPreviousPage(link: Github.Link, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
-  getPreviousPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
+  getPreviousPage<T>(link: Github.Link, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
+  getPreviousPage<T>(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
 
-  getLastPage(link: Github.Link, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
-  getLastPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
+  getLastPage<T>(link: Github.Link, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
+  getLastPage<T>(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
 
-  getFirstPage(link: Github.Link, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
-  getFirstPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
+  getFirstPage<T>(link: Github.Link, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
+  getFirstPage<T>(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<T>): Promise<Github.AnyResponse<T>>;
 
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
-    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}>): Promise<Github.AnyResponse<{{#yields}}Github.Response.{{& this}}{{/yields}}{{^yields}}any{{/yields}}>>;
+    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>): Promise<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#yields}}Github.Response.{{& this}}{{/yields}}{{^yields}}any{{/yields}}{{/if}}>>;
     {{/methods}}
   };
   {{/namespaces}}

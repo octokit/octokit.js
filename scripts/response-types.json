@@ -264,7 +264,7 @@
   "avatar_url": { "type": "string", "required": true }
 },
 
-"Rate": {
+"RootRate": {
   "resources": { "type": "RateResources", "required": true },
   "rate": { "type": "RateRate", "required": true }
 },

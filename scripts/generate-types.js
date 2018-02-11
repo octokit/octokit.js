@@ -83,6 +83,7 @@ function generateTypes (languageName, templateFile, outputFile) {
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
         exclude: !hasParams,
+        yieldsIsEmpty: entry[1].yields_is_empty,
         yieldsArray: entry[1].yields_array,
         yields: entry[1].yields
       })
