@@ -79,6 +79,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
       return methods.concat({
         method: camelcase(entry[0]),
+        description: entry[1].description,
         paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },

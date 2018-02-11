@@ -157,6 +157,7 @@ declare class Github {
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
+    {{#if description}}/** {{& description}} */{{/if}}
     {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>>): Promise<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>>;
     {{/methods}}
   };
