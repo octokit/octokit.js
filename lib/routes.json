@@ -295,6 +295,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoEvent",
       "description": "List public events"
     },
     "getEventsForRepo": {
@@ -319,6 +320,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoEvent",
       "description": "List repository events"
     },
     "getEventsForRepoIssues": {
@@ -343,6 +345,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "IssueEvent",
       "description": "List issue events for a repository"
     },
     "getEventsForRepoNetwork": {
@@ -407,6 +410,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoEvent",
       "description": "List events that a user has received"
     },
     "getEventsReceivedPublic": {
@@ -427,6 +431,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoEvent",
       "description": "List public events that a user has received"
     },
     "getEventsForUser": {
@@ -447,6 +452,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoEvent",
       "description": "List events performed by a user"
     },
     "getEventsForUserPublic": {
@@ -467,6 +473,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoEvent",
       "description": "List public events performed by a user"
     },
     "getEventsForUserOrg": {
@@ -497,6 +504,7 @@
       "url": "/feeds",
       "method": "GET",
       "params": {},
+      "yields_array": true, "yields": "RootFeeds",
       "description": "Get all feeds available for the authenticated user."
     },
     "getNotifications": {
@@ -522,6 +530,7 @@
           "description": "Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
         }
       },
+      "yields_array": true, "yields": "RootNotification",
       "description": "Get all notifications for the current user, grouped by repository."
     },
     "getNotificationsForUser": {
@@ -555,6 +564,7 @@
           "description": "Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
         }
       },
+      "yields_array": true, "yields": "RootNotification",
       "description": "Get all notifications for the given user."
     },
     "markNotificationsAsRead": {
@@ -677,6 +687,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Stargazer",
       "description": "List Stargazers"
     },
     "getStarredReposForUser": {
@@ -716,6 +727,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Stargazer",
       "description": "List repositories being starred by a user"
     },
     "getStarredRepos": {
@@ -751,6 +763,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Repository",
       "description": "List repositories being starred by the authenticated user"
     },
     "checkStarringRepo": {
@@ -829,6 +842,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "UserNoName",
       "description": "Get watchers for repository."
     },
     "getWatchedReposForUser": {
@@ -889,6 +903,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "RepoSubscription",
       "description": "Get a Repository Subscription."
     },
     "setRepoSubscription": {
@@ -940,6 +955,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Gist",
       "description": "Get a single gist"
     },
     "create": {
@@ -959,6 +975,7 @@
           "required": true
         }
       },
+      "yields_array": false, "yields": "Gist",
       "description": "Create a gist"
     },
     "edit": {
@@ -986,6 +1003,7 @@
           "description": "New name for this file."
         }
       },
+      "yields_array": false, "yields": "Gist",
       "description": "Edit a gist"
     },
     "star": {
@@ -1054,6 +1072,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Gist",
       "description": "List a user's gists"
     },
     "getAll": {
@@ -1074,6 +1093,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Gist",
       "description": "List the authenticated user's gists or if called anonymously, this will return all public gists"
     },
     "getPublic": {
@@ -1085,6 +1105,7 @@
           "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
         }
       },
+      "yields_array": true, "yields": "Gist",
       "description": "List all public gists"
     },
     "getStarred": {
@@ -1096,6 +1117,7 @@
           "description": "Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ"
         }
       },
+      "yields_array": true, "yields": "Gist",
       "description": "List the authenticated user's starred gists"
     },
     "getRevision": {
@@ -1111,6 +1133,7 @@
           "required": true
         }
       },
+      "yields_array": true, "yields": "Gist",
       "description": "Get a specific revision of a gist"
     },
     "getCommits": {
@@ -1153,6 +1176,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": true, "yields": "Gist",
       "description": "List gist forks"
     },
     "getComments": {
@@ -1263,6 +1287,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
+      "yields_array": false, "yields": "GitBlob",
       "description": "Get a Blob"
     },
     "createBlob": {

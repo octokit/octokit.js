@@ -92,7 +92,7 @@ declare namespace Github {
 
   {{#namespaces}}
   {{#methods}}
-  {{#paramTypeName}}
+  {{#if paramTypeName}}
   {{^exclude}}
   export type {{paramTypeName}} =
     {{#unionTypeNames}}
@@ -109,9 +109,23 @@ declare namespace Github {
     ;
     {{/ownParams}}
   {{/exclude}}
-  {{/paramTypeName}}
+  {{/if}}
   {{/methods}}
   {{/namespaces}}
+
+  // Response Types
+  namespace Response {
+    export type FilesMap = {
+      [key: string]: any // TODO: Figure out this specific type
+    }
+  {{#each responseTypes}}
+    export type {{@key}} = {
+      {{#each .}}
+        {{@key}}{{^required}}?{{/required}}: {{#if type_enum}}{{#each type_enum}}{{#if @index}},{{/if}}'{{this}}'{{/each}}{{else}}{{#if isArray}}Array<{{{type}}}>{{else}}{{{type}}}{{/if}}{{/if}};
+      {{/each}}
+    };
+  {{/each}}
+  }
 }
 
 declare class Github {
@@ -137,7 +151,7 @@ declare class Github {
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
-    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<any>): Promise<Github.AnyResponse<any>>;
+    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}>): Promise<Github.AnyResponse<{{#yields}}Github.Response.{{& this}}{{/yields}}{{^yields}}any{{/yields}}>>;
     {{/methods}}
   };
   {{/namespaces}}

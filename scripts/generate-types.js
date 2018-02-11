@@ -4,11 +4,12 @@ const {readFileSync, writeFileSync} = require('fs')
 const {join: pathJoin} = require('path')
 
 const debug = require('debug')('octokit:rest')
-const Mustache = require('mustache')
+const Handlebars = require('handlebars')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelCase')
 
 const ROUTES = require('../lib/routes.json')
+const RESPONSE_TYPES = require('./response-types.json')
 
 const typeMap = {
   Json: 'string'
@@ -81,7 +82,9 @@ function generateTypes (languageName, templateFile, outputFile) {
         paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
-        exclude: !hasParams
+        exclude: !hasParams,
+        yieldsArray: entry[1].yields_array,
+        yields: entry[1].yields
       })
     }, [])
 
@@ -91,8 +94,9 @@ function generateTypes (languageName, templateFile, outputFile) {
     })
   }, [])
 
-  const body = Mustache.render(template, {
-    namespaces
+  const body = Handlebars.compile(template)({
+    namespaces,
+    responseTypes: RESPONSE_TYPES
   })
 
   const definitionFilePath = pathJoin(__dirname, '..', outputFile)
