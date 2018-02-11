@@ -83,7 +83,7 @@ declare namespace Github {
     | string;
 
   export interface Callback<T> {
-    (error: Error | null, result: T): any;
+    (error: Error | null, result: T): void;
   }
 
   {{#params}}
@@ -122,7 +122,7 @@ declare namespace Github {
       [key: string]: string // The URL to the emoji
     };
     export type String = string;
-    export type Boolean = boolean;
+    export type Boolean = ''; // Boolean methods yield an error (if false) or an empty string (if true) for now
 
   {{#each responseTypes}}
     export type {{@key}} = {
@@ -157,7 +157,7 @@ declare class Github {
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
-    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>): Promise<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>>;
+    {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>>): Promise<Github.AnyResponse<{{#if yieldsIsEmpty}}void{{else}}{{#if yields}}{{#if yieldsArray}}Array<{{/if}}Github.Response.{{yields}}{{#if yieldsArray}}>{{/if}}{{else}}any{{/if}}{{/if}}>>;
     {{/methods}}
   };
   {{/namespaces}}
