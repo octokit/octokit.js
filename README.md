@@ -43,15 +43,17 @@ octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/endp
 octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/pagination'))
 ```
 
-## Testing with Puppeteer
+## Testing in Node & Browser
 
-[Puppeteer](https://github.com/GoogleChrome/puppeteer) is library to control a
-headless. The install is heavy and fails on Node < 6, so is run with [npx](https://www.npmjs.com/package/npx)
-and installed upon first usage. When testing locally, you can install `mocha-puppeteer`
-globally with `npm install --global mocha-puppeteer` and then
+All tests in the [test/](test) folder are run in Node. All tests in the
+[test/scenarios/](test/scearios) folder are also run in the browser with
+[cypress](https://www.cypress.io).
 
-1. start fixtures server with `npm run start-fixtures-server`
-2. In a 2nd terminal, run `mocha-puppeteer test/scenarios/*-test.js`
+Before running the tests you need to start the fixtures server which the tests
+are using as a drop-in replacement for GitHub's API
+
+1. Start fixtures server with `npm run start-fixtures-server`
+2. In a 2nd terminal, run `npm test` for Node or `npm run test:browser` for Browser
 3. Once you are done, stop the fixtures server in the 1st terminal with ctrl + c
 
 ---
