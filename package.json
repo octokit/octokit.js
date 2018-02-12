@@ -44,7 +44,7 @@
     "url-template": "^2.0.8"
   },
   "devDependencies": {
-    "@octokit/fixtures": "^6.0.0",
+    "@octokit/fixtures-server": "^2.0.1",
     "apidoc": "^0.17.6",
     "bundlesize": "^0.16.0",
     "chai": "^4.1.2",
@@ -58,6 +58,7 @@
     "mocha": "^5.0.0",
     "mustache": "^2.2.1",
     "nock": "^9.1.0",
+    "node-fetch": "^2.0.0",
     "npm-run-all": "^4.1.2",
     "nyc": "^11.2.1",
     "proxyquire": "^1.8.0",
