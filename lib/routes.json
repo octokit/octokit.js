@@ -504,7 +504,7 @@
       "url": "/feeds",
       "method": "GET",
       "params": {},
-      "yields_array": true, "yields": "RootFeeds",
+      "yields_array": false, "yields": "RootFeeds",
       "description": "Get all feeds available for the authenticated user."
     },
     "getNotifications": {
@@ -763,7 +763,7 @@
           "description": "A custom page size up to 100. Default is 30."
         }
       },
-      "yields_array": true, "yields": "Repository",
+      "yields_array": true, "yields": "Stargazer",
       "description": "List repositories being starred by the authenticated user"
     },
     "checkStarringRepo": {

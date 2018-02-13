@@ -377,7 +377,7 @@
   "repos_url": { "type": "string", "required": true },
   "events_url": { "type": "string", "required": true },
   "received_events_url": { "type": "string", "required": true },
-  "type": { "type_enum": ["User", "Organization"], "required": true },
+  "type": { "type_enum": ["User", "Organization", "Bot"], "required": true },
   "site_admin": { "type": "boolean", "required": true },
   "contributions": { "type": "number", "required": true }
 },
@@ -653,7 +653,7 @@
   "user_url": { "type": "string", "required": true },
   "current_user_public_url": { "type": "string", "required": true },
   "_links": { "type": "json", "required": true },
-  "url": { "type": "string", "required": true }
+  "url": { "type": "string", "required": false }
 },
 
 "RootLicense": {
@@ -690,7 +690,7 @@
   "title": { "type": "string", "required": true },
   "url": { "type": "string", "required": true },
   "latest_comment_url": { "type": "string", "required": false },
-  "type": { "type_enum": ["Issue", "PullRequest"], "required": true }
+  "type": { "type_enum": ["Issue", "PullRequest", "Release"], "required": true }
 },
 
 "RootTeam": {
@@ -710,7 +710,7 @@
 
 "Stargazer": {
   "starred_at": { "type": "string", "required": true },
-  "repo": { "type": "Repository", "required": true }
+  "repo": { "type": "Repository", "required": false }
 },
 
 "UserWithName": {
@@ -730,7 +730,7 @@
   "repos_url": { "type": "string", "required": true },
   "events_url": { "type": "string", "required": true },
   "received_events_url": { "type": "string", "required": true },
-  "type": { "type_enum": ["User", "Organization"], "required": true },
+  "type": { "type_enum": ["User", "Organization", "Bot"], "required": true },
   "site_admin": { "type": "boolean", "required": true }
 },
 
@@ -750,7 +750,7 @@
   "repos_url": { "type": "string", "required": true },
   "events_url": { "type": "string", "required": true },
   "received_events_url": { "type": "string", "required": true },
-  "type": { "type_enum": ["User", "Organization"], "required": true },
+  "type": { "type_enum": ["User", "Organization", "Bot"], "required": true },
   "site_admin": { "type": "boolean", "required": true }
 },
 
