@@ -1,20 +1,23 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('github.repos.{get,update,remove}BranchProtection()', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
-    })
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
+  beforeEach(function () {
+    return getInstance('branch-protection')
 
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
+    .then(github => {
+      this.github = github
+      github.plugin(require('../../lib/plugins/authentication'))
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
 
-    return github.repos.getBranchProtection({
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
+    })
+  })
+
+  it('github.repos.{get,update,remove}BranchProtection()', function () {
+    return this.github.repos.getBranchProtection({
       owner: 'octokit-fixture-org',
       repo: 'branch-protection',
       branch: 'master'
@@ -29,7 +32,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.repos.updateBranchProtection({
+      return this.github.repos.updateBranchProtection({
         owner: 'octokit-fixture-org',
         repo: 'branch-protection',
         branch: 'master',
@@ -41,7 +44,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.repos.updateBranchProtection({
+      return this.github.repos.updateBranchProtection({
         owner: 'octokit-fixture-org',
         repo: 'branch-protection',
         branch: 'master',
@@ -68,7 +71,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.repos.removeBranchProtection({
+      return this.github.repos.removeBranchProtection({
         owner: 'octokit-fixture-org',
         repo: 'branch-protection',
         branch: 'master'

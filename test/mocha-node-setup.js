@@ -13,6 +13,9 @@ beforeEach(() => {
   global.cy = {
     stub: function () {
       return sandbox.stub.apply(sandbox, arguments)
+    },
+    log () {
+      console.log.apply(console, arguments)
     }
   }
 })

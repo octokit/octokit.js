@@ -1,27 +1,30 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('github.gitdata.*', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
+  beforeEach(function () {
+    return getInstance('git-refs')
+
+    .then(github => {
+      this.github = github
+
+      github.plugin(require('../../lib/plugins/authentication'))
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    return github.gitdata.getReferences({
+  it('github.gitdata.*', function () {
+    return this.github.gitdata.getReferences({
       owner: 'octokit-fixture-org',
       repo: 'git-refs'
     })
 
     .then(() => {
-      return github.gitdata.createReference({
+      return this.github.gitdata.createReference({
         owner: 'octokit-fixture-org',
         repo: 'git-refs',
         ref: 'refs/heads/test',
@@ -30,7 +33,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.gitdata.updateReference({
+      return this.github.gitdata.updateReference({
         owner: 'octokit-fixture-org',
         repo: 'git-refs',
         ref: 'heads/test',
@@ -39,14 +42,14 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.gitdata.getReferences({
+      return this.github.gitdata.getReferences({
         owner: 'octokit-fixture-org',
         repo: 'git-refs'
       })
     })
 
     .then(() => {
-      return github.gitdata.deleteReference({
+      return this.github.gitdata.deleteReference({
         owner: 'octokit-fixture-org',
         repo: 'git-refs',
         ref: 'heads/test'

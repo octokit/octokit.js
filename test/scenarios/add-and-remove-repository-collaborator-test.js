@@ -1,39 +1,38 @@
-const GitHub = require('../../')
+const {loadFixture, fixtureToInstace} = require('../util')
 
 describe('api.github.com', () => {
-  it('add-and-remove-repository-collaborator-test', () => {
-    const githubUserA = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
-    })
-    const githubUserB = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
-    })
+  beforeEach(function () {
+    return loadFixture('add-and-remove-repository-collaborator')
 
-    githubUserA.plugin(require('../../lib/plugins/authentication'))
-    githubUserA.plugin(require('../../lib/plugins/endpoint-methods'))
-    githubUserB.plugin(require('../../lib/plugins/authentication'))
-    githubUserB.plugin(require('../../lib/plugins/endpoint-methods'))
+    .then((fixture) => {
+      this.githubUserA = fixtureToInstace(fixture)
+      this.githubUserB = fixtureToInstace(fixture)
+    })
+  })
+  it('add-and-remove-repository-collaborator-test', function () {
+    this.githubUserA.plugin(require('../../lib/plugins/authentication'))
+    this.githubUserA.plugin(require('../../lib/plugins/endpoint-methods'))
+    this.githubUserB.plugin(require('../../lib/plugins/authentication'))
+    this.githubUserB.plugin(require('../../lib/plugins/endpoint-methods'))
 
-    githubUserA.authenticate({
+    this.githubUserA.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
     })
 
-    githubUserB.authenticate({
+    this.githubUserB.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000002'
     })
 
-    return githubUserA.repos.addCollaborator({
+    return this.githubUserA.repos.addCollaborator({
       owner: 'octokit-fixture-org',
       repo: 'add-and-remove-repository-collaborator',
       username: 'octokit-fixture-user-b'
     })
 
     .then(() => {
-      return githubUserA.repos.getInvites({
+      return this.githubUserA.repos.getInvites({
         owner: 'octokit-fixture-org',
         repo: 'add-and-remove-repository-collaborator'
       })
@@ -42,13 +41,13 @@ describe('api.github.com', () => {
     .then((response) => {
       expect(response.data.length).to.equal(1)
 
-      return githubUserB.users.acceptRepoInvite({
+      return this.githubUserB.users.acceptRepoInvite({
         invitation_id: response.data[0].id
       })
     })
 
     .then(() => {
-      return githubUserA.repos.getCollaborators({
+      return this.githubUserA.repos.getCollaborators({
         owner: 'octokit-fixture-org',
         repo: 'add-and-remove-repository-collaborator'
       })
@@ -57,7 +56,7 @@ describe('api.github.com', () => {
     .then((response) => {
       expect(response.data.length).to.equal(2)
 
-      return githubUserA.repos.removeCollaborator({
+      return this.githubUserA.repos.removeCollaborator({
         owner: 'octokit-fixture-org',
         repo: 'add-and-remove-repository-collaborator',
         username: 'octokit-fixture-user-b'
@@ -65,15 +64,14 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return githubUserA.repos.getCollaborators({
+      return this.githubUserA.repos.getCollaborators({
         owner: 'octokit-fixture-org',
         repo: 'add-and-remove-repository-collaborator'
       })
     })
 
     .then((response) => {
-      // @todo: githubUserA.repos.getCollaborators() returns two items because of the .persist call in octokit-fixtures-server
-      // expect(response.data.length).to.equal(1)
+      expect(response.data.length).to.equal(1)
     })
   })
 })

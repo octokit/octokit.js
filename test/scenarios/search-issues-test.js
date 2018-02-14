@@ -1,21 +1,24 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('github.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
+  beforeEach(function () {
+    return getInstance('search-issues')
+
+    .then(github => {
+      this.github = github
+
+      github.plugin(require('../../lib/plugins/authentication'))
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    return github.search.issues({q: 'sesame repo:octokit-fixture-org/search-issues'})
+  it('github.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', function () {
+    return this.github.search.issues({q: 'sesame repo:octokit-fixture-org/search-issues'})
 
     .then((response) => {
       expect(response.data.total_count).to.equal(2)

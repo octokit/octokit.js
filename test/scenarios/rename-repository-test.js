@@ -1,22 +1,24 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  // @todo github.repos.get() redirects to api.github.com after rename
-  it.skip('github.repos.get() with previous name', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
+  beforeEach(function () {
+    return getInstance('rename-repository')
+
+    .then(github => {
+      this.github = github
+
+      github.plugin(require('../../lib/plugins/authentication'))
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    return github.repos.edit({
+  it('github.repos.get() with previous name', function () {
+    return this.github.repos.edit({
       owner: 'octokit-fixture-org',
       repo: 'rename-repository',
       name: 'rename-repository-newname',
@@ -27,7 +29,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.repos.get({
+      return this.github.repos.get({
         owner: 'octokit-fixture-org',
         repo: 'rename-repository',
         // TODO: remove once #587 is resolved
@@ -38,7 +40,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.repos.edit({
+      return this.github.repos.edit({
         owner: 'octokit-fixture-org',
         repo: 'rename-repository',
         // TODO: remove once #587 is resolved
