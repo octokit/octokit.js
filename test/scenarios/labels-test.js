@@ -1,21 +1,24 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('github.issues.*', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
+  beforeEach(function () {
+    return getInstance('labels')
+
+    .then(github => {
+      this.github = github
+
+      github.plugin(require('../../lib/plugins/authentication'))
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    return github.issues.getLabels({
+  it('github.issues.*', function () {
+    return this.github.issues.getLabels({
       owner: 'octokit-fixture-org',
       repo: 'labels'
     })
@@ -23,7 +26,7 @@ describe('api.github.com', () => {
     .then((result) => {
       expect(result.data).to.be.an('array')
 
-      return github.issues.createLabel({
+      return this.github.issues.createLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label',
@@ -34,7 +37,7 @@ describe('api.github.com', () => {
     .then((result) => {
       expect(result.data.name).to.equal('test-label')
 
-      return github.issues.getLabel({
+      return this.github.issues.getLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label'
@@ -42,7 +45,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.issues.updateLabel({
+      return this.github.issues.updateLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         oldname: 'test-label',
@@ -54,7 +57,7 @@ describe('api.github.com', () => {
     .then((result) => {
       expect(result.data.name).to.equal('test-label-updated')
 
-      return github.issues.deleteLabel({
+      return this.github.issues.deleteLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label-updated'

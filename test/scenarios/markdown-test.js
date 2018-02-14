@@ -1,15 +1,18 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('github.misc.renderMarkdown() & .renderMarkdownRaw()', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
+  beforeEach(function () {
+    return getInstance('markdown')
+
+    .then(github => {
+      this.github = github
+
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
     })
+  })
 
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
-    return github.misc.renderMarkdown({
+  it('github.misc.renderMarkdown() & .renderMarkdownRaw()', function () {
+    return this.github.misc.renderMarkdown({
       text: `### Hello
 
 b597b5d`,
@@ -21,10 +24,11 @@ b597b5d`,
     })
 
     .then((response) => {
-      expect(response.data).to.equal(`<h3>Hello</h3>
-<p><a href="https://github.com/octokit-fixture-org/hello-world/commit/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8" class="commit-link"><tt>b597b5d</tt></a></p>`)
+      expect(response.data).to.match(/<h3>Hello<\/h3>/)
+      expect(response.data).to.match(/\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/)
+      expect(response.data).to.match(/<tt>b597b5d<\/tt>/)
 
-      return github.misc.renderMarkdownRaw({
+      return this.github.misc.renderMarkdownRaw({
         data: `### Hello
 
 b597b5d`,

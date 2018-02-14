@@ -1,20 +1,23 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('(#587) add-labels-to-issue-test', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
-    })
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
+  beforeEach(function () {
+    return getInstance('add-labels-to-issue')
 
-    github.authenticate({
+    .then(github => {
+      this.github = github
+      this.github.plugin(require('../../lib/plugins/authentication'))
+      this.github.plugin(require('../../lib/plugins/endpoint-methods'))
+    })
+  })
+
+  it('(#587) add-labels-to-issue-test', function () {
+    this.github.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
     })
 
-    return github.issues.create({
+    return this.github.issues.create({
       owner: 'octokit-fixture-org',
       repo: 'add-labels-to-issue',
       title: 'Issue without a label',
@@ -25,7 +28,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return github.issues.addLabels({
+      return this.github.issues.addLabels({
         owner: 'octokit-fixture-org',
         repo: 'add-labels-to-issue',
         number: 1,

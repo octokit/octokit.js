@@ -1,25 +1,25 @@
-const fixtures = require('@octokit/fixtures')
 const stringToArrayBuffer = require('string-to-arraybuffer')
-
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  let github
+  beforeEach(function () {
+    return getInstance('release-assets')
 
-  beforeEach(() => {
-    github = new GitHub()
-    github.plugin(require('../../lib/plugins/authentication'))
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
+    .then(github => {
+      this.github = github
+
+      github.plugin(require('../../lib/plugins/authentication'))
+      github.plugin(require('../../lib/plugins/endpoint-methods'))
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
+    })
   })
 
-  it('github.repos.uploadAsset as Buffer', () => {
-    fixtures.mock('api.github.com/release-assets')
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    return github.repos.getReleaseByTag({
+  it('github.repos.uploadAsset as Buffer', function () {
+    return this.github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -27,7 +27,7 @@ describe('api.github.com', () => {
 
     .then(result => {
       const content = Buffer.from('Hello, world!\n')
-      return github.repos.uploadAsset({
+      return this.github.repos.uploadAsset({
         url: result.data.upload_url,
         file: content,
         contentType: 'text/plain',
@@ -38,15 +38,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.uploadAsset as ArrayBuffer', () => {
-    fixtures.mock('api.github.com/release-assets')
-
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    return github.repos.getReleaseByTag({
+  it('github.repos.uploadAsset as ArrayBuffer', function () {
+    return this.github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -54,7 +47,7 @@ describe('api.github.com', () => {
 
     .then(result => {
       const content = stringToArrayBuffer('Hello, world!\n')
-      return github.repos.uploadAsset({
+      return this.github.repos.uploadAsset({
         url: result.data.upload_url,
         file: content,
         contentType: 'text/plain',

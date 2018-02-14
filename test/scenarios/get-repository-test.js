@@ -1,15 +1,17 @@
-const GitHub = require('../../')
+const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'localhost:3000'
+  beforeEach(function () {
+    return getInstance('get-repository')
+
+    .then(github => {
+      this.github = github
+      this.github.plugin(require('../../lib/plugins/endpoint-methods'))
     })
+  })
 
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
-    return github.repos.get({
+  it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', function () {
+    return this.github.repos.get({
       owner: 'octokit-fixture-org',
       repo: 'hello-world',
       // TODO: remove once #587 is resolved
