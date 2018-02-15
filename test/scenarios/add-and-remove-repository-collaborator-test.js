@@ -10,11 +10,6 @@ describe('api.github.com', () => {
     })
   })
   it('add-and-remove-repository-collaborator-test', function () {
-    this.githubUserA.plugin(require('../../lib/plugins/authentication'))
-    this.githubUserA.plugin(require('../../lib/plugins/endpoint-methods'))
-    this.githubUserB.plugin(require('../../lib/plugins/authentication'))
-    this.githubUserB.plugin(require('../../lib/plugins/endpoint-methods'))
-
     this.githubUserA.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'

@@ -12,8 +12,6 @@ describe('github.repos.uploadAsset', () => {
     const github = new GitHub()
     const size = fs.statSync(__filename).size
 
-    github.plugin(require('../../lib/plugins/endpoint-methods'))
-
     nock('https://upload.test')
       .post('/', function (data) {
         return fs.readFileSync(__filename, 'utf8') === data
