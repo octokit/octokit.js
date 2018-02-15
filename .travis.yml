@@ -37,7 +37,7 @@ jobs:
         # coverage
         - npm run coverage:upload
     - node_js: lts/*
-      env: BROWSER_TESTS
+      env: browser tests
       script:
         # make puppeteer work
         - sudo chown root /opt/google/chrome/chrome-sandbox
@@ -52,7 +52,7 @@ jobs:
       sudo: required
       addons:
         chrome: stable
-      env: BUNDLE_SIZE,TYPESCRIPT_VALIDATION
+      env: bundle size, typescript validation
       script:
         # test bundle size
         - npm run build:browser
@@ -62,6 +62,7 @@ jobs:
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
+      env: semantic-release
       script:
         - npm run build:flow
         - npm run build:ts
@@ -69,6 +70,7 @@ jobs:
         - npm run generate-bundle-report
         - npm run semantic-release
     - node_js: lts/*
+      env: docs update
       script:
         - npm run build:docs
         - npm run deploy-docs
