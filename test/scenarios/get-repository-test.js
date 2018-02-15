@@ -6,7 +6,6 @@ describe('api.github.com', () => {
 
     .then(github => {
       this.github = github
-      this.github.plugin(require('../../lib/plugins/endpoint-methods'))
     })
   })
 

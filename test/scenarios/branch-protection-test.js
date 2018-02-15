@@ -6,8 +6,6 @@ describe('api.github.com', () => {
 
     .then(github => {
       this.github = github
-      github.plugin(require('../../lib/plugins/authentication'))
-      github.plugin(require('../../lib/plugins/endpoint-methods'))
 
       github.authenticate({
         type: 'token',
