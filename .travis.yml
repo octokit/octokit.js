@@ -49,6 +49,9 @@ jobs:
         - sleep 3 # give server some time to start
         - npm run test:browser
     - node_js: lts/*
+      sudo: required
+      addons:
+        chrome: stable
       env: BUNDLE_SIZE,TYPESCRIPT_VALIDATION
       script:
         # test bundle size

@@ -17,7 +17,7 @@ describe('api.github.com', () => {
     })
   })
 
-  it.skip('github.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)', function () {
+  it('github.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)', function () {
     return this.github.repos.edit({
       owner: 'octokit-fixture-org',
       repo: 'rename-repository',
