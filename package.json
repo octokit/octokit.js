@@ -143,7 +143,7 @@
   "bundlesize": [
     {
       "path": "./dist/octokit-rest.min.js.gz",
-      "maxSize": "15 kB"
+      "maxSize": "33 kB"
     }
   ]
 }
