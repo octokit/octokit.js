@@ -1,10 +1,33 @@
-# Temporary fork [octokit/rest.js](https://github.com/octokit/rest.js) with browser-support
+# rest.js
 
-This fork is work-in-progress exploration towards [Browser Support for `@octokit/rest`](https://github.com/octokit/rest.js/milestone/2).
+> GitHub REST API client for Node.js
 
-## Browser usage
+[![Build Status](https://travis-ci.org/octokit/rest.js.svg?branch=master)](https://travis-ci.org/octokit/rest.js)
+[![Coverage Status](https://coveralls.io/repos/github/octokit/rest.js/badge.svg)](https://coveralls.io/github/octokit/rest.js)
+[![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
+[![npm](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest)
 
-1. Download `octokit-rest.min.js` from the latest release: https://github.com/gr2m/octokit-rest-browser-experimental/releases
+## Usage
+
+### Node
+
+Install with `npm install @octokit/rest`.
+
+```js
+const octokit = require('@octokit/rest')()
+
+// Compare: https://developer.github.com/v3/repos/#list-organization-repositories
+octokit.repos.getForOrg({
+  org: 'octokit',
+  type: 'public'
+}).then(({data}) => {
+  // handle data
+})
+```
+
+### Browser
+
+1. Download `octokit-rest.min.js` from the latest release: https://github.com/octokit/rest.js/releases
 
 2. Load it as script into your web application:
 
@@ -16,77 +39,24 @@ This fork is work-in-progress exploration towards [Browser Support for `@octokit
 
    ```js
    const octokit = new Octokit()
+
+   // Compare: https://developer.github.com/v3/repos/#list-organization-repositories
+   octokit.repos.getForOrg({
+     org: 'octokit',
+     type: 'public'
+   }).then(({data}) => {
+     // handle data
+   })
    ```
 
-## Breaking changes
+### Options
 
-The endpoint methods like `octokit.repos.get()` are generated from the
-[lib/routes.json](lib/routes.json) file, which is used. The internal
-implementation already moved it into a plugin so we take advantage of that now.
-Instead of loading these plugins by default:
-
-- [authentication](lib/plugins/authentication)
-- [endpoint-methods](lib/plugins/endpoint-methods)
-- [pagination](lib/plugins/pagination)
-
-You will now have to load them manually, like so
-
-```js
-const octokit = require('@gr2m/octokit-rest-browser-experimental')()
-// add octokit.authenticate() method
-octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/authentication'))
-
-// add endpoint methods
-octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/endpoint-methods'))
-
-// add pagination methods
-octokit.plugin(require('@gr2m/octokit-rest-browser-experimental/lib/plugins/pagination'))
-```
-
-## Testing in Node & Browser
-
-All tests in the [test/](test) folder are run in Node. All tests in the
-[test/scenarios/](test/scearios) folder are also run in the browser with
-[cypress](https://www.cypress.io).
-
-Before running the tests you need to start the fixtures server which the tests
-are using as a drop-in replacement for GitHub's API
-
-1. Start fixtures server with `npm run start-fixtures-server`
-2. In a 2nd terminal, run `npm test` for Node or `npm run test:browser` for Browser
-3. Once you are done, stop the fixtures server in the 1st terminal with ctrl + c
-
----
-
-> GitHub REST API client for Node.js
-
-[![Build Status](https://travis-ci.org/gr2m/octokit-rest-browser-experimental.svg?branch=master)](https://travis-ci.org/gr2m/octokit-rest-browser-experimental)
-[![Coverage Status](https://coveralls.io/repos/github/gr2m/octokit-rest-browser-experimental/badge.svg)](https://coveralls.io/github/gr2m/octokit-rest-browser-experimental)
-[![Greenkeeper](https://badges.greenkeeper.io/gr2m/octokit-rest-browser-experimental.svg)](https://greenkeeper.io/)
-[![npm](https://img.shields.io/npm/v/@gr2m/octokit-rest-browser-experimental.svg)](https://www.npmjs.com/package/@gr2m/octokit-rest-browser-experimental)
-
-## Usage
-
-Install with `npm install @gr2m/octokit-rest-browser-experimental`.
+All available client options with default values
 
 <!-- HEADS UP: when changing the options for the constructor, make sure to also
      update the type definition templates in scripts/templates/* -->
 ```js
-const octokit = require('@gr2m/octokit-rest-browser-experimental')()
-
-// Compare: https://developer.github.com/v3/repos/#list-organization-repositories
-octokit.repos.getForOrg({
-  org: 'octokit',
-  type: 'public'
-}).then(({data}) => {
-  // handle data
-})
-```
-
-All available client options with default values
-
-```js
-const octokit = require('@gr2m/octokit-rest-browser-experimental')({
+const octokit = require('@octokit/rest')({
   timeout: 0, // 0 means no request timeout
   requestMedia: 'application/vnd.github.v3+json',
   headers: {
@@ -108,7 +78,7 @@ const octokit = require('@gr2m/octokit-rest-browser-experimental')({
 })
 ```
 
-`@gr2m/octokit-rest-browser-experimental` API docs: https://octokit.github.io/rest.js/  
+`@octokit/rest` API docs: https://octokit.github.io/rest.js/  
 GitHub v3 REST API docs: https://developer.github.com/v3/
 
 ## Authentication
@@ -210,12 +180,12 @@ variable (or set it in a `.env` file) to avoid running against GitHub's rate lim
 
 ## Contributing
 
-We would love you to contribute to `@gr2m/octokit-rest-browser-experimental`, pull requests are very welcomed!
+We would love you to contribute to `@octokit/rest`, pull requests are very welcomed!
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ## Credits
 
-`@gr2m/octokit-rest-browser-experimental` was originally created as [`node-github`](https://www.npmjs.com/package/github)
+`@octokit/rest` was originally created as [`node-github`](https://www.npmjs.com/package/github)
 in 2012 by Mike de Boer from Cloud9 IDE, Inc.
 It was adopted and renamed by GitHub in 2017
 
