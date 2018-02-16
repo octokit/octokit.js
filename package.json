@@ -1,5 +1,5 @@
 {
-  "name": "@gr2m/octokit-rest-browser-experimental",
+  "name": "@octokit/rest",
   "version": "0.0.0-semantically-released",
   "publishConfig": {
     "access": "public",
@@ -31,7 +31,7 @@
       "url": "https://github.com/gr2m"
     }
   ],
-  "repository": "https://github.com/gr2m/octokit-rest-browser-experimental",
+  "repository": "https://github.com/octokit/rest.js",
   "engines": {
     "node": ">=4"
   },
