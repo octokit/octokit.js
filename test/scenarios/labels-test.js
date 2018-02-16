@@ -62,7 +62,7 @@ describe('api.github.com', () => {
     })
 
     .then((result) => {
-      expect(result.data).to.equal('')
+      expect(result.data).to.equal(undefined)
     })
   })
 })
