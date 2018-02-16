@@ -39,12 +39,6 @@ jobs:
     - node_js: lts/*
       env: browser tests
       script:
-        # make puppeteer work
-        - sudo chown root /opt/google/chrome/chrome-sandbox
-        - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
-        - export DISPLAY=:99.0
-        - sh -e /etc/init.d/xvfb start
-        # test in node & browser
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test:browser
