@@ -134,8 +134,10 @@
   "standard": {
     "globals": [
       "describe",
+      "before",
       "beforeEach",
       "afterEach",
+      "after",
       "it",
       "expect",
       "cy"
