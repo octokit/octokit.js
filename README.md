@@ -163,7 +163,13 @@ Set `DEBUG=octokit:rest*` for additional debug logs.
 
 ## Tests
 
-Run all tests
+Start the [fixtures server](https://github.com/octokit/fixtures-server)
+
+```
+$ npm run start-fixtures-server
+```
+
+In a second terminal, run the tests
 
 ```bash
 $ npm test
@@ -172,7 +178,7 @@ $ npm test
 Or run a specific test
 
 ```bash
-$ ./node_modules/.bin/mocha test/test/integration/get-repository-test.js
+$ ./node_modules/.bin/mocha test/scenarios/get-repository-test.js
 ```
 
 The examples are run as part of the tests. You can set an `EXAMPLES_GITHUB_TOKEN` environment
