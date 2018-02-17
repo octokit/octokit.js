@@ -157,7 +157,7 @@ paginate(octokit.repos.getAll)
   })
 ```
 
-## DEBUG
+## Debug
 
 Set `DEBUG=octokit:rest*` for additional debug logs.
 
