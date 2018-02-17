@@ -2,6 +2,8 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
+require('../mocha-node-setup')
+
 describe('request 304s', () => {
   let github
 
