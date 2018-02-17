@@ -30,11 +30,11 @@ jobs:
         - sleep 3 # give server some time to start
         - npm run test
     - node_js: 9
+      env: Node 9, coverage upload
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
-        # coverage
         - npm run coverage:upload
     - node_js: lts/*
       env: browser tests
