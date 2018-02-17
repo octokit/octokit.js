@@ -75,7 +75,8 @@
     "webpack-cli": "^2.0.4"
   },
   "browser": {
-    "./lib/request/request.js": "./lib/request/request-browser.js"
+    "./lib/request/request.js": "./lib/request/request-browser.js",
+    "./lib/get-request-agent.js": false
   },
   "types": "index.d.ts",
   "scripts": {
