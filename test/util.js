@@ -16,6 +16,14 @@ function loadFixture (scenario) {
   })
 
   .then(response => response.json())
+
+  .catch(error => {
+    if (error.code === 'ECONNREFUSED') {
+      throw new Error('Fixtures server could not be reached. Make sure to start it with "npm run start-fixtures-server"')
+    }
+
+    throw error
+  })
 }
 
 function fixtureToInstace ({url}) {
