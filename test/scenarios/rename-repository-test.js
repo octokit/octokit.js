@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('rename-repository')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,8 +16,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)', function () {
-    return this.github.repos.edit({
+  it('github.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)', () => {
+    return github.repos.edit({
       owner: 'octokit-fixture-org',
       repo: 'rename-repository',
       name: 'rename-repository-newname',
@@ -26,7 +28,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.repos.get({
+      return github.repos.get({
         owner: 'octokit-fixture-org',
         repo: 'rename-repository',
         // TODO: remove once #587 is resolved
@@ -37,7 +39,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.repos.edit({
+      return github.repos.edit({
         owner: 'octokit-fixture-org',
         repo: 'rename-repository',
         // TODO: remove once #587 is resolved

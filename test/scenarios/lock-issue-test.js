@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('lock-issue')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,15 +16,15 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.issues.{lock,unlock}()', function () {
-    return this.github.issues.lock({
+  it('github.issues.{lock,unlock}()', () => {
+    return github.issues.lock({
       owner: 'octokit-fixture-org',
       repo: 'lock-issue',
       number: 1
     })
 
     .then(() => {
-      return this.github.issues.unlock({
+      return github.issues.unlock({
         owner: 'octokit-fixture-org',
         repo: 'lock-issue',
         number: 1

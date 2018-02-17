@@ -1,16 +1,18 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('get-content')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
     })
   })
 
-  it('github.repos.getContent({owner: "octokit-fixture-org", repo: "hello-world", path: ""})', function () {
-    return this.github.repos.getContent({owner: 'octokit-fixture-org', repo: 'hello-world', path: ''})
+  it('github.repos.getContent({owner: "octokit-fixture-org", repo: "hello-world", path: ""})', () => {
+    return github.repos.getContent({owner: 'octokit-fixture-org', repo: 'hello-world', path: ''})
 
     .then((response) => {
       expect(response.data.length).to.equal(1)

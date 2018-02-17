@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('project-cards')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,40 +16,40 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.projects.*ProjectCard()', function () {
-    return this.github.projects.createProjectCard({
+  it('github.projects.*ProjectCard()', () => {
+    return github.projects.createProjectCard({
       column_id: 1000,
       note: 'Example card 1'
     })
 
     .then(() => {
-      return this.github.projects.createProjectCard({
+      return github.projects.createProjectCard({
         column_id: 1000,
         note: 'Example card 2'
       })
     })
 
     .then(() => {
-      return this.github.projects.getProjectCards({
+      return github.projects.getProjectCards({
         column_id: 1000
       })
     })
 
     .then(() => {
-      return this.github.projects.getProjectCard({
+      return github.projects.getProjectCard({
         id: 1000
       })
     })
 
     .then(() => {
-      return this.github.projects.updateProjectCard({
+      return github.projects.updateProjectCard({
         id: 1000,
         note: 'Example card 1 updated'
       })
     })
 
     .then(() => {
-      return this.github.projects.moveProjectCard({
+      return github.projects.moveProjectCard({
         id: 1000,
         position: 'top',
         column_id: 1001
@@ -55,7 +57,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.projects.moveProjectCard({
+      return github.projects.moveProjectCard({
         id: 1001,
         position: 'bottom',
         column_id: 1001
@@ -63,14 +65,14 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.projects.moveProjectCard({
+      return github.projects.moveProjectCard({
         id: 1000,
         position: 'after:1001'
       })
     })
 
     .then(() => {
-      return this.github.projects.deleteProjectCard({
+      return github.projects.deleteProjectCard({
         id: 1000
       })
     })

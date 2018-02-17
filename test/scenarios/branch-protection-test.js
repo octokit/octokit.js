@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('branch-protection')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,8 +16,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.{get,update,remove}BranchProtection()', function () {
-    return this.github.repos.getBranchProtection({
+  it('github.repos.{get,update,remove}BranchProtection()', () => {
+    return github.repos.getBranchProtection({
       owner: 'octokit-fixture-org',
       repo: 'branch-protection',
       branch: 'master'
@@ -30,7 +32,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.repos.updateBranchProtection({
+      return github.repos.updateBranchProtection({
         owner: 'octokit-fixture-org',
         repo: 'branch-protection',
         branch: 'master',
@@ -42,7 +44,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.repos.updateBranchProtection({
+      return github.repos.updateBranchProtection({
         owner: 'octokit-fixture-org',
         repo: 'branch-protection',
         branch: 'master',
@@ -69,7 +71,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.repos.removeBranchProtection({
+      return github.repos.removeBranchProtection({
         owner: 'octokit-fixture-org',
         repo: 'branch-protection',
         branch: 'master'

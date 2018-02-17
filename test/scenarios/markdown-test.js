@@ -1,16 +1,18 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('markdown')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
     })
   })
 
-  it('github.misc.renderMarkdown() & .renderMarkdownRaw()', function () {
-    return this.github.misc.renderMarkdown({
+  it('github.misc.renderMarkdown() & .renderMarkdownRaw()', () => {
+    return github.misc.renderMarkdown({
       text: `### Hello
 
 b597b5d`,
@@ -26,7 +28,7 @@ b597b5d`,
       expect(response.data).to.match(/\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/)
       expect(response.data).to.match(/<tt>b597b5d<\/tt>/)
 
-      return this.github.misc.renderMarkdownRaw({
+      return github.misc.renderMarkdownRaw({
         data: `### Hello
 
 b597b5d`,
