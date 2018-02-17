@@ -1,11 +1,10 @@
-# rest.js
+# rest.js [![@latest](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest) [![@next](https://img.shields.io/npm/v/@octokit/rest/next.svg?label=@next)](https://www.npmjs.com/package/@octokit/rest)
 
 > GitHub REST API client for Node.js
 
 [![Build Status](https://travis-ci.org/octokit/rest.js.svg?branch=master)](https://travis-ci.org/octokit/rest.js)
 [![Coverage Status](https://coveralls.io/repos/github/octokit/rest.js/badge.svg)](https://coveralls.io/github/octokit/rest.js)
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
-[![npm](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest)
 
 ## Usage
 
