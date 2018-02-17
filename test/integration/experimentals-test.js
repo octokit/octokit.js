@@ -2,6 +2,8 @@ const nock = require('nock')
 
 const GitHub = require('../../')
 
+require('../mocha-node-setup')
+
 describe('authentication plugin', () => {
   let github
 

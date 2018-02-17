@@ -1,5 +1,7 @@
 const {loadFixture, fixtureToInstace} = require('../util')
 
+require('../mocha-node-setup')
+
 describe('api.github.com', () => {
   let githubUserA
   let githubUserB
