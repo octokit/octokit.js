@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('search-issues')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,8 +16,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', function () {
-    return this.github.search.issues({q: 'sesame repo:octokit-fixture-org/search-issues'})
+  it('github.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
+    return github.search.issues({q: 'sesame repo:octokit-fixture-org/search-issues'})
 
     .then((response) => {
       expect(response.data.total_count).to.equal(2)

@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('create-status')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,9 +16,9 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.createStatus()', function () {
+  it('github.repos.createStatus()', () => {
     return Promise.all([
-      this.github.repos.createStatus({
+      github.repos.createStatus({
         owner: 'octokit-fixture-org',
         repo: 'create-status',
         sha: '0000000000000000000000000000000000000001',
@@ -25,7 +27,7 @@ describe('api.github.com', () => {
         description: 'create-status failure test',
         context: 'example/1'
       }),
-      this.github.repos.createStatus({
+      github.repos.createStatus({
         owner: 'octokit-fixture-org',
         repo: 'create-status',
         sha: '0000000000000000000000000000000000000001',
@@ -37,7 +39,7 @@ describe('api.github.com', () => {
     ])
 
     .then(() => {
-      return this.github.repos.getStatuses({
+      return github.repos.getStatuses({
         owner: 'octokit-fixture-org',
         repo: 'create-status',
         ref: '0000000000000000000000000000000000000001'
@@ -47,7 +49,7 @@ describe('api.github.com', () => {
     .then((response) => {
       expect(response.data.length).to.equal(2)
 
-      return this.github.repos.getCombinedStatusForRef({
+      return github.repos.getCombinedStatusForRef({
         owner: 'octokit-fixture-org',
         repo: 'create-status',
         ref: '0000000000000000000000000000000000000001'

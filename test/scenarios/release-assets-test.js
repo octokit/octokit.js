@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('release-assets')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,11 +16,11 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.*Assets', function () {
+  it('github.repos.*Assets', () => {
     let releaseId
     let assetId
 
-    return this.github.repos.getReleaseByTag({
+    return github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -27,7 +29,7 @@ describe('api.github.com', () => {
     .then(result => {
       releaseId = result.data.id
 
-      return this.github.repos.uploadAsset({
+      return github.repos.uploadAsset({
         url: result.data.upload_url,
         file: 'Hello, world!\n',
         contentType: 'text/plain',
@@ -40,7 +42,7 @@ describe('api.github.com', () => {
     .then(result => {
       assetId = releaseId
 
-      return this.github.repos.getAssets({
+      return github.repos.getAssets({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: releaseId
@@ -48,7 +50,7 @@ describe('api.github.com', () => {
     })
 
     .then(result => {
-      return this.github.repos.getAsset({
+      return github.repos.getAsset({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: assetId
@@ -56,7 +58,7 @@ describe('api.github.com', () => {
     })
 
     .then(result => {
-      return this.github.repos.editAsset({
+      return github.repos.editAsset({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: assetId,
@@ -66,7 +68,7 @@ describe('api.github.com', () => {
     })
 
     .then(result => {
-      return this.github.repos.deleteAsset({
+      return github.repos.deleteAsset({
         owner: 'octokit-fixture-org',
         repo: 'release-assets',
         id: assetId

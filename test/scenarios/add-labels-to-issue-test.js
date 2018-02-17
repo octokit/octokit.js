@@ -1,21 +1,23 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('add-labels-to-issue')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
     })
   })
 
-  it('(#587) add-labels-to-issue-test', function () {
-    this.github.authenticate({
+  it('(#587) add-labels-to-issue-test', () => {
+    github.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
     })
 
-    return this.github.issues.create({
+    return github.issues.create({
       owner: 'octokit-fixture-org',
       repo: 'add-labels-to-issue',
       title: 'Issue without a label',
@@ -26,7 +28,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.issues.addLabels({
+      return github.issues.addLabels({
         owner: 'octokit-fixture-org',
         repo: 'add-labels-to-issue',
         number: 1,

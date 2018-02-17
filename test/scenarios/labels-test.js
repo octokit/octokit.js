@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('labels')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,8 +16,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.issues.*', function () {
-    return this.github.issues.getLabels({
+  it('github.issues.*', () => {
+    return github.issues.getLabels({
       owner: 'octokit-fixture-org',
       repo: 'labels'
     })
@@ -23,7 +25,7 @@ describe('api.github.com', () => {
     .then((result) => {
       expect(result.data).to.be.an('array')
 
-      return this.github.issues.createLabel({
+      return github.issues.createLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label',
@@ -34,7 +36,7 @@ describe('api.github.com', () => {
     .then((result) => {
       expect(result.data.name).to.equal('test-label')
 
-      return this.github.issues.getLabel({
+      return github.issues.getLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label'
@@ -42,7 +44,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.issues.updateLabel({
+      return github.issues.updateLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         oldname: 'test-label',
@@ -54,7 +56,7 @@ describe('api.github.com', () => {
     .then((result) => {
       expect(result.data.name).to.equal('test-label-updated')
 
-      return this.github.issues.deleteLabel({
+      return github.issues.deleteLabel({
         owner: 'octokit-fixture-org',
         repo: 'labels',
         name: 'test-label-updated'

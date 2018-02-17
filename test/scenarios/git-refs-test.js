@@ -1,11 +1,13 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('git-refs')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -14,14 +16,14 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.gitdata.*', function () {
-    return this.github.gitdata.getReferences({
+  it('github.gitdata.*', () => {
+    return github.gitdata.getReferences({
       owner: 'octokit-fixture-org',
       repo: 'git-refs'
     })
 
     .then(() => {
-      return this.github.gitdata.createReference({
+      return github.gitdata.createReference({
         owner: 'octokit-fixture-org',
         repo: 'git-refs',
         ref: 'refs/heads/test',
@@ -30,7 +32,7 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.gitdata.updateReference({
+      return github.gitdata.updateReference({
         owner: 'octokit-fixture-org',
         repo: 'git-refs',
         ref: 'heads/test',
@@ -39,14 +41,14 @@ describe('api.github.com', () => {
     })
 
     .then(() => {
-      return this.github.gitdata.getReferences({
+      return github.gitdata.getReferences({
         owner: 'octokit-fixture-org',
         repo: 'git-refs'
       })
     })
 
     .then(() => {
-      return this.github.gitdata.deleteReference({
+      return github.gitdata.deleteReference({
         owner: 'octokit-fixture-org',
         repo: 'git-refs',
         ref: 'heads/test'

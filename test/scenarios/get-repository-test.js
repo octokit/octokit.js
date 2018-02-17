@@ -1,16 +1,18 @@
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('get-repository')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
     })
   })
 
-  it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', function () {
-    return this.github.repos.get({
+  it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
+    return github.repos.get({
       owner: 'octokit-fixture-org',
       repo: 'hello-world',
       // TODO: remove once #587 is resolved

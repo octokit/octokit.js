@@ -3,11 +3,13 @@ const btoa = require('btoa-lite')
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('create-file')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -16,8 +18,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.createFile()', function () {
-    return this.github.repos.createFile({
+  it('github.repos.createFile()', () => {
+    return github.repos.createFile({
       owner: 'octokit-fixture-org',
       repo: 'create-file',
       path: 'test.txt',

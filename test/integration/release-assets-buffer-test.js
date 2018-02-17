@@ -2,11 +2,13 @@ const stringToArrayBuffer = require('string-to-arraybuffer')
 const {getInstance} = require('../util')
 
 describe('api.github.com', () => {
-  beforeEach(function () {
+  let github
+
+  beforeEach(() => {
     return getInstance('release-assets')
 
-    .then(github => {
-      this.github = github
+    .then(instance => {
+      github = instance
 
       github.authenticate({
         type: 'token',
@@ -15,8 +17,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.uploadAsset as Buffer', function () {
-    return this.github.repos.getReleaseByTag({
+  it('github.repos.uploadAsset as Buffer', () => {
+    return github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -24,7 +26,7 @@ describe('api.github.com', () => {
 
     .then(result => {
       const content = Buffer.from('Hello, world!\n')
-      return this.github.repos.uploadAsset({
+      return github.repos.uploadAsset({
         url: result.data.upload_url,
         file: content,
         contentType: 'text/plain',
@@ -35,8 +37,8 @@ describe('api.github.com', () => {
     })
   })
 
-  it('github.repos.uploadAsset as ArrayBuffer', function () {
-    return this.github.repos.getReleaseByTag({
+  it('github.repos.uploadAsset as ArrayBuffer', () => {
+    return github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -44,7 +46,7 @@ describe('api.github.com', () => {
 
     .then(result => {
       const content = stringToArrayBuffer('Hello, world!\n')
-      return this.github.repos.uploadAsset({
+      return github.repos.uploadAsset({
         url: result.data.upload_url,
         file: content,
         contentType: 'text/plain',
