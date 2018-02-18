@@ -1,12 +1,8 @@
-const chai = require('chai')
 const nock = require('nock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
+require('../mocha-node-setup')
 
 describe('request errors', () => {
   it('timeout', () => {
@@ -23,9 +19,9 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('HttpError')
-      error.code.should.equal(504)
-      error.should.have.property('stack')
+      expect(error.name).to.equal('HttpError')
+      expect(error.code).to.equal(504)
+      expect(error).to.have.property('stack')
     })
   })
 
@@ -35,16 +31,15 @@ describe('request errors', () => {
       .replyWithError('ooops')
 
     const github = new GitHub({
-      host: 'request-errors-test.com',
-      timeout: 1000
+      host: 'request-errors-test.com'
     })
 
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('HttpError')
-      error.code.should.equal(500)
-      error.should.have.property('stack')
+      expect(error.name).to.equal('HttpError')
+      expect(error.code).to.equal(500)
+      expect(error).to.have.property('stack')
     })
   })
 
@@ -61,9 +56,9 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('HttpError')
-      error.code.should.equal(404)
-      error.should.have.property('stack')
+      expect(error.name).to.equal('HttpError')
+      expect(error.code).to.equal(404)
+      expect(error).to.have.property('stack')
     })
   })
 
@@ -80,9 +75,9 @@ describe('request errors', () => {
     return github.orgs.get({org: 'myorg'})
 
     .catch(error => {
-      error.name.should.equal('HttpError')
-      error.code.should.equal(401)
-      error.should.have.property('stack')
+      expect(error.name).to.equal('HttpError')
+      expect(error.code).to.equal(401)
+      expect(error).to.have.property('stack')
     })
   })
 })

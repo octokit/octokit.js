@@ -2,6 +2,7 @@ language: node_js
 cache:
   directories:
     - ~/.npm
+    - node_modules/cypress/dist
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -17,23 +18,53 @@ stages:
 
 jobs:
   include:
-    # test stage: run Node in all maintained versions. Run unique checks only in the last
-    - node_js: 4
-    - node_js: 6
-    - node_js: 8
-    - node_js: 9
+    - stage: test
+      node_js: 6
       script:
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
+        - npm run test
+    - node_js: 8
+      script:
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
+        - npm run test
+    - node_js: 9
+      env: Node 9, coverage upload
+      script:
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
         - npm run test
         - npm run coverage:upload
+    - node_js: lts/*
+      env: browser tests
+      script:
+        - npm run start-fixtures-server &
+        - sleep 3 # give server some time to start
+        - npm run test:browser
+    - node_js: lts/*
+      sudo: required
+      addons:
+        chrome: stable
+      env: bundle size, typescript validation
+      script:
+        # test bundle size
+        - npm run build:browser
+        - npx bundlesize
+        # test typescript definitions
         - npm run validate:ts
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
+      env: semantic-release
       script:
         - npm run build:flow
         - npm run build:ts
+        - npm run build:browser
+        - npm run generate-bundle-report
         - npm run semantic-release
     - node_js: lts/*
+      env: docs update
       script:
         - npm run build:docs
         - npm run deploy-docs

@@ -1,24 +1,24 @@
-const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
+const {getInstance} = require('../util')
 
-const GitHub = require('../../')
-
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
+require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  it('github.repos.createStatus()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/create-status')
+  let github
 
-    const github = new GitHub()
+  beforeEach(() => {
+    return getInstance('create-status')
 
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
+    .then(instance => {
+      github = instance
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
+  it('github.repos.createStatus()', () => {
     return Promise.all([
       github.repos.createStatus({
         owner: 'octokit-fixture-org',
@@ -49,7 +49,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(2)
+      expect(response.data.length).to.equal(2)
 
       return github.repos.getCombinedStatusForRef({
         owner: 'octokit-fixture-org',
@@ -57,11 +57,9 @@ describe('api.github.com', () => {
         ref: '0000000000000000000000000000000000000001'
       })
     })
-    .then((response) => {
-      response.data.state.should.equal('failure')
-      GitHubMock.pending().should.deep.equal([])
-    })
 
-    .catch(GitHubMock.explain)
+    .then((response) => {
+      expect(response.data.state).to.equal('failure')
+    })
   })
 })

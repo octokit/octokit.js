@@ -1,24 +1,24 @@
-const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
+const {getInstance} = require('../util')
 
-const GitHub = require('../../')
-
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
+require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  it('github.projects.*ProjectCard()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/project-cards')
+  let github
 
-    const github = new GitHub()
+  beforeEach(() => {
+    return getInstance('project-cards')
 
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
+    .then(instance => {
+      github = instance
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
+  it('github.projects.*ProjectCard()', () => {
     return github.projects.createProjectCard({
       column_id: 1000,
       note: 'Example card 1'
@@ -78,11 +78,5 @@ describe('api.github.com', () => {
         id: 1000
       })
     })
-
-    .then((response) => {
-      GitHubMock.pending().should.deep.equal([])
-    })
-
-    .catch(GitHubMock.explain)
   })
 })

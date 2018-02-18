@@ -1,18 +1,17 @@
-# rest.js
+# rest.js [![@latest](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest) [![@next](https://img.shields.io/npm/v/@octokit/rest/next.svg?label=@next)](https://www.npmjs.com/package/@octokit/rest)
 
 > GitHub REST API client for Node.js
 
 [![Build Status](https://travis-ci.org/octokit/rest.js.svg?branch=master)](https://travis-ci.org/octokit/rest.js)
 [![Coverage Status](https://coveralls.io/repos/github/octokit/rest.js/badge.svg)](https://coveralls.io/github/octokit/rest.js)
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
-[![npm](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest)
 
 ## Usage
 
+### Node
+
 Install with `npm install @octokit/rest`.
 
-<!-- HEADS UP: when changing the options for the constructor, make sure to also
-     update the type definition templates in scripts/templates/* -->
 ```js
 const octokit = require('@octokit/rest')()
 
@@ -25,8 +24,36 @@ octokit.repos.getForOrg({
 })
 ```
 
+### Browser
+
+1. Download `octokit-rest.min.js` from the latest release: https://github.com/octokit/rest.js/releases
+
+2. Load it as script into your web application:
+
+   ```html
+   <script scr="octokit-rest.min.js"></script>
+   ```
+
+3. Initialize `octokit`
+
+   ```js
+   const octokit = new Octokit()
+
+   // Compare: https://developer.github.com/v3/repos/#list-organization-repositories
+   octokit.repos.getForOrg({
+     org: 'octokit',
+     type: 'public'
+   }).then(({data}) => {
+     // handle data
+   })
+   ```
+
+### Options
+
 All available client options with default values
 
+<!-- HEADS UP: when changing the options for the constructor, make sure to also
+     update the type definition templates in scripts/templates/* -->
 ```js
 const octokit = require('@octokit/rest')({
   timeout: 0, // 0 means no request timeout
@@ -129,13 +156,19 @@ paginate(octokit.repos.getAll)
   })
 ```
 
-## DEBUG
+## Debug
 
 Set `DEBUG=octokit:rest*` for additional debug logs.
 
 ## Tests
 
-Run all tests
+Before running any tests you have to start the [fixtures server](https://github.com/octokit/fixtures-server)
+
+```
+$ npm run start-fixtures-server
+```
+
+In a second terminal, run the tests
 
 ```bash
 $ npm test
@@ -144,8 +177,17 @@ $ npm test
 Or run a specific test
 
 ```bash
-$ ./node_modules/.bin/mocha test/test/integration/get-repository-test.js
+$ ./node_modules/.bin/mocha test/scenarios/get-repository-test.js
 ```
+
+Run browser tests
+
+```bash
+$ npm run test:browser
+```
+
+**Note**: In order to run the same [scenario tests](test/scenarios) in both Node
+and browser, we simulate the Cypress environment in Node, see [test/mocha-node-setup.js](test/mocha-node-setup.js).
 
 The examples are run as part of the tests. You can set an `EXAMPLES_GITHUB_TOKEN` environment
 variable (or set it in a `.env` file) to avoid running against GitHub's rate limit.

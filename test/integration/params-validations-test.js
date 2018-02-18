@@ -1,12 +1,8 @@
-const chai = require('chai')
 const nock = require('nock')
 
 const GitHub = require('../../')
 
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
+require('../mocha-node-setup')
 
 describe('params validations', () => {
   it('github.orgs.get({})', () => {
@@ -15,8 +11,8 @@ describe('params validations', () => {
     return github.orgs.get({})
 
     .catch(error => {
-      error.toString().should.equal('Empty value for parameter \'org\': undefined')
-      error.toJSON().should.deep.equal({
+      expect(error.toString()).to.equal('Empty value for parameter \'org\': undefined')
+      expect(error.toJSON()).to.deep.equal({
         code: 400,
         message: 'Empty value for parameter \'org\': undefined',
         status: 'Bad Request'
@@ -33,7 +29,7 @@ describe('params validations', () => {
     return github.orgs.get({org: 'foo'})
 
     .catch(error => {
-      error.toJSON().should.deep.equal({
+      expect(error.toJSON()).to.deep.equal({
         code: 500,
         message: 'connect ECONNREFUSED 127.0.0.1:8',
         status: 'Internal Server Error'
@@ -47,7 +43,7 @@ describe('params validations', () => {
     return github.issues.getAll({filter: 'foo'})
 
     .catch(error => {
-      error.toJSON().should.deep.equal({
+      expect(error.toJSON()).to.deep.equal({
         code: 400,
         message: 'Invalid value for parameter \'filter\': foo',
         status: 'Bad Request'
@@ -61,7 +57,7 @@ describe('params validations', () => {
     return github.projects.moveProjectCard({id: 123, position: 'foo'})
 
     .catch(error => {
-      error.toJSON().should.deep.equal({
+      expect(error.toJSON()).to.deep.equal({
         code: 400,
         message: 'Invalid value for parameter \'position\': foo',
         status: 'Bad Request'
@@ -81,7 +77,7 @@ describe('params validations', () => {
     })
 
     .catch(error => {
-      error.toJSON().should.deep.equal({
+      expect(error.toJSON()).to.deep.equal({
         code: 400,
         message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
         status: 'Bad Request'
@@ -100,7 +96,7 @@ describe('params validations', () => {
     })
 
     .catch(error => {
-      error.toJSON().should.deep.equal({
+      expect(error.toJSON()).to.deep.equal({
         code: 400,
         message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
         status: 'Bad Request'
@@ -115,7 +111,7 @@ describe('params validations', () => {
 
     nock('https://milestones-test-host.com')
       .post('/repos/foo/bar/milestones', (body) => {
-        body.due_on.should.equal('2012-10-09T23:39:01.000Z')
+        expect(body.due_on).to.equal('2012-10-09T23:39:01.000Z')
         return true
       })
       .reply(201, {})
@@ -136,7 +132,7 @@ describe('params validations', () => {
     nock('https://notifications-test-host.com')
       .get('/notifications')
       .query(query => {
-        query.should.eql({
+        expect(query).to.eql({
           since: '2018-01-21T23:27:31.000Z'
         })
         return true

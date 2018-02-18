@@ -1,24 +1,24 @@
-const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
+const {getInstance} = require('../util')
 
-const GitHub = require('../../')
-
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
+require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  it('github.repos.{get,update,remove}BranchProtection()', () => {
-    const GitHubMock = fixtures.mock('api.github.com/branch-protection')
+  let github
 
-    const github = new GitHub()
+  beforeEach(() => {
+    return getInstance('branch-protection')
 
-    github.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
+    .then(instance => {
+      github = instance
+
+      github.authenticate({
+        type: 'token',
+        token: '0000000000000000000000000000000000000001'
+      })
     })
+  })
 
+  it('github.repos.{get,update,remove}BranchProtection()', () => {
     return github.repos.getBranchProtection({
       owner: 'octokit-fixture-org',
       repo: 'branch-protection',
@@ -79,11 +79,5 @@ describe('api.github.com', () => {
         branch: 'master'
       })
     })
-
-    .then((response) => {
-      GitHubMock.pending().should.deep.equal([])
-    })
-
-    .catch(GitHubMock.explain)
   })
 })

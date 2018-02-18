@@ -1,19 +1,20 @@
-const chai = require('chai')
-const fixtures = require('@octokit/fixtures')
+const {loadFixture, fixtureToInstace} = require('../util')
 
-const GitHub = require('../../')
-
-const mocha = require('mocha')
-const describe = mocha.describe
-const it = mocha.it
-chai.should()
+require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  it('add-and-remove-repository-collaborator-test', () => {
-    const GitHubMock = fixtures.mock('api.github.com/add-and-remove-repository-collaborator')
-    const githubUserA = new GitHub()
-    const githubUserB = new GitHub()
+  let githubUserA
+  let githubUserB
 
+  beforeEach(() => {
+    return loadFixture('add-and-remove-repository-collaborator')
+
+    .then((fixture) => {
+      githubUserA = fixtureToInstace(fixture)
+      githubUserB = fixtureToInstace(fixture)
+    })
+  })
+  it('add-and-remove-repository-collaborator-test', () => {
     githubUserA.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
@@ -38,7 +39,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(1)
+      expect(response.data.length).to.equal(1)
 
       return githubUserB.users.acceptRepoInvite({
         invitation_id: response.data[0].id
@@ -53,7 +54,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(2)
+      expect(response.data.length).to.equal(2)
 
       return githubUserA.repos.removeCollaborator({
         owner: 'octokit-fixture-org',
@@ -70,10 +71,7 @@ describe('api.github.com', () => {
     })
 
     .then((response) => {
-      response.data.length.should.equal(1)
-      GitHubMock.pending().should.deep.equal([])
+      expect(response.data.length).to.equal(1)
     })
-
-    .catch(GitHubMock.explain)
   })
 })
