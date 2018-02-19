@@ -8,15 +8,15 @@ octokit.repos.getAll({
   affiliation: 'owner,organization_member'
 })
 
-.then(result => {
-  if (octokit.hasNextPage(result)) {
-    return octokit.getNextPage(result)
+  .then(result => {
+    if (octokit.hasNextPage(result)) {
+      return octokit.getNextPage(result)
 
-    .then(handleResults)
-  }
+        .then(handleResults)
+    }
 
-  handleResults(result)
-})
+    handleResults(result)
+  })
 
 function handleResults (result) {
   // result.data has list of repositories

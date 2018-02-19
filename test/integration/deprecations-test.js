@@ -21,9 +21,9 @@ describe('deprecations', () => {
 
     return github.integrations.getInstallations({})
 
-    .then(() => {
-      expect(console.warn.callCount).to.equal(2)
-    })
+      .then(() => {
+        expect(console.warn.callCount).to.equal(2)
+      })
   })
 
   it('deprecated followRedirects option', () => {

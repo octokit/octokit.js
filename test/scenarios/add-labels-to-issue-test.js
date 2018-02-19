@@ -8,9 +8,9 @@ describe('api.github.com', () => {
   beforeEach(() => {
     return getInstance('add-labels-to-issue')
 
-    .then(instance => {
-      github = instance
-    })
+      .then(instance => {
+        github = instance
+      })
   })
 
   it('(#587) add-labels-to-issue-test', () => {
@@ -29,17 +29,17 @@ describe('api.github.com', () => {
       }
     })
 
-    .then(() => {
-      return github.issues.addLabels({
-        owner: 'octokit-fixture-org',
-        repo: 'add-labels-to-issue',
-        number: 1,
-        labels: [
-          'Foo',
-          'bAr',
-          'baZ'
-        ]
+      .then(() => {
+        return github.issues.addLabels({
+          owner: 'octokit-fixture-org',
+          repo: 'add-labels-to-issue',
+          number: 1,
+          labels: [
+            'Foo',
+            'bAr',
+            'baZ'
+          ]
+        })
       })
-    })
   })
 })

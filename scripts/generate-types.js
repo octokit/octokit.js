@@ -21,8 +21,8 @@ function parameterize (key, definition) {
 
   const type = typeMap[definition.type] || definition.type
   const enums = definition.enum
-        ? definition.enum.map(JSON.stringify).join('|')
-        : null
+    ? definition.enum.map(JSON.stringify).join('|')
+    : null
 
   return {
     name: pascalcase(key),

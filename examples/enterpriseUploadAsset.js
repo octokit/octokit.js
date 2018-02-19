@@ -15,13 +15,13 @@ octokit.repos.getReleaseByTag({
   tag: 'v1.0.0'
 })
 
-.then(result => {
-  return octokit.repos.uploadAsset({
-    url: result.data.upload_url,
-    file: 'Hello, world!\n',
-    contentType: 'text/plain',
-    contentLength: 14,
-    name: 'test-upload.txt',
-    label: 'test'
+  .then(result => {
+    return octokit.repos.uploadAsset({
+      url: result.data.upload_url,
+      file: 'Hello, world!\n',
+      contentType: 'text/plain',
+      contentLength: 14,
+      name: 'test-upload.txt',
+      label: 'test'
+    })
   })
-})

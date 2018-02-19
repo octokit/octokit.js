@@ -15,15 +15,15 @@ function loadFixture (scenario) {
     body: JSON.stringify({scenario})
   })
 
-  .then(response => response.json())
+    .then(response => response.json())
 
-  .catch(error => {
-    if (error.code === 'ECONNREFUSED') {
-      throw new Error('Fixtures server could not be reached. Make sure to start it with "npm run start-fixtures-server"')
-    }
+    .catch(error => {
+      if (error.code === 'ECONNREFUSED') {
+        throw new Error('Fixtures server could not be reached. Make sure to start it with "npm run start-fixtures-server"')
+      }
 
-    throw error
-  })
+      throw error
+    })
 }
 
 function fixtureToInstace ({url}) {
@@ -39,5 +39,5 @@ function fixtureToInstace ({url}) {
 function getInstance (scenario) {
   return loadFixture(scenario)
 
-  .then(fixtureToInstace)
+    .then(fixtureToInstace)
 }

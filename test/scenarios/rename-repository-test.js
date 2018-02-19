@@ -8,14 +8,14 @@ describe('api.github.com', () => {
   beforeEach(() => {
     return getInstance('rename-repository')
 
-    .then(instance => {
-      github = instance
+      .then(instance => {
+        github = instance
 
-      github.authenticate({
-        type: 'token',
-        token: '0000000000000000000000000000000000000001'
+        github.authenticate({
+          type: 'token',
+          token: '0000000000000000000000000000000000000001'
+        })
       })
-    })
   })
 
   it('github.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)', () => {
@@ -29,28 +29,28 @@ describe('api.github.com', () => {
       }
     })
 
-    .then(() => {
-      return github.repos.get({
-        owner: 'octokit-fixture-org',
-        repo: 'rename-repository',
-        // TODO: remove once #587 is resolved
-        headers: {
-          accept: 'application/vnd.github.v3+json'
-        }
+      .then(() => {
+        return github.repos.get({
+          owner: 'octokit-fixture-org',
+          repo: 'rename-repository',
+          // TODO: remove once #587 is resolved
+          headers: {
+            accept: 'application/vnd.github.v3+json'
+          }
+        })
       })
-    })
 
-    .then(() => {
-      return github.repos.edit({
-        owner: 'octokit-fixture-org',
-        repo: 'rename-repository',
-        // TODO: remove once #587 is resolved
-        headers: {
-          accept: 'application/vnd.github.v3+json'
-        },
-        name: 'rename-repository-newname',
-        description: 'test description'
+      .then(() => {
+        return github.repos.edit({
+          owner: 'octokit-fixture-org',
+          repo: 'rename-repository',
+          // TODO: remove once #587 is resolved
+          headers: {
+            accept: 'application/vnd.github.v3+json'
+          },
+          name: 'rename-repository-newname',
+          description: 'test description'
+        })
       })
-    })
   })
 })
