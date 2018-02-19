@@ -8,17 +8,17 @@ octokit.pullRequests.getReviews({
   number: 640
 })
 
-.then(result => {
-  const firstReviewId = result.data[0].id
+  .then(result => {
+    const firstReviewId = result.data[0].id
 
-  return octokit.pullRequests.getReview({
-    owner: 'octokit',
-    repo: 'rest.js',
-    number: 640,
-    id: firstReviewId
+    return octokit.pullRequests.getReview({
+      owner: 'octokit',
+      repo: 'rest.js',
+      number: 640,
+      id: firstReviewId
+    })
   })
-})
 
-.then(result => {
+  .then(result => {
   // result.data has review properties
-})
+  })

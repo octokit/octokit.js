@@ -8,14 +8,14 @@ describe('api.github.com', () => {
   beforeEach(() => {
     return getInstance('lock-issue')
 
-    .then(instance => {
-      github = instance
+      .then(instance => {
+        github = instance
 
-      github.authenticate({
-        type: 'token',
-        token: '0000000000000000000000000000000000000001'
+        github.authenticate({
+          type: 'token',
+          token: '0000000000000000000000000000000000000001'
+        })
       })
-    })
   })
 
   it('github.issues.{lock,unlock}()', () => {
@@ -25,12 +25,12 @@ describe('api.github.com', () => {
       number: 1
     })
 
-    .then(() => {
-      return github.issues.unlock({
-        owner: 'octokit-fixture-org',
-        repo: 'lock-issue',
-        number: 1
+      .then(() => {
+        return github.issues.unlock({
+          owner: 'octokit-fixture-org',
+          repo: 'lock-issue',
+          number: 1
+        })
       })
-    })
   })
 })

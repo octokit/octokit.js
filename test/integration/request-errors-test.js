@@ -18,11 +18,11 @@ describe('request errors', () => {
 
     return github.orgs.get({org: 'myorg'})
 
-    .catch(error => {
-      expect(error.name).to.equal('HttpError')
-      expect(error.code).to.equal(504)
-      expect(error).to.have.property('stack')
-    })
+      .catch(error => {
+        expect(error.name).to.equal('HttpError')
+        expect(error.code).to.equal(504)
+        expect(error).to.have.property('stack')
+      })
   })
 
   it('500', () => {
@@ -36,11 +36,11 @@ describe('request errors', () => {
 
     return github.orgs.get({org: 'myorg'})
 
-    .catch(error => {
-      expect(error.name).to.equal('HttpError')
-      expect(error.code).to.equal(500)
-      expect(error).to.have.property('stack')
-    })
+      .catch(error => {
+        expect(error.name).to.equal('HttpError')
+        expect(error.code).to.equal(500)
+        expect(error).to.have.property('stack')
+      })
   })
 
   it('404', () => {
@@ -55,11 +55,11 @@ describe('request errors', () => {
 
     return github.orgs.get({org: 'myorg'})
 
-    .catch(error => {
-      expect(error.name).to.equal('HttpError')
-      expect(error.code).to.equal(404)
-      expect(error).to.have.property('stack')
-    })
+      .catch(error => {
+        expect(error.name).to.equal('HttpError')
+        expect(error.code).to.equal(404)
+        expect(error).to.have.property('stack')
+      })
   })
 
   it('401', () => {
@@ -74,10 +74,10 @@ describe('request errors', () => {
 
     return github.orgs.get({org: 'myorg'})
 
-    .catch(error => {
-      expect(error.name).to.equal('HttpError')
-      expect(error.code).to.equal(401)
-      expect(error).to.have.property('stack')
-    })
+      .catch(error => {
+        expect(error.name).to.equal('HttpError')
+        expect(error.code).to.equal(401)
+        expect(error).to.have.property('stack')
+      })
   })
 })

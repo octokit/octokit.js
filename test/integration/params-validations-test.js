@@ -10,14 +10,14 @@ describe('params validations', () => {
 
     return github.orgs.get({})
 
-    .catch(error => {
-      expect(error.toString()).to.equal('Empty value for parameter \'org\': undefined')
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Empty value for parameter \'org\': undefined',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toString()).to.equal('Empty value for parameter \'org\': undefined')
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Empty value for parameter \'org\': undefined',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('request error', () => {
@@ -28,13 +28,13 @@ describe('params validations', () => {
 
     return github.orgs.get({org: 'foo'})
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 500,
-        message: 'connect ECONNREFUSED 127.0.0.1:8',
-        status: 'Internal Server Error'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 500,
+          message: 'connect ECONNREFUSED 127.0.0.1:8',
+          status: 'Internal Server Error'
+        })
       })
-    })
   })
 
   it('invalid value for github.issues.getAll({filter})', () => {
@@ -42,13 +42,13 @@ describe('params validations', () => {
 
     return github.issues.getAll({filter: 'foo'})
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Invalid value for parameter \'filter\': foo',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'filter\': foo',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('invalid value for github.projects.moveProjectCard({position})', () => {
@@ -56,13 +56,13 @@ describe('params validations', () => {
 
     return github.projects.moveProjectCard({id: 123, position: 'foo'})
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Invalid value for parameter \'position\': foo',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'position\': foo',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('Not a number for github.repos.createCommitComment({..., position})', () => {
@@ -76,13 +76,13 @@ describe('params validations', () => {
       position: 'Age Ain’t Nothing'
     })
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('Not a valid JSON string for github.repos.createHook({..., config})', () => {
@@ -95,13 +95,13 @@ describe('params validations', () => {
       config: 'I’m no Je-Son!'
     })
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('Date object for github.issues.createMilestone({..., due_on})', () => {

@@ -8,9 +8,9 @@ describe('api.github.com', () => {
   beforeEach(() => {
     return getInstance('get-repository')
 
-    .then(instance => {
-      github = instance
-    })
+      .then(instance => {
+        github = instance
+      })
   })
 
   it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
@@ -23,8 +23,8 @@ describe('api.github.com', () => {
       }
     })
 
-    .then((response) => {
-      expect(response.data.owner.login).to.equal('octokit-fixture-org')
-    })
+      .then((response) => {
+        expect(response.data.owner.login).to.equal('octokit-fixture-org')
+      })
   })
 })
