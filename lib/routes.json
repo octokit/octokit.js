@@ -5617,6 +5617,18 @@
         "body": {
           "type": "string",
           "required": true
+        },
+        "commit_id": {
+          "type": "string",
+          "required": true
+        },
+        "path": {
+          "type": "string",
+          "required": true
+        },
+        "position": {
+          "type": "number",
+          "required": true
         }
       },
       "description": "Create a comment"
