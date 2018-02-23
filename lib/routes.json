@@ -4998,12 +4998,10 @@
 	},
 	"body": {
 	  "type": "string",
-	  "required": false,
 	  "description": "The contents of the pull request."
 	},
 	"maintainer_can_modify": {
 	  "type": "boolean",
-	  "required": false,
 	  "description": "Indicates whether maintainers can modify the pull request."
 	}
       },
