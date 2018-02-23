@@ -66,7 +66,7 @@ const octokit = require('@octokit/rest')({
   host: 'api.github.com',
   pathPrefix: '',
   protocol: 'https',
-  port: 433,
+  port: 443,
 
   // advanced request options
   // see https://nodejs.org/api/http.html
