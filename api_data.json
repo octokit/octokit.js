@@ -13802,27 +13802,6 @@
             "optional": false,
             "field": "base",
             "description": "<p>The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "title",
-            "description": "<p>The title of the pull request.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "body",
-            "description": "<p>The contents of the pull request.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "boolean",
-            "optional": true,
-            "field": "maintainer_can_modify",
-            "description": "<p>Indicates whether maintainers can modify the pull request.</p>"
           }
         ]
       }
@@ -13830,17 +13809,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify})",
+        "content": "const result = await octokit.pullRequests.create({owner, repo, head, base})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify}).then(result => {})",
+        "content": "octokit.pullRequests.create({owner, repo, head, base}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify}, (error, result) => {})",
+        "content": "octokit.pullRequests.create({owner, repo, head, base}, (error, result) => {})",
         "type": "js"
       }
     ],
