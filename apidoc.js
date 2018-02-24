@@ -4225,12 +4225,15 @@
  * @apiParam {string} repo  
  * @apiParam {string} head  The branch (or git ref) where your changes are implemented.
  * @apiParam {string} base  The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
+ * @apiParam {string} title  The title of the pull request.
+ * @apiParam {string} [body]  The contents of the pull request.
+ * @apiParam {boolean} [maintainer_can_modify]  Indicates whether maintainers can modify the pull request.
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.create({owner, repo, head, base})
+ * const result = await octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify})
  * @apiExample {js} Promise
- * octokit.pullRequests.create({owner, repo, head, base}).then(result => {})
+ * octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.create({owner, repo, head, base}, (error, result) => {})
+ * octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify}, (error, result) => {})
  */
 
 
@@ -4597,12 +4600,15 @@
  * @apiParam {string} repo  
  * @apiParam {number} number  
  * @apiParam {string} body  
+ * @apiParam {string} commit_id  
+ * @apiParam {string} path  
+ * @apiParam {number} position  
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.createComment({owner, repo, number, body})
+ * const result = await octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position})
  * @apiExample {js} Promise
- * octokit.pullRequests.createComment({owner, repo, number, body}).then(result => {})
+ * octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.createComment({owner, repo, number, body}, (error, result) => {})
+ * octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}, (error, result) => {})
  */
 
 

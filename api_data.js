@@ -13802,6 +13802,27 @@ define({ "api": [
             "optional": false,
             "field": "base",
             "description": "<p>The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "title",
+            "description": "<p>The title of the pull request.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "body",
+            "description": "<p>The contents of the pull request.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": true,
+            "field": "maintainer_can_modify",
+            "description": "<p>Indicates whether maintainers can modify the pull request.</p>"
           }
         ]
       }
@@ -13809,17 +13830,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.create({owner, repo, head, base})",
+        "content": "const result = await octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.create({owner, repo, head, base}).then(result => {})",
+        "content": "octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.create({owner, repo, head, base}, (error, result) => {})",
+        "content": "octokit.pullRequests.create({owner, repo, head, base, title, body, maintainer_can_modify}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13864,6 +13885,27 @@ define({ "api": [
             "optional": false,
             "field": "body",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "commit_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "path",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "position",
+            "description": ""
           }
         ]
       }
@@ -13871,17 +13913,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.createComment({owner, repo, number, body})",
+        "content": "const result = await octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.createComment({owner, repo, number, body}).then(result => {})",
+        "content": "octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.createComment({owner, repo, number, body}, (error, result) => {})",
+        "content": "octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}, (error, result) => {})",
         "type": "js"
       }
     ],
