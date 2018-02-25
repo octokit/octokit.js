@@ -41,4 +41,23 @@ b597b5d`,
         })
       })
   })
+
+  it('github.misc.renderMarkdown() with capitalized headers.Accept', () => {
+    return github.misc.renderMarkdown({
+      text: `### Hello
+
+b597b5d`,
+      context: 'octokit-fixture-org/hello-world',
+      mode: 'gfm',
+      headers: {
+        Accept: 'text/html'
+      }
+    })
+
+      .then((response) => {
+        expect(response.data).to.match(/<h3>Hello<\/h3>/)
+        expect(response.data).to.match(/\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/)
+        expect(response.data).to.match(/<tt>b597b5d<\/tt>/)
+      })
+  })
 })
