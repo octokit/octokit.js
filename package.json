@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@octokit/fixtures-server": "^2.0.1",
+    "@types/node": "^9.4.6",
     "apidoc": "^0.17.6",
     "bundlesize": "^0.16.0",
     "chai": "^4.1.2",
