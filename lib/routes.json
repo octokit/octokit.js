@@ -4091,7 +4091,7 @@
           "description": "The level of privacy this team should have."
         },
         "parent_team_id": {
-          "type": "string",
+          "type": "number",
           "description": "The ID of a team to set as the parent team."
         }
       },
@@ -4126,7 +4126,7 @@
           "description": "The level of privacy this team should have."
         },
         "parent_team_id": {
-          "type": "string",
+          "type": "number",
           "description": "The ID of a team to set as the parent team."
         }
       },
