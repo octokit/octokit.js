@@ -2,6 +2,8 @@
  * This declaration file requires TypeScript 2.1 or above.
  */
 
+import * as http from 'http'
+
 declare namespace Github {
   type json = any
   type date = string
@@ -41,6 +43,7 @@ declare namespace Github {
     requestMedia?: string;
     rejectUnauthorized?: boolean;
     family?: number;
+    agent: http.Agent;
   }
 
   export interface AuthBasic  {

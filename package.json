@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@octokit/fixtures-server": "^2.0.1",
+    "@types/node": "^9.4.6",
     "apidoc": "^0.17.6",
     "bundlesize": "^0.16.0",
     "chai": "^4.1.2",
@@ -70,12 +71,13 @@
     "standard-markdown": "^4.0.2",
     "string-to-arraybuffer": "^1.0.0",
     "typescript": "^2.6.2",
-    "webpack": "^4.0.0-beta.2",
+    "webpack": "^4.0.0",
     "webpack-bundle-analyzer": "^2.10.0",
     "webpack-cli": "^2.0.4"
   },
   "browser": {
-    "./lib/request/request.js": "./lib/request/request-browser.js"
+    "./lib/request/request.js": "./lib/request/request-browser.js",
+    "./lib/get-request-agent.js": false
   },
   "types": "index.d.ts",
   "scripts": {
@@ -134,8 +136,10 @@
   "standard": {
     "globals": [
       "describe",
+      "before",
       "beforeEach",
       "afterEach",
+      "after",
       "it",
       "expect",
       "cy"

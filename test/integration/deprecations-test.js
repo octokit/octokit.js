@@ -39,4 +39,32 @@ describe('deprecations', () => {
     })
     expect(console.warn.callCount).to.equal(1)
   })
+
+  it('deprecated ca option', () => {
+    GitHub({
+      ca: 'certificate123'
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
+  it('deprecated proxy option', () => {
+    GitHub({
+      proxy: 'http://localhost:1234'
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
+  it('deprecated family option', () => {
+    GitHub({
+      family: 6
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
+  it('deprecated rejectUnauthorized option', () => {
+    GitHub({
+      rejectUnauthorized: false
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
 })
