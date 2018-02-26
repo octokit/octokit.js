@@ -11011,7 +11011,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "number",
             "optional": true,
             "field": "parent_team_id",
             "description": "<p>The ID of a team to set as the parent team.</p>"
@@ -11299,7 +11299,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "number",
             "optional": true,
             "field": "parent_team_id",
             "description": "<p>The ID of a team to set as the parent team.</p>"

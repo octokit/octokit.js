@@ -3455,7 +3455,7 @@
  * @apiParam {string[]} [maintainers]  The logins of organization members to add as maintainers of the team.
  * @apiParam {string[]} [repo_names]  The full name (e.g., "organization-name/repository-name") of repositories to add the team to.
  * @apiParam {string=secret,closed} [privacy=secret]  The level of privacy this team should have.
- * @apiParam {string} [parent_team_id]  The ID of a team to set as the parent team.
+ * @apiParam {number} [parent_team_id]  The ID of a team to set as the parent team.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, parent_team_id})
  * @apiExample {js} Promise
@@ -3475,7 +3475,7 @@
  * @apiParam {string} name  
  * @apiParam {string} [description]  The description of the team.
  * @apiParam {string=secret,closed} [privacy=secret]  The level of privacy this team should have.
- * @apiParam {string} [parent_team_id]  The ID of a team to set as the parent team.
+ * @apiParam {number} [parent_team_id]  The ID of a team to set as the parent team.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.editTeam({id, name, description, privacy, parent_team_id})
  * @apiExample {js} Promise
