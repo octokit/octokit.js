@@ -61,7 +61,7 @@
     "@gr2m/node-fetch": "^2.0.0",
     "npm-run-all": "^4.1.2",
     "nyc": "^11.2.1",
-    "proxyquire": "^1.8.0",
+    "proxyquire": "^2.0.0",
     "semantic-release": "^14.0.3",
     "sinon": "^4.2.2",
     "sinon-chai": "^2.14.0",
