@@ -27,10 +27,9 @@ describe('api.github.com', () => {
     })
 
       .then(result => {
-        const content = Buffer.from('Hello, world!\n')
         return github.repos.uploadAsset({
           url: result.data.upload_url,
-          file: content,
+          file: Buffer.from('Hello, world!\n'),
           contentType: 'text/plain',
           contentLength: 14,
           name: 'test-upload.txt',
@@ -47,10 +46,9 @@ describe('api.github.com', () => {
     })
 
       .then(result => {
-        const content = stringToArrayBuffer('Hello, world!\n')
         return github.repos.uploadAsset({
           url: result.data.upload_url,
-          file: content,
+          file: stringToArrayBuffer('Hello, world!\n'),
           contentType: 'text/plain',
           contentLength: 14,
           name: 'test-upload.txt',
