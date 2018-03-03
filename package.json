@@ -39,7 +39,6 @@
     "before-after-hook": "^1.1.0",
     "btoa-lite": "^1.0.0",
     "debug": "^3.1.0",
-    "is-stream": "^1.1.0",
     "lodash": "^4.17.4",
     "url-template": "^2.0.8"
   },
