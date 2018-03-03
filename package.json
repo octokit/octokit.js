@@ -126,7 +126,8 @@
       {
         "path": "@semantic-release/github",
         "assets": [
-          "dist/*.js"
+          "dist/*",
+          "!dist/*.map.gz"
         ]
       }
     ]
