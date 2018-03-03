@@ -31,7 +31,7 @@ describe('params validations', () => {
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 500,
-          message: 'connect ECONNREFUSED 127.0.0.1:8',
+          message: 'request to https://127.0.0.1:8/orgs/foo failed, reason: connect ECONNREFUSED 127.0.0.1:8',
           status: 'Internal Server Error'
         })
       })
