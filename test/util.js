@@ -5,7 +5,10 @@ module.exports = {
 }
 
 const parseUrl = require('url').parse
+
 const fetch = require('node-fetch')
+const merge = require('lodash/merge')
+
 const GitHub = require('../')
 
 function loadFixture (scenario) {
@@ -26,18 +29,18 @@ function loadFixture (scenario) {
     })
 }
 
-function fixtureToInstace ({url}) {
+function fixtureToInstace ({url}, options) {
   url = parseUrl(url)
 
-  return new GitHub({
+  return new GitHub(merge(options, {
     host: url.host,
     protocol: url.protocol.replace(/:$/, ''),
     pathPrefix: url.path
-  })
+  }))
 }
 
-function getInstance (scenario) {
+function getInstance (scenario, options) {
   return loadFixture(scenario)
 
-    .then(fixtureToInstace)
+    .then(fixture => fixtureToInstace(fixture, options))
 }

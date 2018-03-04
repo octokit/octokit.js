@@ -39,8 +39,43 @@ describe('custom client certificate', () => {
     })
   })
 
+  it('options.ca & options.rejectUnauthorized', () => {
+    const octokit = new Octokit({
+      protocol: 'https',
+      host: 'localhost',
+      port: server.address().port,
+      ca: 'invalid',
+      rejectUnauthorized: false
+    })
+
+    return octokit.repos.get({
+      owner: 'octokit',
+      repo: 'rest.js'
+    })
+  })
+
   it('https.Agent({ca})', () => {
-    const agent = new https.Agent({ca})
+    const agent = new https.Agent({
+      ca
+    })
+    const octokit = new Octokit({
+      protocol: 'https',
+      host: 'localhost',
+      port: server.address().port,
+      agent
+    })
+
+    return octokit.repos.get({
+      owner: 'octokit',
+      repo: 'rest.js'
+    })
+  })
+
+  it('https.Agent({ca, rejectUnauthorized})', () => {
+    const agent = new https.Agent({
+      ca: 'invalid',
+      rejectUnauthorized: false
+    })
     const octokit = new Octokit({
       protocol: 'https',
       host: 'localhost',
