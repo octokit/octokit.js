@@ -5,7 +5,7 @@ module.exports = {
 }
 
 const parseUrl = require('url').parse
-const fetch = require('@gr2m/node-fetch')
+const fetch = require('node-fetch')
 const GitHub = require('../')
 
 function loadFixture (scenario) {
