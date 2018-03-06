@@ -2066,7 +2066,8 @@
         },
         "milestone": {
           "type": "number",
-          "description": "Milestone to associate this issue with."
+          "description": "Milestone to associate this issue with.",
+          "allow-null": true
         },
         "labels": {
           "type": "string[]",
