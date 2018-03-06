@@ -143,4 +143,33 @@ describe('params validations', () => {
       since: '2018-01-21T23:27:31.000Z'
     })
   })
+
+  it('does not alter passed options', () => {
+    const github = new GitHub({
+      host: 'params-test-host.com'
+    })
+
+    nock('https://params-test-host.com')
+      .get('/orgs/foo')
+      .reply(200, {})
+
+    const options = {
+      org: 'foo',
+      headers: {
+        'x-bar': 'baz'
+      }
+    }
+    return github.orgs.get(options)
+      .catch(() => {
+        // ignore error
+      })
+      .then(() => {
+        expect(options).to.deep.eql({
+          org: 'foo',
+          headers: {
+            'x-bar': 'baz'
+          }
+        })
+      })
+  })
 })
