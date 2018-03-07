@@ -80,4 +80,28 @@ describe('request errors', () => {
         expect(error).to.have.property('stack')
       })
   })
+
+  it('error headers', () => {
+    nock('https://request-errors-test.com')
+      .get('/orgs/myorg')
+      .reply(401, {}, {
+        'x-foo': 'bar'
+      })
+
+    const github = new GitHub({
+      host: 'request-errors-test.com',
+      timeout: 1000
+    })
+
+    return github.orgs.get({org: 'myorg'})
+
+      .catch(error => {
+        expect(error.name).to.equal('HttpError')
+        expect(error.code).to.equal(401)
+        expect(error.headers).to.deep.equal({
+          'content-type': 'application/json',
+          'x-foo': 'bar'
+        })
+      })
+  })
 })
