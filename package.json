@@ -2,8 +2,7 @@
   "name": "@octokit/rest",
   "version": "0.0.0-semantically-released",
   "publishConfig": {
-    "access": "public",
-    "tag": "next"
+    "access": "public"
   },
   "description": "GitHub REST API client for Node.js",
   "keywords": [
