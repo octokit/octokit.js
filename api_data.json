@@ -24483,47 +24483,6 @@
   },
   {
     "type": "GET",
-    "url": "/legacy/user/email/:email",
-    "title": "email",
-    "name": "email",
-    "description": "<p>Search against public email addresses.</p>",
-    "group": "Search",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "email",
-            "description": "<p>The email address</p>"
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.search.email({email})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.search.email({email}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.email({email}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Search"
-  },
-  {
-    "type": "GET",
     "url": "/search/issues",
     "title": "issues",
     "name": "issues",

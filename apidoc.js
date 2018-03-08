@@ -7377,22 +7377,6 @@
  */
 
 
-/**
- * @api {GET} /legacy/user/email/:email email
- * @apiName email
- * @apiDescription Search against public email addresses.
- * @apiGroup Search
- *
- * @apiParam {string} email  The email address
- * @apiExample {js} async/await
- * const result = await octokit.search.email({email})
- * @apiExample {js} Promise
- * octokit.search.email({email}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.email({email}, (error, result) => {})
- */
-
-
 
 /**,
  * Users
