@@ -65,7 +65,7 @@
     "nyc": "^11.2.1",
     "proxy": "^0.2.4",
     "proxyquire": "^2.0.0",
-    "semantic-release": "^14.0.3",
+    "semantic-release": "^15.0.0",
     "sinon": "^4.2.2",
     "sinon-chai": "^3.0.0",
     "standard": "^11.0.0",
