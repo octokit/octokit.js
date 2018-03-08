@@ -9590,18 +9590,6 @@
         }
       },
       "description": "Search users."
-    },
-    "email": {
-      "url": "/legacy/user/email/:email",
-      "method": "GET",
-      "params": {
-        "email": {
-          "type": "string",
-          "required": true,
-          "description": "The email address"
-        }
-      },
-      "description": "Search against public email addresses."
     }
   },
   "users": {
