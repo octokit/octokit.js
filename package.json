@@ -86,6 +86,7 @@
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
     "pretest": "standard && standard-markdown",
     "test": "nyc mocha test/mocha-node-setup.js 'test/**/*-test.js'",
+    "posttest": "npm run-script build:ts && tsc test/typescript-validate.ts ",
     "test:browser": "cypress run --browser chrome",
     "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
