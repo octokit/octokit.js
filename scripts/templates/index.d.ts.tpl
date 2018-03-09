@@ -43,7 +43,7 @@ declare namespace Github {
     requestMedia?: string;
     rejectUnauthorized?: boolean;
     family?: number;
-    agent: http.Agent;
+    agent?: http.Agent;
   }
 
   export interface AuthBasic  {
