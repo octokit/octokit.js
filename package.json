@@ -86,7 +86,6 @@
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
     "pretest": "standard && standard-markdown",
     "test": "nyc mocha test/mocha-node-setup.js 'test/**/*-test.js'",
-    "posttest": "npm run-script build:ts && tsc test/typescript-validate.ts ",
     "test:browser": "cypress run --browser chrome",
     "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
@@ -102,6 +101,7 @@
     "generate-bundle-report": "webpack-bundle-analyzer dist/bundle-stats.json --mode=static --no-open --report dist/bundle-report.html",
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 index.d.ts",
+    "postvalidate:ts": "npm run-script build:ts && tsc test/typescript-validate.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release",
     "start-fixtures-server": "octokit-fixtures-server"
