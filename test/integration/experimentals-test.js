@@ -9,7 +9,7 @@ describe('authentication plugin', () => {
 
   beforeEach(() => {
     github = new GitHub({
-      host: 'authentication-plugin-test-host.com'
+      baseUrl: 'https://authentication-plugin-test-host.com'
     })
   })
 

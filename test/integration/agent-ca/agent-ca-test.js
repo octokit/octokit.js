@@ -27,9 +27,7 @@ describe('custom client certificate', () => {
 
   it('options.ca', () => {
     const octokit = new Octokit({
-      protocol: 'https',
-      host: 'localhost',
-      port: server.address().port,
+      baseUrl: 'https://localhost:' + server.address().port,
       ca
     })
 
@@ -41,9 +39,7 @@ describe('custom client certificate', () => {
 
   it('options.ca & options.rejectUnauthorized', () => {
     const octokit = new Octokit({
-      protocol: 'https',
-      host: 'localhost',
-      port: server.address().port,
+      baseUrl: 'https://localhost:' + server.address().port,
       ca: 'invalid',
       rejectUnauthorized: false
     })
@@ -59,9 +55,7 @@ describe('custom client certificate', () => {
       ca
     })
     const octokit = new Octokit({
-      protocol: 'https',
-      host: 'localhost',
-      port: server.address().port,
+      baseUrl: 'https://localhost:' + server.address().port,
       agent
     })
 
@@ -77,9 +71,7 @@ describe('custom client certificate', () => {
       rejectUnauthorized: false
     })
     const octokit = new Octokit({
-      protocol: 'https',
-      host: 'localhost',
-      port: server.address().port,
+      baseUrl: 'https://localhost:' + server.address().port,
       agent
     })
 

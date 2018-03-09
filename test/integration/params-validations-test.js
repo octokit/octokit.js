@@ -22,8 +22,7 @@ describe('params validations', () => {
 
   it('request error', () => {
     const github = new GitHub({
-      host: '127.0.0.1',
-      port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
+      baseUrl: 'https://127.0.0.1:8' // port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     })
 
     return github.orgs.get({org: 'foo'})
@@ -106,7 +105,7 @@ describe('params validations', () => {
 
   it('Date object for github.issues.createMilestone({..., due_on})', () => {
     const github = new GitHub({
-      host: 'milestones-test-host.com'
+      baseUrl: 'https://milestones-test-host.com'
     })
 
     nock('https://milestones-test-host.com')
@@ -126,7 +125,7 @@ describe('params validations', () => {
 
   it('Date is passed in correct format for notifications (#716)', () => {
     const github = new GitHub({
-      host: 'notifications-test-host.com'
+      baseUrl: 'https://notifications-test-host.com'
     })
 
     nock('https://notifications-test-host.com')
@@ -146,7 +145,7 @@ describe('params validations', () => {
 
   it('does not alter passed options', () => {
     const github = new GitHub({
-      host: 'params-test-host.com'
+      baseUrl: 'https://params-test-host.com'
     })
 
     nock('https://params-test-host.com')

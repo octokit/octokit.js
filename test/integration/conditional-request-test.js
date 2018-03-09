@@ -9,7 +9,7 @@ describe('request 304s', () => {
 
   beforeEach(() => {
     github = new GitHub({
-      host: 'request-errors-test.com'
+      baseUrl: 'https://request-errors-test.com'
     })
   })
 

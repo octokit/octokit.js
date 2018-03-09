@@ -15,9 +15,7 @@ describe('smoke', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'myhost.com',
-      protocol: 'http',
-      pathPrefix: '/my/api/'
+      baseUrl: 'http://myhost.com/my/api'
     })
 
     return github.orgs.get({org: 'myorg'})
@@ -29,7 +27,7 @@ describe('smoke', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'smoke-test.com'
+      baseUrl: 'https://smoke-test.com'
     })
 
     github.orgs.get({org: 'myorg'}, done)
@@ -41,7 +39,7 @@ describe('smoke', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'smoke-test.com'
+      baseUrl: 'https://smoke-test.com'
     })
 
     const customHeaders = {
@@ -78,7 +76,7 @@ describe('smoke', () => {
       .reply(404, {})
 
     const github = new GitHub({
-      host: 'smoke-test.com'
+      baseUrl: 'https://smoke-test.com'
     })
 
     github.authenticate({
