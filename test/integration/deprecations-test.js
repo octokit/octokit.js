@@ -33,6 +33,34 @@ describe('deprecations', () => {
     expect(console.warn.callCount).to.equal(1)
   })
 
+  it('deprecated protocol option', () => {
+    GitHub({
+      protocol: 'https'
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
+  it('deprecated host option', () => {
+    GitHub({
+      host: 'deprecations-test.com'
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
+  it('deprecated port option', () => {
+    GitHub({
+      port: 1234
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
+  it('deprecated pathPrefix option', () => {
+    GitHub({
+      pathPrefix: 'deprecations-test.com/'
+    })
+    expect(console.warn.callCount).to.equal(1)
+  })
+
   it('deprecated Promise option', () => {
     GitHub({
       Promise: {}
