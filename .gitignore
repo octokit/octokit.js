@@ -17,8 +17,5 @@ doc/
 # browser builds
 dist/
 
-# TypeScript test
-test/typescript-validate.js
-
 # cypress
 cypress/
