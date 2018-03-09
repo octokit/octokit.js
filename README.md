@@ -63,11 +63,8 @@ const octokit = require('@octokit/rest')({
     'user-agent': 'octokit/rest.js v1.2.3' // v1.2.3 will be current version
   },
 
-  // change for custom GitHub Enterprise URL
-  host: 'api.github.com',
-  pathPrefix: '',
-  protocol: 'https',
-  port: 443,
+  // custom GitHub Enterprise URL
+  baseUrl: 'https://api.github.com',
 
   // Node only: advanced request options can be passed as http(s) agent
   agent: undefined
