@@ -33,6 +33,21 @@ Here is an overview of [how `@octokit/rest` works](HOW_IT_WORKS.md).
 * Be sure to tag any issues your pull request is taking care of / contributing to.
 	* Adding "Closes #123" to a pull request description will auto close the issue once the pull request is merged in.
 
+## Testing a pull request from github repo locally:
+
+* You can install a specific pull request of a module from github using the bellow command
+`npm install owner/reponame#pullrequestId/branchname`
+
+* For example to test https://github.com/octokit/rest.js/pull/792 locally run...
+`npm install octokit/rest.js#791/error-headers`
+
+`octokit/rest.js` is the `owner/repo` of the github repository and `791/error-headers` is the `pullrequestId/branchname`. The branch name would default to `master` if it is not present.
+
+* After the installation is done, you can double check with npm ls @octokit/rest which will show something like
+└── @octokit/rest@0.0.0-semantically-released  (git+https://github.com/octokit/rest.js.git#505ed1f57671480b625131abb00c277c67cae40a)
+
+* Once you are done testing, you can revert back to the default module `@octokit/rest` from npm with `npm i @octokit/rest`
+
 ## Merging the Pull Request & releasing a new version
 
 Releases are automated using [semantic-release](https://github.com/semantic-release/semantic-release).
@@ -50,18 +65,3 @@ Before the publish it runs the `npm run build` script which generates type defin
 The script also generates the API docs. After the publish, the API docs are automatically pushed to the `gh-pages` branch which updates the documentation at  [octokit.github.io/rest.js](https://octokit.github.io/rest.js).
 
 If the pull request looks good but does not follow the commit conventions, use the "Squash & merge" button.
-
-## Testing a pull request from github repo locally:
-
-* You can install a specific pull request of a module from github using the bellow command
-`npm install owner/reponame#pullrequestId/branchname`
-
-* For example to test https://github.com/octokit/rest.js/pull/792 locally run...
-`npm install octokit/rest.js#791/error-headers`
-
-`octokit/rest.js` is the `owner/repo` of the github repository and `791/error-headers` is the `pullrequestId/branchname`. The branch name would default to `master` if it is not present.
-
-* After the installation is done, you can double check with npm ls @octokit/rest which will show something like
-└── @octokit/rest@0.0.0-semantically-released  (git+https://github.com/octokit/rest.js.git#505ed1f57671480b625131abb00c277c67cae40a)
-
-* Once you are done testing, you can revert back to the default module `@octokit/rest` from npm with `npm i @octokit/rest`
