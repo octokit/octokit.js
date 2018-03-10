@@ -33,9 +33,7 @@ function fixtureToInstace ({url}, options) {
   url = parseUrl(url)
 
   return new GitHub(merge(options, {
-    host: url.host,
-    protocol: url.protocol.replace(/:$/, ''),
-    pathPrefix: url.path
+    baseUrl: url.protocol.replace(/:$/, '') + url.host + '/' + url.path
   }))
 }
 
