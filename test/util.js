@@ -4,8 +4,6 @@ module.exports = {
   getInstance
 }
 
-const parseUrl = require('url').parse
-
 const fetch = require('node-fetch')
 const merge = require('lodash/merge')
 
@@ -30,10 +28,8 @@ function loadFixture (scenario) {
 }
 
 function fixtureToInstace ({url}, options) {
-  url = parseUrl(url)
-
   return new GitHub(merge(options, {
-    baseUrl: url.protocol.replace(/:$/, '') + url.host + '/' + url.path
+    baseUrl: url
   }))
 }
 
