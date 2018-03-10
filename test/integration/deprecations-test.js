@@ -9,7 +9,7 @@ describe('deprecations', () => {
 
   beforeEach(() => {
     github = new GitHub({
-      host: 'deprecations-test.com'
+      baseUrl: 'https://deprecations-test.com'
     })
     cy.stub(console, 'warn')
   })
