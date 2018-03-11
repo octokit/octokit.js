@@ -70,6 +70,7 @@ describe('deprecations', () => {
 
   it('deprecated ca option', () => {
     GitHub({
+      baseUrl: 'https://api.github.com',
       ca: 'certificate123'
     })
     expect(console.warn.callCount).to.equal(1)
@@ -77,6 +78,7 @@ describe('deprecations', () => {
 
   it('deprecated proxy option', () => {
     GitHub({
+      baseUrl: 'https://api.github.com',
       proxy: 'http://localhost:1234'
     })
     expect(console.warn.callCount).to.equal(1)
@@ -84,6 +86,7 @@ describe('deprecations', () => {
 
   it('deprecated family option', () => {
     GitHub({
+      baseUrl: 'https://api.github.com',
       family: 6
     })
     expect(console.warn.callCount).to.equal(1)
@@ -91,6 +94,7 @@ describe('deprecations', () => {
 
   it('deprecated rejectUnauthorized option', () => {
     GitHub({
+      baseUrl: 'https://api.github.com',
       rejectUnauthorized: false
     })
     expect(console.warn.callCount).to.equal(1)
