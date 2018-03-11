@@ -35,30 +35,37 @@ describe('deprecations', () => {
 
   it('deprecated protocol option', () => {
     GitHub({
-      protocol: 'https'
+      protocol: 'https',
+      host: 'deprecations-test.com'
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(console.warn.callCount).to.equal(2)
   })
 
   it('deprecated host option', () => {
     GitHub({
+      protocol: 'https',
       host: 'deprecations-test.com'
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(console.warn.callCount).to.equal(2)
   })
 
   it('deprecated port option', () => {
     GitHub({
+      protocol: 'https',
+      host: 'deprecations-test.com',
       port: 1234
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(console.warn.callCount).to.equal(3)
   })
 
   it('deprecated pathPrefix option', () => {
     GitHub({
-      pathPrefix: 'deprecations-test.com/'
+      protocol: 'https',
+      host: 'deprecations-test.com',
+      port: 1234,
+      pathPrefix: '/deprecations-test.com/'
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(console.warn.callCount).to.equal(4)
   })
 
   it('deprecated Promise option', () => {

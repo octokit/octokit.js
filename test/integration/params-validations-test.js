@@ -36,25 +36,6 @@ describe('params validations', () => {
       })
   })
 
-  it('coverage', () => {
-    const github = new GitHub({
-      baseUrl: null,
-      host: '127.0.0.1',
-      port: '8',
-      protocol: 'https'// port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
-    })
-
-    return github.orgs.get({org: 'foo'})
-
-      .catch(error => {
-        expect(error.toJSON()).to.deep.equal({
-          code: 500,
-          message: 'request to https://127.0.0.1:8/orgs/foo failed, reason: connect ECONNREFUSED 127.0.0.1:8',
-          status: 'Internal Server Error'
-        })
-      })
-  })
-
   it('invalid value for github.issues.getAll({filter})', () => {
     const github = new GitHub()
 

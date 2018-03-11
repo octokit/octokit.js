@@ -21,21 +21,6 @@ describe('smoke', () => {
     return github.orgs.get({org: 'myorg'})
   })
 
-  it('protocol, port, pathPrefix coverage', () => {
-    nock('http://myhost.com')
-      .get('/my/api/orgs/myorg')
-      .reply(200, {})
-
-    const github = new GitHub({
-      protocol: 'http',
-      host: 'myhost.com',
-      pathPrefix: '/my/api',
-      baseUrl: null
-    })
-
-    return github.orgs.get({org: 'myorg'})
-  })
-
   it('callback', (done) => {
     nock('https://smoke-test.com')
       .get('/orgs/myorg')
