@@ -12,7 +12,7 @@ describe('request errors', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'request-errors-test.com',
+      baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
@@ -31,7 +31,7 @@ describe('request errors', () => {
       .replyWithError('ooops')
 
     const github = new GitHub({
-      host: 'request-errors-test.com'
+      baseUrl: 'https://request-errors-test.com'
     })
 
     return github.orgs.get({org: 'myorg'})
@@ -49,7 +49,7 @@ describe('request errors', () => {
       .reply(404, 'not found')
 
     const github = new GitHub({
-      host: 'request-errors-test.com',
+      baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
@@ -68,7 +68,7 @@ describe('request errors', () => {
       .reply(401)
 
     const github = new GitHub({
-      host: 'request-errors-test.com',
+      baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
@@ -89,7 +89,7 @@ describe('request errors', () => {
       })
 
     const github = new GitHub({
-      host: 'request-errors-test.com',
+      baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
