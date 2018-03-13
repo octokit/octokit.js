@@ -5,11 +5,13 @@
  * Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
  * Released under the MIT license
  */
+const urlParse = require('url').parse
 
 const Proxy = require('proxy')
 const HttpProxyAgent = require('http-proxy-agent')
 
-const {getInstance} = require('../../util')
+const {getInstance, loadFixture} = require('../../util')
+const Octokit = require('../../../')
 
 require('../../mocha-node-setup')
 
@@ -43,6 +45,37 @@ describe('client proxy', function () {
     return getInstance('get-organization', {
       proxy: proxyUrl
     })
+
+      .then(github => {
+        return github.orgs.get({org: 'octokit-fixture-org'})
+      })
+
+      .then((response) => {
+        expect(response.data.login).to.equal('octokit-fixture-org')
+        expect(proxyReceivedRequest).to.equal(true)
+      })
+  })
+
+  it('options.proxy without options.baseUrl (#811)', () => {
+    let proxyReceivedRequest
+
+    proxy.once('request', function (request) {
+      expect(request.headers.accept, 'application/vnd.github.v3+json')
+      proxyReceivedRequest = true
+    })
+
+    return loadFixture('get-organization')
+
+      .then(options => {
+        const {hostname: host, port, path: pathPrefix} = urlParse(options.url)
+        return new Octokit({
+          protocol: 'http',
+          host,
+          port,
+          pathPrefix,
+          proxy: proxyUrl
+        })
+      })
 
       .then(github => {
         return github.orgs.get({org: 'octokit-fixture-org'})
