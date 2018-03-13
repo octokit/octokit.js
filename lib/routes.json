@@ -2133,7 +2133,9 @@
             "created",
             "mentioned",
             "subscribed"
-          ]
+          ],
+          "default": "assigned",
+          "description": "Which sort of issue to return."
         },
         "state": {
           "type": "string",
@@ -2143,11 +2145,11 @@
             "all"
           ],
           "default": "open",
-          "description": "open, closed, or all"
+          "description": "State of the issues to return."
         },
         "labels": {
           "type": "string",
-          "description": "String list of comma separated Label names. Example: bug,ui,@high"
+          "description": "String list of comma separated label names. Example: bug,ui,@high"
         },
         "sort": {
           "type": "string",
