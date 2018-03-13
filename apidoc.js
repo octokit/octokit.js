@@ -1943,9 +1943,9 @@
  * @apiDescription List all issues across all the authenticated user's visible repositories including owned repositories, member repositories, and organization repositories
  * @apiGroup Issues
  *
- * @apiParam {string=all,assigned,created,mentioned,subscribed} [filter]  
- * @apiParam {string=open,closed,all} [state=open]  open, closed, or all
- * @apiParam {string} [labels]  String list of comma separated Label names. Example: bug,ui,@high
+ * @apiParam {string=all,assigned,created,mentioned,subscribed} [filter=assigned]  Which sort of issue to return.
+ * @apiParam {string=open,closed,all} [state=open]  State of the issues to return.
+ * @apiParam {string} [labels]  String list of comma separated label names. Example: bug,ui,@high
  * @apiParam {string=created,updated,comments} [sort=created]  
  * @apiParam {string=asc,desc} [direction=desc]  
  * @apiParam {date} [since]  Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ

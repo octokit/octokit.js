@@ -7174,7 +7174,8 @@
             ],
             "optional": true,
             "field": "filter",
-            "description": ""
+            "defaultValue": "assigned",
+            "description": "<p>Which sort of issue to return.</p>"
           },
           {
             "group": "Parameter",
@@ -7187,14 +7188,14 @@
             "optional": true,
             "field": "state",
             "defaultValue": "open",
-            "description": "<p>open, closed, or all</p>"
+            "description": "<p>State of the issues to return.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "labels",
-            "description": "<p>String list of comma separated Label names. Example: bug,ui,@high</p>"
+            "description": "<p>String list of comma separated label names. Example: bug,ui,@high</p>"
           },
           {
             "group": "Parameter",
