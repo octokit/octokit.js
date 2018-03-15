@@ -32,11 +32,8 @@ declare namespace Github {
   }
 
   export interface Options {
+    baseUrl?: string;
     timeout?: number;
-    host?: string;
-    pathPrefix?: string;
-    protocol?: string;
-    port?: number;
     proxy?: string;
     ca?: string;
     headers?: {[header: string]: any};
