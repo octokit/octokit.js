@@ -38,14 +38,38 @@ declare namespace Github {
     requestMedia?: string;
     agent?: http.Agent;
 
-    /** deprecated */
+    /**
+     * @deprecated in version 15.0.0
+     */
     proxy?: string;
+    /**
+     * @deprecated in version 15.0.0
+     */
     ca?: string;
+    /**
+     * @deprecated in version 15.0.0
+     */
     rejectUnauthorized?: boolean;
+    /**
+     * @deprecated in version 15.0.0
+     */
     family?: number;
+
+    /**
+     * @deprecated in version 15.2.0
+     */
     host?: string;
+    /**
+     * @deprecated in version 15.2.0
+     */
     pathPrefix?: string;
+    /**
+     * @deprecated in version 15.2.0
+     */
     protocol?: string;
+    /**
+     * @deprecated in version 15.2.0
+     */
     port?: number;
   }
 
