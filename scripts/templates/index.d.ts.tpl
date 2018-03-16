@@ -34,13 +34,19 @@ declare namespace Github {
   export interface Options {
     baseUrl?: string;
     timeout?: number;
-    proxy?: string;
-    ca?: string;
     headers?: {[header: string]: any};
     requestMedia?: string;
+    agent?: http.Agent;
+
+    /** deprecated */
+    proxy?: string;
+    ca?: string;
     rejectUnauthorized?: boolean;
     family?: number;
-    agent?: http.Agent;
+    host?: string;
+    pathPrefix?: string;
+    protocol?: string;
+    port?: number;
   }
 
   export interface AuthBasic  {
