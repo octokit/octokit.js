@@ -13,9 +13,10 @@ By participating in this project you agree to abide by its terms.
 ## Creating an Issue
 
 Before you create a new Issue:
-* Check the [Issues](https://github.com/octokit/rest.js/issues) on Github to ensure one doesn't already exist.
-* Clearly describe the issue, including the steps to reproduce the issue.
-* Please include links to the corresponding github documentation.
+1. Please make sure there is no [open issue](https://github.com/octokit/rest.js/issues?utf8=%E2%9C%93&q=is%3Aissue) yet.
+2. If it is a bug report, include the steps to reproduce the issue and please create a reproducible test case on [runkit.com](https://runkit.com/). Example: https://runkit.com/gr2m/5aa034f1440b420012a6eebf
+3. If it is a feature request, please share the motivation for the new feature and how you would implement it.
+4. Please include links to the corresponding github documentation.
 
 ## Making Changes
 

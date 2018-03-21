@@ -2101,7 +2101,8 @@
         },
         "milestone": {
           "type": "number",
-          "description": "Milestone to associate this issue with."
+          "description": "Milestone to associate this issue with.",
+          "allow-null": true
         },
         "labels": {
           "type": "string[]",
@@ -2168,7 +2169,9 @@
             "created",
             "mentioned",
             "subscribed"
-          ]
+          ],
+          "default": "assigned",
+          "description": "Which sort of issue to return."
         },
         "state": {
           "type": "string",
@@ -2178,11 +2181,11 @@
             "all"
           ],
           "default": "open",
-          "description": "open, closed, or all"
+          "description": "State of the issues to return."
         },
         "labels": {
           "type": "string",
-          "description": "String list of comma separated Label names. Example: bug,ui,@high"
+          "description": "String list of comma separated label names. Example: bug,ui,@high"
         },
         "sort": {
           "type": "string",
@@ -4173,7 +4176,7 @@
           "description": "The level of privacy this team should have."
         },
         "parent_team_id": {
-          "type": "string",
+          "type": "number",
           "description": "The ID of a team to set as the parent team."
         }
       },
@@ -4209,7 +4212,7 @@
           "description": "The level of privacy this team should have."
         },
         "parent_team_id": {
-          "type": "string",
+          "type": "number",
           "description": "The ID of a team to set as the parent team."
         }
       },
@@ -5074,7 +5077,20 @@
           "type": "string",
           "required": true,
           "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
-        }
+        },
+	"title": {
+	  "type": "string",
+	  "required": true,
+	  "description": "The title of the pull request."
+	},
+	"body": {
+	  "type": "string",
+	  "description": "The contents of the pull request."
+	},
+	"maintainer_can_modify": {
+	  "type": "boolean",
+	  "description": "Indicates whether maintainers can modify the pull request."
+	}
       },
       "yields_array": false, "yields": "RepoPullRequest",
       "description": "Create a pull request"
@@ -5698,6 +5714,18 @@
         },
         "body": {
           "type": "string",
+          "required": true
+        },
+        "commit_id": {
+          "type": "string",
+          "required": true
+        },
+        "path": {
+          "type": "string",
+          "required": true
+        },
+        "position": {
+          "type": "number",
           "required": true
         }
       },
@@ -9694,18 +9722,6 @@
       },
       "yields_array": true, "yields": "UserWithName",
       "description": "Search users."
-    },
-    "email": {
-      "url": "/legacy/user/email/:email",
-      "method": "GET",
-      "params": {
-        "email": {
-          "type": "string",
-          "required": true,
-          "description": "The email address"
-        }
-      },
-      "description": "Search against public email addresses."
     }
   },
   "users": {

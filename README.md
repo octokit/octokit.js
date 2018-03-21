@@ -1,7 +1,8 @@
-# rest.js [![@latest](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest) [![@next](https://img.shields.io/npm/v/@octokit/rest/next.svg?label=@next)](https://www.npmjs.com/package/@octokit/rest)
+# rest.js
 
 > GitHub REST API client for Node.js
 
+[![@latest](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest)
 [![Build Status](https://travis-ci.org/octokit/rest.js.svg?branch=master)](https://travis-ci.org/octokit/rest.js)
 [![Coverage Status](https://coveralls.io/repos/github/octokit/rest.js/badge.svg)](https://coveralls.io/github/octokit/rest.js)
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
@@ -48,7 +49,7 @@ octokit.repos.getForOrg({
    })
    ```
 
-### Options
+### Client options
 
 All available client options with default values
 
@@ -62,23 +63,44 @@ const octokit = require('@octokit/rest')({
     'user-agent': 'octokit/rest.js v1.2.3' // v1.2.3 will be current version
   },
 
-  // change for custom GitHub Enterprise URL
-  host: 'api.github.com',
-  pathPrefix: '',
-  protocol: 'https',
-  port: 433,
+  // custom GitHub Enterprise URL
+  baseUrl: 'https://api.github.com',
 
-  // advanced request options
-  // see https://nodejs.org/api/http.html
-  proxy: undefined,
-  ca: undefined,
-  rejectUnauthorized: undefined,
-  family: undefined
+  // Node only: advanced request options can be passed as http(s) agent
+  agent: undefined
 })
 ```
 
 `@octokit/rest` API docs: https://octokit.github.io/rest.js/  
 GitHub v3 REST API docs: https://developer.github.com/v3/
+
+## API Previews
+
+To take advantage of [GitHub’s API Previews](https://developer.github.com/v3/previews/),
+pass a custom `accept` header, which you can do with any endpoint method documented
+in the [API docs](https://octokit.github.io/rest.js/), e.g.
+
+```js
+const {data: {topics}} = octokit.repos.get({
+  owner: 'octokit',
+  repo: 'rest.js',
+  headers: {
+    accept: 'application/vnd.github.mercy-preview+json'
+  }
+})
+```
+
+Multiple preview headers can be combined by separating them with commas
+
+```js
+const {data: {topics, code_of_conduct}} = octokit.repos.get({
+  owner: 'octokit',
+  repo: 'rest.js',
+  headers: {
+    accept: 'application/vnd.github.mercy-preview+json,application/vnd.github.scarlet-witch-preview+json'
+  }
+})
+```
 
 ## Authentication
 

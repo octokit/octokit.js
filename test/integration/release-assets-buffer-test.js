@@ -9,14 +9,14 @@ describe('api.github.com', () => {
   beforeEach(() => {
     return getInstance('release-assets')
 
-    .then(instance => {
-      github = instance
+      .then(instance => {
+        github = instance
 
-      github.authenticate({
-        type: 'token',
-        token: '0000000000000000000000000000000000000001'
+        github.authenticate({
+          type: 'token',
+          token: '0000000000000000000000000000000000000001'
+        })
       })
-    })
   })
 
   it('github.repos.uploadAsset as Buffer', () => {
@@ -26,17 +26,16 @@ describe('api.github.com', () => {
       tag: 'v1.0.0'
     })
 
-    .then(result => {
-      const content = Buffer.from('Hello, world!\n')
-      return github.repos.uploadAsset({
-        url: result.data.upload_url,
-        file: content,
-        contentType: 'text/plain',
-        contentLength: 14,
-        name: 'test-upload.txt',
-        label: 'test'
+      .then(result => {
+        return github.repos.uploadAsset({
+          url: result.data.upload_url,
+          file: Buffer.from('Hello, world!\n'),
+          contentType: 'text/plain',
+          contentLength: 14,
+          name: 'test-upload.txt',
+          label: 'test'
+        })
       })
-    })
   })
 
   it('github.repos.uploadAsset as ArrayBuffer', () => {
@@ -46,16 +45,15 @@ describe('api.github.com', () => {
       tag: 'v1.0.0'
     })
 
-    .then(result => {
-      const content = stringToArrayBuffer('Hello, world!\n')
-      return github.repos.uploadAsset({
-        url: result.data.upload_url,
-        file: content,
-        contentType: 'text/plain',
-        contentLength: 14,
-        name: 'test-upload.txt',
-        label: 'test'
+      .then(result => {
+        return github.repos.uploadAsset({
+          url: result.data.upload_url,
+          file: stringToArrayBuffer('Hello, world!\n'),
+          contentType: 'text/plain',
+          contentLength: 14,
+          name: 'test-upload.txt',
+          label: 'test'
+        })
       })
-    })
   })
 })

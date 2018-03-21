@@ -2,6 +2,8 @@
  * This declaration file requires TypeScript 2.1 or above.
  */
 
+import * as http from 'http'
+
 declare namespace Github {
   type json = any
   type date = string
@@ -30,17 +32,45 @@ declare namespace Github {
   }
 
   export interface Options {
+    baseUrl?: string;
     timeout?: number;
-    host?: string;
-    pathPrefix?: string;
-    protocol?: string;
-    port?: number;
-    proxy?: string;
-    ca?: string;
     headers?: {[header: string]: any};
     requestMedia?: string;
+    agent?: http.Agent;
+
+    /**
+     * @deprecated in version 15.0.0
+     */
+    proxy?: string;
+    /**
+     * @deprecated in version 15.0.0
+     */
+    ca?: string;
+    /**
+     * @deprecated in version 15.0.0
+     */
     rejectUnauthorized?: boolean;
+    /**
+     * @deprecated in version 15.0.0
+     */
     family?: number;
+
+    /**
+     * @deprecated in version 15.2.0
+     */
+    host?: string;
+    /**
+     * @deprecated in version 15.2.0
+     */
+    pathPrefix?: string;
+    /**
+     * @deprecated in version 15.2.0
+     */
+    protocol?: string;
+    /**
+     * @deprecated in version 15.2.0
+     */
+    port?: number;
   }
 
   export interface AuthBasic  {

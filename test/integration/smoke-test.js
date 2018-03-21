@@ -15,9 +15,7 @@ describe('smoke', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'myhost.com',
-      protocol: 'http',
-      pathPrefix: '/my/api/'
+      baseUrl: 'http://myhost.com/my/api'
     })
 
     return github.orgs.get({org: 'myorg'})
@@ -29,7 +27,7 @@ describe('smoke', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'smoke-test.com'
+      baseUrl: 'https://smoke-test.com'
     })
 
     github.orgs.get({org: 'myorg'}, done)
@@ -41,7 +39,7 @@ describe('smoke', () => {
       .reply(200, {})
 
     const github = new GitHub({
-      host: 'smoke-test.com'
+      baseUrl: 'https://smoke-test.com'
     })
 
     const customHeaders = {
@@ -78,7 +76,7 @@ describe('smoke', () => {
       .reply(404, {})
 
     const github = new GitHub({
-      host: 'smoke-test.com'
+      baseUrl: 'https://smoke-test.com'
     })
 
     github.authenticate({
@@ -91,46 +89,46 @@ describe('smoke', () => {
       per_page: 1
     })
 
-    .then((result) => {
-      expect(github.hasNextPage(result)).to.be.a('string')
-      expect(github.hasPreviousPage(result)).to.be.a('string')
-      expect(github.hasFirstPage(result)).to.be.a('string')
-      expect(github.hasLastPage(result)).to.be.an('undefined')
+      .then((result) => {
+        expect(github.hasNextPage(result)).to.be.a('string')
+        expect(github.hasPreviousPage(result)).to.be.a('string')
+        expect(github.hasFirstPage(result)).to.be.a('string')
+        expect(github.hasLastPage(result)).to.be.an('undefined')
 
-      const callback = () => {}
+        const callback = () => {}
 
-      return Promise.all([
-        new Promise((resolve, reject) => {
-          github.getFirstPage(result, (error, result) => {
-            if (error) {
-              return reject(error)
-            }
+        return Promise.all([
+          new Promise((resolve, reject) => {
+            github.getFirstPage(result, (error, result) => {
+              if (error) {
+                return reject(error)
+              }
 
-            expect(() => {
-              github.hasPreviousPage(result)
-            }).to.not.throw()
-            expect(github.hasPreviousPage(result)).to.be.an('undefined')
+              expect(() => {
+                github.hasPreviousPage(result)
+              }).to.not.throw()
+              expect(github.hasPreviousPage(result)).to.be.an('undefined')
 
-            resolve()
-          })
-        }),
-        github.getPreviousPage(result, {foo: 'bar', accept: 'application/vnd.github.v3+json'}),
-        github.getNextPage(result).catch(callback),
-        new Promise(resolve => {
-          github.getLastPage(result, { foo: 'bar' }, (error) => {
-            expect(error.code).to.equal(404)
-            resolve()
-          })
-        }),
-        // test error with promise
-        github.getLastPage(result).catch(callback)
-      ])
-    })
+              resolve()
+            })
+          }),
+          github.getPreviousPage(result, {foo: 'bar', accept: 'application/vnd.github.v3+json'}),
+          github.getNextPage(result).catch(callback),
+          new Promise(resolve => {
+            github.getLastPage(result, { foo: 'bar' }, (error) => {
+              expect(error.code).to.equal(404)
+              resolve()
+            })
+          }),
+          // test error with promise
+          github.getLastPage(result).catch(callback)
+        ])
+      })
 
-    .then(() => {
-      done()
-    })
+      .then(() => {
+        done()
+      })
 
-    .catch(done)
+      .catch(done)
   })
 })

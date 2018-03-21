@@ -10,31 +10,30 @@ describe('params validations', () => {
 
     return github.orgs.get({})
 
-    .catch(error => {
-      expect(error.toString()).to.equal('Empty value for parameter \'org\': undefined')
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Empty value for parameter \'org\': undefined',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toString()).to.equal('Empty value for parameter \'org\': undefined')
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Empty value for parameter \'org\': undefined',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('request error', () => {
     const github = new GitHub({
-      host: '127.0.0.1',
-      port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
+      baseUrl: 'https://127.0.0.1:8' // port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     })
 
     return github.orgs.get({org: 'foo'})
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 500,
-        message: 'connect ECONNREFUSED 127.0.0.1:8',
-        status: 'Internal Server Error'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 500,
+          message: 'request to https://127.0.0.1:8/orgs/foo failed, reason: connect ECONNREFUSED 127.0.0.1:8',
+          status: 'Internal Server Error'
+        })
       })
-    })
   })
 
   it('invalid value for github.issues.getAll({filter})', () => {
@@ -42,13 +41,13 @@ describe('params validations', () => {
 
     return github.issues.getAll({filter: 'foo'})
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Invalid value for parameter \'filter\': foo',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'filter\': foo',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('invalid value for github.projects.moveProjectCard({position})', () => {
@@ -56,13 +55,13 @@ describe('params validations', () => {
 
     return github.projects.moveProjectCard({id: 123, position: 'foo'})
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Invalid value for parameter \'position\': foo',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'position\': foo',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('Not a number for github.repos.createCommitComment({..., position})', () => {
@@ -76,13 +75,13 @@ describe('params validations', () => {
       position: 'Age Ain’t Nothing'
     })
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('Not a valid JSON string for github.repos.createHook({..., config})', () => {
@@ -95,18 +94,18 @@ describe('params validations', () => {
       config: 'I’m no Je-Son!'
     })
 
-    .catch(error => {
-      expect(error.toJSON()).to.deep.equal({
-        code: 400,
-        message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
-        status: 'Bad Request'
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
+          status: 'Bad Request'
+        })
       })
-    })
   })
 
   it('Date object for github.issues.createMilestone({..., due_on})', () => {
     const github = new GitHub({
-      host: 'milestones-test-host.com'
+      baseUrl: 'https://milestones-test-host.com'
     })
 
     nock('https://milestones-test-host.com')
@@ -126,7 +125,7 @@ describe('params validations', () => {
 
   it('Date is passed in correct format for notifications (#716)', () => {
     const github = new GitHub({
-      host: 'notifications-test-host.com'
+      baseUrl: 'https://notifications-test-host.com'
     })
 
     nock('https://notifications-test-host.com')
@@ -142,5 +141,34 @@ describe('params validations', () => {
     return github.activity.getNotifications({
       since: '2018-01-21T23:27:31.000Z'
     })
+  })
+
+  it('does not alter passed options', () => {
+    const github = new GitHub({
+      baseUrl: 'https://params-test-host.com'
+    })
+
+    nock('https://params-test-host.com')
+      .get('/orgs/foo')
+      .reply(200, {})
+
+    const options = {
+      org: 'foo',
+      headers: {
+        'x-bar': 'baz'
+      }
+    }
+    return github.orgs.get(options)
+      .catch(() => {
+        // ignore error
+      })
+      .then(() => {
+        expect(options).to.deep.eql({
+          org: 'foo',
+          headers: {
+            'x-bar': 'baz'
+          }
+        })
+      })
   })
 })
