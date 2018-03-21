@@ -9,7 +9,6 @@ const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelCase')
 
 const ROUTES = require('../lib/routes.json')
-const RESPONSE_TYPES = require('./response-types.json')
 
 const typeMap = {
   Json: 'string'
@@ -53,7 +52,7 @@ function toCombineParams (params, entry) {
   return params.concat(parameterize.apply(null, entry))
 }
 
-function generateTypes (languageName, templateFile, outputFile) {
+function generateTypes (languageName, templateFile, outputFile, responseTypesOutput) {
   const templatePath = pathJoin(__dirname, 'templates', templateFile)
   const template = readFileSync(templatePath, 'utf8')
 
@@ -98,7 +97,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
   const body = Handlebars.compile(template)({
     namespaces,
-    responseTypes: RESPONSE_TYPES
+    responseTypesOutput: responseTypesOutput
   })
 
   const definitionFilePath = pathJoin(__dirname, '..', outputFile)

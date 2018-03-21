@@ -124,13 +124,7 @@ declare namespace Github {
     export type String = string;
     export type Boolean = ''; // Boolean methods yield an error (if false) or an empty string (if true) for now
 
-  {{#each responseTypes}}
-    export type {{@key}} = {
-      {{#each .}}
-        {{@key}}{{^required}}?{{/required}}: {{#if type_enum}}{{#each type_enum}}{{#if @index}},{{/if}}'{{this}}'{{/each}}{{else}}{{#if isArray}}Array<{{{type}}}>{{else}}{{{type}}}{{/if}}{{/if}};
-      {{/each}}
-    };
-  {{/each}}
+    {{{responseTypesOutput}}}
   }
 }
 

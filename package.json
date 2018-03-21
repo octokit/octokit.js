@@ -56,6 +56,7 @@
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
     "handlebars": "^4.0.11",
+    "json-schema-to-typescript": "^5.4.0",
     "mkdirp": "^0.5.1",
     "mocha": "^5.0.0",
     "nock": "^9.1.0",

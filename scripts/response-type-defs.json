@@ -1,0 +1,3160 @@
+{
+  "description": "JSON Schema for GitHub API Response Types",
+  "$comment": "See https://developer.github.com/v3/",
+  "definitions": {
+    "Download": {
+      "$id": "#Download",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "download_count": {
+          "type": "number"
+        },
+        "content_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "id",
+        "html_url",
+        "name",
+        "description",
+        "created_at",
+        "size",
+        "download_count",
+        "content_type"
+      ]
+    },
+    "EventActor": {
+      "$id": "#EventActor",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "login": {
+          "type": "string"
+        },
+        "display_login": {
+          "type": "string"
+        },
+        "gravatar_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "login",
+        "display_login",
+        "url",
+        "avatar_url"
+      ]
+    },
+    "File": {
+      "$id": "#File",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/CommitSlugMaybe"
+        },
+        "commit": {
+          "$ref": "#/definitions/GitCommit"
+        }
+      },
+      "required": [
+        "content",
+        "commit"
+      ]
+    },
+    "FileContents": {
+      "$id": "#FileContents",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "raw_url": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "type",
+        "language",
+        "raw_url",
+        "size",
+        "truncated",
+        "content"
+      ]
+    },
+    "RepoReadmeFile": {
+      "$id": "#RepoReadmeFile",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "git_url": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "file"
+          ]
+        },
+        "content": {
+          "type": "string"
+        },
+        "encoding": {
+          "enum": [
+            "base64"
+          ]
+        },
+        "_links": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'json'"
+        }
+      },
+      "required": [
+        "name",
+        "path",
+        "sha",
+        "size",
+        "url",
+        "html_url",
+        "git_url",
+        "download_url",
+        "type",
+        "content",
+        "encoding",
+        "_links"
+      ]
+    },
+    "FileSlug": {
+      "$id": "#FileSlug",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "raw_url": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "filename",
+        "type",
+        "raw_url",
+        "size"
+      ]
+    },
+    "Gist": {
+      "$id": "#Gist",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "forks_url": {
+          "type": "string"
+        },
+        "commits_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "git_pull_url": {
+          "type": "string"
+        },
+        "git_push_url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "files": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'FilesMap'"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/UserWithName"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/UserWithName"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "url",
+        "forks_url",
+        "commits_url",
+        "id",
+        "git_pull_url",
+        "git_push_url",
+        "html_url",
+        "files",
+        "created_at",
+        "updated_at",
+        "comments_url",
+        "truncated"
+      ]
+    },
+    "GitBlob": {
+      "$id": "#GitBlob",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha",
+        "url"
+      ]
+    },
+    "RepoBranch": {
+      "$id": "#RepoBranch",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "commit": {
+          "$ref": "#/definitions/GitBlob"
+        }
+      },
+      "required": [
+        "name",
+        "commit"
+      ]
+    },
+    "GitCommit": {
+      "$id": "#GitCommit",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/UserSlug"
+        },
+        "committer": {
+          "$ref": "#/definitions/UserSlug"
+        },
+        "tree": {
+          "$ref": "#/definitions/GitBlob"
+        },
+        "message": {
+          "type": "string"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommitSlugMaybe"
+          }
+        }
+      },
+      "required": [
+        "sha",
+        "url",
+        "html_url",
+        "author",
+        "committer",
+        "tree",
+        "message",
+        "parents"
+      ]
+    },
+    "CommitSlugMaybe": {
+      "$id": "#CommitSlugMaybe",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "git_url": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'json'"
+        }
+      },
+      "required": [
+        "name",
+        "path",
+        "sha",
+        "size",
+        "url",
+        "html_url",
+        "git_url",
+        "download_url",
+        "type",
+        "_links"
+      ]
+    },
+    "GitPatch": {
+      "$id": "#GitPatch",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "additions": {
+          "type": "number"
+        },
+        "deletions": {
+          "type": "number"
+        },
+        "changes": {
+          "type": "number"
+        },
+        "blob_url": {
+          "type": "string"
+        },
+        "raw_url": {
+          "type": "string"
+        },
+        "contents_url": {
+          "type": "string"
+        },
+        "patch": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha",
+        "filename",
+        "status",
+        "additions",
+        "deletions",
+        "changes",
+        "blob_url",
+        "raw_url",
+        "contents_url",
+        "patch"
+      ]
+    },
+    "GitRefObject": {
+      "$id": "#GitRefObject",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha",
+        "type",
+        "url"
+      ]
+    },
+    "GitRef": {
+      "$id": "#GitRef",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "object": {
+          "$ref": "#/definitions/GitRefObject"
+        }
+      },
+      "required": [
+        "ref",
+        "url",
+        "object"
+      ]
+    },
+    "RepoIssue": {
+      "$id": "#RepoIssue",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "repository_url": {
+          "type": "string"
+        },
+        "labels_url": {
+          "type": "string"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "number": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IssueLabel"
+          }
+        },
+        "state": {
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "assignee": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserNoName"
+          }
+        },
+        "milestone": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "comments": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "closed_at": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "closed_by": {
+          "$ref": "#/definitions/UserNoName"
+        }
+      },
+      "required": [
+        "url",
+        "repository_url",
+        "labels_url",
+        "comments_url",
+        "events_url",
+        "html_url",
+        "id",
+        "number",
+        "title",
+        "user",
+        "labels",
+        "state",
+        "locked",
+        "assignees",
+        "comments",
+        "created_at",
+        "updated_at"
+      ]
+    },
+    "IssueComment": {
+      "$id": "#IssueComment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "issue_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "html_url",
+        "issue_url",
+        "id",
+        "user",
+        "created_at",
+        "updated_at",
+        "body"
+      ]
+    },
+    "IssueEvent": {
+      "$id": "#IssueEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "actor": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "event": {
+          "type": "string"
+        },
+        "commit_id": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "commit_url": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "RepoIssue": {
+          "$ref": "#/definitions/RepoIssue"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "actor",
+        "event",
+        "created_at"
+      ]
+    },
+    "IssueLabel": {
+      "$id": "#IssueLabel",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "name",
+        "color",
+        "default"
+      ]
+    },
+    "OrganizationPlan": {
+      "$id": "#OrganizationPlan",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "space": {
+          "type": "number"
+        },
+        "private_repos": {
+          "type": "number"
+        },
+        "filled_seats": {
+          "type": "number"
+        },
+        "seats": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "space",
+        "private_repos",
+        "filled_seats",
+        "seats"
+      ]
+    },
+    "Organization": {
+      "$id": "#Organization",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "login": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "repos_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "hooks_url": {
+          "type": "string"
+        },
+        "issues_url": {
+          "type": "string"
+        },
+        "members_url": {
+          "type": "string"
+        },
+        "public_members_url": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "has_organization_projects": {
+          "type": "boolean"
+        },
+        "has_repository_projects": {
+          "type": "boolean"
+        },
+        "public_repos": {
+          "type": "number"
+        },
+        "public_gists": {
+          "type": "number"
+        },
+        "followers": {
+          "type": "number"
+        },
+        "following": {
+          "type": "number"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "total_private_repos": {
+          "type": "number"
+        },
+        "owned_private_repos": {
+          "type": "number"
+        },
+        "private_gists": {
+          "type": "number"
+        },
+        "disk_usage": {
+          "type": "number"
+        },
+        "collaborators": {
+          "type": "number"
+        },
+        "billing_email": {
+          "type": "string"
+        },
+        "plan": {
+          "$ref": "#/definitions/OrganizationPlan"
+        },
+        "default_repository_permission": {
+          "type": "string"
+        },
+        "members_can_create_repositories": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        }
+      },
+      "required": [
+        "login",
+        "id",
+        "url",
+        "repos_url",
+        "events_url",
+        "hooks_url",
+        "issues_url",
+        "members_url",
+        "public_members_url",
+        "avatar_url",
+        "has_organization_projects",
+        "has_repository_projects",
+        "public_repos",
+        "public_gists",
+        "followers",
+        "following",
+        "html_url",
+        "created_at",
+        "updated_at",
+        "type",
+        "total_private_repos",
+        "owned_private_repos",
+        "private_gists",
+        "disk_usage",
+        "collaborators",
+        "billing_email",
+        "plan",
+        "default_repository_permission"
+      ]
+    },
+    "OrganizationSlug": {
+      "$id": "#OrganizationSlug",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "login": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "url": {
+          "type": "string"
+        },
+        "repos_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "hooks_url": {
+          "type": "string"
+        },
+        "issues_url": {
+          "type": "string"
+        },
+        "members_url": {
+          "type": "string"
+        },
+        "public_members_url": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "login",
+        "id",
+        "url",
+        "repos_url",
+        "events_url",
+        "hooks_url",
+        "issues_url",
+        "members_url",
+        "public_members_url",
+        "avatar_url"
+      ]
+    },
+    "OrganizationSlug2": {
+      "$id": "#OrganizationSlug2",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "login": {
+          "type": "string"
+        },
+        "display_login": {
+          "type": "string"
+        },
+        "gravatar_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "login",
+        "display_login",
+        "gravatar_id",
+        "url",
+        "avatar_url"
+      ]
+    },
+    "OrganizationSlug3": {
+      "$id": "#OrganizationSlug3",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "login": {
+          "type": "string"
+        },
+        "gravatar_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "login",
+        "gravatar_id",
+        "url",
+        "avatar_url"
+      ]
+    },
+    "RootRate": {
+      "$id": "#RootRate",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resources": {
+          "$ref": "#/definitions/RateResources"
+        },
+        "rate": {
+          "$ref": "#/definitions/RateRate"
+        }
+      },
+      "required": [
+        "resources",
+        "rate"
+      ]
+    },
+    "RateResources": {
+      "$id": "#RateResources",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "core": {
+          "$ref": "#/definitions/RateRate"
+        },
+        "search": {
+          "$ref": "#/definitions/RateRate"
+        },
+        "graphql": {
+          "$ref": "#/definitions/RateRate"
+        }
+      },
+      "required": [
+        "core",
+        "search",
+        "graphql"
+      ]
+    },
+    "RateRate": {
+      "$id": "#RateRate",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "limit": {
+          "type": "number"
+        },
+        "remaining": {
+          "type": "number"
+        },
+        "reset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "limit",
+        "remaining",
+        "reset"
+      ]
+    },
+    "RepoComment": {
+      "$id": "#RepoComment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "position": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "line": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "path": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "commit_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "html_url",
+        "id",
+        "user",
+        "commit_id",
+        "created_at",
+        "updated_at",
+        "body"
+      ]
+    },
+    "RepoCommitSingle": {
+      "$id": "#RepoCommitSingle",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "commit": {
+          "$ref": "#/definitions/RepoCommitSingleSlug"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "committer": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RepoCommitSingleSlug"
+          }
+        },
+        "stats": {
+          "$ref": "#/definitions/RepoDiffStats"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GitPatch"
+          }
+        }
+      },
+      "required": [
+        "sha",
+        "commit",
+        "url",
+        "html_url",
+        "comments_url",
+        "author",
+        "committer",
+        "parents",
+        "stats",
+        "files"
+      ]
+    },
+    "RepoCommitSingleSlug": {
+      "$id": "#RepoCommitSingleSlug",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "$ref": "#/definitions/UserSlug"
+        },
+        "committer": {
+          "$ref": "#/definitions/UserSlug"
+        },
+        "message": {
+          "type": "string"
+        },
+        "tree": {
+          "$ref": "#/definitions/GitBlob"
+        },
+        "url": {
+          "type": "string"
+        },
+        "comment_count": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "author",
+        "committer",
+        "message",
+        "tree",
+        "url",
+        "comment_count"
+      ]
+    },
+    "RepoCommitItem": {
+      "$id": "#RepoCommitItem",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "commit": {
+          "$ref": "#/definitions/RepoCommitItemSlug1"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "committer": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RepoCommitItemSlug2"
+          }
+        },
+        "stats": {
+          "$ref": "#/definitions/RepoDiffStats"
+        }
+      },
+      "required": [
+        "sha",
+        "commit",
+        "url",
+        "html_url",
+        "comments_url",
+        "author",
+        "committer",
+        "parents"
+      ]
+    },
+    "RepoCommitItemSlug1": {
+      "$id": "#RepoCommitItemSlug1",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "$ref": "#/definitions/UserSlug"
+        },
+        "committer": {
+          "$ref": "#/definitions/UserSlug"
+        },
+        "message": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "comment_count": {
+          "type": "number"
+        },
+        "tree": {
+          "$ref": "#/definitions/GitBlob"
+        }
+      },
+      "required": [
+        "author",
+        "committer",
+        "message",
+        "url",
+        "comment_count",
+        "tree"
+      ]
+    },
+    "RepoCommitItemSlug2": {
+      "$id": "#RepoCommitItemSlug2",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha",
+        "url",
+        "html_url"
+      ]
+    },
+    "RepoDiffStats": {
+      "$id": "#RepoDiffStats",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "number"
+        },
+        "additions": {
+          "type": "number"
+        },
+        "deletions": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "total",
+        "additions",
+        "deletions"
+      ]
+    },
+    "RepoCommitStatus": {
+      "$id": "#RepoCommitStatus",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "pending",
+            "success",
+            "error",
+            "failure"
+          ]
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+          }
+        },
+        "sha": {
+          "type": "string"
+        },
+        "total_count": {
+          "type": "number"
+        },
+        "commit_url": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "repository": {
+          "$ref": "#/definitions/RepoSlug"
+        }
+      },
+      "required": [
+        "state",
+        "statuses",
+        "sha",
+        "total_count",
+        "commit_url",
+        "url",
+        "repository"
+      ]
+    },
+    "RepoContributors": {
+      "$id": "#RepoContributors",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "login": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "gravatar_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "followers_url": {
+          "type": "string"
+        },
+        "following_url": {
+          "type": "string"
+        },
+        "gists_url": {
+          "type": "string"
+        },
+        "starred_url": {
+          "type": "string"
+        },
+        "subscriptions_url": {
+          "type": "string"
+        },
+        "organizations_url": {
+          "type": "string"
+        },
+        "repos_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "received_events_url": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "User",
+            "Organization",
+            "Bot"
+          ]
+        },
+        "site_admin": {
+          "type": "boolean"
+        },
+        "contributions": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "login",
+        "id",
+        "avatar_url",
+        "gravatar_id",
+        "url",
+        "html_url",
+        "followers_url",
+        "following_url",
+        "gists_url",
+        "starred_url",
+        "subscriptions_url",
+        "organizations_url",
+        "repos_url",
+        "events_url",
+        "received_events_url",
+        "type",
+        "site_admin",
+        "contributions"
+      ]
+    },
+    "RepoStatsContributors": {
+      "$id": "#RepoStatsContributors",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "$ref": "#/definitions/UserWithName"
+        },
+        "total": {
+          "type": "number"
+        },
+        "weeks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RepoStatsContributorsWeek"
+          }
+        }
+      },
+      "required": [
+        "author",
+        "total",
+        "weeks"
+      ]
+    },
+    "RepoStatsContributorsWeek": {
+      "$id": "#RepoStatsContributorsWeek",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "w": {
+          "type": "string"
+        },
+        "a": {
+          "type": "number"
+        },
+        "d": {
+          "type": "number"
+        },
+        "c": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "w",
+        "a",
+        "d",
+        "c"
+      ]
+    },
+    "RepoStatsCommits": {
+      "$id": "#RepoStatsCommits",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "total": {
+          "type": "number"
+        },
+        "week": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "days",
+        "total",
+        "week"
+      ]
+    },
+    "RepoDeployment": {
+      "$id": "#RepoDeployment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "sha": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "task": {
+          "enum": [
+            "deploy"
+          ]
+        },
+        "payload": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'json'"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "statuses_url": {
+          "type": "string"
+        },
+        "repository_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "id",
+        "sha",
+        "ref",
+        "task",
+        "payload",
+        "environment",
+        "creator",
+        "created_at",
+        "updated_at",
+        "statuses_url",
+        "repository_url"
+      ]
+    },
+    "RepoEvent": {
+      "$id": "#RepoEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "actor": {
+          "$ref": "#/definitions/EventActor"
+        },
+        "repo": {
+          "$ref": "#/definitions/RepoSlug"
+        },
+        "payload": {
+          "$ref": "#/definitions/RepoEventPayload"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "actor",
+        "repo",
+        "payload",
+        "public",
+        "created_at"
+      ]
+    },
+    "RepoEventPayload": {
+      "$id": "#RepoEventPayload",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "member": {
+          "$ref": "#/definitions/UserWithName"
+        },
+        "action": {
+          "type": "string"
+        }
+      }
+    },
+    "RepoPagesBuild": {
+      "$id": "#RepoPagesBuild",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "built"
+          ]
+        },
+        "error": {
+          "$ref": "#/definitions/RepoPagesBuildError"
+        },
+        "pusher": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "status",
+        "error",
+        "pusher",
+        "commit",
+        "duration",
+        "created_at",
+        "updated_at"
+      ]
+    },
+    "RepoPagesBuildError": {
+      "$id": "#RepoPagesBuildError",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        }
+      }
+    },
+    "RepoPermission": {
+      "$id": "#RepoPermission",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permission": {
+          "enum": [
+            "admin",
+            "read",
+            "write"
+          ]
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "permission",
+        "user",
+        "url"
+      ]
+    },
+    "RepoPullRequest": {
+      "$id": "#RepoPullRequest",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "number": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "state": {
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "assignee": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "assignees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserWithName"
+          }
+        },
+        "milestone": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "comments": {
+          "type": "number"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "closed_at": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "closed_by": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "merged_at": {
+          "type": "string"
+        },
+        "merge_commit_sha": {
+          "type": "string"
+        },
+        "requested_reviewers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserWithName"
+          }
+        },
+        "review_comments_url": {
+          "type": "string"
+        },
+        "review_comment_url": {
+          "type": "string"
+        },
+        "statuses_url": {
+          "type": "string"
+        },
+        "head": {
+          "$ref": "#/definitions/RepoPullRequestRef"
+        },
+        "base": {
+          "$ref": "#/definitions/RepoPullRequestRef"
+        },
+        "_links": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'json'"
+        },
+        "merged": {
+          "type": "boolean"
+        },
+        "mergeable": {
+          "type": "boolean"
+        },
+        "rebaseable": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "mergeable_state": {
+          "enum": [
+            "unknown"
+          ]
+        },
+        "merged_by": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "review_comments": {
+          "type": "number"
+        },
+        "maintainer_can_modify": {
+          "type": "boolean"
+        },
+        "commits": {
+          "type": "number"
+        },
+        "additions": {
+          "type": "number"
+        },
+        "deletions": {
+          "type": "number"
+        },
+        "changed_files": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "url",
+        "comments_url",
+        "html_url",
+        "id",
+        "number",
+        "title",
+        "user",
+        "state",
+        "locked",
+        "assignees",
+        "comments",
+        "created_at",
+        "updated_at",
+        "requested_reviewers",
+        "review_comments_url",
+        "review_comment_url",
+        "statuses_url",
+        "head",
+        "base",
+        "_links",
+        "merged",
+        "mergeable_state",
+        "review_comments",
+        "maintainer_can_modify",
+        "commits",
+        "additions",
+        "deletions",
+        "changed_files"
+      ]
+    },
+    "RepoPullRequestRef": {
+      "$id": "#RepoPullRequestRef",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "repo": {
+          "$ref": "#/definitions/Repository"
+        }
+      },
+      "required": [
+        "label",
+        "ref",
+        "sha",
+        "user",
+        "repo"
+      ]
+    },
+    "RepoPullRequestReview": {
+      "$id": "#RepoPullRequestReview",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "user": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "body": {
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "COMMENTED",
+            "APPROVED",
+            "REQUESTED_CHANGES",
+            "PENDING"
+          ]
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "pull_request_url": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'json'"
+        },
+        "submitted_at": {
+          "type": "string"
+        },
+        "commit_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "user",
+        "body",
+        "state",
+        "html_url",
+        "pull_request_url",
+        "_links",
+        "submitted_at",
+        "commit_id"
+      ]
+    },
+    "RepoStatsParticipation": {
+      "$id": "#RepoStatsParticipation",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "all": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "owner": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "RepoSlug": {
+      "$id": "#RepoSlug",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "url"
+      ]
+    },
+    "RepoSubscription": {
+      "$id": "#RepoSubscription",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subscribed": {
+          "type": "boolean"
+        },
+        "ignored": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "repository_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "subscribed",
+        "ignored",
+        "created_at",
+        "url",
+        "repository_url"
+      ]
+    },
+    "RepoTrafficClones": {
+      "$id": "#RepoTrafficClones",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "clones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "uniques": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "clones",
+        "url",
+        "count",
+        "uniques"
+      ]
+    },
+    "RepoTrafficReferrer": {
+      "$id": "#RepoTrafficReferrer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "referrer": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "uniques": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "referrer",
+        "count",
+        "uniques"
+      ]
+    },
+    "RepoTrafficPath": {
+      "$id": "#RepoTrafficPath",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "uniques": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "path",
+        "title",
+        "count",
+        "uniques"
+      ]
+    },
+    "RepoTrafficViews": {
+      "$id": "#RepoTrafficViews",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RepoTrafficView"
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "uniques": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "views",
+        "url",
+        "count",
+        "uniques"
+      ]
+    },
+    "RepoTrafficView": {
+      "$id": "#RepoTrafficView",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timestamp": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "uniques": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp",
+        "count",
+        "uniques"
+      ]
+    },
+    "Repository": {
+      "$id": "#Repository",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/UserNoName"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "fork": {
+          "type": "boolean"
+        },
+        "url": {
+          "type": "string"
+        },
+        "forks_url": {
+          "type": "string"
+        },
+        "keys_url": {
+          "type": "string"
+        },
+        "collaborators_url": {
+          "type": "string"
+        },
+        "teams_url": {
+          "type": "string"
+        },
+        "hooks_url": {
+          "type": "string"
+        },
+        "issue_events_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "assignees_url": {
+          "type": "string"
+        },
+        "branches_url": {
+          "type": "string"
+        },
+        "tags_url": {
+          "type": "string"
+        },
+        "blobs_url": {
+          "type": "string"
+        },
+        "git_tags_url": {
+          "type": "string"
+        },
+        "git_refs_url": {
+          "type": "string"
+        },
+        "trees_url": {
+          "type": "string"
+        },
+        "statuses_url": {
+          "type": "string"
+        },
+        "languages_url": {
+          "type": "string"
+        },
+        "stargazers_url": {
+          "type": "string"
+        },
+        "contributors_url": {
+          "type": "string"
+        },
+        "subscribers_url": {
+          "type": "string"
+        },
+        "subscription_url": {
+          "type": "string"
+        },
+        "commits_url": {
+          "type": "string"
+        },
+        "git_commits_url": {
+          "type": "string"
+        },
+        "comments_url": {
+          "type": "string"
+        },
+        "issue_comment_url": {
+          "type": "string"
+        },
+        "contents_url": {
+          "type": "string"
+        },
+        "compare_url": {
+          "type": "string"
+        },
+        "merges_url": {
+          "type": "string"
+        },
+        "archive_url": {
+          "type": "string"
+        },
+        "downloads_url": {
+          "type": "string"
+        },
+        "issues_url": {
+          "type": "string"
+        },
+        "pulls_url": {
+          "type": "string"
+        },
+        "milestones_url": {
+          "type": "string"
+        },
+        "notifications_url": {
+          "type": "string"
+        },
+        "labels_url": {
+          "type": "string"
+        },
+        "releases_url": {
+          "type": "string"
+        },
+        "deployments_url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "pushed_at": {
+          "type": "string"
+        },
+        "git_url": {
+          "type": "string"
+        },
+        "ssh_url": {
+          "type": "string"
+        },
+        "clone_url": {
+          "type": "string"
+        },
+        "svn_url": {
+          "type": "string"
+        },
+        "homepage": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "size": {
+          "type": "number"
+        },
+        "stargazers_count": {
+          "type": "number"
+        },
+        "watchers_count": {
+          "type": "number"
+        },
+        "language": {
+          "type": "string"
+        },
+        "has_issues": {
+          "type": "boolean"
+        },
+        "has_projects": {
+          "type": "boolean"
+        },
+        "has_downloads": {
+          "type": "boolean"
+        },
+        "has_wiki": {
+          "type": "boolean"
+        },
+        "has_pages": {
+          "type": "boolean"
+        },
+        "forks_count": {
+          "type": "number"
+        },
+        "mirror_url": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'any'"
+        },
+        "open_issues_count": {
+          "type": "number"
+        },
+        "forks": {
+          "type": "number"
+        },
+        "open_issues": {
+          "type": "number"
+        },
+        "watchers": {
+          "type": "number"
+        },
+        "default_branch": {
+          "type": "string"
+        },
+        "permissions": {
+          "$ref": "#/definitions/RepositoryPermissions"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "full_name",
+        "owner",
+        "private",
+        "html_url",
+        "fork",
+        "url",
+        "forks_url",
+        "keys_url",
+        "collaborators_url",
+        "teams_url",
+        "hooks_url",
+        "issue_events_url",
+        "events_url",
+        "assignees_url",
+        "branches_url",
+        "tags_url",
+        "blobs_url",
+        "git_tags_url",
+        "git_refs_url",
+        "trees_url",
+        "statuses_url",
+        "languages_url",
+        "stargazers_url",
+        "contributors_url",
+        "subscribers_url",
+        "subscription_url",
+        "commits_url",
+        "git_commits_url",
+        "comments_url",
+        "issue_comment_url",
+        "contents_url",
+        "compare_url",
+        "merges_url",
+        "archive_url",
+        "downloads_url",
+        "issues_url",
+        "pulls_url",
+        "milestones_url",
+        "notifications_url",
+        "labels_url",
+        "releases_url",
+        "deployments_url",
+        "created_at",
+        "updated_at",
+        "pushed_at",
+        "git_url",
+        "ssh_url",
+        "clone_url",
+        "svn_url",
+        "size",
+        "stargazers_count",
+        "watchers_count",
+        "has_issues",
+        "has_projects",
+        "has_downloads",
+        "has_wiki",
+        "has_pages",
+        "forks_count",
+        "open_issues_count",
+        "open_issues",
+        "watchers",
+        "default_branch"
+      ]
+    },
+    "RepositoryPermissions": {
+      "$id": "#RepositoryPermissions",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "push": {
+          "type": "boolean"
+        },
+        "pull": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "admin",
+        "push",
+        "pull"
+      ]
+    },
+    "RootFeeds": {
+      "$id": "#RootFeeds",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timeline_url": {
+          "type": "string"
+        },
+        "user_url": {
+          "type": "string"
+        },
+        "current_user_public_url": {
+          "type": "string"
+        },
+        "_links": {
+          "type": "object",
+          "$comment": "TODO: Fixme to be more specific. Originally was 'json'"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "timeline_url",
+        "user_url",
+        "current_user_public_url",
+        "_links"
+      ]
+    },
+    "RootLicense": {
+      "$id": "#RootLicense",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "spdx_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "featured": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "spdx_id",
+        "url",
+        "featured"
+      ]
+    },
+    "RootMeta": {
+      "$id": "#RootMeta",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verifiable_password_authentication": {
+          "type": "boolean"
+        },
+        "github_services_sha": {
+          "type": "string"
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "git": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "importer": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "verifiable_password_authentication",
+        "github_services_sha",
+        "hooks",
+        "git",
+        "pages",
+        "importer",
+        "url"
+      ]
+    },
+    "RootNotification": {
+      "$id": "#RootNotification",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "unread": {
+          "type": "boolean"
+        },
+        "reason": {
+          "enum": [
+            "assign",
+            "author",
+            "comment",
+            "invitation",
+            "manual",
+            "mention",
+            "state_change",
+            "subscribed",
+            "team_mention",
+            "review_requested",
+            "review_request_removed"
+          ]
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "last_read_at": {
+          "type": "string"
+        },
+        "subject": {
+          "$ref": "#/definitions/RootNotificationSubject"
+        },
+        "repository": {
+          "$ref": "#/definitions/RepoSlug"
+        },
+        "url": {
+          "type": "string"
+        },
+        "subscription_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "unread",
+        "reason",
+        "updated_at",
+        "subject",
+        "repository",
+        "url",
+        "subscription_url"
+      ]
+    },
+    "RootNotificationSubject": {
+      "$id": "#RootNotificationSubject",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "latest_comment_url": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Issue",
+            "PullRequest",
+            "Release"
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "url",
+        "type"
+      ]
+    },
+    "RootTeam": {
+      "$id": "#RootTeam",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "privacy": {
+          "enum": [
+            "secret",
+            "closed"
+          ]
+        },
+        "url": {
+          "type": "string"
+        },
+        "members_url": {
+          "type": "string"
+        },
+        "repositories_url": {
+          "type": "string"
+        },
+        "permission": {
+          "enum": [
+            "push",
+            "pull",
+            "admin"
+          ]
+        },
+        "members_count": {
+          "type": "number"
+        },
+        "repos_count": {
+          "type": "number"
+        },
+        "organization": {
+          "$ref": "#/definitions/OrganizationSlug"
+        }
+      },
+      "required": [
+        "name",
+        "id",
+        "slug",
+        "privacy",
+        "url",
+        "members_url",
+        "repositories_url",
+        "permission",
+        "members_count",
+        "repos_count",
+        "organization"
+      ]
+    },
+    "Stargazer": {
+      "$id": "#Stargazer",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "starred_at": {
+          "type": "string"
+        },
+        "repo": {
+          "$ref": "#/definitions/Repository"
+        }
+      },
+      "required": [
+        "starred_at"
+      ]
+    },
+    "UserWithName": {
+      "$id": "#UserWithName",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "login": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "gravatar_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "followers_url": {
+          "type": "string"
+        },
+        "following_url": {
+          "type": "string"
+        },
+        "gists_url": {
+          "type": "string"
+        },
+        "starred_url": {
+          "type": "string"
+        },
+        "subscriptions_url": {
+          "type": "string"
+        },
+        "organizations_url": {
+          "type": "string"
+        },
+        "repos_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "received_events_url": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "User",
+            "Organization",
+            "Bot"
+          ]
+        },
+        "site_admin": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "login",
+        "name",
+        "id",
+        "avatar_url",
+        "gravatar_id",
+        "url",
+        "html_url",
+        "followers_url",
+        "following_url",
+        "gists_url",
+        "starred_url",
+        "subscriptions_url",
+        "organizations_url",
+        "repos_url",
+        "events_url",
+        "received_events_url",
+        "type",
+        "site_admin"
+      ]
+    },
+    "UserNoName": {
+      "$id": "#UserNoName",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "login": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "gravatar_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string"
+        },
+        "followers_url": {
+          "type": "string"
+        },
+        "following_url": {
+          "type": "string"
+        },
+        "gists_url": {
+          "type": "string"
+        },
+        "starred_url": {
+          "type": "string"
+        },
+        "subscriptions_url": {
+          "type": "string"
+        },
+        "organizations_url": {
+          "type": "string"
+        },
+        "repos_url": {
+          "type": "string"
+        },
+        "events_url": {
+          "type": "string"
+        },
+        "received_events_url": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "User",
+            "Organization",
+            "Bot"
+          ]
+        },
+        "site_admin": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "login",
+        "id",
+        "avatar_url",
+        "gravatar_id",
+        "url",
+        "html_url",
+        "followers_url",
+        "following_url",
+        "gists_url",
+        "starred_url",
+        "subscriptions_url",
+        "organizations_url",
+        "repos_url",
+        "events_url",
+        "received_events_url",
+        "type",
+        "site_admin"
+      ]
+    },
+    "UserEmail": {
+      "$id": "#UserEmail",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "primary": {
+          "type": "boolean"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "private"
+          ]
+        }
+      },
+      "required": [
+        "email",
+        "primary",
+        "verified"
+      ]
+    },
+    "UserSlug": {
+      "$id": "#UserSlug",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "date"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Download": {
+      "$ref": "#/definitions/Download"
+    },
+    "EventActor": {
+      "$ref": "#/definitions/EventActor"
+    },
+    "File": {
+      "$ref": "#/definitions/File"
+    },
+    "FileContents": {
+      "$ref": "#/definitions/FileContents"
+    },
+    "RepoReadmeFile": {
+      "$ref": "#/definitions/RepoReadmeFile"
+    },
+    "FileSlug": {
+      "$ref": "#/definitions/FileSlug"
+    },
+    "Gist": {
+      "$ref": "#/definitions/Gist"
+    },
+    "GitBlob": {
+      "$ref": "#/definitions/GitBlob"
+    },
+    "RepoBranch": {
+      "$ref": "#/definitions/RepoBranch"
+    },
+    "GitCommit": {
+      "$ref": "#/definitions/GitCommit"
+    },
+    "CommitSlugMaybe": {
+      "$ref": "#/definitions/CommitSlugMaybe"
+    },
+    "GitPatch": {
+      "$ref": "#/definitions/GitPatch"
+    },
+    "GitRefObject": {
+      "$ref": "#/definitions/GitRefObject"
+    },
+    "GitRef": {
+      "$ref": "#/definitions/GitRef"
+    },
+    "RepoIssue": {
+      "$ref": "#/definitions/RepoIssue"
+    },
+    "IssueComment": {
+      "$ref": "#/definitions/IssueComment"
+    },
+    "IssueEvent": {
+      "$ref": "#/definitions/IssueEvent"
+    },
+    "IssueLabel": {
+      "$ref": "#/definitions/IssueLabel"
+    },
+    "OrganizationPlan": {
+      "$ref": "#/definitions/OrganizationPlan"
+    },
+    "Organization": {
+      "$ref": "#/definitions/Organization"
+    },
+    "OrganizationSlug": {
+      "$ref": "#/definitions/OrganizationSlug"
+    },
+    "OrganizationSlug2": {
+      "$ref": "#/definitions/OrganizationSlug2"
+    },
+    "OrganizationSlug3": {
+      "$ref": "#/definitions/OrganizationSlug3"
+    },
+    "RootRate": {
+      "$ref": "#/definitions/RootRate"
+    },
+    "RateResources": {
+      "$ref": "#/definitions/RateResources"
+    },
+    "RateRate": {
+      "$ref": "#/definitions/RateRate"
+    },
+    "RepoComment": {
+      "$ref": "#/definitions/RepoComment"
+    },
+    "RepoCommitSingle": {
+      "$ref": "#/definitions/RepoCommitSingle"
+    },
+    "RepoCommitSingleSlug": {
+      "$ref": "#/definitions/RepoCommitSingleSlug"
+    },
+    "RepoCommitItem": {
+      "$ref": "#/definitions/RepoCommitItem"
+    },
+    "RepoCommitItemSlug1": {
+      "$ref": "#/definitions/RepoCommitItemSlug1"
+    },
+    "RepoCommitItemSlug2": {
+      "$ref": "#/definitions/RepoCommitItemSlug2"
+    },
+    "RepoDiffStats": {
+      "$ref": "#/definitions/RepoDiffStats"
+    },
+    "RepoCommitStatus": {
+      "$ref": "#/definitions/RepoCommitStatus"
+    },
+    "RepoContributors": {
+      "$ref": "#/definitions/RepoContributors"
+    },
+    "RepoStatsContributors": {
+      "$ref": "#/definitions/RepoStatsContributors"
+    },
+    "RepoStatsContributorsWeek": {
+      "$ref": "#/definitions/RepoStatsContributorsWeek"
+    },
+    "RepoStatsCommits": {
+      "$ref": "#/definitions/RepoStatsCommits"
+    },
+    "RepoDeployment": {
+      "$ref": "#/definitions/RepoDeployment"
+    },
+    "RepoEvent": {
+      "$ref": "#/definitions/RepoEvent"
+    },
+    "RepoEventPayload": {
+      "$ref": "#/definitions/RepoEventPayload"
+    },
+    "RepoPagesBuild": {
+      "$ref": "#/definitions/RepoPagesBuild"
+    },
+    "RepoPagesBuildError": {
+      "$ref": "#/definitions/RepoPagesBuildError"
+    },
+    "RepoPermission": {
+      "$ref": "#/definitions/RepoPermission"
+    },
+    "RepoPullRequest": {
+      "$ref": "#/definitions/RepoPullRequest"
+    },
+    "RepoPullRequestRef": {
+      "$ref": "#/definitions/RepoPullRequestRef"
+    },
+    "RepoPullRequestReview": {
+      "$ref": "#/definitions/RepoPullRequestReview"
+    },
+    "RepoStatsParticipation": {
+      "$ref": "#/definitions/RepoStatsParticipation"
+    },
+    "RepoSlug": {
+      "$ref": "#/definitions/RepoSlug"
+    },
+    "RepoSubscription": {
+      "$ref": "#/definitions/RepoSubscription"
+    },
+    "RepoTrafficClones": {
+      "$ref": "#/definitions/RepoTrafficClones"
+    },
+    "RepoTrafficReferrer": {
+      "$ref": "#/definitions/RepoTrafficReferrer"
+    },
+    "RepoTrafficPath": {
+      "$ref": "#/definitions/RepoTrafficPath"
+    },
+    "RepoTrafficViews": {
+      "$ref": "#/definitions/RepoTrafficViews"
+    },
+    "RepoTrafficView": {
+      "$ref": "#/definitions/RepoTrafficView"
+    },
+    "Repository": {
+      "$ref": "#/definitions/Repository"
+    },
+    "RepositoryPermissions": {
+      "$ref": "#/definitions/RepositoryPermissions"
+    },
+    "RootFeeds": {
+      "$ref": "#/definitions/RootFeeds"
+    },
+    "RootLicense": {
+      "$ref": "#/definitions/RootLicense"
+    },
+    "RootMeta": {
+      "$ref": "#/definitions/RootMeta"
+    },
+    "RootNotification": {
+      "$ref": "#/definitions/RootNotification"
+    },
+    "RootNotificationSubject": {
+      "$ref": "#/definitions/RootNotificationSubject"
+    },
+    "RootTeam": {
+      "$ref": "#/definitions/RootTeam"
+    },
+    "Stargazer": {
+      "$ref": "#/definitions/Stargazer"
+    },
+    "UserWithName": {
+      "$ref": "#/definitions/UserWithName"
+    },
+    "UserNoName": {
+      "$ref": "#/definitions/UserNoName"
+    },
+    "UserEmail": {
+      "$ref": "#/definitions/UserEmail"
+    },
+    "UserSlug": {
+      "$ref": "#/definitions/UserSlug"
+    }
+  }
+}
