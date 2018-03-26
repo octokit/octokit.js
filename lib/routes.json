@@ -4994,19 +4994,19 @@
           "required": true,
           "description": "The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo."
         },
-	"title": {
-	  "type": "string",
-	  "required": true,
-	  "description": "The title of the pull request."
-	},
-	"body": {
-	  "type": "string",
-	  "description": "The contents of the pull request."
-	},
-	"maintainer_can_modify": {
-	  "type": "boolean",
-	  "description": "Indicates whether maintainers can modify the pull request."
-	}
+        "title": {
+          "type": "string",
+          "required": true,
+          "description": "The title of the pull request."
+        },
+        "body": {
+          "type": "string",
+          "description": "The contents of the pull request."
+        },
+        "maintainer_can_modify": {
+          "type": "boolean",
+          "description": "Indicates whether maintainers can modify the pull request."
+        }
       },
       "description": "Create a pull request"
     },
