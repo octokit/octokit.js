@@ -8293,10 +8293,6 @@
           "required": true,
           "type": "string"
         },
-        "dismissal_restrictions": {
-          "allow-null": true,
-          "type": "object"
-        },
         "enforce_admins": {
           "allow-null": false,
           "required": true,
@@ -8314,6 +8310,24 @@
           "allow-null": true,
           "required": true,
           "type": "object"
+        },
+        "required_pull_request_reviews.dismiss_stale_reviews": {
+          "type": "boolean"
+        },
+        "required_pull_request_reviews.dismissal_restrictions": {
+          "type": "object"
+        },
+        "required_pull_request_reviews.dismissal_restrictions.teams": {
+          "type": "string[]"
+        },
+        "required_pull_request_reviews.dismissal_restrictions.users": {
+          "type": "string[]"
+        },
+        "required_pull_request_reviews.require_code_owner_reviews": {
+          "type": "boolean"
+        },
+        "required_pull_request_reviews.required_approving_review_count": {
+          "type": "integer"
         },
         "required_status_checks": {
           "allow-null": true,
