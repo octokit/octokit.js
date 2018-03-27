@@ -2510,7 +2510,7 @@
       }
     },
     "getEvents": {
-      "url": "/repos/:owner/:repo/issues/:issue_number/events",
+      "url": "/repos/:owner/:repo/issues/:number/events",
       "method": "GET",
       "params": {
         "owner": {
@@ -2522,6 +2522,10 @@
           "required": true
         },
         "issue_number": {
+          "alias": "number",
+          "deprecated": "`issue_number` parameter has been renamed to `number`"
+        },
+        "number": {
           "type": "number",
           "required": true
         },
@@ -2556,7 +2560,7 @@
       }
     },
     "getEventsTimeline": {
-      "url": "/repos/:owner/:repo/issues/:issue_number/timeline",
+      "url": "/repos/:owner/:repo/issues/:number/timeline",
       "method": "GET",
       "headers": {
         "accept": "application/vnd.github.mockingbird-preview"
@@ -2571,6 +2575,10 @@
           "required": true
         },
         "issue_number": {
+          "alias": "number",
+          "deprecated": "`issue_number` parameter has been renamed to `number`"
+        },
+        "number": {
           "type": "number",
           "required": true
         },
