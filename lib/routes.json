@@ -4435,13 +4435,17 @@
       }
     },
     "createProjectColumn": {
-      "url": "/projects/:project_id/columns",
+      "url": "/projects/:id/columns",
       "method": "POST",
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
       },
       "params": {
         "project_id": {
+          "alias": "id",
+          "deprecated": "`project_id` parameter has been renamed to `id`"
+        },
+        "id": {
           "type": "string",
           "required": true
         },
@@ -4593,13 +4597,17 @@
       }
     },
     "getProjectColumns": {
-      "url": "/projects/:project_id/columns",
+      "url": "/projects/:id/columns",
       "method": "GET",
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
       },
       "params": {
         "project_id": {
+          "alias": "id",
+          "deprecated": "`project_id` parameter has been renamed to `id`"
+        },
+        "id": {
           "type": "string",
           "required": true
         }
