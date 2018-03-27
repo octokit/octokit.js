@@ -1024,7 +1024,7 @@
       }
     },
     "createPreReceiveEnvironment": {
-      "url": "/admin/pre_receive_environments",
+      "url": "/admin/pre-receive-environments",
       "method": "POST",
       "headers": {
         "accept": "application/vnd.github.eye-scream-preview"
@@ -1074,7 +1074,7 @@
       }
     },
     "deletePreReceiveEnvironment": {
-      "url": "/admin/pre_receive_environments/:id",
+      "url": "/admin/pre-receive-environments/:id",
       "method": "DELETE",
       "params": {
         "id": {
@@ -1094,7 +1094,7 @@
       }
     },
     "editPreReceiveEnvironment": {
-      "url": "/admin/pre_receive_environments/:id",
+      "url": "/admin/pre-receive-environments/:id",
       "method": "PATCH",
       "params": {
         "id": {
@@ -1158,7 +1158,7 @@
       }
     },
     "getPreReceiveEnvironments": {
-      "url": "/admin/pre_receive_environments",
+      "url": "/admin/pre-receive-environments",
       "method": "GET",
       "headers": {
         "accept": "application/vnd.github.eye-scream-preview"
@@ -1240,7 +1240,7 @@
       }
     },
     "triggerPreReceiveEnvironmentDownload": {
-      "url": "/admin/pre_receive_environments/:id/downloads",
+      "url": "/admin/pre-receive-environments/:id/downloads",
       "method": "POST",
       "headers": {
         "accept": "application/vnd.github.eye-scream-preview"
