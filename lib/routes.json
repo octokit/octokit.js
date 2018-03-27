@@ -4409,13 +4409,17 @@
       }
     },
     "createProjectCard": {
-      "url": "/projects/columns/:column_id/cards",
+      "url": "/projects/columns/:id/cards",
       "method": "POST",
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
       },
       "params": {
         "column_id": {
+          "alias": "id",
+          "deprecated": "`column_id` parameter has been renamed to `id`"
+        },
+        "id": {
           "type": "string",
           "required": true
         },
@@ -4559,13 +4563,17 @@
       }
     },
     "getProjectCards": {
-      "url": "/projects/columns/:column_id/cards",
+      "url": "/projects/columns/:id/cards",
       "method": "GET",
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
       },
       "params": {
         "column_id": {
+          "alias": "id",
+          "deprecated": "`column_id` parameter has been renamed to `id`"
+        },
+        "id": {
           "type": "string",
           "required": true
         }
