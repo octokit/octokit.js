@@ -3177,7 +3177,7 @@
       }
     },
     "getLargeImportFiles": {
-      "url": "/:owner/:name/import/large_files",
+      "url": "/repos/:owner/:repo/import/large_files",
       "method": "GET",
       "headers": {
         "accept": "application/vnd.github.barred-rock-preview"
@@ -3188,6 +3188,10 @@
           "required": true
         },
         "name": {
+          "alias": "repo",
+          "deprecated": "`name` parameter has been renamed to `repo`"
+        },
+        "repo": {
           "type": "string",
           "required": true
         }
@@ -3275,7 +3279,7 @@
       }
     },
     "setImportLfsPreference": {
-      "url": "/:owner/:name/import/lfs",
+      "url": "/repos/:owner/:repo/import/lfs",
       "method": "PATCH",
       "headers": {
         "accept": "application/vnd.github.barred-rock-preview"
@@ -3286,6 +3290,10 @@
           "required": true
         },
         "name": {
+          "alias": "repo",
+          "deprecated": "`name` parameter has been renamed to `repo`"
+        },
+        "repo": {
           "type": "string",
           "required": true
         },
