@@ -7229,7 +7229,7 @@
       }
     },
     "getDeployment": {
-      "url": "/repos/:owner/:repo/deployments/:deployment_id",
+      "url": "/repos/:owner/:repo/deployments/:id",
       "method": "GET",
       "params": {
         "owner": {
@@ -7241,6 +7241,10 @@
           "required": true
         },
         "deployment_id": {
+          "alias": "id",
+          "deprecated": "`deployment_id` parameter has been renamed to `id`"
+        },
+        "id": {
           "type": "string",
           "required": true
         }
