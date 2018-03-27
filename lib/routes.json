@@ -569,7 +569,7 @@
   },
   "apps": {
     "addRepoToInstallation": {
-      "url": "/installations/:installation_id/repositories/:repository_id",
+      "url": "/user/installations/:installation_id/repositories/:repository_id",
       "method": "PUT",
       "headers": {
         "accept": "application/vnd.github.machine-man-preview"
@@ -759,7 +759,7 @@
       }
     },
     "removeRepoFromInstallation": {
-      "url": "/installations/:installation_id/repositories/:repository_id",
+      "url": "/user/installations/:installation_id/repositories/:repository_id",
       "method": "DELETE",
       "headers": {
         "accept": "application/vnd.github.machine-man-preview"
@@ -1909,7 +1909,7 @@
   },
   "integrations": {
     "addRepoToInstallation": {
-      "url": "/installations/:installation_id/repositories/:repository_id",
+      "url": "/user/installations/:installation_id/repositories/:repository_id",
       "method": "PUT",
       "deprecated": "`integrations` has been renamed to `apps`",
       "headers": {
@@ -1974,7 +1974,7 @@
       }
     },
     "removeRepoFromInstallation": {
-      "url": "/installations/:installation_id/repositories/:repository_id",
+      "url": "/user/installations/:installation_id/repositories/:repository_id",
       "method": "DELETE",
       "deprecated": "`integrations` has been renamed to `apps`",
       "headers": {
