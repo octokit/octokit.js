@@ -2866,9 +2866,9 @@
     "removeAssigneesFromIssue": {
       "method": "DELETE",
       "params": {
-        "body": {
+        "assignees": {
           "required": true,
-          "type": "json"
+          "type": "string[]"
         },
         "number": {
           "required": true,
