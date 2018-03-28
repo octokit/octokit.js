@@ -3002,7 +3002,6 @@
           "type": "string"
         },
         "title": {
-          "required": true,
           "type": "string"
         }
       },
