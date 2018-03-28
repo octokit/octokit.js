@@ -993,7 +993,7 @@
         },
         "environment": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "name": {
           "required": true,
@@ -1005,7 +1005,7 @@
         },
         "script_repository": {
           "required": true,
-          "type": "json"
+          "type": "object"
         }
       },
       "url": "/admin/pre-receive-hooks"
@@ -1054,7 +1054,7 @@
         "hook": {
           "mapTo": "input",
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "id": {
           "required": true,
@@ -1237,7 +1237,7 @@
         },
         "files": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "public": {
           "required": true,
@@ -1298,7 +1298,7 @@
         },
         "files": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "id": {
           "required": true,
@@ -1509,10 +1509,10 @@
       "method": "POST",
       "params": {
         "author": {
-          "type": "json"
+          "type": "object"
         },
         "committer": {
-          "type": "json"
+          "type": "object"
         },
         "message": {
           "required": true,
@@ -1584,7 +1584,7 @@
         },
         "tagger": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "type": {
           "required": true,
@@ -1609,7 +1609,7 @@
         },
         "tree": {
           "required": true,
-          "type": "json"
+          "type": "object"
         }
       },
       "url": "/repos/:owner/:repo/git/trees"
@@ -3626,7 +3626,7 @@
         },
         "config": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "events": {
           "type": "string[]"
@@ -3734,7 +3734,7 @@
         },
         "config": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "events": {
           "type": "string[]"
@@ -5953,13 +5953,13 @@
       "method": "PUT",
       "params": {
         "author": {
-          "type": "json"
+          "type": "object"
         },
         "branch": {
           "type": "string"
         },
         "committer": {
-          "type": "json"
+          "type": "object"
         },
         "content": {
           "required": true,
@@ -6045,7 +6045,7 @@
         },
         "config": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "events": {
           "type": "string[]"
@@ -6228,13 +6228,13 @@
       "method": "DELETE",
       "params": {
         "author": {
-          "type": "json"
+          "type": "object"
         },
         "branch": {
           "type": "string"
         },
         "committer": {
-          "type": "json"
+          "type": "object"
         },
         "message": {
           "required": true,
@@ -6400,7 +6400,7 @@
         },
         "config": {
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "events": {
           "type": "string[]"
@@ -8150,7 +8150,7 @@
         },
         "dismissal_restrictions": {
           "allow-null": true,
-          "type": "json"
+          "type": "object"
         },
         "enforce_admins": {
           "allow-null": false,
@@ -8168,17 +8168,17 @@
         "required_pull_request_reviews": {
           "allow-null": true,
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "required_status_checks": {
           "allow-null": true,
           "required": true,
-          "type": "json"
+          "type": "object"
         },
         "restrictions": {
           "allow-null": true,
           "required": true,
-          "type": "json"
+          "type": "object"
         }
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection"
@@ -8209,13 +8209,13 @@
       "method": "PUT",
       "params": {
         "author": {
-          "type": "json"
+          "type": "object"
         },
         "branch": {
           "type": "string"
         },
         "committer": {
-          "type": "json"
+          "type": "object"
         },
         "content": {
           "required": true,
@@ -8282,7 +8282,7 @@
         },
         "dismissal_restrictions": {
           "allow-null": true,
-          "type": "json"
+          "type": "object"
         },
         "owner": {
           "required": true,
