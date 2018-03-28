@@ -1487,7 +1487,6 @@
       "method": "POST",
       "params": {
         "content": {
-          "allow-empty": true,
           "required": true,
           "type": "string"
         },
@@ -1622,7 +1621,6 @@
           "type": "string"
         },
         "ref": {
-          "allow-empty": true,
           "required": true,
           "type": "string"
         },
@@ -1695,7 +1693,6 @@
           "type": "string"
         },
         "ref": {
-          "allow-empty": true,
           "required": true,
           "type": "string"
         },
@@ -1814,7 +1811,6 @@
           "type": "string"
         },
         "ref": {
-          "allow-empty": true,
           "required": true,
           "type": "string"
         },
@@ -6886,7 +6882,6 @@
           "type": "string"
         },
         "path": {
-          "allow-empty": true,
           "required": true,
           "type": "string"
         },
@@ -7602,7 +7597,6 @@
           "type": "string"
         },
         "ref": {
-          "allow-empty": true,
           "required": true,
           "type": "string"
         },
