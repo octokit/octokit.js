@@ -230,8 +230,14 @@
         "before": {
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
         "participating": {
           "type": "boolean"
+        },
+        "per_page": {
+          "type": "number"
         },
         "since": {
           "type": "string"
@@ -252,8 +258,14 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
         "participating": {
           "type": "boolean"
+        },
+        "per_page": {
+          "type": "number"
         },
         "repo": {
           "required": true,
@@ -554,6 +566,12 @@
         "id": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/marketplace_listing/accounts/:id"
@@ -567,6 +585,12 @@
         "id": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/marketplace_listing/stubbed/accounts/:id"
@@ -620,7 +644,14 @@
         "accept": "application/vnd.github.machine-man-preview"
       },
       "method": "GET",
-      "params": {},
+      "params": {
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        }
+      },
       "url": "/installation/repositories"
     },
     "getInstallations": {
@@ -1380,6 +1411,12 @@
         "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/gists/:gist_id/comments"
@@ -1390,6 +1427,12 @@
         "id": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/gists/:id/commits"
@@ -1432,6 +1475,12 @@
     "getPublic": {
       "method": "GET",
       "params": {
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "since": {
           "type": "string"
         }
@@ -1455,6 +1504,12 @@
     "getStarred": {
       "method": "GET",
       "params": {
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "since": {
           "type": "string"
         }
@@ -2293,6 +2348,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -2676,6 +2737,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -2749,6 +2816,12 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         },
         "repo": {
           "required": true,
@@ -3965,6 +4038,12 @@
         "org": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/orgs/:org/invitations"
@@ -3991,6 +4070,12 @@
         "org": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/orgs/:org/public_members"
@@ -4376,6 +4461,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "state": {
           "enum": [
             "open",
@@ -4426,6 +4517,12 @@
         "id": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         }
       },
       "url": "/projects/columns/:id/cards"
@@ -4453,6 +4550,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "project_id": {
           "alias": "id",
           "deprecated": "`project_id` parameter has been renamed to `id`"
@@ -4469,6 +4572,12 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         },
         "repo": {
           "required": true,
@@ -5501,6 +5610,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -5532,6 +5647,12 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         },
         "repo": {
           "required": true,
@@ -5565,6 +5686,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -5596,6 +5723,12 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         },
         "repo": {
           "required": true,
@@ -6617,6 +6750,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -7014,6 +7153,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -7233,6 +7378,12 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
         },
         "repo": {
           "required": true,
@@ -8714,6 +8865,12 @@
     "getAll": {
       "method": "GET",
       "params": {
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "since": {
           "type": "number"
         }
@@ -8975,6 +9132,12 @@
     "getOrgMemberships": {
       "method": "GET",
       "params": {
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        },
         "state": {
           "enum": [
             "active",
@@ -9011,7 +9174,14 @@
     },
     "getRepoInvites": {
       "method": "GET",
-      "params": {},
+      "params": {
+        "page": {
+          "type": "number"
+        },
+        "per_page": {
+          "type": "number"
+        }
+      },
       "url": "/user/repository_invitations"
     },
     "getTeams": {
