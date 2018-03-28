@@ -2952,11 +2952,9 @@
       "method": "PATCH",
       "params": {
         "color": {
-          "required": true,
           "type": "string"
         },
         "name": {
-          "required": true,
           "type": "string"
         },
         "oldname": {
