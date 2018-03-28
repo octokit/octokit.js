@@ -234,7 +234,7 @@
           "type": "boolean"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/notifications"
@@ -260,7 +260,7 @@
           "type": "string"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/repos/:owner/:repo/notifications"
@@ -1355,7 +1355,7 @@
           "type": "number"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/gists"
@@ -1404,7 +1404,7 @@
           "type": "number"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "username": {
           "required": true,
@@ -1433,7 +1433,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/gists/public"
@@ -1456,7 +1456,7 @@
       "method": "GET",
       "params": {
         "since": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/gists/starred"
@@ -2061,7 +2061,7 @@
           "type": "string"
         },
         "due_on": {
-          "type": "date"
+          "type": "string"
         },
         "owner": {
           "required": true,
@@ -2269,7 +2269,7 @@
           "type": "number"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -2350,7 +2350,7 @@
           "type": "string"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/repos/:owner/:repo/issues/:number/comments"
@@ -2383,7 +2383,7 @@
           "type": "string"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -2529,7 +2529,7 @@
           "type": "number"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -2594,7 +2594,7 @@
           "type": "string"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -2648,7 +2648,7 @@
           "type": "number"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -2955,7 +2955,7 @@
           "type": "string"
         },
         "due_on": {
-          "type": "date"
+          "type": "string"
         },
         "number": {
           "required": true,
@@ -5063,7 +5063,7 @@
           "type": "string"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -6853,10 +6853,10 @@
           "type": "string"
         },
         "since": {
-          "type": "date"
+          "type": "string"
         },
         "until": {
-          "type": "date"
+          "type": "string"
         }
       },
       "url": "/repos/:owner/:repo/commits"
