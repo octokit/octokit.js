@@ -592,9 +592,6 @@
         "installation_id": {
           "required": true,
           "type": "string"
-        },
-        "user_id": {
-          "type": "string"
         }
       },
       "url": "/installations/:installation_id/access_tokens"
@@ -635,11 +632,7 @@
         "accept": "application/vnd.github.machine-man-preview"
       },
       "method": "GET",
-      "params": {
-        "user_id": {
-          "type": "string"
-        }
-      },
+      "params": {},
       "url": "/installation/repositories"
     },
     "getInstallations": {
@@ -1891,9 +1884,6 @@
         "installation_id": {
           "required": true,
           "type": "string"
-        },
-        "user_id": {
-          "type": "string"
         }
       },
       "url": "/installations/:installation_id/access_tokens"
@@ -1904,11 +1894,7 @@
         "accept": "application/vnd.github.machine-man-preview"
       },
       "method": "GET",
-      "params": {
-        "user_id": {
-          "type": "string"
-        }
-      },
+      "params": {},
       "url": "/installation/repositories"
     },
     "getInstallations": {
