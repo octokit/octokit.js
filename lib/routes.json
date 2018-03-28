@@ -1510,7 +1510,6 @@
           "type": "string"
         },
         "encoding": {
-          "required": true,
           "type": "string"
         },
         "owner": {
