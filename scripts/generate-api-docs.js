@@ -44,6 +44,7 @@ function toApiComment (namespaceName, apiName, api) {
   const url = api['url']
   const paramsObj = api['params']
   const params = Object.keys(paramsObj)
+    .filter(name => !paramsObj[name].alias)
     .sort(sortByRequired.bind(null, paramsObj))
 
   const commentLines = [
@@ -75,6 +76,13 @@ function toApiParamComment (paramsObj, param) {
   const paramRequired = paramInfo['required']
   const paramDescription = paramInfo['description'] || ''
   const paramDefaultVal = paramInfo['default']
+  try {
+    paramInfo['type']
+      .toLowerCase()
+  } catch (e) {
+    console.log(`\nparamInfo ==============================`)
+    console.log(paramInfo)
+  }
   const paramType = paramInfo['type']
     .toLowerCase()
     // https://github.com/octokit/rest.js/issues/721
