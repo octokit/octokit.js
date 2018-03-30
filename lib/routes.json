@@ -38,10 +38,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/events"
@@ -54,10 +54,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/events"
@@ -70,10 +70,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -90,10 +90,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -110,10 +110,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -126,10 +126,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -146,10 +146,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -162,10 +162,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -178,10 +178,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -194,10 +194,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -231,13 +231,13 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "participating": {
           "type": "boolean"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -259,13 +259,13 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "participating": {
           "type": "boolean"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -302,10 +302,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -328,10 +328,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "sort": {
           "enum": [
@@ -357,10 +357,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "sort": {
           "enum": [
@@ -380,10 +380,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/subscriptions"
@@ -392,10 +392,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -412,10 +412,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -568,10 +568,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/marketplace_listing/accounts/:id"
@@ -587,10 +587,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/marketplace_listing/stubbed/accounts/:id"
@@ -646,10 +646,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/installation/repositories"
@@ -661,10 +661,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/app/installations"
@@ -680,10 +680,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/marketplace_listing/plans/:id/accounts"
@@ -695,10 +695,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/marketplace_listing/plans"
@@ -714,10 +714,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/marketplace_listing/stubbed/plans/:id/accounts"
@@ -729,10 +729,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/marketplace_listing/stubbed/plans"
@@ -827,10 +827,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/authorizations"
@@ -849,10 +849,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/applications/grants"
@@ -1192,7 +1192,7 @@
       "params": {
         "team_id": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/admin/ldap/teams/:team_id/sync"
@@ -1229,7 +1229,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/admin/ldap/teams/:team_id/mapping"
@@ -1380,10 +1380,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -1413,10 +1413,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/gists/:gist_id/comments"
@@ -1429,10 +1429,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/gists/:id/commits"
@@ -1441,10 +1441,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -1464,10 +1464,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/gists/:id/forks"
@@ -1476,10 +1476,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -1505,10 +1505,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -1766,10 +1766,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -1822,10 +1822,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -1931,10 +1931,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/app/installations"
@@ -1968,7 +1968,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1991,7 +1991,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2041,7 +2041,7 @@
           "type": "string[]"
         },
         "milestone": {
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2070,7 +2070,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2181,7 +2181,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2214,11 +2214,11 @@
         },
         "milestone": {
           "allow-null": true,
-          "type": "number"
+          "type": "integer"
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2274,7 +2274,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2314,10 +2314,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -2349,10 +2349,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2390,17 +2390,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2430,10 +2430,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2474,22 +2474,22 @@
       "method": "GET",
       "params": {
         "issue_number": {
-          "alias": "number",
+          "alias": "integer",
           "deprecated": "`issue_number` parameter has been renamed to `number`"
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2506,10 +2506,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2525,22 +2525,22 @@
       "method": "GET",
       "params": {
         "issue_number": {
-          "alias": "number",
+          "alias": "integer",
           "deprecated": "`issue_number` parameter has been renamed to `number`"
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2580,10 +2580,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -2641,10 +2641,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2699,10 +2699,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -2731,17 +2731,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2776,10 +2776,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2793,7 +2793,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2811,17 +2811,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2845,10 +2845,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2877,7 +2877,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2895,7 +2895,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2917,7 +2917,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2939,7 +2939,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2962,7 +2962,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -2980,7 +2980,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -3028,7 +3028,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -3191,10 +3191,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/migrations"
@@ -3732,7 +3732,7 @@
           "type": "string"
         },
         "parent_team_id": {
-          "type": "number"
+          "type": "integer"
         },
         "privacy": {
           "enum": [
@@ -3837,7 +3837,7 @@
           "type": "string"
         },
         "parent_team_id": {
-          "type": "number"
+          "type": "integer"
         },
         "privacy": {
           "enum": [
@@ -3857,10 +3857,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org"
@@ -3869,10 +3869,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -3891,10 +3891,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/blocks"
@@ -3910,10 +3910,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/teams/:id/teams"
@@ -3922,10 +3922,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -3956,10 +3956,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/hooks"
@@ -3979,10 +3979,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "role": {
           "enum": [
@@ -4024,10 +4024,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/outside_collaborators"
@@ -4040,10 +4040,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/invitations"
@@ -4056,10 +4056,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/teams/:id/invitations"
@@ -4072,10 +4072,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/public_members"
@@ -4104,10 +4104,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "role": {
           "enum": [
@@ -4148,10 +4148,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/teams/:id/repos"
@@ -4167,10 +4167,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/teams"
@@ -4470,10 +4470,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "state": {
           "enum": [
@@ -4533,10 +4533,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/projects/columns/:id/cards"
@@ -4567,10 +4567,10 @@
           "alias": "project_id"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "project_id": {
           "required": true,
@@ -4590,10 +4590,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -4747,7 +4747,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4808,7 +4808,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4820,7 +4820,7 @@
         },
         "position": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -4841,11 +4841,11 @@
         },
         "in_reply_to": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4871,7 +4871,7 @@
         },
         "issue": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4907,7 +4907,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4928,7 +4928,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4977,7 +4977,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -4998,7 +4998,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5029,7 +5029,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5072,7 +5072,7 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5106,10 +5106,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5164,17 +5164,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5201,10 +5201,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5228,17 +5228,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5252,17 +5252,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5280,7 +5280,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5302,17 +5302,17 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5329,17 +5329,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5353,17 +5353,17 @@
       "params": {
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5394,7 +5394,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5431,7 +5431,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5458,7 +5458,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5536,7 +5536,7 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -5654,10 +5654,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5685,17 +5685,17 @@
         },
         "number": {
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5730,10 +5730,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -5768,10 +5768,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -6004,7 +6004,7 @@
           "type": "boolean"
         },
         "team_id": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/repos"
@@ -6024,7 +6024,7 @@
           "type": "string"
         },
         "position": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -6204,7 +6204,7 @@
           "type": "boolean"
         },
         "team_id": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/repos"
@@ -6684,10 +6684,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "sort": {
           "enum": [
@@ -6727,10 +6727,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -6794,10 +6794,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -6850,10 +6850,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "protected": {
           "type": "boolean"
@@ -6883,10 +6883,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -6911,10 +6911,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -6988,10 +6988,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "ref": {
           "required": true,
@@ -7015,13 +7015,13 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "path": {
           "type": "string"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7088,10 +7088,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7126,10 +7126,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7197,10 +7197,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7223,10 +7223,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "ref": {
           "type": "string"
@@ -7270,10 +7270,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7290,10 +7290,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "type": {
           "enum": [
@@ -7320,10 +7320,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "sort": {
           "enum": [
@@ -7357,10 +7357,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7403,10 +7403,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7423,10 +7423,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7529,10 +7529,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7685,10 +7685,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
           "type": "string"
@@ -7771,10 +7771,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7879,10 +7879,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "ref": {
           "required": true,
@@ -7903,10 +7903,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -7923,10 +7923,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -8530,7 +8530,7 @@
         "contentLength": {
           "mapTo": "headers.content-length",
           "required": true,
-          "type": "number"
+          "type": "integer"
         },
         "contentType": {
           "mapTo": "headers.content-type",
@@ -8569,10 +8569,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "q": {
           "required": true,
@@ -8601,10 +8601,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "q": {
           "required": true,
@@ -8631,10 +8631,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "q": {
           "required": true,
@@ -8665,10 +8665,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "q": {
           "required": true,
@@ -8696,10 +8696,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "q": {
           "required": true,
@@ -8923,13 +8923,13 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "since": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/users"
@@ -8956,10 +8956,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/emails"
@@ -8968,10 +8968,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/followers"
@@ -8980,10 +8980,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -8996,10 +8996,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/following"
@@ -9008,10 +9008,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -9050,10 +9050,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/gpg_keys"
@@ -9065,10 +9065,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -9085,10 +9085,10 @@
           "type": "string"
         },
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/installations/:installation_id/repositories"
@@ -9100,10 +9100,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/installations"
@@ -9122,10 +9122,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/keys"
@@ -9134,10 +9134,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -9153,10 +9153,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/marketplace_purchases"
@@ -9168,10 +9168,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/marketplace_purchases/stubbed"
@@ -9190,10 +9190,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         },
         "state": {
           "enum": [
@@ -9209,10 +9209,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/orgs"
@@ -9221,10 +9221,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/public_emails"
@@ -9233,10 +9233,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/repository_invitations"
@@ -9248,10 +9248,10 @@
       "method": "GET",
       "params": {
         "page": {
-          "type": "number"
+          "type": "integer"
         },
         "per_page": {
-          "type": "number"
+          "type": "integer"
         }
       },
       "url": "/user/teams"
