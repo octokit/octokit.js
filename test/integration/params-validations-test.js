@@ -127,4 +127,17 @@ describe('params validations', () => {
       due_on: new Date('2012-10-09T23:39:01Z')
     })
   })
+
+  it('Date object for github.activity.getNotifications({..., since})', () => {
+    const github = new GitHub({
+      host: 'notifications-test-host.com'
+    })
+
+    nock('https://notifications-test-host.com')
+      .get('/notifications')
+      .query({ since: '2012-10-09T23:39:01Z' })
+      .reply(201, {})
+
+    return github.activity.getNotifications({since: new Date('2012-10-09T23:39:01Z')})
+  })
 })
