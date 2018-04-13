@@ -38,14 +38,13 @@ Here is an overview of [how `@octokit/rest` works](HOW_IT_WORKS.md).
 * You can install a specific pull request of a module from github using the command
 `npm install octokit/rest.js#branchname`
 
-* For example to test https://github.com/octokit/rest.js/pull/792 get the branch name, i.e, `791/error-headers` and locally run...
-`npm install octokit/rest.js#791/error-headers`
+* For example to test pull request [#792](https://github.com/octokit/rest.js/pull/792) run `npm install octokit/rest.js#791/error-headers` as `791/error-headers` is the branch name.
 
-* After the installation is done, you can double check with npm ls @octokit/rest which will show something like
+* After the installation is done, you can double check with npm ls `@octokit/rest` which will show something like
 ```text
 └── @octokit/rest@0.0.0-semantically-released  (git+https://github.com/octokit/rest.js.git#505ed1f57671480b625131abb00c277c67cae40a)
 ```
-* Once you are done testing, you can revert back to the default module `@octokit/rest` from npm with `npm i @octokit/rest`
+* Once you are done testing, you can revert back to the default module `@octokit/rest` from npm with `npm install @octokit/rest`
 
 ## Merging the Pull Request & releasing a new version
 
