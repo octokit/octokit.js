@@ -33,6 +33,19 @@ Here is an overview of [how `@octokit/rest` works](HOW_IT_WORKS.md).
 * Be sure to tag any issues your pull request is taking care of / contributing to.
 	* Adding "Closes #123" to a pull request description will auto close the issue once the pull request is merged in.
 
+## Testing a pull request from github repo locally:
+
+* You can install a specific pull request of a module from github using the command
+`npm install octokit/rest.js#branchname`
+
+* For example to test pull request [#792](https://github.com/octokit/rest.js/pull/792) run `npm install octokit/rest.js#791/error-headers` as `791/error-headers` is the branch name.
+
+* After the installation is done, you can double check with `npm ls @octokit/rest` which will show something like
+```text
+└── @octokit/rest@0.0.0-semantically-released  (git+https://github.com/octokit/rest.js.git#505ed1f57671480b625131abb00c277c67cae40a)
+```
+* Once you are done testing, you can revert back to the default module `@octokit/rest` from npm with `npm install @octokit/rest`
+
 ## Merging the Pull Request & releasing a new version
 
 Releases are automated using [semantic-release](https://github.com/semantic-release/semantic-release).
