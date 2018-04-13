@@ -40,7 +40,7 @@ Here is an overview of [how `@octokit/rest` works](HOW_IT_WORKS.md).
 
 * For example to test pull request [#792](https://github.com/octokit/rest.js/pull/792) run `npm install octokit/rest.js#791/error-headers` as `791/error-headers` is the branch name.
 
-* After the installation is done, you can double check with npm ls `@octokit/rest` which will show something like
+* After the installation is done, you can double check with `npm ls @octokit/rest` which will show something like
 ```text
 └── @octokit/rest@0.0.0-semantically-released  (git+https://github.com/octokit/rest.js.git#505ed1f57671480b625131abb00c277c67cae40a)
 ```
