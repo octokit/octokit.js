@@ -1689,6 +1689,10 @@
     "getBlob": {
       "method": "GET",
       "params": {
+        "file_sha": {
+          "required": true,
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -1698,15 +1702,19 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
-          "type": "string"
+          "alias": "file_sha",
+          "deprecated": "`sha` parameter has been renamed to `file_sha`"
         }
       },
-      "url": "/repos/:owner/:repo/git/blobs/:sha"
+      "url": "/repos/:owner/:repo/git/blobs/:file_sha"
     },
     "getCommit": {
       "method": "GET",
       "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -1716,15 +1724,19 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
-          "type": "string"
+          "alias": "commit_sha",
+          "deprecated": "`sha` parameter has been renamed to `commit_sha`"
         }
       },
-      "url": "/repos/:owner/:repo/git/commits/:sha"
+      "url": "/repos/:owner/:repo/git/commits/:commit_sha"
     },
     "getCommitSignatureVerification": {
       "method": "GET",
       "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -1734,11 +1746,11 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
-          "type": "string"
+          "alias": "commit_sha",
+          "deprecated": "`sha` parameter has been renamed to `commit_sha`"
         }
       },
-      "url": "/repos/:owner/:repo/git/commits/:sha"
+      "url": "/repos/:owner/:repo/git/commits/:commit_sha"
     },
     "getReference": {
       "method": "GET",
@@ -1790,11 +1802,15 @@
           "type": "string"
         },
         "sha": {
+          "alias": "tag_sha",
+          "deprecated": "`sha` parameter has been renamed to `tag_sha`"
+        },
+        "tag_sha": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/git/tags/:sha"
+      "url": "/repos/:owner/:repo/git/tags/:tag_sha"
     },
     "getTagSignatureVerification": {
       "method": "GET",
@@ -1808,11 +1824,15 @@
           "type": "string"
         },
         "sha": {
+          "alias": "tag_sha",
+          "deprecated": "`sha` parameter has been renamed to `tag_sha`"
+        },
+        "tag_sha": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/git/tags/:sha"
+      "url": "/repos/:owner/:repo/git/tags/:tag_sha"
     },
     "getTags": {
       "method": "GET",
@@ -1849,11 +1869,15 @@
           "type": "string"
         },
         "sha": {
+          "alias": "tree_sha",
+          "deprecated": "`sha` parameter has been renamed to `tree_sha`"
+        },
+        "tree_sha": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/git/trees/:sha"
+      "url": "/repos/:owner/:repo/git/trees/:tree_sha"
     },
     "updateReference": {
       "method": "PATCH",
