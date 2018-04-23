@@ -675,6 +675,13 @@
       },
       "method": "GET",
       "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
         "id": {
           "required": true,
           "type": "string"
@@ -684,6 +691,13 @@
         },
         "per_page": {
           "type": "integer"
+        },
+        "sort": {
+          "enum": [
+            "created",
+            "updated"
+          ],
+          "type": "string"
         }
       },
       "url": "/marketplace_listing/plans/:id/accounts"
@@ -709,6 +723,13 @@
       },
       "method": "GET",
       "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
         "id": {
           "required": true,
           "type": "string"
@@ -718,6 +739,13 @@
         },
         "per_page": {
           "type": "integer"
+        },
+        "sort": {
+          "enum": [
+            "created",
+            "updated"
+          ],
+          "type": "string"
         }
       },
       "url": "/marketplace_listing/stubbed/plans/:id/accounts"
@@ -764,6 +792,7 @@
           "type": "string"
         },
         "client_id": {
+          "required": true,
           "type": "string"
         }
       },
@@ -782,6 +811,7 @@
           "type": "string"
         },
         "note": {
+          "required": true,
           "type": "string"
         },
         "note_url": {
@@ -861,6 +891,7 @@
       "method": "PUT",
       "params": {
         "client_id": {
+          "required": true,
           "type": "string"
         },
         "client_secret": {
@@ -886,6 +917,7 @@
       "method": "PUT",
       "params": {
         "client_id": {
+          "required": true,
           "type": "string"
         },
         "client_secret": {
@@ -893,6 +925,7 @@
           "type": "string"
         },
         "fingerprint": {
+          "required": true,
           "type": "string"
         },
         "note": {
@@ -915,6 +948,7 @@
           "type": "string"
         },
         "client_id": {
+          "required": true,
           "type": "string"
         }
       },
@@ -928,6 +962,7 @@
           "type": "string"
         },
         "client_id": {
+          "required": true,
           "type": "string"
         }
       },
@@ -941,6 +976,7 @@
           "type": "string"
         },
         "client_id": {
+          "required": true,
           "type": "string"
         }
       },
@@ -1271,7 +1307,6 @@
           "type": "object"
         },
         "public": {
-          "required": true,
           "type": "boolean"
         }
       },
@@ -1328,7 +1363,6 @@
           "type": "string"
         },
         "files": {
-          "required": true,
           "type": "object"
         },
         "id": {
@@ -1637,10 +1671,23 @@
           "type": "string"
         },
         "tagger": {
-          "required": true,
           "type": "object"
         },
+        "tagger.date": {
+          "type": "string"
+        },
+        "tagger.email": {
+          "type": "string"
+        },
+        "tagger.name": {
+          "type": "string"
+        },
         "type": {
+          "enum": [
+            "commit",
+            "tree",
+            "blob"
+          ],
           "required": true,
           "type": "string"
         }
@@ -1663,7 +1710,34 @@
         },
         "tree": {
           "required": true,
-          "type": "object"
+          "type": "object[]"
+        },
+        "tree.content": {
+          "type": "string"
+        },
+        "tree.mode": {
+          "enum": [
+            "100644",
+            "100755",
+            "040000",
+            "160000",
+            "120000"
+          ],
+          "type": "string"
+        },
+        "tree.path": {
+          "type": "string"
+        },
+        "tree.sha": {
+          "type": "string"
+        },
+        "tree.type": {
+          "enum": [
+            "blob",
+            "tree",
+            "commit"
+          ],
+          "type": "string"
         }
       },
       "url": "/repos/:owner/:repo/git/trees"
@@ -1755,15 +1829,7 @@
     "getReference": {
       "method": "GET",
       "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
         "ref": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
           "required": true,
           "type": "string"
         }
@@ -1860,9 +1926,6 @@
         "owner": {
           "required": true,
           "type": "string"
-        },
-        "recursive": {
-          "type": "boolean"
         },
         "repo": {
           "required": true,
@@ -1987,7 +2050,6 @@
       "method": "POST",
       "params": {
         "assignees": {
-          "required": true,
           "type": "string[]"
         },
         "number": {
@@ -2114,6 +2176,9 @@
           "required": true,
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "name": {
           "required": true,
           "type": "string"
@@ -2149,8 +2214,7 @@
         "state": {
           "enum": [
             "open",
-            "closed",
-            "all"
+            "closed"
           ],
           "type": "string"
         },
@@ -2326,11 +2390,11 @@
         },
         "filter": {
           "enum": [
-            "all",
             "assigned",
             "created",
             "mentioned",
-            "subscribed"
+            "subscribed",
+            "all"
           ],
           "type": "string"
         },
@@ -2399,6 +2463,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -2452,12 +2522,6 @@
         "owner": {
           "required": true,
           "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -2588,11 +2652,11 @@
         },
         "filter": {
           "enum": [
-            "all",
             "assigned",
             "created",
             "mentioned",
-            "subscribed"
+            "subscribed",
+            "all"
           ],
           "type": "string"
         },
@@ -2711,11 +2775,11 @@
         },
         "filter": {
           "enum": [
-            "all",
             "assigned",
             "created",
             "mentioned",
-            "subscribed"
+            "subscribed",
+            "all"
           ],
           "type": "string"
         },
@@ -2899,6 +2963,15 @@
     "lock": {
       "method": "PUT",
       "params": {
+        "lock_reason": {
+          "enum": [
+            "off-topic",
+            "too heated",
+            "resolved",
+            "spam"
+          ],
+          "type": "string"
+        },
         "number": {
           "required": true,
           "type": "integer"
@@ -2936,7 +3009,6 @@
       "method": "DELETE",
       "params": {
         "assignees": {
-          "required": true,
           "type": "string[]"
         },
         "number": {
@@ -3023,6 +3095,9 @@
         "color": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -3065,8 +3140,7 @@
         "state": {
           "enum": [
             "open",
-            "closed",
-            "all"
+            "closed"
           ],
           "type": "string"
         },
@@ -3269,6 +3343,10 @@
           "type": "string"
         },
         "use_lfs": {
+          "enum": [
+            "opt_in",
+            "opt_out"
+          ],
           "required": true,
           "type": "string"
         }
@@ -3537,7 +3615,6 @@
             "admin",
             "member"
           ],
-          "required": true,
           "type": "string"
         },
         "username": {
@@ -3725,6 +3802,19 @@
           "required": true,
           "type": "object"
         },
+        "config.content_type": {
+          "type": "string"
+        },
+        "config.insecure_ssl": {
+          "type": "string"
+        },
+        "config.secret": {
+          "type": "string"
+        },
+        "config.url": {
+          "required": true,
+          "type": "string"
+        },
         "events": {
           "type": "string[]"
         },
@@ -3761,6 +3851,14 @@
         },
         "parent_team_id": {
           "type": "integer"
+        },
+        "permission": {
+          "enum": [
+            "pull",
+            "push",
+            "admin"
+          ],
+          "type": "string"
         },
         "privacy": {
           "enum": [
@@ -3830,8 +3928,20 @@
           "type": "boolean"
         },
         "config": {
-          "required": true,
           "type": "object"
+        },
+        "config.content_type": {
+          "type": "string"
+        },
+        "config.insecure_ssl": {
+          "type": "string"
+        },
+        "config.secret": {
+          "type": "string"
+        },
+        "config.url": {
+          "required": true,
+          "type": "string"
         },
         "events": {
           "type": "string[]"
@@ -3867,11 +3977,15 @@
         "parent_team_id": {
           "type": "integer"
         },
-        "privacy": {
+        "permission": {
           "enum": [
-            "secret",
-            "closed"
+            "pull",
+            "push",
+            "admin"
           ],
+          "type": "string"
+        },
+        "privacy": {
           "type": "string"
         }
       },
@@ -3883,12 +3997,6 @@
         "org": {
           "required": true,
           "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
         }
       },
       "url": "/orgs/:org"
@@ -3917,12 +4025,6 @@
         "org": {
           "required": true,
           "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
         }
       },
       "url": "/orgs/:org/blocks"
@@ -3997,8 +4099,8 @@
       "params": {
         "filter": {
           "enum": [
-            "all",
-            "2fa_disabled"
+            "2fa_disabled",
+            "all"
           ],
           "type": "string"
         },
@@ -4042,8 +4144,8 @@
       "params": {
         "filter": {
           "enum": [
-            "all",
-            "2fa_disabled"
+            "2fa_disabled",
+            "all"
           ],
           "type": "string"
         },
@@ -4331,6 +4433,12 @@
         "email": {
           "type": "string"
         },
+        "has_organization_projects": {
+          "type": "boolean"
+        },
+        "has_repository_projects": {
+          "type": "boolean"
+        },
         "location": {
           "type": "string"
         },
@@ -4365,6 +4473,12 @@
         "org": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
         }
       },
       "url": "/orgs/:org/projects"
@@ -4376,24 +4490,20 @@
       "method": "POST",
       "params": {
         "column_id": {
-          "alias": "id",
-          "deprecated": "`column_id` parameter has been renamed to `id`"
+          "required": true,
+          "type": "integer"
         },
         "content_id": {
-          "type": "string"
+          "type": "integer"
         },
         "content_type": {
-          "type": "string"
-        },
-        "id": {
-          "required": true,
           "type": "string"
         },
         "note": {
           "type": "string"
         }
       },
-      "url": "/projects/columns/:id/cards"
+      "url": "/projects/columns/:column_id/cards"
     },
     "createProjectColumn": {
       "headers": {
@@ -4431,6 +4541,12 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -4526,6 +4642,12 @@
         "project_id": {
           "required": true,
           "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
         }
       },
       "url": "/projects/:project_id"
@@ -4553,12 +4675,8 @@
       "method": "GET",
       "params": {
         "column_id": {
-          "alias": "id",
-          "deprecated": "`column_id` parameter has been renamed to `id`"
-        },
-        "id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "page": {
           "type": "integer"
@@ -4567,7 +4685,7 @@
           "type": "integer"
         }
       },
-      "url": "/projects/columns/:id/cards"
+      "url": "/projects/columns/:column_id/cards"
     },
     "getProjectColumn": {
       "headers": {
@@ -4649,7 +4767,7 @@
           "type": "string"
         },
         "column_id": {
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "card_id"
@@ -4718,8 +4836,7 @@
         "state": {
           "enum": [
             "open",
-            "closed",
-            "all"
+            "closed"
           ],
           "type": "string"
         }
@@ -4893,19 +5010,25 @@
           "required": true,
           "type": "string"
         },
+        "body": {
+          "type": "string"
+        },
         "head": {
           "required": true,
           "type": "string"
         },
-        "issue": {
-          "required": true,
-          "type": "integer"
+        "maintainer_can_modify": {
+          "type": "boolean"
         },
         "owner": {
           "required": true,
           "type": "string"
         },
         "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "title": {
           "required": true,
           "type": "string"
         }
@@ -4919,7 +5042,16 @@
           "type": "string"
         },
         "comments": {
-          "type": "string[]"
+          "type": "object[]"
+        },
+        "comments.body": {
+          "type": "string"
+        },
+        "comments.path": {
+          "type": "string"
+        },
+        "comments.position": {
+          "type": "integer"
         },
         "commit_id": {
           "type": "string"
@@ -4928,8 +5060,7 @@
           "enum": [
             "APPROVE",
             "REQUEST_CHANGES",
-            "COMMENT",
-            "PENDING"
+            "COMMENT"
           ],
           "type": "string"
         },
@@ -5190,6 +5321,13 @@
       },
       "method": "GET",
       "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
         "number": {
           "required": true,
           "type": "integer"
@@ -5206,6 +5344,16 @@
         },
         "repo": {
           "required": true,
+          "type": "string"
+        },
+        "since": {
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "created",
+            "updated"
+          ],
           "type": "string"
         }
       },
@@ -5448,8 +5596,7 @@
           "enum": [
             "APPROVE",
             "REQUEST_CHANGES",
-            "COMMENT",
-            "PENDING"
+            "COMMENT"
           ],
           "type": "string"
         },
@@ -5855,7 +6002,6 @@
           "type": "string"
         },
         "title": {
-          "required": true,
           "type": "string"
         }
       },
@@ -6044,6 +6190,9 @@
           "required": true,
           "type": "string"
         },
+        "line": {
+          "type": "integer"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -6141,6 +6290,14 @@
           "type": "string"
         },
         "state": {
+          "enum": [
+            "error",
+            "failure",
+            "inactive",
+            "pending",
+            "success"
+          ],
+          "required": true,
           "type": "string"
         },
         "target_url": {
@@ -6247,6 +6404,19 @@
           "required": true,
           "type": "object"
         },
+        "config.content_type": {
+          "type": "string"
+        },
+        "config.insecure_ssl": {
+          "type": "string"
+        },
+        "config.secret": {
+          "type": "string"
+        },
+        "config.url": {
+          "required": true,
+          "type": "string"
+        },
         "events": {
           "type": "string[]"
         },
@@ -6321,10 +6491,10 @@
         },
         "state": {
           "enum": [
-            "pending",
-            "success",
             "error",
-            "failure"
+            "failure",
+            "pending",
+            "success"
           ],
           "required": true,
           "type": "string"
@@ -6528,6 +6698,9 @@
         "allow_squash_merge": {
           "type": "boolean"
         },
+        "archived": {
+          "type": "boolean"
+        },
         "default_branch": {
           "type": "string"
         },
@@ -6575,7 +6748,6 @@
           "type": "string"
         },
         "name": {
-          "required": true,
           "type": "string"
         },
         "owner": {
@@ -6599,17 +6771,25 @@
           "type": "string[]"
         },
         "config": {
-          "required": true,
           "type": "object"
+        },
+        "config.content_type": {
+          "type": "string"
+        },
+        "config.insecure_ssl": {
+          "type": "string"
+        },
+        "config.secret": {
+          "type": "string"
+        },
+        "config.url": {
+          "required": true,
+          "type": "string"
         },
         "events": {
           "type": "string[]"
         },
         "id": {
-          "required": true,
-          "type": "string"
-        },
-        "name": {
           "required": true,
           "type": "string"
         },
@@ -6655,7 +6835,6 @@
           "type": "string"
         },
         "tag_name": {
-          "required": true,
           "type": "string"
         },
         "target_commitish": {
@@ -6702,6 +6881,11 @@
       "method": "GET",
       "params": {
         "affiliation": {
+          "enum": [
+            "owner",
+            "collaborator",
+            "organization_member"
+          ],
           "type": "string"
         },
         "direction": {
@@ -6783,6 +6967,7 @@
           "type": "string"
         },
         "ref": {
+          "required": true,
           "type": "string"
         },
         "repo": {
@@ -6910,11 +7095,12 @@
           "required": true,
           "type": "string"
         },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
+        "per": {
+          "enum": [
+            "day",
+            "week"
+          ],
+          "type": "string"
         },
         "repo": {
           "required": true,
@@ -6929,8 +7115,8 @@
         "affiliation": {
           "enum": [
             "outside",
-            "all",
-            "direct"
+            "direct",
+            "all"
           ],
           "type": "string"
         },
@@ -7109,7 +7295,7 @@
       "method": "GET",
       "params": {
         "anon": {
-          "type": "boolean"
+          "type": "string"
         },
         "owner": {
           "required": true,
@@ -7193,7 +7379,7 @@
       "params": {
         "id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -7205,7 +7391,7 @@
         },
         "status_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/deployments/:id/statuses/:status_id"
@@ -7218,7 +7404,7 @@
       "params": {
         "id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -7987,6 +8173,13 @@
           "required": true,
           "type": "string"
         },
+        "per": {
+          "enum": [
+            "day",
+            "week"
+          ],
+          "type": "string"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -8365,7 +8558,7 @@
           "type": "string"
         },
         "enforce_admins": {
-          "allowNull": false,
+          "allowNull": true,
           "required": true,
           "type": "boolean"
         },
@@ -8405,10 +8598,24 @@
           "required": true,
           "type": "object"
         },
+        "required_status_checks.contexts": {
+          "required": true,
+          "type": "string[]"
+        },
+        "required_status_checks.strict": {
+          "required": true,
+          "type": "boolean"
+        },
         "restrictions": {
           "allowNull": true,
           "required": true,
           "type": "object"
+        },
+        "restrictions.teams": {
+          "type": "string[]"
+        },
+        "restrictions.users": {
+          "type": "string[]"
         }
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection"
@@ -8511,8 +8718,13 @@
           "type": "boolean"
         },
         "dismissal_restrictions": {
-          "allowNull": true,
           "type": "object"
+        },
+        "dismissal_restrictions.teams": {
+          "type": "string[]"
+        },
+        "dismissal_restrictions.users": {
+          "type": "string[]"
         },
         "owner": {
           "required": true,
@@ -8524,6 +8736,9 @@
         },
         "require_code_owner_reviews": {
           "type": "boolean"
+        },
+        "required_approving_review_count": {
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews"
@@ -8607,10 +8822,10 @@
           "type": "string"
         },
         "sort": {
+          "type": "string",
           "enum": [
             "indexed"
-          ],
-          "type": "string"
+          ]
         }
       },
       "url": "/search/code"
@@ -8839,26 +9054,12 @@
         "accept": "application/vnd.github.cryptographer-preview"
       },
       "method": "POST",
-      "params": {
-        "armored_public_key": {
-          "required": true,
-          "type": "string"
-        }
-      },
+      "params": {},
       "url": "/user/gpg_keys"
     },
     "createKey": {
       "method": "POST",
-      "params": {
-        "key": {
-          "required": true,
-          "type": "string"
-        },
-        "title": {
-          "required": true,
-          "type": "string"
-        }
-      },
+      "params": {},
       "url": "/user/keys"
     },
     "declineRepoInvite": {
@@ -8957,7 +9158,7 @@
           "type": "integer"
         },
         "since": {
-          "type": "integer"
+          "type": "string"
         }
       },
       "url": "/users"
@@ -9323,7 +9524,16 @@
     },
     "togglePrimaryEmailVisibility": {
       "method": "PATCH",
-      "params": {},
+      "params": {
+        "email": {
+          "required": true,
+          "type": "string"
+        },
+        "visibility": {
+          "required": true,
+          "type": "string"
+        }
+      },
       "url": "/user/email/visibility"
     },
     "unblockUser": {
