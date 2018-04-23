@@ -3582,6 +3582,10 @@
           "type": "string"
         },
         "org": {
+          "alias": "owner",
+          "deprecated": "`org` parameter has been renamed to `owner`"
+        },
+        "owner": {
           "required": true,
           "type": "string"
         },
@@ -3598,7 +3602,7 @@
           "type": "string"
         }
       },
-      "url": "/teams/:id/repos/:org/:repo"
+      "url": "/teams/:id/repos/:owner/:repo"
     },
     "blockUser": {
       "headers": {
