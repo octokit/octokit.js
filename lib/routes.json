@@ -1829,7 +1829,15 @@
     "getReference": {
       "method": "GET",
       "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
         "ref": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
           "required": true,
           "type": "string"
         }
