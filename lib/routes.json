@@ -8785,19 +8785,23 @@
       "method": "POST",
       "params": {
         "contentLength": {
-          "mapTo": "headers.content-length",
-          "required": true,
-          "type": "integer"
+          "alias": "headers.content-length"
         },
         "contentType": {
-          "mapTo": "headers.content-type",
-          "required": true,
-          "type": "string"
+          "alias": "headers.content-type"
         },
         "file": {
           "mapTo": "input",
           "required": true,
           "type": "string | object"
+        },
+        "headers.content-length": {
+          "required": true,
+          "type": "integer"
+        },
+        "headers.content-type": {
+          "required": true,
+          "type": "string"
         },
         "label": {
           "type": "string"
