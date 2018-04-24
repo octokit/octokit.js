@@ -1927,6 +1927,12 @@
           "required": true,
           "type": "string"
         },
+        "recursive": {
+          "enum": [
+            1
+          ],
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
