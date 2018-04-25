@@ -6,7 +6,7 @@ const {join: pathJoin} = require('path')
 const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')
 
-const ROUTES = require('../lib/routes.json')
+const ROUTES = require('./routes-for-api-docs.json')
 
 debug('Converting routes to functions')
 
@@ -41,24 +41,24 @@ function toApiComment (namespaceName, apiName, api) {
   }
 
   const method = api['method'].toUpperCase()
-  const url = api['url']
-  const paramsObj = api['params']
-  const params = Object.keys(paramsObj)
-    .filter(name => !paramsObj[name].alias)
-    .sort(sortByRequired.bind(null, paramsObj))
+  // const paramsObj = api['params']
+  // const params = Object.keys(paramsObj)
+  //   .filter(name => !paramsObj[name].alias)
+  //   .sort(sortByRequired.bind(null, paramsObj))
+  const params = api['params']
 
   const commentLines = [
     '/**',
-    ` * @api {${method}} ${url} ${apiName}`,
+    ` * @api {${method}} ${api.path} ${apiName}`,
     ` * @apiName ${apiName}`,
-    ` * @apiDescription ${api['description']}`,
+    ` * @apiDescription ${api.description}`,
     ` * @apiGroup ${upperFirst(namespaceName)}`,
     ' *'
   ].concat(
-    params.map(toApiParamComment.bind(null, paramsObj))
+    params.map(toApiParamComment)
   )
 
-  const paramsString = params.join(', ')
+  const paramsString = params.map(param => param.name).join(', ')
 
   return commentLines.concat([
     ' * @apiExample {js} async/await',
@@ -70,29 +70,20 @@ function toApiComment (namespaceName, apiName, api) {
   ]).join('\n') + '\n */'
 }
 
-function toApiParamComment (paramsObj, param) {
-  const paramInfo = paramsObj[param]
-
+function toApiParamComment (paramInfo) {
   const paramRequired = paramInfo['required']
   const paramDescription = paramInfo['description'] || ''
   const paramDefaultVal = paramInfo['default']
-  try {
-    paramInfo['type']
-      .toLowerCase()
-  } catch (e) {
-    console.log(`\nparamInfo ==============================`)
-    console.log(paramInfo)
-  }
   const paramType = paramInfo['type']
     .toLowerCase()
     // https://github.com/octokit/rest.js/issues/721
     .replace('string | object', 'object')
 
-  let paramLabel = param
+  let paramLabel = paramInfo.name
 
   // add default value if there is one
   if (typeof paramDefaultVal !== 'undefined') {
-    paramLabel += `=${paramDefaultVal}`
+    paramLabel += `="${String(paramDefaultVal).replace(/[<>]/g, '')}"`
   }
 
   // show param as either required or optional
@@ -108,17 +99,17 @@ function toApiParamComment (paramsObj, param) {
   return ` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`
 }
 
-function sortByRequired (api, paramA, paramB) {
-  const paramInfoA = api[paramA]
-  const paramInfoB = api[paramB]
-
-  const aIsRequired = paramInfoA['required']
-  const bIsRequired = paramInfoB['required']
-
-  if (aIsRequired && !bIsRequired) return -1
-  if (!aIsRequired && bIsRequired) return 1
-  return 0
-}
+// function sortByRequired (api, paramA, paramB) {
+//   const paramInfoA = api[paramA]
+//   const paramInfoB = api[paramB]
+//
+//   const aIsRequired = paramInfoA['required']
+//   const bIsRequired = paramInfoB['required']
+//
+//   if (aIsRequired && !bIsRequired) return -1
+//   if (!aIsRequired && bIsRequired) return 1
+//   return 0
+// }
 
 writeFileSync(
   pathJoin(__dirname, '..', 'doc', 'apidoc.js'),
