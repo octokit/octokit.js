@@ -41,17 +41,18 @@ function toApiComment (namespaceName, apiName, api) {
   }
 
   const method = api['method'].toUpperCase()
-  // const paramsObj = api['params']
-  // const params = Object.keys(paramsObj)
-  //   .filter(name => !paramsObj[name].alias)
-  //   .sort(sortByRequired.bind(null, paramsObj))
   const params = api['params']
+
+  const descriptionWithLinkToV3Docs = [
+    api.description,
+    `<a href="${api.documentationUrl}">REST API doc</a>`
+  ].filter(Boolean).join(' ')
 
   const commentLines = [
     '/**',
     ` * @api {${method}} ${api.path} ${apiName}`,
     ` * @apiName ${apiName}`,
-    ` * @apiDescription ${api.description}`,
+    ` * @apiDescription ${descriptionWithLinkToV3Docs}`,
     ` * @apiGroup ${upperFirst(namespaceName)}`,
     ' *'
   ].concat(
