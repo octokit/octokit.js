@@ -14,7 +14,6 @@ declare module "github" {
     proxy?: string;
     ca?: string;
     headers?: {[header: Header]: any};
-    requestMedia?: string;
     rejectUnauthorized?: boolean;
     family?: number;
   };

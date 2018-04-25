@@ -16,8 +16,8 @@ export default async function() {
   // for all supported options
   const octokit = new Octokit({
     timeout: 0,
-    requestMedia: 'application/vnd.github.v3+json',
     headers: {
+      accept: 'application/vnd.github.v3+json',
       'user-agent': 'octokit/rest.js v1.2.3'
     },
     baseUrl: 'https://api.github.com',
