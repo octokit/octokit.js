@@ -35,7 +35,6 @@ declare namespace Github {
     baseUrl?: string;
     timeout?: number;
     headers?: {[header: string]: any};
-    requestMedia?: string;
     agent?: http.Agent;
 
     /**
