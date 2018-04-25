@@ -58,8 +58,8 @@ All available client options with default values
 ```js
 const octokit = require('@octokit/rest')({
   timeout: 0, // 0 means no request timeout
-  requestMedia: 'application/vnd.github.v3+json',
   headers: {
+    accept: 'application/vnd.github.v3+json',
     'user-agent': 'octokit/rest.js v1.2.3' // v1.2.3 will be current version
   },
 
