@@ -143,6 +143,28 @@ describe('params validations', () => {
     })
   })
 
+  it('client.gitdata.createTree() with invalid tree[] object', () => {
+    const github = new GitHub()
+    return github.gitdata.createTree({
+      owner: 'foo',
+      repo: 'bar',
+      base_tree: '9fb037999f264ba9a7fc6274d15fa3ae2ab98312',
+      tree: [
+        {
+          type: 'foo'
+        }
+      ]
+    })
+
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: 'Invalid value for parameter \'tree[0].type\': "foo"',
+          status: 'Bad Request'
+        })
+      })
+  })
+
   it('does not alter passed options', () => {
     const github = new GitHub({
       baseUrl: 'https://params-test-host.com'
