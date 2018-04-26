@@ -44,7 +44,7 @@ describe('params validations', () => {
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 400,
-          message: 'Invalid value for parameter \'filter\': foo',
+          message: 'Invalid value for parameter \'filter\': "foo"',
           status: 'Bad Request'
         })
       })
@@ -58,7 +58,7 @@ describe('params validations', () => {
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 400,
-          message: 'Invalid value for parameter \'position\': foo',
+          message: 'Invalid value for parameter \'position\': "foo"',
           status: 'Bad Request'
         })
       })
@@ -78,7 +78,7 @@ describe('params validations', () => {
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 400,
-          message: 'Invalid value for parameter \'position\': Age Ain’t Nothing is NaN',
+          message: 'Invalid value for parameter \'position\': "Age Ain’t Nothing" is NaN',
           status: 'Bad Request'
         })
       })
@@ -97,7 +97,7 @@ describe('params validations', () => {
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 400,
-          message: 'JSON parse error of value for parameter \'config\': I’m no Je-Son!',
+          message: 'JSON parse error of value for parameter \'config\': "I’m no Je-Son!"',
           status: 'Bad Request'
         })
       })
