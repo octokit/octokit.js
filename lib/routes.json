@@ -1712,10 +1712,10 @@
           "required": true,
           "type": "object[]"
         },
-        "tree.content": {
+        "tree[].content": {
           "type": "string"
         },
-        "tree.mode": {
+        "tree[].mode": {
           "enum": [
             "100644",
             "100755",
@@ -1725,13 +1725,13 @@
           ],
           "type": "string"
         },
-        "tree.path": {
+        "tree[].path": {
           "type": "string"
         },
-        "tree.sha": {
+        "tree[].sha": {
           "type": "string"
         },
-        "tree.type": {
+        "tree[].type": {
           "enum": [
             "blob",
             "tree",
@@ -5058,13 +5058,13 @@
         "comments": {
           "type": "object[]"
         },
-        "comments.body": {
+        "comments[].body": {
           "type": "string"
         },
-        "comments.path": {
+        "comments[].path": {
           "type": "string"
         },
-        "comments.position": {
+        "comments[].position": {
           "type": "integer"
         },
         "commit_id": {
