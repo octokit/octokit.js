@@ -2662,14 +2662,14 @@
           "location": "body"
         },
         {
-          "name": "tree.path",
+          "name": "tree[].path",
           "type": "string",
           "description": "The file referenced in the tree",
           "required": false,
           "location": "body"
         },
         {
-          "name": "tree.mode",
+          "name": "tree[].mode",
           "type": "string",
           "description": "The file mode; one of `100644` for file (blob), `100755` for executable (blob), `040000` for subdirectory (tree), `160000` for submodule (commit), or `120000` for a blob that specifies the path of a symlink",
           "required": false,
@@ -2683,7 +2683,7 @@
           "location": "body"
         },
         {
-          "name": "tree.type",
+          "name": "tree[].type",
           "type": "string",
           "description": "Either `blob`, `tree`, or `commit`",
           "required": false,
@@ -2695,14 +2695,14 @@
           "location": "body"
         },
         {
-          "name": "tree.sha",
+          "name": "tree[].sha",
           "type": "string",
           "description": "The SHA1 checksum ID of the object in the tree",
           "required": false,
           "location": "body"
         },
         {
-          "name": "tree.content",
+          "name": "tree[].content",
           "type": "string",
           "description": "The content you want this file to have. GitHub will write this blob out and use that SHA for this entry. Use either this, or `tree.sha`.",
           "required": false,
@@ -8023,21 +8023,21 @@
           "location": "body"
         },
         {
-          "name": "comments.path",
+          "name": "comments[].path",
           "type": "string",
           "description": "**Required.** The relative path to the file that necessitates a review comment.",
           "required": false,
           "location": "body"
         },
         {
-          "name": "comments.position",
+          "name": "comments[].position",
           "type": "integer",
           "description": "**Required.** The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.",
           "required": false,
           "location": "body"
         },
         {
-          "name": "comments.body",
+          "name": "comments[].body",
           "type": "string",
           "description": "**Required.** Text of the review comment.",
           "required": false,
@@ -10339,7 +10339,7 @@
       "path": "/orgs/:org/repos"
     },
     "createHook": {
-      "description": "**Note**: Repository service hooks (like email or Campfire) can have at most one configured at a time. Creating hooks for a service that already has one configured will [update the existing hook](#edit-a-hook).\n\nRepositories can have multiple webhooks installed. Each webhook should have a unique `config`. Multiple webhooks can share the same `config` as long as those webhooks do not have any `events` that overlap.\n\nHere's how you can create a hook that posts payloads in JSON format:",
+      "description": "Repositories can have multiple webhooks installed. Each webhook should have a unique `config`. Multiple webhooks can share the same `config` as long as those webhooks do not have any `events` that overlap.\n\n**Note**: Repository service hooks (like email or Campfire) can have at most one configured at a time. Creating hooks for a service that already has one configured will [update the existing hook](#edit-a-hook).\n\n**Note**: GitHub Services will no longer be supported as of October 1, 2018. Please see the [blog post](/changes/2018-04-25-github-services-deprecation) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.\n\nHere's how you can create a hook that posts payloads in JSON format:",
       "documentationUrl": "https://developer.github.com/v3/repos/hooks/#create-a-hook",
       "enabledForApps": false,
       "method": "POST",
@@ -10362,7 +10362,7 @@
         {
           "name": "name",
           "type": "string",
-          "description": "Must be passed as \"web\".",
+          "description": "Use \"web\" for a webhook or use the name of a valid service. You can use [/hooks](https://api.github.com/hooks) for the list of valid service names. **Note**: GitHub Services will no longer be supported as of October 1, 2018. Please see the [blog post](/changes/2018-04-25-github-services-deprecation) for details.",
           "required": true,
           "location": "body"
         },
