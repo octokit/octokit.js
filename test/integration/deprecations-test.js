@@ -106,4 +106,19 @@ describe('deprecations', () => {
     })
     expect(console.warn.callCount).to.equal(1)
   })
+
+  it('deprecated client.activity.getEventsForRepoIssues()', () => {
+    nock('https://deprecations-test.com')
+      .get('/repos/foo/bar/issues/events')
+      .reply(200, [])
+
+    return github.activity.getEventsForRepoIssues({
+      owner: 'foo',
+      repo: 'bar'
+    })
+
+      .then(() => {
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
 })
