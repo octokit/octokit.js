@@ -83,24 +83,9 @@
       "url": "/repos/:owner/:repo/events"
     },
     "getEventsForRepoIssues": {
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/issues/events"
+      "alias": "issues.getEventsForRepo",
+      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`",
+      "params": {}
     },
     "getEventsForRepoNetwork": {
       "method": "GET",
