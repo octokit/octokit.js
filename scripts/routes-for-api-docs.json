@@ -157,46 +157,6 @@
       ],
       "path": "/repos/:owner/:repo/events"
     },
-    "getEventsForRepoIssues": {
-      "description": "Repository issue events have a different format than other events, as documented in the [Issue Events API](https://developer.github.com/v3/issues/events/).",
-      "documentationUrl": "https://developer.github.com/v3/activity/events/#list-issue-events-for-a-repository",
-      "enabledForApps": false,
-      "method": "GET",
-      "name": "List issue events for a repository",
-      "params": [
-        {
-          "name": "owner",
-          "type": "string",
-          "required": true,
-          "description": "",
-          "location": "url"
-        },
-        {
-          "name": "repo",
-          "type": "string",
-          "required": true,
-          "description": "",
-          "location": "url"
-        },
-        {
-          "name": "per_page",
-          "type": "integer",
-          "required": false,
-          "description": "Results per page (max 100)",
-          "default": 30,
-          "location": "query"
-        },
-        {
-          "name": "page",
-          "type": "integer",
-          "required": false,
-          "description": "Page number of the results to fetch.",
-          "default": 1,
-          "location": "query"
-        }
-      ],
-      "path": "/repos/:owner/:repo/issues/events"
-    },
     "getEventsForRepoNetwork": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/activity/events/#list-public-events-for-a-network-of-repositories",
