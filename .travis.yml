@@ -13,6 +13,8 @@ branches:
 
 stages:
   - test
+  - name: greenkeeper-routes-update
+    if: branch =~ ^greenkeeper/@octokit/routes
   - name: release
     if: branch = master AND type IN (push)
 
@@ -53,6 +55,16 @@ jobs:
         - npx bundlesize
         # test typescript definitions
         - npm run validate:ts
+
+    # when updating @octokit/routes, run "generate-routes" script and push
+    # new routes.json file to the pull request
+    - stage: greenkeeper-routes-update
+      node_js: lts/*
+      script:
+        - npm run generate-routes
+        - "git commit -a -m 'build: routes'"
+        - "git push 'https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG' $TRAVIS_BRANCH"
+
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
