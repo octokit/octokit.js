@@ -130,7 +130,12 @@ declare namespace Github {
     {{#ownParams}}
     & {
     {{#params}}
-      {{key}}{{^required}}?{{/required}}: {{{type}}};
+      {{#deprecated}}
+      /**
+       * @deprecated {{{.}}}
+       */
+       {{/deprecated}}
+      "{{key}}"{{^required}}?{{/required}}: {{{type}}};
     {{/params}}
     };
     {{/ownParams}}
@@ -141,6 +146,19 @@ declare namespace Github {
   {{/paramTypeName}}
   {{/methods}}
   {{/namespaces}}
+  {{#childParams}}
+  export type {{paramTypeName}} =
+    & {
+    {{#params}}
+      {{#deprecated}}
+      /**
+       * @deprecated {{{.}}}
+       */
+       {{/deprecated}}
+      "{{key}}"{{^required}}?{{/required}}: {{{type}}};
+    {{/params}}
+    };
+  {{/childParams}}
 }
 
 declare class Github {
