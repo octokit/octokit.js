@@ -2561,7 +2561,7 @@
       "method": "GET",
       "params": {
         "issue_number": {
-          "alias": "integer",
+          "alias": "number",
           "deprecated": "`issue_number` parameter has been renamed to `number`"
         },
         "number": {
@@ -2612,7 +2612,7 @@
       "method": "GET",
       "params": {
         "issue_number": {
-          "alias": "integer",
+          "alias": "number",
           "deprecated": "`issue_number` parameter has been renamed to `number`"
         },
         "number": {
@@ -4490,7 +4490,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "integer"
+          "type": "string"
         },
         "content_id": {
           "type": "integer"
@@ -4638,15 +4638,15 @@
         "id": {
           "alias": "project_id"
         },
-        "project_id": {
-          "required": true,
-          "type": "string"
-        },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "project_id": {
+          "required": true,
+          "type": "string"
         }
       },
       "url": "/projects/:project_id"
@@ -4675,7 +4675,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "integer"
+          "type": "string"
         },
         "page": {
           "type": "integer"
@@ -4813,7 +4813,6 @@
           "alias": "project_id"
         },
         "name": {
-          "required": true,
           "type": "string"
         },
         "organization_permission": {
@@ -8825,10 +8824,10 @@
           "type": "string"
         },
         "sort": {
-          "type": "string",
           "enum": [
             "indexed"
-          ]
+          ],
+          "type": "string"
         }
       },
       "url": "/search/code"
