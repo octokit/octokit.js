@@ -10,6 +10,10 @@ describe('params validations', () => {
 
     return github.orgs.get({})
 
+      .then(() => {
+        expect.fail('should throw error')
+      })
+
       .catch(error => {
         expect(error.toString()).to.equal('Empty value for parameter \'org\': undefined')
         expect(error.toJSON()).to.deep.equal({
@@ -27,6 +31,10 @@ describe('params validations', () => {
 
     return github.orgs.get({org: 'foo'})
 
+      .then(() => {
+        expect.fail('should throw error')
+      })
+
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 500,
@@ -41,6 +49,10 @@ describe('params validations', () => {
 
     return github.issues.getAll({filter: 'foo'})
 
+      .then(() => {
+        expect.fail('should throw error')
+      })
+
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 400,
@@ -54,6 +66,10 @@ describe('params validations', () => {
     const github = new GitHub()
 
     return github.projects.moveProjectCard({id: 123, position: 'foo'})
+
+      .then(() => {
+        expect.fail('should throw error')
+      })
 
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
@@ -93,6 +109,10 @@ describe('params validations', () => {
       name: 'captain',
       config: 'I’m no Je-Son!'
     })
+
+      .then(() => {
+        expect.fail('should throw error')
+      })
 
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
@@ -156,10 +176,37 @@ describe('params validations', () => {
       ]
     })
 
+      .then(() => {
+        expect.fail('should throw error')
+      })
+
       .catch(error => {
         expect(error.toJSON()).to.deep.equal({
           code: 400,
           message: 'Invalid value for parameter \'tree[0].type\': "foo"',
+          status: 'Bad Request'
+        })
+      })
+  })
+
+  it('client.issues.createLabel() with description: null', () => {
+    const client = new GitHub()
+    return client.issues.createLabel({
+      owner: 'foo',
+      repo: 'bar',
+      name: 'baz',
+      color: '#bada55',
+      description: null
+    })
+
+      .then(() => {
+        expect.fail('should throw error')
+      })
+
+      .catch(error => {
+        expect(error.toJSON()).to.deep.equal({
+          code: 400,
+          message: '\'description\' cannot be null',
           status: 'Bad Request'
         })
       })

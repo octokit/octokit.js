@@ -121,4 +121,20 @@ describe('deprecations', () => {
         expect(console.warn.callCount).to.equal(1)
       })
   })
+
+  it('deprecated sha parameter for client.gitdata.getCommit({sha})', () => {
+    nock('https://deprecations-test.com')
+      .get('/repos/foo/bar/git/commits/sha123')
+      .reply(200, {})
+
+    return github.gitdata.getCommit({
+      owner: 'foo',
+      repo: 'bar',
+      sha: 'sha123'
+    })
+
+      .then(() => {
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
 })
