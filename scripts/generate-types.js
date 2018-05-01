@@ -7,11 +7,12 @@ const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelCase')
+const set = require('lodash/set')
 
 const ROUTES = require('../lib/routes.json')
 
 const typeMap = {
-  Json: 'string'
+  integer: 'number'
 }
 
 function parameterize (key, definition) {
@@ -28,7 +29,9 @@ function parameterize (key, definition) {
     name: pascalcase(key),
     key: key,
     required: definition.required,
-    type: enums || type
+    type: enums || type,
+    alias: definition.alias,
+    deprecated: definition.deprecated
   }
 }
 
@@ -49,7 +52,19 @@ function entries (object) {
 }
 
 function toCombineParams (params, entry) {
-  return params.concat(parameterize.apply(null, entry))
+  return params
+    .concat(parameterize.apply(null, entry))
+}
+
+function toParamAlias (param, i, params) {
+  if (!param.alias) {
+    return param
+  }
+
+  const actualParam = params.find(({key}) => key === param.alias)
+  param.required = actualParam.required
+  param.type = actualParam.type
+  return param
 }
 
 function generateTypes (languageName, templateFile, outputFile) {
@@ -58,6 +73,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
   debug(`Generating ${languageName} types...`)
 
+  const childParams = {}
   const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
     const methods = entries(ROUTES[namespace]).reduce((methods, entry) => {
       const unionTypeNames = Object.keys(entry[1].params)
@@ -66,18 +82,45 @@ function generateTypes (languageName, templateFile, outputFile) {
           return params.concat(pascalcase(name.slice(1)))
         }, [])
 
+      const namspacedParamsName = pascalcase(`${namespace}-${entry[0]}Params`)
       const ownParams = entries(entry[1].params)
         .filter((entry) => isLocalParam(entry[0]))
         .reduce(toCombineParams, [])
+        .map(toParamAlias)
+        // handle "object" & "object[]" types
+        .map(param => {
+          if (param.type === 'object' || param.type === 'object[]') {
+            const childParamsName = pascalcase(`${namspacedParamsName}.${param.key}`)
+            param.type = param.type.replace('object', childParamsName)
+
+            if (!childParams[childParamsName]) {
+              childParams[childParamsName] = {}
+            }
+          }
+
+          if (!/\./.test(param.key)) {
+            return param
+          }
+
+          const childKey = param.key.split('.').pop()
+          const parentKey = param.key.replace(/\.[^.]+$/, '')
+
+          param.key = childKey
+
+          const childParamsName = pascalcase(`${namspacedParamsName}.${parentKey}`)
+          set(childParams, `${childParamsName}.${childKey}`, param)
+        })
+        .filter(Boolean)
 
       const hasParams = unionTypeNames.length > 0 || ownParams.length > 0
 
+      const methodName = camelcase(entry[0])
       let paramTypeName = hasParams
-        ? pascalcase(`${namespace}-${entry[0]}Params`)
+        ? namspacedParamsName
         : pascalcase('EmptyParams')
 
       return methods.concat({
-        method: camelcase(entry[0]),
+        method: methodName,
         paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
@@ -92,7 +135,13 @@ function generateTypes (languageName, templateFile, outputFile) {
   }, [])
 
   const body = Mustache.render(template, {
-    namespaces
+    namespaces,
+    childParams: Object.keys(childParams).map(key => {
+      return {
+        paramTypeName: key,
+        params: Object.values(childParams[key])
+      }
+    })
   })
 
   const definitionFilePath = pathJoin(__dirname, '..', outputFile)
