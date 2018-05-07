@@ -1827,6 +1827,828 @@
       "path": "/authorizations/:id"
     }
   },
+  "checks": {
+    "create": {
+      "description": "Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.",
+      "documentationUrl": "https://developer.github.com/v3/checks/runs/#create-a-check-run",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Create a check run",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The name of the check (e.g., \"code-coverage\").",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "head_branch",
+          "type": "string",
+          "description": "The name of the branch to perform a check against.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "head_sha",
+          "type": "string",
+          "description": "The SHA of the commit.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "details_url",
+          "type": "string",
+          "description": "The URL of the integrator's site that has the full details of the check.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "description": "A reference for the run on the integrator's system.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "The current status. Can be one of `queued`, `in_progress`, or `completed`.",
+          "default": "queued",
+          "required": false,
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "started_at",
+          "type": "string",
+          "description": "The time that the check run began in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "conclusion",
+          "type": "string",
+          "description": "The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.",
+          "required": true,
+          "enum": [
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "timed_out",
+            "action_required",
+            "details_url",
+            "status",
+            "completed"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "completed_at",
+          "type": "string",
+          "description": "The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output",
+          "type": "object",
+          "description": "Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object) description.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.title",
+          "type": "string",
+          "description": "The title of the check run.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.summary",
+          "type": "text",
+          "description": "The summary of the check run. This parameter supports Markdown.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.text",
+          "type": "text",
+          "description": "The details of the check run. This parameter supports Markdown.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations",
+          "type": "object[]",
+          "description": "Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see \"[About status checks](https://help.github.com/articles/about-status-checks#checks)\". See the [`annotations` object](#annotations-object) description for details about how to use this parameter.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.filename",
+          "type": "string",
+          "description": "The name of the file to add an annotation to.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.blob_href",
+          "type": "string",
+          "description": "The file's full blob URL.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.start_line",
+          "type": "integer",
+          "description": "The start line of the annotation.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.end_line",
+          "type": "integer",
+          "description": "The end line of the annotation.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.warning_level",
+          "type": "string",
+          "description": "The warning level of the annotation. Can be one of `notice`, `warning`, or `failure`.",
+          "required": true,
+          "enum": [
+            "notice",
+            "warning",
+            "failure"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.message",
+          "type": "string",
+          "description": "A short description of the feedback for these lines of code. The maximum size is 64 KB.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.title",
+          "type": "string",
+          "description": "The title that represents the annotation. The maximum size is 255 characters.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.raw_details",
+          "type": "string",
+          "description": "Details about this annotation. The maximum size is 64 KB.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.images",
+          "type": "object[]",
+          "description": "Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](#images-object) description for details.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.images.alt",
+          "type": "string",
+          "description": "The alternative text for the image.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.images.image_url",
+          "type": "string",
+          "description": "The full URL of the image.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.images.caption",
+          "type": "string",
+          "description": "A short image description.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-runs"
+    },
+    "get": {
+      "description": "Gets a single check run using its `id`. To get a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "documentationUrl": "https://developer.github.com/v3/checks/runs/#get-a-single-check-run",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Get a single check run",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "check_run_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-runs/:check_run_id"
+    },
+    "getCheckSuite": {
+      "description": "Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites.",
+      "documentationUrl": "https://developer.github.com/v3/checks/suites/#get-a-single-check-suite",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Get a single check suite",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "check_suite_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-suites/:check_suite_id"
+    },
+    "listAnotations": {
+      "description": "Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List annotations for a check run",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "check_run_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-runs/:check_run_id/annotations"
+    },
+    "listCheckSuitesForRef": {
+      "description": "Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites.",
+      "documentationUrl": "https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List check suites for a specific ref",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "ref",
+          "type": "string",
+          "description": "The `ref` can be a SHA, branch name, or a tag name.",
+          "required": true,
+          "location": "url"
+        },
+        {
+          "name": "app_id",
+          "type": "integer",
+          "description": "Filters check suites by GitHub App `id`.",
+          "required": false,
+          "location": "query"
+        },
+        {
+          "name": "check_name",
+          "type": "string",
+          "description": "Filters checks suites by the name of the [check run](https://developer.github.com/v3/checks/runs/).",
+          "required": false,
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/repos/:owner/:repo/commits/:ref/check-suites"
+    },
+    "listForRef": {
+      "description": "Lists check runs for a SHA, branch name, or tag name. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List check runs for a specific ref",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "ref",
+          "type": "string",
+          "description": "Can be a SHA, branch name, or tag name.",
+          "required": true,
+          "location": "url"
+        },
+        {
+          "name": "check_name",
+          "type": "string",
+          "description": "Returns check runs with the specified `name`.",
+          "required": false,
+          "location": "query"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.",
+          "required": false,
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "filter",
+          "type": "string",
+          "description": "Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.",
+          "default": "latest",
+          "required": false,
+          "enum": [
+            "latest",
+            "all"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/repos/:owner/:repo/commits/:ref/check-runs"
+    },
+    "listForSuite": {
+      "description": "Lists check runs for a check suite using its `id`. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List check runs in a check suite",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "check_name",
+          "type": "string",
+          "description": "Returns check runs with the specified `name`.",
+          "required": false,
+          "location": "query"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.",
+          "required": false,
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "filter",
+          "type": "string",
+          "description": "Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.",
+          "default": "latest",
+          "required": false,
+          "enum": [
+            "latest",
+            "all"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-suites/:id/check-runs"
+    },
+    "setCheckSuitesPreferences": {
+      "description": "Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.",
+      "documentationUrl": "https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository",
+      "enabledForApps": false,
+      "method": "PATCH",
+      "name": "Set preferences for check suites on a repository",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "auto_trigger_checks",
+          "type": "object[]",
+          "description": "Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default. See the [`auto_trigger_checks` object](#auto_trigger_checks-object) description for details.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "auto_trigger_checks[].app_id",
+          "type": "integer",
+          "description": "The `id` of the GitHub App.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "auto_trigger_checks[].setting",
+          "type": "boolean",
+          "description": "Set to `true` to enable automatic creation of CheckSuite events upon pushes to the repository, or `false` to disable them.",
+          "default": true,
+          "required": true,
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-suites/preferences"
+    },
+    "update": {
+      "description": "Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.",
+      "documentationUrl": "https://developer.github.com/v3/checks/runs/#update-a-check-run",
+      "enabledForApps": false,
+      "method": "PATCH",
+      "name": "Update a check run",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "check_run_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The name of the check (e.g., \"code-coverage\").",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "details_url",
+          "type": "string",
+          "description": "The URL of the integrator's site that has the full details of the check.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "external_id",
+          "type": "string",
+          "description": "A reference for the run on the integrator's system.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "started_at",
+          "type": "string",
+          "description": "A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "The current status. Can be one of `queued`, `in_progress`, or `completed`.",
+          "required": false,
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "conclusion",
+          "type": "string",
+          "description": "The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.",
+          "required": true,
+          "enum": [
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "timed_out",
+            "action_required",
+            "details_url",
+            "status",
+            "completed"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "completed_at",
+          "type": "string",
+          "description": "The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output",
+          "type": "object",
+          "description": "Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object-1) description.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.title",
+          "type": "string",
+          "description": "**Required**.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.summary",
+          "type": "text",
+          "description": "Can contain Markdown.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.text",
+          "type": "text",
+          "description": "Can contain Markdown.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations",
+          "type": "object[]",
+          "description": "Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see \"[About status checks](https://help.github.com/articles/about-status-checks#checks)\". See the [`annotations` object](#annotations-object-1) description for details.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.filename",
+          "type": "string",
+          "description": "The name of the file to add an annotation to.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.blob_href",
+          "type": "string",
+          "description": "The file's full blob URL.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.start_line",
+          "type": "integer",
+          "description": "The start line of the annotation.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.end_line",
+          "type": "integer",
+          "description": "The end line of the annotation.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.warning_level",
+          "type": "string",
+          "description": "The warning level of the annotation. Can be one of `notice`, `warning`, or `failure`.",
+          "required": true,
+          "enum": [
+            "notice",
+            "warning",
+            "failure"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.message",
+          "type": "string",
+          "description": "A short description of the feedback for these lines of code. The maximum size is 64 KB.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.title",
+          "type": "string",
+          "description": "The title that represents the annotation. The maximum size is 255 characters.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.annotations.raw_details",
+          "type": "string",
+          "description": "Details about this annotation. The maximum size is 64 KB.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.images",
+          "type": "object[]",
+          "description": "Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](#annotations-object-1) description for details.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "output.images.alt",
+          "type": "string",
+          "description": "The alternative text for the image.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.images.image_url",
+          "type": "string",
+          "description": "The full URL of the image.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "output.images.caption",
+          "type": "string",
+          "description": "A short image description.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-runs/:check_run_id"
+    }
+  },
   "gists": {
     "checkStar": {
       "description": "",
@@ -14132,20 +14954,6 @@
           "location": "url"
         },
         {
-          "name": "required_pull_request_reviews.dismissal_restrictions.users",
-          "type": "string[]",
-          "description": "The list of user `login`s with dismissal access",
-          "required": false,
-          "location": "body"
-        },
-        {
-          "name": "required_pull_request_reviews.dismissal_restrictions.teams",
-          "type": "string[]",
-          "description": "The list of team `slug`s with dismissal access",
-          "required": false,
-          "location": "body"
-        },
-        {
           "name": "required_status_checks",
           "type": "object",
           "description": "Require status checks to pass before merging. Set to `null` to disable.",
@@ -14187,6 +14995,20 @@
           "name": "required_pull_request_reviews.dismissal_restrictions",
           "type": "object",
           "description": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "required_pull_request_reviews.dismissal_restrictions.users",
+          "type": "string[]",
+          "description": "The list of user `login`s with dismissal access",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "required_pull_request_reviews.dismissal_restrictions.teams",
+          "type": "string[]",
+          "description": "The list of team `slug`s with dismissal access",
           "required": false,
           "location": "body"
         },
