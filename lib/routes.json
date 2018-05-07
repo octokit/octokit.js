@@ -996,6 +996,458 @@
       "url": "/authorizations/:id"
     }
   },
+  "checks": {
+    "create": {
+      "method": "POST",
+      "params": {
+        "completed_at": {
+          "required": true,
+          "type": "string"
+        },
+        "conclusion": {
+          "enum": [
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "timed_out",
+            "action_required",
+            "details_url",
+            "status",
+            "completed"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "details_url": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "head_branch": {
+          "required": true,
+          "type": "string"
+        },
+        "head_sha": {
+          "required": true,
+          "type": "string"
+        },
+        "name": {
+          "required": true,
+          "type": "string"
+        },
+        "output": {
+          "type": "object"
+        },
+        "output.annotations": {
+          "type": "object[]"
+        },
+        "output.annotations.blob_href": {
+          "required": true,
+          "type": "string"
+        },
+        "output.annotations.end_line": {
+          "required": true,
+          "type": "integer"
+        },
+        "output.annotations.filename": {
+          "required": true,
+          "type": "string"
+        },
+        "output.annotations.message": {
+          "required": true,
+          "type": "string"
+        },
+        "output.annotations.raw_details": {
+          "type": "string"
+        },
+        "output.annotations.start_line": {
+          "required": true,
+          "type": "integer"
+        },
+        "output.annotations.title": {
+          "type": "string"
+        },
+        "output.annotations.warning_level": {
+          "enum": [
+            "notice",
+            "warning",
+            "failure"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "output.images": {
+          "type": "object[]"
+        },
+        "output.images.alt": {
+          "required": true,
+          "type": "string"
+        },
+        "output.images.caption": {
+          "type": "string"
+        },
+        "output.images.image_url": {
+          "required": true,
+          "type": "string"
+        },
+        "output.summary": {
+          "required": true,
+          "type": "string"
+        },
+        "output.text": {
+          "type": "string"
+        },
+        "output.title": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-runs"
+    },
+    "get": {
+      "method": "GET",
+      "params": {
+        "check_run_id": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-runs/:check_run_id"
+    },
+    "getSuite": {
+      "method": "GET",
+      "params": {
+        "check_suite_id": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-suites/:check_suite_id"
+    },
+    "listAnnotations": {
+      "method": "GET",
+      "params": {
+        "check_run_id": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations"
+    },
+    "listSuitesForRef": {
+      "method": "GET",
+      "params": {
+        "app_id": {
+          "type": "integer"
+        },
+        "check_name": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "ref": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/commits/:ref/check-suites"
+    },
+    "listForRef": {
+      "method": "GET",
+      "params": {
+        "check_name": {
+          "type": "string"
+        },
+        "filter": {
+          "enum": [
+            "latest",
+            "all"
+          ],
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "ref": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/commits/:ref/check-runs"
+    },
+    "listForSuite": {
+      "method": "GET",
+      "params": {
+        "check_name": {
+          "type": "string"
+        },
+        "filter": {
+          "enum": [
+            "latest",
+            "all"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-suites/:id/check-runs"
+    },
+    "setSuitesPreferences": {
+      "method": "PATCH",
+      "params": {
+        "auto_trigger_checks": {
+          "type": "object[]"
+        },
+        "auto_trigger_checks[].app_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "auto_trigger_checks[].setting": {
+          "required": true,
+          "type": "boolean"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-suites/preferences"
+    },
+    "update": {
+      "method": "PATCH",
+      "params": {
+        "check_run_id": {
+          "required": true,
+          "type": "string"
+        },
+        "completed_at": {
+          "required": true,
+          "type": "string"
+        },
+        "conclusion": {
+          "enum": [
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "timed_out",
+            "action_required",
+            "details_url",
+            "status",
+            "completed"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "details_url": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "name": {
+          "required": true,
+          "type": "string"
+        },
+        "output": {
+          "type": "object"
+        },
+        "output.annotations": {
+          "type": "object[]"
+        },
+        "output.annotations.blob_href": {
+          "required": true,
+          "type": "string"
+        },
+        "output.annotations.end_line": {
+          "required": true,
+          "type": "integer"
+        },
+        "output.annotations.filename": {
+          "required": true,
+          "type": "string"
+        },
+        "output.annotations.message": {
+          "required": true,
+          "type": "string"
+        },
+        "output.annotations.raw_details": {
+          "type": "string"
+        },
+        "output.annotations.start_line": {
+          "required": true,
+          "type": "integer"
+        },
+        "output.annotations.title": {
+          "type": "string"
+        },
+        "output.annotations.warning_level": {
+          "enum": [
+            "notice",
+            "warning",
+            "failure"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "output.images": {
+          "type": "object[]"
+        },
+        "output.images.alt": {
+          "required": true,
+          "type": "string"
+        },
+        "output.images.caption": {
+          "type": "string"
+        },
+        "output.images.image_url": {
+          "required": true,
+          "type": "string"
+        },
+        "output.summary": {
+          "required": true,
+          "type": "string"
+        },
+        "output.text": {
+          "type": "string"
+        },
+        "output.title": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "in_progress",
+            "completed"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-runs/:check_run_id"
+    }
+  },
   "enterprise": {
     "createOrg": {
       "method": "POST",
