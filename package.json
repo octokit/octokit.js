@@ -48,7 +48,7 @@
   "devDependencies": {
     "@gr2m/node-fetch": "^2.0.0",
     "@octokit/fixtures-server": "^2.0.1",
-    "@octokit/routes": "7.1.6",
+    "@octokit/routes": "7.2.1",
     "@types/node": "^9.4.6",
     "apidoc": "^0.17.6",
     "bundlesize": "^0.17.0",
