@@ -4526,21 +4526,21 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "tagger.name",
+            "field": "tagger:name",
             "description": "<p>The name of the author of the tag</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "tagger.email",
+            "field": "tagger:email",
             "description": "<p>The email of the author of the tag</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "tagger.date",
+            "field": "tagger:date",
             "description": "<p>When this object was tagged. This is a timestamp in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
           }
         ]
@@ -4602,8 +4602,48 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "tree[]",
-            "description": "<p>.path]  The file referenced in the tree</p>"
+            "field": "tree:path",
+            "description": "<p>The file referenced in the tree</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "100644",
+              "100755",
+              "040000",
+              "160000",
+              "120000"
+            ],
+            "optional": true,
+            "field": "tree:mode",
+            "description": "<p>The file mode; one of <code>100644</code> for file (blob), <code>100755</code> for executable (blob), <code>040000</code> for subdirectory (tree), <code>160000</code> for submodule (commit), or <code>120000</code> for a blob that specifies the path of a symlink</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "blob",
+              "tree",
+              "commit"
+            ],
+            "optional": true,
+            "field": "tree:type",
+            "description": "<p>Either <code>blob</code>, <code>tree</code>, or <code>commit</code></p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "tree:sha",
+            "description": "<p>The SHA1 checksum ID of the object in the tree</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "tree:content",
+            "description": "<p>The content you want this file to have. GitHub will write this blob out and use that SHA for this entry. Use either this, or <code>tree.sha</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -9795,28 +9835,28 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "config.url",
+            "field": "config:url",
             "description": "<p>The URL to which the payloads will be delivered.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.content_type",
+            "field": "config:content_type",
             "description": "<p>The media type used to serialize the payloads. Supported values include <code>json</code> and <code>form</code>. The default is <code>form</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.secret",
+            "field": "config:secret",
             "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value in the <a href=\"https://developer.github.com/webhooks/#delivery-headers\"><code>X-Hub-Signature</code></a> header.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.insecure_ssl",
+            "field": "config:insecure_ssl",
             "description": "<p>Determines whether the SSL certificate of the host for <code>url</code> will be verified when delivering payloads. Supported values include <code>0</code> (verification is performed) and <code>1</code> (verification is not performed). The default is <code>0</code>. <strong>We strongly recommend not setting this to <code>1</code> as you are subject to man-in-the-middle and other attacks.</strong></p>"
           },
           {
@@ -10139,28 +10179,28 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "config.url",
+            "field": "config:url",
             "description": "<p>The URL to which the payloads will be delivered.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.content_type",
+            "field": "config:content_type",
             "description": "<p>The media type used to serialize the payloads. Supported values include <code>json</code> and <code>form</code>. The default is <code>form</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.secret",
+            "field": "config:secret",
             "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value in the <a href=\"https://developer.github.com/webhooks/#delivery-headers\"><code>X-Hub-Signature</code></a> header.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.insecure_ssl",
+            "field": "config:insecure_ssl",
             "description": "<p>Determines whether the SSL certificate of the host for <code>url</code> will be verified when delivering payloads. Supported values include <code>0</code> (verification is performed) and <code>1</code> (verification is not performed). The default is <code>0</code>. <strong>We strongly recommend not setting this to <code>1</code> as you are subject to man-in-the-middle and other attacks.</strong></p>"
           },
           {
@@ -13269,8 +13309,22 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "comments[]",
-            "description": "<p>.path]  <strong>Required.</strong> The relative path to the file that necessitates a review comment.</p>"
+            "field": "comments:path",
+            "description": "<p><strong>Required.</strong> The relative path to the file that necessitates a review comment.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "comments:position",
+            "description": "<p><strong>Required.</strong> The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "comments:body",
+            "description": "<p><strong>Required.</strong> Text of the review comment.</p>"
           }
         ]
       }
@@ -16654,28 +16708,28 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "config.url",
+            "field": "config:url",
             "description": "<p>The URL to which the payloads will be delivered.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.content_type",
+            "field": "config:content_type",
             "description": "<p>The media type used to serialize the payloads. Supported values include <code>json</code> and <code>form</code>. The default is <code>form</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.secret",
+            "field": "config:secret",
             "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value in the <a href=\"https://developer.github.com/webhooks/#delivery-headers\"><code>X-Hub-Signature</code></a> header.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.insecure_ssl",
+            "field": "config:insecure_ssl",
             "description": "<p>Determines whether the SSL certificate of the host for <code>url</code> will be verified when delivering payloads. Supported values include <code>0</code> (verification is performed) and <code>1</code> (verification is not performed). The default is <code>0</code>. <strong>We strongly recommend not setting this to <code>1</code> as you are subject to man-in-the-middle and other attacks.</strong></p>"
           },
           {
@@ -16754,7 +16808,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "target_commitish",
-            "defaultValue": "the repository's default branch (usually `master`).",
+            "defaultValue": "the repository's default branch (usually `master`):",
             "description": "<p>Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists.</p>"
           },
           {
@@ -17676,28 +17730,28 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "config.url",
+            "field": "config:url",
             "description": "<p>The URL to which the payloads will be delivered.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.content_type",
+            "field": "config:content_type",
             "description": "<p>The media type used to serialize the payloads. Supported values include <code>json</code> and <code>form</code>. The default is <code>form</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.secret",
+            "field": "config:secret",
             "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value in the <a href=\"https://developer.github.com/webhooks/#delivery-headers\"><code>X-Hub-Signature</code></a> header.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "config.insecure_ssl",
+            "field": "config:insecure_ssl",
             "description": "<p>Determines whether the SSL certificate of the host for <code>url</code> will be verified when delivering payloads. Supported values include <code>0</code> (verification is performed) and <code>1</code> (verification is not performed). The default is <code>0</code>. <strong>We strongly recommend not setting this to <code>1</code> as you are subject to man-in-the-middle and other attacks.</strong></p>"
           },
           {
@@ -17797,7 +17851,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "target_commitish",
-            "defaultValue": "the repository's default branch (usually `master`).",
+            "defaultValue": "the repository's default branch (usually `master`):",
             "description": "<p>Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists.</p>"
           },
           {
@@ -18913,7 +18967,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "sha",
-            "defaultValue": "the repository’s default branch (usually `master`).",
+            "defaultValue": "the repository’s default branch (usually `master`):",
             "description": "<p>SHA or branch to start listing commits from.</p>"
           },
           {
@@ -22830,14 +22884,14 @@ define({ "api": [
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
-            "field": "required_pull_request_reviews.dismissal_restrictions.users",
+            "field": "required_pull_request_reviews:dismissal_restrictions:users",
             "description": "<p>The list of user <code>login</code>s with dismissal access</p>"
           },
           {
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
-            "field": "required_pull_request_reviews.dismissal_restrictions.teams",
+            "field": "required_pull_request_reviews:dismissal_restrictions:teams",
             "description": "<p>The list of team <code>slug</code>s with dismissal access</p>"
           },
           {
@@ -22851,14 +22905,14 @@ define({ "api": [
             "group": "Parameter",
             "type": "boolean",
             "optional": false,
-            "field": "required_status_checks.strict",
+            "field": "required_status_checks:strict",
             "description": "<p>Require branches to be up to date before merging.</p>"
           },
           {
             "group": "Parameter",
             "type": "string[]",
             "optional": false,
-            "field": "required_status_checks.contexts",
+            "field": "required_status_checks:contexts",
             "description": "<p>The list of status checks to require in order to merge into this branch</p>"
           },
           {
@@ -22879,28 +22933,28 @@ define({ "api": [
             "group": "Parameter",
             "type": "object",
             "optional": true,
-            "field": "required_pull_request_reviews.dismissal_restrictions",
+            "field": "required_pull_request_reviews:dismissal_restrictions",
             "description": "<p>Specify which users and teams can dismiss pull request reviews. Pass an empty <code>dismissal_restrictions</code> object to disable. User and team <code>dismissal_restrictions</code> are only available for organization-owned repositories. Omit this parameter for personal repositories.</p>"
           },
           {
             "group": "Parameter",
             "type": "boolean",
             "optional": true,
-            "field": "required_pull_request_reviews.dismiss_stale_reviews",
+            "field": "required_pull_request_reviews:dismiss_stale_reviews",
             "description": "<p>Set to <code>true</code> if you want to automatically dismiss approving reviews when someone pushes a new commit.</p>"
           },
           {
             "group": "Parameter",
             "type": "boolean",
             "optional": true,
-            "field": "required_pull_request_reviews.require_code_owner_reviews",
+            "field": "required_pull_request_reviews:require_code_owner_reviews",
             "description": "<p>Blocks merging pull requests until code owners review them.</p>"
           },
           {
             "group": "Parameter",
             "type": "integer",
             "optional": true,
-            "field": "required_pull_request_reviews.required_approving_review_count",
+            "field": "required_pull_request_reviews:required_approving_review_count",
             "description": "<p>Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.</p>"
           },
           {
@@ -22914,14 +22968,14 @@ define({ "api": [
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
-            "field": "restrictions.users",
+            "field": "restrictions:users",
             "description": "<p>The list of user <code>login</code>s with push access</p>"
           },
           {
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
-            "field": "restrictions.teams",
+            "field": "restrictions:teams",
             "description": "<p>The list of team <code>slug</code>s with push access</p>"
           }
         ]
@@ -23217,14 +23271,14 @@ define({ "api": [
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
-            "field": "dismissal_restrictions.users",
+            "field": "dismissal_restrictions:users",
             "description": "<p>The list of user <code>login</code>s with dismissal access</p>"
           },
           {
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
-            "field": "dismissal_restrictions.teams",
+            "field": "dismissal_restrictions:teams",
             "description": "<p>The list of team <code>slug</code>s with dismissal access</p>"
           },
           {
@@ -23435,7 +23489,7 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match.",
+            "defaultValue": "results are sorted by best match:",
             "description": "<p>The sort field. Can only be <code>indexed</code>, which indicates how recently a file has been indexed by the GitHub search infrastructure.</p>"
           },
           {
@@ -23516,7 +23570,7 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match.",
+            "defaultValue": "results are sorted by best match:",
             "description": "<p>The sort field. Can be <code>author-date</code> or <code>committer-date</code>.</p>"
           },
           {
@@ -23598,7 +23652,7 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match.",
+            "defaultValue": "results are sorted by best match:",
             "description": "<p>The sort field. Can be <code>comments</code>, <code>created</code>, or <code>updated</code>.</p>"
           },
           {
@@ -23680,7 +23734,7 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match.",
+            "defaultValue": "results are sorted by best match:",
             "description": "<p>The sort field. One of <code>stars</code>, <code>forks</code>, or <code>updated</code>.</p>"
           },
           {
@@ -23762,7 +23816,7 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match.",
+            "defaultValue": "results are sorted by best match:",
             "description": "<p>The sort field. Can be <code>followers</code>, <code>repositories</code>, or <code>joined</code>.</p>"
           },
           {
