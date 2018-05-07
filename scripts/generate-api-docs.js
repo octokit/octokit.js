@@ -97,7 +97,7 @@ function toApiParamComment (paramInfo) {
     allowedValues = `=${paramInfo['enum'].join(',')}`
   }
 
-  return ` * @apiParam {${paramType}${allowedValues}} ${paramLabel}  ${paramDescription}`
+  return ` * @apiParam {${paramType}${allowedValues}} ${paramLabel.replace(/\./g, ':').replace(/\[\]/g, '')}  ${paramDescription}`
 }
 
 // function sortByRequired (api, paramA, paramB) {
