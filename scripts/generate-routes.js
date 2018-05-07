@@ -105,6 +105,7 @@ NEW_ROUTES['users'].push(...NEW_ROUTES['apps'].filter(endpoint => APPS_USER_PATH
 const mapScopes = {
   activity: 'activity',
   apps: 'apps',
+  checks: 'checks',
   codesOfConduct: false,
   gists: 'gists',
   git: 'gitdata',
@@ -170,6 +171,18 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
 
     if (currentEndpoint.deprecated) {
       console.log(`No endpoint found for deprecated ${currentEndpoint.method} ${currentEndpoint.url}, leaving route as is.`)
+      newRoutes[scope][methodName] = currentEndpoint
+      return
+    }
+
+    if (currentEndpoint.url === '/repositories/:id') {
+      console.log('Ignoring endpoint for repos.getById()')
+      newRoutes[scope][methodName] = currentEndpoint
+      return
+    }
+
+    if (currentEndpoint.url === '/user/:id') {
+      console.log('Ignoring endpoint for users.getById()')
       newRoutes[scope][methodName] = currentEndpoint
       return
     }
