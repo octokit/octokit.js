@@ -3228,6 +3228,1042 @@
     "groupTitle": "Authorization"
   },
   {
+    "type": "POST",
+    "url": "/repos/:owner/:repo/check-runs",
+    "title": "create",
+    "name": "create",
+    "description": "<p>Creates a new check run for a specific commit in a repository. Your GitHub App must have the <code>checks:write</code> permission to create check runs. <a href=\"https://developer.github.com/v3/checks/runs/#create-a-check-run\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the check (e.g., &quot;code-coverage&quot;).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "head_branch",
+            "description": "<p>The name of the branch to perform a check against.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "head_sha",
+            "description": "<p>The SHA of the commit.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "details_url",
+            "description": "<p>The URL of the integrator's site that has the full details of the check.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "external_id",
+            "description": "<p>A reference for the run on the integrator's system.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "queued",
+              "in_progress",
+              "completed"
+            ],
+            "optional": true,
+            "field": "status",
+            "defaultValue": "queued",
+            "description": "<p>The current status. Can be one of <code>queued</code>, <code>in_progress</code>, or <code>completed</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "started_at",
+            "description": "<p>The time that the check run began in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "success",
+              "failure",
+              "neutral",
+              "cancelled",
+              "timed_out",
+              "action_required",
+              "details_url",
+              "status",
+              "completed"
+            ],
+            "optional": false,
+            "field": "conclusion",
+            "description": "<p>The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>. Required if you provide a <code>status</code> of <code>completed</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "completed_at",
+            "description": "<p>The time the check completed in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Required if you provide <code>conclusion</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": true,
+            "field": "output",
+            "description": "<p>Check runs can accept a variety of data in the <code>output</code> object, including a <code>title</code> and <code>summary</code> and can optionally provide descriptive details about the run. See the <a href=\"#output-object\"><code>output</code> object</a> description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:title",
+            "description": "<p>The title of the check run.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "output:summary",
+            "description": "<p>The summary of the check run. This parameter supports Markdown.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": true,
+            "field": "output:text",
+            "description": "<p>The details of the check run. This parameter supports Markdown.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": true,
+            "field": "output:annotations",
+            "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see &quot;<a href=\"https://help.github.com/articles/about-status-checks#checks\">About status checks</a>&quot;. See the <a href=\"#annotations-object\"><code>annotations</code> object</a> description for details about how to use this parameter.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:annotations:filename",
+            "description": "<p>The name of the file to add an annotation to.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:annotations:blob_href",
+            "description": "<p>The file's full blob URL.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "output:annotations:start_line",
+            "description": "<p>The start line of the annotation.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "output:annotations:end_line",
+            "description": "<p>The end line of the annotation.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "notice",
+              "warning",
+              "failure"
+            ],
+            "optional": false,
+            "field": "output:annotations:warning_level",
+            "description": "<p>The warning level of the annotation. Can be one of <code>notice</code>, <code>warning</code>, or <code>failure</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:annotations:message",
+            "description": "<p>A short description of the feedback for these lines of code. The maximum size is 64 KB.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:annotations:title",
+            "description": "<p>The title that represents the annotation. The maximum size is 255 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:annotations:raw_details",
+            "description": "<p>Details about this annotation. The maximum size is 64 KB.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": true,
+            "field": "output:images",
+            "description": "<p>Adds images to the output displayed in the GitHub pull request UI. See the <a href=\"#images-object\"><code>images</code> object</a> description for details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:images:alt",
+            "description": "<p>The alternative text for the image.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:images:image_url",
+            "description": "<p>The full URL of the image.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:images:caption",
+            "description": "<p>A short image description.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/check-runs/:check_run_id",
+    "title": "get",
+    "name": "get",
+    "description": "<p>Gets a single check run using its <code>id</code>. To get a check run, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#get-a-single-check-run\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "check_run_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.get({owner, repo, check_run_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.get({owner, repo, check_run_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.get({owner, repo, check_run_id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/check-suites/:check_suite_id",
+    "title": "getCheckSuite",
+    "name": "getCheckSuite",
+    "description": "<p>Gets a single check suite using its <code>id</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check suites. <a href=\"https://developer.github.com/v3/checks/suites/#get-a-single-check-suite\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "check_suite_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.getCheckSuite({owner, repo, check_suite_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.getCheckSuite({owner, repo, check_suite_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.getCheckSuite({owner, repo, check_suite_id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations",
+    "title": "listAnotations",
+    "name": "listAnotations",
+    "description": "<p>Lists annotations for a check run using the annotation <code>id</code>. To list annotations for a check run, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "check_run_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/commits/:ref/check-suites",
+    "title": "listCheckSuitesForRef",
+    "name": "listCheckSuitesForRef",
+    "description": "<p>Lists the check suites that were created for a commit <code>ref</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "ref",
+            "description": "<p>The <code>ref</code> can be a SHA, branch name, or a tag name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "app_id",
+            "description": "<p>Filters check suites by GitHub App <code>id</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "check_name",
+            "description": "<p>Filters checks suites by the name of the <a href=\"https://developer.github.com/v3/checks/runs/\">check run</a>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/commits/:ref/check-runs",
+    "title": "listForRef",
+    "name": "listForRef",
+    "description": "<p>Lists check runs for a SHA, branch name, or tag name. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "ref",
+            "description": "<p>Can be a SHA, branch name, or tag name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "check_name",
+            "description": "<p>Returns check runs with the specified <code>name</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "queued",
+              "in_progress",
+              "completed"
+            ],
+            "optional": true,
+            "field": "status",
+            "description": "<p>Returns check runs with the specified <code>status</code>. Can be one of <code>queued</code>, <code>in_progress</code>, or <code>completed</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "latest",
+              "all"
+            ],
+            "optional": true,
+            "field": "filter",
+            "defaultValue": "latest",
+            "description": "<p>Filters check runs by their <code>completed_at</code> timestamp. Can be one of <code>latest</code> (returning the most recent check runs) or <code>all</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/check-suites/:id/check-runs",
+    "title": "listForSuite",
+    "name": "listForSuite",
+    "description": "<p>Lists check runs for a check suite using its <code>id</code>. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "check_name",
+            "description": "<p>Returns check runs with the specified <code>name</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "queued",
+              "in_progress",
+              "completed"
+            ],
+            "optional": true,
+            "field": "status",
+            "description": "<p>Returns check runs with the specified <code>status</code>. Can be one of <code>queued</code>, <code>in_progress</code>, or <code>completed</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "latest",
+              "all"
+            ],
+            "optional": true,
+            "field": "filter",
+            "defaultValue": "latest",
+            "description": "<p>Filters check runs by their <code>completed_at</code> timestamp. Can be one of <code>latest</code> (returning the most recent check runs) or <code>all</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "PATCH",
+    "url": "/repos/:owner/:repo/check-suites/preferences",
+    "title": "setCheckSuitesPreferences",
+    "name": "setCheckSuitesPreferences",
+    "description": "<p>Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually <a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">Create a check suite</a>. You must have admin permissions in the repository to set preferences for check suites. <a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": true,
+            "field": "auto_trigger_checks",
+            "description": "<p>Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default. See the <a href=\"#auto_trigger_checks-object\"><code>auto_trigger_checks</code> object</a> description for details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "auto_trigger_checks:app_id",
+            "description": "<p>The <code>id</code> of the GitHub App.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "auto_trigger_checks:setting",
+            "defaultValue": "true",
+            "description": "<p>Set to <code>true</code> to enable automatic creation of CheckSuite events upon pushes to the repository, or <code>false</code> to disable them.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "PATCH",
+    "url": "/repos/:owner/:repo/check-runs/:check_run_id",
+    "title": "update",
+    "name": "update",
+    "description": "<p>Updates a check run for a specific commit in a repository. Your GitHub App must have the <code>checks:write</code> permission to edit check runs. <a href=\"https://developer.github.com/v3/checks/runs/#update-a-check-run\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "check_run_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>The name of the check (e.g., &quot;code-coverage&quot;).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "details_url",
+            "description": "<p>The URL of the integrator's site that has the full details of the check.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "external_id",
+            "description": "<p>A reference for the run on the integrator's system.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "started_at",
+            "description": "<p>A timestamp in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "queued",
+              "in_progress",
+              "completed"
+            ],
+            "optional": true,
+            "field": "status",
+            "description": "<p>The current status. Can be one of <code>queued</code>, <code>in_progress</code>, or <code>completed</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "success",
+              "failure",
+              "neutral",
+              "cancelled",
+              "timed_out",
+              "action_required",
+              "details_url",
+              "status",
+              "completed"
+            ],
+            "optional": false,
+            "field": "conclusion",
+            "description": "<p>The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>. Required if you provide a <code>status</code> of <code>completed</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "completed_at",
+            "description": "<p>The time the check completed in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Required if you provide <code>conclusion</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": true,
+            "field": "output",
+            "description": "<p>Check runs can accept a variety of data in the <code>output</code> object, including a <code>title</code> and <code>summary</code> and can optionally provide descriptive details about the run. See the <a href=\"#output-object-1\"><code>output</code> object</a> description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:title",
+            "description": "<p><strong>Required</strong>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "output:summary",
+            "description": "<p>Can contain Markdown.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": true,
+            "field": "output:text",
+            "description": "<p>Can contain Markdown.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": true,
+            "field": "output:annotations",
+            "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see &quot;<a href=\"https://help.github.com/articles/about-status-checks#checks\">About status checks</a>&quot;. See the <a href=\"#annotations-object-1\"><code>annotations</code> object</a> description for details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:annotations:filename",
+            "description": "<p>The name of the file to add an annotation to.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:annotations:blob_href",
+            "description": "<p>The file's full blob URL.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "output:annotations:start_line",
+            "description": "<p>The start line of the annotation.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "output:annotations:end_line",
+            "description": "<p>The end line of the annotation.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "notice",
+              "warning",
+              "failure"
+            ],
+            "optional": false,
+            "field": "output:annotations:warning_level",
+            "description": "<p>The warning level of the annotation. Can be one of <code>notice</code>, <code>warning</code>, or <code>failure</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:annotations:message",
+            "description": "<p>A short description of the feedback for these lines of code. The maximum size is 64 KB.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:annotations:title",
+            "description": "<p>The title that represents the annotation. The maximum size is 255 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:annotations:raw_details",
+            "description": "<p>Details about this annotation. The maximum size is 64 KB.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object[]",
+            "optional": true,
+            "field": "output:images",
+            "description": "<p>Adds images to the output displayed in the GitHub pull request UI. See the <a href=\"#annotations-object-1\"><code>images</code> object</a> description for details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:images:alt",
+            "description": "<p>The alternative text for the image.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "output:images:image_url",
+            "description": "<p>The full URL of the image.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "output:images:caption",
+            "description": "<p>A short image description.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
     "type": "GET",
     "url": "/gists/:id/star",
     "title": "checkStar",
@@ -22882,20 +23918,6 @@
           },
           {
             "group": "Parameter",
-            "type": "string[]",
-            "optional": true,
-            "field": "required_pull_request_reviews:dismissal_restrictions:users",
-            "description": "<p>The list of user <code>login</code>s with dismissal access</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string[]",
-            "optional": true,
-            "field": "required_pull_request_reviews:dismissal_restrictions:teams",
-            "description": "<p>The list of team <code>slug</code>s with dismissal access</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "object",
             "optional": false,
             "field": "required_status_checks",
@@ -22935,6 +23957,20 @@
             "optional": true,
             "field": "required_pull_request_reviews:dismissal_restrictions",
             "description": "<p>Specify which users and teams can dismiss pull request reviews. Pass an empty <code>dismissal_restrictions</code> object to disable. User and team <code>dismissal_restrictions</code> are only available for organization-owned repositories. Omit this parameter for personal repositories.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": true,
+            "field": "required_pull_request_reviews:dismissal_restrictions:users",
+            "description": "<p>The list of user <code>login</code>s with dismissal access</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": true,
+            "field": "required_pull_request_reviews:dismissal_restrictions:teams",
+            "description": "<p>The list of team <code>slug</code>s with dismissal access</p>"
           },
           {
             "group": "Parameter",
@@ -22984,17 +24020,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams})",
+        "content": "const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}).then(result => {})",
+        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}, (error, result) => {})",
+        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}, (error, result) => {})",
         "type": "js"
       }
     ],

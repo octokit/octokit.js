@@ -1092,6 +1092,242 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**,
+ * Checks
+ * @namespace Checks
+ */
+
+
+/**
+ * @api {POST} /repos/:owner/:repo/check-runs create
+ * @apiName create
+ * @apiDescription Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs. <a href="https://developer.github.com/v3/checks/runs/#create-a-check-run">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} name  The name of the check (e.g., "code-coverage").
+ * @apiParam {string} head_branch  The name of the branch to perform a check against.
+ * @apiParam {string} head_sha  The SHA of the commit.
+ * @apiParam {string} [details_url]  The URL of the integrator's site that has the full details of the check.
+ * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
+ * @apiParam {string=queued,in_progress,completed} [status="queued"]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
+ * @apiParam {string} [started_at]  The time that the check run began in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,status,completed} conclusion  The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.
+ * @apiParam {string} completed_at  The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.
+ * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object) description.
+ * @apiParam {string} output:title  The title of the check run.
+ * @apiParam {text} output:summary  The summary of the check run. This parameter supports Markdown.
+ * @apiParam {text} [output:text]  The details of the check run. This parameter supports Markdown.
+ * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object) description for details about how to use this parameter.
+ * @apiParam {string} output:annotations:filename  The name of the file to add an annotation to.
+ * @apiParam {string} output:annotations:blob_href  The file's full blob URL.
+ * @apiParam {integer} output:annotations:start_line  The start line of the annotation.
+ * @apiParam {integer} output:annotations:end_line  The end line of the annotation.
+ * @apiParam {string=notice,warning,failure} output:annotations:warning_level  The warning level of the annotation. Can be one of `notice`, `warning`, or `failure`.
+ * @apiParam {string} output:annotations:message  A short description of the feedback for these lines of code. The maximum size is 64 KB.
+ * @apiParam {string} [output:annotations:title]  The title that represents the annotation. The maximum size is 255 characters.
+ * @apiParam {string} [output:annotations:raw_details]  Details about this annotation. The maximum size is 64 KB.
+ * @apiParam {object[]} [output:images]  Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](#images-object) description for details.
+ * @apiParam {string} output:images:alt  The alternative text for the image.
+ * @apiParam {string} output:images:image_url  The full URL of the image.
+ * @apiParam {string} [output:images:caption]  A short image description.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption})
+ * @apiExample {js} Promise
+ * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id get
+ * @apiName get
+ * @apiDescription Gets a single check run using its `id`. To get a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#get-a-single-check-run">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} check_run_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.get({owner, repo, check_run_id})
+ * @apiExample {js} Promise
+ * octokit.checks.get({owner, repo, check_run_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.get({owner, repo, check_run_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id getCheckSuite
+ * @apiName getCheckSuite
+ * @apiDescription Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. <a href="https://developer.github.com/v3/checks/suites/#get-a-single-check-suite">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} check_suite_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.getCheckSuite({owner, repo, check_suite_id})
+ * @apiExample {js} Promise
+ * octokit.checks.getCheckSuite({owner, repo, check_suite_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.getCheckSuite({owner, repo, check_suite_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id/annotations listAnotations
+ * @apiName listAnotations
+ * @apiDescription Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} check_run_id  
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/commits/:ref/check-suites listCheckSuitesForRef
+ * @apiName listCheckSuitesForRef
+ * @apiDescription Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. <a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} ref  The `ref` can be a SHA, branch name, or a tag name.
+ * @apiParam {integer} [app_id]  Filters check suites by GitHub App `id`.
+ * @apiParam {string} [check_name]  Filters checks suites by the name of the [check run](https://developer.github.com/v3/checks/runs/).
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/commits/:ref/check-runs listForRef
+ * @apiName listForRef
+ * @apiDescription Lists check runs for a SHA, branch name, or tag name. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} ref  Can be a SHA, branch name, or tag name.
+ * @apiParam {string} [check_name]  Returns check runs with the specified `name`.
+ * @apiParam {string=queued,in_progress,completed} [status]  Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.
+ * @apiParam {string=latest,all} [filter="latest"]  Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/check-suites/:id/check-runs listForSuite
+ * @apiName listForSuite
+ * @apiDescription Lists check runs for a check suite using its `id`. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} id  
+ * @apiParam {string} [check_name]  Returns check runs with the specified `name`.
+ * @apiParam {string=queued,in_progress,completed} [status]  Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.
+ * @apiParam {string=latest,all} [filter="latest"]  Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {PATCH} /repos/:owner/:repo/check-suites/preferences setCheckSuitesPreferences
+ * @apiName setCheckSuitesPreferences
+ * @apiDescription Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites. <a href="https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {object[]} [auto_trigger_checks]  Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default. See the [`auto_trigger_checks` object](#auto_trigger_checks-object) description for details.
+ * @apiParam {integer} auto_trigger_checks:app_id  The `id` of the GitHub App.
+ * @apiParam {boolean} auto_trigger_checks:setting="true"  Set to `true` to enable automatic creation of CheckSuite events upon pushes to the repository, or `false` to disable them.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})
+ * @apiExample {js} Promise
+ * octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})
+ */
+
+
+/**
+ * @api {PATCH} /repos/:owner/:repo/check-runs/:check_run_id update
+ * @apiName update
+ * @apiDescription Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs. <a href="https://developer.github.com/v3/checks/runs/#update-a-check-run">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} check_run_id  
+ * @apiParam {string} name  The name of the check (e.g., "code-coverage").
+ * @apiParam {string} [details_url]  The URL of the integrator's site that has the full details of the check.
+ * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
+ * @apiParam {string} [started_at]  A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+ * @apiParam {string=queued,in_progress,completed} [status]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,status,completed} conclusion  The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.
+ * @apiParam {string} completed_at  The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.
+ * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object-1) description.
+ * @apiParam {string} [output:title]  **Required**.
+ * @apiParam {text} output:summary  Can contain Markdown.
+ * @apiParam {text} [output:text]  Can contain Markdown.
+ * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object-1) description for details.
+ * @apiParam {string} output:annotations:filename  The name of the file to add an annotation to.
+ * @apiParam {string} output:annotations:blob_href  The file's full blob URL.
+ * @apiParam {integer} output:annotations:start_line  The start line of the annotation.
+ * @apiParam {integer} output:annotations:end_line  The end line of the annotation.
+ * @apiParam {string=notice,warning,failure} output:annotations:warning_level  The warning level of the annotation. Can be one of `notice`, `warning`, or `failure`.
+ * @apiParam {string} output:annotations:message  A short description of the feedback for these lines of code. The maximum size is 64 KB.
+ * @apiParam {string} [output:annotations:title]  The title that represents the annotation. The maximum size is 255 characters.
+ * @apiParam {string} [output:annotations:raw_details]  Details about this annotation. The maximum size is 64 KB.
+ * @apiParam {object[]} [output:images]  Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](#annotations-object-1) description for details.
+ * @apiParam {string} output:images:alt  The alternative text for the image.
+ * @apiParam {string} output:images:image_url  The full URL of the image.
+ * @apiParam {string} [output:images:caption]  A short image description.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption})
+ * @apiExample {js} Promise
+ * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}, (error, result) => {})
+ */
+
+
+
+/**,
  * Gists
  * @namespace Gists
  */
@@ -7517,14 +7753,14 @@ Build requests are limited to one concurrent build per repository and one concur
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
- * @apiParam {string[]} [required_pull_request_reviews:dismissal_restrictions:users]  The list of user `login`s with dismissal access
- * @apiParam {string[]} [required_pull_request_reviews:dismissal_restrictions:teams]  The list of team `slug`s with dismissal access
  * @apiParam {object} required_status_checks  Require status checks to pass before merging. Set to `null` to disable.
  * @apiParam {boolean} required_status_checks:strict  Require branches to be up to date before merging.
  * @apiParam {string[]} required_status_checks:contexts  The list of status checks to require in order to merge into this branch
  * @apiParam {boolean} enforce_admins  Enforce all configured restrictions for administrators. Set to `true` to enforce required status checks for repository administrators. Set to `null` to disable.
  * @apiParam {object} required_pull_request_reviews  Require at least one approving review on a pull request, before merging. Set to `null` to disable.
  * @apiParam {object} [required_pull_request_reviews:dismissal_restrictions]  Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.
+ * @apiParam {string[]} [required_pull_request_reviews:dismissal_restrictions:users]  The list of user `login`s with dismissal access
+ * @apiParam {string[]} [required_pull_request_reviews:dismissal_restrictions:teams]  The list of team `slug`s with dismissal access
  * @apiParam {boolean} [required_pull_request_reviews:dismiss_stale_reviews]  Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.
  * @apiParam {boolean} [required_pull_request_reviews:require_code_owner_reviews]  Blocks merging pull requests until code owners review them.
  * @apiParam {integer} [required_pull_request_reviews:required_approving_review_count]  Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.
@@ -7532,11 +7768,11 @@ Build requests are limited to one concurrent build per repository and one concur
  * @apiParam {string[]} [restrictions:users]  The list of user `login`s with push access
  * @apiParam {string[]} [restrictions:teams]  The list of team `slug`s with push access
  * @apiExample {js} async/await
- * const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams})
+ * const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams})
  * @apiExample {js} Promise
- * octokit.repos.updateBranchProtection({owner, repo, branch, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}).then(result => {})
+ * octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.updateBranchProtection({owner, repo, branch, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}, (error, result) => {})
+ * octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}, (error, result) => {})
  */
 
 
