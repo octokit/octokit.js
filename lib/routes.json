@@ -454,9 +454,6 @@
         },
         "ignored": {
           "type": "boolean"
-        },
-        "subscribed": {
-          "type": "boolean"
         }
       },
       "url": "/notifications/threads/:id/subscription"
@@ -1185,36 +1182,6 @@
       },
       "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations"
     },
-    "listSuitesForRef": {
-      "method": "GET",
-      "params": {
-        "app_id": {
-          "type": "integer"
-        },
-        "check_name": {
-          "type": "string"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "ref": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/commits/:ref/check-suites"
-    },
     "listForRef": {
       "method": "GET",
       "params": {
@@ -1298,6 +1265,36 @@
         }
       },
       "url": "/repos/:owner/:repo/check-suites/:id/check-runs"
+    },
+    "listSuitesForRef": {
+      "method": "GET",
+      "params": {
+        "app_id": {
+          "type": "integer"
+        },
+        "check_name": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "ref": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/commits/:ref/check-suites"
     },
     "setSuitesPreferences": {
       "method": "PATCH",
