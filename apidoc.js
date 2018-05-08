@@ -42,7 +42,7 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {DELETE} /notifications/threads/:id/subscription deleteNotificationThreadSubscription
  * @apiName deleteNotificationThreadSubscription
- * @apiDescription <a href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">REST API doc</a>
+ * @apiDescription Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed. <a href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} id  
@@ -485,18 +485,17 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {PUT} /notifications/threads/:id/subscription setNotificationThreadSubscription
  * @apiName setNotificationThreadSubscription
- * @apiDescription This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get **@mention**ed once more). <a href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">REST API doc</a>
+ * @apiDescription This lets you subscribe or unsubscribe from a conversation. <a href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} id  
- * @apiParam {boolean} [subscribed]  Determines if notifications should be received from this thread
- * @apiParam {boolean} [ignored]  Determines if all notifications should be blocked from this thread
+ * @apiParam {boolean} [ignored="false"]  Unsubscribes and subscribes you to a conversation. Set `ignored` to `true` to block all notifications from this thread.
  * @apiExample {js} async/await
- * const result = await octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored})
+ * const result = await octokit.activity.setNotificationThreadSubscription({id, ignored})
  * @apiExample {js} Promise
- * octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}).then(result => {})
+ * octokit.activity.setNotificationThreadSubscription({id, ignored}).then(result => {})
  * @apiExample {js} Callback
- * octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}, (error, result) => {})
+ * octokit.activity.setNotificationThreadSubscription({id, ignored}, (error, result) => {})
  */
 
 
@@ -1116,8 +1115,8 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} completed_at  The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object) description.
  * @apiParam {string} output:title  The title of the check run.
- * @apiParam {text} output:summary  The summary of the check run. This parameter supports Markdown.
- * @apiParam {text} [output:text]  The details of the check run. This parameter supports Markdown.
+ * @apiParam {string} output:summary  The summary of the check run. This parameter supports Markdown.
+ * @apiParam {string} [output:text]  The details of the check run. This parameter supports Markdown.
  * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object) description for details about how to use this parameter.
  * @apiParam {string} output:annotations:filename  The name of the file to add an annotation to.
  * @apiParam {string} output:annotations:blob_href  The file's full blob URL.
@@ -1159,8 +1158,8 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id getCheckSuite
- * @apiName getCheckSuite
+ * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id getSuite
+ * @apiName getSuite
  * @apiDescription Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. <a href="https://developer.github.com/v3/checks/suites/#get-a-single-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
@@ -1168,17 +1167,17 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} repo  
  * @apiParam {string} check_suite_id  
  * @apiExample {js} async/await
- * const result = await octokit.checks.getCheckSuite({owner, repo, check_suite_id})
+ * const result = await octokit.checks.getSuite({owner, repo, check_suite_id})
  * @apiExample {js} Promise
- * octokit.checks.getCheckSuite({owner, repo, check_suite_id}).then(result => {})
+ * octokit.checks.getSuite({owner, repo, check_suite_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.checks.getCheckSuite({owner, repo, check_suite_id}, (error, result) => {})
+ * octokit.checks.getSuite({owner, repo, check_suite_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id/annotations listAnotations
- * @apiName listAnotations
+ * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id/annotations listAnnotations
+ * @apiName listAnnotations
  * @apiDescription Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run">REST API doc</a>
  * @apiGroup Checks
  *
@@ -1188,33 +1187,11 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page})
+ * const result = await octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}).then(result => {})
+ * octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})
- */
-
-
-/**
- * @api {GET} /repos/:owner/:repo/commits/:ref/check-suites listCheckSuitesForRef
- * @apiName listCheckSuitesForRef
- * @apiDescription Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. <a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
- * @apiGroup Checks
- *
- * @apiParam {string} owner  
- * @apiParam {string} repo  
- * @apiParam {string} ref  The `ref` can be a SHA, branch name, or a tag name.
- * @apiParam {integer} [app_id]  Filters check suites by GitHub App `id`.
- * @apiParam {string} [check_name]  Filters checks suites by the name of the [check run](https://developer.github.com/v3/checks/runs/).
- * @apiParam {integer} [per_page="30"]  Results per page (max 100)
- * @apiParam {integer} [page="1"]  Page number of the results to fetch.
- * @apiExample {js} async/await
- * const result = await octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})
- * @apiExample {js} Promise
- * octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})
+ * octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1265,8 +1242,30 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/check-suites/preferences setCheckSuitesPreferences
- * @apiName setCheckSuitesPreferences
+ * @api {GET} /repos/:owner/:repo/commits/:ref/check-suites listSuitesForRef
+ * @apiName listSuitesForRef
+ * @apiDescription Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. <a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} ref  The `ref` can be a SHA, branch name, or a tag name.
+ * @apiParam {integer} [app_id]  Filters check suites by GitHub App `id`.
+ * @apiParam {string} [check_name]  Filters checks suites by the name of the [check run](https://developer.github.com/v3/checks/runs/).
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {PATCH} /repos/:owner/:repo/check-suites/preferences setSuitesPreferences
+ * @apiName setSuitesPreferences
  * @apiDescription Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites. <a href="https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository">REST API doc</a>
  * @apiGroup Checks
  *
@@ -1276,11 +1275,11 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {integer} auto_trigger_checks:app_id  The `id` of the GitHub App.
  * @apiParam {boolean} auto_trigger_checks:setting="true"  Set to `true` to enable automatic creation of CheckSuite events upon pushes to the repository, or `false` to disable them.
  * @apiExample {js} async/await
- * const result = await octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})
+ * const result = await octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})
  * @apiExample {js} Promise
- * octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})
+ * octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})
  * @apiExample {js} Callback
- * octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})
+ * octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})
  */
 
 
@@ -1302,8 +1301,8 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} completed_at  The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object-1) description.
  * @apiParam {string} [output:title]  **Required**.
- * @apiParam {text} output:summary  Can contain Markdown.
- * @apiParam {text} [output:text]  Can contain Markdown.
+ * @apiParam {string} output:summary  Can contain Markdown.
+ * @apiParam {string} [output:text]  Can contain Markdown.
  * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object-1) description for details.
  * @apiParam {string} output:annotations:filename  The name of the file to add an annotation to.
  * @apiParam {string} output:annotations:blob_href  The file's full blob URL.

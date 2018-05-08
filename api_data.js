@@ -93,7 +93,7 @@ define({ "api": [
     "url": "/notifications/threads/:id/subscription",
     "title": "deleteNotificationThreadSubscription",
     "name": "deleteNotificationThreadSubscription",
-    "description": "<p><a href=\"https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription\">REST API doc</a></p>",
+    "description": "<p>Mutes all future notifications for a conversation until you comment on the thread or get <strong>@mention</strong>ed. <a href=\"https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1483,7 +1483,7 @@ define({ "api": [
     "url": "/notifications/threads/:id/subscription",
     "title": "setNotificationThreadSubscription",
     "name": "setNotificationThreadSubscription",
-    "description": "<p>This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get <strong>@mention</strong>ed once more). <a href=\"https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription\">REST API doc</a></p>",
+    "description": "<p>This lets you subscribe or unsubscribe from a conversation. <a href=\"https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1499,15 +1499,9 @@ define({ "api": [
             "group": "Parameter",
             "type": "boolean",
             "optional": true,
-            "field": "subscribed",
-            "description": "<p>Determines if notifications should be received from this thread</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "boolean",
-            "optional": true,
             "field": "ignored",
-            "description": "<p>Determines if all notifications should be blocked from this thread</p>"
+            "defaultValue": "false",
+            "description": "<p>Unsubscribes and subscribes you to a conversation. Set <code>ignored</code> to <code>true</code> to block all notifications from this thread.</p>"
           }
         ]
       }
@@ -1515,17 +1509,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored})",
+        "content": "const result = await octokit.activity.setNotificationThreadSubscription({id, ignored})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}).then(result => {})",
+        "content": "octokit.activity.setNotificationThreadSubscription({id, ignored}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.activity.setNotificationThreadSubscription({id, subscribed, ignored}, (error, result) => {})",
+        "content": "octokit.activity.setNotificationThreadSubscription({id, ignored}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3347,14 +3341,14 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "string",
             "optional": false,
             "field": "output:summary",
             "description": "<p>The summary of the check run. This parameter supports Markdown.</p>"
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "string",
             "optional": true,
             "field": "output:text",
             "description": "<p>The details of the check run. This parameter supports Markdown.</p>"
@@ -3537,8 +3531,8 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id",
-    "title": "getCheckSuite",
-    "name": "getCheckSuite",
+    "title": "getSuite",
+    "name": "getSuite",
     "description": "<p>Gets a single check suite using its <code>id</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check suites. <a href=\"https://developer.github.com/v3/checks/suites/#get-a-single-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
@@ -3571,17 +3565,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.getCheckSuite({owner, repo, check_suite_id})",
+        "content": "const result = await octokit.checks.getSuite({owner, repo, check_suite_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.getCheckSuite({owner, repo, check_suite_id}).then(result => {})",
+        "content": "octokit.checks.getSuite({owner, repo, check_suite_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.getCheckSuite({owner, repo, check_suite_id}, (error, result) => {})",
+        "content": "octokit.checks.getSuite({owner, repo, check_suite_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3592,8 +3586,8 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations",
-    "title": "listAnotations",
-    "name": "listAnotations",
+    "title": "listAnnotations",
+    "name": "listAnnotations",
     "description": "<p>Lists annotations for a check run using the annotation <code>id</code>. To list annotations for a check run, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
@@ -3642,102 +3636,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page})",
+        "content": "const result = await octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}).then(result => {})",
+        "content": "octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.listAnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Checks"
-  },
-  {
-    "type": "GET",
-    "url": "/repos/:owner/:repo/commits/:ref/check-suites",
-    "title": "listCheckSuitesForRef",
-    "name": "listCheckSuitesForRef",
-    "description": "<p>Lists the check suites that were created for a commit <code>ref</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
-    "group": "Checks",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "owner",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "repo",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "ref",
-            "description": "<p>The <code>ref</code> can be a SHA, branch name, or a tag name.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "app_id",
-            "description": "<p>Filters check suites by GitHub App <code>id</code>.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "check_name",
-            "description": "<p>Filters checks suites by the name of the <a href=\"https://developer.github.com/v3/checks/runs/\">check run</a>.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "per_page",
-            "defaultValue": "30",
-            "description": "<p>Results per page (max 100)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "page",
-            "defaultValue": "1",
-            "description": "<p>Page number of the results to fetch.</p>"
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.listCheckSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})",
+        "content": "octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3950,10 +3859,95 @@ define({ "api": [
     "groupTitle": "Checks"
   },
   {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/commits/:ref/check-suites",
+    "title": "listSuitesForRef",
+    "name": "listSuitesForRef",
+    "description": "<p>Lists the check suites that were created for a commit <code>ref</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "ref",
+            "description": "<p>The <code>ref</code> can be a SHA, branch name, or a tag name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "app_id",
+            "description": "<p>Filters check suites by GitHub App <code>id</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "check_name",
+            "description": "<p>Filters checks suites by the name of the <a href=\"https://developer.github.com/v3/checks/runs/\">check run</a>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
     "type": "PATCH",
     "url": "/repos/:owner/:repo/check-suites/preferences",
-    "title": "setCheckSuitesPreferences",
-    "name": "setCheckSuitesPreferences",
+    "title": "setSuitesPreferences",
+    "name": "setSuitesPreferences",
     "description": "<p>Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually <a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">Create a check suite</a>. You must have admin permissions in the repository to set preferences for check suites. <a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
@@ -4001,17 +3995,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})",
+        "content": "const result = await octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})",
+        "content": "octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.setCheckSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})",
+        "content": "octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4131,14 +4125,14 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "string",
             "optional": false,
             "field": "output:summary",
             "description": "<p>Can contain Markdown.</p>"
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "string",
             "optional": true,
             "field": "output:text",
             "description": "<p>Can contain Markdown.</p>"
