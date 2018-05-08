@@ -5,7 +5,7 @@
       "documentationUrl": "https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription",
       "enabledForApps": false,
       "method": "GET",
-      "name": "Get a Thread Subscription",
+      "name": "Get a thread subscription",
       "params": [
         {
           "name": "id",
@@ -42,11 +42,11 @@
       "path": "/user/starred/:owner/:repo"
     },
     "deleteNotificationThreadSubscription": {
-      "description": "",
+      "description": "Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed.",
       "documentationUrl": "https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription",
       "enabledForApps": false,
       "method": "DELETE",
-      "name": "Delete a Thread Subscription",
+      "name": "Delete a thread subscription",
       "params": [
         {
           "name": "id",
@@ -861,11 +861,11 @@
       "path": "/repos/:owner/:repo/notifications"
     },
     "setNotificationThreadSubscription": {
-      "description": "This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get **@mention**ed once more).",
+      "description": "This lets you subscribe or unsubscribe from a conversation.",
       "documentationUrl": "https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription",
       "enabledForApps": false,
       "method": "PUT",
-      "name": "Set a Thread Subscription",
+      "name": "Set a thread subscription",
       "params": [
         {
           "name": "id",
@@ -875,16 +875,10 @@
           "location": "url"
         },
         {
-          "name": "subscribed",
-          "type": "boolean",
-          "description": "Determines if notifications should be received from this thread",
-          "required": false,
-          "location": "body"
-        },
-        {
           "name": "ignored",
           "type": "boolean",
-          "description": "Determines if all notifications should be blocked from this thread",
+          "description": "Unsubscribes and subscribes you to a conversation. Set `ignored` to `true` to block all notifications from this thread.",
+          "default": false,
           "required": false,
           "location": "body"
         }
@@ -1945,14 +1939,14 @@
         },
         {
           "name": "output.summary",
-          "type": "text",
+          "type": "string",
           "description": "The summary of the check run. This parameter supports Markdown.",
           "required": true,
           "location": "body"
         },
         {
           "name": "output.text",
-          "type": "text",
+          "type": "string",
           "description": "The details of the check run. This parameter supports Markdown.",
           "required": false,
           "location": "body"
@@ -2087,7 +2081,7 @@
       ],
       "path": "/repos/:owner/:repo/check-runs/:check_run_id"
     },
-    "getCheckSuite": {
+    "getSuite": {
       "description": "Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#get-a-single-check-suite",
       "enabledForApps": false,
@@ -2118,7 +2112,7 @@
       ],
       "path": "/repos/:owner/:repo/check-suites/:check_suite_id"
     },
-    "listAnotations": {
+    "listAnnotations": {
       "description": "Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run",
       "enabledForApps": false,
@@ -2164,67 +2158,6 @@
         }
       ],
       "path": "/repos/:owner/:repo/check-runs/:check_run_id/annotations"
-    },
-    "listCheckSuitesForRef": {
-      "description": "Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites.",
-      "documentationUrl": "https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
-      "enabledForApps": false,
-      "method": "GET",
-      "name": "List check suites for a specific ref",
-      "params": [
-        {
-          "name": "owner",
-          "type": "string",
-          "required": true,
-          "description": "",
-          "location": "url"
-        },
-        {
-          "name": "repo",
-          "type": "string",
-          "required": true,
-          "description": "",
-          "location": "url"
-        },
-        {
-          "name": "ref",
-          "type": "string",
-          "description": "The `ref` can be a SHA, branch name, or a tag name.",
-          "required": true,
-          "location": "url"
-        },
-        {
-          "name": "app_id",
-          "type": "integer",
-          "description": "Filters check suites by GitHub App `id`.",
-          "required": false,
-          "location": "query"
-        },
-        {
-          "name": "check_name",
-          "type": "string",
-          "description": "Filters checks suites by the name of the [check run](https://developer.github.com/v3/checks/runs/).",
-          "required": false,
-          "location": "query"
-        },
-        {
-          "name": "per_page",
-          "type": "integer",
-          "required": false,
-          "description": "Results per page (max 100)",
-          "default": 30,
-          "location": "query"
-        },
-        {
-          "name": "page",
-          "type": "integer",
-          "required": false,
-          "description": "Page number of the results to fetch.",
-          "default": 1,
-          "location": "query"
-        }
-      ],
-      "path": "/repos/:owner/:repo/commits/:ref/check-suites"
     },
     "listForRef": {
       "description": "Lists check runs for a SHA, branch name, or tag name. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
@@ -2382,7 +2315,68 @@
       ],
       "path": "/repos/:owner/:repo/check-suites/:id/check-runs"
     },
-    "setCheckSuitesPreferences": {
+    "listSuitesForRef": {
+      "description": "Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites.",
+      "documentationUrl": "https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List check suites for a specific ref",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "ref",
+          "type": "string",
+          "description": "The `ref` can be a SHA, branch name, or a tag name.",
+          "required": true,
+          "location": "url"
+        },
+        {
+          "name": "app_id",
+          "type": "integer",
+          "description": "Filters check suites by GitHub App `id`.",
+          "required": false,
+          "location": "query"
+        },
+        {
+          "name": "check_name",
+          "type": "string",
+          "description": "Filters checks suites by the name of the [check run](https://developer.github.com/v3/checks/runs/).",
+          "required": false,
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/repos/:owner/:repo/commits/:ref/check-suites"
+    },
+    "setSuitesPreferences": {
       "description": "Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository",
       "enabledForApps": false,
@@ -2537,14 +2531,14 @@
         },
         {
           "name": "output.summary",
-          "type": "text",
+          "type": "string",
           "description": "Can contain Markdown.",
           "required": true,
           "location": "body"
         },
         {
           "name": "output.text",
-          "type": "text",
+          "type": "string",
           "description": "Can contain Markdown.",
           "required": false,
           "location": "body"
