@@ -61,9 +61,10 @@ jobs:
     - stage: greenkeeper-routes-update
       node_js: lts/*
       script:
+        - git checkout $TRAVIS_BRANCH
         - npm run generate-routes
         - 'git commit -a -m "build: routes"'
-        - 'git push "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" $TRAVIS_BRANCH'
+        - 'git push "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" ${TRAVIS_BRANCH}'
 
     # release stage: run semantic release & update the docs
     - stage: release
