@@ -63,7 +63,7 @@ jobs:
       script:
         - git checkout $TRAVIS_BRANCH
         - npm run generate-routes
-        - 'git commit -a -m "build: routes"'
+        - 'git commit -a -m "build: routes" --author="Octokit Bot <octokitbot@martynus.net>"'
         - 'git push "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" ${TRAVIS_BRANCH}'
 
     # release stage: run semantic release & update the docs
