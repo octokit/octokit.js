@@ -3287,7 +3287,7 @@
       "path": "/repos/:owner/:repo/git/commits"
     },
     "createReference": {
-      "description": "",
+      "description": "Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.",
       "documentationUrl": "https://developer.github.com/v3/git/refs/#create-a-reference",
       "enabledForApps": true,
       "method": "POST",
@@ -3317,7 +3317,7 @@
         {
           "name": "sha",
           "type": "string",
-          "description": "The SHA1 value to set this reference to",
+          "description": "The SHA1 value for this reference.",
           "required": true,
           "location": "body"
         }
@@ -9065,7 +9065,7 @@
       "path": "/repos/:owner/:repo/pulls/comments/:id"
     },
     "get": {
-      "description": "Each time the pull request receives new commits, GitHub creates a merge commit to _test_ whether the pull request can be automatically merged into the base branch. (This _test_ commit is not added to the base branch or the head branch.)\n\nThe value of the `merge_commit_sha` attribute changes depending on the state of the pull request. Before a pull request is merged, the `merge_commit_sha` attribute holds the SHA of the _test_ merge commit. After a pull request is merged, the attribute changes depending on how the pull request was merged:\n\n*   If the pull request was merged as a merge commit, the attribute represents the SHA of the merge commit.\n*   If the pull request was merged via a squash, the attribute represents the SHA of the squashed commit on the base branch.\n*   If the pull request was rebased, the attribute represents the commit that the base branch was updated to.\n\nThe value of the `mergeable` attribute can be `true`, `false`, or `null`. If the value is `null`, this means that the mergeability hasn't been computed yet, and a background job was started to compute it. Give the job a few moments to complete, and then submit the request again. When the job is complete, the response will include a non-`null` value for the `mergeable` attribute.\n\nPass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.",
+      "description": "Lists details of a pull request by providing its number.\n\nWhen you get, [create](https://developer.github.com/v3/pulls/#create-a-pull-request), or [edit](https://developer.github.com/v3/pulls/#update-a-pull-request) a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the `mergeable` key. For more information, see \"[Checking mergeability of pull requests](https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests)\".\n\nThe value of the `mergeable` attribute can be `true`, `false`, or `null`. If the value is `null`, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-`null` value for the `mergeable` attribute in the response. If `mergable` is `true`, then `merge_commit_sha` will be the SHA of the _test_ merge commit.\n\nThe value of the `merge_commit_sha` attribute changes depending on the state of the pull request. Before merging a pull request, the `merge_commit_sha` attribute holds the SHA of the _test_ merge commit. After merging a pull request, the `merge_commit_sha` attribute changes depending on how you merged the pull request:\n\n*   If merged as a [merge commit](https://help.github.com/articles/about-merge-methods-on-github/), `merge_commit_sha` represents the SHA of the merge commit.\n*   If merged via a [squash](https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits), `merge_commit_sha` represents the SHA of the squashed commit on the base branch.\n*   If [rebased](https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits), `merge_commit_sha` represents the commit that the base branch was updated to.\n\nPass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.",
       "documentationUrl": "https://developer.github.com/v3/pulls/#get-a-single-pull-request",
       "enabledForApps": true,
       "method": "GET",
