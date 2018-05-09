@@ -64,7 +64,7 @@ jobs:
         - git checkout $TRAVIS_BRANCH
         - npm run generate-routes
         # commit changes and push back to branch on GitHub. If there are no changes then exit without error
-        - 'git commit -a -m "build: routes" --author="Octokit Bot <octokitbot@martynus.net>" && git push "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" ${TRAVIS_BRANCH} || echo "no changes to commit"'
+        - 'git commit -a -m "build: routes" --author="Octokit Bot <octokitbot@martynus.net>" && git push "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" ${TRAVIS_BRANCH} || true
 
     # release stage: run semantic release & update the docs
     - stage: release
