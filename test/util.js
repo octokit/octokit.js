@@ -4,7 +4,7 @@ module.exports = {
   getInstance
 }
 
-const fetch = require('node-fetch')
+const fetch = require('cross-fetch')
 const merge = require('lodash/merge')
 
 const GitHub = require('../')
