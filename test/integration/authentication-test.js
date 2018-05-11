@@ -106,7 +106,7 @@ describe('authentication', () => {
     return github.repos.getForOrg({org: 'myorg', per_page: 1})
   })
 
-  it('integration', () => {
+  it('app', () => {
     nock('https://authentication-test-host.com', {
       reqheaders: {
         authorization: 'Bearer abc4567'
@@ -116,7 +116,7 @@ describe('authentication', () => {
       .reply(200, {})
 
     github.authenticate({
-      type: 'integration',
+      type: 'app',
       token: 'abc4567'
     })
 
