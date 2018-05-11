@@ -34,7 +34,11 @@ describe('smoke', () => {
   })
 
   it('custom header', () => {
-    nock('https://smoke-test.com')
+    nock('https://smoke-test.com', {
+      reqheaders: {
+        'user-agent': 'blah'
+      }
+    })
       .get('/orgs/octokit')
       .reply(200, {})
 
@@ -42,14 +46,42 @@ describe('smoke', () => {
       baseUrl: 'https://smoke-test.com'
     })
 
-    const customHeaders = {
-      'User-Agent': 'blah'
-    }
-
     github.orgs.get({
       org: 'octokit',
-      headers: customHeaders
+      headers: {
+        'User-Agent': 'blah'
+      }
     })
+  })
+
+  it('custom accept header', () => {
+    nock('https://smoke-test.com', {
+      reqheaders: {
+        'accept': 'foo'
+      }
+    })
+      .get('/orgs/octokit')
+      .reply(200, {})
+      .persist()
+
+    const github = new GitHub({
+      baseUrl: 'https://smoke-test.com'
+    })
+
+    return Promise.all([
+      github.orgs.get({
+        org: 'octokit',
+        headers: {
+          accept: 'foo'
+        }
+      }),
+      github.orgs.get({
+        org: 'octokit',
+        headers: {
+          Accept: 'foo'
+        }
+      })
+    ])
   })
 
   it('pagination', (done) => {
