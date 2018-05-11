@@ -1959,35 +1959,35 @@
           "location": "body"
         },
         {
-          "name": "output.annotations.filename",
+          "name": "output.annotations[].filename",
           "type": "string",
           "description": "The name of the file to add an annotation to.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.blob_href",
+          "name": "output.annotations[].blob_href",
           "type": "string",
           "description": "The file's full blob URL.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.start_line",
+          "name": "output.annotations[].start_line",
           "type": "integer",
           "description": "The start line of the annotation.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.end_line",
+          "name": "output.annotations[].end_line",
           "type": "integer",
           "description": "The end line of the annotation.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.warning_level",
+          "name": "output.annotations[].warning_level",
           "type": "string",
           "description": "The warning level of the annotation. Can be one of `notice`, `warning`, or `failure`.",
           "required": true,
@@ -1999,21 +1999,21 @@
           "location": "body"
         },
         {
-          "name": "output.annotations.message",
+          "name": "output.annotations[].message",
           "type": "string",
           "description": "A short description of the feedback for these lines of code. The maximum size is 64 KB.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.title",
+          "name": "output.annotations[].title",
           "type": "string",
           "description": "The title that represents the annotation. The maximum size is 255 characters.",
           "required": false,
           "location": "body"
         },
         {
-          "name": "output.annotations.raw_details",
+          "name": "output.annotations[].raw_details",
           "type": "string",
           "description": "Details about this annotation. The maximum size is 64 KB.",
           "required": false,
@@ -2027,21 +2027,21 @@
           "location": "body"
         },
         {
-          "name": "output.images.alt",
+          "name": "output.images[].alt",
           "type": "string",
           "description": "The alternative text for the image.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.images.image_url",
+          "name": "output.images[].image_url",
           "type": "string",
           "description": "The full URL of the image.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.images.caption",
+          "name": "output.images[].caption",
           "type": "string",
           "description": "A short image description.",
           "required": false,
@@ -2551,35 +2551,35 @@
           "location": "body"
         },
         {
-          "name": "output.annotations.filename",
+          "name": "output.annotations[].filename",
           "type": "string",
           "description": "The name of the file to add an annotation to.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.blob_href",
+          "name": "output.annotations[].blob_href",
           "type": "string",
           "description": "The file's full blob URL.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.start_line",
+          "name": "output.annotations[].start_line",
           "type": "integer",
           "description": "The start line of the annotation.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.end_line",
+          "name": "output.annotations[].end_line",
           "type": "integer",
           "description": "The end line of the annotation.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.warning_level",
+          "name": "output.annotations[].warning_level",
           "type": "string",
           "description": "The warning level of the annotation. Can be one of `notice`, `warning`, or `failure`.",
           "required": true,
@@ -2591,21 +2591,21 @@
           "location": "body"
         },
         {
-          "name": "output.annotations.message",
+          "name": "output.annotations[].message",
           "type": "string",
           "description": "A short description of the feedback for these lines of code. The maximum size is 64 KB.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.annotations.title",
+          "name": "output.annotations[].title",
           "type": "string",
           "description": "The title that represents the annotation. The maximum size is 255 characters.",
           "required": false,
           "location": "body"
         },
         {
-          "name": "output.annotations.raw_details",
+          "name": "output.annotations[].raw_details",
           "type": "string",
           "description": "Details about this annotation. The maximum size is 64 KB.",
           "required": false,
@@ -2619,21 +2619,21 @@
           "location": "body"
         },
         {
-          "name": "output.images.alt",
+          "name": "output.images[].alt",
           "type": "string",
           "description": "The alternative text for the image.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.images.image_url",
+          "name": "output.images[].image_url",
           "type": "string",
           "description": "The full URL of the image.",
           "required": true,
           "location": "body"
         },
         {
-          "name": "output.images.caption",
+          "name": "output.images[].caption",
           "type": "string",
           "description": "A short image description.",
           "required": false,
