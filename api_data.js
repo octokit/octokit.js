@@ -3455,17 +3455,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption})",
+        "content": "const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}).then(result => {})",
+        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}, (error, result) => {})",
+        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4239,17 +4239,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption})",
+        "content": "const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}).then(result => {})",
+        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations.filename, output.annotations.blob_href, output.annotations.start_line, output.annotations.end_line, output.annotations.warning_level, output.annotations.message, output.annotations.title, output.annotations.raw_details, output.images, output.images.alt, output.images.image_url, output.images.caption}, (error, result) => {})",
+        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})",
         "type": "js"
       }
     ],
