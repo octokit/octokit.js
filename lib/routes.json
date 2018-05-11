@@ -995,6 +995,9 @@
   },
   "checks": {
     "create": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "POST",
       "params": {
         "completed_at": {
@@ -1123,6 +1126,9 @@
       "url": "/repos/:owner/:repo/check-runs"
     },
     "get": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "check_run_id": {
@@ -1141,6 +1147,9 @@
       "url": "/repos/:owner/:repo/check-runs/:check_run_id"
     },
     "getSuite": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "check_suite_id": {
@@ -1159,6 +1168,9 @@
       "url": "/repos/:owner/:repo/check-suites/:check_suite_id"
     },
     "listAnnotations": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "check_run_id": {
@@ -1183,6 +1195,9 @@
       "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations"
     },
     "listForRef": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "check_name": {
@@ -1225,6 +1240,9 @@
       "url": "/repos/:owner/:repo/commits/:ref/check-runs"
     },
     "listForSuite": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "check_name": {
@@ -1267,6 +1285,9 @@
       "url": "/repos/:owner/:repo/check-suites/:id/check-runs"
     },
     "listSuitesForRef": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "app_id": {
@@ -1297,6 +1318,9 @@
       "url": "/repos/:owner/:repo/commits/:ref/check-suites"
     },
     "setSuitesPreferences": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "PATCH",
       "params": {
         "auto_trigger_checks": {
@@ -1322,6 +1346,9 @@
       "url": "/repos/:owner/:repo/check-suites/preferences"
     },
     "update": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+      },
       "method": "PATCH",
       "params": {
         "check_run_id": {
