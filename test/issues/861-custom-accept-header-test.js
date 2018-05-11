@@ -7,7 +7,7 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
   it('custom accept header', () => {
     nock('https://issues-861-test.com', {
       reqheaders: {
-        'accept': 'application/vnd.github.antiope-preview+json',
+        'accept': 'application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json',
         'authorization': 'token 123'
       }
     })
@@ -24,7 +24,7 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
       token: '123'
     })
 
-    const options = {
+    return octokit.checks.create({
       owner: 'swinton',
       repo: 'example',
       name: 'feedback',
@@ -34,18 +34,6 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
       started_at: (new Date()).toISOString(),
       completed_at: (new Date()).toISOString(),
       conclusion: 'status'
-    }
-    const request1 = octokit.checks.create(Object.assign(options, {
-      headers: {
-        accept: 'application/vnd.github.antiope-preview+json'
-      }
-    }))
-    const request2 = octokit.checks.create(Object.assign(options, {
-      headers: {
-        Accept: 'application/vnd.github.antiope-preview+json'
-      }
-    }))
-
-    return Promise.all([request1, request2])
+    })
   })
 })
