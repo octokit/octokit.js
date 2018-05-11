@@ -137,4 +137,21 @@ describe('deprecations', () => {
         expect(console.warn.callCount).to.equal(1)
       })
   })
+
+  it('deprecated authentication type "integration"', () => {
+    nock('https://deprecations-test.com')
+      .get('/app/installations')
+      .reply(200, [])
+
+    github.authenticate({
+      type: 'integration',
+      token: 'foo'
+    })
+
+    return github.apps.getInstallations({})
+
+      .then(() => {
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
 })
