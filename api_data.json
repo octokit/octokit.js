@@ -5431,7 +5431,7 @@
     "url": "/repos/:owner/:repo/git/refs",
     "title": "createReference",
     "name": "createReference",
-    "description": "<p><a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">REST API doc</a></p>",
+    "description": "<p>Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches. <a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">REST API doc</a></p>",
     "group": "Gitdata",
     "parameter": {
       "fields": {
@@ -5462,7 +5462,7 @@
             "type": "string",
             "optional": false,
             "field": "sha",
-            "description": "<p>The SHA1 value to set this reference to</p>"
+            "description": "<p>The SHA1 value for this reference.</p>"
           }
         ]
       }
@@ -14771,7 +14771,7 @@
     "url": "/repos/:owner/:repo/pulls/:number",
     "title": "get",
     "name": "get",
-    "description": "<p>Each time the pull request receives new commits, GitHub creates a merge commit to <em>test</em> whether the pull request can be automatically merged into the base branch. (This <em>test</em> commit is not added to the base branch or the head branch.)</p> <p>The value of the <code>merge_commit_sha</code> attribute changes depending on the state of the pull request. Before a pull request is merged, the <code>merge_commit_sha</code> attribute holds the SHA of the <em>test</em> merge commit. After a pull request is merged, the attribute changes depending on how the pull request was merged: If the pull request was merged as a merge commit, the attribute represents the SHA of the merge commit. If the pull request was merged via a squash, the attribute represents the SHA of the squashed commit on the base branch. If the pull request was rebased, the attribute represents the commit that the base branch was updated to.</p> <p>The value of the <code>mergeable</code> attribute can be <code>true</code>, <code>false</code>, or <code>null</code>. If the value is <code>null</code>, this means that the mergeability hasn't been computed yet, and a background job was started to compute it. Give the job a few moments to complete, and then submit the request again. When the job is complete, the response will include a non-<code>null</code> value for the <code>mergeable</code> attribute.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">REST API doc</a></p>",
+    "description": "<p>Lists details of a pull request by providing its number.</p> <p>When you get, <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">create</a>, or <a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">edit</a> a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the <code>mergeable</code> key. For more information, see &quot;<a href=\"https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>&quot;.</p> <p>The value of the <code>mergeable</code> attribute can be <code>true</code>, <code>false</code>, or <code>null</code>. If the value is <code>null</code>, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-<code>null</code> value for the <code>mergeable</code> attribute in the response. If <code>mergable</code> is <code>true</code>, then <code>merge_commit_sha</code> will be the SHA of the <em>test</em> merge commit.</p> <p>The value of the <code>merge_commit_sha</code> attribute changes depending on the state of the pull request. Before merging a pull request, the <code>merge_commit_sha</code> attribute holds the SHA of the <em>test</em> merge commit. After merging a pull request, the <code>merge_commit_sha</code> attribute changes depending on how you merged the pull request: If merged as a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/\">merge commit</a>, <code>merge_commit_sha</code> represents the SHA of the merge commit. If merged via a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits\">squash</a>, <code>merge_commit_sha</code> represents the SHA of the squashed commit on the base branch. If <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits\">rebased</a>, <code>merge_commit_sha</code> represents the commit that the base branch was updated to.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">REST API doc</a></p>",
     "group": "PullRequests",
     "parameter": {
       "fields": {
