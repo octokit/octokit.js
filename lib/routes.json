@@ -523,9 +523,6 @@
   },
   "apps": {
     "addRepoToInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "PUT",
       "params": {
         "installation_id": {
@@ -578,9 +575,6 @@
       "url": "/marketplace_listing/stubbed/accounts/:id"
     },
     "createInstallationToken": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "POST",
       "params": {
         "installation_id": {
@@ -596,9 +590,6 @@
       "url": "/app"
     },
     "getForSlug": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {
         "app_slug": {
@@ -609,9 +600,6 @@
       "url": "/apps/:app_slug"
     },
     "getInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {
         "installation_id": {
@@ -622,9 +610,6 @@
       "url": "/app/installations/:installation_id"
     },
     "getInstallationRepositories": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -637,9 +622,6 @@
       "url": "/installation/repositories"
     },
     "getInstallations": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -748,9 +730,6 @@
       "url": "/marketplace_listing/stubbed/plans"
     },
     "removeRepoFromInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "DELETE",
       "params": {
         "installation_id": {
@@ -996,7 +975,7 @@
   "checks": {
     "create": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "POST",
       "params": {
@@ -1127,7 +1106,7 @@
     },
     "get": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "GET",
       "params": {
@@ -1148,7 +1127,7 @@
     },
     "getSuite": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "GET",
       "params": {
@@ -1169,7 +1148,7 @@
     },
     "listAnnotations": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "GET",
       "params": {
@@ -1196,7 +1175,7 @@
     },
     "listForRef": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "GET",
       "params": {
@@ -1241,7 +1220,7 @@
     },
     "listForSuite": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "GET",
       "params": {
@@ -1286,7 +1265,7 @@
     },
     "listSuitesForRef": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "GET",
       "params": {
@@ -1319,7 +1298,7 @@
     },
     "setSuitesPreferences": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -1347,7 +1326,7 @@
     },
     "update": {
       "headers": {
-        "accept": "application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.antiope-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -2446,9 +2425,6 @@
   "integrations": {
     "addRepoToInstallation": {
       "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "PUT",
       "params": {
         "installation_id": {
@@ -2464,9 +2440,6 @@
     },
     "createInstallationToken": {
       "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "POST",
       "params": {
         "installation_id": {
@@ -2478,18 +2451,12 @@
     },
     "getInstallationRepositories": {
       "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {},
       "url": "/installation/repositories"
     },
     "getInstallations": {
       "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -2503,9 +2470,6 @@
     },
     "removeRepoFromInstallation": {
       "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "DELETE",
       "params": {
         "installation_id": {
@@ -9461,9 +9425,6 @@
       "url": "/user/emails"
     },
     "addRepoToInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "PUT",
       "params": {
         "installation_id": {
@@ -9801,9 +9762,6 @@
       "url": "/user/installations/:installation_id/repositories"
     },
     "getInstallations": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -9974,9 +9932,6 @@
       "url": "/users/:username/site_admin"
     },
     "removeRepoFromInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview"
-      },
       "method": "DELETE",
       "params": {
         "installation_id": {
