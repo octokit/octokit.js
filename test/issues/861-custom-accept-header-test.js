@@ -8,7 +8,7 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
     nock('https://issues-861-test.com', {
       reqheaders: {
         'accept': 'application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json',
-        'authorization': 'token 123'
+        'authorization': 'Bearer 123'
       }
     })
       .post('/repos/swinton/example/check-runs')
@@ -20,7 +20,7 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
     })
 
     octokit.authenticate({
-      type: 'token',
+      type: 'app',
       token: '123'
     })
 
