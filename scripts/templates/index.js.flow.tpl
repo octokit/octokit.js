@@ -45,12 +45,19 @@ declare module "github" {
     token: string;
   };
 
+  /* @deprecated Use "app" instead of "integration */
+  declare type AuthDeprecatedJWT = {
+    type: "integration";
+    token: string;
+  };
+
   declare type Auth =
     | AuthBasic
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
-    | AuthJWT;
+    | AuthJWT
+    | AuthDeprecatedJWT;
 
   declare type Link =
     | { link: string; }
