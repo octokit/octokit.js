@@ -32,7 +32,7 @@ octokit.repos.getForOrg({
 2. Load it as script into your web application:
 
    ```html
-   <script scr="octokit-rest.min.js"></script>
+   <script src="octokit-rest.min.js"></script>
    ```
 
 3. Initialize `octokit`
