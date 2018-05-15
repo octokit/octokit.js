@@ -72,30 +72,36 @@ declare namespace Github {
     port?: number;
   }
 
-  export interface AuthBasic  {
+  export interface AuthBasic {
     type: "basic";
     username: string;
     password: string;
   }
 
-  export interface AuthOAuthToken  {
+  export interface AuthOAuthToken {
     type: "oauth";
     token: string;
   }
 
-  export interface AuthOAuthSecret  {
+  export interface AuthOAuthSecret {
     type: "oauth";
     key: string;
     secret: string;
   }
 
-  export interface AuthUserToken  {
+  export interface AuthUserToken {
     type: "token";
     token: string;
   }
 
-  export interface AuthJWT  {
+  /* @deprecated Use "app" instead of "integration" */
+  export interface DeprecatedAuthJWT {
     type: "integration";
+    token: string;
+  }
+
+    export interface AuthJWT  {
+    type: "app";
     token: string;
   }
 
@@ -104,7 +110,8 @@ declare namespace Github {
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
-    | AuthJWT;
+    | AuthJWT
+    | DeprecatedAuthJWT;
 
   export type Link =
     | { link: string; }
