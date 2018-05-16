@@ -1941,7 +1941,7 @@ define({ "api": [
     "url": "/app",
     "title": "get",
     "name": "get",
-    "description": "<p>Returns the GitHub App associated with the <a href=\"https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps#authenticating-as-a-github-app\">authentication credentials</a> used. <a href=\"https://developer.github.com/v3/apps/#get-the-authenticated-github-app\">REST API doc</a></p>",
+    "description": "<p>Returns the GitHub App associated with the <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app\">authentication credentials</a> used. <a href=\"https://developer.github.com/v3/apps/#get-the-authenticated-github-app\">REST API doc</a></p>",
     "group": "Apps",
     "examples": [
       {
@@ -2051,7 +2051,7 @@ define({ "api": [
     "url": "/installation/repositories",
     "title": "getInstallationRepositories",
     "name": "getInstallationRepositories",
-    "description": "<p>List repositories that are accessible to the authenticated installation. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2507,7 +2507,7 @@ define({ "api": [
     "url": "/authorizations",
     "title": "create",
     "name": "create",
-    "description": "<p>If you need a small number of personal access tokens, implementing the <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/\">web flow</a> can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a>. To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your <a href=\"https://github.com/settings/developers\">OAuth applications listing on GitHub</a>.</p> <p>If your OAuth application intends to create multiple tokens for one user, use <code>fingerprint</code> to differentiate between them.</p> <p>You can also create OAuth tokens through the web UI via the <a href=\"https://github.com/settings/tokens\">personal access tokens settings</a>. Read more about these tokens on the <a href=\"https://help.github.com/articles/creating-an-access-token-for-command-line-use\">GitHub Help site</a>.</p> <p>Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the <a href=\"https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on\">GitHub Help site</a>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">REST API doc</a></p>",
+    "description": "<p>If you need a small number of personal access tokens, implementing the <a href=\"https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/\">web flow</a> can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a>. To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your <a href=\"https://github.com/settings/developers\">OAuth applications listing on GitHub</a>.</p> <p>If your OAuth application intends to create multiple tokens for one user, use <code>fingerprint</code> to differentiate between them.</p> <p>You can also create OAuth tokens through the web UI via the <a href=\"https://github.com/settings/tokens\">personal access tokens settings</a>. Read more about these tokens on the <a href=\"https://help.github.com/articles/creating-an-access-token-for-command-line-use\">GitHub Help site</a>.</p> <p>Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the <a href=\"https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on\">GitHub Help site</a>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">REST API doc</a></p>",
     "group": "Authorization",
     "parameter": {
       "fields": {
@@ -3310,20 +3310,18 @@ define({ "api": [
               "cancelled",
               "timed_out",
               "action_required",
-              "details_url",
-              "status",
-              "completed"
+              "details_url"
             ],
-            "optional": false,
+            "optional": true,
             "field": "conclusion",
-            "description": "<p>The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>. Required if you provide a <code>status</code> of <code>completed</code>.</p>"
+            "description": "<p><strong>Required if you provide a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "completed_at",
-            "description": "<p>The time the check completed in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Required if you provide <code>conclusion</code>.</p>"
+            "description": "<p><strong>Required if you provide <code>conclusion</code></strong>. The time the check completed in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -3466,6 +3464,68 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
+    "type": "POST",
+    "url": "/repos/:owner/:repo/check-suites",
+    "title": "createSuite",
+    "name": "createSuite",
+    "description": "<p>By default, check suites are automatically created when you create a <a href=\"https://developer.github.com/v3/checks/runs/\">check run</a>. You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using &quot;<a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">Set preferences for check suites on a repository</a>&quot;. Your GitHub App must have the <code>checks:write</code> permission to create check suites. <a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "head_sha",
+            "description": "<p>The sha of the head commit.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "head_branch",
+            "description": "<p>The name of the head branch where the code changes are implemented.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.createSuite({owner, repo, head_sha, head_branch})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.createSuite({owner, repo, head_sha, head_branch}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.createSuite({owner, repo, head_sha, head_branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3944,6 +4004,61 @@ define({ "api": [
     "groupTitle": "Checks"
   },
   {
+    "type": "POST",
+    "url": "/repos/:owner/:repo/check-suite-requests",
+    "title": "requestSuites",
+    "name": "requestSuites",
+    "description": "<p>Triggers GitHub to create a new check suite, without pushing new code to a repository. To request a check suite, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/suites/#request-check-suites\">REST API doc</a></p>",
+    "group": "Checks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "head_sha",
+            "description": "<p><strong>Required.</strong> The sha of the head commit.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.checks.requestSuites({owner, repo, head_sha})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.checks.requestSuites({owner, repo, head_sha}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.checks.requestSuites({owner, repo, head_sha}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Checks"
+  },
+  {
     "type": "PATCH",
     "url": "/repos/:owner/:repo/check-suites/preferences",
     "title": "setSuitesPreferences",
@@ -4094,20 +4209,18 @@ define({ "api": [
               "cancelled",
               "timed_out",
               "action_required",
-              "details_url",
-              "status",
-              "completed"
+              "details_url"
             ],
-            "optional": false,
+            "optional": true,
             "field": "conclusion",
-            "description": "<p>The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>. Required if you provide a <code>status</code> of <code>completed</code>.</p>"
+            "description": "<p><strong>Required if you provide a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "completed_at",
-            "description": "<p>The time the check completed in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. Required if you provide <code>conclusion</code>.</p>"
+            "description": "<p><strong>Required if you provide <code>conclusion</code></strong>. The time the check completed in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -12918,7 +13031,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "content_type",
-            "description": "<p><strong>Required if you specify a content_id</strong>. The type of content to associate with this card. Can only be &quot;Issue&quot; at this time.</p>"
+            "description": "<p><strong>Required if you provide <code>content_id</code></strong>. The type of content to associate with this card. Can only be &quot;Issue&quot; at this time.</p>"
           }
         ]
       }
@@ -16160,7 +16273,7 @@ define({ "api": [
     "url": "/reactions/:id",
     "title": "delete",
     "name": "delete",
-    "description": "<p>OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps/\">scope</a>, when deleting a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a> or <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. <a href=\"https://developer.github.com/v3/reactions/#delete-a-reaction\">REST API doc</a></p>",
+    "description": "<p>OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>, when deleting a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a> or <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. <a href=\"https://developer.github.com/v3/reactions/#delete-a-reaction\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -17019,7 +17132,7 @@ define({ "api": [
     "url": "/user/repos",
     "title": "create",
     "name": "create",
-    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository <a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository <a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17554,7 +17667,7 @@ define({ "api": [
     "url": "/orgs/:org/repos",
     "title": "createForOrg",
     "name": "createForOrg",
-    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository <a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository <a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19044,7 +19157,7 @@ define({ "api": [
     "url": "/user/repos",
     "title": "getAll",
     "name": "getAll",
-    "description": "<p>List repositories that are accessible to the authenticated user.</p> <p>This includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership. <a href=\"https://developer.github.com/v3/repos/#list-your-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access. <a href=\"https://developer.github.com/v3/repos/#list-your-repositories\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -25194,7 +25307,7 @@ define({ "api": [
     "url": "/user/gpg_keys",
     "title": "createGpgKey",
     "name": "createGpgKey",
-    "description": "<p>Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:gpg_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key\">REST API doc</a></p>",
+    "description": "<p>Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "examples": [
       {
@@ -25222,7 +25335,7 @@ define({ "api": [
     "url": "/user/keys",
     "title": "createKey",
     "name": "createKey",
-    "description": "<p>Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:public_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#create-a-public-key\">REST API doc</a></p>",
+    "description": "<p>Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#create-a-public-key\">REST API doc</a></p>",
     "group": "Users",
     "examples": [
       {
@@ -25319,7 +25432,7 @@ define({ "api": [
     "url": "/user/gpg_keys/:id",
     "title": "deleteGpgKey",
     "name": "deleteGpgKey",
-    "description": "<p>Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
+    "description": "<p>Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -25360,7 +25473,7 @@ define({ "api": [
     "url": "/user/keys/:id",
     "title": "deleteKey",
     "name": "deleteKey",
-    "description": "<p>Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
+    "description": "<p>Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -25911,7 +26024,7 @@ define({ "api": [
     "url": "/user/gpg_keys/:id",
     "title": "getGpgKey",
     "name": "getGpgKey",
-    "description": "<p>View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key\">REST API doc</a></p>",
+    "description": "<p>View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -25952,7 +26065,7 @@ define({ "api": [
     "url": "/user/gpg_keys",
     "title": "getGpgKeys",
     "name": "getGpgKeys",
-    "description": "<p>Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys\">REST API doc</a></p>",
+    "description": "<p>Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26059,7 +26172,7 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories",
     "title": "getInstallationRepos",
     "name": "getInstallationRepos",
-    "description": "<p>List repositories that are accessible to the authenticated user for an installation.</p> <p>The access the user has to each repository is included in the hash under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The access the user has to each repository is included in the hash under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26116,7 +26229,7 @@ define({ "api": [
     "url": "/user/installations",
     "title": "getInstallations",
     "name": "getInstallations",
-    "description": "<p>List installations that are accessible to the authenticated user.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
+    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26166,7 +26279,7 @@ define({ "api": [
     "url": "/user/keys/:id",
     "title": "getKey",
     "name": "getKey",
-    "description": "<p>View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
+    "description": "<p>View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26207,7 +26320,7 @@ define({ "api": [
     "url": "/user/keys",
     "title": "getKeys",
     "name": "getKeys",
-    "description": "<p>Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#list-your-public-keys\">REST API doc</a></p>",
+    "description": "<p>Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#list-your-public-keys\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26666,7 +26779,7 @@ define({ "api": [
     "url": "/user/teams",
     "title": "getTeams",
     "name": "getTeams",
-    "description": "<p>List all of the teams across all of the organizations to which the authenticated user belongs. This method requires <code>user</code>, <code>repo</code>, or <code>read:org</code> <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/\">scope</a> when authenticating via <a href=\"https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/\">OAuth</a>. <a href=\"https://developer.github.com/v3/teams/#list-user-teams\">REST API doc</a></p>",
+    "description": "<p>List all of the teams across all of the organizations to which the authenticated user belongs. This method requires <code>user</code>, <code>repo</code>, or <code>read:org</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a> when authenticating via <a href=\"https://developer.github.com/apps/building-oauth-apps/\">OAuth</a>. <a href=\"https://developer.github.com/v3/teams/#list-user-teams\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {

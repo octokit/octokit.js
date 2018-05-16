@@ -652,7 +652,7 @@ The authenticated user must have admin access to the repository. <a href="https:
 /**
  * @api {GET} /app get
  * @apiName get
- * @apiDescription Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps#authenticating-as-a-github-app) used. <a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
+ * @apiDescription Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app) used. <a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiExample {js} async/await
@@ -699,7 +699,7 @@ The authenticated user must have admin access to the repository. <a href="https:
 /**
  * @api {GET} /installation/repositories getInstallationRepositories
  * @apiName getInstallationRepositories
- * @apiDescription List repositories that are accessible to the authenticated installation. <a href="https://developer.github.com/v3/apps/installations/#list-repositories">REST API doc</a>
+ * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation. <a href="https://developer.github.com/v3/apps/installations/#list-repositories">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -850,7 +850,7 @@ The authenticated user must have admin access to the repository. <a href="https:
 /**
  * @api {POST} /authorizations create
  * @apiName create
- * @apiDescription If you need a small number of personal access tokens, implementing the [web flow](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/) can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication). To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your [OAuth applications listing on GitHub](https://github.com/settings/developers).
+ * @apiDescription If you need a small number of personal access tokens, implementing the [web flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/) can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication). To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your [OAuth applications listing on GitHub](https://github.com/settings/developers).
 
 If your OAuth application intends to create multiple tokens for one user, use `fingerprint` to differentiate between them.
 
@@ -1111,8 +1111,8 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
  * @apiParam {string=queued,in_progress,completed} [status="queued"]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
  * @apiParam {string} [started_at]  The time that the check run began in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
- * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,status,completed} conclusion  The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.
- * @apiParam {string} completed_at  The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url} [conclusion]  **Required if you provide a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.
+ * @apiParam {string} [completed_at]  **Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object) description.
  * @apiParam {string} output:title  The title of the check run.
  * @apiParam {string} output:summary  The summary of the check run. This parameter supports Markdown.
@@ -1136,6 +1136,25 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})
  * @apiExample {js} Callback
  * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /repos/:owner/:repo/check-suites createSuite
+ * @apiName createSuite
+ * @apiDescription By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using "[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)". Your GitHub App must have the `checks:write` permission to create check suites. <a href="https://developer.github.com/v3/checks/suites/#create-a-check-suite">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} head_sha  The sha of the head commit.
+ * @apiParam {string} [head_branch]  The name of the head branch where the code changes are implemented.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.createSuite({owner, repo, head_sha, head_branch})
+ * @apiExample {js} Promise
+ * octokit.checks.createSuite({owner, repo, head_sha, head_branch}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.createSuite({owner, repo, head_sha, head_branch}, (error, result) => {})
  */
 
 
@@ -1264,6 +1283,24 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
+ * @api {POST} /repos/:owner/:repo/check-suite-requests requestSuites
+ * @apiName requestSuites
+ * @apiDescription Triggers GitHub to create a new check suite, without pushing new code to a repository. To request a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/suites/#request-check-suites">REST API doc</a>
+ * @apiGroup Checks
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} [head_sha]  **Required.** The sha of the head commit.
+ * @apiExample {js} async/await
+ * const result = await octokit.checks.requestSuites({owner, repo, head_sha})
+ * @apiExample {js} Promise
+ * octokit.checks.requestSuites({owner, repo, head_sha}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.checks.requestSuites({owner, repo, head_sha}, (error, result) => {})
+ */
+
+
+/**
  * @api {PATCH} /repos/:owner/:repo/check-suites/preferences setSuitesPreferences
  * @apiName setSuitesPreferences
  * @apiDescription Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites. <a href="https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository">REST API doc</a>
@@ -1297,8 +1334,8 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
  * @apiParam {string} [started_at]  A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {string=queued,in_progress,completed} [status]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
- * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,status,completed} conclusion  The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.
- * @apiParam {string} completed_at  The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url} [conclusion]  **Required if you provide a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.
+ * @apiParam {string} [completed_at]  **Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object-1) description.
  * @apiParam {string} [output:title]  **Required**.
  * @apiParam {string} output:summary  Can contain Markdown.
@@ -4277,7 +4314,7 @@ If the specified user is an active member of the organization, this will remove 
  * @apiParam {string} column_id  
  * @apiParam {string} [note]  The card's note content. Only valid for cards without another type of content, so this must be omitted if `content_id` and `content_type` are specified.
  * @apiParam {integer} [content_id]  The id of the issue to associate with this card.
- * @apiParam {string} [content_type]  **Required if you specify a content_id**. The type of content to associate with this card. Can only be "Issue" at this time.
+ * @apiParam {string} [content_type]  **Required if you provide `content_id`**. The type of content to associate with this card. Can only be "Issue" at this time.
  * @apiExample {js} async/await
  * const result = await octokit.projects.createProjectCard({column_id, note, content_id, content_type})
  * @apiExample {js} Promise
@@ -5239,7 +5276,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {DELETE} /reactions/:id delete
  * @apiName delete
- * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). <a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
+ * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). <a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} id  
@@ -5533,7 +5570,7 @@ For comparisons with extremely large diffs, you may receive an error response in
 
 **OAuth scope requirements**
 
-When using [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/), authorizations must include:
+When using [OAuth](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:
 
 *   `public_repo` scope or `repo` scope to create a public repository
 *   `repo` scope to create a private repository <a href="https://developer.github.com/v3/repos/#create">REST API doc</a>
@@ -5697,7 +5734,7 @@ Both the `author` and `committer` parameters have the same keys:
 
 **OAuth scope requirements**
 
-When using [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/), authorizations must include:
+When using [OAuth](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:
 
 *   `public_repo` scope or `repo` scope to create a public repository
 *   `repo` scope to create a private repository <a href="https://developer.github.com/v3/repos/#create">REST API doc</a>
@@ -6127,9 +6164,7 @@ Forking a Repository happens asynchronously. Therefore, you may have to wait a s
 /**
  * @api {GET} /user/repos getAll
  * @apiName getAll
- * @apiDescription List repositories that are accessible to the authenticated user.
-
-This includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership. <a href="https://developer.github.com/v3/repos/#list-your-repositories">REST API doc</a>
+ * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access. <a href="https://developer.github.com/v3/repos/#list-your-repositories">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string=all,public,private} [visibility="all"]  Can be one of `all`, `public`, or `private`.
@@ -8311,7 +8346,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {POST} /user/gpg_keys createGpgKey
  * @apiName createGpgKey
- * @apiDescription Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key">REST API doc</a>
+ * @apiDescription Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiExample {js} async/await
@@ -8326,7 +8361,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {POST} /user/keys createKey
  * @apiName createKey
- * @apiDescription Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#create-a-public-key">REST API doc</a>
+ * @apiDescription Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#create-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiExample {js} async/await
@@ -8372,7 +8407,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {DELETE} /user/gpg_keys/:id deleteGpgKey
  * @apiName deleteGpgKey
- * @apiDescription Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
+ * @apiDescription Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} id  
@@ -8388,7 +8423,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {DELETE} /user/keys/:id deleteKey
  * @apiName deleteKey
- * @apiDescription Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
+ * @apiDescription Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} id  
@@ -8598,7 +8633,7 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
 /**
  * @api {GET} /user/gpg_keys/:id getGpgKey
  * @apiName getGpgKey
- * @apiDescription View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key">REST API doc</a>
+ * @apiDescription View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} id  
@@ -8614,7 +8649,7 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
 /**
  * @api {GET} /user/gpg_keys getGpgKeys
  * @apiName getGpgKeys
- * @apiDescription Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys">REST API doc</a>
+ * @apiDescription Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -8649,7 +8684,7 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
 /**
  * @api {GET} /user/installations/:installation_id/repositories getInstallationRepos
  * @apiName getInstallationRepos
- * @apiDescription List repositories that are accessible to the authenticated user for an installation.
+ * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.
 
 The access the user has to each repository is included in the hash under the `permissions` key. <a href="https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation">REST API doc</a>
  * @apiGroup Users
@@ -8669,7 +8704,7 @@ The access the user has to each repository is included in the hash under the `pe
 /**
  * @api {GET} /user/installations getInstallations
  * @apiName getInstallations
- * @apiDescription List installations that are accessible to the authenticated user.
+ * @apiDescription Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.
 
 The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#list-installations-for-user">REST API doc</a>
  * @apiGroup Users
@@ -8688,7 +8723,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /user/keys/:id getKey
  * @apiName getKey
- * @apiDescription View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
+ * @apiDescription View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} id  
@@ -8704,7 +8739,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /user/keys getKeys
  * @apiName getKeys
- * @apiDescription Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#list-your-public-keys">REST API doc</a>
+ * @apiDescription Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#list-your-public-keys">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -8864,7 +8899,7 @@ This only lists organizations that your authorization allows you to operate on i
 /**
  * @api {GET} /user/teams getTeams
  * @apiName getTeams
- * @apiDescription List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/). <a href="https://developer.github.com/v3/teams/#list-user-teams">REST API doc</a>
+ * @apiDescription List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/). <a href="https://developer.github.com/v3/teams/#list-user-teams">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
