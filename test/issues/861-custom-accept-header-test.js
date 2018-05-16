@@ -30,10 +30,10 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
       name: 'feedback',
       head_branch: 'helloworld',
       head_sha: '2e3d00a6f14a667d50ad9ccd6f3dcfded52121e2',
-      status: 'in_progress',
+      status: 'completed',
       started_at: (new Date()).toISOString(),
       completed_at: (new Date()).toISOString(),
-      conclusion: 'status'
+      conclusion: 'success'
     })
   })
 })
