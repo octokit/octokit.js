@@ -980,7 +980,6 @@
       "method": "POST",
       "params": {
         "completed_at": {
-          "required": true,
           "type": "string"
         },
         "conclusion": {
@@ -991,11 +990,8 @@
             "cancelled",
             "timed_out",
             "action_required",
-            "details_url",
-            "status",
-            "completed"
+            "details_url"
           ],
-          "required": true,
           "type": "string"
         },
         "details_url": {
@@ -1103,6 +1099,30 @@
         }
       },
       "url": "/repos/:owner/:repo/check-runs"
+    },
+    "createSuite": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "head_branch": {
+          "type": "string"
+        },
+        "head_sha": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-suites"
     },
     "get": {
       "headers": {
@@ -1296,6 +1316,26 @@
       },
       "url": "/repos/:owner/:repo/commits/:ref/check-suites"
     },
+    "requestSuites": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "head_sha": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-suite-requests"
+    },
     "setSuitesPreferences": {
       "headers": {
         "accept": "application/vnd.github.antiope-preview+json"
@@ -1335,7 +1375,6 @@
           "type": "string"
         },
         "completed_at": {
-          "required": true,
           "type": "string"
         },
         "conclusion": {
@@ -1346,11 +1385,8 @@
             "cancelled",
             "timed_out",
             "action_required",
-            "details_url",
-            "status",
-            "completed"
+            "details_url"
           ],
-          "required": true,
           "type": "string"
         },
         "details_url": {

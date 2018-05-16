@@ -1105,7 +1105,7 @@
       "path": "/installations/:installation_id/access_tokens"
     },
     "get": {
-      "description": "Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps#authenticating-as-a-github-app) used.",
+      "description": "Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app) used.",
       "documentationUrl": "https://developer.github.com/v3/apps/#get-the-authenticated-github-app",
       "enabledForApps": true,
       "method": "GET",
@@ -1148,7 +1148,7 @@
       "path": "/app/installations/:installation_id"
     },
     "getInstallationRepositories": {
-      "description": "List repositories that are accessible to the authenticated installation.",
+      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#list-repositories",
       "enabledForApps": true,
       "method": "GET",
@@ -1414,7 +1414,7 @@
       "path": "/applications/:client_id/tokens/:access_token"
     },
     "create": {
-      "description": "If you need a small number of personal access tokens, implementing the [web flow](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/) can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication). To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your [OAuth applications listing on GitHub](https://github.com/settings/developers).\n\nIf your OAuth application intends to create multiple tokens for one user, use `fingerprint` to differentiate between them.\n\nYou can also create OAuth tokens through the web UI via the [personal access tokens settings](https://github.com/settings/tokens). Read more about these tokens on the [GitHub Help site](https://help.github.com/articles/creating-an-access-token-for-command-line-use).\n\nOrganizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the [GitHub Help site](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).",
+      "description": "If you need a small number of personal access tokens, implementing the [web flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/) can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication). To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your [OAuth applications listing on GitHub](https://github.com/settings/developers).\n\nIf your OAuth application intends to create multiple tokens for one user, use `fingerprint` to differentiate between them.\n\nYou can also create OAuth tokens through the web UI via the [personal access tokens settings](https://github.com/settings/tokens). Read more about these tokens on the [GitHub Help site](https://help.github.com/articles/creating-an-access-token-for-command-line-use).\n\nOrganizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the [GitHub Help site](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).",
       "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization",
       "enabledForApps": false,
       "method": "POST",
@@ -1901,8 +1901,8 @@
         {
           "name": "conclusion",
           "type": "string",
-          "description": "The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.",
-          "required": true,
+          "description": "**Required if you provide a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.",
+          "required": false,
           "enum": [
             "success",
             "failure",
@@ -1910,17 +1910,15 @@
             "cancelled",
             "timed_out",
             "action_required",
-            "details_url",
-            "status",
-            "completed"
+            "details_url"
           ],
           "location": "body"
         },
         {
           "name": "completed_at",
           "type": "string",
-          "description": "The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.",
-          "required": true,
+          "description": "**Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
+          "required": false,
           "location": "body"
         },
         {
@@ -2049,6 +2047,44 @@
         }
       ],
       "path": "/repos/:owner/:repo/check-runs"
+    },
+    "createSuite": {
+      "description": "By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using \"[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)\". Your GitHub App must have the `checks:write` permission to create check suites.",
+      "documentationUrl": "https://developer.github.com/v3/checks/suites/#create-a-check-suite",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Create a check suite",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "head_sha",
+          "type": "string",
+          "description": "The sha of the head commit.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "head_branch",
+          "type": "string",
+          "description": "The name of the head branch where the code changes are implemented.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-suites"
     },
     "get": {
       "description": "Gets a single check run using its `id`. To get a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
@@ -2376,6 +2412,37 @@
       ],
       "path": "/repos/:owner/:repo/commits/:ref/check-suites"
     },
+    "requestSuites": {
+      "description": "Triggers GitHub to create a new check suite, without pushing new code to a repository. To request a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "documentationUrl": "https://developer.github.com/v3/checks/suites/#request-check-suites",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Request check suites",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "head_sha",
+          "type": "string",
+          "description": "**Required.** The sha of the head commit.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/check-suite-requests"
+    },
     "setSuitesPreferences": {
       "description": "Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository",
@@ -2493,8 +2560,8 @@
         {
           "name": "conclusion",
           "type": "string",
-          "description": "The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`. Required if you provide a `status` of `completed`.",
-          "required": true,
+          "description": "**Required if you provide a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.",
+          "required": false,
           "enum": [
             "success",
             "failure",
@@ -2502,17 +2569,15 @@
             "cancelled",
             "timed_out",
             "action_required",
-            "details_url",
-            "status",
-            "completed"
+            "details_url"
           ],
           "location": "body"
         },
         {
           "name": "completed_at",
           "type": "string",
-          "description": "The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Required if you provide `conclusion`.",
-          "required": true,
+          "description": "**Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
+          "required": false,
           "location": "body"
         },
         {
@@ -7929,7 +7994,7 @@
         {
           "name": "content_type",
           "type": "string",
-          "description": "**Required if you specify a content_id**. The type of content to associate with this card. Can only be \"Issue\" at this time.",
+          "description": "**Required if you provide `content_id`**. The type of content to associate with this card. Can only be \"Issue\" at this time.",
           "required": false,
           "location": "body"
         }
@@ -10024,7 +10089,7 @@
       "path": "/repos/:owner/:repo/pulls/comments/:id/reactions"
     },
     "delete": {
-      "description": "OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/).",
+      "description": "OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/).",
       "documentationUrl": "https://developer.github.com/v3/reactions/#delete-a-reaction",
       "enabledForApps": false,
       "method": "DELETE",
@@ -10573,7 +10638,7 @@
       "path": "/repos/:owner/:repo/compare/:base...:head"
     },
     "create": {
-      "description": "**Note**: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for [GitHub Apps](https://developer.github.com/v3/apps/available-endpoints/), whereas the user endpoint is enabled only for [user-to-server requests](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests).\n\n**OAuth scope requirements**\n\nWhen using [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/), authorizations must include:\n\n*   `public_repo` scope or `repo` scope to create a public repository\n*   `repo` scope to create a private repository",
+      "description": "**Note**: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for [GitHub Apps](https://developer.github.com/v3/apps/available-endpoints/), whereas the user endpoint is enabled only for [user-to-server requests](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests).\n\n**OAuth scope requirements**\n\nWhen using [OAuth](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:\n\n*   `public_repo` scope or `repo` scope to create a public repository\n*   `repo` scope to create a private repository",
       "documentationUrl": "https://developer.github.com/v3/repos/#create",
       "enabledForApps": true,
       "method": "POST",
@@ -10992,7 +11057,7 @@
       "path": "/repos/:owner/:repo/contents/:path"
     },
     "createForOrg": {
-      "description": "**Note**: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for [GitHub Apps](https://developer.github.com/v3/apps/available-endpoints/), whereas the user endpoint is enabled only for [user-to-server requests](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests).\n\n**OAuth scope requirements**\n\nWhen using [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/), authorizations must include:\n\n*   `public_repo` scope or `repo` scope to create a public repository\n*   `repo` scope to create a private repository",
+      "description": "**Note**: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for [GitHub Apps](https://developer.github.com/v3/apps/available-endpoints/), whereas the user endpoint is enabled only for [user-to-server requests](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests).\n\n**OAuth scope requirements**\n\nWhen using [OAuth](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:\n\n*   `public_repo` scope or `repo` scope to create a public repository\n*   `repo` scope to create a private repository",
       "documentationUrl": "https://developer.github.com/v3/repos/#create",
       "enabledForApps": true,
       "method": "POST",
@@ -12024,7 +12089,7 @@
       "path": "/repos/:owner/:repo"
     },
     "getAll": {
-      "description": "List repositories that are accessible to the authenticated user.\n\nThis includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership.",
+      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.",
       "documentationUrl": "https://developer.github.com/v3/repos/#list-your-repositories",
       "enabledForApps": false,
       "method": "GET",
@@ -15786,7 +15851,7 @@
       "path": "/users/:username/following/:target_user"
     },
     "createGpgKey": {
-      "description": "Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key",
       "enabledForApps": false,
       "method": "POST",
@@ -15795,7 +15860,7 @@
       "path": "/user/gpg_keys"
     },
     "createKey": {
-      "description": "Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#create-a-public-key",
       "enabledForApps": false,
       "method": "POST",
@@ -15830,7 +15895,7 @@
       "path": "/user/emails"
     },
     "deleteGpgKey": {
-      "description": "Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key",
       "enabledForApps": false,
       "method": "DELETE",
@@ -15847,7 +15912,7 @@
       "path": "/user/gpg_keys/:id"
     },
     "deleteKey": {
-      "description": "Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#delete-a-public-key",
       "enabledForApps": false,
       "method": "DELETE",
@@ -16120,7 +16185,7 @@
       "path": "/users/:username"
     },
     "getGpgKey": {
-      "description": "View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key",
       "enabledForApps": false,
       "method": "GET",
@@ -16137,7 +16202,7 @@
       "path": "/user/gpg_keys/:id"
     },
     "getGpgKeys": {
-      "description": "Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys",
       "enabledForApps": false,
       "method": "GET",
@@ -16196,7 +16261,7 @@
       "path": "/users/:username/gpg_keys"
     },
     "getInstallationRepos": {
-      "description": "List repositories that are accessible to the authenticated user for an installation.\n\nThe access the user has to each repository is included in the hash under the `permissions` key.",
+      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.\n\nThe access the user has to each repository is included in the hash under the `permissions` key.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation",
       "enabledForApps": false,
       "method": "GET",
@@ -16229,7 +16294,7 @@
       "path": "/user/installations/:installation_id/repositories"
     },
     "getInstallations": {
-      "description": "List installations that are accessible to the authenticated user.\n\nThe permissions the installation has are included under the `permissions` key.",
+      "description": "Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nThe permissions the installation has are included under the `permissions` key.",
       "documentationUrl": "https://developer.github.com/v3/apps/#list-installations-for-user",
       "enabledForApps": false,
       "method": "GET",
@@ -16255,7 +16320,7 @@
       "path": "/user/installations"
     },
     "getKey": {
-      "description": "View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#get-a-single-public-key",
       "enabledForApps": false,
       "method": "GET",
@@ -16272,7 +16337,7 @@
       "path": "/user/keys/:id"
     },
     "getKeys": {
-      "description": "Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).",
+      "description": "Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#list-your-public-keys",
       "enabledForApps": false,
       "method": "GET",
@@ -16515,7 +16580,7 @@
       "path": "/user/repository_invitations"
     },
     "getTeams": {
-      "description": "List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/).",
+      "description": "List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/teams/#list-user-teams",
       "enabledForApps": false,
       "method": "GET",
