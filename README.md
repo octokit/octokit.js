@@ -138,7 +138,7 @@ octokit.authenticate({
 
 // GitHub app
 octokit.authenticate({
-  type: 'integration',
+  type: 'app',
   token: 'secrettoken123'
 })
 ```
