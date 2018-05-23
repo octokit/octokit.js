@@ -9828,6 +9828,19 @@
       },
       "url": "/search/repositories"
     },
+    "topics": {
+      "headers": {
+        "accept": "application/vnd.github.mercy-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "q": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/search/topics"
+    },
     "users": {
       "method": "GET",
       "params": {
