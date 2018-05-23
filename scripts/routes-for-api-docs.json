@@ -15501,6 +15501,44 @@
       ],
       "path": "/repos/:owner/:repo/hooks/:id/tests"
     },
+    "transfer": {
+      "description": "A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/).",
+      "documentationUrl": "https://developer.github.com/v3/repos/#transfer-a-repository",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Transfer a repository",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "new_owner",
+          "type": "string",
+          "description": "**Required:** The username or organization name the repository will be transferred to.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "team_id",
+          "type": "integer[]",
+          "description": "ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/transfer"
+    },
     "updateBranchProtection": {
       "description": "Protecting a branch requires admin or owner permissions to the repository.\n\n**Note**: Passing new arrays of `users` and `teams` replaces their previous values.\n\n**Note**: The list of users and teams in total is limited to 100 items.",
       "documentationUrl": "https://developer.github.com/v3/repos/branches/#update-branch-protection",
