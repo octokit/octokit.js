@@ -10659,6 +10659,68 @@
         }
       ],
       "path": "/repos/:owner/:repo/pulls/comments/:id/reactions"
+    },
+    "getForTeamDiscussionComment": {
+      "description": "List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "List reactions for a team discussion comment",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "comment_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion comment.",
+          "required": false,
+          "enum": [
+            "+1",
+            "-1",
+            "laugh",
+            "confused",
+            "heart",
+            "hooray"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions"
     }
   },
   "repos": {
