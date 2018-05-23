@@ -10310,6 +10310,52 @@
       ],
       "path": "/repos/:owner/:repo/pulls/comments/:id/reactions"
     },
+    "createForTeamDiscussionComment": {
+      "description": "Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.",
+      "documentationUrl": "https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Create reaction for a team discussion comment",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "comment_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion comment.",
+          "required": true,
+          "enum": [
+            "+1",
+            "-1",
+            "laugh",
+            "confused",
+            "heart",
+            "hooray"
+          ],
+          "location": "body"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions"
+    },
     "delete": {
       "description": "OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/).",
       "documentationUrl": "https://developer.github.com/v3/reactions/#delete-a-reaction",
