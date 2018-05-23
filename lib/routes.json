@@ -5342,6 +5342,23 @@
       },
       "url": "/repos/:owner/:repo/projects"
     },
+    "getUserPermissionLevel": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "id": {
+          "required": true,
+          "type": "string"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/projects/:id/collaborators/:username/permission"
+    },
     "moveProjectCard": {
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"

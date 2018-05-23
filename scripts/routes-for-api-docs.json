@@ -8490,6 +8490,30 @@
       ],
       "path": "/repos/:owner/:repo/projects"
     },
+    "getUserPermissionLevel": {
+      "description": "Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level.",
+      "documentationUrl": "https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Review a user's permission level",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/projects/:id/collaborators/:username/permission"
+    },
     "moveProjectCard": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/projects/cards/#move-a-project-card",
