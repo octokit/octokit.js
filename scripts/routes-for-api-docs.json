@@ -8625,6 +8625,30 @@
       ],
       "path": "/projects/columns/:column_id/moves"
     },
+    "removeCollaborator": {
+      "description": "Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator.",
+      "documentationUrl": "https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator",
+      "enabledForApps": false,
+      "method": "DELETE",
+      "name": "Remove user as a collaborator",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/projects/:id/collaborators/:username"
+    },
     "updateProject": {
       "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
       "documentationUrl": "https://developer.github.com/v3/projects/#update-a-project",
