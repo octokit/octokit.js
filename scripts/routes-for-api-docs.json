@@ -15105,6 +15105,37 @@
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews"
     },
+    "removeProtectedBranchRequiredSignatures": {
+      "description": "When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.",
+      "documentationUrl": "https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch",
+      "enabledForApps": true,
+      "method": "DELETE",
+      "name": "Remove required signatures of protected branch",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "branch",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/repos/:owner/:repo/branches/:branch/protection/required_signatures"
+    },
     "removeProtectedBranchRequiredStatusChecks": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/repos/branches/#remove-required-status-checks-of-protected-branch",
