@@ -8258,6 +8258,52 @@
       ],
       "path": "/projects/columns/:column_id"
     },
+    "getCollaborators": {
+      "description": "Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.",
+      "documentationUrl": "https://developer.github.com/v3/projects/collaborators/#list-collaborators",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List collaborators",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "affiliation",
+          "type": "string",
+          "description": "Filters the collaborators by their affiliation. Can be one of:  \n\\* `outside`: Outside collaborators of a project that are not a member of the project's organization.  \n\\* `direct`: Collaborators with permissions to a project, regardless of organization membership status.  \n\\* `all`: All collaborators the authenticated user can see.",
+          "default": "all",
+          "required": false,
+          "enum": [
+            "outside",
+            "direct",
+            "all"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/projects/:id/collaborators"
+    },
     "getOrgProjects": {
       "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
       "documentationUrl": "https://developer.github.com/v3/projects/#list-organization-projects",

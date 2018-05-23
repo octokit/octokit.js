@@ -5189,6 +5189,33 @@
       },
       "url": "/projects/columns/:column_id"
     },
+    "getCollaborators": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "affiliation": {
+          "enum": [
+            "outside",
+            "direct",
+            "all"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/projects/:id/collaborators"
+    },
     "getOrgProjects": {
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
