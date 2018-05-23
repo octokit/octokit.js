@@ -16643,6 +16643,43 @@
       "params": [],
       "path": "/user/blocks"
     },
+    "getContextForUser": {
+      "description": "Provides hovercard information when authenticated through basic auth or OAuth with the `repo` scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.\n\nThe `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:",
+      "documentationUrl": "https://developer.github.com/v3/users/#get-contextual-information-about-a-user",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Get contextual information about a user",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "subject_type",
+          "type": "string",
+          "description": "Identifies which additional information you'd like to receive about the person's hovercard. Can be `organization`, `repository`, `issue`, `pull_request`. **Required** when using `subject_id`.",
+          "required": false,
+          "enum": [
+            "organization",
+            "repository",
+            "issue",
+            "pull_request"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "subject_id",
+          "type": "string",
+          "description": "Uses the ID for the `subject_type` you specified. **Required** when using `subject_type`.",
+          "required": false,
+          "location": "query"
+        }
+      ],
+      "path": "/users/:username/hovercard"
+    },
     "getEmails": {
       "description": "Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope.",
       "documentationUrl": "https://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user",

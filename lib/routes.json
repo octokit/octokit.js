@@ -10094,6 +10094,31 @@
       },
       "url": "/user/:id"
     },
+    "getContextForUser": {
+      "headers": {
+        "accept": "application/vnd.github.hagar-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "subject_id": {
+          "type": "string"
+        },
+        "subject_type": {
+          "enum": [
+            "organization",
+            "repository",
+            "issue",
+            "pull_request"
+          ],
+          "type": "string"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/users/:username/hovercard"
+    },
     "getEmails": {
       "method": "GET",
       "params": {
