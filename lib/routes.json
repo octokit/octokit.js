@@ -5018,6 +5018,31 @@
     }
   },
   "projects": {
+    "addCollaborator": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "id": {
+          "required": true,
+          "type": "string"
+        },
+        "permission": {
+          "enum": [
+            "read",
+            "write",
+            "admin"
+          ],
+          "type": "string"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/projects/:id/collaborators/:username"
+    },
     "createOrgProject": {
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
