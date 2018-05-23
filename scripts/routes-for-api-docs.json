@@ -14190,6 +14190,37 @@
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews"
     },
+    "getProtectedBranchRequiredSignatures": {
+      "description": "When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.\n\n**Note**: You must enable branch protection to require signed commits.",
+      "documentationUrl": "https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "Get required signatures of protected branch",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "branch",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/repos/:owner/:repo/branches/:branch/protection/required_signatures"
+    },
     "getProtectedBranchRequiredStatusChecks": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/repos/branches/#get-required-status-checks-of-protected-branch",
