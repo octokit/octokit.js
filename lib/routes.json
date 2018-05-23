@@ -9764,6 +9764,36 @@
       },
       "url": "/search/issues"
     },
+    "labels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "order": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "q": {
+          "required": true,
+          "type": "string"
+        },
+        "repository_id": {
+          "type": "integer"
+        },
+        "sort": {
+          "enum": [
+            "created",
+            "updated"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/search/labels"
+    },
     "repos": {
       "headers": {
         "accept": "application/vnd.github.mercy-preview+json"
