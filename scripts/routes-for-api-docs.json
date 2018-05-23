@@ -8007,6 +8007,43 @@
     }
   },
   "projects": {
+    "addCollaborator": {
+      "description": "Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator.",
+      "documentationUrl": "https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator",
+      "enabledForApps": false,
+      "method": "PUT",
+      "name": "Add user as a collaborator",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "permission",
+          "type": "string",
+          "description": "The permission to grant the collaborator. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\" Can be one of:  \n\\* `read` \\- can read, but not write to or administer this project.  \n\\* `write` \\- can read and write, but not administer this project.  \n\\* `admin` \\- can read, write and administer this project.",
+          "default": "write",
+          "required": false,
+          "enum": [
+            "read",
+            "write",
+            "admin"
+          ],
+          "location": "body"
+        }
+      ],
+      "path": "/projects/:id/collaborators/:username"
+    },
     "createOrgProject": {
       "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
       "documentationUrl": "https://developer.github.com/v3/projects/#create-an-organization-project",
