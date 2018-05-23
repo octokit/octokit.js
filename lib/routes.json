@@ -6805,6 +6805,27 @@
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins"
     },
+    "addProtectedBranchRequiredSignatures": {
+      "headers": {
+        "accept": "application/vnd.github.zzzax-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures"
+    },
     "addProtectedBranchRequiredStatusChecksContexts": {
       "method": "POST",
       "params": {
