@@ -5431,6 +5431,23 @@
       },
       "url": "/projects/columns/:column_id/moves"
     },
+    "removeCollaborator": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "id": {
+          "required": true,
+          "type": "string"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/projects/:id/collaborators/:username"
+    },
     "updateProject": {
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
