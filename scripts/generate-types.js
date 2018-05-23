@@ -12,7 +12,8 @@ const set = require('lodash/set')
 const ROUTES = require('../lib/routes.json')
 
 const typeMap = {
-  integer: 'number'
+  integer: 'number',
+  'integer[]': 'number[]'
 }
 
 function parameterize (key, definition) {
