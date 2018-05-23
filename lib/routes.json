@@ -6663,6 +6663,40 @@
       },
       "url": "/repos/:owner/:repo/pulls/comments/:id/reactions"
     },
+    "getForTeamDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "content": {
+          "enum": [
+            "+1",
+            "-1",
+            "laugh",
+            "confused",
+            "heart",
+            "hooray"
+          ],
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/reactions"
+    },
     "getForTeamDiscussionComment": {
       "headers": {
         "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
