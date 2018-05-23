@@ -9124,6 +9124,27 @@
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews"
     },
+    "removeProtectedBranchRequiredSignatures": {
+      "headers": {
+        "accept": "application/vnd.github.zzzax-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures"
+    },
     "removeProtectedBranchRequiredStatusChecks": {
       "method": "DELETE",
       "params": {
