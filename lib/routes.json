@@ -4340,6 +4340,36 @@
       },
       "url": "/orgs/:org/hooks"
     },
+    "createInvitation": {
+      "headers": {
+        "accept": "application/vnd.github.dazzler-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "email": {
+          "type": "string"
+        },
+        "invitee_id": {
+          "type": "integer"
+        },
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "admin",
+            "direct_member",
+            "billing_manager"
+          ],
+          "type": "string"
+        },
+        "team_ids": {
+          "type": "integer[]"
+        }
+      },
+      "url": "/orgs/:org/invitations"
+    },
     "createTeam": {
       "headers": {
         "accept": "application/vnd.github.hellcat-preview+json"

@@ -6800,6 +6800,57 @@
       ],
       "path": "/orgs/:org/hooks"
     },
+    "createInvitation": {
+      "description": "Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.",
+      "documentationUrl": "https://developer.github.com/v3/orgs/members/#create-organization-invitation",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Create organization invitation",
+      "params": [
+        {
+          "name": "org",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "invitee_id",
+          "type": "integer",
+          "description": "**Required unless you provide `email`**. GitHub user ID for the person you are inviting.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "**Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "description": "Specify role for new member. Can be one of:  \n\\* `admin` \\- Organization owners with full administrative rights to the organization and complete access to all repositories and teams.  \n\\* `direct_member` \\- Non-owner organization members with ability to see other members and join teams by invitation.  \n\\* `billing_manager` \\- Non-owner organization members with ability to manage the billing settings of your organization.",
+          "default": "direct_member",
+          "required": false,
+          "enum": [
+            "admin",
+            "direct_member",
+            "billing_manager"
+          ],
+          "location": "body"
+        },
+        {
+          "name": "team_ids",
+          "type": "integer[]",
+          "description": "Specify IDs for the teams you want to invite new members to.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/orgs/:org/invitations"
+    },
     "createTeam": {
       "description": "To create a team, the authenticated user must be a member of `:org`.",
       "documentationUrl": "https://developer.github.com/v3/teams/#create-team",
