@@ -274,6 +274,7 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
 
     newRoutes[scope][methodName] = currentEndpoint
     newDocRoutes[scope][methodName] = newEndpoint
+    delete newDocRoutes[scope][methodName].idName
   })
 })
 
