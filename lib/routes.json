@@ -4635,6 +4635,26 @@
       },
       "url": "/orgs/:org/hooks"
     },
+    "getInvitationTeams": {
+      "method": "GET",
+      "params": {
+        "invitation_id": {
+          "required": true,
+          "type": "string"
+        },
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/orgs/:org/invitations/:invitation_id/teams"
+    },
     "getMembers": {
       "method": "GET",
       "params": {

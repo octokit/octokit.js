@@ -7323,6 +7323,46 @@
       ],
       "path": "/orgs/:org/hooks"
     },
+    "getInvitationTeams": {
+      "description": "List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner.",
+      "documentationUrl": "https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "List organization invitation teams",
+      "params": [
+        {
+          "name": "org",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "invitation_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/orgs/:org/invitations/:invitation_id/teams"
+    },
     "getMembers": {
       "description": "List all users who are members of an organization. If the authenticated user is also a member of this organization then both concealed and public members will be returned.\n\n",
       "documentationUrl": "https://developer.github.com/v3/orgs/members/#members-list",
