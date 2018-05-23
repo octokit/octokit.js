@@ -9393,6 +9393,29 @@
       },
       "url": "/repos/:owner/:repo/hooks/:id/tests"
     },
+    "transfer": {
+      "headers": {
+        "accept": "application/vnd.github.nightshade-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "new_owner": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "team_id": {
+          "type": "integer[]"
+        }
+      },
+      "url": "/repos/:owner/:repo/transfer"
+    },
     "updateBranchProtection": {
       "method": "PUT",
       "params": {
