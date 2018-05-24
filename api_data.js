@@ -11044,6 +11044,81 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/orgs/:org/invitations",
+    "title": "createInvitation",
+    "name": "createInvitation",
+    "description": "<p>Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner. <a href=\"https://developer.github.com/v3/orgs/members/#create-organization-invitation\">REST API doc</a></p>",
+    "group": "Orgs",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "org",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "invitee_id",
+            "description": "<p><strong>Required unless you provide <code>email</code></strong>. GitHub user ID for the person you are inviting.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "email",
+            "description": "<p><strong>Required unless you provide <code>invitee_id</code></strong>. Email address of the person you are inviting, which can be an existing GitHub user.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "admin",
+              "direct_member",
+              "billing_manager"
+            ],
+            "optional": true,
+            "field": "role",
+            "defaultValue": "direct_member",
+            "description": "<p>Specify role for new member. Can be one of:<br> * <code>admin</code> - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.<br> * <code>direct_member</code> - Non-owner organization members with ability to see other members and join teams by invitation.<br> * <code>billing_manager</code> - Non-owner organization members with ability to manage the billing settings of your organization.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer[]",
+            "optional": true,
+            "field": "team_ids",
+            "description": "<p>Specify IDs for the teams you want to invite new members to.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Orgs"
+  },
+  {
+    "type": "POST",
     "url": "/orgs/:org/teams",
     "title": "createTeam",
     "name": "createTeam",
@@ -11819,6 +11894,70 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.orgs.getHooks({org, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Orgs"
+  },
+  {
+    "type": "GET",
+    "url": "/orgs/:org/invitations/:invitation_id/teams",
+    "title": "getInvitationTeams",
+    "name": "getInvitationTeams",
+    "description": "<p>List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner. <a href=\"https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams\">REST API doc</a></p>",
+    "group": "Orgs",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "org",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "invitation_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12925,6 +13064,67 @@ define({ "api": [
     "groupTitle": "Orgs"
   },
   {
+    "type": "PUT",
+    "url": "/projects/:id/collaborators/:username",
+    "title": "addCollaborator",
+    "name": "addCollaborator",
+    "description": "<p>Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project <code>admin</code> to add a collaborator. <a href=\"https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
+    "group": "Projects",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "read",
+              "write",
+              "admin"
+            ],
+            "optional": true,
+            "field": "permission",
+            "defaultValue": "write",
+            "description": "<p>The permission to grant the collaborator. Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot; Can be one of:<br> * <code>read</code> - can read, but not write to or administer this project.<br> * <code>write</code> - can read and write, but not administer this project.<br> * <code>admin</code> - can read, write and administer this project.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.projects.addCollaborator({id, username, permission})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.projects.addCollaborator({id, username, permission}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.projects.addCollaborator({id, username, permission}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Projects"
+  },
+  {
     "type": "POST",
     "url": "/orgs/:org/projects",
     "title": "createOrgProject",
@@ -13299,6 +13499,76 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.projects.deleteProjectColumn({column_id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Projects"
+  },
+  {
+    "type": "GET",
+    "url": "/projects/:id/collaborators",
+    "title": "getCollaborators",
+    "name": "getCollaborators",
+    "description": "<p>Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project <code>admin</code> to list collaborators. <a href=\"https://developer.github.com/v3/projects/collaborators/#list-collaborators\">REST API doc</a></p>",
+    "group": "Projects",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "outside",
+              "direct",
+              "all"
+            ],
+            "optional": true,
+            "field": "affiliation",
+            "defaultValue": "all",
+            "description": "<p>Filters the collaborators by their affiliation. Can be one of:<br> * <code>outside</code>: Outside collaborators of a project that are not a member of the project's organization.<br> * <code>direct</code>: Collaborators with permissions to a project, regardless of organization membership status.<br> * <code>all</code>: All collaborators the authenticated user can see.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.projects.getCollaborators({id, affiliation, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.projects.getCollaborators({id, affiliation, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.projects.getCollaborators({id, affiliation, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13707,6 +13977,54 @@ define({ "api": [
     "groupTitle": "Projects"
   },
   {
+    "type": "GET",
+    "url": "/projects/:id/collaborators/:username/permission",
+    "title": "getUserPermissionLevel",
+    "name": "getUserPermissionLevel",
+    "description": "<p>Returns the collaborator's permission level for an organization project. Possible values for the <code>permission</code> key: <code>admin</code>, <code>write</code>, <code>read</code>, <code>none</code>. You must be an organization owner or a project <code>admin</code> to review a user's permission level. <a href=\"https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level\">REST API doc</a></p>",
+    "group": "Projects",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.projects.getUserPermissionLevel({id, username})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.projects.getUserPermissionLevel({id, username}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.projects.getUserPermissionLevel({id, username}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Projects"
+  },
+  {
     "type": "POST",
     "url": "/projects/columns/cards/:card_id/moves",
     "title": "moveProjectCard",
@@ -13812,6 +14130,54 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.projects.moveProjectColumn({column_id, position}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Projects"
+  },
+  {
+    "type": "DELETE",
+    "url": "/projects/:id/collaborators/:username",
+    "title": "removeCollaborator",
+    "name": "removeCollaborator",
+    "description": "<p>Removes a collaborator from an organization project. You must be an organization owner or a project <code>admin</code> to remove a collaborator. <a href=\"https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator\">REST API doc</a></p>",
+    "group": "Projects",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.projects.removeCollaborator({id, username})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.projects.removeCollaborator({id, username}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.projects.removeCollaborator({id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16269,6 +16635,139 @@ define({ "api": [
     "groupTitle": "Reactions"
   },
   {
+    "type": "POST",
+    "url": "/teams/:team_id/discussions/:discussion_number/reactions",
+    "title": "createForTeamDiscussion",
+    "name": "createForTeamDiscussion",
+    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a>. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this team discussion. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion\">REST API doc</a></p>",
+    "group": "Reactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "team_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "discussion_number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "+1",
+              "-1",
+              "laugh",
+              "confused",
+              "heart",
+              "hooray"
+            ],
+            "optional": false,
+            "field": "content",
+            "description": "<p>The <a href=\"https://developer.github.com/v3/reactions/#reaction-types\">reaction type</a> to add to the team discussion.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Reactions"
+  },
+  {
+    "type": "POST",
+    "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
+    "title": "createForTeamDiscussionComment",
+    "name": "createForTeamDiscussionComment",
+    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this team discussion comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment\">REST API doc</a></p>",
+    "group": "Reactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "team_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "discussion_number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "comment_number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "+1",
+              "-1",
+              "laugh",
+              "confused",
+              "heart",
+              "hooray"
+            ],
+            "optional": false,
+            "field": "content",
+            "description": "<p>The <a href=\"https://developer.github.com/v3/reactions/#reaction-types\">reaction type</a> to add to the team discussion comment.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Reactions"
+  },
+  {
     "type": "DELETE",
     "url": "/reactions/:id",
     "title": "delete",
@@ -16654,6 +17153,171 @@ define({ "api": [
     "groupTitle": "Reactions"
   },
   {
+    "type": "GET",
+    "url": "/teams/:team_id/discussions/:discussion_number/reactions",
+    "title": "getForTeamDiscussion",
+    "name": "getForTeamDiscussion",
+    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a>. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion\">REST API doc</a></p>",
+    "group": "Reactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "team_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "discussion_number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "+1",
+              "-1",
+              "laugh",
+              "confused",
+              "heart",
+              "hooray"
+            ],
+            "optional": true,
+            "field": "content",
+            "description": "<p>Returns a single <a href=\"https://developer.github.com/v3/reactions/#reaction-types\">reaction type</a>. Omit this parameter to list all reactions to a team discussion.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Reactions"
+  },
+  {
+    "type": "GET",
+    "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
+    "title": "getForTeamDiscussionComment",
+    "name": "getForTeamDiscussionComment",
+    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment\">REST API doc</a></p>",
+    "group": "Reactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "team_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "discussion_number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "comment_number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "+1",
+              "-1",
+              "laugh",
+              "confused",
+              "heart",
+              "hooray"
+            ],
+            "optional": true,
+            "field": "content",
+            "description": "<p>Returns a single <a href=\"https://developer.github.com/v3/reactions/#reaction-types\">reaction type</a>. Omit this parameter to list all reactions to a team discussion comment.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Reactions"
+  },
+  {
     "type": "PUT",
     "url": "/repos/:owner/:repo/collaborators/:username",
     "title": "addCollaborator",
@@ -16838,6 +17502,61 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Repos"
+  },
+  {
+    "type": "POST",
+    "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
+    "title": "addProtectedBranchRequiredSignatures",
+    "name": "addProtectedBranchRequiredSignatures",
+    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits. <a href=\"https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "group": "Repos",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "branch",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21785,6 +22504,61 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
+    "title": "getProtectedBranchRequiredSignatures",
+    "name": "getProtectedBranchRequiredSignatures",
+    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of <code>true</code> indicates you must sign commits on this branch. For more information, see <a href=\"https://help.github.com/articles/signing-commits-with-gpg\">Signing commits with GPG</a> in GitHub Help. <em>Note</em>*: You must enable branch protection to require signed commits. <a href=\"https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "group": "Repos",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "branch",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Repos"
+  },
+  {
+    "type": "GET",
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
     "title": "getProtectedBranchRequiredStatusChecks",
     "name": "getProtectedBranchRequiredStatusChecks",
@@ -23341,6 +24115,61 @@ define({ "api": [
   },
   {
     "type": "DELETE",
+    "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
+    "title": "removeProtectedBranchRequiredSignatures",
+    "name": "removeProtectedBranchRequiredSignatures",
+    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits. <a href=\"https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "group": "Repos",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "branch",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Repos"
+  },
+  {
+    "type": "DELETE",
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
     "title": "removeProtectedBranchRequiredStatusChecks",
     "name": "removeProtectedBranchRequiredStatusChecks",
@@ -23985,6 +24814,68 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.repos.testHook({owner, repo, id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Repos"
+  },
+  {
+    "type": "POST",
+    "url": "/repos/:owner/:repo/transfer",
+    "title": "transfer",
+    "name": "transfer",
+    "description": "<p>A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original <code>owner</code>, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see <a href=\"https://help.github.com/articles/about-repository-transfers/\">about repository transfers</a>. <a href=\"https://developer.github.com/v3/repos/#transfer-a-repository\">REST API doc</a></p>",
+    "group": "Repos",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "new_owner",
+            "description": "<p><strong>Required:</strong> The username or organization name the repository will be transferred to.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer[]",
+            "optional": true,
+            "field": "team_id",
+            "description": "<p>ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.repos.transfer({owner, repo, new_owner, team_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.repos.transfer({owner, repo, new_owner, team_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.repos.transfer({owner, repo, new_owner, team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24852,6 +25743,78 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/search/labels",
+    "title": "labels",
+    "name": "labels",
+    "description": "<p>Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Suppose you want to find labels in the <code>linguist</code> repository that match <code>bug</code>, <code>defect</code>, or <code>enhancement</code>. Your query might look like this:</p> <p>The labels that best match for the query appear first in the search results. <em>Highlighting label search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for labels, you can get text match metadata for the label <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>. <a href=\"https://developer.github.com/v3/search/#search-labels\">REST API doc</a></p>",
+    "group": "Search",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "repository_id",
+            "description": "<p>The id of the repository.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "q",
+            "description": "<p>The search keywords.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "created",
+              "updated"
+            ],
+            "optional": true,
+            "field": "sort",
+            "defaultValue": "results are sorted by best match:",
+            "description": "<p>The sort field. Can be one of <code>created</code> or <code>updated</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "asc",
+              "desc"
+            ],
+            "optional": true,
+            "field": "order",
+            "defaultValue": "desc",
+            "description": "<p>The sort order if the sort parameter is provided. Can be one of <code>asc</code> or <code>desc</code>.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.search.labels({repository_id, q, sort, order})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.search.labels({repository_id, q, sort, order}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.search.labels({repository_id, q, sort, order}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Search"
+  },
+  {
+    "type": "GET",
     "url": "/search/repositories",
     "title": "repos",
     "name": "repos",
@@ -24925,6 +25888,47 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.search.repos({q, sort, order, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Search"
+  },
+  {
+    "type": "GET",
+    "url": "/search/topics",
+    "title": "topics",
+    "name": "topics",
+    "description": "<p>Find topics via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Results are sorted by best match by default.</p> <p>The <code>q</code> search term can also contain any combination of the supported topic search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-topics/\">topic search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <code>is:curated</code> Finds topics that have extra information, e.g., a description, display name, or logo, because they have an entry in the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>is:featured</code> Finds topics listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Any featured topic will also be curated. <code>is:not-featured</code> Finds topics not listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. <code>is:not-curated</code> Finds topics that have no extra information because they haven't been added to the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>repositories:</code> Finds topics with some number of repositories using them, e.g., <code>repositories:&gt;1000</code>.</p> <p>Suppose you want to search for topics related to Ruby that are featured on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Your query might look like this:</p> <p>In this request, we're searching for topics with the keyword <code>ruby</code>, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results. <em>Note:</em>* A search for featured Ruby topics only has 6 total results, so a <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> indicating pagination is not included in the response. <em>Highlighting topic search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your Accept header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for topics, you can get text match metadata for the topic's <strong>short_description</strong>, <strong>description</strong>, <strong>name</strong>, or <strong>display_name</strong> field. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>. <a href=\"https://developer.github.com/v3/search/#search-topics\">REST API doc</a></p>",
+    "group": "Search",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "q",
+            "description": "<p>The search terms.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.search.topics({q})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.search.topics({q}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.search.topics({q}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25707,6 +26711,67 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.users.getBlockedUsers({}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "GET",
+    "url": "/users/:username/hovercard",
+    "title": "getContextForUser",
+    "name": "getContextForUser",
+    "description": "<p>Provides hovercard information when authenticated through basic auth or OAuth with the <code>repo</code> scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.</p> <p>The <code>subject_type</code> and <code>subject_id</code> parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about <code>octocat</code> who owns the <code>Spoon-Knife</code> repository via cURL, it would look like this: <a href=\"https://developer.github.com/v3/users/#get-contextual-information-about-a-user\">REST API doc</a></p>",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "organization",
+              "repository",
+              "issue",
+              "pull_request"
+            ],
+            "optional": true,
+            "field": "subject_type",
+            "description": "<p>Identifies which additional information you'd like to receive about the person's hovercard. Can be <code>organization</code>, <code>repository</code>, <code>issue</code>, <code>pull_request</code>. <strong>Required</strong> when using <code>subject_id</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "subject_id",
+            "description": "<p>Uses the ID for the <code>subject_type</code> you specified. <strong>Required</strong> when using <code>subject_type</code>.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.users.getContextForUser({username, subject_type, subject_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.users.getContextForUser({username, subject_type, subject_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.users.getContextForUser({username, subject_type, subject_id}, (error, result) => {})",
         "type": "js"
       }
     ],

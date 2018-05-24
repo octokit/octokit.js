@@ -3639,6 +3639,29 @@ You can also get information about the specified repository, including what perm
 
 
 /**
+ * @api {POST} /orgs/:org/invitations createInvitation
+ * @apiName createInvitation
+ * @apiDescription Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner. <a href="https://developer.github.com/v3/orgs/members/#create-organization-invitation">REST API doc</a>
+ * @apiGroup Orgs
+ *
+ * @apiParam {string} org  
+ * @apiParam {integer} [invitee_id]  **Required unless you provide `email`**. GitHub user ID for the person you are inviting.
+ * @apiParam {string} [email]  **Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.
+ * @apiParam {string=admin,direct_member,billing_manager} [role="direct_member"]  Specify role for new member. Can be one of:  
+\* `admin` \- Organization owners with full administrative rights to the organization and complete access to all repositories and teams.  
+\* `direct_member` \- Non-owner organization members with ability to see other members and join teams by invitation.  
+\* `billing_manager` \- Non-owner organization members with ability to manage the billing settings of your organization.
+ * @apiParam {integer[]} [team_ids]  Specify IDs for the teams you want to invite new members to.
+ * @apiExample {js} async/await
+ * const result = await octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids})
+ * @apiExample {js} Promise
+ * octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}, (error, result) => {})
+ */
+
+
+/**
  * @api {POST} /orgs/:org/teams createTeam
  * @apiName createTeam
  * @apiDescription To create a team, the authenticated user must be a member of `:org`. <a href="https://developer.github.com/v3/teams/#create-team">REST API doc</a>
@@ -3904,6 +3927,25 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * octokit.orgs.getHooks({org, per_page, page}).then(result => {})
  * @apiExample {js} Callback
  * octokit.orgs.getHooks({org, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /orgs/:org/invitations/:invitation_id/teams getInvitationTeams
+ * @apiName getInvitationTeams
+ * @apiDescription List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner. <a href="https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams">REST API doc</a>
+ * @apiGroup Orgs
+ *
+ * @apiParam {string} org  
+ * @apiParam {string} invitation_id  
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4286,6 +4328,27 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
+ * @api {PUT} /projects/:id/collaborators/:username addCollaborator
+ * @apiName addCollaborator
+ * @apiDescription Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator">REST API doc</a>
+ * @apiGroup Projects
+ *
+ * @apiParam {string} id  
+ * @apiParam {string} username  
+ * @apiParam {string=read,write,admin} [permission="write"]  The permission to grant the collaborator. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." Can be one of:  
+\* `read` \- can read, but not write to or administer this project.  
+\* `write` \- can read and write, but not administer this project.  
+\* `admin` \- can read, write and administer this project.
+ * @apiExample {js} async/await
+ * const result = await octokit.projects.addCollaborator({id, username, permission})
+ * @apiExample {js} Promise
+ * octokit.projects.addCollaborator({id, username, permission}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.projects.addCollaborator({id, username, permission}, (error, result) => {})
+ */
+
+
+/**
  * @api {POST} /orgs/:org/projects createOrgProject
  * @apiName createOrgProject
  * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#create-an-organization-project">REST API doc</a>
@@ -4407,6 +4470,28 @@ If the specified user is an active member of the organization, this will remove 
  * octokit.projects.deleteProjectColumn({column_id}).then(result => {})
  * @apiExample {js} Callback
  * octokit.projects.deleteProjectColumn({column_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /projects/:id/collaborators getCollaborators
+ * @apiName getCollaborators
+ * @apiDescription Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators. <a href="https://developer.github.com/v3/projects/collaborators/#list-collaborators">REST API doc</a>
+ * @apiGroup Projects
+ *
+ * @apiParam {string} id  
+ * @apiParam {string=outside,direct,all} [affiliation="all"]  Filters the collaborators by their affiliation. Can be one of:  
+\* `outside`: Outside collaborators of a project that are not a member of the project's organization.  
+\* `direct`: Collaborators with permissions to a project, regardless of organization membership status.  
+\* `all`: All collaborators the authenticated user can see.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.projects.getCollaborators({id, affiliation, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.projects.getCollaborators({id, affiliation, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.projects.getCollaborators({id, affiliation, per_page, page}, (error, result) => {})
  */
 
 
@@ -4536,6 +4621,23 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
+ * @api {GET} /projects/:id/collaborators/:username/permission getUserPermissionLevel
+ * @apiName getUserPermissionLevel
+ * @apiDescription Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level. <a href="https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level">REST API doc</a>
+ * @apiGroup Projects
+ *
+ * @apiParam {string} id  
+ * @apiParam {string} username  
+ * @apiExample {js} async/await
+ * const result = await octokit.projects.getUserPermissionLevel({id, username})
+ * @apiExample {js} Promise
+ * octokit.projects.getUserPermissionLevel({id, username}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.projects.getUserPermissionLevel({id, username}, (error, result) => {})
+ */
+
+
+/**
  * @api {POST} /projects/columns/cards/:card_id/moves moveProjectCard
  * @apiName moveProjectCard
  * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#move-a-project-card">REST API doc</a>
@@ -4567,6 +4669,23 @@ If the specified user is an active member of the organization, this will remove 
  * octokit.projects.moveProjectColumn({column_id, position}).then(result => {})
  * @apiExample {js} Callback
  * octokit.projects.moveProjectColumn({column_id, position}, (error, result) => {})
+ */
+
+
+/**
+ * @api {DELETE} /projects/:id/collaborators/:username removeCollaborator
+ * @apiName removeCollaborator
+ * @apiDescription Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator">REST API doc</a>
+ * @apiGroup Projects
+ *
+ * @apiParam {string} id  
+ * @apiParam {string} username  
+ * @apiExample {js} async/await
+ * const result = await octokit.projects.removeCollaborator({id, username})
+ * @apiExample {js} Promise
+ * octokit.projects.removeCollaborator({id, username}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.projects.removeCollaborator({id, username}, (error, result) => {})
  */
 
 
@@ -5274,6 +5393,43 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
+ * @api {POST} /teams/:team_id/discussions/:discussion_number/reactions createForTeamDiscussion
+ * @apiName createForTeamDiscussion
+ * @apiDescription Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion">REST API doc</a>
+ * @apiGroup Reactions
+ *
+ * @apiParam {string} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion.
+ * @apiExample {js} async/await
+ * const result = await octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content})
+ * @apiExample {js} Promise
+ * octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions createForTeamDiscussionComment
+ * @apiName createForTeamDiscussionComment
+ * @apiDescription Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment">REST API doc</a>
+ * @apiGroup Reactions
+ *
+ * @apiParam {string} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {integer} comment_number  
+ * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion comment.
+ * @apiExample {js} async/await
+ * const result = await octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content})
+ * @apiExample {js} Promise
+ * octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}, (error, result) => {})
+ */
+
+
+/**
  * @api {DELETE} /reactions/:id delete
  * @apiName delete
  * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). <a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
@@ -5373,6 +5529,47 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  */
 
 
+/**
+ * @api {GET} /teams/:team_id/discussions/:discussion_number/reactions getForTeamDiscussion
+ * @apiName getForTeamDiscussion
+ * @apiDescription List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion">REST API doc</a>
+ * @apiGroup Reactions
+ *
+ * @apiParam {string} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions getForTeamDiscussionComment
+ * @apiName getForTeamDiscussionComment
+ * @apiDescription List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment">REST API doc</a>
+ * @apiGroup Reactions
+ *
+ * @apiParam {string} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {integer} comment_number  
+ * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion comment.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}, (error, result) => {})
+ */
+
+
 
 /**,
  * Repos
@@ -5445,6 +5642,24 @@ To prevent abuse, you are limited to sending 50 invitations to a repository per 
  * octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})
  * @apiExample {js} Callback
  * octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /repos/:owner/:repo/branches/:branch/protection/required_signatures addProtectedBranchRequiredSignatures
+ * @apiName addProtectedBranchRequiredSignatures
+ * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits. <a href="https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch">REST API doc</a>
+ * @apiGroup Repos
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} branch  
+ * @apiExample {js} async/await
+ * const result = await octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch})
+ * @apiExample {js} Promise
+ * octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -6997,6 +7212,26 @@ GitHub identifies contributors by author email address. This endpoint groups con
 
 
 /**
+ * @api {GET} /repos/:owner/:repo/branches/:branch/protection/required_signatures getProtectedBranchRequiredSignatures
+ * @apiName getProtectedBranchRequiredSignatures
+ * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.
+
+**Note**: You must enable branch protection to require signed commits. <a href="https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch">REST API doc</a>
+ * @apiGroup Repos
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} branch  
+ * @apiExample {js} async/await
+ * const result = await octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch})
+ * @apiExample {js} Promise
+ * octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})
+ */
+
+
+/**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
  * @apiName getProtectedBranchRequiredStatusChecks
  * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#get-required-status-checks-of-protected-branch">REST API doc</a>
@@ -7542,6 +7777,24 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
 
 
 /**
+ * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_signatures removeProtectedBranchRequiredSignatures
+ * @apiName removeProtectedBranchRequiredSignatures
+ * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits. <a href="https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch">REST API doc</a>
+ * @apiGroup Repos
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} branch  
+ * @apiExample {js} async/await
+ * const result = await octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch})
+ * @apiExample {js} Promise
+ * octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})
+ */
+
+
+/**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_status_checks removeProtectedBranchRequiredStatusChecks
  * @apiName removeProtectedBranchRequiredStatusChecks
  * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#remove-required-status-checks-of-protected-branch">REST API doc</a>
@@ -7773,6 +8026,25 @@ Build requests are limited to one concurrent build per repository and one concur
  * octokit.repos.testHook({owner, repo, id}).then(result => {})
  * @apiExample {js} Callback
  * octokit.repos.testHook({owner, repo, id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /repos/:owner/:repo/transfer transfer
+ * @apiName transfer
+ * @apiDescription A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/). <a href="https://developer.github.com/v3/repos/#transfer-a-repository">REST API doc</a>
+ * @apiGroup Repos
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} [new_owner]  **Required:** The username or organization name the repository will be transferred to.
+ * @apiParam {integer[]} [team_id]  ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
+ * @apiExample {js} async/await
+ * const result = await octokit.repos.transfer({owner, repo, new_owner, team_id})
+ * @apiExample {js} Promise
+ * octokit.repos.transfer({owner, repo, new_owner, team_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.repos.transfer({owner, repo, new_owner, team_id}, (error, result) => {})
  */
 
 
@@ -8128,6 +8400,37 @@ Here's an example response: <a href="https://developer.github.com/v3/search/#sea
 
 
 /**
+ * @api {GET} /search/labels labels
+ * @apiName labels
+ * @apiDescription Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
+
+Suppose you want to find labels in the `linguist` repository that match `bug`, `defect`, or `enhancement`. Your query might look like this:
+
+The labels that best match for the query appear first in the search results.
+
+**Highlighting label search results**
+
+You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your `Accept` header. For example, via cURL, the above query would look like this:
+
+This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
+
+When searching for labels, you can get text match metadata for the label **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-labels">REST API doc</a>
+ * @apiGroup Search
+ *
+ * @apiParam {integer} [repository_id]  The id of the repository.
+ * @apiParam {string} q  The search keywords.
+ * @apiParam {string=created,updated} [sort="results are sorted by best match:"]  The sort field. Can be one of `created` or `updated`.
+ * @apiParam {string=asc,desc} [order="desc"]  The sort order if the sort parameter is provided. Can be one of `asc` or `desc`.
+ * @apiExample {js} async/await
+ * const result = await octokit.search.labels({repository_id, q, sort, order})
+ * @apiExample {js} Promise
+ * octokit.search.labels({repository_id, q, sort, order}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.search.labels({repository_id, q, sort, order}, (error, result) => {})
+ */
+
+
+/**
  * @api {GET} /search/repositories repos
  * @apiName repos
  * @apiDescription Find repositories via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
@@ -8174,6 +8477,46 @@ Here's an example response: <a href="https://developer.github.com/v3/search/#sea
  * octokit.search.repos({q, sort, order, per_page, page}).then(result => {})
  * @apiExample {js} Callback
  * octokit.search.repos({q, sort, order, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /search/topics topics
+ * @apiName topics
+ * @apiDescription Find topics via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
+
+Results are sorted by best match by default.
+
+The `q` search term can also contain any combination of the supported topic search qualifiers as described by the in-browser [topic search documentation](https://help.github.com/articles/searching-topics/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
+
+*   `is:curated` Finds topics that have extra information, e.g., a description, display name, or logo, because they have an entry in the [`github/explore` repository](https://github.com/github/explore).
+*   `is:featured` Finds topics listed on [https://github.com/topics](https://github.com/topics). Any featured topic will also be curated.
+*   `is:not-featured` Finds topics not listed on [https://github.com/topics](https://github.com/topics).
+*   `is:not-curated` Finds topics that have no extra information because they haven't been added to the [`github/explore` repository](https://github.com/github/explore).
+*   `repositories:` Finds topics with some number of repositories using them, e.g., `repositories:>1000`.
+
+Suppose you want to search for topics related to Ruby that are featured on [https://github.com/topics](https://github.com/topics). Your query might look like this:
+
+In this request, we're searching for topics with the keyword `ruby`, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results.
+
+**Note:** A search for featured Ruby topics only has 6 total results, so a [Link header](https://developer.github.com/v3/#link-header) indicating pagination is not included in the response.
+
+**Highlighting topic search results**
+
+You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your Accept header. For example, via cURL, the above query would look like this:
+
+This produces the same JSON payload as above, with an extra key called `text_matches`, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
+
+When searching for topics, you can get text match metadata for the topic's **short_description**, **description**, **name**, or **display_name** field. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-topics">REST API doc</a>
+ * @apiGroup Search
+ *
+ * @apiParam {string} q  The search terms.
+ * @apiExample {js} async/await
+ * const result = await octokit.search.topics({q})
+ * @apiExample {js} Promise
+ * octokit.search.topics({q}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.search.topics({q}, (error, result) => {})
  */
 
 
@@ -8520,6 +8863,26 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
  * octokit.users.getBlockedUsers({}).then(result => {})
  * @apiExample {js} Callback
  * octokit.users.getBlockedUsers({}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /users/:username/hovercard getContextForUser
+ * @apiName getContextForUser
+ * @apiDescription Provides hovercard information when authenticated through basic auth or OAuth with the `repo` scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.
+
+The `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this: <a href="https://developer.github.com/v3/users/#get-contextual-information-about-a-user">REST API doc</a>
+ * @apiGroup Users
+ *
+ * @apiParam {string} username  
+ * @apiParam {string=organization,repository,issue,pull_request} [subject_type]  Identifies which additional information you'd like to receive about the person's hovercard. Can be `organization`, `repository`, `issue`, `pull_request`. **Required** when using `subject_id`.
+ * @apiParam {string} [subject_id]  Uses the ID for the `subject_type` you specified. **Required** when using `subject_type`.
+ * @apiExample {js} async/await
+ * const result = await octokit.users.getContextForUser({username, subject_type, subject_id})
+ * @apiExample {js} Promise
+ * octokit.users.getContextForUser({username, subject_type, subject_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.users.getContextForUser({username, subject_type, subject_id}, (error, result) => {})
  */
 
 
