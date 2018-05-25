@@ -1,4 +1,4 @@
-import * as Octokit from '../'
+import * as Octokit from '../index'
 import {Agent} from 'http'
 const http = require('http');
 
