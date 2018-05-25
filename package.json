@@ -105,7 +105,7 @@
     "generate-routes": "node scripts/generate-routes",
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 index.d.ts",
-    "postvalidate:ts": "tsc --noEmit test/typescript-validate.ts",
+    "postvalidate:ts": "tsc --noEmit --target es6 test/typescript-validate.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release",
     "start-fixtures-server": "octokit-fixtures-server"
