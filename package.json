@@ -49,7 +49,7 @@
     "@gr2m/node-fetch": "^2.0.0",
     "@octokit/fixtures-server": "^2.0.1",
     "@octokit/routes": "7.4.0",
-    "@types/node": "^9.4.6",
+    "@types/node": "^10.1.2",
     "apidoc": "^0.17.6",
     "bundlesize": "^0.17.0",
     "chai": "^4.1.2",
@@ -105,7 +105,7 @@
     "generate-routes": "node scripts/generate-routes",
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 index.d.ts",
-    "postvalidate:ts": "tsc --noEmit test/typescript-validate.ts",
+    "postvalidate:ts": "tsc --noEmit --target es6 test/typescript-validate.ts",
     "deploy-docs": "gh-pages-with-token -d doc",
     "semantic-release": "semantic-release",
     "start-fixtures-server": "octokit-fixtures-server"
