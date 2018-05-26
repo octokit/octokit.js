@@ -25,31 +25,6 @@ describe('custom client certificate', () => {
     server.listen(0, done)
   })
 
-  it('options.ca', () => {
-    const octokit = new Octokit({
-      baseUrl: 'https://localhost:' + server.address().port,
-      ca
-    })
-
-    return octokit.repos.get({
-      owner: 'octokit',
-      repo: 'rest.js'
-    })
-  })
-
-  it('options.ca & options.rejectUnauthorized', () => {
-    const octokit = new Octokit({
-      baseUrl: 'https://localhost:' + server.address().port,
-      ca: 'invalid',
-      rejectUnauthorized: false
-    })
-
-    return octokit.repos.get({
-      owner: 'octokit',
-      repo: 'rest.js'
-    })
-  })
-
   it('https.Agent({ca})', () => {
     const agent = new https.Agent({
       ca

@@ -5,13 +5,16 @@ const GitHub = require('../../')
 require('../mocha-node-setup')
 
 describe('deprecations', () => {
+  const deprecateMock = {}
   let github
 
   beforeEach(() => {
+    deprecateMock.message = cy.stub()
+    process.removeAllListeners('deprecation')
+    process.on('deprecation', deprecateMock.message)
     github = new GitHub({
       baseUrl: 'https://deprecations-test.com'
     })
-    cy.stub(console, 'warn')
   })
 
   it('github.integrations.*', () => {
@@ -22,7 +25,7 @@ describe('deprecations', () => {
     return github.integrations.getInstallations({})
 
       .then(() => {
-        expect(console.warn.callCount).to.equal(2)
+        expect(deprecateMock.message.callCount).to.equal(1)
       })
   })
 
@@ -30,49 +33,24 @@ describe('deprecations', () => {
     GitHub({
       followRedirects: false
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(deprecateMock.message.callCount).to.equal(1)
   })
 
-  it('deprecated protocol option', () => {
-    GitHub({
-      protocol: 'https',
-      host: 'deprecations-test.com'
-    })
-    expect(console.warn.callCount).to.equal(2)
-  })
-
-  it('deprecated host option', () => {
-    GitHub({
-      protocol: 'https',
-      host: 'deprecations-test.com'
-    })
-    expect(console.warn.callCount).to.equal(2)
-  })
-
-  it('deprecated port option', () => {
-    GitHub({
-      protocol: 'https',
-      host: 'deprecations-test.com',
-      port: 1234
-    })
-    expect(console.warn.callCount).to.equal(3)
-  })
-
-  it('deprecated pathPrefix option', () => {
+  it('deprecated protocol, host, port, pathPrefix options', () => {
     GitHub({
       protocol: 'https',
       host: 'deprecations-test.com',
       port: 1234,
       pathPrefix: '/deprecations-test.com/'
     })
-    expect(console.warn.callCount).to.equal(4)
+    expect(deprecateMock.message.callCount).to.equal(4)
   })
 
   it('deprecated Promise option', () => {
     GitHub({
       Promise: {}
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(deprecateMock.message.callCount).to.equal(1)
   })
 
   it('deprecated ca option', () => {
@@ -80,7 +58,7 @@ describe('deprecations', () => {
       baseUrl: 'https://api.github.com',
       ca: 'certificate123'
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(deprecateMock.message.callCount).to.equal(1)
   })
 
   it('deprecated proxy option', () => {
@@ -88,7 +66,7 @@ describe('deprecations', () => {
       baseUrl: 'https://api.github.com',
       proxy: 'http://localhost:1234'
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(deprecateMock.message.callCount).to.equal(1)
   })
 
   it('deprecated family option', () => {
@@ -96,7 +74,7 @@ describe('deprecations', () => {
       baseUrl: 'https://api.github.com',
       family: 6
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(deprecateMock.message.callCount).to.equal(1)
   })
 
   it('deprecated rejectUnauthorized option', () => {
@@ -104,7 +82,7 @@ describe('deprecations', () => {
       baseUrl: 'https://api.github.com',
       rejectUnauthorized: false
     })
-    expect(console.warn.callCount).to.equal(1)
+    expect(deprecateMock.message.callCount).to.equal(1)
   })
 
   it('deprecated client.activity.getEventsForRepoIssues()', () => {
@@ -118,7 +96,7 @@ describe('deprecations', () => {
     })
 
       .then(() => {
-        expect(console.warn.callCount).to.equal(1)
+        expect(deprecateMock.message.callCount).to.equal(1)
       })
   })
 
@@ -134,7 +112,7 @@ describe('deprecations', () => {
     })
 
       .then(() => {
-        expect(console.warn.callCount).to.equal(1)
+        expect(deprecateMock.message.callCount).to.equal(1)
       })
   })
 
@@ -151,7 +129,7 @@ describe('deprecations', () => {
     return github.apps.getInstallations({})
 
       .then(() => {
-        expect(console.warn.callCount).to.equal(1)
+        expect(deprecateMock.message.callCount).to.equal(1)
       })
   })
 })
