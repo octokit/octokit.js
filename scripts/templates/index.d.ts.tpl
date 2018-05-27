@@ -12,8 +12,11 @@ declare namespace Github {
     /** This is the data you would see in https://developer.github.com/v3/ */
     data: any
 
-    /** Request metadata */
-    meta:{
+    /** Response status number */
+    status: number
+
+    /** Response headers */
+    headers:{
       'x-ratelimit-limit': string,
       'x-ratelimit-remaining': string,
       'x-ratelimit-reset': string,

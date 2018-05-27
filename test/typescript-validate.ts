@@ -36,7 +36,8 @@ export default async function() {
   const repo = await octokit.repos.get({owner: 'octokit', repo: 'rest.js'})
   // Check Response
   repo.data
-  repo.meta.link
-  repo.meta.etag
-  repo.meta.status
+  repo.status
+  repo.headers.link
+  repo.headers.etag
+  repo.headers.status
 }
