@@ -20,7 +20,7 @@ const octokit = require('@octokit/rest')()
 octokit.repos.getForOrg({
   org: 'octokit',
   type: 'public'
-}).then(({data}) => {
+}).then(({data, headers, status}) => {
   // handle data
 })
 ```
@@ -44,7 +44,7 @@ octokit.repos.getForOrg({
    octokit.repos.getForOrg({
      org: 'octokit',
      type: 'public'
-   }).then(({data}) => {
+   }).then(({data, headers, status}) => {
      // handle data
    })
    ```
