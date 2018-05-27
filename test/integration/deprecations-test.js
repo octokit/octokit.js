@@ -138,4 +138,17 @@ describe('deprecations', () => {
         expect(console.warn.callCount).to.equal(1)
       })
   })
+
+  it('deprecated response.meta', () => {
+    nock('https://deprecations-test.com')
+      .get('/orgs/myorg')
+      .reply(200, {})
+
+    return github.orgs.get({org: 'myorg'})
+
+      .then(response => {
+        expect(response.meta).to.deep.equal(response.headers)
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
 })

@@ -21,6 +21,23 @@ describe('smoke', () => {
     return github.orgs.get({org: 'myorg'})
   })
 
+  it('response.status & response.headers', () => {
+    nock('http://myhost.com')
+      .get('/my/api/orgs/myorg')
+      .reply(200, {}, {'x-foo': 'bar'})
+
+    const github = new GitHub({
+      baseUrl: 'http://myhost.com/my/api'
+    })
+
+    return github.orgs.get({org: 'myorg'})
+
+      .then(response => {
+        expect(response.headers['x-foo']).to.equal('bar')
+        expect(response.status).to.equal(200)
+      })
+  })
+
   it('callback', (done) => {
     nock('https://smoke-test.com')
       .get('/orgs/myorg')
