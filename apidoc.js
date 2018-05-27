@@ -5,20 +5,20 @@
 
 
 /**
- * @api {GET} /notifications/threads/:id/subscription checkNotificationThreadSubscription
+ * @api {GET} /notifications/threads/:thread_id/subscription checkNotificationThreadSubscription
  * @apiName checkNotificationThreadSubscription
  * @apiDescription This checks to see if the current user is subscribed to a thread. You can also [get a Repository subscription](https://developer.github.com/v3/activity/watching/#get-a-repository-subscription).
 
 Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mention**ed, or manually subscribe to a thread. <a href="https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} id  
+ * @apiParam {string} thread_id  
  * @apiExample {js} async/await
- * const result = await octokit.activity.checkNotificationThreadSubscription({id})
+ * const result = await octokit.activity.checkNotificationThreadSubscription({thread_id})
  * @apiExample {js} Promise
- * octokit.activity.checkNotificationThreadSubscription({id}).then(result => {})
+ * octokit.activity.checkNotificationThreadSubscription({thread_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.activity.checkNotificationThreadSubscription({id}, (error, result) => {})
+ * octokit.activity.checkNotificationThreadSubscription({thread_id}, (error, result) => {})
  */
 
 
@@ -40,18 +40,18 @@ Note that subscriptions are only generated if a user is participating in a conve
 
 
 /**
- * @api {DELETE} /notifications/threads/:id/subscription deleteNotificationThreadSubscription
+ * @api {DELETE} /notifications/threads/:thread_id/subscription deleteNotificationThreadSubscription
  * @apiName deleteNotificationThreadSubscription
  * @apiDescription Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed. <a href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} id  
+ * @apiParam {string} thread_id  
  * @apiExample {js} async/await
- * const result = await octokit.activity.deleteNotificationThreadSubscription({id})
+ * const result = await octokit.activity.deleteNotificationThreadSubscription({thread_id})
  * @apiExample {js} Promise
- * octokit.activity.deleteNotificationThreadSubscription({id}).then(result => {})
+ * octokit.activity.deleteNotificationThreadSubscription({thread_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.activity.deleteNotificationThreadSubscription({id}, (error, result) => {})
+ * octokit.activity.deleteNotificationThreadSubscription({thread_id}, (error, result) => {})
  */
 
 
@@ -244,18 +244,18 @@ Note that subscriptions are only generated if a user is participating in a conve
 
 
 /**
- * @api {GET} /notifications/threads/:id getNotificationThread
+ * @api {GET} /notifications/threads/:thread_id getNotificationThread
  * @apiName getNotificationThread
  * @apiDescription <a href="https://developer.github.com/v3/activity/notifications/#view-a-single-thread">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} id  
+ * @apiParam {string} thread_id  
  * @apiExample {js} async/await
- * const result = await octokit.activity.getNotificationThread({id})
+ * const result = await octokit.activity.getNotificationThread({thread_id})
  * @apiExample {js} Promise
- * octokit.activity.getNotificationThread({id}).then(result => {})
+ * octokit.activity.getNotificationThread({thread_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.activity.getNotificationThread({id}, (error, result) => {})
+ * octokit.activity.getNotificationThread({thread_id}, (error, result) => {})
  */
 
 
@@ -433,18 +433,18 @@ Note that subscriptions are only generated if a user is participating in a conve
 
 
 /**
- * @api {PATCH} /notifications/threads/:id markNotificationThreadAsRead
+ * @api {PATCH} /notifications/threads/:thread_id markNotificationThreadAsRead
  * @apiName markNotificationThreadAsRead
  * @apiDescription <a href="https://developer.github.com/v3/activity/notifications/#mark-a-thread-as-read">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} id  
+ * @apiParam {string} thread_id  
  * @apiExample {js} async/await
- * const result = await octokit.activity.markNotificationThreadAsRead({id})
+ * const result = await octokit.activity.markNotificationThreadAsRead({thread_id})
  * @apiExample {js} Promise
- * octokit.activity.markNotificationThreadAsRead({id}).then(result => {})
+ * octokit.activity.markNotificationThreadAsRead({thread_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.activity.markNotificationThreadAsRead({id}, (error, result) => {})
+ * octokit.activity.markNotificationThreadAsRead({thread_id}, (error, result) => {})
  */
 
 
@@ -483,19 +483,19 @@ Note that subscriptions are only generated if a user is participating in a conve
 
 
 /**
- * @api {PUT} /notifications/threads/:id/subscription setNotificationThreadSubscription
+ * @api {PUT} /notifications/threads/:thread_id/subscription setNotificationThreadSubscription
  * @apiName setNotificationThreadSubscription
  * @apiDescription This lets you subscribe or unsubscribe from a conversation. <a href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} id  
+ * @apiParam {string} thread_id  
  * @apiParam {boolean} [ignored="false"]  Unsubscribes and subscribes you to a conversation. Set `ignored` to `true` to block all notifications from this thread.
  * @apiExample {js} async/await
- * const result = await octokit.activity.setNotificationThreadSubscription({id, ignored})
+ * const result = await octokit.activity.setNotificationThreadSubscription({thread_id, ignored})
  * @apiExample {js} Promise
- * octokit.activity.setNotificationThreadSubscription({id, ignored}).then(result => {})
+ * octokit.activity.setNotificationThreadSubscription({thread_id, ignored}).then(result => {})
  * @apiExample {js} Callback
- * octokit.activity.setNotificationThreadSubscription({id, ignored}, (error, result) => {})
+ * octokit.activity.setNotificationThreadSubscription({thread_id, ignored}, (error, result) => {})
  */
 
 
@@ -598,38 +598,38 @@ The authenticated user must have admin access to the repository. <a href="https:
 
 
 /**
- * @api {GET} /marketplace_listing/accounts/:id checkMarketplaceListingAccount
+ * @api {GET} /marketplace_listing/accounts/:account_id checkMarketplaceListingAccount
  * @apiName checkMarketplaceListingAccount
- * @apiDescription <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
+ * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} id  
+ * @apiParam {string} account_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.apps.checkMarketplaceListingAccount({id, per_page, page})
+ * const result = await octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.apps.checkMarketplaceListingAccount({id, per_page, page}).then(result => {})
+ * octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.apps.checkMarketplaceListingAccount({id, per_page, page}, (error, result) => {})
+ * octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /marketplace_listing/stubbed/accounts/:id checkMarketplaceListingStubbedAccount
+ * @api {GET} /marketplace_listing/stubbed/accounts/:account_id checkMarketplaceListingStubbedAccount
  * @apiName checkMarketplaceListingStubbedAccount
- * @apiDescription <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
+ * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} id  
+ * @apiParam {string} account_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.apps.checkMarketplaceListingStubbedAccount({id, per_page, page})
+ * const result = await octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.apps.checkMarketplaceListingStubbedAccount({id, per_page, page}).then(result => {})
+ * octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.apps.checkMarketplaceListingStubbedAccount({id, per_page, page}, (error, result) => {})
+ * octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -731,22 +731,22 @@ The authenticated user must have admin access to the repository. <a href="https:
 
 
 /**
- * @api {GET} /marketplace_listing/plans/:id/accounts getMarketplaceListingPlanAccounts
+ * @api {GET} /marketplace_listing/plans/:plan_id/accounts getMarketplaceListingPlanAccounts
  * @apiName getMarketplaceListingPlanAccounts
  * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} id  
+ * @apiParam {string} plan_id  
  * @apiParam {string=created,updated} [sort="created"]  Sorts the GitHub accounts by the date they were created or last updated. Can be one of `created` or `updated`.
  * @apiParam {string=asc,desc} [direction]  To return the oldest accounts first, set to `asc`. Can be one of `asc` or `desc`. Ignored without the `sort` parameter.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.apps.getMarketplaceListingPlanAccounts({id, sort, direction, per_page, page})
+ * const result = await octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page})
  * @apiExample {js} Promise
- * octokit.apps.getMarketplaceListingPlanAccounts({id, sort, direction, per_page, page}).then(result => {})
+ * octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.apps.getMarketplaceListingPlanAccounts({id, sort, direction, per_page, page}, (error, result) => {})
+ * octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -768,22 +768,22 @@ The authenticated user must have admin access to the repository. <a href="https:
 
 
 /**
- * @api {GET} /marketplace_listing/stubbed/plans/:id/accounts getMarketplaceListingStubbedPlanAccounts
+ * @api {GET} /marketplace_listing/stubbed/plans/:plan_id/accounts getMarketplaceListingStubbedPlanAccounts
  * @apiName getMarketplaceListingStubbedPlanAccounts
  * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} id  
+ * @apiParam {string} plan_id  
  * @apiParam {string=created,updated} [sort="created"]  Sorts the GitHub accounts by the date they were created or last updated. Can be one of `created` or `updated`.
  * @apiParam {string=asc,desc} [direction]  To return the oldest accounts first, set to `asc`. Can be one of `asc` or `desc`. Ignored without the `sort` parameter.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, sort, direction, per_page, page})
+ * const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page})
  * @apiExample {js} Promise
- * octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, sort, direction, per_page, page}).then(result => {})
+ * octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, sort, direction, per_page, page}, (error, result) => {})
+ * octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -875,50 +875,50 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 
 
 /**
- * @api {DELETE} /authorizations/:id delete
+ * @api {DELETE} /authorizations/:authorization_id delete
  * @apiName delete
  * @apiDescription <a href="https://developer.github.com/v3/oauth_authorizations/#delete-an-authorization">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} id  
+ * @apiParam {string} authorization_id  
  * @apiExample {js} async/await
- * const result = await octokit.authorization.delete({id})
+ * const result = await octokit.authorization.delete({authorization_id})
  * @apiExample {js} Promise
- * octokit.authorization.delete({id}).then(result => {})
+ * octokit.authorization.delete({authorization_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.authorization.delete({id}, (error, result) => {})
+ * octokit.authorization.delete({authorization_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /applications/grants/:id deleteGrant
+ * @api {DELETE} /applications/grants/:grant_id deleteGrant
  * @apiName deleteGrant
  * @apiDescription Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). <a href="https://developer.github.com/v3/oauth_authorizations/#delete-a-grant">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} id  
+ * @apiParam {string} grant_id  
  * @apiExample {js} async/await
- * const result = await octokit.authorization.deleteGrant({id})
+ * const result = await octokit.authorization.deleteGrant({grant_id})
  * @apiExample {js} Promise
- * octokit.authorization.deleteGrant({id}).then(result => {})
+ * octokit.authorization.deleteGrant({grant_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.authorization.deleteGrant({id}, (error, result) => {})
+ * octokit.authorization.deleteGrant({grant_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /authorizations/:id get
+ * @api {GET} /authorizations/:authorization_id get
  * @apiName get
  * @apiDescription <a href="https://developer.github.com/v3/oauth_authorizations/#get-a-single-authorization">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} id  
+ * @apiParam {string} authorization_id  
  * @apiExample {js} async/await
- * const result = await octokit.authorization.get({id})
+ * const result = await octokit.authorization.get({authorization_id})
  * @apiExample {js} Promise
- * octokit.authorization.get({id}).then(result => {})
+ * octokit.authorization.get({authorization_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.authorization.get({id}, (error, result) => {})
+ * octokit.authorization.get({authorization_id}, (error, result) => {})
  */
 
 
@@ -940,18 +940,18 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 
 
 /**
- * @api {GET} /applications/grants/:id getGrant
+ * @api {GET} /applications/grants/:grant_id getGrant
  * @apiName getGrant
  * @apiDescription <a href="https://developer.github.com/v3/oauth_authorizations/#get-a-single-grant">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} id  
+ * @apiParam {string} grant_id  
  * @apiExample {js} async/await
- * const result = await octokit.authorization.getGrant({id})
+ * const result = await octokit.authorization.getGrant({grant_id})
  * @apiExample {js} Promise
- * octokit.authorization.getGrant({id}).then(result => {})
+ * octokit.authorization.getGrant({grant_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.authorization.getGrant({id}, (error, result) => {})
+ * octokit.authorization.getGrant({grant_id}, (error, result) => {})
  */
 
 
@@ -1068,12 +1068,12 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {PATCH} /authorizations/:id update
+ * @api {PATCH} /authorizations/:authorization_id update
  * @apiName update
  * @apiDescription You can only send one of these scope keys at a time. <a href="https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} id  
+ * @apiParam {string} authorization_id  
  * @apiParam {string[]} [scopes]  Replaces the authorization scopes with these.
  * @apiParam {string[]} [add_scopes]  A list of scopes to add to this authorization.
  * @apiParam {string[]} [remove_scopes]  A list of scopes to remove from this authorization.
@@ -1081,11 +1081,11 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} [note_url]  A URL to remind you what app the OAuth token is for.
  * @apiParam {string} [fingerprint]  A unique string to distinguish an authorization from others created for the same client ID and user.
  * @apiExample {js} async/await
- * const result = await octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})
+ * const result = await octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})
  * @apiExample {js} Promise
- * octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})
+ * octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})
  * @apiExample {js} Callback
- * octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})
+ * octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})
  */
 
 
@@ -1130,12 +1130,16 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} output:images:alt  The alternative text for the image.
  * @apiParam {string} output:images:image_url  The full URL of the image.
  * @apiParam {string} [output:images:caption]  A short image description.
+ * @apiParam {object} [actions]  Possible further actions the integrator can perform, which a user may trigger. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](#actions-object) description.
+ * @apiParam {string} actions:label  The text to be displayed on a button in the web UI. The maximum size is 20 characters.
+ * @apiParam {string} actions:description  A short explanation of what this action would do. The maximum size is 40 characters.
+ * @apiParam {string} actions:identifier  A reference for the action on the integrator's system. The maximum size is 20 characters.
  * @apiExample {js} async/await
- * const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption})
+ * const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier})
  * @apiExample {js} Promise
- * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})
+ * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}).then(result => {})
  * @apiExample {js} Callback
- * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})
+ * octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}, (error, result) => {})
  */
 
 
@@ -1238,25 +1242,25 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {GET} /repos/:owner/:repo/check-suites/:id/check-runs listForSuite
+ * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id/check-runs listForSuite
  * @apiName listForSuite
  * @apiDescription Lists check runs for a check suite using its `id`. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} check_suite_id  
  * @apiParam {string} [check_name]  Returns check runs with the specified `name`.
  * @apiParam {string=queued,in_progress,completed} [status]  Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.
  * @apiParam {string=latest,all} [filter="latest"]  Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page})
+ * const result = await octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page})
  * @apiExample {js} Promise
- * octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}).then(result => {})
+ * octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}, (error, result) => {})
+ * octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}, (error, result) => {})
  */
 
 
@@ -1353,12 +1357,16 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} output:images:alt  The alternative text for the image.
  * @apiParam {string} output:images:image_url  The full URL of the image.
  * @apiParam {string} [output:images:caption]  A short image description.
+ * @apiParam {object} [actions]  Possible further actions the integrator can perform, which a user may trigger. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](#actions-object) description.
+ * @apiParam {string} actions:label  The text to be displayed on a button in the web UI. The maximum size is 20 characters.
+ * @apiParam {string} actions:description  A short explanation of what this action would do. The maximum size is 40 characters.
+ * @apiParam {string} actions:identifier  A reference for the action on the integrator's system. The maximum size is 20 characters.
  * @apiExample {js} async/await
- * const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption})
+ * const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier})
  * @apiExample {js} Promise
- * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})
+ * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}).then(result => {})
  * @apiExample {js} Callback
- * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})
+ * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}, (error, result) => {})
  */
 
 
@@ -1370,18 +1378,18 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {GET} /gists/:id/star checkStar
+ * @api {GET} /gists/:gist_id/star checkStar
  * @apiName checkStar
  * @apiDescription <a href="https://developer.github.com/v3/gists/#check-if-a-gist-is-starred">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.checkStar({id})
+ * const result = await octokit.gists.checkStar({gist_id})
  * @apiExample {js} Promise
- * octokit.gists.checkStar({id}).then(result => {})
+ * octokit.gists.checkStar({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.checkStar({id}, (error, result) => {})
+ * octokit.gists.checkStar({gist_id}, (error, result) => {})
  */
 
 
@@ -1423,107 +1431,107 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {DELETE} /gists/:id delete
+ * @api {DELETE} /gists/:gist_id delete
  * @apiName delete
  * @apiDescription <a href="https://developer.github.com/v3/gists/#delete-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.delete({id})
+ * const result = await octokit.gists.delete({gist_id})
  * @apiExample {js} Promise
- * octokit.gists.delete({id}).then(result => {})
+ * octokit.gists.delete({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.delete({id}, (error, result) => {})
+ * octokit.gists.delete({gist_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /gists/:gist_id/comments/:id deleteComment
+ * @api {DELETE} /gists/:gist_id/comments/:comment_id deleteComment
  * @apiName deleteComment
  * @apiDescription <a href="https://developer.github.com/v3/gists/comments/#delete-a-comment">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.deleteComment({gist_id, id})
+ * const result = await octokit.gists.deleteComment({gist_id, comment_id})
  * @apiExample {js} Promise
- * octokit.gists.deleteComment({gist_id, id}).then(result => {})
+ * octokit.gists.deleteComment({gist_id, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.deleteComment({gist_id, id}, (error, result) => {})
+ * octokit.gists.deleteComment({gist_id, comment_id}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /gists/:id edit
+ * @api {PATCH} /gists/:gist_id edit
  * @apiName edit
  * @apiDescription The keys in the `files` object are the `string` filename. The value is another `object` with a key of `content` (indicating the new contents), or `filename` (indicating the new filename). For example:
 
 **Note**: All files from the previous version of the gist are carried over by default if not included in the object. Deletes can be performed by including the filename with a `null` object. <a href="https://developer.github.com/v3/gists/#edit-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiParam {string} [description]  A description of the gist.
  * @apiParam {object} [files]  Files that make up this gist.
  * @apiParam {string} [content]  Updated file contents.
  * @apiParam {string} [filename]  New name for this file.
  * @apiExample {js} async/await
- * const result = await octokit.gists.edit({id, description, files, content, filename})
+ * const result = await octokit.gists.edit({gist_id, description, files, content, filename})
  * @apiExample {js} Promise
- * octokit.gists.edit({id, description, files, content, filename}).then(result => {})
+ * octokit.gists.edit({gist_id, description, files, content, filename}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.edit({id, description, files, content, filename}, (error, result) => {})
+ * octokit.gists.edit({gist_id, description, files, content, filename}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /gists/:gist_id/comments/:id editComment
+ * @api {PATCH} /gists/:gist_id/comments/:comment_id editComment
  * @apiName editComment
  * @apiDescription <a href="https://developer.github.com/v3/gists/comments/#edit-a-comment">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string} body  The comment text.
  * @apiExample {js} async/await
- * const result = await octokit.gists.editComment({gist_id, id, body})
+ * const result = await octokit.gists.editComment({gist_id, comment_id, body})
  * @apiExample {js} Promise
- * octokit.gists.editComment({gist_id, id, body}).then(result => {})
+ * octokit.gists.editComment({gist_id, comment_id, body}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.editComment({gist_id, id, body}, (error, result) => {})
+ * octokit.gists.editComment({gist_id, comment_id, body}, (error, result) => {})
  */
 
 
 /**
- * @api {POST} /gists/:id/forks fork
+ * @api {POST} /gists/:gist_id/forks fork
  * @apiName fork
- * @apiDescription **Note**: This was previously `/gists/:id/fork`. <a href="https://developer.github.com/v3/gists/#fork-a-gist">REST API doc</a>
+ * @apiDescription **Note**: This was previously `/gists/:gist_id/fork`. <a href="https://developer.github.com/v3/gists/#fork-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.fork({id})
+ * const result = await octokit.gists.fork({gist_id})
  * @apiExample {js} Promise
- * octokit.gists.fork({id}).then(result => {})
+ * octokit.gists.fork({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.fork({id}, (error, result) => {})
+ * octokit.gists.fork({gist_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /gists/:id get
+ * @api {GET} /gists/:gist_id get
  * @apiName get
  * @apiDescription <a href="https://developer.github.com/v3/gists/#get-a-single-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.get({id})
+ * const result = await octokit.gists.get({gist_id})
  * @apiExample {js} Promise
- * octokit.gists.get({id}).then(result => {})
+ * octokit.gists.get({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.get({id}, (error, result) => {})
+ * octokit.gists.get({gist_id}, (error, result) => {})
  */
 
 
@@ -1546,19 +1554,19 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {GET} /gists/:gist_id/comments/:id getComment
+ * @api {GET} /gists/:gist_id/comments/:comment_id getComment
  * @apiName getComment
  * @apiDescription <a href="https://developer.github.com/v3/gists/comments/#get-a-single-comment">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.getComment({gist_id, id})
+ * const result = await octokit.gists.getComment({gist_id, comment_id})
  * @apiExample {js} Promise
- * octokit.gists.getComment({gist_id, id}).then(result => {})
+ * octokit.gists.getComment({gist_id, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.getComment({gist_id, id}, (error, result) => {})
+ * octokit.gists.getComment({gist_id, comment_id}, (error, result) => {})
  */
 
 
@@ -1581,20 +1589,20 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {GET} /gists/:id/commits getCommits
+ * @api {GET} /gists/:gist_id/commits getCommits
  * @apiName getCommits
  * @apiDescription <a href="https://developer.github.com/v3/gists/#list-gist-commits">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.gists.getCommits({id, per_page, page})
+ * const result = await octokit.gists.getCommits({gist_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.gists.getCommits({id, per_page, page}).then(result => {})
+ * octokit.gists.getCommits({gist_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.getCommits({id, per_page, page}, (error, result) => {})
+ * octokit.gists.getCommits({gist_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1618,20 +1626,20 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 
 
 /**
- * @api {GET} /gists/:id/forks getForks
+ * @api {GET} /gists/:gist_id/forks getForks
  * @apiName getForks
  * @apiDescription <a href="https://developer.github.com/v3/gists/#list-gist-forks">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.gists.getForks({id, per_page, page})
+ * const result = await octokit.gists.getForks({gist_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.gists.getForks({id, per_page, page}).then(result => {})
+ * octokit.gists.getForks({gist_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.getForks({id, per_page, page}, (error, result) => {})
+ * octokit.gists.getForks({gist_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1656,19 +1664,19 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
 
 
 /**
- * @api {GET} /gists/:id/:sha getRevision
+ * @api {GET} /gists/:gist_id/:sha getRevision
  * @apiName getRevision
  * @apiDescription <a href="https://developer.github.com/v3/gists/#get-a-specific-revision-of-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiParam {string} sha  
  * @apiExample {js} async/await
- * const result = await octokit.gists.getRevision({id, sha})
+ * const result = await octokit.gists.getRevision({gist_id, sha})
  * @apiExample {js} Promise
- * octokit.gists.getRevision({id, sha}).then(result => {})
+ * octokit.gists.getRevision({gist_id, sha}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.getRevision({id, sha}, (error, result) => {})
+ * octokit.gists.getRevision({gist_id, sha}, (error, result) => {})
  */
 
 
@@ -1691,34 +1699,34 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
 
 
 /**
- * @api {PUT} /gists/:id/star star
+ * @api {PUT} /gists/:gist_id/star star
  * @apiName star
  * @apiDescription Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." <a href="https://developer.github.com/v3/gists/#star-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.star({id})
+ * const result = await octokit.gists.star({gist_id})
  * @apiExample {js} Promise
- * octokit.gists.star({id}).then(result => {})
+ * octokit.gists.star({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.star({id}, (error, result) => {})
+ * octokit.gists.star({gist_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /gists/:id/star unstar
+ * @api {DELETE} /gists/:gist_id/star unstar
  * @apiName unstar
  * @apiDescription <a href="https://developer.github.com/v3/gists/#unstar-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {string} id  
+ * @apiParam {string} gist_id  
  * @apiExample {js} async/await
- * const result = await octokit.gists.unstar({id})
+ * const result = await octokit.gists.unstar({gist_id})
  * @apiExample {js} Promise
- * octokit.gists.unstar({id}).then(result => {})
+ * octokit.gists.unstar({gist_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.unstar({id}, (error, result) => {})
+ * octokit.gists.unstar({gist_id}, (error, result) => {})
  */
 
 
@@ -2185,20 +2193,20 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/issues/comments/:id deleteComment
+ * @api {DELETE} /repos/:owner/:repo/issues/comments/:comment_id deleteComment
  * @apiName deleteComment
  * @apiDescription <a href="https://developer.github.com/v3/issues/comments/#delete-a-comment">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.issues.deleteComment({owner, repo, id})
+ * const result = await octokit.issues.deleteComment({owner, repo, comment_id})
  * @apiExample {js} Promise
- * octokit.issues.deleteComment({owner, repo, id}).then(result => {})
+ * octokit.issues.deleteComment({owner, repo, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.deleteComment({owner, repo, id}, (error, result) => {})
+ * octokit.issues.deleteComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -2264,30 +2272,30 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/issues/comments/:id editComment
+ * @api {PATCH} /repos/:owner/:repo/issues/comments/:comment_id editComment
  * @apiName editComment
  * @apiDescription <a href="https://developer.github.com/v3/issues/comments/#edit-a-comment">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string} body  The contents of the comment.
  * @apiExample {js} async/await
- * const result = await octokit.issues.editComment({owner, repo, id, body})
+ * const result = await octokit.issues.editComment({owner, repo, comment_id, body})
  * @apiExample {js} Promise
- * octokit.issues.editComment({owner, repo, id, body}).then(result => {})
+ * octokit.issues.editComment({owner, repo, comment_id, body}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.editComment({owner, repo, id, body}, (error, result) => {})
+ * octokit.issues.editComment({owner, repo, comment_id, body}, (error, result) => {})
  */
 
 
 /**
  * @api {GET} /repos/:owner/:repo/issues/:number get
  * @apiName get
- * @apiDescription **Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.
+ * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
 
-This endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key. <a href="https://developer.github.com/v3/issues/#get-a-single-issue">REST API doc</a>
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint. <a href="https://developer.github.com/v3/issues/#get-a-single-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2305,11 +2313,9 @@ This endpoint may also return pull requests in the response. If an issue _is_ a 
 /**
  * @api {GET} /issues getAll
  * @apiName getAll
- * @apiDescription **Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.
+ * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
 
-This endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.
-
-You can use the `filter` query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information.
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
 
 
@@ -2358,7 +2364,7 @@ You can use the `filter` query parameter to fetch issues that are not necessaril
 
 
 /**
- * @api {GET} /repos/:owner/:repo/issues/comments/:id getComment
+ * @api {GET} /repos/:owner/:repo/issues/comments/:comment_id getComment
  * @apiName getComment
  * @apiDescription 
 
@@ -2367,15 +2373,15 @@ You can use the `filter` query parameter to fetch issues that are not necessaril
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.issues.getComment({owner, repo, id, per_page, page})
+ * const result = await octokit.issues.getComment({owner, repo, comment_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.issues.getComment({owner, repo, id, per_page, page}).then(result => {})
+ * octokit.issues.getComment({owner, repo, comment_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.getComment({owner, repo, id, per_page, page}, (error, result) => {})
+ * octokit.issues.getComment({owner, repo, comment_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -2421,7 +2427,7 @@ You can use the `filter` query parameter to fetch issues that are not necessaril
 
 
 /**
- * @api {GET} /repos/:owner/:repo/issues/events/:id getEvent
+ * @api {GET} /repos/:owner/:repo/issues/events/:event_id getEvent
  * @apiName getEvent
  * @apiDescription 
 
@@ -2430,13 +2436,13 @@ You can use the `filter` query parameter to fetch issues that are not necessaril
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} event_id  
  * @apiExample {js} async/await
- * const result = await octokit.issues.getEvent({owner, repo, id})
+ * const result = await octokit.issues.getEvent({owner, repo, event_id})
  * @apiExample {js} Promise
- * octokit.issues.getEvent({owner, repo, id}).then(result => {})
+ * octokit.issues.getEvent({owner, repo, event_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.getEvent({owner, repo, id}, (error, result) => {})
+ * octokit.issues.getEvent({owner, repo, event_id}, (error, result) => {})
  */
 
 
@@ -2502,11 +2508,9 @@ You can use the `filter` query parameter to fetch issues that are not necessaril
 /**
  * @api {GET} /orgs/:org/issues getForOrg
  * @apiName getForOrg
- * @apiDescription **Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.
+ * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
 
-This endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.
-
-You can use the `filter` query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information.
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
 
 
@@ -2539,9 +2543,9 @@ You can use the `filter` query parameter to fetch issues that are not necessaril
 /**
  * @api {GET} /repos/:owner/:repo/issues getForRepo
  * @apiName getForRepo
- * @apiDescription **Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.
+ * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
 
-This endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
 
 
@@ -2573,11 +2577,9 @@ This endpoint may also return pull requests in the response. If an issue _is_ a 
 /**
  * @api {GET} /user/issues getForUser
  * @apiName getForUser
- * @apiDescription **Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.
+ * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
 
-This endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.
-
-You can use the `filter` query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information.
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
 
 
@@ -2843,23 +2845,23 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/labels/:oldname updateLabel
+ * @api {PATCH} /repos/:owner/:repo/labels/:current_name updateLabel
  * @apiName updateLabel
  * @apiDescription <a href="https://developer.github.com/v3/issues/labels/#update-a-label">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} oldname  
- * @apiParam {string} [name]  The name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png ":strawberry:"). For a full list of available emoji and codes, see [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/).
+ * @apiParam {string} current_name  
+ * @apiParam {string} [name]  The new name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png ":strawberry:"). For a full list of available emoji and codes, see [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/).
  * @apiParam {string} [color]  The [hexadecimal color code](http://www.color-hex.com/) for the label, without the leading `#`.
  * @apiParam {string} [description]  A short description of the label.
  * @apiExample {js} async/await
- * const result = await octokit.issues.updateLabel({owner, repo, oldname, name, color, description})
+ * const result = await octokit.issues.updateLabel({owner, repo, current_name, name, color, description})
  * @apiExample {js} Promise
- * octokit.issues.updateLabel({owner, repo, oldname, name, color, description}).then(result => {})
+ * octokit.issues.updateLabel({owner, repo, current_name, name, color, description}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.updateLabel({owner, repo, oldname, name, color, description}, (error, result) => {})
+ * octokit.issues.updateLabel({owner, repo, current_name, name, color, description}, (error, result) => {})
  */
 
 
@@ -2895,7 +2897,7 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 /**
  * @api {DELETE} /repos/:owner/:repo/import cancelImport
  * @apiName cancelImport
- * @apiDescription Stop an import for a repository. <a href="https://developer.github.com/v3/migration/source_imports/#cancel-an-import">REST API doc</a>
+ * @apiDescription Stop an import for a repository. <a href="https://developer.github.com/v3/migrations/source_imports/#cancel-an-import">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2910,19 +2912,19 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 
 
 /**
- * @api {DELETE} /orgs/:org/migrations/:id/archive deleteMigrationArchive
+ * @api {DELETE} /orgs/:org/migrations/:migration_id/archive deleteMigrationArchive
  * @apiName deleteMigrationArchive
- * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href="https://developer.github.com/v3/migration/migrations/#delete-a-migration-archive">REST API doc</a>
+ * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href="https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} migration_id  
  * @apiExample {js} async/await
- * const result = await octokit.migrations.deleteMigrationArchive({org, id})
+ * const result = await octokit.migrations.deleteMigrationArchive({org, migration_id})
  * @apiExample {js} Promise
- * octokit.migrations.deleteMigrationArchive({org, id}).then(result => {})
+ * octokit.migrations.deleteMigrationArchive({org, migration_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.migrations.deleteMigrationArchive({org, id}, (error, result) => {})
+ * octokit.migrations.deleteMigrationArchive({org, migration_id}, (error, result) => {})
  */
 
 
@@ -2931,7 +2933,7 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * @apiName getImportCommitAuthors
  * @apiDescription Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username `hubot` into something like `hubot <hubot@12341234-abab-fefe-8787-fedcba987654>`.
 
-This API method and the "Map a commit author" method allow you to provide correct Git author information. <a href="https://developer.github.com/v3/migration/source_imports/#get-commit-authors">REST API doc</a>
+This API method and the "Map a commit author" method allow you to provide correct Git author information. <a href="https://developer.github.com/v3/migrations/source_imports/#get-commit-authors">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2982,7 +2984,7 @@ This section includes details about Git LFS related fields that may be present i
 *   `use_lfs` \- describes whether the import has been opted in or out of using Git LFS. The value can be `opt_in`, `opt_out`, or `undecided` if no action has been taken.
 *   `has_large_files` \- the boolean value describing whether files larger than 100MB were found during the `importing` step.
 *   `large_files_size` \- the total size in gigabytes of files larger than 100MB found in the originating repository.
-*   `large_files_count` \- the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request. <a href="https://developer.github.com/v3/migration/source_imports/#get-import-progress">REST API doc</a>
+*   `large_files_count` \- the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request. <a href="https://developer.github.com/v3/migrations/source_imports/#get-import-progress">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2999,7 +3001,7 @@ This section includes details about Git LFS related fields that may be present i
 /**
  * @api {GET} /repos/:owner/:repo/import/large_files getLargeImportFiles
  * @apiName getLargeImportFiles
- * @apiDescription List files larger than 100MB found during the import <a href="https://developer.github.com/v3/migration/source_imports/#get-large-files">REST API doc</a>
+ * @apiDescription List files larger than 100MB found during the import <a href="https://developer.github.com/v3/migrations/source_imports/#get-large-files">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3014,26 +3016,26 @@ This section includes details about Git LFS related fields that may be present i
 
 
 /**
- * @api {GET} /orgs/:org/migrations/:id/archive getMigrationArchiveLink
+ * @api {GET} /orgs/:org/migrations/:migration_id/archive getMigrationArchiveLink
  * @apiName getMigrationArchiveLink
  * @apiDescription Fetches the URL to a migration archive.
 
- <a href="https://developer.github.com/v3/migration/migrations/#download-a-migration-archive">REST API doc</a>
+ <a href="https://developer.github.com/v3/migrations/orgs/#download-a-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} migration_id  
  * @apiExample {js} async/await
- * const result = await octokit.migrations.getMigrationArchiveLink({org, id})
+ * const result = await octokit.migrations.getMigrationArchiveLink({org, migration_id})
  * @apiExample {js} Promise
- * octokit.migrations.getMigrationArchiveLink({org, id}).then(result => {})
+ * octokit.migrations.getMigrationArchiveLink({org, migration_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.migrations.getMigrationArchiveLink({org, id}, (error, result) => {})
+ * octokit.migrations.getMigrationArchiveLink({org, migration_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /orgs/:org/migrations/:id getMigrationStatus
+ * @api {GET} /orgs/:org/migrations/:migration_id getMigrationStatus
  * @apiName getMigrationStatus
  * @apiDescription Fetches the status of a migration.
 
@@ -3042,24 +3044,24 @@ The `state` of a migration can be one of the following values:
 *   `pending`, which means the migration hasn't started yet.
 *   `exporting`, which means the migration is in progress.
 *   `exported`, which means the migration finished successfully.
-*   `failed`, which means the migration failed. <a href="https://developer.github.com/v3/migration/migrations/#get-the-status-of-a-migration">REST API doc</a>
+*   `failed`, which means the migration failed. <a href="https://developer.github.com/v3/migrations/orgs/#get-the-status-of-a-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} migration_id  
  * @apiExample {js} async/await
- * const result = await octokit.migrations.getMigrationStatus({org, id})
+ * const result = await octokit.migrations.getMigrationStatus({org, migration_id})
  * @apiExample {js} Promise
- * octokit.migrations.getMigrationStatus({org, id}).then(result => {})
+ * octokit.migrations.getMigrationStatus({org, migration_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.migrations.getMigrationStatus({org, id}, (error, result) => {})
+ * octokit.migrations.getMigrationStatus({org, migration_id}, (error, result) => {})
  */
 
 
 /**
  * @api {GET} /orgs/:org/migrations getMigrations
  * @apiName getMigrations
- * @apiDescription Lists the most recent migrations. <a href="https://developer.github.com/v3/migration/migrations/#get-a-list-of-migrations">REST API doc</a>
+ * @apiDescription Lists the most recent migrations. <a href="https://developer.github.com/v3/migrations/orgs/#get-a-list-of-migrations">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -3077,7 +3079,7 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {PATCH} /repos/:owner/:repo/import/authors/:author_id mapImportCommitAuthor
  * @apiName mapImportCommitAuthor
- * @apiDescription Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href="https://developer.github.com/v3/migration/source_imports/#map-a-commit-author">REST API doc</a>
+ * @apiDescription Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href="https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3097,7 +3099,7 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {PATCH} /repos/:owner/:repo/import/lfs setImportLfsPreference
  * @apiName setImportLfsPreference
- * @apiDescription You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by [Git LFS](https://git-lfs.github.com). You can learn more about our LFS feature and working with large files [on our help site](https://help.github.com/articles/versioning-large-files/). <a href="https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference">REST API doc</a>
+ * @apiDescription You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by [Git LFS](https://git-lfs.github.com). You can learn more about our LFS feature and working with large files [on our help site](https://help.github.com/articles/versioning-large-files/). <a href="https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3115,7 +3117,7 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {PUT} /repos/:owner/:repo/import startImport
  * @apiName startImport
- * @apiDescription Start a source import to a GitHub repository using GitHub Importer. <a href="https://developer.github.com/v3/migration/source_imports/#start-an-import">REST API doc</a>
+ * @apiDescription Start a source import to a GitHub repository using GitHub Importer. <a href="https://developer.github.com/v3/migrations/source_imports/#start-an-import">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3137,7 +3139,7 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {POST} /orgs/:org/migrations startMigration
  * @apiName startMigration
- * @apiDescription Initiates the generation of a migration archive. <a href="https://developer.github.com/v3/migration/migrations/#start-a-migration">REST API doc</a>
+ * @apiDescription Initiates the generation of a migration archive. <a href="https://developer.github.com/v3/migrations/orgs/#start-a-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -3154,20 +3156,20 @@ The `state` of a migration can be one of the following values:
 
 
 /**
- * @api {DELETE} /orgs/:org/migrations/:id/repos/:repo_name/lock unlockRepoLockedForMigration
+ * @api {DELETE} /orgs/:org/migrations/:migration_id/repos/:repo_name/lock unlockRepoLockedForMigration
  * @apiName unlockRepoLockedForMigration
- * @apiDescription Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data. <a href="https://developer.github.com/v3/migration/migrations/#unlock-a-repository">REST API doc</a>
+ * @apiDescription Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data. <a href="https://developer.github.com/v3/migrations/orgs/#unlock-a-repository">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} migration_id  
  * @apiParam {string} repo_name  
  * @apiExample {js} async/await
- * const result = await octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name})
+ * const result = await octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name})
  * @apiExample {js} Promise
- * octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}).then(result => {})
+ * octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}).then(result => {})
  * @apiExample {js} Callback
- * octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}, (error, result) => {})
+ * octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}, (error, result) => {})
  */
 
 
@@ -3180,7 +3182,7 @@ Some servers (e.g. TFS servers) can have several projects at a single URL. In th
 
 The following example demonstrates the workflow for updating an import with "project1" as the project choice. Given a `project_choices` array like such:
 
-To restart an import, no parameters are provided in the update request. <a href="https://developer.github.com/v3/migration/source_imports/#update-existing-import">REST API doc</a>
+To restart an import, no parameters are provided in the update request. <a href="https://developer.github.com/v3/migrations/source_imports/#update-existing-import">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3434,7 +3436,7 @@ To prevent abuse, the authenticated user is limited to 50 organization invitatio
 
 
 /**
- * @api {PUT} /teams/:id/memberships/:username addTeamMembership
+ * @api {PUT} /teams/:team_id/memberships/:username addTeamMembership
  * @apiName addTeamMembership
  * @apiDescription If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.
 
@@ -3445,22 +3447,22 @@ If the user is already a member of the team, this endpoint will update the role 
 If you attempt to add an organization to a team, you will get this: <a href="https://developer.github.com/v3/teams/members/#add-or-update-team-membership">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} username  
  * @apiParam {string=member,maintainer} [role="member"]  The role that this user should have in the team. Can be one of:  
 \* `member` \- a normal member of the team.  
 \* `maintainer` \- a team maintainer. Able to add/remove other team members, promote other team members to team maintainer, and edit the team's name and description.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.addTeamMembership({id, username, role})
+ * const result = await octokit.orgs.addTeamMembership({team_id, username, role})
  * @apiExample {js} Promise
- * octokit.orgs.addTeamMembership({id, username, role}).then(result => {})
+ * octokit.orgs.addTeamMembership({team_id, username, role}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.addTeamMembership({id, username, role}, (error, result) => {})
+ * octokit.orgs.addTeamMembership({team_id, username, role}, (error, result) => {})
  */
 
 
 /**
- * @api {PUT} /teams/:id/repos/:owner/:repo addTeamRepo
+ * @api {PUT} /teams/:team_id/repos/:owner/:repo addTeamRepo
  * @apiName addTeamRepo
  * @apiDescription To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization.
 
@@ -3471,7 +3473,7 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
  <a href="https://developer.github.com/v3/teams/#add-or-update-team-repository">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string=pull,push,admin} [permission]  The permission to grant the team on this repository. Can be one of:  
@@ -3482,11 +3484,11 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
 If no permission is specified, the team's `permission` attribute will be used to determine what permission to grant the team on this repository.  
 **Note**: If you pass the `hellcat-preview` media type, you can promote—but not demote—a `permission` attribute inherited through a parent team.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.addTeamRepo({id, owner, repo, permission})
+ * const result = await octokit.orgs.addTeamRepo({team_id, owner, repo, permission})
  * @apiExample {js} Promise
- * octokit.orgs.addTeamRepo({id, owner, repo, permission}).then(result => {})
+ * octokit.orgs.addTeamRepo({team_id, owner, repo, permission}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.addTeamRepo({id, owner, repo, permission}, (error, result) => {})
+ * octokit.orgs.addTeamRepo({team_id, owner, repo, permission}, (error, result) => {})
  */
 
 
@@ -3561,22 +3563,22 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
 
 
 /**
- * @api {GET} /teams/:id/repos/:owner/:repo checkTeamRepo
+ * @api {GET} /teams/:team_id/repos/:owner/:repo checkTeamRepo
  * @apiName checkTeamRepo
  * @apiDescription **Note**: If you pass the `hellcat-preview` media type, repositories inherited through a parent team will be checked.
 
 You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header: <a href="https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.checkTeamRepo({id, owner, repo})
+ * const result = await octokit.orgs.checkTeamRepo({team_id, owner, repo})
  * @apiExample {js} Promise
- * octokit.orgs.checkTeamRepo({id, owner, repo}).then(result => {})
+ * octokit.orgs.checkTeamRepo({team_id, owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.checkTeamRepo({id, owner, repo}, (error, result) => {})
+ * octokit.orgs.checkTeamRepo({team_id, owner, repo}, (error, result) => {})
  */
 
 
@@ -3696,66 +3698,66 @@ Default for child team: `closed`
 
 
 /**
- * @api {DELETE} /orgs/:org/hooks/:id deleteHook
+ * @api {DELETE} /orgs/:org/hooks/:hook_id deleteHook
  * @apiName deleteHook
  * @apiDescription <a href="https://developer.github.com/v3/orgs/hooks/#delete-a-hook">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.deleteHook({org, id})
+ * const result = await octokit.orgs.deleteHook({org, hook_id})
  * @apiExample {js} Promise
- * octokit.orgs.deleteHook({org, id}).then(result => {})
+ * octokit.orgs.deleteHook({org, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.deleteHook({org, id}, (error, result) => {})
+ * octokit.orgs.deleteHook({org, hook_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /teams/:id deleteTeam
+ * @api {DELETE} /teams/:team_id deleteTeam
  * @apiName deleteTeam
  * @apiDescription To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.
 
 If you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well. <a href="https://developer.github.com/v3/teams/#delete-team">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.deleteTeam({id})
+ * const result = await octokit.orgs.deleteTeam({team_id})
  * @apiExample {js} Promise
- * octokit.orgs.deleteTeam({id}).then(result => {})
+ * octokit.orgs.deleteTeam({team_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.deleteTeam({id}, (error, result) => {})
+ * octokit.orgs.deleteTeam({team_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /teams/:id/repos/:owner/:repo deleteTeamRepo
+ * @api {DELETE} /teams/:team_id/repos/:owner/:repo deleteTeamRepo
  * @apiName deleteTeamRepo
  * @apiDescription If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team. <a href="https://developer.github.com/v3/teams/#remove-team-repository">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.deleteTeamRepo({id, owner, repo})
+ * const result = await octokit.orgs.deleteTeamRepo({team_id, owner, repo})
  * @apiExample {js} Promise
- * octokit.orgs.deleteTeamRepo({id, owner, repo}).then(result => {})
+ * octokit.orgs.deleteTeamRepo({team_id, owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.deleteTeamRepo({id, owner, repo}, (error, result) => {})
+ * octokit.orgs.deleteTeamRepo({team_id, owner, repo}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /orgs/:org/hooks/:id editHook
+ * @api {PATCH} /orgs/:org/hooks/:hook_id editHook
  * @apiName editHook
  * @apiDescription <a href="https://developer.github.com/v3/orgs/hooks/#edit-a-hook">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiParam {object} [config]  Key/value pairs to provide settings for this webhook. [These are defined below](#update-hook-config-params).
  * @apiParam {string} config:url  The URL to which the payloads will be delivered.
  * @apiParam {string} [config:content_type]  The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
@@ -3764,23 +3766,23 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * @apiParam {string[]} [events="["push"]"]  Determines what [events](https://developer.github.com/v3/activity/events/types/) the hook is triggered for.
  * @apiParam {boolean} [active="true"]  Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.editHook({org, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})
+ * const result = await octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})
  * @apiExample {js} Promise
- * octokit.orgs.editHook({org, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})
+ * octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.editHook({org, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})
+ * octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /teams/:id editTeam
+ * @api {PATCH} /teams/:team_id editTeam
  * @apiName editTeam
  * @apiDescription To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.
 
 **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`. <a href="https://developer.github.com/v3/teams/#edit-team">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} name  The name of the team.
  * @apiParam {string} [description]  The description of the team.
  * @apiParam {string} [privacy]  The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:  
@@ -3795,11 +3797,11 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
 \* `admin` \- team members can pull, push and administer newly-added repositories.
  * @apiParam {integer} [parent_team_id]  The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.editTeam({id, name, description, privacy, permission, parent_team_id})
+ * const result = await octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id})
  * @apiExample {js} Promise
- * octokit.orgs.editTeam({id, name, description, privacy, permission, parent_team_id}).then(result => {})
+ * octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.editTeam({id, name, description, privacy, permission, parent_team_id}, (error, result) => {})
+ * octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}, (error, result) => {})
  */
 
 
@@ -3856,22 +3858,22 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
 
 
 /**
- * @api {GET} /teams/:id/teams getChildTeams
+ * @api {GET} /teams/:team_id/teams getChildTeams
  * @apiName getChildTeams
  * @apiDescription At this time, the `hellcat-preview` media type is required to use this endpoint.
 
  <a href="https://developer.github.com/v3/teams/#list-child-teams">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getChildTeams({id, per_page, page})
+ * const result = await octokit.orgs.getChildTeams({team_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.orgs.getChildTeams({id, per_page, page}).then(result => {})
+ * octokit.orgs.getChildTeams({team_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getChildTeams({id, per_page, page}, (error, result) => {})
+ * octokit.orgs.getChildTeams({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -3896,19 +3898,19 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 
 
 /**
- * @api {GET} /orgs/:org/hooks/:id getHook
+ * @api {GET} /orgs/:org/hooks/:hook_id getHook
  * @apiName getHook
  * @apiDescription <a href="https://developer.github.com/v3/orgs/hooks/#get-single-hook">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getHook({org, id})
+ * const result = await octokit.orgs.getHook({org, hook_id})
  * @apiExample {js} Promise
- * octokit.orgs.getHook({org, id}).then(result => {})
+ * octokit.orgs.getHook({org, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getHook({org, id}, (error, result) => {})
+ * octokit.orgs.getHook({org, hook_id}, (error, result) => {})
  */
 
 
@@ -4035,20 +4037,20 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 
 
 /**
- * @api {GET} /teams/:id/invitations getPendingTeamInvites
+ * @api {GET} /teams/:team_id/invitations getPendingTeamInvites
  * @apiName getPendingTeamInvites
  * @apiDescription The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`. <a href="https://developer.github.com/v3/teams/members/#list-pending-team-invitations">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getPendingTeamInvites({id, per_page, page})
+ * const result = await octokit.orgs.getPendingTeamInvites({team_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.orgs.getPendingTeamInvites({id, per_page, page}).then(result => {})
+ * octokit.orgs.getPendingTeamInvites({team_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getPendingTeamInvites({id, per_page, page}, (error, result) => {})
+ * octokit.orgs.getPendingTeamInvites({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4071,28 +4073,28 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 
 
 /**
- * @api {GET} /teams/:id getTeam
+ * @api {GET} /teams/:team_id getTeam
  * @apiName getTeam
  * @apiDescription <a href="https://developer.github.com/v3/teams/#get-team">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getTeam({id})
+ * const result = await octokit.orgs.getTeam({team_id})
  * @apiExample {js} Promise
- * octokit.orgs.getTeam({id}).then(result => {})
+ * octokit.orgs.getTeam({team_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getTeam({id}, (error, result) => {})
+ * octokit.orgs.getTeam({team_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /teams/:id/members getTeamMembers
+ * @api {GET} /teams/:team_id/members getTeamMembers
  * @apiName getTeamMembers
  * @apiDescription If you pass the `hellcat-preview` media type, team members will include the members of child teams. <a href="https://developer.github.com/v3/teams/members/#list-team-members">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string=member,maintainer,all} [role="all"]  Filters members returned by their role in the team. Can be one of:  
 \* `member` \- normal members of the team.  
 \* `maintainer` \- team maintainers.  
@@ -4100,16 +4102,16 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getTeamMembers({id, role, per_page, page})
+ * const result = await octokit.orgs.getTeamMembers({team_id, role, per_page, page})
  * @apiExample {js} Promise
- * octokit.orgs.getTeamMembers({id, role, per_page, page}).then(result => {})
+ * octokit.orgs.getTeamMembers({team_id, role, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getTeamMembers({id, role, per_page, page}, (error, result) => {})
+ * octokit.orgs.getTeamMembers({team_id, role, per_page, page}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /teams/:id/memberships/:username getTeamMembership
+ * @api {GET} /teams/:team_id/memberships/:username getTeamMembership
  * @apiName getTeamMembership
  * @apiDescription If you pass the `hellcat-preview` media type, team members will include the members of child teams.
 
@@ -4118,32 +4120,32 @@ To get a user's membership with a team, the team must be visible to the authenti
 **Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team). <a href="https://developer.github.com/v3/teams/members/#get-team-membership">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getTeamMembership({id, username})
+ * const result = await octokit.orgs.getTeamMembership({team_id, username})
  * @apiExample {js} Promise
- * octokit.orgs.getTeamMembership({id, username}).then(result => {})
+ * octokit.orgs.getTeamMembership({team_id, username}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getTeamMembership({id, username}, (error, result) => {})
+ * octokit.orgs.getTeamMembership({team_id, username}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /teams/:id/repos getTeamRepos
+ * @api {GET} /teams/:team_id/repos getTeamRepos
  * @apiName getTeamRepos
  * @apiDescription **Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team. <a href="https://developer.github.com/v3/teams/#list-team-repos">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.getTeamRepos({id, per_page, page})
+ * const result = await octokit.orgs.getTeamRepos({team_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.orgs.getTeamRepos({id, per_page, page}).then(result => {})
+ * octokit.orgs.getTeamRepos({team_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.getTeamRepos({id, per_page, page}, (error, result) => {})
+ * octokit.orgs.getTeamRepos({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4166,19 +4168,19 @@ To get a user's membership with a team, the team must be visible to the authenti
 
 
 /**
- * @api {POST} /orgs/:org/hooks/:id/pings pingHook
+ * @api {POST} /orgs/:org/hooks/:hook_id/pings pingHook
  * @apiName pingHook
  * @apiDescription This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook. <a href="https://developer.github.com/v3/orgs/hooks/#ping-a-hook">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.pingHook({org, id})
+ * const result = await octokit.orgs.pingHook({org, hook_id})
  * @apiExample {js} Promise
- * octokit.orgs.pingHook({org, id}).then(result => {})
+ * octokit.orgs.pingHook({org, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.pingHook({org, id}, (error, result) => {})
+ * octokit.orgs.pingHook({org, hook_id}, (error, result) => {})
  */
 
 
@@ -4255,19 +4257,19 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
- * @api {DELETE} /teams/:id/memberships/:username removeTeamMembership
+ * @api {DELETE} /teams/:team_id/memberships/:username removeTeamMembership
  * @apiName removeTeamMembership
  * @apiDescription To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team. <a href="https://developer.github.com/v3/teams/members/#remove-team-membership">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} id  
+ * @apiParam {string} team_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await octokit.orgs.removeTeamMembership({id, username})
+ * const result = await octokit.orgs.removeTeamMembership({team_id, username})
  * @apiExample {js} Promise
- * octokit.orgs.removeTeamMembership({id, username}).then(result => {})
+ * octokit.orgs.removeTeamMembership({team_id, username}).then(result => {})
  * @apiExample {js} Callback
- * octokit.orgs.removeTeamMembership({id, username}, (error, result) => {})
+ * octokit.orgs.removeTeamMembership({team_id, username}, (error, result) => {})
  */
 
 
@@ -4328,23 +4330,23 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
- * @api {PUT} /projects/:id/collaborators/:username addCollaborator
+ * @api {PUT} /projects/:project_id/collaborators/:username addCollaborator
  * @apiName addCollaborator
  * @apiDescription Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} id  
+ * @apiParam {string} project_id  
  * @apiParam {string} username  
  * @apiParam {string=read,write,admin} [permission="write"]  The permission to grant the collaborator. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." Can be one of:  
 \* `read` \- can read, but not write to or administer this project.  
 \* `write` \- can read and write, but not administer this project.  
 \* `admin` \- can read, write and administer this project.
  * @apiExample {js} async/await
- * const result = await octokit.projects.addCollaborator({id, username, permission})
+ * const result = await octokit.projects.addCollaborator({project_id, username, permission})
  * @apiExample {js} Promise
- * octokit.projects.addCollaborator({id, username, permission}).then(result => {})
+ * octokit.projects.addCollaborator({project_id, username, permission}).then(result => {})
  * @apiExample {js} Callback
- * octokit.projects.addCollaborator({id, username, permission}, (error, result) => {})
+ * octokit.projects.addCollaborator({project_id, username, permission}, (error, result) => {})
  */
 
 
@@ -4371,13 +4373,16 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {POST} /projects/columns/:column_id/cards createProjectCard
  * @apiName createProjectCard
- * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#create-a-project-card">REST API doc</a>
+ * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
+
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint. <a href="https://developer.github.com/v3/projects/cards/#create-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {string} column_id  
- * @apiParam {string} [note]  The card's note content. Only valid for cards without another type of content, so this must be omitted if `content_id` and `content_type` are specified.
- * @apiParam {integer} [content_id]  The id of the issue to associate with this card.
- * @apiParam {string} [content_type]  **Required if you provide `content_id`**. The type of content to associate with this card. Can only be "Issue" at this time.
+ * @apiParam {string} [note]  The card's note content. Only valid for cards without another type of content, so you must omit when specifying `content_id` and `content_type`.
+ * @apiParam {integer} [content_id]  The issue or pull request id you want to associate with this card. You can use the [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository) and [List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests) endpoints to find this id.  
+**Note:** Depending on whether you use the issue id or pull request id, you will need to specify `Issue` or `PullRequest` as the `content_type`.
+ * @apiParam {string} [content_type]  **Required if you provide `content_id`**. The type of content you want to associate with this card. Use `Issue` when `content_id` is an issue id and use `PullRequest` when `content_id` is a pull request id.
  * @apiExample {js} async/await
  * const result = await octokit.projects.createProjectCard({column_id, note, content_id, content_type})
  * @apiExample {js} Promise
@@ -4474,12 +4479,12 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
- * @api {GET} /projects/:id/collaborators getCollaborators
+ * @api {GET} /projects/:project_id/collaborators getCollaborators
  * @apiName getCollaborators
  * @apiDescription Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators. <a href="https://developer.github.com/v3/projects/collaborators/#list-collaborators">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} id  
+ * @apiParam {string} project_id  
  * @apiParam {string=outside,direct,all} [affiliation="all"]  Filters the collaborators by their affiliation. Can be one of:  
 \* `outside`: Outside collaborators of a project that are not a member of the project's organization.  
 \* `direct`: Collaborators with permissions to a project, regardless of organization membership status.  
@@ -4487,11 +4492,11 @@ If the specified user is an active member of the organization, this will remove 
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.projects.getCollaborators({id, affiliation, per_page, page})
+ * const result = await octokit.projects.getCollaborators({project_id, affiliation, per_page, page})
  * @apiExample {js} Promise
- * octokit.projects.getCollaborators({id, affiliation, per_page, page}).then(result => {})
+ * octokit.projects.getCollaborators({project_id, affiliation, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.projects.getCollaborators({id, affiliation, per_page, page}, (error, result) => {})
+ * octokit.projects.getCollaborators({project_id, affiliation, per_page, page}, (error, result) => {})
  */
 
 
@@ -4621,19 +4626,19 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
- * @api {GET} /projects/:id/collaborators/:username/permission getUserPermissionLevel
+ * @api {GET} /projects/:project_id/collaborators/:username/permission getUserPermissionLevel
  * @apiName getUserPermissionLevel
  * @apiDescription Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level. <a href="https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} id  
+ * @apiParam {string} project_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await octokit.projects.getUserPermissionLevel({id, username})
+ * const result = await octokit.projects.getUserPermissionLevel({project_id, username})
  * @apiExample {js} Promise
- * octokit.projects.getUserPermissionLevel({id, username}).then(result => {})
+ * octokit.projects.getUserPermissionLevel({project_id, username}).then(result => {})
  * @apiExample {js} Callback
- * octokit.projects.getUserPermissionLevel({id, username}, (error, result) => {})
+ * octokit.projects.getUserPermissionLevel({project_id, username}, (error, result) => {})
  */
 
 
@@ -4673,19 +4678,19 @@ If the specified user is an active member of the organization, this will remove 
 
 
 /**
- * @api {DELETE} /projects/:id/collaborators/:username removeCollaborator
+ * @api {DELETE} /projects/:project_id/collaborators/:username removeCollaborator
  * @apiName removeCollaborator
  * @apiDescription Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} id  
+ * @apiParam {string} project_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
- * const result = await octokit.projects.removeCollaborator({id, username})
+ * const result = await octokit.projects.removeCollaborator({project_id, username})
  * @apiExample {js} Promise
- * octokit.projects.removeCollaborator({id, username}).then(result => {})
+ * octokit.projects.removeCollaborator({project_id, username}).then(result => {})
  * @apiExample {js} Callback
- * octokit.projects.removeCollaborator({id, username}, (error, result) => {})
+ * octokit.projects.removeCollaborator({project_id, username}, (error, result) => {})
  */
 
 
@@ -4911,25 +4916,25 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/pulls/comments/:id deleteComment
+ * @api {DELETE} /repos/:owner/:repo/pulls/comments/:comment_id deleteComment
  * @apiName deleteComment
  * @apiDescription <a href="https://developer.github.com/v3/pulls/comments/#delete-a-comment">REST API doc</a>
  * @apiGroup PullRequests
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.deleteComment({owner, repo, id})
+ * const result = await octokit.pullRequests.deleteComment({owner, repo, comment_id})
  * @apiExample {js} Promise
- * octokit.pullRequests.deleteComment({owner, repo, id}).then(result => {})
+ * octokit.pullRequests.deleteComment({owner, repo, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.deleteComment({owner, repo, id}, (error, result) => {})
+ * octokit.pullRequests.deleteComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/pulls/:number/reviews/:id deletePendingReview
+ * @api {DELETE} /repos/:owner/:repo/pulls/:number/reviews/:review_id deletePendingReview
  * @apiName deletePendingReview
  * @apiDescription <a href="https://developer.github.com/v3/pulls/reviews/#delete-a-pending-review">REST API doc</a>
  * @apiGroup PullRequests
@@ -4937,13 +4942,13 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} id  
+ * @apiParam {string} review_id  
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, id})
+ * const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, review_id})
  * @apiExample {js} Promise
- * octokit.pullRequests.deletePendingReview({owner, repo, number, id}).then(result => {})
+ * octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.deletePendingReview({owner, repo, number, id}, (error, result) => {})
+ * octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}, (error, result) => {})
  */
 
 
@@ -4968,7 +4973,7 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 
 
 /**
- * @api {PUT} /repos/:owner/:repo/pulls/:number/reviews/:id/dismissals dismissReview
+ * @api {PUT} /repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals dismissReview
  * @apiName dismissReview
  * @apiDescription **Note:** To dismiss a pull request review on a [protected branch](https://developer.github.com/v3/repos/branches/), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews. <a href="https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review">REST API doc</a>
  * @apiGroup PullRequests
@@ -4976,33 +4981,33 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} id  
+ * @apiParam {string} review_id  
  * @apiParam {string} [message]  **Required.** The message for the pull request review dismissal
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.dismissReview({owner, repo, number, id, message})
+ * const result = await octokit.pullRequests.dismissReview({owner, repo, number, review_id, message})
  * @apiExample {js} Promise
- * octokit.pullRequests.dismissReview({owner, repo, number, id, message}).then(result => {})
+ * octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.dismissReview({owner, repo, number, id, message}, (error, result) => {})
+ * octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/pulls/comments/:id editComment
+ * @api {PATCH} /repos/:owner/:repo/pulls/comments/:comment_id editComment
  * @apiName editComment
  * @apiDescription <a href="https://developer.github.com/v3/pulls/comments/#edit-a-comment">REST API doc</a>
  * @apiGroup PullRequests
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string} body  The text of the comment.
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.editComment({owner, repo, id, body})
+ * const result = await octokit.pullRequests.editComment({owner, repo, comment_id, body})
  * @apiExample {js} Promise
- * octokit.pullRequests.editComment({owner, repo, id, body}).then(result => {})
+ * octokit.pullRequests.editComment({owner, repo, comment_id, body}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.editComment({owner, repo, id, body}, (error, result) => {})
+ * octokit.pullRequests.editComment({owner, repo, comment_id, body}, (error, result) => {})
  */
 
 
@@ -5061,20 +5066,20 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {GET} /repos/:owner/:repo/pulls/comments/:id getComment
+ * @api {GET} /repos/:owner/:repo/pulls/comments/:comment_id getComment
  * @apiName getComment
  * @apiDescription <a href="https://developer.github.com/v3/pulls/comments/#get-a-single-comment">REST API doc</a>
  * @apiGroup PullRequests
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.getComment({owner, repo, id})
+ * const result = await octokit.pullRequests.getComment({owner, repo, comment_id})
  * @apiExample {js} Promise
- * octokit.pullRequests.getComment({owner, repo, id}).then(result => {})
+ * octokit.pullRequests.getComment({owner, repo, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.getComment({owner, repo, id}, (error, result) => {})
+ * octokit.pullRequests.getComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -5164,7 +5169,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {GET} /repos/:owner/:repo/pulls/:number/reviews/:id getReview
+ * @api {GET} /repos/:owner/:repo/pulls/:number/reviews/:review_id getReview
  * @apiName getReview
  * @apiDescription <a href="https://developer.github.com/v3/pulls/reviews/#get-a-single-review">REST API doc</a>
  * @apiGroup PullRequests
@@ -5172,18 +5177,18 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} id  
+ * @apiParam {string} review_id  
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.getReview({owner, repo, number, id})
+ * const result = await octokit.pullRequests.getReview({owner, repo, number, review_id})
  * @apiExample {js} Promise
- * octokit.pullRequests.getReview({owner, repo, number, id}).then(result => {})
+ * octokit.pullRequests.getReview({owner, repo, number, review_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.getReview({owner, repo, number, id}, (error, result) => {})
+ * octokit.pullRequests.getReview({owner, repo, number, review_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/pulls/:number/reviews/:id/comments getReviewComments
+ * @api {GET} /repos/:owner/:repo/pulls/:number/reviews/:review_id/comments getReviewComments
  * @apiName getReviewComments
  * @apiDescription <a href="https://developer.github.com/v3/pulls/reviews/#get-comments-for-a-single-review">REST API doc</a>
  * @apiGroup PullRequests
@@ -5191,15 +5196,15 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} id  
+ * @apiParam {string} review_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.getReviewComments({owner, repo, number, id, per_page, page})
+ * const result = await octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.pullRequests.getReviewComments({owner, repo, number, id, per_page, page}).then(result => {})
+ * octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.getReviewComments({owner, repo, number, id, per_page, page}, (error, result) => {})
+ * octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -5266,7 +5271,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {POST} /repos/:owner/:repo/pulls/:number/reviews/:id/events submitReview
+ * @api {POST} /repos/:owner/:repo/pulls/:number/reviews/:review_id/events submitReview
  * @apiName submitReview
  * @apiDescription <a href="https://developer.github.com/v3/pulls/reviews/#submit-a-pull-request-review">REST API doc</a>
  * @apiGroup PullRequests
@@ -5274,15 +5279,15 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} id  
+ * @apiParam {string} review_id  
  * @apiParam {string} [body]  The body text of the pull request review
  * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT} [event]  **Required.** The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. When you leave this blank, the API returns _HTTP 422 (Unrecognizable entity)_ and sets the review action state to `PENDING`, which means you will need to re-submit the pull request review using a review action.
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.submitReview({owner, repo, number, id, body, event})
+ * const result = await octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event})
  * @apiExample {js} Promise
- * octokit.pullRequests.submitReview({owner, repo, number, id, body, event}).then(result => {})
+ * octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.submitReview({owner, repo, number, id, body, event}, (error, result) => {})
+ * octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}, (error, result) => {})
  */
 
 
@@ -5317,21 +5322,21 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {POST} /repos/:owner/:repo/comments/:id/reactions createForCommitComment
+ * @api {POST} /repos/:owner/:repo/comments/:comment_id/reactions createForCommitComment
  * @apiName createForCommitComment
  * @apiDescription Create a reaction to a [commit comment](https://developer.github.com/v3/repos/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this commit comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the commit comment.
  * @apiExample {js} async/await
- * const result = await octokit.reactions.createForCommitComment({owner, repo, id, content})
+ * const result = await octokit.reactions.createForCommitComment({owner, repo, comment_id, content})
  * @apiExample {js} Promise
- * octokit.reactions.createForCommitComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.createForCommitComment({owner, repo, comment_id, content}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.createForCommitComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.createForCommitComment({owner, repo, comment_id, content}, (error, result) => {})
  */
 
 
@@ -5355,40 +5360,40 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {POST} /repos/:owner/:repo/issues/comments/:id/reactions createForIssueComment
+ * @api {POST} /repos/:owner/:repo/issues/comments/:comment_id/reactions createForIssueComment
  * @apiName createForIssueComment
  * @apiDescription Create a reaction to an [issue comment](https://developer.github.com/v3/issues/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the issue comment.
  * @apiExample {js} async/await
- * const result = await octokit.reactions.createForIssueComment({owner, repo, id, content})
+ * const result = await octokit.reactions.createForIssueComment({owner, repo, comment_id, content})
  * @apiExample {js} Promise
- * octokit.reactions.createForIssueComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.createForIssueComment({owner, repo, comment_id, content}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.createForIssueComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.createForIssueComment({owner, repo, comment_id, content}, (error, result) => {})
  */
 
 
 /**
- * @api {POST} /repos/:owner/:repo/pulls/comments/:id/reactions createForPullRequestReviewComment
+ * @api {POST} /repos/:owner/:repo/pulls/comments/:comment_id/reactions createForPullRequestReviewComment
  * @apiName createForPullRequestReviewComment
  * @apiDescription Create a reaction to a [pull request review comment](https://developer.github.com/v3/pulls/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this pull request review comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the pull request review comment.
  * @apiExample {js} async/await
- * const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content})
+ * const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content})
  * @apiExample {js} Promise
- * octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}).then(result => {})
+ * octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})
+ * octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}, (error, result) => {})
  */
 
 
@@ -5430,39 +5435,39 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {DELETE} /reactions/:id delete
+ * @api {DELETE} /reactions/:reaction_id delete
  * @apiName delete
  * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). <a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
  * @apiGroup Reactions
  *
- * @apiParam {string} id  
+ * @apiParam {string} reaction_id  
  * @apiExample {js} async/await
- * const result = await octokit.reactions.delete({id})
+ * const result = await octokit.reactions.delete({reaction_id})
  * @apiExample {js} Promise
- * octokit.reactions.delete({id}).then(result => {})
+ * octokit.reactions.delete({reaction_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.delete({id}, (error, result) => {})
+ * octokit.reactions.delete({reaction_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/comments/:id/reactions getForCommitComment
+ * @api {GET} /repos/:owner/:repo/comments/:comment_id/reactions getForCommitComment
  * @apiName getForCommitComment
  * @apiDescription List the reactions to a [commit comment](https://developer.github.com/v3/repos/comments/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a commit comment.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.reactions.getForCommitComment({owner, repo, id, content, per_page, page})
+ * const result = await octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page})
  * @apiExample {js} Promise
- * octokit.reactions.getForCommitComment({owner, repo, id, content, per_page, page}).then(result => {})
+ * octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.getForCommitComment({owner, repo, id, content, per_page, page}, (error, result) => {})
+ * octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5488,44 +5493,44 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 
 /**
- * @api {GET} /repos/:owner/:repo/issues/comments/:id/reactions getForIssueComment
+ * @api {GET} /repos/:owner/:repo/issues/comments/:comment_id/reactions getForIssueComment
  * @apiName getForIssueComment
  * @apiDescription List the reactions to an [issue comment](https://developer.github.com/v3/issues/comments/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-an-issue-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to an issue comment.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.reactions.getForIssueComment({owner, repo, id, content, per_page, page})
+ * const result = await octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page})
  * @apiExample {js} Promise
- * octokit.reactions.getForIssueComment({owner, repo, id, content, per_page, page}).then(result => {})
+ * octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.getForIssueComment({owner, repo, id, content, per_page, page}, (error, result) => {})
+ * octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/pulls/comments/:id/reactions getForPullRequestReviewComment
+ * @api {GET} /repos/:owner/:repo/pulls/comments/:comment_id/reactions getForPullRequestReviewComment
  * @apiName getForPullRequestReviewComment
  * @apiDescription List the reactions to a [pull request review comment](https://developer.github.com/v3/pulls/comments/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a pull request review comment.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content, per_page, page})
+ * const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page})
  * @apiExample {js} Promise
- * octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content, per_page, page}).then(result => {})
+ * octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content, per_page, page}, (error, result) => {})
+ * octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5885,14 +5890,14 @@ This error happens when the `required_contexts` parameter indicates that one or 
 
 
 /**
- * @api {POST} /repos/:owner/:repo/deployments/:id/statuses createDeploymentStatus
+ * @api {POST} /repos/:owner/:repo/deployments/:deployment_id/statuses createDeploymentStatus
  * @apiName createDeploymentStatus
  * @apiDescription Users with push access can create deployment statuses for a given deployment: <a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment-status">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} deployment_id  
  * @apiParam {string=error,failure,inactive,pending,success} state  The state of the status. Can be one of `error`, `failure`, `inactive`, `pending`, or `success`. **The `inactive` state requires a custom media type to be specified. Please see more in the alert below.**
  * @apiParam {string} [target_url=""""]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.
  * @apiParam {string} [log_url=""""]  This is functionally equivalent to `target_url`. We will continue accept `target_url` to support legacy uses, but we recommend modifying this to the new name to avoid confusion. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
@@ -5900,11 +5905,11 @@ This error happens when the `required_contexts` parameter indicates that one or 
  * @apiParam {string} [environment_url=""""]  Sets the URL for accessing your environment. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
  * @apiParam {boolean} [auto_inactive="true"]  Adds a new `inactive` status to all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
  * @apiExample {js} async/await
- * const result = await octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive})
+ * const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive})
  * @apiExample {js} Promise
- * octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})
+ * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})
+ * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})
  */
 
 
@@ -6079,74 +6084,74 @@ If an organization owner has configured the organization to prevent members from
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/releases/assets/:id deleteAsset
+ * @api {DELETE} /repos/:owner/:repo/releases/assets/:asset_id deleteAsset
  * @apiName deleteAsset
  * @apiDescription <a href="https://developer.github.com/v3/repos/releases/#delete-a-release-asset">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} asset_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.deleteAsset({owner, repo, id})
+ * const result = await octokit.repos.deleteAsset({owner, repo, asset_id})
  * @apiExample {js} Promise
- * octokit.repos.deleteAsset({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteAsset({owner, repo, asset_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.deleteAsset({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteAsset({owner, repo, asset_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/comments/:id deleteCommitComment
+ * @api {DELETE} /repos/:owner/:repo/comments/:comment_id deleteCommitComment
  * @apiName deleteCommitComment
  * @apiDescription <a href="https://developer.github.com/v3/repos/comments/#delete-a-commit-comment">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.deleteCommitComment({owner, repo, id})
+ * const result = await octokit.repos.deleteCommitComment({owner, repo, comment_id})
  * @apiExample {js} Promise
- * octokit.repos.deleteCommitComment({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteCommitComment({owner, repo, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.deleteCommitComment({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteCommitComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/keys/:id deleteDeployKey
+ * @api {DELETE} /repos/:owner/:repo/keys/:key_id deleteDeployKey
  * @apiName deleteDeployKey
  * @apiDescription <a href="https://developer.github.com/v3/repos/keys/#remove-a-deploy-key">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} key_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.deleteDeployKey({owner, repo, id})
+ * const result = await octokit.repos.deleteDeployKey({owner, repo, key_id})
  * @apiExample {js} Promise
- * octokit.repos.deleteDeployKey({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteDeployKey({owner, repo, key_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.deleteDeployKey({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteDeployKey({owner, repo, key_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/downloads/:id deleteDownload
+ * @api {DELETE} /repos/:owner/:repo/downloads/:download_id deleteDownload
  * @apiName deleteDownload
  * @apiDescription <a href="https://developer.github.com/v3/repos/downloads/#delete-a-download">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} download_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.deleteDownload({owner, repo, id})
+ * const result = await octokit.repos.deleteDownload({owner, repo, download_id})
  * @apiExample {js} Promise
- * octokit.repos.deleteDownload({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteDownload({owner, repo, download_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.deleteDownload({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteDownload({owner, repo, download_id}, (error, result) => {})
  */
 
 
@@ -6185,20 +6190,20 @@ Both the `author` and `committer` parameters have the same keys:
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/hooks/:id deleteHook
+ * @api {DELETE} /repos/:owner/:repo/hooks/:hook_id deleteHook
  * @apiName deleteHook
  * @apiDescription <a href="https://developer.github.com/v3/repos/hooks/#delete-a-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.deleteHook({owner, repo, id})
+ * const result = await octokit.repos.deleteHook({owner, repo, hook_id})
  * @apiExample {js} Promise
- * octokit.repos.deleteHook({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteHook({owner, repo, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.deleteHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -6221,20 +6226,20 @@ Both the `author` and `committer` parameters have the same keys:
 
 
 /**
- * @api {DELETE} /repos/:owner/:repo/releases/:id deleteRelease
+ * @api {DELETE} /repos/:owner/:repo/releases/:release_id deleteRelease
  * @apiName deleteRelease
  * @apiDescription Users with push access to the repository can delete a release. <a href="https://developer.github.com/v3/repos/releases/#delete-a-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} release_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.deleteRelease({owner, repo, id})
+ * const result = await octokit.repos.deleteRelease({owner, repo, release_id})
  * @apiExample {js} Promise
- * octokit.repos.deleteRelease({owner, repo, id}).then(result => {})
+ * octokit.repos.deleteRelease({owner, repo, release_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.deleteRelease({owner, repo, id}, (error, result) => {})
+ * octokit.repos.deleteRelease({owner, repo, release_id}, (error, result) => {})
  */
 
 
@@ -6269,34 +6274,34 @@ Both the `author` and `committer` parameters have the same keys:
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/releases/assets/:id editAsset
+ * @api {PATCH} /repos/:owner/:repo/releases/assets/:asset_id editAsset
  * @apiName editAsset
  * @apiDescription Users with push access to the repository can edit a release asset. <a href="https://developer.github.com/v3/repos/releases/#edit-a-release-asset">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} asset_id  
  * @apiParam {string} [name]  The file name of the asset.
  * @apiParam {string} [label]  An alternate short description of the asset. Used in place of the filename.
  * @apiExample {js} async/await
- * const result = await octokit.repos.editAsset({owner, repo, id, name, label})
+ * const result = await octokit.repos.editAsset({owner, repo, asset_id, name, label})
  * @apiExample {js} Promise
- * octokit.repos.editAsset({owner, repo, id, name, label}).then(result => {})
+ * octokit.repos.editAsset({owner, repo, asset_id, name, label}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.editAsset({owner, repo, id, name, label}, (error, result) => {})
+ * octokit.repos.editAsset({owner, repo, asset_id, name, label}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/hooks/:id editHook
+ * @api {PATCH} /repos/:owner/:repo/hooks/:hook_id editHook
  * @apiName editHook
  * @apiDescription <a href="https://developer.github.com/v3/repos/hooks/#edit-a-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiParam {object} [config]  Key/value pairs to provide settings for this webhook. [These are defined below](#create-hook-config-params).
  * @apiParam {string} config:url  The URL to which the payloads will be delivered.
  * @apiParam {string} [config:content_type]  The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
@@ -6307,23 +6312,23 @@ Both the `author` and `committer` parameters have the same keys:
  * @apiParam {string[]} [remove_events]  Determines a list of events to be removed from the list of events that the Hook triggers for.
  * @apiParam {boolean} [active="true"]  Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
  * @apiExample {js} async/await
- * const result = await octokit.repos.editHook({owner, repo, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active})
+ * const result = await octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active})
  * @apiExample {js} Promise
- * octokit.repos.editHook({owner, repo, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}).then(result => {})
+ * octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.editHook({owner, repo, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}, (error, result) => {})
+ * octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}, (error, result) => {})
  */
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/releases/:id editRelease
+ * @api {PATCH} /repos/:owner/:repo/releases/:release_id editRelease
  * @apiName editRelease
  * @apiDescription Users with push access to the repository can edit a release. <a href="https://developer.github.com/v3/repos/releases/#edit-a-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} release_id  
  * @apiParam {string} [tag_name]  The name of the tag.
  * @apiParam {string} [target_commitish="the repository's default branch (usually `master`):"]  Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists.
  * @apiParam {string} [name]  The name of the release.
@@ -6331,11 +6336,11 @@ Both the `author` and `committer` parameters have the same keys:
  * @apiParam {boolean} [draft]  `true` makes the release a draft, and `false` publishes the release.
  * @apiParam {boolean} [prerelease]  `true` to identify the release as a prerelease, `false` to identify the release as a full release.
  * @apiExample {js} async/await
- * const result = await octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease})
+ * const result = await octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease})
  * @apiExample {js} Promise
- * octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
+ * octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
+ * octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
  */
 
 
@@ -6450,40 +6455,40 @@ To follow redirects with curl, use the `-L` switch:
 
 
 /**
- * @api {GET} /repos/:owner/:repo/releases/assets/:id getAsset
+ * @api {GET} /repos/:owner/:repo/releases/assets/:asset_id getAsset
  * @apiName getAsset
  * @apiDescription To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://developer.github.com/v3/media/#media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response. <a href="https://developer.github.com/v3/repos/releases/#get-a-single-release-asset">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} asset_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getAsset({owner, repo, id})
+ * const result = await octokit.repos.getAsset({owner, repo, asset_id})
  * @apiExample {js} Promise
- * octokit.repos.getAsset({owner, repo, id}).then(result => {})
+ * octokit.repos.getAsset({owner, repo, asset_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getAsset({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getAsset({owner, repo, asset_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/releases/:id/assets getAssets
+ * @api {GET} /repos/:owner/:repo/releases/:release_id/assets getAssets
  * @apiName getAssets
  * @apiDescription <a href="https://developer.github.com/v3/repos/releases/#list-assets-for-a-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} release_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.repos.getAssets({owner, repo, id, per_page, page})
+ * const result = await octokit.repos.getAssets({owner, repo, release_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.repos.getAssets({owner, repo, id, per_page, page}).then(result => {})
+ * octokit.repos.getAssets({owner, repo, release_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getAssets({owner, repo, id, per_page, page}, (error, result) => {})
+ * octokit.repos.getAssets({owner, repo, release_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -6631,20 +6636,20 @@ Additionally, a combined `state` is returned. The `state` is one of:
 
 
 /**
- * @api {GET} /repos/:owner/:repo/comments/:id getCommitComment
+ * @api {GET} /repos/:owner/:repo/comments/:comment_id getCommitComment
  * @apiName getCommitComment
  * @apiDescription <a href="https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getCommitComment({owner, repo, id})
+ * const result = await octokit.repos.getCommitComment({owner, repo, comment_id})
  * @apiExample {js} Promise
- * octokit.repos.getCommitComment({owner, repo, id}).then(result => {})
+ * octokit.repos.getCommitComment({owner, repo, comment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getCommitComment({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getCommitComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -6771,20 +6776,20 @@ GitHub identifies contributors by author email address. This endpoint groups con
 
 
 /**
- * @api {GET} /repos/:owner/:repo/keys/:id getDeployKey
+ * @api {GET} /repos/:owner/:repo/keys/:key_id getDeployKey
  * @apiName getDeployKey
  * @apiDescription <a href="https://developer.github.com/v3/repos/keys/#get-a-deploy-key">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} key_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDeployKey({owner, repo, id})
+ * const result = await octokit.repos.getDeployKey({owner, repo, key_id})
  * @apiExample {js} Promise
- * octokit.repos.getDeployKey({owner, repo, id}).then(result => {})
+ * octokit.repos.getDeployKey({owner, repo, key_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDeployKey({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getDeployKey({owner, repo, key_id}, (error, result) => {})
  */
 
 
@@ -6808,7 +6813,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
 
 
 /**
- * @api {GET} /repos/:owner/:repo/deployments/:id getDeployment
+ * @api {GET} /repos/:owner/:repo/deployments/:deployment_id getDeployment
  * @apiName getDeployment
  * @apiDescription 
 
@@ -6817,18 +6822,18 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} deployment_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDeployment({owner, repo, id})
+ * const result = await octokit.repos.getDeployment({owner, repo, deployment_id})
  * @apiExample {js} Promise
- * octokit.repos.getDeployment({owner, repo, id}).then(result => {})
+ * octokit.repos.getDeployment({owner, repo, deployment_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDeployment({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/deployments/:id/statuses/:status_id getDeploymentStatus
+ * @api {GET} /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id getDeploymentStatus
  * @apiName getDeploymentStatus
  * @apiDescription Users with pull access can view a deployment status for a deployment:
 
@@ -6839,34 +6844,36 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
+ * @apiParam {string} deployment_id  
  * @apiParam {integer} id  The deployment ID to list the statuses from.
  * @apiParam {integer} status_id  The deployment status ID.
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDeploymentStatus({owner, repo, id, status_id})
+ * const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id})
  * @apiExample {js} Promise
- * octokit.repos.getDeploymentStatus({owner, repo, id, status_id}).then(result => {})
+ * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDeploymentStatus({owner, repo, id, status_id}, (error, result) => {})
+ * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}, (error, result) => {})
  */
 
 
 /**
- * @api {GET} /repos/:owner/:repo/deployments/:id/statuses getDeploymentStatuses
+ * @api {GET} /repos/:owner/:repo/deployments/:deployment_id/statuses getDeploymentStatuses
  * @apiName getDeploymentStatuses
  * @apiDescription Users with pull access can view deployment statuses for a deployment: <a href="https://developer.github.com/v3/repos/deployments/#list-deployment-statuses">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
+ * @apiParam {string} deployment_id  
  * @apiParam {integer} id  The deployment ID to list the statuses from.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDeploymentStatuses({owner, repo, id, per_page, page})
+ * const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page})
  * @apiExample {js} Promise
- * octokit.repos.getDeploymentStatuses({owner, repo, id, per_page, page}).then(result => {})
+ * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDeploymentStatuses({owner, repo, id, per_page, page}, (error, result) => {})
+ * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}, (error, result) => {})
  */
 
 
@@ -6894,20 +6901,20 @@ GitHub identifies contributors by author email address. This endpoint groups con
 
 
 /**
- * @api {GET} /repos/:owner/:repo/downloads/:id getDownload
+ * @api {GET} /repos/:owner/:repo/downloads/:download_id getDownload
  * @apiName getDownload
  * @apiDescription <a href="https://developer.github.com/v3/repos/downloads/#get-a-single-download">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} download_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDownload({owner, repo, id})
+ * const result = await octokit.repos.getDownload({owner, repo, download_id})
  * @apiExample {js} Promise
- * octokit.repos.getDownload({owner, repo, id}).then(result => {})
+ * octokit.repos.getDownload({owner, repo, download_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDownload({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getDownload({owner, repo, download_id}, (error, result) => {})
  */
 
 
@@ -6991,20 +6998,20 @@ GitHub identifies contributors by author email address. This endpoint groups con
 
 
 /**
- * @api {GET} /repos/:owner/:repo/hooks/:id getHook
+ * @api {GET} /repos/:owner/:repo/hooks/:hook_id getHook
  * @apiName getHook
  * @apiDescription <a href="https://developer.github.com/v3/repos/hooks/#get-single-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getHook({owner, repo, id})
+ * const result = await octokit.repos.getHook({owner, repo, hook_id})
  * @apiExample {js} Promise
- * octokit.repos.getHook({owner, repo, id}).then(result => {})
+ * octokit.repos.getHook({owner, repo, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -7122,20 +7129,20 @@ GitHub identifies contributors by author email address. This endpoint groups con
 
 
 /**
- * @api {GET} /repos/:owner/:repo/pages/builds/:id getPagesBuild
+ * @api {GET} /repos/:owner/:repo/pages/builds/:build_id getPagesBuild
  * @apiName getPagesBuild
  * @apiDescription <a href="https://developer.github.com/v3/repos/pages/#get-a-specific-pages-build">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} build_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getPagesBuild({owner, repo, id})
+ * const result = await octokit.repos.getPagesBuild({owner, repo, build_id})
  * @apiExample {js} Promise
- * octokit.repos.getPagesBuild({owner, repo, id}).then(result => {})
+ * octokit.repos.getPagesBuild({owner, repo, build_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getPagesBuild({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getPagesBuild({owner, repo, build_id}, (error, result) => {})
  */
 
 
@@ -7379,20 +7386,20 @@ READMEs support [custom media types](#custom-media-types) for retrieving the raw
 
 
 /**
- * @api {GET} /repos/:owner/:repo/releases/:id getRelease
+ * @api {GET} /repos/:owner/:repo/releases/:release_id getRelease
  * @apiName getRelease
  * @apiDescription **Note:** This returns an `upload_url` key corresponding to the endpoint for uploading release assets. This key is a [hypermedia resource](https://developer.github.com/v3/#hypermedia). <a href="https://developer.github.com/v3/repos/releases/#get-a-single-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} release_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getRelease({owner, repo, id})
+ * const result = await octokit.repos.getRelease({owner, repo, release_id})
  * @apiExample {js} Promise
- * octokit.repos.getRelease({owner, repo, id}).then(result => {})
+ * octokit.repos.getRelease({owner, repo, release_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getRelease({owner, repo, id}, (error, result) => {})
+ * octokit.repos.getRelease({owner, repo, release_id}, (error, result) => {})
  */
 
 
@@ -7687,20 +7694,20 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
 
 
 /**
- * @api {POST} /repos/:owner/:repo/hooks/:id/pings pingHook
+ * @api {POST} /repos/:owner/:repo/hooks/:hook_id/pings pingHook
  * @apiName pingHook
  * @apiDescription This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook. <a href="https://developer.github.com/v3/repos/hooks/#ping-a-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.pingHook({owner, repo, id})
+ * const result = await octokit.repos.pingHook({owner, repo, hook_id})
  * @apiExample {js} Promise
- * octokit.repos.pingHook({owner, repo, id}).then(result => {})
+ * octokit.repos.pingHook({owner, repo, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.pingHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.pingHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -8010,22 +8017,22 @@ Build requests are limited to one concurrent build per repository and one concur
 
 
 /**
- * @api {POST} /repos/:owner/:repo/hooks/:id/tests testHook
+ * @api {POST} /repos/:owner/:repo/hooks/:hook_id/tests testHook
  * @apiName testHook
  * @apiDescription This will trigger the hook with the latest push to the current repository if the hook is subscribed to `push` events. If the hook is not subscribed to `push` events, the server will respond with 204 but no test POST will be generated.
 
-**Note**: Previously `/repos/:owner/:repo/hooks/:id/test` <a href="https://developer.github.com/v3/repos/hooks/#test-a-push-hook">REST API doc</a>
+**Note**: Previously `/repos/:owner/:repo/hooks/:hook_id/test` <a href="https://developer.github.com/v3/repos/hooks/#test-a-push-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} hook_id  
  * @apiExample {js} async/await
- * const result = await octokit.repos.testHook({owner, repo, id})
+ * const result = await octokit.repos.testHook({owner, repo, hook_id})
  * @apiExample {js} Promise
- * octokit.repos.testHook({owner, repo, id}).then(result => {})
+ * octokit.repos.testHook({owner, repo, hook_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.testHook({owner, repo, id}, (error, result) => {})
+ * octokit.repos.testHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -8085,21 +8092,21 @@ Build requests are limited to one concurrent build per repository and one concur
 
 
 /**
- * @api {PATCH} /repos/:owner/:repo/comments/:id updateCommitComment
+ * @api {PATCH} /repos/:owner/:repo/comments/:comment_id updateCommitComment
  * @apiName updateCommitComment
  * @apiDescription <a href="https://developer.github.com/v3/repos/comments/#update-a-commit-comment">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} id  
+ * @apiParam {string} comment_id  
  * @apiParam {string} body  The contents of the comment
  * @apiExample {js} async/await
- * const result = await octokit.repos.updateCommitComment({owner, repo, id, body})
+ * const result = await octokit.repos.updateCommitComment({owner, repo, comment_id, body})
  * @apiExample {js} Promise
- * octokit.repos.updateCommitComment({owner, repo, id, body}).then(result => {})
+ * octokit.repos.updateCommitComment({owner, repo, comment_id, body}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.updateCommitComment({owner, repo, id, body}, (error, result) => {})
+ * octokit.repos.updateCommitComment({owner, repo, comment_id, body}, (error, result) => {})
  */
 
 
@@ -8417,7 +8424,7 @@ This produces the same JSON payload as above, with an extra key called `text_mat
 When searching for labels, you can get text match metadata for the label **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-labels">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {integer} [repository_id]  The id of the repository.
+ * @apiParam {integer} repository_id  The id of the repository.
  * @apiParam {string} q  The search keywords.
  * @apiParam {string=created,updated} [sort="results are sorted by best match:"]  The sort field. Can be one of `created` or `updated`.
  * @apiParam {string=asc,desc} [order="desc"]  The sort order if the sort parameter is provided. Can be one of `asc` or `desc`.
@@ -8748,34 +8755,34 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 
 
 /**
- * @api {DELETE} /user/gpg_keys/:id deleteGpgKey
+ * @api {DELETE} /user/gpg_keys/:gpg_key_id deleteGpgKey
  * @apiName deleteGpgKey
  * @apiDescription Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} id  
+ * @apiParam {string} gpg_key_id  
  * @apiExample {js} async/await
- * const result = await octokit.users.deleteGpgKey({id})
+ * const result = await octokit.users.deleteGpgKey({gpg_key_id})
  * @apiExample {js} Promise
- * octokit.users.deleteGpgKey({id}).then(result => {})
+ * octokit.users.deleteGpgKey({gpg_key_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.deleteGpgKey({id}, (error, result) => {})
+ * octokit.users.deleteGpgKey({gpg_key_id}, (error, result) => {})
  */
 
 
 /**
- * @api {DELETE} /user/keys/:id deleteKey
+ * @api {DELETE} /user/keys/:key_id deleteKey
  * @apiName deleteKey
  * @apiDescription Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} id  
+ * @apiParam {string} key_id  
  * @apiExample {js} async/await
- * const result = await octokit.users.deleteKey({id})
+ * const result = await octokit.users.deleteKey({key_id})
  * @apiExample {js} Promise
- * octokit.users.deleteKey({id}).then(result => {})
+ * octokit.users.deleteKey({key_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.deleteKey({id}, (error, result) => {})
+ * octokit.users.deleteKey({key_id}, (error, result) => {})
  */
 
 
@@ -8994,18 +9001,18 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
 
 
 /**
- * @api {GET} /user/gpg_keys/:id getGpgKey
+ * @api {GET} /user/gpg_keys/:gpg_key_id getGpgKey
  * @apiName getGpgKey
  * @apiDescription View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} id  
+ * @apiParam {string} gpg_key_id  
  * @apiExample {js} async/await
- * const result = await octokit.users.getGpgKey({id})
+ * const result = await octokit.users.getGpgKey({gpg_key_id})
  * @apiExample {js} Promise
- * octokit.users.getGpgKey({id}).then(result => {})
+ * octokit.users.getGpgKey({gpg_key_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.getGpgKey({id}, (error, result) => {})
+ * octokit.users.getGpgKey({gpg_key_id}, (error, result) => {})
  */
 
 
@@ -9084,18 +9091,18 @@ The permissions the installation has are included under the `permissions` key. <
 
 
 /**
- * @api {GET} /user/keys/:id getKey
+ * @api {GET} /user/keys/:key_id getKey
  * @apiName getKey
  * @apiDescription View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} id  
+ * @apiParam {string} key_id  
  * @apiExample {js} async/await
- * const result = await octokit.users.getKey({id})
+ * const result = await octokit.users.getKey({key_id})
  * @apiExample {js} Promise
- * octokit.users.getKey({id}).then(result => {})
+ * octokit.users.getKey({key_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.getKey({id}, (error, result) => {})
+ * octokit.users.getKey({key_id}, (error, result) => {})
  */
 
 

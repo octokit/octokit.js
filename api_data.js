@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "GET",
-    "url": "/notifications/threads/:id/subscription",
+    "url": "/notifications/threads/:thread_id/subscription",
     "title": "checkNotificationThreadSubscription",
     "name": "checkNotificationThreadSubscription",
     "description": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://developer.github.com/v3/activity/watching/#get-a-repository-subscription\">get a Repository subscription</a>.</p> <p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mention</strong>ed, or manually subscribe to a thread. <a href=\"https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription\">REST API doc</a></p>",
@@ -13,7 +13,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "thread_id",
             "description": ""
           }
         ]
@@ -22,17 +22,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.activity.checkNotificationThreadSubscription({id})",
+        "content": "const result = await octokit.activity.checkNotificationThreadSubscription({thread_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.activity.checkNotificationThreadSubscription({id}).then(result => {})",
+        "content": "octokit.activity.checkNotificationThreadSubscription({thread_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.activity.checkNotificationThreadSubscription({id}, (error, result) => {})",
+        "content": "octokit.activity.checkNotificationThreadSubscription({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -90,7 +90,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/notifications/threads/:id/subscription",
+    "url": "/notifications/threads/:thread_id/subscription",
     "title": "deleteNotificationThreadSubscription",
     "name": "deleteNotificationThreadSubscription",
     "description": "<p>Mutes all future notifications for a conversation until you comment on the thread or get <strong>@mention</strong>ed. <a href=\"https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription\">REST API doc</a></p>",
@@ -102,7 +102,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "thread_id",
             "description": ""
           }
         ]
@@ -111,17 +111,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.activity.deleteNotificationThreadSubscription({id})",
+        "content": "const result = await octokit.activity.deleteNotificationThreadSubscription({thread_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.activity.deleteNotificationThreadSubscription({id}).then(result => {})",
+        "content": "octokit.activity.deleteNotificationThreadSubscription({thread_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.activity.deleteNotificationThreadSubscription({id}, (error, result) => {})",
+        "content": "octokit.activity.deleteNotificationThreadSubscription({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -686,7 +686,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/notifications/threads/:id",
+    "url": "/notifications/threads/:thread_id",
     "title": "getNotificationThread",
     "name": "getNotificationThread",
     "description": "<p><a href=\"https://developer.github.com/v3/activity/notifications/#view-a-single-thread\">REST API doc</a></p>",
@@ -698,7 +698,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "thread_id",
             "description": ""
           }
         ]
@@ -707,17 +707,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.activity.getNotificationThread({id})",
+        "content": "const result = await octokit.activity.getNotificationThread({thread_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.activity.getNotificationThread({id}).then(result => {})",
+        "content": "octokit.activity.getNotificationThread({thread_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.activity.getNotificationThread({id}, (error, result) => {})",
+        "content": "octokit.activity.getNotificationThread({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1341,7 +1341,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/notifications/threads/:id",
+    "url": "/notifications/threads/:thread_id",
     "title": "markNotificationThreadAsRead",
     "name": "markNotificationThreadAsRead",
     "description": "<p><a href=\"https://developer.github.com/v3/activity/notifications/#mark-a-thread-as-read\">REST API doc</a></p>",
@@ -1353,7 +1353,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "thread_id",
             "description": ""
           }
         ]
@@ -1362,17 +1362,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.activity.markNotificationThreadAsRead({id})",
+        "content": "const result = await octokit.activity.markNotificationThreadAsRead({thread_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.activity.markNotificationThreadAsRead({id}).then(result => {})",
+        "content": "octokit.activity.markNotificationThreadAsRead({thread_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.activity.markNotificationThreadAsRead({id}, (error, result) => {})",
+        "content": "octokit.activity.markNotificationThreadAsRead({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1480,7 +1480,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/notifications/threads/:id/subscription",
+    "url": "/notifications/threads/:thread_id/subscription",
     "title": "setNotificationThreadSubscription",
     "name": "setNotificationThreadSubscription",
     "description": "<p>This lets you subscribe or unsubscribe from a conversation. <a href=\"https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription\">REST API doc</a></p>",
@@ -1492,7 +1492,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "thread_id",
             "description": ""
           },
           {
@@ -1509,17 +1509,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.activity.setNotificationThreadSubscription({id, ignored})",
+        "content": "const result = await octokit.activity.setNotificationThreadSubscription({thread_id, ignored})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.activity.setNotificationThreadSubscription({id, ignored}).then(result => {})",
+        "content": "octokit.activity.setNotificationThreadSubscription({thread_id, ignored}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.activity.setNotificationThreadSubscription({id, ignored}, (error, result) => {})",
+        "content": "octokit.activity.setNotificationThreadSubscription({thread_id, ignored}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1783,10 +1783,10 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/marketplace_listing/accounts/:id",
+    "url": "/marketplace_listing/accounts/:account_id",
     "title": "checkMarketplaceListingAccount",
     "name": "checkMarketplaceListingAccount",
-    "description": "<p><a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1795,7 +1795,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "account_id",
             "description": ""
           },
           {
@@ -1820,17 +1820,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.apps.checkMarketplaceListingAccount({id, per_page, page})",
+        "content": "const result = await octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.apps.checkMarketplaceListingAccount({id, per_page, page}).then(result => {})",
+        "content": "octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.apps.checkMarketplaceListingAccount({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1840,10 +1840,10 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/marketplace_listing/stubbed/accounts/:id",
+    "url": "/marketplace_listing/stubbed/accounts/:account_id",
     "title": "checkMarketplaceListingStubbedAccount",
     "name": "checkMarketplaceListingStubbedAccount",
-    "description": "<p><a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1852,7 +1852,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "account_id",
             "description": ""
           },
           {
@@ -1877,17 +1877,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.apps.checkMarketplaceListingStubbedAccount({id, per_page, page})",
+        "content": "const result = await octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({id, per_page, page}).then(result => {})",
+        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2148,7 +2148,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/marketplace_listing/plans/:id/accounts",
+    "url": "/marketplace_listing/plans/:plan_id/accounts",
     "title": "getMarketplaceListingPlanAccounts",
     "name": "getMarketplaceListingPlanAccounts",
     "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
@@ -2160,7 +2160,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "plan_id",
             "description": ""
           },
           {
@@ -2208,17 +2208,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.apps.getMarketplaceListingPlanAccounts({id, sort, direction, per_page, page})",
+        "content": "const result = await octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.apps.getMarketplaceListingPlanAccounts({id, sort, direction, per_page, page}).then(result => {})",
+        "content": "octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.apps.getMarketplaceListingPlanAccounts({id, sort, direction, per_page, page}, (error, result) => {})",
+        "content": "octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2278,7 +2278,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/marketplace_listing/stubbed/plans/:id/accounts",
+    "url": "/marketplace_listing/stubbed/plans/:plan_id/accounts",
     "title": "getMarketplaceListingStubbedPlanAccounts",
     "name": "getMarketplaceListingStubbedPlanAccounts",
     "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
@@ -2290,7 +2290,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "plan_id",
             "description": ""
           },
           {
@@ -2338,17 +2338,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, sort, direction, per_page, page})",
+        "content": "const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, sort, direction, per_page, page}).then(result => {})",
+        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({id, sort, direction, per_page, page}, (error, result) => {})",
+        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2580,7 +2580,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/authorizations/:id",
+    "url": "/authorizations/:authorization_id",
     "title": "delete",
     "name": "delete",
     "description": "<p><a href=\"https://developer.github.com/v3/oauth_authorizations/#delete-an-authorization\">REST API doc</a></p>",
@@ -2592,7 +2592,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "authorization_id",
             "description": ""
           }
         ]
@@ -2601,17 +2601,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.authorization.delete({id})",
+        "content": "const result = await octokit.authorization.delete({authorization_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.authorization.delete({id}).then(result => {})",
+        "content": "octokit.authorization.delete({authorization_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.authorization.delete({id}, (error, result) => {})",
+        "content": "octokit.authorization.delete({authorization_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2621,7 +2621,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/applications/grants/:id",
+    "url": "/applications/grants/:grant_id",
     "title": "deleteGrant",
     "name": "deleteGrant",
     "description": "<p>Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#delete-a-grant\">REST API doc</a></p>",
@@ -2633,7 +2633,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "grant_id",
             "description": ""
           }
         ]
@@ -2642,17 +2642,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.authorization.deleteGrant({id})",
+        "content": "const result = await octokit.authorization.deleteGrant({grant_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.authorization.deleteGrant({id}).then(result => {})",
+        "content": "octokit.authorization.deleteGrant({grant_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.authorization.deleteGrant({id}, (error, result) => {})",
+        "content": "octokit.authorization.deleteGrant({grant_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2662,7 +2662,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/authorizations/:id",
+    "url": "/authorizations/:authorization_id",
     "title": "get",
     "name": "get",
     "description": "<p><a href=\"https://developer.github.com/v3/oauth_authorizations/#get-a-single-authorization\">REST API doc</a></p>",
@@ -2674,7 +2674,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "authorization_id",
             "description": ""
           }
         ]
@@ -2683,17 +2683,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.authorization.get({id})",
+        "content": "const result = await octokit.authorization.get({authorization_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.authorization.get({id}).then(result => {})",
+        "content": "octokit.authorization.get({authorization_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.authorization.get({id}, (error, result) => {})",
+        "content": "octokit.authorization.get({authorization_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2753,7 +2753,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/applications/grants/:id",
+    "url": "/applications/grants/:grant_id",
     "title": "getGrant",
     "name": "getGrant",
     "description": "<p><a href=\"https://developer.github.com/v3/oauth_authorizations/#get-a-single-grant\">REST API doc</a></p>",
@@ -2765,7 +2765,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "grant_id",
             "description": ""
           }
         ]
@@ -2774,17 +2774,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.authorization.getGrant({id})",
+        "content": "const result = await octokit.authorization.getGrant({grant_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.authorization.getGrant({id}).then(result => {})",
+        "content": "octokit.authorization.getGrant({grant_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.authorization.getGrant({id}, (error, result) => {})",
+        "content": "octokit.authorization.getGrant({grant_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3140,7 +3140,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/authorizations/:id",
+    "url": "/authorizations/:authorization_id",
     "title": "update",
     "name": "update",
     "description": "<p>You can only send one of these scope keys at a time. <a href=\"https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization\">REST API doc</a></p>",
@@ -3152,7 +3152,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "authorization_id",
             "description": ""
           },
           {
@@ -3203,17 +3203,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})",
+        "content": "const result = await octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})",
+        "content": "octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.authorization.update({id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})",
+        "content": "octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3446,6 +3446,34 @@ define({ "api": [
             "optional": true,
             "field": "output:images:caption",
             "description": "<p>A short image description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": true,
+            "field": "actions",
+            "description": "<p>Possible further actions the integrator can perform, which a user may trigger. Each action includes a <code>label</code>, <code>identifier</code> and <code>description</code>. A maximum of three actions are accepted. See the <a href=\"#actions-object\"><code>actions</code> object</a> description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "actions:label",
+            "description": "<p>The text to be displayed on a button in the web UI. The maximum size is 20 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "actions:description",
+            "description": "<p>A short explanation of what this action would do. The maximum size is 40 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "actions:identifier",
+            "description": "<p>A reference for the action on the integrator's system. The maximum size is 20 characters.</p>"
           }
         ]
       }
@@ -3453,17 +3481,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption})",
+        "content": "const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})",
+        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})",
+        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3818,7 +3846,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/check-suites/:id/check-runs",
+    "url": "/repos/:owner/:repo/check-suites/:check_suite_id/check-runs",
     "title": "listForSuite",
     "name": "listForSuite",
     "description": "<p>Lists check runs for a check suite using its <code>id</code>. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite\">REST API doc</a></p>",
@@ -3844,7 +3872,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "check_suite_id",
             "description": ""
           },
           {
@@ -3900,17 +3928,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page})",
+        "content": "const result = await octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}).then(result => {})",
+        "content": "octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.listForSuite({owner, repo, id, check_name, status, filter, per_page, page}, (error, result) => {})",
+        "content": "octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4345,6 +4373,34 @@ define({ "api": [
             "optional": true,
             "field": "output:images:caption",
             "description": "<p>A short image description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": true,
+            "field": "actions",
+            "description": "<p>Possible further actions the integrator can perform, which a user may trigger. Each action includes a <code>label</code>, <code>identifier</code> and <code>description</code>. A maximum of three actions are accepted. See the <a href=\"#actions-object\"><code>actions</code> object</a> description.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "actions:label",
+            "description": "<p>The text to be displayed on a button in the web UI. The maximum size is 20 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "actions:description",
+            "description": "<p>A short explanation of what this action would do. The maximum size is 40 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "actions:identifier",
+            "description": "<p>A reference for the action on the integrator's system. The maximum size is 20 characters.</p>"
           }
         ]
       }
@@ -4352,17 +4408,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption})",
+        "content": "const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}).then(result => {})",
+        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption}, (error, result) => {})",
+        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions.label, actions.description, actions.identifier}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4372,7 +4428,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/gists/:id/star",
+    "url": "/gists/:gist_id/star",
     "title": "checkStar",
     "name": "checkStar",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#check-if-a-gist-is-starred\">REST API doc</a></p>",
@@ -4384,7 +4440,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           }
         ]
@@ -4393,17 +4449,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.checkStar({id})",
+        "content": "const result = await octokit.gists.checkStar({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.checkStar({id}).then(result => {})",
+        "content": "octokit.gists.checkStar({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.checkStar({id}, (error, result) => {})",
+        "content": "octokit.gists.checkStar({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4517,7 +4573,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/gists/:id",
+    "url": "/gists/:gist_id",
     "title": "delete",
     "name": "delete",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#delete-a-gist\">REST API doc</a></p>",
@@ -4529,7 +4585,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           }
         ]
@@ -4538,17 +4594,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.delete({id})",
+        "content": "const result = await octokit.gists.delete({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.delete({id}).then(result => {})",
+        "content": "octokit.gists.delete({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.delete({id}, (error, result) => {})",
+        "content": "octokit.gists.delete({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4558,7 +4614,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/gists/:gist_id/comments/:id",
+    "url": "/gists/:gist_id/comments/:comment_id",
     "title": "deleteComment",
     "name": "deleteComment",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/comments/#delete-a-comment\">REST API doc</a></p>",
@@ -4577,7 +4633,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -4586,17 +4642,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.deleteComment({gist_id, id})",
+        "content": "const result = await octokit.gists.deleteComment({gist_id, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.deleteComment({gist_id, id}).then(result => {})",
+        "content": "octokit.gists.deleteComment({gist_id, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.deleteComment({gist_id, id}, (error, result) => {})",
+        "content": "octokit.gists.deleteComment({gist_id, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4606,7 +4662,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/gists/:id",
+    "url": "/gists/:gist_id",
     "title": "edit",
     "name": "edit",
     "description": "<p>The keys in the <code>files</code> object are the <code>string</code> filename. The value is another <code>object</code> with a key of <code>content</code> (indicating the new contents), or <code>filename</code> (indicating the new filename). For example: <em>Note</em>*: All files from the previous version of the gist are carried over by default if not included in the object. Deletes can be performed by including the filename with a <code>null</code> object. <a href=\"https://developer.github.com/v3/gists/#edit-a-gist\">REST API doc</a></p>",
@@ -4618,7 +4674,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           },
           {
@@ -4655,17 +4711,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.edit({id, description, files, content, filename})",
+        "content": "const result = await octokit.gists.edit({gist_id, description, files, content, filename})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.edit({id, description, files, content, filename}).then(result => {})",
+        "content": "octokit.gists.edit({gist_id, description, files, content, filename}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.edit({id, description, files, content, filename}, (error, result) => {})",
+        "content": "octokit.gists.edit({gist_id, description, files, content, filename}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4675,7 +4731,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/gists/:gist_id/comments/:id",
+    "url": "/gists/:gist_id/comments/:comment_id",
     "title": "editComment",
     "name": "editComment",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/comments/#edit-a-comment\">REST API doc</a></p>",
@@ -4694,7 +4750,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -4710,17 +4766,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.editComment({gist_id, id, body})",
+        "content": "const result = await octokit.gists.editComment({gist_id, comment_id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.editComment({gist_id, id, body}).then(result => {})",
+        "content": "octokit.gists.editComment({gist_id, comment_id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.editComment({gist_id, id, body}, (error, result) => {})",
+        "content": "octokit.gists.editComment({gist_id, comment_id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4730,10 +4786,10 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/gists/:id/forks",
+    "url": "/gists/:gist_id/forks",
     "title": "fork",
     "name": "fork",
-    "description": "<p><strong>Note</strong>: This was previously <code>/gists/:id/fork</code>. <a href=\"https://developer.github.com/v3/gists/#fork-a-gist\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: This was previously <code>/gists/:gist_id/fork</code>. <a href=\"https://developer.github.com/v3/gists/#fork-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4742,7 +4798,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           }
         ]
@@ -4751,17 +4807,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.fork({id})",
+        "content": "const result = await octokit.gists.fork({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.fork({id}).then(result => {})",
+        "content": "octokit.gists.fork({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.fork({id}, (error, result) => {})",
+        "content": "octokit.gists.fork({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4771,7 +4827,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/gists/:id",
+    "url": "/gists/:gist_id",
     "title": "get",
     "name": "get",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#get-a-single-gist\">REST API doc</a></p>",
@@ -4783,7 +4839,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           }
         ]
@@ -4792,17 +4848,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.get({id})",
+        "content": "const result = await octokit.gists.get({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.get({id}).then(result => {})",
+        "content": "octokit.gists.get({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.get({id}, (error, result) => {})",
+        "content": "octokit.gists.get({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4869,7 +4925,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/gists/:gist_id/comments/:id",
+    "url": "/gists/:gist_id/comments/:comment_id",
     "title": "getComment",
     "name": "getComment",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/comments/#get-a-single-comment\">REST API doc</a></p>",
@@ -4888,7 +4944,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -4897,17 +4953,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.getComment({gist_id, id})",
+        "content": "const result = await octokit.gists.getComment({gist_id, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.getComment({gist_id, id}).then(result => {})",
+        "content": "octokit.gists.getComment({gist_id, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.getComment({gist_id, id}, (error, result) => {})",
+        "content": "octokit.gists.getComment({gist_id, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4974,7 +5030,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/gists/:id/commits",
+    "url": "/gists/:gist_id/commits",
     "title": "getCommits",
     "name": "getCommits",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#list-gist-commits\">REST API doc</a></p>",
@@ -4986,7 +5042,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           },
           {
@@ -5011,17 +5067,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.getCommits({id, per_page, page})",
+        "content": "const result = await octokit.gists.getCommits({gist_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.getCommits({id, per_page, page}).then(result => {})",
+        "content": "octokit.gists.getCommits({gist_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.getCommits({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.gists.getCommits({gist_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5095,7 +5151,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/gists/:id/forks",
+    "url": "/gists/:gist_id/forks",
     "title": "getForks",
     "name": "getForks",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#list-gist-forks\">REST API doc</a></p>",
@@ -5107,7 +5163,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           },
           {
@@ -5132,17 +5188,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.getForks({id, per_page, page})",
+        "content": "const result = await octokit.gists.getForks({gist_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.getForks({id, per_page, page}).then(result => {})",
+        "content": "octokit.gists.getForks({gist_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.getForks({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.gists.getForks({gist_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5209,7 +5265,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/gists/:id/:sha",
+    "url": "/gists/:gist_id/:sha",
     "title": "getRevision",
     "name": "getRevision",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#get-a-specific-revision-of-a-gist\">REST API doc</a></p>",
@@ -5221,7 +5277,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           },
           {
@@ -5237,17 +5293,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.getRevision({id, sha})",
+        "content": "const result = await octokit.gists.getRevision({gist_id, sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.getRevision({id, sha}).then(result => {})",
+        "content": "octokit.gists.getRevision({gist_id, sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.getRevision({id, sha}, (error, result) => {})",
+        "content": "octokit.gists.getRevision({gist_id, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5314,7 +5370,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/gists/:id/star",
+    "url": "/gists/:gist_id/star",
     "title": "star",
     "name": "star",
     "description": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot; <a href=\"https://developer.github.com/v3/gists/#star-a-gist\">REST API doc</a></p>",
@@ -5326,7 +5382,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           }
         ]
@@ -5335,17 +5391,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.star({id})",
+        "content": "const result = await octokit.gists.star({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.star({id}).then(result => {})",
+        "content": "octokit.gists.star({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.star({id}, (error, result) => {})",
+        "content": "octokit.gists.star({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5355,7 +5411,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/gists/:id/star",
+    "url": "/gists/:gist_id/star",
     "title": "unstar",
     "name": "unstar",
     "description": "<p><a href=\"https://developer.github.com/v3/gists/#unstar-a-gist\">REST API doc</a></p>",
@@ -5367,7 +5423,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gist_id",
             "description": ""
           }
         ]
@@ -5376,17 +5432,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.unstar({id})",
+        "content": "const result = await octokit.gists.unstar({gist_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.unstar({id}).then(result => {})",
+        "content": "octokit.gists.unstar({gist_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.unstar({id}, (error, result) => {})",
+        "content": "octokit.gists.unstar({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6815,7 +6871,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/issues/comments/:id",
+    "url": "/repos/:owner/:repo/issues/comments/:comment_id",
     "title": "deleteComment",
     "name": "deleteComment",
     "description": "<p><a href=\"https://developer.github.com/v3/issues/comments/#delete-a-comment\">REST API doc</a></p>",
@@ -6841,7 +6897,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -6850,17 +6906,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.deleteComment({owner, repo, id})",
+        "content": "const result = await octokit.issues.deleteComment({owner, repo, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.deleteComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.issues.deleteComment({owner, repo, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.deleteComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.issues.deleteComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7088,7 +7144,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/issues/comments/:id",
+    "url": "/repos/:owner/:repo/issues/comments/:comment_id",
     "title": "editComment",
     "name": "editComment",
     "description": "<p><a href=\"https://developer.github.com/v3/issues/comments/#edit-a-comment\">REST API doc</a></p>",
@@ -7114,7 +7170,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -7130,17 +7186,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.editComment({owner, repo, id, body})",
+        "content": "const result = await octokit.issues.editComment({owner, repo, comment_id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.editComment({owner, repo, id, body}).then(result => {})",
+        "content": "octokit.issues.editComment({owner, repo, comment_id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.editComment({owner, repo, id, body}, (error, result) => {})",
+        "content": "octokit.issues.editComment({owner, repo, comment_id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7153,7 +7209,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number",
     "title": "get",
     "name": "get",
-    "description": "<p><strong>Note</strong>: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.</p> <p>This endpoint may also return pull requests in the response. If an issue <em>is</em> a pull request, the object will include a <code>pull_request</code> key. <a href=\"https://developer.github.com/v3/issues/#get-a-single-issue\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <a href=\"https://developer.github.com/v3/issues/#get-a-single-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7208,7 +7264,7 @@ define({ "api": [
     "url": "/issues",
     "title": "getAll",
     "name": "getAll",
-    "description": "<p><strong>Note</strong>: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.</p> <p>This endpoint may also return pull requests in the response. If an issue <em>is</em> a pull request, the object will include a <code>pull_request</code> key.</p> <p>You can use the <code>filter</code> query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7386,7 +7442,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/issues/comments/:id",
+    "url": "/repos/:owner/:repo/issues/comments/:comment_id",
     "title": "getComment",
     "name": "getComment",
     "description": "<p><em>Note:</em>* If a user created an issue comment via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/comments/#get-a-single-comment\">REST API doc</a></p>",
@@ -7412,7 +7468,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -7437,17 +7493,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.getComment({owner, repo, id, per_page, page})",
+        "content": "const result = await octokit.issues.getComment({owner, repo, comment_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.getComment({owner, repo, id, per_page, page}).then(result => {})",
+        "content": "octokit.issues.getComment({owner, repo, comment_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.getComment({owner, repo, id, per_page, page}, (error, result) => {})",
+        "content": "octokit.issues.getComment({owner, repo, comment_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7613,7 +7669,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/issues/events/:id",
+    "url": "/repos/:owner/:repo/issues/events/:event_id",
     "title": "getEvent",
     "name": "getEvent",
     "description": "<p><em>Note:</em>* If the event was triggered by a user via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/events/#get-a-single-event\">REST API doc</a></p>",
@@ -7639,7 +7695,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "event_id",
             "description": ""
           }
         ]
@@ -7648,17 +7704,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.getEvent({owner, repo, id})",
+        "content": "const result = await octokit.issues.getEvent({owner, repo, event_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.getEvent({owner, repo, id}).then(result => {})",
+        "content": "octokit.issues.getEvent({owner, repo, event_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.getEvent({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.issues.getEvent({owner, repo, event_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7877,7 +7933,7 @@ define({ "api": [
     "url": "/orgs/:org/issues",
     "title": "getForOrg",
     "name": "getForOrg",
-    "description": "<p><strong>Note</strong>: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.</p> <p>This endpoint may also return pull requests in the response. If an issue <em>is</em> a pull request, the object will include a <code>pull_request</code> key.</p> <p>You can use the <code>filter</code> query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8001,7 +8057,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues",
     "title": "getForRepo",
     "name": "getForRepo",
-    "description": "<p><strong>Note</strong>: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.</p> <p>This endpoint may also return pull requests in the response. If an issue <em>is</em> a pull request, the object will include a <code>pull_request</code> key. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues-for-a-repository\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues-for-a-repository\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8145,7 +8201,7 @@ define({ "api": [
     "url": "/user/issues",
     "title": "getForUser",
     "name": "getForUser",
-    "description": "<p><strong>Note</strong>: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.</p> <p>This endpoint may also return pull requests in the response. If an issue <em>is</em> a pull request, the object will include a <code>pull_request</code> key.</p> <p>You can use the <code>filter</code> query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -9034,7 +9090,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/labels/:oldname",
+    "url": "/repos/:owner/:repo/labels/:current_name",
     "title": "updateLabel",
     "name": "updateLabel",
     "description": "<p><a href=\"https://developer.github.com/v3/issues/labels/#update-a-label\">REST API doc</a></p>",
@@ -9060,7 +9116,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "oldname",
+            "field": "current_name",
             "description": ""
           },
           {
@@ -9068,7 +9124,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "name",
-            "description": "<p>The name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing <code>:strawberry:</code> will render the emoji <img src=\"https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png\" alt=\":strawberry:\" title=\":strawberry:\">. For a full list of available emoji and codes, see <a href=\"http://emoji-cheat-sheet.com/\">emoji-cheat-sheet.com</a>.</p>"
+            "description": "<p>The new name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing <code>:strawberry:</code> will render the emoji <img src=\"https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png\" alt=\":strawberry:\" title=\":strawberry:\">. For a full list of available emoji and codes, see <a href=\"http://emoji-cheat-sheet.com/\">emoji-cheat-sheet.com</a>.</p>"
           },
           {
             "group": "Parameter",
@@ -9090,17 +9146,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.updateLabel({owner, repo, oldname, name, color, description})",
+        "content": "const result = await octokit.issues.updateLabel({owner, repo, current_name, name, color, description})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.updateLabel({owner, repo, oldname, name, color, description}).then(result => {})",
+        "content": "octokit.issues.updateLabel({owner, repo, current_name, name, color, description}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.updateLabel({owner, repo, oldname, name, color, description}, (error, result) => {})",
+        "content": "octokit.issues.updateLabel({owner, repo, current_name, name, color, description}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9201,7 +9257,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "cancelImport",
     "name": "cancelImport",
-    "description": "<p>Stop an import for a repository. <a href=\"https://developer.github.com/v3/migration/source_imports/#cancel-an-import\">REST API doc</a></p>",
+    "description": "<p>Stop an import for a repository. <a href=\"https://developer.github.com/v3/migrations/source_imports/#cancel-an-import\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9246,10 +9302,10 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/orgs/:org/migrations/:id/archive",
+    "url": "/orgs/:org/migrations/:migration_id/archive",
     "title": "deleteMigrationArchive",
     "name": "deleteMigrationArchive",
-    "description": "<p>Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href=\"https://developer.github.com/v3/migration/migrations/#delete-a-migration-archive\">REST API doc</a></p>",
+    "description": "<p>Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href=\"https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9265,7 +9321,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "migration_id",
             "description": ""
           }
         ]
@@ -9274,17 +9330,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.migrations.deleteMigrationArchive({org, id})",
+        "content": "const result = await octokit.migrations.deleteMigrationArchive({org, migration_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.migrations.deleteMigrationArchive({org, id}).then(result => {})",
+        "content": "octokit.migrations.deleteMigrationArchive({org, migration_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.migrations.deleteMigrationArchive({org, id}, (error, result) => {})",
+        "content": "octokit.migrations.deleteMigrationArchive({org, migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9297,7 +9353,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/authors",
     "title": "getImportCommitAuthors",
     "name": "getImportCommitAuthors",
-    "description": "<p>Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username <code>hubot</code> into something like <code>hubot &lt;hubot@12341234-abab-fefe-8787-fedcba987654&gt;</code>.</p> <p>This API method and the &quot;Map a commit author&quot; method allow you to provide correct Git author information. <a href=\"https://developer.github.com/v3/migration/source_imports/#get-commit-authors\">REST API doc</a></p>",
+    "description": "<p>Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username <code>hubot</code> into something like <code>hubot &lt;hubot@12341234-abab-fefe-8787-fedcba987654&gt;</code>.</p> <p>This API method and the &quot;Map a commit author&quot; method allow you to provide correct Git author information. <a href=\"https://developer.github.com/v3/migrations/source_imports/#get-commit-authors\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9352,7 +9408,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "getImportProgress",
     "name": "getImportProgress",
-    "description": "<p>View the progress of an import. <em>Import status</em>*</p> <p>This section includes details about the possible values of the <code>status</code> field of the Import Progress response.</p> <p>An import that does not have errors will progress through these steps: <code>detecting</code> - the &quot;detection&quot; step of the import is in progress because the request did not include a <code>vcs</code> parameter. The import is identifying the type of source control present at the URL. <code>importing</code> - the &quot;raw&quot; step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include <code>commit_count</code> (the total number of raw commits that will be imported) and <code>percent</code> (0 - 100, the current progress through the import). <code>mapping</code> - the &quot;rewrite&quot; step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information. <code>pushing</code> - the &quot;push&quot; step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include <code>push_percent</code>, which is the percent value reported by <code>git push</code> when it is &quot;Writing objects&quot;. <code>complete</code> - the import is complete, and the repository is ready on GitHub.</p> <p>If there are problems, you will see one of these in the <code>status</code> field: <code>auth_failed</code> - the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>error</code> - the import encountered an error. The import progress response will include the <code>failed_step</code> and an error message. Contact <a href=\"https://github.com/contact\">GitHub support</a> for more information. <code>detection_needs_auth</code> - the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>detection_found_nothing</code> - the importer didn't recognize any source control at the URL. To resolve, <a href=\"#cancel-an-import\">Cancel the import</a> and <a href=\"#start-an-import\">retry</a> with the correct URL. <code>detection_found_multiple</code> - the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a <code>project_choices</code> field with the possible project choices as values. To update project choice, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <em>The project_choices field</em>*</p> <p>When multiple projects are found at the provided URL, the response hash will include a <code>project_choices</code> field, the value of which is an array of hashes each representing a project choice. The exact key/value pairs of the project hashes will differ depending on the version control type. <em>Git LFS related fields</em>*</p> <p>This section includes details about Git LFS related fields that may be present in the Import Progress response. <code>use_lfs</code> - describes whether the import has been opted in or out of using Git LFS. The value can be <code>opt_in</code>, <code>opt_out</code>, or <code>undecided</code> if no action has been taken. <code>has_large_files</code> - the boolean value describing whether files larger than 100MB were found during the <code>importing</code> step. <code>large_files_size</code> - the total size in gigabytes of files larger than 100MB found in the originating repository. <code>large_files_count</code> - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a &quot;Get Large Files&quot; request. <a href=\"https://developer.github.com/v3/migration/source_imports/#get-import-progress\">REST API doc</a></p>",
+    "description": "<p>View the progress of an import. <em>Import status</em>*</p> <p>This section includes details about the possible values of the <code>status</code> field of the Import Progress response.</p> <p>An import that does not have errors will progress through these steps: <code>detecting</code> - the &quot;detection&quot; step of the import is in progress because the request did not include a <code>vcs</code> parameter. The import is identifying the type of source control present at the URL. <code>importing</code> - the &quot;raw&quot; step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include <code>commit_count</code> (the total number of raw commits that will be imported) and <code>percent</code> (0 - 100, the current progress through the import). <code>mapping</code> - the &quot;rewrite&quot; step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information. <code>pushing</code> - the &quot;push&quot; step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include <code>push_percent</code>, which is the percent value reported by <code>git push</code> when it is &quot;Writing objects&quot;. <code>complete</code> - the import is complete, and the repository is ready on GitHub.</p> <p>If there are problems, you will see one of these in the <code>status</code> field: <code>auth_failed</code> - the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>error</code> - the import encountered an error. The import progress response will include the <code>failed_step</code> and an error message. Contact <a href=\"https://github.com/contact\">GitHub support</a> for more information. <code>detection_needs_auth</code> - the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>detection_found_nothing</code> - the importer didn't recognize any source control at the URL. To resolve, <a href=\"#cancel-an-import\">Cancel the import</a> and <a href=\"#start-an-import\">retry</a> with the correct URL. <code>detection_found_multiple</code> - the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a <code>project_choices</code> field with the possible project choices as values. To update project choice, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <em>The project_choices field</em>*</p> <p>When multiple projects are found at the provided URL, the response hash will include a <code>project_choices</code> field, the value of which is an array of hashes each representing a project choice. The exact key/value pairs of the project hashes will differ depending on the version control type. <em>Git LFS related fields</em>*</p> <p>This section includes details about Git LFS related fields that may be present in the Import Progress response. <code>use_lfs</code> - describes whether the import has been opted in or out of using Git LFS. The value can be <code>opt_in</code>, <code>opt_out</code>, or <code>undecided</code> if no action has been taken. <code>has_large_files</code> - the boolean value describing whether files larger than 100MB were found during the <code>importing</code> step. <code>large_files_size</code> - the total size in gigabytes of files larger than 100MB found in the originating repository. <code>large_files_count</code> - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a &quot;Get Large Files&quot; request. <a href=\"https://developer.github.com/v3/migrations/source_imports/#get-import-progress\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9400,7 +9456,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/large_files",
     "title": "getLargeImportFiles",
     "name": "getLargeImportFiles",
-    "description": "<p>List files larger than 100MB found during the import <a href=\"https://developer.github.com/v3/migration/source_imports/#get-large-files\">REST API doc</a></p>",
+    "description": "<p>List files larger than 100MB found during the import <a href=\"https://developer.github.com/v3/migrations/source_imports/#get-large-files\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9445,10 +9501,10 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/orgs/:org/migrations/:id/archive",
+    "url": "/orgs/:org/migrations/:migration_id/archive",
     "title": "getMigrationArchiveLink",
     "name": "getMigrationArchiveLink",
-    "description": "<p>Fetches the URL to a migration archive.</p> <p><a href=\"https://developer.github.com/v3/migration/migrations/#download-a-migration-archive\">REST API doc</a></p>",
+    "description": "<p>Fetches the URL to a migration archive.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#download-a-migration-archive\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9464,7 +9520,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "migration_id",
             "description": ""
           }
         ]
@@ -9473,17 +9529,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.migrations.getMigrationArchiveLink({org, id})",
+        "content": "const result = await octokit.migrations.getMigrationArchiveLink({org, migration_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.migrations.getMigrationArchiveLink({org, id}).then(result => {})",
+        "content": "octokit.migrations.getMigrationArchiveLink({org, migration_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.migrations.getMigrationArchiveLink({org, id}, (error, result) => {})",
+        "content": "octokit.migrations.getMigrationArchiveLink({org, migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9493,10 +9549,10 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/orgs/:org/migrations/:id",
+    "url": "/orgs/:org/migrations/:migration_id",
     "title": "getMigrationStatus",
     "name": "getMigrationStatus",
-    "description": "<p>Fetches the status of a migration.</p> <p>The <code>state</code> of a migration can be one of the following values: <code>pending</code>, which means the migration hasn't started yet. <code>exporting</code>, which means the migration is in progress. <code>exported</code>, which means the migration finished successfully. <code>failed</code>, which means the migration failed. <a href=\"https://developer.github.com/v3/migration/migrations/#get-the-status-of-a-migration\">REST API doc</a></p>",
+    "description": "<p>Fetches the status of a migration.</p> <p>The <code>state</code> of a migration can be one of the following values: <code>pending</code>, which means the migration hasn't started yet. <code>exporting</code>, which means the migration is in progress. <code>exported</code>, which means the migration finished successfully. <code>failed</code>, which means the migration failed. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-the-status-of-a-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9512,7 +9568,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "migration_id",
             "description": ""
           }
         ]
@@ -9521,17 +9577,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.migrations.getMigrationStatus({org, id})",
+        "content": "const result = await octokit.migrations.getMigrationStatus({org, migration_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.migrations.getMigrationStatus({org, id}).then(result => {})",
+        "content": "octokit.migrations.getMigrationStatus({org, migration_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.migrations.getMigrationStatus({org, id}, (error, result) => {})",
+        "content": "octokit.migrations.getMigrationStatus({org, migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9544,7 +9600,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations",
     "title": "getMigrations",
     "name": "getMigrations",
-    "description": "<p>Lists the most recent migrations. <a href=\"https://developer.github.com/v3/migration/migrations/#get-a-list-of-migrations\">REST API doc</a></p>",
+    "description": "<p>Lists the most recent migrations. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-a-list-of-migrations\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9601,7 +9657,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/authors/:author_id",
     "title": "mapImportCommitAuthor",
     "name": "mapImportCommitAuthor",
-    "description": "<p>Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href=\"https://developer.github.com/v3/migration/source_imports/#map-a-commit-author\">REST API doc</a></p>",
+    "description": "<p>Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href=\"https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9670,7 +9726,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/lfs",
     "title": "setImportLfsPreference",
     "name": "setImportLfsPreference",
-    "description": "<p>You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by <a href=\"https://git-lfs.github.com\">Git LFS</a>. You can learn more about our LFS feature and working with large files <a href=\"https://help.github.com/articles/versioning-large-files/\">on our help site</a>. <a href=\"https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference\">REST API doc</a></p>",
+    "description": "<p>You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by <a href=\"https://git-lfs.github.com\">Git LFS</a>. You can learn more about our LFS feature and working with large files <a href=\"https://help.github.com/articles/versioning-large-files/\">on our help site</a>. <a href=\"https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9729,7 +9785,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "startImport",
     "name": "startImport",
-    "description": "<p>Start a source import to a GitHub repository using GitHub Importer. <a href=\"https://developer.github.com/v3/migration/source_imports/#start-an-import\">REST API doc</a></p>",
+    "description": "<p>Start a source import to a GitHub repository using GitHub Importer. <a href=\"https://developer.github.com/v3/migrations/source_imports/#start-an-import\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9818,7 +9874,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations",
     "title": "startMigration",
     "name": "startMigration",
-    "description": "<p>Initiates the generation of a migration archive. <a href=\"https://developer.github.com/v3/migration/migrations/#start-a-migration\">REST API doc</a></p>",
+    "description": "<p>Initiates the generation of a migration archive. <a href=\"https://developer.github.com/v3/migrations/orgs/#start-a-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9879,10 +9935,10 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/orgs/:org/migrations/:id/repos/:repo_name/lock",
+    "url": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock",
     "title": "unlockRepoLockedForMigration",
     "name": "unlockRepoLockedForMigration",
-    "description": "<p>Unlocks a repository that was locked for migration. You should unlock each migrated repository and <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete them</a> when the migration is complete and you no longer need the source data. <a href=\"https://developer.github.com/v3/migration/migrations/#unlock-a-repository\">REST API doc</a></p>",
+    "description": "<p>Unlocks a repository that was locked for migration. You should unlock each migrated repository and <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete them</a> when the migration is complete and you no longer need the source data. <a href=\"https://developer.github.com/v3/migrations/orgs/#unlock-a-repository\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9898,7 +9954,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "migration_id",
             "description": ""
           },
           {
@@ -9914,17 +9970,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name})",
+        "content": "const result = await octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}).then(result => {})",
+        "content": "octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.migrations.unlockRepoLockedForMigration({org, id, repo_name}, (error, result) => {})",
+        "content": "octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9937,7 +9993,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "updateImport",
     "name": "updateImport",
-    "description": "<p>An import can be updated with credentials or a project choice by passing in the appropriate parameters in this API request. If no parameters are provided, the import will be restarted.</p> <p>Some servers (e.g. TFS servers) can have several projects at a single URL. In those cases the import progress will have the status <code>detection_found_multiple</code> and the Import Progress response will include a <code>project_choices</code> array. You can select the project to import by providing one of the objects in the <code>project_choices</code> array in the update request.</p> <p>The following example demonstrates the workflow for updating an import with &quot;project1&quot; as the project choice. Given a <code>project_choices</code> array like such:</p> <p>To restart an import, no parameters are provided in the update request. <a href=\"https://developer.github.com/v3/migration/source_imports/#update-existing-import\">REST API doc</a></p>",
+    "description": "<p>An import can be updated with credentials or a project choice by passing in the appropriate parameters in this API request. If no parameters are provided, the import will be restarted.</p> <p>Some servers (e.g. TFS servers) can have several projects at a single URL. In those cases the import progress will have the status <code>detection_found_multiple</code> and the Import Progress response will include a <code>project_choices</code> array. You can select the project to import by providing one of the objects in the <code>project_choices</code> array in the update request.</p> <p>The following example demonstrates the workflow for updating an import with &quot;project1&quot; as the project choice. Given a <code>project_choices</code> array like such:</p> <p>To restart an import, no parameters are provided in the update request. <a href=\"https://developer.github.com/v3/migrations/source_imports/#update-existing-import\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -10475,7 +10531,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/teams/:id/memberships/:username",
+    "url": "/teams/:team_id/memberships/:username",
     "title": "addTeamMembership",
     "name": "addTeamMembership",
     "description": "<p>If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.</p> <p>If the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the &quot;pending&quot; state until the user accepts the invitation, at which point the membership will transition to the &quot;active&quot; state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.</p> <p>If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.</p> <p>If you attempt to add an organization to a team, you will get this: <a href=\"https://developer.github.com/v3/teams/members/#add-or-update-team-membership\">REST API doc</a></p>",
@@ -10487,7 +10543,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -10515,17 +10571,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.addTeamMembership({id, username, role})",
+        "content": "const result = await octokit.orgs.addTeamMembership({team_id, username, role})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.addTeamMembership({id, username, role}).then(result => {})",
+        "content": "octokit.orgs.addTeamMembership({team_id, username, role}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.addTeamMembership({id, username, role}, (error, result) => {})",
+        "content": "octokit.orgs.addTeamMembership({team_id, username, role}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10535,7 +10591,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/teams/:id/repos/:owner/:repo",
+    "url": "/teams/:team_id/repos/:owner/:repo",
     "title": "addTeamRepo",
     "name": "addTeamRepo",
     "description": "<p>To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization.</p> <p>If you pass the <code>hellcat-preview</code> media type, you can modify repository permissions of child teams.</p> <p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p><a href=\"https://developer.github.com/v3/teams/#add-or-update-team-repository\">REST API doc</a></p>",
@@ -10547,7 +10603,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -10582,17 +10638,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.addTeamRepo({id, owner, repo, permission})",
+        "content": "const result = await octokit.orgs.addTeamRepo({team_id, owner, repo, permission})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.addTeamRepo({id, owner, repo, permission}).then(result => {})",
+        "content": "octokit.orgs.addTeamRepo({team_id, owner, repo, permission}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.addTeamRepo({id, owner, repo, permission}, (error, result) => {})",
+        "content": "octokit.orgs.addTeamRepo({team_id, owner, repo, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10794,7 +10850,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id/repos/:owner/:repo",
+    "url": "/teams/:team_id/repos/:owner/:repo",
     "title": "checkTeamRepo",
     "name": "checkTeamRepo",
     "description": "<p><strong>Note</strong>: If you pass the <code>hellcat-preview</code> media type, repositories inherited through a parent team will be checked.</p> <p>You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header: <a href=\"https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository\">REST API doc</a></p>",
@@ -10806,7 +10862,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -10829,17 +10885,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.checkTeamRepo({id, owner, repo})",
+        "content": "const result = await octokit.orgs.checkTeamRepo({team_id, owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.checkTeamRepo({id, owner, repo}).then(result => {})",
+        "content": "octokit.orgs.checkTeamRepo({team_id, owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.checkTeamRepo({id, owner, repo}, (error, result) => {})",
+        "content": "octokit.orgs.checkTeamRepo({team_id, owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11220,7 +11276,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/orgs/:org/hooks/:id",
+    "url": "/orgs/:org/hooks/:hook_id",
     "title": "deleteHook",
     "name": "deleteHook",
     "description": "<p><a href=\"https://developer.github.com/v3/orgs/hooks/#delete-a-hook\">REST API doc</a></p>",
@@ -11239,7 +11295,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -11248,17 +11304,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.deleteHook({org, id})",
+        "content": "const result = await octokit.orgs.deleteHook({org, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.deleteHook({org, id}).then(result => {})",
+        "content": "octokit.orgs.deleteHook({org, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.deleteHook({org, id}, (error, result) => {})",
+        "content": "octokit.orgs.deleteHook({org, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11268,7 +11324,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/teams/:id",
+    "url": "/teams/:team_id",
     "title": "deleteTeam",
     "name": "deleteTeam",
     "description": "<p>To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.</p> <p>If you are an organization owner and you pass the <code>hellcat-preview</code> media type, deleting a parent team will delete all of its child teams as well. <a href=\"https://developer.github.com/v3/teams/#delete-team\">REST API doc</a></p>",
@@ -11280,7 +11336,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           }
         ]
@@ -11289,17 +11345,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.deleteTeam({id})",
+        "content": "const result = await octokit.orgs.deleteTeam({team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.deleteTeam({id}).then(result => {})",
+        "content": "octokit.orgs.deleteTeam({team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.deleteTeam({id}, (error, result) => {})",
+        "content": "octokit.orgs.deleteTeam({team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11309,7 +11365,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/teams/:id/repos/:owner/:repo",
+    "url": "/teams/:team_id/repos/:owner/:repo",
     "title": "deleteTeamRepo",
     "name": "deleteTeamRepo",
     "description": "<p>If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team. <a href=\"https://developer.github.com/v3/teams/#remove-team-repository\">REST API doc</a></p>",
@@ -11321,7 +11377,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -11344,17 +11400,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.deleteTeamRepo({id, owner, repo})",
+        "content": "const result = await octokit.orgs.deleteTeamRepo({team_id, owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.deleteTeamRepo({id, owner, repo}).then(result => {})",
+        "content": "octokit.orgs.deleteTeamRepo({team_id, owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.deleteTeamRepo({id, owner, repo}, (error, result) => {})",
+        "content": "octokit.orgs.deleteTeamRepo({team_id, owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11364,7 +11420,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/orgs/:org/hooks/:id",
+    "url": "/orgs/:org/hooks/:hook_id",
     "title": "editHook",
     "name": "editHook",
     "description": "<p><a href=\"https://developer.github.com/v3/orgs/hooks/#edit-a-hook\">REST API doc</a></p>",
@@ -11383,7 +11439,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           },
           {
@@ -11443,17 +11499,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.editHook({org, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})",
+        "content": "const result = await octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.editHook({org, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})",
+        "content": "octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.editHook({org, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})",
+        "content": "octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11463,7 +11519,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/teams/:id",
+    "url": "/teams/:team_id",
     "title": "editTeam",
     "name": "editTeam",
     "description": "<p>To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team. <em>Note:</em>* With nested teams, the <code>privacy</code> for parent teams cannot be <code>secret</code>. <a href=\"https://developer.github.com/v3/teams/#edit-team\">REST API doc</a></p>",
@@ -11475,7 +11531,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -11525,17 +11581,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.editTeam({id, name, description, privacy, permission, parent_team_id})",
+        "content": "const result = await octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.editTeam({id, name, description, privacy, permission, parent_team_id}).then(result => {})",
+        "content": "octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.editTeam({id, name, description, privacy, permission, parent_team_id}, (error, result) => {})",
+        "content": "octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11684,7 +11740,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id/teams",
+    "url": "/teams/:team_id/teams",
     "title": "getChildTeams",
     "name": "getChildTeams",
     "description": "<p>At this time, the <code>hellcat-preview</code> media type is required to use this endpoint.</p> <p><a href=\"https://developer.github.com/v3/teams/#list-child-teams\">REST API doc</a></p>",
@@ -11696,7 +11752,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -11721,17 +11777,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getChildTeams({id, per_page, page})",
+        "content": "const result = await octokit.orgs.getChildTeams({team_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getChildTeams({id, per_page, page}).then(result => {})",
+        "content": "octokit.orgs.getChildTeams({team_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getChildTeams({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.orgs.getChildTeams({team_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11798,7 +11854,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/orgs/:org/hooks/:id",
+    "url": "/orgs/:org/hooks/:hook_id",
     "title": "getHook",
     "name": "getHook",
     "description": "<p><a href=\"https://developer.github.com/v3/orgs/hooks/#get-single-hook\">REST API doc</a></p>",
@@ -11817,7 +11873,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -11826,17 +11882,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getHook({org, id})",
+        "content": "const result = await octokit.orgs.getHook({org, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getHook({org, id}).then(result => {})",
+        "content": "octokit.orgs.getHook({org, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getHook({org, id}, (error, result) => {})",
+        "content": "octokit.orgs.getHook({org, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12223,7 +12279,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id/invitations",
+    "url": "/teams/:team_id/invitations",
     "title": "getPendingTeamInvites",
     "name": "getPendingTeamInvites",
     "description": "<p>The return hash contains a <code>role</code> field which refers to the Organization Invitation role and will be one of the following values: <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>, <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not a GitHub member, the <code>login</code> field in the return hash will be <code>null</code>. <a href=\"https://developer.github.com/v3/teams/members/#list-pending-team-invitations\">REST API doc</a></p>",
@@ -12235,7 +12291,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -12260,17 +12316,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getPendingTeamInvites({id, per_page, page})",
+        "content": "const result = await octokit.orgs.getPendingTeamInvites({team_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getPendingTeamInvites({id, per_page, page}).then(result => {})",
+        "content": "octokit.orgs.getPendingTeamInvites({team_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getPendingTeamInvites({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.orgs.getPendingTeamInvites({team_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12337,7 +12393,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id",
+    "url": "/teams/:team_id",
     "title": "getTeam",
     "name": "getTeam",
     "description": "<p><a href=\"https://developer.github.com/v3/teams/#get-team\">REST API doc</a></p>",
@@ -12349,7 +12405,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           }
         ]
@@ -12358,17 +12414,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getTeam({id})",
+        "content": "const result = await octokit.orgs.getTeam({team_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getTeam({id}).then(result => {})",
+        "content": "octokit.orgs.getTeam({team_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getTeam({id}, (error, result) => {})",
+        "content": "octokit.orgs.getTeam({team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12378,7 +12434,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id/members",
+    "url": "/teams/:team_id/members",
     "title": "getTeamMembers",
     "name": "getTeamMembers",
     "description": "<p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams. <a href=\"https://developer.github.com/v3/teams/members/#list-team-members\">REST API doc</a></p>",
@@ -12390,7 +12446,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -12428,17 +12484,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getTeamMembers({id, role, per_page, page})",
+        "content": "const result = await octokit.orgs.getTeamMembers({team_id, role, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getTeamMembers({id, role, per_page, page}).then(result => {})",
+        "content": "octokit.orgs.getTeamMembers({team_id, role, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getTeamMembers({id, role, per_page, page}, (error, result) => {})",
+        "content": "octokit.orgs.getTeamMembers({team_id, role, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12448,7 +12504,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id/memberships/:username",
+    "url": "/teams/:team_id/memberships/:username",
     "title": "getTeamMembership",
     "name": "getTeamMembership",
     "description": "<p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p> <p>To get a user's membership with a team, the team must be visible to the authenticated user. <em>Note:</em>* The <code>role</code> for organization owners returns as <code>maintainer</code>. For more information about <code>maintainer</code> roles, see <a href=\"https://developer.github.com/v3/teams#create-team\">Create team</a>. <a href=\"https://developer.github.com/v3/teams/members/#get-team-membership\">REST API doc</a></p>",
@@ -12460,7 +12516,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -12476,17 +12532,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getTeamMembership({id, username})",
+        "content": "const result = await octokit.orgs.getTeamMembership({team_id, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getTeamMembership({id, username}).then(result => {})",
+        "content": "octokit.orgs.getTeamMembership({team_id, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getTeamMembership({id, username}, (error, result) => {})",
+        "content": "octokit.orgs.getTeamMembership({team_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12496,7 +12552,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/teams/:id/repos",
+    "url": "/teams/:team_id/repos",
     "title": "getTeamRepos",
     "name": "getTeamRepos",
     "description": "<p><strong>Note</strong>: If you pass the <code>hellcat-preview</code> media type, the response will include any repositories inherited through a parent team. <a href=\"https://developer.github.com/v3/teams/#list-team-repos\">REST API doc</a></p>",
@@ -12508,7 +12564,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -12533,17 +12589,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.getTeamRepos({id, per_page, page})",
+        "content": "const result = await octokit.orgs.getTeamRepos({team_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.getTeamRepos({id, per_page, page}).then(result => {})",
+        "content": "octokit.orgs.getTeamRepos({team_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.getTeamRepos({id, per_page, page}, (error, result) => {})",
+        "content": "octokit.orgs.getTeamRepos({team_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12610,7 +12666,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/orgs/:org/hooks/:id/pings",
+    "url": "/orgs/:org/hooks/:hook_id/pings",
     "title": "pingHook",
     "name": "pingHook",
     "description": "<p>This will trigger a <a href=\"https://developer.github.com/webhooks/#ping-event\">ping event</a> to be sent to the hook. <a href=\"https://developer.github.com/v3/orgs/hooks/#ping-a-hook\">REST API doc</a></p>",
@@ -12629,7 +12685,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -12638,17 +12694,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.pingHook({org, id})",
+        "content": "const result = await octokit.orgs.pingHook({org, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.pingHook({org, id}).then(result => {})",
+        "content": "octokit.orgs.pingHook({org, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.pingHook({org, id}, (error, result) => {})",
+        "content": "octokit.orgs.pingHook({org, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12850,7 +12906,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/teams/:id/memberships/:username",
+    "url": "/teams/:team_id/memberships/:username",
     "title": "removeTeamMembership",
     "name": "removeTeamMembership",
     "description": "<p>To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team. <a href=\"https://developer.github.com/v3/teams/members/#remove-team-membership\">REST API doc</a></p>",
@@ -12862,7 +12918,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "team_id",
             "description": ""
           },
           {
@@ -12878,17 +12934,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.removeTeamMembership({id, username})",
+        "content": "const result = await octokit.orgs.removeTeamMembership({team_id, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.removeTeamMembership({id, username}).then(result => {})",
+        "content": "octokit.orgs.removeTeamMembership({team_id, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.orgs.removeTeamMembership({id, username}, (error, result) => {})",
+        "content": "octokit.orgs.removeTeamMembership({team_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13065,7 +13121,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/projects/:id/collaborators/:username",
+    "url": "/projects/:project_id/collaborators/:username",
     "title": "addCollaborator",
     "name": "addCollaborator",
     "description": "<p>Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project <code>admin</code> to add a collaborator. <a href=\"https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
@@ -13077,7 +13133,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "project_id",
             "description": ""
           },
           {
@@ -13106,17 +13162,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.addCollaborator({id, username, permission})",
+        "content": "const result = await octokit.projects.addCollaborator({project_id, username, permission})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.addCollaborator({id, username, permission}).then(result => {})",
+        "content": "octokit.projects.addCollaborator({project_id, username, permission}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.projects.addCollaborator({id, username, permission}, (error, result) => {})",
+        "content": "octokit.projects.addCollaborator({project_id, username, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13200,7 +13256,7 @@ define({ "api": [
     "url": "/projects/columns/:column_id/cards",
     "title": "createProjectCard",
     "name": "createProjectCard",
-    "description": "<p><a href=\"https://developer.github.com/v3/projects/cards/#create-a-project-card\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <a href=\"https://developer.github.com/v3/projects/cards/#create-a-project-card\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -13217,21 +13273,21 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "note",
-            "description": "<p>The card's note content. Only valid for cards without another type of content, so this must be omitted if <code>content_id</code> and <code>content_type</code> are specified.</p>"
+            "description": "<p>The card's note content. Only valid for cards without another type of content, so you must omit when specifying <code>content_id</code> and <code>content_type</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "integer",
             "optional": true,
             "field": "content_id",
-            "description": "<p>The id of the issue to associate with this card.</p>"
+            "description": "<p>The issue or pull request id you want to associate with this card. You can use the <a href=\"https://developer.github.com/v3/issues/#list-issues-for-a-repository\">List issues for a repository</a> and <a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a> endpoints to find this id.<br> <em>Note:</em>* Depending on whether you use the issue id or pull request id, you will need to specify <code>Issue</code> or <code>PullRequest</code> as the <code>content_type</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "content_type",
-            "description": "<p><strong>Required if you provide <code>content_id</code></strong>. The type of content to associate with this card. Can only be &quot;Issue&quot; at this time.</p>"
+            "description": "<p><strong>Required if you provide <code>content_id</code></strong>. The type of content you want to associate with this card. Use <code>Issue</code> when <code>content_id</code> is an issue id and use <code>PullRequest</code> when <code>content_id</code> is a pull request id.</p>"
           }
         ]
       }
@@ -13508,7 +13564,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/projects/:id/collaborators",
+    "url": "/projects/:project_id/collaborators",
     "title": "getCollaborators",
     "name": "getCollaborators",
     "description": "<p>Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project <code>admin</code> to list collaborators. <a href=\"https://developer.github.com/v3/projects/collaborators/#list-collaborators\">REST API doc</a></p>",
@@ -13520,7 +13576,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "project_id",
             "description": ""
           },
           {
@@ -13558,17 +13614,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.getCollaborators({id, affiliation, per_page, page})",
+        "content": "const result = await octokit.projects.getCollaborators({project_id, affiliation, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.getCollaborators({id, affiliation, per_page, page}).then(result => {})",
+        "content": "octokit.projects.getCollaborators({project_id, affiliation, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.projects.getCollaborators({id, affiliation, per_page, page}, (error, result) => {})",
+        "content": "octokit.projects.getCollaborators({project_id, affiliation, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13978,7 +14034,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/projects/:id/collaborators/:username/permission",
+    "url": "/projects/:project_id/collaborators/:username/permission",
     "title": "getUserPermissionLevel",
     "name": "getUserPermissionLevel",
     "description": "<p>Returns the collaborator's permission level for an organization project. Possible values for the <code>permission</code> key: <code>admin</code>, <code>write</code>, <code>read</code>, <code>none</code>. You must be an organization owner or a project <code>admin</code> to review a user's permission level. <a href=\"https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level\">REST API doc</a></p>",
@@ -13990,7 +14046,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "project_id",
             "description": ""
           },
           {
@@ -14006,17 +14062,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.getUserPermissionLevel({id, username})",
+        "content": "const result = await octokit.projects.getUserPermissionLevel({project_id, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.getUserPermissionLevel({id, username}).then(result => {})",
+        "content": "octokit.projects.getUserPermissionLevel({project_id, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.projects.getUserPermissionLevel({id, username}, (error, result) => {})",
+        "content": "octokit.projects.getUserPermissionLevel({project_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14139,7 +14195,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/projects/:id/collaborators/:username",
+    "url": "/projects/:project_id/collaborators/:username",
     "title": "removeCollaborator",
     "name": "removeCollaborator",
     "description": "<p>Removes a collaborator from an organization project. You must be an organization owner or a project <code>admin</code> to remove a collaborator. <a href=\"https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator\">REST API doc</a></p>",
@@ -14151,7 +14207,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "project_id",
             "description": ""
           },
           {
@@ -14167,17 +14223,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.removeCollaborator({id, username})",
+        "content": "const result = await octokit.projects.removeCollaborator({project_id, username})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.removeCollaborator({id, username}).then(result => {})",
+        "content": "octokit.projects.removeCollaborator({project_id, username}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.projects.removeCollaborator({id, username}, (error, result) => {})",
+        "content": "octokit.projects.removeCollaborator({project_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14930,7 +14986,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/pulls/comments/:id",
+    "url": "/repos/:owner/:repo/pulls/comments/:comment_id",
     "title": "deleteComment",
     "name": "deleteComment",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/comments/#delete-a-comment\">REST API doc</a></p>",
@@ -14956,7 +15012,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -14965,17 +15021,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.deleteComment({owner, repo, id})",
+        "content": "const result = await octokit.pullRequests.deleteComment({owner, repo, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.deleteComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.pullRequests.deleteComment({owner, repo, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.deleteComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.deleteComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14985,7 +15041,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
+    "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id",
     "title": "deletePendingReview",
     "name": "deletePendingReview",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/reviews/#delete-a-pending-review\">REST API doc</a></p>",
@@ -15018,7 +15074,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "review_id",
             "description": ""
           }
         ]
@@ -15027,17 +15083,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, id})",
+        "content": "const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, review_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, id}).then(result => {})",
+        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15116,7 +15172,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals",
+    "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals",
     "title": "dismissReview",
     "name": "dismissReview",
     "description": "<p><strong>Note:</strong> To dismiss a pull request review on a <a href=\"https://developer.github.com/v3/repos/branches/\">protected branch</a>, you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews. <a href=\"https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review\">REST API doc</a></p>",
@@ -15149,7 +15205,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "review_id",
             "description": ""
           },
           {
@@ -15165,17 +15221,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.dismissReview({owner, repo, number, id, message})",
+        "content": "const result = await octokit.pullRequests.dismissReview({owner, repo, number, review_id, message})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.dismissReview({owner, repo, number, id, message}).then(result => {})",
+        "content": "octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.dismissReview({owner, repo, number, id, message}, (error, result) => {})",
+        "content": "octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15185,7 +15241,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/pulls/comments/:id",
+    "url": "/repos/:owner/:repo/pulls/comments/:comment_id",
     "title": "editComment",
     "name": "editComment",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/comments/#edit-a-comment\">REST API doc</a></p>",
@@ -15211,7 +15267,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -15227,17 +15283,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.editComment({owner, repo, id, body})",
+        "content": "const result = await octokit.pullRequests.editComment({owner, repo, comment_id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.editComment({owner, repo, id, body}).then(result => {})",
+        "content": "octokit.pullRequests.editComment({owner, repo, comment_id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.editComment({owner, repo, id, body}, (error, result) => {})",
+        "content": "octokit.pullRequests.editComment({owner, repo, comment_id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15419,7 +15475,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/pulls/comments/:id",
+    "url": "/repos/:owner/:repo/pulls/comments/:comment_id",
     "title": "getComment",
     "name": "getComment",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/comments/#get-a-single-comment\">REST API doc</a></p>",
@@ -15445,7 +15501,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -15454,17 +15510,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.getComment({owner, repo, id})",
+        "content": "const result = await octokit.pullRequests.getComment({owner, repo, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.getComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.pullRequests.getComment({owner, repo, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.getComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.getComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15811,7 +15867,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/pulls/:number/reviews/:id",
+    "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id",
     "title": "getReview",
     "name": "getReview",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/reviews/#get-a-single-review\">REST API doc</a></p>",
@@ -15844,7 +15900,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "review_id",
             "description": ""
           }
         ]
@@ -15853,17 +15909,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.getReview({owner, repo, number, id})",
+        "content": "const result = await octokit.pullRequests.getReview({owner, repo, number, review_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.getReview({owner, repo, number, id}).then(result => {})",
+        "content": "octokit.pullRequests.getReview({owner, repo, number, review_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.getReview({owner, repo, number, id}, (error, result) => {})",
+        "content": "octokit.pullRequests.getReview({owner, repo, number, review_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15873,7 +15929,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments",
+    "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments",
     "title": "getReviewComments",
     "name": "getReviewComments",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/reviews/#get-comments-for-a-single-review\">REST API doc</a></p>",
@@ -15906,7 +15962,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "review_id",
             "description": ""
           },
           {
@@ -15931,17 +15987,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.getReviewComments({owner, repo, number, id, per_page, page})",
+        "content": "const result = await octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, id, per_page, page}).then(result => {})",
+        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, id, per_page, page}, (error, result) => {})",
+        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16181,7 +16237,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events",
+    "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events",
     "title": "submitReview",
     "name": "submitReview",
     "description": "<p><a href=\"https://developer.github.com/v3/pulls/reviews/#submit-a-pull-request-review\">REST API doc</a></p>",
@@ -16214,7 +16270,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "review_id",
             "description": ""
           },
           {
@@ -16242,17 +16298,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.submitReview({owner, repo, number, id, body, event})",
+        "content": "const result = await octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.submitReview({owner, repo, number, id, body, event}).then(result => {})",
+        "content": "octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.submitReview({owner, repo, number, id, body, event}, (error, result) => {})",
+        "content": "octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16356,7 +16412,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/comments/:id/reactions",
+    "url": "/repos/:owner/:repo/comments/:comment_id/reactions",
     "title": "createForCommitComment",
     "name": "createForCommitComment",
     "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/repos/comments/\">commit comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this commit comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment\">REST API doc</a></p>",
@@ -16382,7 +16438,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -16406,17 +16462,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.createForCommitComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.createForCommitComment({owner, repo, comment_id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.createForCommitComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.createForCommitComment({owner, repo, comment_id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.createForCommitComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForCommitComment({owner, repo, comment_id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16496,7 +16552,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
+    "url": "/repos/:owner/:repo/issues/comments/:comment_id/reactions",
     "title": "createForIssueComment",
     "name": "createForIssueComment",
     "description": "<p>Create a reaction to an <a href=\"https://developer.github.com/v3/issues/comments/\">issue comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this issue comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment\">REST API doc</a></p>",
@@ -16522,7 +16578,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -16546,17 +16602,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.createForIssueComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.createForIssueComment({owner, repo, comment_id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.createForIssueComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.createForIssueComment({owner, repo, comment_id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.createForIssueComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForIssueComment({owner, repo, comment_id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16566,7 +16622,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
+    "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions",
     "title": "createForPullRequestReviewComment",
     "name": "createForPullRequestReviewComment",
     "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/pulls/comments/\">pull request review comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this pull request review comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment\">REST API doc</a></p>",
@@ -16592,7 +16648,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -16616,17 +16672,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content})",
+        "content": "const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}).then(result => {})",
+        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, id, content}, (error, result) => {})",
+        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16769,7 +16825,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/reactions/:id",
+    "url": "/reactions/:reaction_id",
     "title": "delete",
     "name": "delete",
     "description": "<p>OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>, when deleting a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a> or <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. <a href=\"https://developer.github.com/v3/reactions/#delete-a-reaction\">REST API doc</a></p>",
@@ -16781,7 +16837,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "reaction_id",
             "description": ""
           }
         ]
@@ -16790,17 +16846,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.delete({id})",
+        "content": "const result = await octokit.reactions.delete({reaction_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.delete({id}).then(result => {})",
+        "content": "octokit.reactions.delete({reaction_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.delete({id}, (error, result) => {})",
+        "content": "octokit.reactions.delete({reaction_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16810,7 +16866,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/comments/:id/reactions",
+    "url": "/repos/:owner/:repo/comments/:comment_id/reactions",
     "title": "getForCommitComment",
     "name": "getForCommitComment",
     "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/repos/comments/\">commit comment</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment\">REST API doc</a></p>",
@@ -16836,7 +16892,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -16876,17 +16932,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.getForCommitComment({owner, repo, id, content, per_page, page})",
+        "content": "const result = await octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.getForCommitComment({owner, repo, id, content, per_page, page}).then(result => {})",
+        "content": "octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.getForCommitComment({owner, repo, id, content, per_page, page}, (error, result) => {})",
+        "content": "octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16982,7 +17038,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/issues/comments/:id/reactions",
+    "url": "/repos/:owner/:repo/issues/comments/:comment_id/reactions",
     "title": "getForIssueComment",
     "name": "getForIssueComment",
     "description": "<p>List the reactions to an <a href=\"https://developer.github.com/v3/issues/comments/\">issue comment</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-an-issue-comment\">REST API doc</a></p>",
@@ -17008,7 +17064,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -17048,17 +17104,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.getForIssueComment({owner, repo, id, content, per_page, page})",
+        "content": "const result = await octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.getForIssueComment({owner, repo, id, content, per_page, page}).then(result => {})",
+        "content": "octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.getForIssueComment({owner, repo, id, content, per_page, page}, (error, result) => {})",
+        "content": "octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17068,7 +17124,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/pulls/comments/:id/reactions",
+    "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions",
     "title": "getForPullRequestReviewComment",
     "name": "getForPullRequestReviewComment",
     "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/pulls/comments/\">pull request review comment</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment\">REST API doc</a></p>",
@@ -17094,7 +17150,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -17134,17 +17190,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content, per_page, page})",
+        "content": "const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content, per_page, page}).then(result => {})",
+        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, id, content, per_page, page}, (error, result) => {})",
+        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18187,7 +18243,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/deployments/:id/statuses",
+    "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
     "title": "createDeploymentStatus",
     "name": "createDeploymentStatus",
     "description": "<p>Users with push access can create deployment statuses for a given deployment: <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment-status\">REST API doc</a></p>",
@@ -18213,7 +18269,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "deployment_id",
             "description": ""
           },
           {
@@ -18272,17 +18328,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive})",
+        "content": "const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})",
+        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.createDeploymentStatus({owner, repo, id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})",
+        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18867,7 +18923,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/releases/assets/:id",
+    "url": "/repos/:owner/:repo/releases/assets/:asset_id",
     "title": "deleteAsset",
     "name": "deleteAsset",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/releases/#delete-a-release-asset\">REST API doc</a></p>",
@@ -18893,7 +18949,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "asset_id",
             "description": ""
           }
         ]
@@ -18902,17 +18958,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.deleteAsset({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteAsset({owner, repo, asset_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.deleteAsset({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteAsset({owner, repo, asset_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.deleteAsset({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteAsset({owner, repo, asset_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18922,7 +18978,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/comments/:id",
+    "url": "/repos/:owner/:repo/comments/:comment_id",
     "title": "deleteCommitComment",
     "name": "deleteCommitComment",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/comments/#delete-a-commit-comment\">REST API doc</a></p>",
@@ -18948,7 +19004,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -18957,17 +19013,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.deleteCommitComment({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteCommitComment({owner, repo, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.deleteCommitComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteCommitComment({owner, repo, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.deleteCommitComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteCommitComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18977,7 +19033,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/keys/:id",
+    "url": "/repos/:owner/:repo/keys/:key_id",
     "title": "deleteDeployKey",
     "name": "deleteDeployKey",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/keys/#remove-a-deploy-key\">REST API doc</a></p>",
@@ -19003,7 +19059,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "key_id",
             "description": ""
           }
         ]
@@ -19012,17 +19068,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.deleteDeployKey({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteDeployKey({owner, repo, key_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.deleteDeployKey({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteDeployKey({owner, repo, key_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.deleteDeployKey({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteDeployKey({owner, repo, key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19032,7 +19088,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/downloads/:id",
+    "url": "/repos/:owner/:repo/downloads/:download_id",
     "title": "deleteDownload",
     "name": "deleteDownload",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/downloads/#delete-a-download\">REST API doc</a></p>",
@@ -19058,7 +19114,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "download_id",
             "description": ""
           }
         ]
@@ -19067,17 +19123,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.deleteDownload({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteDownload({owner, repo, download_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.deleteDownload({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteDownload({owner, repo, download_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.deleteDownload({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteDownload({owner, repo, download_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19178,7 +19234,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/hooks/:id",
+    "url": "/repos/:owner/:repo/hooks/:hook_id",
     "title": "deleteHook",
     "name": "deleteHook",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/hooks/#delete-a-hook\">REST API doc</a></p>",
@@ -19204,7 +19260,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -19213,17 +19269,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.deleteHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteHook({owner, repo, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.deleteHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteHook({owner, repo, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.deleteHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19288,7 +19344,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/repos/:owner/:repo/releases/:id",
+    "url": "/repos/:owner/:repo/releases/:release_id",
     "title": "deleteRelease",
     "name": "deleteRelease",
     "description": "<p>Users with push access to the repository can delete a release. <a href=\"https://developer.github.com/v3/repos/releases/#delete-a-release\">REST API doc</a></p>",
@@ -19314,7 +19370,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "release_id",
             "description": ""
           }
         ]
@@ -19323,17 +19379,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.deleteRelease({owner, repo, id})",
+        "content": "const result = await octokit.repos.deleteRelease({owner, repo, release_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.deleteRelease({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.deleteRelease({owner, repo, release_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.deleteRelease({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.deleteRelease({owner, repo, release_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19483,7 +19539,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/releases/assets/:id",
+    "url": "/repos/:owner/:repo/releases/assets/:asset_id",
     "title": "editAsset",
     "name": "editAsset",
     "description": "<p>Users with push access to the repository can edit a release asset. <a href=\"https://developer.github.com/v3/repos/releases/#edit-a-release-asset\">REST API doc</a></p>",
@@ -19509,7 +19565,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "asset_id",
             "description": ""
           },
           {
@@ -19532,17 +19588,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.editAsset({owner, repo, id, name, label})",
+        "content": "const result = await octokit.repos.editAsset({owner, repo, asset_id, name, label})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.editAsset({owner, repo, id, name, label}).then(result => {})",
+        "content": "octokit.repos.editAsset({owner, repo, asset_id, name, label}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.editAsset({owner, repo, id, name, label}, (error, result) => {})",
+        "content": "octokit.repos.editAsset({owner, repo, asset_id, name, label}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19552,7 +19608,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/hooks/:id",
+    "url": "/repos/:owner/:repo/hooks/:hook_id",
     "title": "editHook",
     "name": "editHook",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/hooks/#edit-a-hook\">REST API doc</a></p>",
@@ -19578,7 +19634,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           },
           {
@@ -19652,17 +19708,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.editHook({owner, repo, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active})",
+        "content": "const result = await octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.editHook({owner, repo, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}).then(result => {})",
+        "content": "octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.editHook({owner, repo, id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}, (error, result) => {})",
+        "content": "octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19672,7 +19728,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/releases/:id",
+    "url": "/repos/:owner/:repo/releases/:release_id",
     "title": "editRelease",
     "name": "editRelease",
     "description": "<p>Users with push access to the repository can edit a release. <a href=\"https://developer.github.com/v3/repos/releases/#edit-a-release\">REST API doc</a></p>",
@@ -19698,7 +19754,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "release_id",
             "description": ""
           },
           {
@@ -19750,17 +19806,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease})",
+        "content": "const result = await octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
+        "content": "octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.editRelease({owner, repo, id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
+        "content": "octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20122,7 +20178,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/releases/assets/:id",
+    "url": "/repos/:owner/:repo/releases/assets/:asset_id",
     "title": "getAsset",
     "name": "getAsset",
     "description": "<p>To download the asset's binary content, set the <code>Accept</code> header of the request to <a href=\"https://developer.github.com/v3/media/#media-types\"><code>application/octet-stream</code></a>. The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a <code>200</code> or <code>302</code> response. <a href=\"https://developer.github.com/v3/repos/releases/#get-a-single-release-asset\">REST API doc</a></p>",
@@ -20148,7 +20204,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "asset_id",
             "description": ""
           }
         ]
@@ -20157,17 +20213,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getAsset({owner, repo, id})",
+        "content": "const result = await octokit.repos.getAsset({owner, repo, asset_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getAsset({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getAsset({owner, repo, asset_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getAsset({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getAsset({owner, repo, asset_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20177,7 +20233,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/releases/:id/assets",
+    "url": "/repos/:owner/:repo/releases/:release_id/assets",
     "title": "getAssets",
     "name": "getAssets",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/releases/#list-assets-for-a-release\">REST API doc</a></p>",
@@ -20203,7 +20259,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "release_id",
             "description": ""
           },
           {
@@ -20228,17 +20284,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getAssets({owner, repo, id, per_page, page})",
+        "content": "const result = await octokit.repos.getAssets({owner, repo, release_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getAssets({owner, repo, id, per_page, page}).then(result => {})",
+        "content": "octokit.repos.getAssets({owner, repo, release_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getAssets({owner, repo, id, per_page, page}, (error, result) => {})",
+        "content": "octokit.repos.getAssets({owner, repo, release_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20676,7 +20732,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/comments/:id",
+    "url": "/repos/:owner/:repo/comments/:comment_id",
     "title": "getCommitComment",
     "name": "getCommitComment",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment\">REST API doc</a></p>",
@@ -20702,7 +20758,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           }
         ]
@@ -20711,17 +20767,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getCommitComment({owner, repo, id})",
+        "content": "const result = await octokit.repos.getCommitComment({owner, repo, comment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getCommitComment({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getCommitComment({owner, repo, comment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getCommitComment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getCommitComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21084,7 +21140,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/keys/:id",
+    "url": "/repos/:owner/:repo/keys/:key_id",
     "title": "getDeployKey",
     "name": "getDeployKey",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/keys/#get-a-deploy-key\">REST API doc</a></p>",
@@ -21110,7 +21166,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "key_id",
             "description": ""
           }
         ]
@@ -21119,17 +21175,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDeployKey({owner, repo, id})",
+        "content": "const result = await octokit.repos.getDeployKey({owner, repo, key_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDeployKey({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getDeployKey({owner, repo, key_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDeployKey({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getDeployKey({owner, repo, key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21203,7 +21259,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/deployments/:id",
+    "url": "/repos/:owner/:repo/deployments/:deployment_id",
     "title": "getDeployment",
     "name": "getDeployment",
     "description": "<p><em>Note:</em>* If a user created a deployment via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment\">REST API doc</a></p>",
@@ -21229,7 +21285,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "deployment_id",
             "description": ""
           }
         ]
@@ -21238,17 +21294,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDeployment({owner, repo, id})",
+        "content": "const result = await octokit.repos.getDeployment({owner, repo, deployment_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDeployment({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getDeployment({owner, repo, deployment_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDeployment({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21258,7 +21314,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/deployments/:id/statuses/:status_id",
+    "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id",
     "title": "getDeploymentStatus",
     "name": "getDeploymentStatus",
     "description": "<p>Users with pull access can view a deployment status for a deployment: <em>Note:</em>* If a user created a deployment status via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status\">REST API doc</a></p>",
@@ -21282,6 +21338,13 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "deployment_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
             "type": "integer",
             "optional": false,
             "field": "id",
@@ -21300,17 +21363,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDeploymentStatus({owner, repo, id, status_id})",
+        "content": "const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDeploymentStatus({owner, repo, id, status_id}).then(result => {})",
+        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDeploymentStatus({owner, repo, id, status_id}, (error, result) => {})",
+        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21320,7 +21383,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/deployments/:id/statuses",
+    "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
     "title": "getDeploymentStatuses",
     "name": "getDeploymentStatuses",
     "description": "<p>Users with pull access can view deployment statuses for a deployment: <a href=\"https://developer.github.com/v3/repos/deployments/#list-deployment-statuses\">REST API doc</a></p>",
@@ -21340,6 +21403,13 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "deployment_id",
             "description": ""
           },
           {
@@ -21371,17 +21441,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDeploymentStatuses({owner, repo, id, per_page, page})",
+        "content": "const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDeploymentStatuses({owner, repo, id, per_page, page}).then(result => {})",
+        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDeploymentStatuses({owner, repo, id, per_page, page}, (error, result) => {})",
+        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21487,7 +21557,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/downloads/:id",
+    "url": "/repos/:owner/:repo/downloads/:download_id",
     "title": "getDownload",
     "name": "getDownload",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/downloads/#get-a-single-download\">REST API doc</a></p>",
@@ -21513,7 +21583,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "download_id",
             "description": ""
           }
         ]
@@ -21522,17 +21592,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDownload({owner, repo, id})",
+        "content": "const result = await octokit.repos.getDownload({owner, repo, download_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDownload({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getDownload({owner, repo, download_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDownload({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getDownload({owner, repo, download_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21852,7 +21922,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/hooks/:id",
+    "url": "/repos/:owner/:repo/hooks/:hook_id",
     "title": "getHook",
     "name": "getHook",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/hooks/#get-single-hook\">REST API doc</a></p>",
@@ -21878,7 +21948,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -21887,17 +21957,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.getHook({owner, repo, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getHook({owner, repo, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22227,7 +22297,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/pages/builds/:id",
+    "url": "/repos/:owner/:repo/pages/builds/:build_id",
     "title": "getPagesBuild",
     "name": "getPagesBuild",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/pages/#get-a-specific-pages-build\">REST API doc</a></p>",
@@ -22253,7 +22323,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "build_id",
             "description": ""
           }
         ]
@@ -22262,17 +22332,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getPagesBuild({owner, repo, id})",
+        "content": "const result = await octokit.repos.getPagesBuild({owner, repo, build_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getPagesBuild({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getPagesBuild({owner, repo, build_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getPagesBuild({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getPagesBuild({owner, repo, build_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22995,7 +23065,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/releases/:id",
+    "url": "/repos/:owner/:repo/releases/:release_id",
     "title": "getRelease",
     "name": "getRelease",
     "description": "<p><strong>Note:</strong> This returns an <code>upload_url</code> key corresponding to the endpoint for uploading release assets. This key is a <a href=\"https://developer.github.com/v3/#hypermedia\">hypermedia resource</a>. <a href=\"https://developer.github.com/v3/repos/releases/#get-a-single-release\">REST API doc</a></p>",
@@ -23021,7 +23091,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "release_id",
             "description": ""
           }
         ]
@@ -23030,17 +23100,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getRelease({owner, repo, id})",
+        "content": "const result = await octokit.repos.getRelease({owner, repo, release_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getRelease({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.getRelease({owner, repo, release_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getRelease({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.getRelease({owner, repo, release_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23840,7 +23910,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/hooks/:id/pings",
+    "url": "/repos/:owner/:repo/hooks/:hook_id/pings",
     "title": "pingHook",
     "name": "pingHook",
     "description": "<p>This will trigger a <a href=\"https://developer.github.com/webhooks/#ping-event\">ping event</a> to be sent to the hook. <a href=\"https://developer.github.com/v3/repos/hooks/#ping-a-hook\">REST API doc</a></p>",
@@ -23866,7 +23936,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -23875,17 +23945,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.pingHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.pingHook({owner, repo, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.pingHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.pingHook({owner, repo, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.pingHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.pingHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24768,10 +24838,10 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/repos/:owner/:repo/hooks/:id/tests",
+    "url": "/repos/:owner/:repo/hooks/:hook_id/tests",
     "title": "testHook",
     "name": "testHook",
-    "description": "<p>This will trigger the hook with the latest push to the current repository if the hook is subscribed to <code>push</code> events. If the hook is not subscribed to <code>push</code> events, the server will respond with 204 but no test POST will be generated. <em>Note</em>*: Previously <code>/repos/:owner/:repo/hooks/:id/test</code> <a href=\"https://developer.github.com/v3/repos/hooks/#test-a-push-hook\">REST API doc</a></p>",
+    "description": "<p>This will trigger the hook with the latest push to the current repository if the hook is subscribed to <code>push</code> events. If the hook is not subscribed to <code>push</code> events, the server will respond with 204 but no test POST will be generated. <em>Note</em>*: Previously <code>/repos/:owner/:repo/hooks/:hook_id/test</code> <a href=\"https://developer.github.com/v3/repos/hooks/#test-a-push-hook\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -24794,7 +24864,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "hook_id",
             "description": ""
           }
         ]
@@ -24803,17 +24873,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.testHook({owner, repo, id})",
+        "content": "const result = await octokit.repos.testHook({owner, repo, hook_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.testHook({owner, repo, id}).then(result => {})",
+        "content": "octokit.repos.testHook({owner, repo, hook_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.testHook({owner, repo, id}, (error, result) => {})",
+        "content": "octokit.repos.testHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25038,7 +25108,7 @@ define({ "api": [
   },
   {
     "type": "PATCH",
-    "url": "/repos/:owner/:repo/comments/:id",
+    "url": "/repos/:owner/:repo/comments/:comment_id",
     "title": "updateCommitComment",
     "name": "updateCommitComment",
     "description": "<p><a href=\"https://developer.github.com/v3/repos/comments/#update-a-commit-comment\">REST API doc</a></p>",
@@ -25064,7 +25134,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "comment_id",
             "description": ""
           },
           {
@@ -25080,17 +25150,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.updateCommitComment({owner, repo, id, body})",
+        "content": "const result = await octokit.repos.updateCommitComment({owner, repo, comment_id, body})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.updateCommitComment({owner, repo, id, body}).then(result => {})",
+        "content": "octokit.repos.updateCommitComment({owner, repo, comment_id, body}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.updateCommitComment({owner, repo, id, body}, (error, result) => {})",
+        "content": "octokit.repos.updateCommitComment({owner, repo, comment_id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25754,7 +25824,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "integer",
-            "optional": true,
+            "optional": false,
             "field": "repository_id",
             "description": "<p>The id of the repository.</p>"
           },
@@ -26433,7 +26503,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/user/gpg_keys/:id",
+    "url": "/user/gpg_keys/:gpg_key_id",
     "title": "deleteGpgKey",
     "name": "deleteGpgKey",
     "description": "<p>Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
@@ -26445,7 +26515,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gpg_key_id",
             "description": ""
           }
         ]
@@ -26454,17 +26524,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.deleteGpgKey({id})",
+        "content": "const result = await octokit.users.deleteGpgKey({gpg_key_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.deleteGpgKey({id}).then(result => {})",
+        "content": "octokit.users.deleteGpgKey({gpg_key_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.deleteGpgKey({id}, (error, result) => {})",
+        "content": "octokit.users.deleteGpgKey({gpg_key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26474,7 +26544,7 @@ define({ "api": [
   },
   {
     "type": "DELETE",
-    "url": "/user/keys/:id",
+    "url": "/user/keys/:key_id",
     "title": "deleteKey",
     "name": "deleteKey",
     "description": "<p>Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
@@ -26486,7 +26556,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "key_id",
             "description": ""
           }
         ]
@@ -26495,17 +26565,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.deleteKey({id})",
+        "content": "const result = await octokit.users.deleteKey({key_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.deleteKey({id}).then(result => {})",
+        "content": "octokit.users.deleteKey({key_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.deleteKey({id}, (error, result) => {})",
+        "content": "octokit.users.deleteKey({key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27086,7 +27156,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/user/gpg_keys/:id",
+    "url": "/user/gpg_keys/:gpg_key_id",
     "title": "getGpgKey",
     "name": "getGpgKey",
     "description": "<p>View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key\">REST API doc</a></p>",
@@ -27098,7 +27168,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "gpg_key_id",
             "description": ""
           }
         ]
@@ -27107,17 +27177,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.getGpgKey({id})",
+        "content": "const result = await octokit.users.getGpgKey({gpg_key_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.getGpgKey({id}).then(result => {})",
+        "content": "octokit.users.getGpgKey({gpg_key_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.getGpgKey({id}, (error, result) => {})",
+        "content": "octokit.users.getGpgKey({gpg_key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27341,7 +27411,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/user/keys/:id",
+    "url": "/user/keys/:key_id",
     "title": "getKey",
     "name": "getKey",
     "description": "<p>View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
@@ -27353,7 +27423,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
+            "field": "key_id",
             "description": ""
           }
         ]
@@ -27362,17 +27432,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.getKey({id})",
+        "content": "const result = await octokit.users.getKey({key_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.getKey({id}).then(result => {})",
+        "content": "octokit.users.getKey({key_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.getKey({id}, (error, result) => {})",
+        "content": "octokit.users.getKey({key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
