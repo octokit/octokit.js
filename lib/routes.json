@@ -4,11 +4,15 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "thread_id",
+          "deprecated": true
+        },
+        "thread_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/notifications/threads/:id/subscription"
+      "url": "/notifications/threads/:thread_id/subscription"
     },
     "checkStarringRepo": {
       "method": "GET",
@@ -28,11 +32,15 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "thread_id",
+          "deprecated": true
+        },
+        "thread_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/notifications/threads/:id/subscription"
+      "url": "/notifications/threads/:thread_id/subscription"
     },
     "getEvents": {
       "method": "GET",
@@ -200,11 +208,15 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "thread_id",
+          "deprecated": true
+        },
+        "thread_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/notifications/threads/:id"
+      "url": "/notifications/threads/:thread_id"
     },
     "getNotifications": {
       "method": "GET",
@@ -413,11 +425,15 @@
       "method": "PATCH",
       "params": {
         "id": {
+          "alias": "thread_id",
+          "deprecated": true
+        },
+        "thread_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/notifications/threads/:id"
+      "url": "/notifications/threads/:thread_id"
     },
     "markNotificationsAsRead": {
       "method": "PUT",
@@ -449,14 +465,18 @@
       "method": "PUT",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "thread_id",
+          "deprecated": true
         },
         "ignored": {
           "type": "boolean"
+        },
+        "thread_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/notifications/threads/:id/subscription"
+      "url": "/notifications/threads/:thread_id/subscription"
     },
     "setRepoSubscription": {
       "method": "PUT",
@@ -545,9 +565,13 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "account_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "account_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -556,7 +580,7 @@
           "type": "integer"
         }
       },
-      "url": "/marketplace_listing/accounts/:id"
+      "url": "/marketplace_listing/accounts/:account_id"
     },
     "checkMarketplaceListingStubbedAccount": {
       "headers": {
@@ -564,9 +588,13 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "account_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "account_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -575,7 +603,7 @@
           "type": "integer"
         }
       },
-      "url": "/marketplace_listing/stubbed/accounts/:id"
+      "url": "/marketplace_listing/stubbed/accounts/:account_id"
     },
     "createInstallationToken": {
       "headers": {
@@ -665,14 +693,18 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "plan_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "plan_id": {
+          "required": true,
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -682,7 +714,7 @@
           "type": "string"
         }
       },
-      "url": "/marketplace_listing/plans/:id/accounts"
+      "url": "/marketplace_listing/plans/:plan_id/accounts"
     },
     "getMarketplaceListingPlans": {
       "headers": {
@@ -713,14 +745,18 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "plan_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "plan_id": {
+          "required": true,
+          "type": "string"
         },
         "sort": {
           "enum": [
@@ -730,7 +766,7 @@
           "type": "string"
         }
       },
-      "url": "/marketplace_listing/stubbed/plans/:id/accounts"
+      "url": "/marketplace_listing/stubbed/plans/:plan_id/accounts"
     },
     "getMarketplaceListingStubbedPlans": {
       "headers": {
@@ -808,32 +844,44 @@
     "delete": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "authorization_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "authorization_id",
+          "deprecated": true
         }
       },
-      "url": "/authorizations/:id"
+      "url": "/authorizations/:authorization_id"
     },
     "deleteGrant": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "grant_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "grant_id",
+          "deprecated": true
         }
       },
-      "url": "/applications/grants/:id"
+      "url": "/applications/grants/:grant_id"
     },
     "get": {
       "method": "GET",
       "params": {
-        "id": {
+        "authorization_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "authorization_id",
+          "deprecated": true
         }
       },
-      "url": "/authorizations/:id"
+      "url": "/authorizations/:authorization_id"
     },
     "getAll": {
       "method": "GET",
@@ -850,12 +898,16 @@
     "getGrant": {
       "method": "GET",
       "params": {
-        "id": {
+        "grant_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "grant_id",
+          "deprecated": true
         }
       },
-      "url": "/applications/grants/:id"
+      "url": "/applications/grants/:grant_id"
     },
     "getGrants": {
       "method": "GET",
@@ -970,12 +1022,16 @@
         "add_scopes": {
           "type": "string[]"
         },
+        "authorization_id": {
+          "required": true,
+          "type": "string"
+        },
         "fingerprint": {
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "authorization_id",
+          "deprecated": true
         },
         "note": {
           "type": "string"
@@ -990,7 +1046,7 @@
           "type": "string[]"
         }
       },
-      "url": "/authorizations/:id"
+      "url": "/authorizations/:authorization_id"
     }
   },
   "checks": {
@@ -1283,6 +1339,10 @@
         "check_name": {
           "type": "string"
         },
+        "check_suite_id": {
+          "required": true,
+          "type": "string"
+        },
         "filter": {
           "enum": [
             "latest",
@@ -1291,8 +1351,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "check_suite_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -1317,7 +1377,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/check-suites/:id/check-runs"
+      "url": "/repos/:owner/:repo/check-suites/:check_suite_id/check-runs"
     },
     "listSuitesForRef": {
       "headers": {
@@ -1816,12 +1876,16 @@
     "checkStar": {
       "method": "GET",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:id/star"
+      "url": "/gists/:gist_id/star"
     },
     "create": {
       "method": "POST",
@@ -1856,26 +1920,34 @@
     "delete": {
       "method": "DELETE",
       "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/gists/:id"
-    },
-    "deleteComment": {
-      "method": "DELETE",
-      "params": {
         "gist_id": {
           "required": true,
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:gist_id/comments/:id"
+      "url": "/gists/:gist_id"
+    },
+    "deleteComment": {
+      "method": "DELETE",
+      "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
+        "gist_id": {
+          "required": true,
+          "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
+        }
+      },
+      "url": "/gists/:gist_id/comments/:comment_id"
     },
     "edit": {
       "method": "PATCH",
@@ -1892,12 +1964,16 @@
         "files": {
           "type": "object"
         },
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:id"
+      "url": "/gists/:gist_id"
     },
     "editComment": {
       "method": "PATCH",
@@ -1906,36 +1982,48 @@
           "required": true,
           "type": "string"
         },
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "gist_id": {
           "required": true,
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:gist_id/comments/:id"
+      "url": "/gists/:gist_id/comments/:comment_id"
     },
     "fork": {
       "method": "POST",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:id/forks"
+      "url": "/gists/:gist_id/forks"
     },
     "get": {
       "method": "GET",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:id"
+      "url": "/gists/:gist_id"
     },
     "getAll": {
       "method": "GET",
@@ -1955,16 +2043,20 @@
     "getComment": {
       "method": "GET",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "gist_id": {
           "required": true,
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:gist_id/comments/:id"
+      "url": "/gists/:gist_id/comments/:comment_id"
     },
     "getComments": {
       "method": "GET",
@@ -1985,9 +2077,13 @@
     "getCommits": {
       "method": "GET",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -1996,7 +2092,7 @@
           "type": "integer"
         }
       },
-      "url": "/gists/:id/commits"
+      "url": "/gists/:gist_id/commits"
     },
     "getForUser": {
       "method": "GET",
@@ -2020,9 +2116,13 @@
     "getForks": {
       "method": "GET",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -2031,7 +2131,7 @@
           "type": "integer"
         }
       },
-      "url": "/gists/:id/forks"
+      "url": "/gists/:gist_id/forks"
     },
     "getPublic": {
       "method": "GET",
@@ -2051,16 +2151,20 @@
     "getRevision": {
       "method": "GET",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         },
         "sha": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/gists/:id/:sha"
+      "url": "/gists/:gist_id/:sha"
     },
     "getStarred": {
       "method": "GET",
@@ -2080,22 +2184,30 @@
     "star": {
       "method": "PUT",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:id/star"
+      "url": "/gists/:gist_id/star"
     },
     "unstar": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "gist_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gist_id",
+          "deprecated": true
         }
       },
-      "url": "/gists/:id/star"
+      "url": "/gists/:gist_id/star"
     }
   },
   "gitdata": {
@@ -2772,9 +2884,13 @@
       },
       "method": "DELETE",
       "params": {
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -2785,7 +2901,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/comments/:id"
+      "url": "/repos/:owner/:repo/issues/comments/:comment_id"
     },
     "deleteLabel": {
       "method": "DELETE",
@@ -2880,9 +2996,13 @@
           "required": true,
           "type": "string"
         },
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -2893,7 +3013,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/comments/:id"
+      "url": "/repos/:owner/:repo/issues/comments/:comment_id"
     },
     "get": {
       "headers": {
@@ -2996,9 +3116,13 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -3015,7 +3139,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/comments/:id"
+      "url": "/repos/:owner/:repo/issues/comments/:comment_id"
     },
     "getComments": {
       "headers": {
@@ -3084,9 +3208,13 @@
     "getEvent": {
       "method": "GET",
       "params": {
-        "id": {
+        "event_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "event_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -3097,7 +3225,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/events/:id"
+      "url": "/repos/:owner/:repo/issues/events/:event_id"
     },
     "getEvents": {
       "method": "GET",
@@ -3636,6 +3764,10 @@
         "color": {
           "type": "string"
         },
+        "current_name": {
+          "required": true,
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
@@ -3717,6 +3849,10 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "migration_id",
+          "deprecated": true
+        },
+        "migration_id": {
           "required": true,
           "type": "string"
         },
@@ -3725,7 +3861,7 @@
           "type": "string"
         }
       },
-      "url": "/orgs/:org/migrations/:id/archive"
+      "url": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getImportCommitAuthors": {
       "headers": {
@@ -3792,6 +3928,10 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "migration_id",
+          "deprecated": true
+        },
+        "migration_id": {
           "required": true,
           "type": "string"
         },
@@ -3800,7 +3940,7 @@
           "type": "string"
         }
       },
-      "url": "/orgs/:org/migrations/:id/archive"
+      "url": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getMigrationStatus": {
       "headers": {
@@ -3809,6 +3949,10 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "migration_id",
+          "deprecated": true
+        },
+        "migration_id": {
           "required": true,
           "type": "string"
         },
@@ -3817,7 +3961,7 @@
           "type": "string"
         }
       },
-      "url": "/orgs/:org/migrations/:id"
+      "url": "/orgs/:org/migrations/:migration_id"
     },
     "getMigrations": {
       "headers": {
@@ -3963,6 +4107,10 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "migration_id",
+          "deprecated": true
+        },
+        "migration_id": {
           "required": true,
           "type": "string"
         },
@@ -3975,7 +4123,7 @@
           "type": "string"
         }
       },
-      "url": "/orgs/:org/migrations/:id/repos/:repo_name/lock"
+      "url": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock"
     },
     "updateImport": {
       "headers": {
@@ -4172,8 +4320,8 @@
       "method": "PUT",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "role": {
           "enum": [
@@ -4182,12 +4330,16 @@
           ],
           "type": "string"
         },
+        "team_id": {
+          "required": true,
+          "type": "string"
+        },
         "username": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/teams/:id/memberships/:username"
+      "url": "/teams/:team_id/memberships/:username"
     },
     "addTeamRepo": {
       "headers": {
@@ -4196,8 +4348,8 @@
       "method": "PUT",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "org": {
           "alias": "owner",
@@ -4218,9 +4370,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/repos/:owner/:repo"
+      "url": "/teams/:team_id/repos/:owner/:repo"
     },
     "blockUser": {
       "headers": {
@@ -4291,8 +4447,8 @@
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -4301,9 +4457,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/repos/:owner/:repo"
+      "url": "/teams/:team_id/repos/:owner/:repo"
     },
     "concealMembership": {
       "method": "DELETE",
@@ -4447,16 +4607,20 @@
     "deleteHook": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "org": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/orgs/:org/hooks/:id"
+      "url": "/orgs/:org/hooks/:hook_id"
     },
     "deleteTeam": {
       "headers": {
@@ -4465,11 +4629,15 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "team_id",
+          "deprecated": true
+        },
+        "team_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/teams/:id"
+      "url": "/teams/:team_id"
     },
     "deleteTeamRepo": {
       "headers": {
@@ -4478,8 +4646,8 @@
       "method": "DELETE",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -4488,9 +4656,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/repos/:owner/:repo"
+      "url": "/teams/:team_id/repos/:owner/:repo"
     },
     "editHook": {
       "method": "PATCH",
@@ -4517,16 +4689,20 @@
         "events": {
           "type": "string[]"
         },
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "org": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/orgs/:org/hooks/:id"
+      "url": "/orgs/:org/hooks/:hook_id"
     },
     "editTeam": {
       "headers": {
@@ -4538,8 +4714,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "name": {
           "required": true,
@@ -4558,9 +4734,13 @@
         },
         "privacy": {
           "type": "string"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id"
+      "url": "/teams/:team_id"
     },
     "get": {
       "method": "GET",
@@ -4607,17 +4787,21 @@
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/teams"
+      "url": "/teams/:team_id/teams"
     },
     "getForUser": {
       "method": "GET",
@@ -4638,16 +4822,20 @@
     "getHook": {
       "method": "GET",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "org": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/orgs/:org/hooks/:id"
+      "url": "/orgs/:org/hooks/:hook_id"
     },
     "getHooks": {
       "method": "GET",
@@ -4773,17 +4961,21 @@
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/invitations"
+      "url": "/teams/:team_id/invitations"
     },
     "getPublicMembers": {
       "method": "GET",
@@ -4808,11 +5000,15 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "team_id",
+          "deprecated": true
+        },
+        "team_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/teams/:id"
+      "url": "/teams/:team_id"
     },
     "getTeamMembers": {
       "headers": {
@@ -4821,8 +5017,8 @@
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -4837,9 +5033,13 @@
             "all"
           ],
           "type": "string"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/members"
+      "url": "/teams/:team_id/members"
     },
     "getTeamMembership": {
       "headers": {
@@ -4848,6 +5048,10 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "team_id",
+          "deprecated": true
+        },
+        "team_id": {
           "required": true,
           "type": "string"
         },
@@ -4856,7 +5060,7 @@
           "type": "string"
         }
       },
-      "url": "/teams/:id/memberships/:username"
+      "url": "/teams/:team_id/memberships/:username"
     },
     "getTeamRepos": {
       "headers": {
@@ -4865,17 +5069,21 @@
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "team_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/teams/:id/repos"
+      "url": "/teams/:team_id/repos"
     },
     "getTeams": {
       "headers": {
@@ -4899,16 +5107,20 @@
     "pingHook": {
       "method": "POST",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "org": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/orgs/:org/hooks/:id/pings"
+      "url": "/orgs/:org/hooks/:hook_id/pings"
     },
     "publicizeMembership": {
       "method": "PUT",
@@ -4973,6 +5185,10 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "team_id",
+          "deprecated": true
+        },
+        "team_id": {
           "required": true,
           "type": "string"
         },
@@ -4981,7 +5197,7 @@
           "type": "string"
         }
       },
-      "url": "/teams/:id/memberships/:username"
+      "url": "/teams/:team_id/memberships/:username"
     },
     "unblockUser": {
       "headers": {
@@ -5055,8 +5271,8 @@
       "method": "PUT",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "project_id",
+          "deprecated": true
         },
         "permission": {
           "enum": [
@@ -5066,12 +5282,16 @@
           ],
           "type": "string"
         },
+        "project_id": {
+          "required": true,
+          "type": "string"
+        },
         "username": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/projects/:id/collaborators/:username"
+      "url": "/projects/:project_id/collaborators/:username"
     },
     "createOrgProject": {
       "headers": {
@@ -5234,17 +5454,21 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "project_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
         },
         "per_page": {
           "type": "integer"
+        },
+        "project_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/projects/:id/collaborators"
+      "url": "/projects/:project_id/collaborators"
     },
     "getOrgProjects": {
       "headers": {
@@ -5406,6 +5630,10 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "project_id",
+          "deprecated": true
+        },
+        "project_id": {
           "required": true,
           "type": "string"
         },
@@ -5414,7 +5642,7 @@
           "type": "string"
         }
       },
-      "url": "/projects/:id/collaborators/:username/permission"
+      "url": "/projects/:project_id/collaborators/:username/permission"
     },
     "moveProjectCard": {
       "headers": {
@@ -5468,6 +5696,10 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "project_id",
+          "deprecated": true
+        },
+        "project_id": {
           "required": true,
           "type": "string"
         },
@@ -5476,7 +5708,7 @@
           "type": "string"
         }
       },
-      "url": "/projects/:id/collaborators/:username"
+      "url": "/projects/:project_id/collaborators/:username"
     },
     "updateProject": {
       "headers": {
@@ -5788,9 +6020,13 @@
       },
       "method": "DELETE",
       "params": {
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -5801,14 +6037,14 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/comments/:id"
+      "url": "/repos/:owner/:repo/pulls/comments/:comment_id"
     },
     "deletePendingReview": {
       "method": "DELETE",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "review_id",
+          "deprecated": true
         },
         "number": {
           "required": true,
@@ -5821,9 +6057,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "review_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id"
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
     },
     "deleteReviewRequest": {
       "headers": {
@@ -5856,8 +6096,8 @@
       "method": "PUT",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "review_id",
+          "deprecated": true
         },
         "message": {
           "type": "string"
@@ -5873,9 +6113,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "review_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals"
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals"
     },
     "editComment": {
       "headers": {
@@ -5887,9 +6131,13 @@
           "required": true,
           "type": "string"
         },
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -5900,7 +6148,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/comments/:id"
+      "url": "/repos/:owner/:repo/pulls/comments/:comment_id"
     },
     "get": {
       "method": "GET",
@@ -5976,9 +6224,13 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -5989,7 +6241,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/comments/:id"
+      "url": "/repos/:owner/:repo/pulls/comments/:comment_id"
     },
     "getComments": {
       "headers": {
@@ -6127,8 +6379,8 @@
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "review_id",
+          "deprecated": true
         },
         "number": {
           "required": true,
@@ -6141,16 +6393,20 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "review_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id"
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
     },
     "getReviewComments": {
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "review_id",
+          "deprecated": true
         },
         "number": {
           "required": true,
@@ -6169,9 +6425,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "review_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments"
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments"
     },
     "getReviewRequests": {
       "headers": {
@@ -6277,8 +6537,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "review_id",
+          "deprecated": true
         },
         "number": {
           "required": true,
@@ -6291,9 +6551,13 @@
         "repo": {
           "required": true,
           "type": "string"
+        },
+        "review_id": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/:number/reviews/:id/events"
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events"
     },
     "update": {
       "method": "PATCH",
@@ -6340,6 +6604,10 @@
       },
       "method": "POST",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "enum": [
             "+1",
@@ -6353,8 +6621,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -6365,7 +6633,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/comments/:id/reactions"
+      "url": "/repos/:owner/:repo/comments/:comment_id/reactions"
     },
     "createForIssue": {
       "headers": {
@@ -6406,6 +6674,10 @@
       },
       "method": "POST",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "enum": [
             "+1",
@@ -6419,8 +6691,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -6431,7 +6703,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/comments/:id/reactions"
+      "url": "/repos/:owner/:repo/issues/comments/:comment_id/reactions"
     },
     "createForPullRequestReviewComment": {
       "headers": {
@@ -6439,6 +6711,10 @@
       },
       "method": "POST",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "enum": [
             "+1",
@@ -6452,8 +6728,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -6464,7 +6740,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/comments/:id/reactions"
+      "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions"
     },
     "createForTeamDiscussion": {
       "headers": {
@@ -6535,11 +6811,15 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "reaction_id",
+          "deprecated": true
+        },
+        "reaction_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/reactions/:id"
+      "url": "/reactions/:reaction_id"
     },
     "getForCommitComment": {
       "headers": {
@@ -6547,6 +6827,10 @@
       },
       "method": "GET",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "enum": [
             "+1",
@@ -6559,8 +6843,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -6577,7 +6861,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/comments/:id/reactions"
+      "url": "/repos/:owner/:repo/comments/:comment_id/reactions"
     },
     "getForIssue": {
       "headers": {
@@ -6623,6 +6907,10 @@
       },
       "method": "GET",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "enum": [
             "+1",
@@ -6635,8 +6923,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -6653,7 +6941,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/issues/comments/:id/reactions"
+      "url": "/repos/:owner/:repo/issues/comments/:comment_id/reactions"
     },
     "getForPullRequestReviewComment": {
       "headers": {
@@ -6661,6 +6949,10 @@
       },
       "method": "GET",
       "params": {
+        "comment_id": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "enum": [
             "+1",
@@ -6673,8 +6965,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -6691,7 +6983,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pulls/comments/:id/reactions"
+      "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions"
     },
     "getForTeamDiscussion": {
       "headers": {
@@ -7099,6 +7391,10 @@
         "auto_inactive": {
           "type": "boolean"
         },
+        "deployment_id": {
+          "required": true,
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
@@ -7106,8 +7402,8 @@
           "type": "string"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "deployment_id",
+          "deprecated": true
         },
         "log_url": {
           "type": "string"
@@ -7135,7 +7431,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/deployments/:id/statuses"
+      "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses"
     },
     "createFile": {
       "method": "PUT",
@@ -7356,9 +7652,13 @@
     "deleteAsset": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "asset_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "asset_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -7369,14 +7669,18 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/assets/:id"
+      "url": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "deleteCommitComment": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -7387,12 +7691,16 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/comments/:id"
+      "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "deleteDeployKey": {
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "key_id",
+          "deprecated": true
+        },
+        "key_id": {
           "required": true,
           "type": "string"
         },
@@ -7405,14 +7713,18 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/keys/:id"
+      "url": "/repos/:owner/:repo/keys/:key_id"
     },
     "deleteDownload": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "download_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "download_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -7423,7 +7735,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/downloads/:id"
+      "url": "/repos/:owner/:repo/downloads/:download_id"
     },
     "deleteFile": {
       "method": "DELETE",
@@ -7463,9 +7775,13 @@
     "deleteHook": {
       "method": "DELETE",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "owner": {
           "required": true,
@@ -7476,7 +7792,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/hooks/:id"
+      "url": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "deleteInvite": {
       "method": "DELETE",
@@ -7500,10 +7816,14 @@
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "release_id",
+          "deprecated": true
+        },
+        "owner": {
           "required": true,
           "type": "string"
         },
-        "owner": {
+        "release_id": {
           "required": true,
           "type": "string"
         },
@@ -7512,7 +7832,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/:id"
+      "url": "/repos/:owner/:repo/releases/:release_id"
     },
     "edit": {
       "headers": {
@@ -7571,9 +7891,13 @@
     "editAsset": {
       "method": "PATCH",
       "params": {
-        "id": {
+        "asset_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "asset_id",
+          "deprecated": true
         },
         "label": {
           "type": "string"
@@ -7590,7 +7914,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/assets/:id"
+      "url": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "editHook": {
       "method": "PATCH",
@@ -7620,9 +7944,13 @@
         "events": {
           "type": "string[]"
         },
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "owner": {
           "required": true,
@@ -7636,7 +7964,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/hooks/:id"
+      "url": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "editRelease": {
       "method": "PATCH",
@@ -7648,8 +7976,8 @@
           "type": "boolean"
         },
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "release_id",
+          "deprecated": true
         },
         "name": {
           "type": "string"
@@ -7660,6 +7988,10 @@
         },
         "prerelease": {
           "type": "boolean"
+        },
+        "release_id": {
+          "required": true,
+          "type": "string"
         },
         "repo": {
           "required": true,
@@ -7672,7 +8004,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/:id"
+      "url": "/repos/:owner/:repo/releases/:release_id"
     },
     "fork": {
       "method": "POST",
@@ -7811,9 +8143,13 @@
     "getAsset": {
       "method": "GET",
       "params": {
-        "id": {
+        "asset_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "asset_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -7824,14 +8160,14 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/assets/:id"
+      "url": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "getAssets": {
       "method": "GET",
       "params": {
         "id": {
-          "required": true,
-          "type": "string"
+          "alias": "release_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -7843,12 +8179,16 @@
         "per_page": {
           "type": "integer"
         },
+        "release_id": {
+          "required": true,
+          "type": "string"
+        },
         "repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/:id/assets"
+      "url": "/repos/:owner/:repo/releases/:release_id/assets"
     },
     "getBranch": {
       "method": "GET",
@@ -8010,9 +8350,13 @@
     "getCommitComment": {
       "method": "GET",
       "params": {
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8023,7 +8367,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/comments/:id"
+      "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "getCommitComments": {
       "method": "GET",
@@ -8149,6 +8493,10 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "key_id",
+          "deprecated": true
+        },
+        "key_id": {
           "required": true,
           "type": "string"
         },
@@ -8161,7 +8509,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/keys/:id"
+      "url": "/repos/:owner/:repo/keys/:key_id"
     },
     "getDeployKeys": {
       "method": "GET",
@@ -8187,12 +8535,12 @@
       "method": "GET",
       "params": {
         "deployment_id": {
-          "alias": "id",
-          "deprecated": "`deployment_id` parameter has been renamed to `id`"
-        },
-        "id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "deployment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8203,14 +8551,18 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/deployments/:id"
+      "url": "/repos/:owner/:repo/deployments/:deployment_id"
     },
     "getDeploymentStatus": {
       "method": "GET",
       "params": {
-        "id": {
+        "deployment_id": {
           "required": true,
-          "type": "integer"
+          "type": "string"
+        },
+        "id": {
+          "alias": "deployment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8225,7 +8577,7 @@
           "type": "integer"
         }
       },
-      "url": "/repos/:owner/:repo/deployments/:id/statuses/:status_id"
+      "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id"
     },
     "getDeploymentStatuses": {
       "headers": {
@@ -8233,9 +8585,13 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "deployment_id": {
           "required": true,
-          "type": "integer"
+          "type": "string"
+        },
+        "id": {
+          "alias": "deployment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8252,7 +8608,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/deployments/:id/statuses"
+      "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses"
     },
     "getDeployments": {
       "headers": {
@@ -8292,9 +8648,13 @@
     "getDownload": {
       "method": "GET",
       "params": {
-        "id": {
+        "download_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "download_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8305,7 +8665,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/downloads/:id"
+      "url": "/repos/:owner/:repo/downloads/:download_id"
     },
     "getDownloads": {
       "method": "GET",
@@ -8425,9 +8785,13 @@
     "getHook": {
       "method": "GET",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "owner": {
           "required": true,
@@ -8438,7 +8802,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/hooks/:id"
+      "url": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "getHooks": {
       "method": "GET",
@@ -8548,9 +8912,13 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "build_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "build_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8561,7 +8929,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/pages/builds/:id"
+      "url": "/repos/:owner/:repo/pages/builds/:build_id"
     },
     "getPagesBuilds": {
       "headers": {
@@ -8797,10 +9165,14 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "release_id",
+          "deprecated": true
+        },
+        "owner": {
           "required": true,
           "type": "string"
         },
-        "owner": {
+        "release_id": {
           "required": true,
           "type": "string"
         },
@@ -8809,7 +9181,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/releases/:id"
+      "url": "/repos/:owner/:repo/releases/:release_id"
     },
     "getReleaseByTag": {
       "method": "GET",
@@ -9067,9 +9439,13 @@
     "pingHook": {
       "method": "POST",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "owner": {
           "required": true,
@@ -9080,7 +9456,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/hooks/:id/pings"
+      "url": "/repos/:owner/:repo/hooks/:hook_id/pings"
     },
     "removeBranchProtection": {
       "method": "DELETE",
@@ -9408,9 +9784,13 @@
     "testHook": {
       "method": "POST",
       "params": {
-        "id": {
+        "hook_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "hook_id",
+          "required": true
         },
         "owner": {
           "required": true,
@@ -9421,7 +9801,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/hooks/:id/tests"
+      "url": "/repos/:owner/:repo/hooks/:hook_id/tests"
     },
     "transfer": {
       "headers": {
@@ -9523,9 +9903,13 @@
           "required": true,
           "type": "string"
         },
-        "id": {
+        "comment_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "comment_id",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -9536,7 +9920,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/comments/:id"
+      "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "updateFile": {
       "method": "PUT",
@@ -10033,22 +10417,30 @@
       },
       "method": "DELETE",
       "params": {
-        "id": {
+        "gpg_key_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gpg_key_id",
+          "deprecated": true
         }
       },
-      "url": "/user/gpg_keys/:id"
+      "url": "/user/gpg_keys/:gpg_key_id"
     },
     "deleteKey": {
       "method": "DELETE",
       "params": {
         "id": {
+          "alias": "key_id",
+          "deprecated": true
+        },
+        "key_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/user/keys/:id"
+      "url": "/user/keys/:key_id"
     },
     "demote": {
       "method": "DELETE",
@@ -10234,12 +10626,16 @@
       },
       "method": "GET",
       "params": {
-        "id": {
+        "gpg_key_id": {
           "required": true,
           "type": "string"
+        },
+        "id": {
+          "alias": "gpg_key_id",
+          "deprecated": true
         }
       },
-      "url": "/user/gpg_keys/:id"
+      "url": "/user/gpg_keys/:gpg_key_id"
     },
     "getGpgKeys": {
       "headers": {
@@ -10310,11 +10706,15 @@
       "method": "GET",
       "params": {
         "id": {
+          "alias": "key_id",
+          "deprecated": true
+        },
+        "key_id": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/user/keys/:id"
+      "url": "/user/keys/:key_id"
     },
     "getKeys": {
       "method": "GET",
