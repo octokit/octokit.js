@@ -3643,8 +3643,8 @@
           "type": "string"
         },
         "oldname": {
-          "required": true,
-          "type": "string"
+          "alias": "current_name",
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -3655,7 +3655,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/labels/:oldname"
+      "url": "/repos/:owner/:repo/labels/:current_name"
     },
     "updateMilestone": {
       "method": "PATCH",
