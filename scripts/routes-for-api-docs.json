@@ -8,14 +8,14 @@
       "name": "Get a thread subscription",
       "params": [
         {
-          "name": "id",
+          "name": "thread_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/notifications/threads/:id/subscription"
+      "path": "/notifications/threads/:thread_id/subscription"
     },
     "checkStarringRepo": {
       "description": "Requires for the user to be authenticated.",
@@ -49,14 +49,14 @@
       "name": "Delete a thread subscription",
       "params": [
         {
-          "name": "id",
+          "name": "thread_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/notifications/threads/:id/subscription"
+      "path": "/notifications/threads/:thread_id/subscription"
     },
     "getEvents": {
       "description": "",
@@ -386,14 +386,14 @@
       "name": "View a single thread",
       "params": [
         {
-          "name": "id",
+          "name": "thread_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/notifications/threads/:id"
+      "path": "/notifications/threads/:thread_id"
     },
     "getNotifications": {
       "description": "List all notifications for the current user, sorted by most recently updated.",
@@ -801,14 +801,14 @@
       "name": "Mark a thread as read",
       "params": [
         {
-          "name": "id",
+          "name": "thread_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/notifications/threads/:id"
+      "path": "/notifications/threads/:thread_id"
     },
     "markNotificationsAsRead": {
       "description": "Marking a notification as \"read\" removes it from the [default view on GitHub](https://github.com/notifications).",
@@ -868,7 +868,7 @@
       "name": "Set a thread subscription",
       "params": [
         {
-          "name": "id",
+          "name": "thread_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -883,7 +883,7 @@
           "location": "body"
         }
       ],
-      "path": "/notifications/threads/:id/subscription"
+      "path": "/notifications/threads/:thread_id/subscription"
     },
     "setRepoSubscription": {
       "description": "If you would like to watch a repository, set `subscribed` to `true`. If you would like to ignore notifications made within a repository, set `ignored` to `true`. If you would like to stop watching a repository, [delete the repository's subscription](#delete-a-repository-subscription) completely.",
@@ -1022,14 +1022,14 @@
       "path": "/user/installations/:installation_id/repositories/:repository_id"
     },
     "checkMarketplaceListingAccount": {
-      "description": "",
+      "description": "Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.",
       "documentationUrl": "https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing",
       "enabledForApps": false,
       "method": "GET",
       "name": "Check if a GitHub account is associated with any Marketplace listing",
       "params": [
         {
-          "name": "id",
+          "name": "account_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -1052,17 +1052,17 @@
           "location": "query"
         }
       ],
-      "path": "/marketplace_listing/accounts/:id"
+      "path": "/marketplace_listing/accounts/:account_id"
     },
     "checkMarketplaceListingStubbedAccount": {
-      "description": "",
+      "description": "Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.",
       "documentationUrl": "https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing",
       "enabledForApps": false,
       "method": "GET",
       "name": "Check if a GitHub account is associated with any Marketplace listing (stubbed)",
       "params": [
         {
-          "name": "id",
+          "name": "account_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -1085,7 +1085,7 @@
           "location": "query"
         }
       ],
-      "path": "/marketplace_listing/stubbed/accounts/:id"
+      "path": "/marketplace_listing/stubbed/accounts/:account_id"
     },
     "createInstallationToken": {
       "description": "Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.",
@@ -1207,7 +1207,7 @@
       "name": "List all GitHub accounts (user or organization) on a specific plan",
       "params": [
         {
-          "name": "id",
+          "name": "plan_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -1253,7 +1253,7 @@
           "location": "query"
         }
       ],
-      "path": "/marketplace_listing/plans/:id/accounts"
+      "path": "/marketplace_listing/plans/:plan_id/accounts"
     },
     "getMarketplaceListingPlans": {
       "description": "",
@@ -1289,7 +1289,7 @@
       "name": "List all GitHub accounts (user or organization) on a specific plan (stubbed)",
       "params": [
         {
-          "name": "id",
+          "name": "plan_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -1335,7 +1335,7 @@
           "location": "query"
         }
       ],
-      "path": "/marketplace_listing/stubbed/plans/:id/accounts"
+      "path": "/marketplace_listing/stubbed/plans/:plan_id/accounts"
     },
     "getMarketplaceListingStubbedPlans": {
       "description": "",
@@ -1473,14 +1473,14 @@
       "name": "Delete an authorization",
       "params": [
         {
-          "name": "id",
+          "name": "authorization_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/authorizations/:id"
+      "path": "/authorizations/:authorization_id"
     },
     "deleteGrant": {
       "description": "Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).",
@@ -1490,14 +1490,14 @@
       "name": "Delete a grant",
       "params": [
         {
-          "name": "id",
+          "name": "grant_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/applications/grants/:id"
+      "path": "/applications/grants/:grant_id"
     },
     "get": {
       "description": "",
@@ -1507,14 +1507,14 @@
       "name": "Get a single authorization",
       "params": [
         {
-          "name": "id",
+          "name": "authorization_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/authorizations/:id"
+      "path": "/authorizations/:authorization_id"
     },
     "getAll": {
       "description": "",
@@ -1550,14 +1550,14 @@
       "name": "Get a single grant",
       "params": [
         {
-          "name": "id",
+          "name": "grant_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/applications/grants/:id"
+      "path": "/applications/grants/:grant_id"
     },
     "getGrants": {
       "description": "You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `[\"repo\", \"user\"]`.",
@@ -1769,7 +1769,7 @@
       "name": "Update an existing authorization",
       "params": [
         {
-          "name": "id",
+          "name": "authorization_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -1818,14 +1818,14 @@
           "location": "body"
         }
       ],
-      "path": "/authorizations/:id"
+      "path": "/authorizations/:authorization_id"
     }
   },
   "checks": {
     "create": {
       "description": "Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#create-a-check-run",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "POST",
       "name": "Create a check run",
       "params": [
@@ -2044,6 +2044,34 @@
           "description": "A short image description.",
           "required": false,
           "location": "body"
+        },
+        {
+          "name": "actions",
+          "type": "object",
+          "description": "Possible further actions the integrator can perform, which a user may trigger. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](#actions-object) description.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "actions.label",
+          "type": "string",
+          "description": "The text to be displayed on a button in the web UI. The maximum size is 20 characters.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "actions.description",
+          "type": "string",
+          "description": "A short explanation of what this action would do. The maximum size is 40 characters.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "actions.identifier",
+          "type": "string",
+          "description": "A reference for the action on the integrator's system. The maximum size is 20 characters.",
+          "required": true,
+          "location": "body"
         }
       ],
       "path": "/repos/:owner/:repo/check-runs"
@@ -2051,7 +2079,7 @@
     "createSuite": {
       "description": "By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using \"[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)\". Your GitHub App must have the `checks:write` permission to create check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#create-a-check-suite",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "POST",
       "name": "Create a check suite",
       "params": [
@@ -2089,7 +2117,7 @@
     "get": {
       "description": "Gets a single check run using its `id`. To get a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#get-a-single-check-run",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "Get a single check run",
       "params": [
@@ -2120,7 +2148,7 @@
     "getSuite": {
       "description": "Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#get-a-single-check-suite",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "Get a single check suite",
       "params": [
@@ -2151,7 +2179,7 @@
     "listAnnotations": {
       "description": "Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "List annotations for a check run",
       "params": [
@@ -2198,7 +2226,7 @@
     "listForRef": {
       "description": "Lists check runs for a SHA, branch name, or tag name. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "List check runs for a specific ref",
       "params": [
@@ -2276,7 +2304,7 @@
     "listForSuite": {
       "description": "Lists check runs for a check suite using its `id`. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "List check runs in a check suite",
       "params": [
@@ -2295,7 +2323,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "check_suite_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -2349,12 +2377,12 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/check-suites/:id/check-runs"
+      "path": "/repos/:owner/:repo/check-suites/:check_suite_id/check-runs"
     },
     "listSuitesForRef": {
       "description": "Lists the check suites that were created for a commit `ref`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "List check suites for a specific ref",
       "params": [
@@ -2415,7 +2443,7 @@
     "requestSuites": {
       "description": "Triggers GitHub to create a new check suite, without pushing new code to a repository. To request a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#request-check-suites",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "POST",
       "name": "Request check suites",
       "params": [
@@ -2446,7 +2474,7 @@
     "setSuitesPreferences": {
       "description": "Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "PATCH",
       "name": "Set preferences for check suites on a repository",
       "params": [
@@ -2492,7 +2520,7 @@
     "update": {
       "description": "Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#update-a-check-run",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "PATCH",
       "name": "Update a check run",
       "params": [
@@ -2703,6 +2731,34 @@
           "description": "A short image description.",
           "required": false,
           "location": "body"
+        },
+        {
+          "name": "actions",
+          "type": "object",
+          "description": "Possible further actions the integrator can perform, which a user may trigger. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](#actions-object) description.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "actions.label",
+          "type": "string",
+          "description": "The text to be displayed on a button in the web UI. The maximum size is 20 characters.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "actions.description",
+          "type": "string",
+          "description": "A short explanation of what this action would do. The maximum size is 40 characters.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "actions.identifier",
+          "type": "string",
+          "description": "A reference for the action on the integrator's system. The maximum size is 20 characters.",
+          "required": true,
+          "location": "body"
         }
       ],
       "path": "/repos/:owner/:repo/check-runs/:check_run_id"
@@ -2717,14 +2773,14 @@
       "name": "Check if a gist is starred",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:id/star"
+      "path": "/gists/:gist_id/star"
     },
     "create": {
       "description": "The keys in the `files` object are the `string` filename, and the value is another `object` with a key of `content`, and a value of the file contents. For example:\n\n**Note:** Don't name your files \"gistfile\" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.",
@@ -2790,14 +2846,14 @@
       "name": "Delete a gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:id"
+      "path": "/gists/:gist_id"
     },
     "deleteComment": {
       "description": "",
@@ -2814,14 +2870,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:gist_id/comments/:id"
+      "path": "/gists/:gist_id/comments/:comment_id"
     },
     "edit": {
       "description": "The keys in the `files` object are the `string` filename. The value is another `object` with a key of `content` (indicating the new contents), or `filename` (indicating the new filename). For example:\n\n**Note**: All files from the previous version of the gist are carried over by default if not included in the object. Deletes can be performed by including the filename with a `null` object.",
@@ -2831,7 +2887,7 @@
       "name": "Edit a gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -2866,7 +2922,7 @@
           "location": "body"
         }
       ],
-      "path": "/gists/:id"
+      "path": "/gists/:gist_id"
     },
     "editComment": {
       "description": "",
@@ -2883,7 +2939,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -2897,24 +2953,24 @@
           "location": "body"
         }
       ],
-      "path": "/gists/:gist_id/comments/:id"
+      "path": "/gists/:gist_id/comments/:comment_id"
     },
     "fork": {
-      "description": "**Note**: This was previously `/gists/:id/fork`.",
+      "description": "**Note**: This was previously `/gists/:gist_id/fork`.",
       "documentationUrl": "https://developer.github.com/v3/gists/#fork-a-gist",
       "enabledForApps": false,
       "method": "POST",
       "name": "Fork a gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:id/forks"
+      "path": "/gists/:gist_id/forks"
     },
     "get": {
       "description": "",
@@ -2924,14 +2980,14 @@
       "name": "Get a single gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:id"
+      "path": "/gists/:gist_id"
     },
     "getAll": {
       "description": "",
@@ -2981,14 +3037,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:gist_id/comments/:id"
+      "path": "/gists/:gist_id/comments/:comment_id"
     },
     "getComments": {
       "description": "",
@@ -3031,7 +3087,7 @@
       "name": "List gist commits",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -3054,7 +3110,7 @@
           "location": "query"
         }
       ],
-      "path": "/gists/:id/commits"
+      "path": "/gists/:gist_id/commits"
     },
     "getForUser": {
       "description": "",
@@ -3104,7 +3160,7 @@
       "name": "List gist forks",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -3127,7 +3183,7 @@
           "location": "query"
         }
       ],
-      "path": "/gists/:id/forks"
+      "path": "/gists/:gist_id/forks"
     },
     "getPublic": {
       "description": "List all public gists sorted by most recently updated to least recently updated.\n\nNote: With [pagination](https://developer.github.com/v3/#pagination), you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.",
@@ -3170,7 +3226,7 @@
       "name": "Get a specific revision of a gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -3184,7 +3240,7 @@
           "location": "url"
         }
       ],
-      "path": "/gists/:id/:sha"
+      "path": "/gists/:gist_id/:sha"
     },
     "getStarred": {
       "description": "List the authenticated user's starred gists:",
@@ -3227,14 +3283,14 @@
       "name": "Star a gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:id/star"
+      "path": "/gists/:gist_id/star"
     },
     "unstar": {
       "description": "",
@@ -3244,14 +3300,14 @@
       "name": "Unstar a gist",
       "params": [
         {
-          "name": "id",
+          "name": "gist_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/gists/:id/star"
+      "path": "/gists/:gist_id/star"
     }
   },
   "gitdata": {
@@ -4194,14 +4250,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/issues/comments/:id"
+      "path": "/repos/:owner/:repo/issues/comments/:comment_id"
     },
     "deleteLabel": {
       "description": "",
@@ -4372,7 +4428,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -4386,10 +4442,10 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/issues/comments/:id"
+      "path": "/repos/:owner/:repo/issues/comments/:comment_id"
     },
     "get": {
-      "description": "**Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.\n\nThis endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.",
+      "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.",
       "documentationUrl": "https://developer.github.com/v3/issues/#get-a-single-issue",
       "enabledForApps": true,
       "method": "GET",
@@ -4420,7 +4476,7 @@
       "path": "/repos/:owner/:repo/issues/:number"
     },
     "getAll": {
-      "description": "**Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.\n\nThis endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.\n\nYou can use the `filter` query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
+      "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
       "documentationUrl": "https://developer.github.com/v3/issues/#list-issues",
       "enabledForApps": false,
       "method": "GET",
@@ -4574,7 +4630,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -4597,7 +4653,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/issues/comments/:id"
+      "path": "/repos/:owner/:repo/issues/comments/:comment_id"
     },
     "getComments": {
       "description": "Issue Comments are ordered by ascending ID.",
@@ -4729,14 +4785,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "event_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/issues/events/:id"
+      "path": "/repos/:owner/:repo/issues/events/:event_id"
     },
     "getEvents": {
       "description": "",
@@ -4873,7 +4929,7 @@
       "path": "/repos/:owner/:repo/issues/:number/timeline"
     },
     "getForOrg": {
-      "description": "**Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.\n\nThis endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.\n\nYou can use the `filter` query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
+      "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
       "documentationUrl": "https://developer.github.com/v3/issues/#list-issues",
       "enabledForApps": false,
       "method": "GET",
@@ -4973,7 +5029,7 @@
       "path": "/orgs/:org/issues"
     },
     "getForRepo": {
-      "description": "**Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.\n\nThis endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
+      "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
       "documentationUrl": "https://developer.github.com/v3/issues/#list-issues-for-a-repository",
       "enabledForApps": true,
       "method": "GET",
@@ -5093,7 +5149,7 @@
       "path": "/repos/:owner/:repo/issues"
     },
     "getForUser": {
-      "description": "**Note**: In the past, pull requests and issues were more closely aligned than they are now. As far as the API is concerned, every pull request is an issue, but not every issue is a pull request.\n\nThis endpoint may also return pull requests in the response. If an issue _is_ a pull request, the object will include a `pull_request` key.\n\nYou can use the `filter` query parameter to fetch issues that are not necessarily assigned to you. See the table below for more information.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
+      "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.\n\n\n\n**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App.",
       "documentationUrl": "https://developer.github.com/v3/issues/#list-issues",
       "enabledForApps": false,
       "method": "GET",
@@ -5693,7 +5749,7 @@
           "location": "url"
         },
         {
-          "name": "oldname",
+          "name": "current_name",
           "type": "string",
           "required": true,
           "description": "",
@@ -5702,7 +5758,7 @@
         {
           "name": "name",
           "type": "string",
-          "description": "The name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png \":strawberry:\"). For a full list of available emoji and codes, see [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/).",
+          "description": "The new name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png \":strawberry:\"). For a full list of available emoji and codes, see [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/).",
           "required": false,
           "location": "body"
         },
@@ -5721,7 +5777,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/labels/:oldname"
+      "path": "/repos/:owner/:repo/labels/:current_name"
     },
     "updateMilestone": {
       "description": "",
@@ -5791,7 +5847,7 @@
   "migrations": {
     "cancelImport": {
       "description": "Stop an import for a repository.",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#cancel-an-import",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#cancel-an-import",
       "enabledForApps": true,
       "method": "DELETE",
       "name": "Cancel an import",
@@ -5815,7 +5871,7 @@
     },
     "deleteMigrationArchive": {
       "description": "Deletes a previous migration archive. Migration archives are automatically deleted after seven days.",
-      "documentationUrl": "https://developer.github.com/v3/migration/migrations/#delete-a-migration-archive",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive",
       "enabledForApps": false,
       "method": "DELETE",
       "name": "Delete a migration archive",
@@ -5828,18 +5884,18 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "migration_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/migrations/:id/archive"
+      "path": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getImportCommitAuthors": {
       "description": "Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username `hubot` into something like `hubot <hubot@12341234-abab-fefe-8787-fedcba987654>`.\n\nThis API method and the \"Map a commit author\" method allow you to provide correct Git author information.",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#get-commit-authors",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#get-commit-authors",
       "enabledForApps": true,
       "method": "GET",
       "name": "Get commit authors",
@@ -5870,7 +5926,7 @@
     },
     "getImportProgress": {
       "description": "View the progress of an import.\n\n**Import status**\n\nThis section includes details about the possible values of the `status` field of the Import Progress response.\n\nAn import that does not have errors will progress through these steps:\n\n*   `detecting` \\- the \"detection\" step of the import is in progress because the request did not include a `vcs` parameter. The import is identifying the type of source control present at the URL.\n*   `importing` \\- the \"raw\" step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include `commit_count` (the total number of raw commits that will be imported) and `percent` (0 - 100, the current progress through the import).\n*   `mapping` \\- the \"rewrite\" step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information.\n*   `pushing` \\- the \"push\" step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include `push_percent`, which is the percent value reported by `git push` when it is \"Writing objects\".\n*   `complete` \\- the import is complete, and the repository is ready on GitHub.\n\nIf there are problems, you will see one of these in the `status` field:\n\n*   `auth_failed` \\- the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.\n*   `error` \\- the import encountered an error. The import progress response will include the `failed_step` and an error message. Contact [GitHub support](https://github.com/contact) for more information.\n*   `detection_needs_auth` \\- the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.\n*   `detection_found_nothing` \\- the importer didn't recognize any source control at the URL. To resolve, [Cancel the import](#cancel-an-import) and [retry](#start-an-import) with the correct URL.\n*   `detection_found_multiple` \\- the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a `project_choices` field with the possible project choices as values. To update project choice, please see the [Update Existing Import](#update-existing-import) section.\n\n**The project_choices field**\n\nWhen multiple projects are found at the provided URL, the response hash will include a `project_choices` field, the value of which is an array of hashes each representing a project choice. The exact key/value pairs of the project hashes will differ depending on the version control type.\n\n**Git LFS related fields**\n\nThis section includes details about Git LFS related fields that may be present in the Import Progress response.\n\n*   `use_lfs` \\- describes whether the import has been opted in or out of using Git LFS. The value can be `opt_in`, `opt_out`, or `undecided` if no action has been taken.\n*   `has_large_files` \\- the boolean value describing whether files larger than 100MB were found during the `importing` step.\n*   `large_files_size` \\- the total size in gigabytes of files larger than 100MB found in the originating repository.\n*   `large_files_count` \\- the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a \"Get Large Files\" request.",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#get-import-progress",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#get-import-progress",
       "enabledForApps": true,
       "method": "GET",
       "name": "Get import progress",
@@ -5894,7 +5950,7 @@
     },
     "getLargeImportFiles": {
       "description": "List files larger than 100MB found during the import",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#get-large-files",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#get-large-files",
       "enabledForApps": true,
       "method": "GET",
       "name": "Get large files",
@@ -5918,7 +5974,7 @@
     },
     "getMigrationArchiveLink": {
       "description": "Fetches the URL to a migration archive.\n\n",
-      "documentationUrl": "https://developer.github.com/v3/migration/migrations/#download-a-migration-archive",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#download-a-migration-archive",
       "enabledForApps": false,
       "method": "GET",
       "name": "Download a migration archive",
@@ -5931,18 +5987,18 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "migration_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/migrations/:id/archive"
+      "path": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getMigrationStatus": {
       "description": "Fetches the status of a migration.\n\nThe `state` of a migration can be one of the following values:\n\n*   `pending`, which means the migration hasn't started yet.\n*   `exporting`, which means the migration is in progress.\n*   `exported`, which means the migration finished successfully.\n*   `failed`, which means the migration failed.",
-      "documentationUrl": "https://developer.github.com/v3/migration/migrations/#get-the-status-of-a-migration",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#get-the-status-of-a-migration",
       "enabledForApps": false,
       "method": "GET",
       "name": "Get the status of a migration",
@@ -5955,18 +6011,18 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "migration_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/migrations/:id"
+      "path": "/orgs/:org/migrations/:migration_id"
     },
     "getMigrations": {
       "description": "Lists the most recent migrations.",
-      "documentationUrl": "https://developer.github.com/v3/migration/migrations/#get-a-list-of-migrations",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#get-a-list-of-migrations",
       "enabledForApps": false,
       "method": "GET",
       "name": "Get a list of migrations",
@@ -5999,7 +6055,7 @@
     },
     "mapImportCommitAuthor": {
       "description": "Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository.",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#map-a-commit-author",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author",
       "enabledForApps": true,
       "method": "PATCH",
       "name": "Map a commit author",
@@ -6044,7 +6100,7 @@
     },
     "setImportLfsPreference": {
       "description": "You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by [Git LFS](https://git-lfs.github.com). You can learn more about our LFS feature and working with large files [on our help site](https://help.github.com/articles/versioning-large-files/).",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#set-git-lfs-preference",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference",
       "enabledForApps": true,
       "method": "PATCH",
       "name": "Set Git LFS preference",
@@ -6079,7 +6135,7 @@
     },
     "startImport": {
       "description": "Start a source import to a GitHub repository using GitHub Importer.",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#start-an-import",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#start-an-import",
       "enabledForApps": true,
       "method": "PUT",
       "name": "Start an import",
@@ -6144,7 +6200,7 @@
     },
     "startMigration": {
       "description": "Initiates the generation of a migration archive.",
-      "documentationUrl": "https://developer.github.com/v3/migration/migrations/#start-a-migration",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#start-a-migration",
       "enabledForApps": false,
       "method": "POST",
       "name": "Start a migration",
@@ -6184,7 +6240,7 @@
     },
     "unlockRepoLockedForMigration": {
       "description": "Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data.",
-      "documentationUrl": "https://developer.github.com/v3/migration/migrations/#unlock-a-repository",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#unlock-a-repository",
       "enabledForApps": false,
       "method": "DELETE",
       "name": "Unlock a repository",
@@ -6197,7 +6253,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "migration_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -6211,11 +6267,11 @@
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/migrations/:id/repos/:repo_name/lock"
+      "path": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock"
     },
     "updateImport": {
       "description": "An import can be updated with credentials or a project choice by passing in the appropriate parameters in this API request. If no parameters are provided, the import will be restarted.\n\nSome servers (e.g. TFS servers) can have several projects at a single URL. In those cases the import progress will have the status `detection_found_multiple` and the Import Progress response will include a `project_choices` array. You can select the project to import by providing one of the objects in the `project_choices` array in the update request.\n\nThe following example demonstrates the workflow for updating an import with \"project1\" as the project choice. Given a `project_choices` array like such:\n\nTo restart an import, no parameters are provided in the update request.",
-      "documentationUrl": "https://developer.github.com/v3/migration/source_imports/#update-existing-import",
+      "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#update-existing-import",
       "enabledForApps": true,
       "method": "PATCH",
       "name": "Update existing import",
@@ -6479,7 +6535,7 @@
       "name": "Add or update team membership",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -6505,7 +6561,7 @@
           "location": "body"
         }
       ],
-      "path": "/teams/:id/memberships/:username"
+      "path": "/teams/:team_id/memberships/:username"
     },
     "addTeamRepo": {
       "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization.\n\nIf you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\n",
@@ -6515,7 +6571,7 @@
       "name": "Add or update team repository",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -6548,7 +6604,7 @@
           "location": "body"
         }
       ],
-      "path": "/teams/:id/repos/:owner/:repo"
+      "path": "/teams/:team_id/repos/:owner/:repo"
     },
     "blockUser": {
       "description": "",
@@ -6654,7 +6710,7 @@
       "name": "Check if a team manages a repository",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -6675,7 +6731,7 @@
           "location": "url"
         }
       ],
-      "path": "/teams/:id/repos/:owner/:repo"
+      "path": "/teams/:team_id/repos/:owner/:repo"
     },
     "concealMembership": {
       "description": "",
@@ -6943,14 +6999,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/hooks/:id"
+      "path": "/orgs/:org/hooks/:hook_id"
     },
     "deleteTeam": {
       "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.",
@@ -6960,14 +7016,14 @@
       "name": "Delete team",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/teams/:id"
+      "path": "/teams/:team_id"
     },
     "deleteTeamRepo": {
       "description": "If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.",
@@ -6977,7 +7033,7 @@
       "name": "Remove team repository",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -6998,7 +7054,7 @@
           "location": "url"
         }
       ],
-      "path": "/teams/:id/repos/:owner/:repo"
+      "path": "/teams/:team_id/repos/:owner/:repo"
     },
     "editHook": {
       "description": "",
@@ -7015,7 +7071,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7073,7 +7129,7 @@
           "location": "body"
         }
       ],
-      "path": "/orgs/:org/hooks/:id"
+      "path": "/orgs/:org/hooks/:hook_id"
     },
     "editTeam": {
       "description": "To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.",
@@ -7083,7 +7139,7 @@
       "name": "Edit team",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7131,7 +7187,7 @@
           "location": "body"
         }
       ],
-      "path": "/teams/:id"
+      "path": "/teams/:team_id"
     },
     "get": {
       "description": "To see many of the organization response values, you need to be an authenticated organization owner with the `admin:org` scope. When the value of `two_factor_requirement_enabled` is `true`, the organization requires all members, billing managers, and outside collaborators to enable [two-factor authentication](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/).",
@@ -7208,7 +7264,7 @@
       "name": "List child teams",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7231,7 +7287,7 @@
           "location": "query"
         }
       ],
-      "path": "/teams/:id/teams"
+      "path": "/teams/:team_id/teams"
     },
     "getForUser": {
       "description": "List [public organization memberships](https://help.github.com/articles/publicizing-or-concealing-organization-membership) for the specified user.\n\nThis method only lists _public_ memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the [List your organizations](#list-your-organizations) API instead.",
@@ -7281,14 +7337,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/hooks/:id"
+      "path": "/orgs/:org/hooks/:hook_id"
     },
     "getHooks": {
       "description": "",
@@ -7531,7 +7587,7 @@
       "name": "List pending team invitations",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7554,7 +7610,7 @@
           "location": "query"
         }
       ],
-      "path": "/teams/:id/invitations"
+      "path": "/teams/:team_id/invitations"
     },
     "getPublicMembers": {
       "description": "Members of an organization can choose to have their membership publicized or not.",
@@ -7597,14 +7653,14 @@
       "name": "Get team",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/teams/:id"
+      "path": "/teams/:team_id"
     },
     "getTeamMembers": {
       "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.",
@@ -7614,7 +7670,7 @@
       "name": "List team members",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7650,7 +7706,7 @@
           "location": "query"
         }
       ],
-      "path": "/teams/:id/members"
+      "path": "/teams/:team_id/members"
     },
     "getTeamMembership": {
       "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nTo get a user's membership with a team, the team must be visible to the authenticated user.\n\n**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).",
@@ -7660,7 +7716,7 @@
       "name": "Get team membership",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7674,7 +7730,7 @@
           "location": "url"
         }
       ],
-      "path": "/teams/:id/memberships/:username"
+      "path": "/teams/:team_id/memberships/:username"
     },
     "getTeamRepos": {
       "description": "**Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.",
@@ -7684,7 +7740,7 @@
       "name": "List team repos",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7707,7 +7763,7 @@
           "location": "query"
         }
       ],
-      "path": "/teams/:id/repos"
+      "path": "/teams/:team_id/repos"
     },
     "getTeams": {
       "description": "",
@@ -7757,14 +7813,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/orgs/:org/hooks/:id/pings"
+      "path": "/orgs/:org/hooks/:hook_id/pings"
     },
     "publicizeMembership": {
       "description": "The user can publicize their own membership. (A user cannot publicize the membership for another user.)\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"",
@@ -7870,7 +7926,7 @@
       "name": "Remove team membership",
       "params": [
         {
-          "name": "id",
+          "name": "team_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -7884,7 +7940,7 @@
           "location": "url"
         }
       ],
-      "path": "/teams/:id/memberships/:username"
+      "path": "/teams/:team_id/memberships/:username"
     },
     "unblockUser": {
       "description": "",
@@ -8015,7 +8071,7 @@
       "name": "Add user as a collaborator",
       "params": [
         {
-          "name": "id",
+          "name": "project_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -8042,7 +8098,7 @@
           "location": "body"
         }
       ],
-      "path": "/projects/:id/collaborators/:username"
+      "path": "/projects/:project_id/collaborators/:username"
     },
     "createOrgProject": {
       "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
@@ -8092,7 +8148,7 @@
       "path": "/orgs/:org/projects"
     },
     "createProjectCard": {
-      "description": "",
+      "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.",
       "documentationUrl": "https://developer.github.com/v3/projects/cards/#create-a-project-card",
       "enabledForApps": true,
       "method": "POST",
@@ -8108,21 +8164,21 @@
         {
           "name": "note",
           "type": "string",
-          "description": "The card's note content. Only valid for cards without another type of content, so this must be omitted if `content_id` and `content_type` are specified.",
+          "description": "The card's note content. Only valid for cards without another type of content, so you must omit when specifying `content_id` and `content_type`.",
           "required": false,
           "location": "body"
         },
         {
           "name": "content_id",
           "type": "integer",
-          "description": "The id of the issue to associate with this card.",
+          "description": "The issue or pull request id you want to associate with this card. You can use the [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository) and [List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests) endpoints to find this id.  \n**Note:** Depending on whether you use the issue id or pull request id, you will need to specify `Issue` or `PullRequest` as the `content_type`.",
           "required": false,
           "location": "body"
         },
         {
           "name": "content_type",
           "type": "string",
-          "description": "**Required if you provide `content_id`**. The type of content to associate with this card. Can only be \"Issue\" at this time.",
+          "description": "**Required if you provide `content_id`**. The type of content you want to associate with this card. Use `Issue` when `content_id` is an issue id and use `PullRequest` when `content_id` is a pull request id.",
           "required": false,
           "location": "body"
         }
@@ -8266,7 +8322,7 @@
       "name": "List collaborators",
       "params": [
         {
-          "name": "id",
+          "name": "project_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -8302,7 +8358,7 @@
           "location": "query"
         }
       ],
-      "path": "/projects/:id/collaborators"
+      "path": "/projects/:project_id/collaborators"
     },
     "getOrgProjects": {
       "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
@@ -8544,7 +8600,7 @@
       "name": "Review a user's permission level",
       "params": [
         {
-          "name": "id",
+          "name": "project_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -8558,7 +8614,7 @@
           "location": "url"
         }
       ],
-      "path": "/projects/:id/collaborators/:username/permission"
+      "path": "/projects/:project_id/collaborators/:username/permission"
     },
     "moveProjectCard": {
       "description": "",
@@ -8633,7 +8689,7 @@
       "name": "Remove user as a collaborator",
       "params": [
         {
-          "name": "id",
+          "name": "project_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -8647,7 +8703,7 @@
           "location": "url"
         }
       ],
-      "path": "/projects/:id/collaborators/:username"
+      "path": "/projects/:project_id/collaborators/:username"
     },
     "updateProject": {
       "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
@@ -9176,14 +9232,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/comments/:id"
+      "path": "/repos/:owner/:repo/pulls/comments/:comment_id"
     },
     "deletePendingReview": {
       "description": "",
@@ -9214,14 +9270,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "review_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/:number/reviews/:id"
+      "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
     },
     "deleteReviewRequest": {
       "description": "",
@@ -9297,7 +9353,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "review_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -9311,7 +9367,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/:number/reviews/:id/dismissals"
+      "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals"
     },
     "editComment": {
       "description": "",
@@ -9335,7 +9391,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -9349,7 +9405,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/comments/:id"
+      "path": "/repos/:owner/:repo/pulls/comments/:comment_id"
     },
     "get": {
       "description": "Lists details of a pull request by providing its number.\n\nWhen you get, [create](https://developer.github.com/v3/pulls/#create-a-pull-request), or [edit](https://developer.github.com/v3/pulls/#update-a-pull-request) a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the `mergeable` key. For more information, see \"[Checking mergeability of pull requests](https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests)\".\n\nThe value of the `mergeable` attribute can be `true`, `false`, or `null`. If the value is `null`, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-`null` value for the `mergeable` attribute in the response. If `mergable` is `true`, then `merge_commit_sha` will be the SHA of the _test_ merge commit.\n\nThe value of the `merge_commit_sha` attribute changes depending on the state of the pull request. Before merging a pull request, the `merge_commit_sha` attribute holds the SHA of the _test_ merge commit. After merging a pull request, the `merge_commit_sha` attribute changes depending on how you merged the pull request:\n\n*   If merged as a [merge commit](https://help.github.com/articles/about-merge-methods-on-github/), `merge_commit_sha` represents the SHA of the merge commit.\n*   If merged via a [squash](https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits), `merge_commit_sha` represents the SHA of the squashed commit on the base branch.\n*   If [rebased](https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits), `merge_commit_sha` represents the commit that the base branch was updated to.\n\nPass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.",
@@ -9497,14 +9553,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/comments/:id"
+      "path": "/repos/:owner/:repo/pulls/comments/:comment_id"
     },
     "getComments": {
       "description": "By default, review comments are ordered by ascending ID.",
@@ -9776,14 +9832,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "review_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/:number/reviews/:id"
+      "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
     },
     "getReviewComments": {
       "description": "",
@@ -9814,7 +9870,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "review_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -9837,7 +9893,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/:number/reviews/:id/comments"
+      "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments"
     },
     "getReviewRequests": {
       "description": "",
@@ -10026,7 +10082,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "review_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10052,7 +10108,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/:number/reviews/:id/events"
+      "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events"
     },
     "update": {
       "description": "**Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.",
@@ -10148,7 +10204,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10170,7 +10226,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/comments/:id/reactions"
+      "path": "/repos/:owner/:repo/comments/:comment_id/reactions"
     },
     "createForIssue": {
       "description": "Create a reaction to an [issue](https://developer.github.com/v3/issues/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue.",
@@ -10240,7 +10296,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10262,7 +10318,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/issues/comments/:id/reactions"
+      "path": "/repos/:owner/:repo/issues/comments/:comment_id/reactions"
     },
     "createForPullRequestReviewComment": {
       "description": "Create a reaction to a [pull request review comment](https://developer.github.com/v3/pulls/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this pull request review comment.",
@@ -10286,7 +10342,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10308,7 +10364,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/comments/:id/reactions"
+      "path": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions"
     },
     "createForTeamDiscussion": {
       "description": "Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.",
@@ -10403,14 +10459,14 @@
       "name": "Delete a reaction",
       "params": [
         {
-          "name": "id",
+          "name": "reaction_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/reactions/:id"
+      "path": "/reactions/:reaction_id"
     },
     "getForCommitComment": {
       "description": "List the reactions to a [commit comment](https://developer.github.com/v3/repos/comments/).",
@@ -10434,7 +10490,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10472,7 +10528,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/comments/:id/reactions"
+      "path": "/repos/:owner/:repo/comments/:comment_id/reactions"
     },
     "getForIssue": {
       "description": "List the reactions to an [issue](https://developer.github.com/v3/issues/).",
@@ -10558,7 +10614,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10596,7 +10652,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/issues/comments/:id/reactions"
+      "path": "/repos/:owner/:repo/issues/comments/:comment_id/reactions"
     },
     "getForPullRequestReviewComment": {
       "description": "List the reactions to a [pull request review comment](https://developer.github.com/v3/pulls/comments/).",
@@ -10620,7 +10676,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -10658,7 +10714,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/pulls/comments/:id/reactions"
+      "path": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions"
     },
     "getForTeamDiscussion": {
       "description": "List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
@@ -11383,7 +11439,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "deployment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -11444,7 +11500,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/deployments/:id/statuses"
+      "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses"
     },
     "createFile": {
       "description": "This method creates a new file in a repository\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
@@ -11897,14 +11953,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "asset_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/assets/:id"
+      "path": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "deleteCommitComment": {
       "description": "",
@@ -11928,14 +11984,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/comments/:id"
+      "path": "/repos/:owner/:repo/comments/:comment_id"
     },
     "deleteDeployKey": {
       "description": "",
@@ -11959,14 +12015,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "key_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/keys/:id"
+      "path": "/repos/:owner/:repo/keys/:key_id"
     },
     "deleteDownload": {
       "description": "",
@@ -11990,14 +12046,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "download_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/downloads/:id"
+      "path": "/repos/:owner/:repo/downloads/:download_id"
     },
     "deleteFile": {
       "description": "This method deletes a file in a repository\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
@@ -12067,7 +12123,7 @@
     "deleteHook": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/repos/hooks/#delete-a-hook",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "DELETE",
       "name": "Delete a hook",
       "params": [
@@ -12086,14 +12142,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/hooks/:id"
+      "path": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "deleteInvite": {
       "description": "",
@@ -12148,14 +12204,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "release_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/:id"
+      "path": "/repos/:owner/:repo/releases/:release_id"
     },
     "edit": {
       "description": "**Note**: To edit a repository's topics, use the [`topics` endpoint](#replace-all-topics-for-a-repository).",
@@ -12295,7 +12351,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "asset_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -12316,7 +12372,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/assets/:id"
+      "path": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "editHook": {
       "description": "",
@@ -12340,7 +12396,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -12412,7 +12468,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/hooks/:id"
+      "path": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "editRelease": {
       "description": "Users with push access to the repository can edit a release.",
@@ -12436,7 +12492,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "release_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -12486,7 +12542,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/:id"
+      "path": "/repos/:owner/:repo/releases/:release_id"
     },
     "fork": {
       "description": "Create a fork for the authenticated user.\n\nForking a Repository happens asynchronously. Therefore, you may have to wait a short period before accessing the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub support](https://github.com/contact).",
@@ -12742,14 +12798,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "asset_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/assets/:id"
+      "path": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "getAssets": {
       "description": "",
@@ -12773,7 +12829,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "release_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -12796,7 +12852,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/:id/assets"
+      "path": "/repos/:owner/:repo/releases/:release_id/assets"
     },
     "getBranch": {
       "description": "",
@@ -13080,14 +13136,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/comments/:id"
+      "path": "/repos/:owner/:repo/comments/:comment_id"
     },
     "getCommitComments": {
       "description": "",
@@ -13344,14 +13400,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "key_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/keys/:id"
+      "path": "/repos/:owner/:repo/keys/:key_id"
     },
     "getDeployKeys": {
       "description": "",
@@ -13415,14 +13471,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "deployment_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/deployments/:id"
+      "path": "/repos/:owner/:repo/deployments/:deployment_id"
     },
     "getDeploymentStatus": {
       "description": "Users with pull access can view a deployment status for a deployment:\n\n\n\n**Note:** If a user created a deployment status via a GitHub App, the `performed_via_github_app` key will contain information on that GitHub App.",
@@ -13446,11 +13502,18 @@
           "location": "url"
         },
         {
+          "name": "deployment_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
           "name": "id",
           "type": "integer",
           "description": "The deployment ID to list the statuses from.",
           "required": true,
-          "location": "url"
+          "location": "query"
         },
         {
           "name": "status_id",
@@ -13460,7 +13523,7 @@
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/deployments/:id/statuses/:status_id"
+      "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id"
     },
     "getDeploymentStatuses": {
       "description": "Users with pull access can view deployment statuses for a deployment:",
@@ -13484,11 +13547,18 @@
           "location": "url"
         },
         {
+          "name": "deployment_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
           "name": "id",
           "type": "integer",
           "description": "The deployment ID to list the statuses from.",
           "required": true,
-          "location": "url"
+          "location": "query"
         },
         {
           "name": "per_page",
@@ -13507,7 +13577,7 @@
           "location": "query"
         }
       ],
-      "path": "/repos/:owner/:repo/deployments/:id/statuses"
+      "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses"
     },
     "getDeployments": {
       "description": "",
@@ -13603,14 +13673,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "download_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/downloads/:id"
+      "path": "/repos/:owner/:repo/downloads/:download_id"
     },
     "getDownloads": {
       "description": "",
@@ -13848,19 +13918,19 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/hooks/:id"
+      "path": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "getHooks": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/repos/hooks/#list-hooks",
-      "enabledForApps": false,
+      "enabledForApps": true,
       "method": "GET",
       "name": "List hooks",
       "params": [
@@ -14055,14 +14125,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "build_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/pages/builds/:id"
+      "path": "/repos/:owner/:repo/pages/builds/:build_id"
     },
     "getPagesBuilds": {
       "description": "",
@@ -14487,14 +14557,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "release_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/releases/:id"
+      "path": "/repos/:owner/:repo/releases/:release_id"
     },
     "getReleaseByTag": {
       "description": "Get a published release with the specified tag.",
@@ -14972,14 +15042,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/hooks/:id/pings"
+      "path": "/repos/:owner/:repo/hooks/:hook_id/pings"
     },
     "removeBranchProtection": {
       "description": "",
@@ -15471,7 +15541,7 @@
       "path": "/repos/:owner/:repo/collaborators/:username/permission"
     },
     "testHook": {
-      "description": "This will trigger the hook with the latest push to the current repository if the hook is subscribed to `push` events. If the hook is not subscribed to `push` events, the server will respond with 204 but no test POST will be generated.\n\n**Note**: Previously `/repos/:owner/:repo/hooks/:id/test`",
+      "description": "This will trigger the hook with the latest push to the current repository if the hook is subscribed to `push` events. If the hook is not subscribed to `push` events, the server will respond with 204 but no test POST will be generated.\n\n**Note**: Previously `/repos/:owner/:repo/hooks/:hook_id/test`",
       "documentationUrl": "https://developer.github.com/v3/repos/hooks/#test-a-push-hook",
       "enabledForApps": false,
       "method": "POST",
@@ -15492,14 +15562,14 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "hook_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:repo/hooks/:id/tests"
+      "path": "/repos/:owner/:repo/hooks/:hook_id/tests"
     },
     "transfer": {
       "description": "A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/).",
@@ -15694,7 +15764,7 @@
           "location": "url"
         },
         {
-          "name": "id",
+          "name": "comment_id",
           "type": "string",
           "required": true,
           "description": "",
@@ -15708,7 +15778,7 @@
           "location": "body"
         }
       ],
-      "path": "/repos/:owner/:repo/comments/:id"
+      "path": "/repos/:owner/:repo/comments/:comment_id"
     },
     "updateFile": {
       "description": "This method updates a file in a repository\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
@@ -16173,7 +16243,7 @@
           "name": "repository_id",
           "type": "integer",
           "description": "The id of the repository.",
-          "required": false,
+          "required": true,
           "location": "query"
         },
         {
@@ -16522,14 +16592,14 @@
       "name": "Delete a GPG key",
       "params": [
         {
-          "name": "id",
+          "name": "gpg_key_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/user/gpg_keys/:id"
+      "path": "/user/gpg_keys/:gpg_key_id"
     },
     "deleteKey": {
       "description": "Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
@@ -16539,14 +16609,14 @@
       "name": "Delete a public key",
       "params": [
         {
-          "name": "id",
+          "name": "key_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/user/keys/:id"
+      "path": "/user/keys/:key_id"
     },
     "editOrgMembership": {
       "description": "",
@@ -16849,14 +16919,14 @@
       "name": "Get a single GPG key",
       "params": [
         {
-          "name": "id",
+          "name": "gpg_key_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/user/gpg_keys/:id"
+      "path": "/user/gpg_keys/:gpg_key_id"
     },
     "getGpgKeys": {
       "description": "Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
@@ -16984,14 +17054,14 @@
       "name": "Get a single public key",
       "params": [
         {
-          "name": "id",
+          "name": "key_id",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/user/keys/:id"
+      "path": "/user/keys/:key_id"
     },
     "getKeys": {
       "description": "Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
