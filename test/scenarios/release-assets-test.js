@@ -47,7 +47,7 @@ describe('api.github.com', () => {
         return github.repos.getAssets({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
-          id: releaseId
+          release_id: releaseId
         })
       })
 
@@ -55,7 +55,7 @@ describe('api.github.com', () => {
         return github.repos.getAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
-          id: assetId
+          asset_id: assetId
         })
       })
 
@@ -63,7 +63,7 @@ describe('api.github.com', () => {
         return github.repos.editAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
-          id: assetId,
+          asset_id: assetId,
           name: 'new-filename.txt',
           label: 'new label'
         })
@@ -73,7 +73,7 @@ describe('api.github.com', () => {
         return github.repos.deleteAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
-          id: assetId
+          asset_id: assetId
         })
       })
   })

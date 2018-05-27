@@ -49,7 +49,7 @@ describe('api.github.com', () => {
         return github.issues.updateLabel({
           owner: 'octokit-fixture-org',
           repo: 'labels',
-          oldname: 'test-label',
+          current_name: 'test-label',
           name: 'test-label-updated',
           color: 'BADA55'
         })
