@@ -22,7 +22,7 @@ describe('deprecations', () => {
     return github.integrations.getInstallations({})
 
       .then(() => {
-        expect(console.warn.callCount).to.equal(2)
+        expect(console.warn.callCount).to.equal(1)
       })
   })
 
@@ -33,32 +33,16 @@ describe('deprecations', () => {
     expect(console.warn.callCount).to.equal(1)
   })
 
-  it('deprecated protocol option', () => {
-    GitHub({
-      protocol: 'https',
-      host: 'deprecations-test.com'
-    })
-    expect(console.warn.callCount).to.equal(2)
-  })
-
-  it('deprecated host option', () => {
-    GitHub({
-      protocol: 'https',
-      host: 'deprecations-test.com'
-    })
-    expect(console.warn.callCount).to.equal(2)
-  })
-
-  it('deprecated port option', () => {
+  it('deprecated protocol, host, port, pathPrefix options', () => {
     GitHub({
       protocol: 'https',
       host: 'deprecations-test.com',
-      port: 1234
+      port: 1234,
+      pathPrefix: '/deprecations-test.com/'
     })
-    expect(console.warn.callCount).to.equal(3)
-  })
+    expect(console.warn.callCount).to.equal(4)
 
-  it('deprecated pathPrefix option', () => {
+    // it logs same messages only once (#871)
     GitHub({
       protocol: 'https',
       host: 'deprecations-test.com',
