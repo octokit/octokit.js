@@ -113,7 +113,7 @@ const mapScopes = {
   issues: 'issues',
   licenses: false,
   markdown: false,
-  migration: 'migrations',
+  migrations: 'migrations',
   misc: 'misc',
   oauthAuthorizations: 'authorization',
   orgs: 'orgs',
