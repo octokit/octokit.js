@@ -83,7 +83,7 @@ function generateTypes (languageName, templateFile, outputFile) {
           return params.concat(pascalcase(name.slice(1)))
         }, [])
 
-      const namspacedParamsName = pascalcase(`${namespace}-${entry[0]}Params`)
+      const namespacedParamsName = pascalcase(`${namespace}-${entry[0]}Params`)
       const ownParams = entries(entry[1].params)
         .filter((entry) => isLocalParam(entry[0]))
         .reduce(toCombineParams, [])
@@ -91,7 +91,7 @@ function generateTypes (languageName, templateFile, outputFile) {
         // handle "object" & "object[]" types
         .map(param => {
           if (param.type === 'object' || param.type === 'object[]') {
-            const childParamsName = pascalcase(`${namspacedParamsName}.${param.key}`)
+            const childParamsName = pascalcase(`${namespacedParamsName}.${param.key}`)
             param.type = param.type.replace('object', childParamsName)
 
             if (!childParams[childParamsName]) {
@@ -108,7 +108,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
           param.key = childKey
 
-          const childParamsName = pascalcase(`${namspacedParamsName}.${parentKey}`)
+          const childParamsName = pascalcase(`${namespacedParamsName}.${parentKey}`)
           set(childParams, `${childParamsName}.${childKey}`, param)
         })
         .filter(Boolean)
@@ -117,7 +117,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
       const methodName = camelcase(entry[0])
       let paramTypeName = hasParams
-        ? namspacedParamsName
+        ? namespacedParamsName
         : pascalcase('EmptyParams')
 
       return methods.concat({
