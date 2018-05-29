@@ -38,6 +38,10 @@ jobs:
         - sleep 3 # give server some time to start
         - npm run test
         - npm run coverage:upload
+    - node_js: 4 # will be removed in v16
+      env: Node 4, smoke test only
+      script:
+        - node index.js
     - node_js: lts/*
       env: browser tests
       script:
