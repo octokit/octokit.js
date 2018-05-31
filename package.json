@@ -1,0 +1,14 @@
+{
+  "name": "octokit",
+  "version": "1.0.0-hello-world",
+  "description": "🏗️ Work in Progress 🔜 Official GitHub Platform client for Node.js & Browsers",
+  "homepage": "https://github.com/octokit/octokit.js/pull/1",
+  "keywords": [
+    "github",
+    "api",
+    "sdk"
+  ],
+  "author": "Gregor Martynus (https://github.com/gr2m)",
+  "repository": "https://github.com/octokit/octokit.js",
+  "license": "MIT"
+}
