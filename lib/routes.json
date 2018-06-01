@@ -8435,15 +8435,19 @@
       "method": "GET",
       "params": {
         "name": {
-          "required": true,
-          "type": "string"
+          "alias": "repo",
+          "deprecated": true
         },
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
         }
       },
-      "url": "/repos/:owner/:name/community/profile"
+      "url": "/repos/:owner/:repo/community/profile"
     },
     "getContent": {
       "method": "GET",
