@@ -1,4 +1,4 @@
 {
   "integrationFolder": "test/scenarios",
-  "videoRecording": false
+  "video": false
 }
