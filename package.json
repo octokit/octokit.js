@@ -55,7 +55,7 @@
     "chai": "^4.1.2",
     "compression-webpack-plugin": "^1.1.6",
     "coveralls": "^3.0.0",
-    "cypress": "^2.0.2",
+    "cypress": "^3.0.0",
     "dotenv": "^5.0.0",
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
