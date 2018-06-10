@@ -4613,7 +4613,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "org": {
           "required": true,
@@ -4695,7 +4695,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "org": {
           "required": true,
@@ -4828,7 +4828,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "org": {
           "required": true,
@@ -5113,7 +5113,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "org": {
           "required": true,
@@ -7781,7 +7781,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -7950,7 +7950,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -8795,7 +8795,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -9449,7 +9449,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "owner": {
           "required": true,
@@ -9794,7 +9794,7 @@
         },
         "id": {
           "alias": "hook_id",
-          "required": true
+          "deprecated": true
         },
         "owner": {
           "required": true,
