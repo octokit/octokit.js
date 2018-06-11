@@ -69,7 +69,7 @@
     "proxy": "^0.2.4",
     "proxyquire": "^2.0.0",
     "semantic-release": "^15.0.0",
-    "sinon": "^5.0.0",
+    "sinon": "^6.0.0",
     "sinon-chai": "^3.0.0",
     "standard": "^11.0.0",
     "standard-markdown": "^4.0.2",
