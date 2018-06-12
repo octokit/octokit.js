@@ -3842,7 +3842,7 @@
       },
       "url": "/repos/:owner/:repo/import"
     },
-    "deleteMigrationArchive": {
+    "deleteOrganizationMigrationArchive": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
       },
@@ -3921,7 +3921,7 @@
       },
       "url": "/repos/:owner/:repo/import/large_files"
     },
-    "getMigrationArchiveLink": {
+    "getOrganizationMigrationArchiveLink": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
       },
@@ -3942,7 +3942,7 @@
       },
       "url": "/orgs/:org/migrations/:migration_id/archive"
     },
-    "getMigrationStatus": {
+    "getOrganizationMigrationStatus": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
       },
@@ -3963,7 +3963,7 @@
       },
       "url": "/orgs/:org/migrations/:migration_id"
     },
-    "getMigrations": {
+    "getOrganizationMigrations": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
       },
@@ -4077,7 +4077,7 @@
       },
       "url": "/repos/:owner/:repo/import"
     },
-    "startMigration": {
+    "startOrganizationMigration": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
       },
@@ -4100,7 +4100,7 @@
       },
       "url": "/orgs/:org/migrations"
     },
-    "unlockRepoLockedForMigration": {
+    "unlockRepoLockedForOrganizationMigration": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
       },
