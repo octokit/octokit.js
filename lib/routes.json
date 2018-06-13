@@ -3876,10 +3876,6 @@
         "migration_id": {
           "required": true,
           "type": "string"
-        },
-        "username": {
-          "required": true,
-          "type": "string"
         }
       },
       "url": "/user/migrations/:migration_id/archive"
@@ -3976,10 +3972,6 @@
         "migration_id": {
           "required": true,
           "type": "string"
-        },
-        "username": {
-          "required": true,
-          "type": "string"
         }
       },
       "url": "/user/migrations/:migration_id/archive"
@@ -4018,10 +4010,6 @@
         "migration_id": {
           "required": true,
           "type": "string"
-        },
-        "username": {
-          "required": true,
-          "type": "string"
         }
       },
       "url": "/user/migrations/:migration_id"
@@ -4051,10 +4039,6 @@
       },
       "method": "GET",
       "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        },
         "page": {
           "type": "integer"
         },
@@ -4193,10 +4177,6 @@
         },
         "lock_repositories": {
           "type": "boolean"
-        },
-        "username": {
-          "required": true,
-          "type": "string"
         },
         "repositories": {
           "required": true,
