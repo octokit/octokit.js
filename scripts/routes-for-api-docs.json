@@ -13283,14 +13283,14 @@
           "location": "url"
         },
         {
-          "name": "name",
+          "name": "repo",
           "type": "string",
           "required": true,
           "description": "",
           "location": "url"
         }
       ],
-      "path": "/repos/:owner/:name/community/profile"
+      "path": "/repos/:owner/:repo/community/profile"
     },
     "getContent": {
       "description": "This method returns the contents of a file or directory in a repository.\n\nFiles and symlinks support [a custom media type](#custom-media-types) for retrieving the raw content or rendered HTML (when supported). All content types support [a custom media type](#custom-media-types) to ensure the content is returned in a consistent object format.\n\n**Note**:\n\n*   To get a repository's contents recursively, you can [recursively get the tree](https://developer.github.com/v3/git/trees/).\n*   This API has an upper limit of 1,000 files for a directory. If you need to retrieve more files, use the [Git Trees API](https://developer.github.com/v3/git/trees/#get-a-tree).\n*   This API supports files up to 1 megabyte in size.\n\nThe response will be an array of objects, one object for each item in the directory.\n\nWhen listing the contents of a directory, submodules have their \"type\" specified as \"file\". Logically, the value _should_ be \"submodule\". This behavior exists in API v3 [for backwards compatibility purposes](https://git.io/v1YCW). In the next major version of the API, the type will be returned as \"submodule\".\n\nIf the requested `:path` points to a symlink, and the symlink's target is a normal file in the repository, then the API responds with the content of the file (in the [format shown above](#response-if-content-is-a-file)).\n\nOtherwise, the API responds with an object describing the symlink itself:\n\nThe `submodule_git_url` identifies the location of the submodule repository, and the `sha` identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit.\n\nIf the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links[\"git\"]`) and the github.com URLs (`html_url` and `_links[\"html\"]`) will have null values.",
