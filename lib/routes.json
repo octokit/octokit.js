@@ -3843,6 +3843,9 @@
       "url": "/repos/:owner/:repo/import"
     },
     "deleteArchiveForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "migration_id": {
@@ -3874,6 +3877,9 @@
       "url": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getArchiveForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "migration_id": {
@@ -4003,6 +4009,9 @@
       "url": "/orgs/:org/migrations"
     },
     "getStatusForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "migration_id": {
@@ -4013,6 +4022,9 @@
       "url": "/user/migrations/:migration_id"
     },
     "listForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "page": {
@@ -4081,6 +4093,9 @@
       "url": "/repos/:owner/:repo/import/lfs"
     },
     "startForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "POST",
       "params": {
         "exclude_attachments": {
@@ -4159,6 +4174,9 @@
       "url": "/orgs/:org/migrations"
     },
     "unlockRepoForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "migration_id": {
