@@ -5869,6 +5869,23 @@
       ],
       "path": "/repos/:owner/:repo/import"
     },
+    "deleteArchiveForAuthenticatedUser": {
+      "description": "Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [Get a list of user migrations](#get-a-list-of-user-migrations) and [Get the status of a user migration](#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted.",
+      "documentationUrl": "https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive",
+      "enabledForApps": false,
+      "method": "DELETE",
+      "name": "Delete a user migration archive",
+      "params": [
+        {
+          "name": "migration_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/user/migrations/:migration_id/archive"
+    },
     "deleteMigrationArchive": {
       "description": "Deletes a previous migration archive. Migration archives are automatically deleted after seven days.",
       "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive",
@@ -5892,6 +5909,23 @@
         }
       ],
       "path": "/orgs/:org/migrations/:migration_id/archive"
+    },
+    "getArchiveForAuthenticatedUser": {
+      "description": "Fetches the URL to download the migration archive as a `tar.gz` file. Depending on the resources your repository uses, the migration archive can contain JSON files with data for these objects:\n\n*   attachments\n*   bases\n*   commit_comments\n*   issue_comments\n*   issue_events\n*   issues\n*   milestones\n*   organizations\n*   projects\n*   protected_branches\n*   pull\\_request\\_reviews\n*   pull_requests\n*   releases\n*   repositories\n*   review_comments\n*   schema\n*   users\n\nThe archive will also contain an `attachments` directory that includes all attachment files uploaded to GitHub.com and a `repositories` directory that contains the repository's Git data.\n\n",
+      "documentationUrl": "https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Download a user migration archive",
+      "params": [
+        {
+          "name": "migration_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/user/migrations/:migration_id/archive"
     },
     "getImportCommitAuthors": {
       "description": "Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username `hubot` into something like `hubot <hubot@12341234-abab-fefe-8787-fedcba987654>`.\n\nThis API method and the \"Map a commit author\" method allow you to provide correct Git author information.",
@@ -6053,6 +6087,49 @@
       ],
       "path": "/orgs/:org/migrations"
     },
+    "getStatusForAuthenticatedUser": {
+      "description": "Fetches a single user migration. The response includes the `state` of the migration, which can be one of the following values:\n\n*   `pending` \\- the migration hasn't started yet.\n*   `exporting` \\- the migration is in progress.\n*   `exported` \\- the migration finished successfully.\n*   `failed` \\- the migration failed.\n\nOnce the migration has been `exported` you can [download the migration archive](#download-a-user-migration-archive).",
+      "documentationUrl": "https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Get the status of a user migration",
+      "params": [
+        {
+          "name": "migration_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/user/migrations/:migration_id"
+    },
+    "listForAuthenticatedUser": {
+      "description": "Lists all migrations a user has started.",
+      "documentationUrl": "https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Get a list of user migrations",
+      "params": [
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/user/migrations"
+    },
     "mapImportCommitAuthor": {
       "description": "Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository.",
       "documentationUrl": "https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author",
@@ -6132,6 +6209,39 @@
         }
       ],
       "path": "/repos/:owner/:repo/import/lfs"
+    },
+    "startForAuthenticatedUser": {
+      "description": "Initiates the generation of a user migration archive.",
+      "documentationUrl": "https://developer.github.com/v3/migrations/users/#start-a-user-migration",
+      "enabledForApps": false,
+      "method": "POST",
+      "name": "Start a user migration",
+      "params": [
+        {
+          "name": "repositories",
+          "type": "string[]",
+          "description": "An array of repositories to include in the migration.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "lock_repositories",
+          "type": "boolean",
+          "description": "Locks the `repositories` to prevent changes during the migration when set to `true`.",
+          "default": false,
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "exclude_attachments",
+          "type": "boolean",
+          "description": "Does not include attachments uploaded to GitHub.com in the migration data when set to `true`. Excluding attachments will reduce the migration archive file size.",
+          "default": false,
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/user/migrations"
     },
     "startImport": {
       "description": "Start a source import to a GitHub repository using GitHub Importer.",
@@ -6237,6 +6347,30 @@
         }
       ],
       "path": "/orgs/:org/migrations"
+    },
+    "unlockRepoForAuthenticatedUser": {
+      "description": "Unlocks a repository. You can lock repositories when you [start a user migration](#start-a-user-migration). Once the migration is complete you can unlock each repository to begin using it again or [delete the repository](https://developer.github.com/v3/repos/#delete-a-repository) if you no longer need the source data. Returns a status of `404 Not Found` if the repository is not locked.",
+      "documentationUrl": "https://developer.github.com/v3/migrations/users/#unlock-a-user-repository",
+      "enabledForApps": false,
+      "method": "DELETE",
+      "name": "Unlock a user repository",
+      "params": [
+        {
+          "name": "migration_id",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo_name",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/user/migrations/:migration_id/repos/:repo_name/lock"
     },
     "unlockRepoLockedForMigration": {
       "description": "Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data.",
