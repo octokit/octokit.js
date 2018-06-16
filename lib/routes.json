@@ -3842,6 +3842,16 @@
       },
       "url": "/repos/:owner/:repo/import"
     },
+    "deleteArchiveForAuthenticatedUser": {
+      "method": "DELETE",
+      "params": {
+        "migration_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/user/migrations/:migration_id/archive"
+    },
     "deleteMigrationArchive": {
       "headers": {
         "accept": "application/vnd.github.wyandotte-preview+json"
@@ -3862,6 +3872,16 @@
         }
       },
       "url": "/orgs/:org/migrations/:migration_id/archive"
+    },
+    "getArchiveForAuthenticatedUser": {
+      "method": "GET",
+      "params": {
+        "migration_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/user/migrations/:migration_id/archive"
     },
     "getImportCommitAuthors": {
       "headers": {
@@ -3982,6 +4002,28 @@
       },
       "url": "/orgs/:org/migrations"
     },
+    "getStatusForAuthenticatedUser": {
+      "method": "GET",
+      "params": {
+        "migration_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/user/migrations/:migration_id"
+    },
+    "listForAuthenticatedUser": {
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/user/migrations"
+    },
     "mapImportCommitAuthor": {
       "headers": {
         "accept": "application/vnd.github.barred-rock-preview"
@@ -4037,6 +4079,22 @@
         }
       },
       "url": "/repos/:owner/:repo/import/lfs"
+    },
+    "startForAuthenticatedUser": {
+      "method": "POST",
+      "params": {
+        "exclude_attachments": {
+          "type": "boolean"
+        },
+        "lock_repositories": {
+          "type": "boolean"
+        },
+        "repositories": {
+          "required": true,
+          "type": "string[]"
+        }
+      },
+      "url": "/user/migrations"
     },
     "startImport": {
       "headers": {
@@ -4099,6 +4157,20 @@
         }
       },
       "url": "/orgs/:org/migrations"
+    },
+    "unlockRepoForAuthenticatedUser": {
+      "method": "DELETE",
+      "params": {
+        "migration_id": {
+          "required": true,
+          "type": "string"
+        },
+        "repo_name": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/user/migrations/:migration_id/repos/:repo_name/lock"
     },
     "unlockRepoLockedForMigration": {
       "headers": {
