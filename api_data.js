@@ -1938,6 +1938,136 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/orgs/:org/installation",
+    "title": "findOrgInstallation",
+    "name": "findOrgInstallation",
+    "description": "<p>Enables an authenticated GitHub App to find the organization's installation information. <a href=\"https://developer.github.com/v3/apps/#find-organization-installation\">REST API doc</a></p>",
+    "group": "Apps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "org",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.apps.findOrgInstallation({org})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.apps.findOrgInstallation({org}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.apps.findOrgInstallation({org}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Apps"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/installation",
+    "title": "findRepoInstallation",
+    "name": "findRepoInstallation",
+    "description": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to. <a href=\"https://developer.github.com/v3/apps/#find-repository-installation\">REST API doc</a></p>",
+    "group": "Apps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.apps.findRepoInstallation({owner, repo})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.apps.findRepoInstallation({owner, repo}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.apps.findRepoInstallation({owner, repo}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Apps"
+  },
+  {
+    "type": "GET",
+    "url": "/users/:username/installation",
+    "title": "findUserInstallation",
+    "name": "findUserInstallation",
+    "description": "<p>Enables an authenticated GitHub App to find the user’s installation information. <a href=\"https://developer.github.com/v3/apps/#find-user-installation\">REST API doc</a></p>",
+    "group": "Apps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.apps.findUserInstallation({username})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.apps.findUserInstallation({username}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.apps.findUserInstallation({username}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Apps"
+  },
+  {
+    "type": "GET",
     "url": "/app",
     "title": "get",
     "name": "get",
@@ -9302,6 +9432,47 @@ define({ "api": [
   },
   {
     "type": "DELETE",
+    "url": "/user/migrations/:migration_id/archive",
+    "title": "deleteArchiveForAuthenticatedUser",
+    "name": "deleteArchiveForAuthenticatedUser",
+    "description": "<p>Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the <a href=\"#get-a-list-of-user-migrations\">Get a list of user migrations</a> and <a href=\"#get-the-status-of-a-user-migration\">Get the status of a user migration</a> endpoints, will continue to be available even after an archive is deleted. <a href=\"https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive\">REST API doc</a></p>",
+    "group": "Migrations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "migration_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Migrations"
+  },
+  {
+    "type": "DELETE",
     "url": "/orgs/:org/migrations/:migration_id/archive",
     "title": "deleteMigrationArchive",
     "name": "deleteMigrationArchive",
@@ -9341,6 +9512,47 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.migrations.deleteMigrationArchive({org, migration_id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Migrations"
+  },
+  {
+    "type": "GET",
+    "url": "/user/migrations/:migration_id/archive",
+    "title": "getArchiveForAuthenticatedUser",
+    "name": "getArchiveForAuthenticatedUser",
+    "description": "<p>Fetches the URL to download the migration archive as a <code>tar.gz</code> file. Depending on the resources your repository uses, the migration archive can contain JSON files with data for these objects: attachments bases commit_comments issue_comments issue_events issues milestones organizations projects protected_branches pull_request_reviews pull_requests releases repositories review_comments schema users</p> <p>The archive will also contain an <code>attachments</code> directory that includes all attachment files uploaded to GitHub.com and a <code>repositories</code> directory that contains the repository's Git data.</p> <p><a href=\"https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive\">REST API doc</a></p>",
+    "group": "Migrations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "migration_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.migrations.getArchiveForAuthenticatedUser({migration_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.migrations.getArchiveForAuthenticatedUser({migration_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.migrations.getArchiveForAuthenticatedUser({migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9653,6 +9865,97 @@ define({ "api": [
     "groupTitle": "Migrations"
   },
   {
+    "type": "GET",
+    "url": "/user/migrations/:migration_id",
+    "title": "getStatusForAuthenticatedUser",
+    "name": "getStatusForAuthenticatedUser",
+    "description": "<p>Fetches a single user migration. The response includes the <code>state</code> of the migration, which can be one of the following values: <code>pending</code> - the migration hasn't started yet. <code>exporting</code> - the migration is in progress. <code>exported</code> - the migration finished successfully. <code>failed</code> - the migration failed.</p> <p>Once the migration has been <code>exported</code> you can <a href=\"#download-a-user-migration-archive\">download the migration archive</a>. <a href=\"https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration\">REST API doc</a></p>",
+    "group": "Migrations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "migration_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.migrations.getStatusForAuthenticatedUser({migration_id})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.migrations.getStatusForAuthenticatedUser({migration_id}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.migrations.getStatusForAuthenticatedUser({migration_id}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Migrations"
+  },
+  {
+    "type": "GET",
+    "url": "/user/migrations",
+    "title": "listForAuthenticatedUser",
+    "name": "listForAuthenticatedUser",
+    "description": "<p>Lists all migrations a user has started. <a href=\"https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations\">REST API doc</a></p>",
+    "group": "Migrations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.migrations.listForAuthenticatedUser({per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.migrations.listForAuthenticatedUser({per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.migrations.listForAuthenticatedUser({per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Migrations"
+  },
+  {
     "type": "PATCH",
     "url": "/repos/:owner/:repo/import/authors/:author_id",
     "title": "mapImportCommitAuthor",
@@ -9773,6 +10076,63 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Migrations"
+  },
+  {
+    "type": "POST",
+    "url": "/user/migrations",
+    "title": "startForAuthenticatedUser",
+    "name": "startForAuthenticatedUser",
+    "description": "<p>Initiates the generation of a user migration archive. <a href=\"https://developer.github.com/v3/migrations/users/#start-a-user-migration\">REST API doc</a></p>",
+    "group": "Migrations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "repositories",
+            "description": "<p>An array of repositories to include in the migration.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": true,
+            "field": "lock_repositories",
+            "defaultValue": "false",
+            "description": "<p>Locks the <code>repositories</code> to prevent changes during the migration when set to <code>true</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": true,
+            "field": "exclude_attachments",
+            "defaultValue": "false",
+            "description": "<p>Does not include attachments uploaded to GitHub.com in the migration data when set to <code>true</code>. Excluding attachments will reduce the migration archive file size.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9926,6 +10286,54 @@ define({ "api": [
       {
         "title": "Callback",
         "content": "octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Migrations"
+  },
+  {
+    "type": "DELETE",
+    "url": "/user/migrations/:migration_id/repos/:repo_name/lock",
+    "title": "unlockRepoForAuthenticatedUser",
+    "name": "unlockRepoForAuthenticatedUser",
+    "description": "<p>Unlocks a repository. You can lock repositories when you <a href=\"#start-a-user-migration\">start a user migration</a>. Once the migration is complete you can unlock each repository to begin using it again or <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete the repository</a> if you no longer need the source data. Returns a status of <code>404 Not Found</code> if the repository is not locked. <a href=\"https://developer.github.com/v3/migrations/users/#unlock-a-user-repository\">REST API doc</a></p>",
+    "group": "Migrations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "migration_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo_name",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20958,7 +21366,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:name/community/profile",
+    "url": "/repos/:owner/:repo/community/profile",
     "title": "getCommunityProfileMetrics",
     "name": "getCommunityProfileMetrics",
     "description": "<p>This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE_TEMPLATE, PULL_REQUEST_TEMPLATE, README, and CONTRIBUTING files. <a href=\"https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics\">REST API doc</a></p>",
@@ -20977,7 +21385,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "name",
+            "field": "repo",
             "description": ""
           }
         ]
@@ -20986,17 +21394,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getCommunityProfileMetrics({owner, name})",
+        "content": "const result = await octokit.repos.getCommunityProfileMetrics({owner, repo})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getCommunityProfileMetrics({owner, name}).then(result => {})",
+        "content": "octokit.repos.getCommunityProfileMetrics({owner, repo}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getCommunityProfileMetrics({owner, name}, (error, result) => {})",
+        "content": "octokit.repos.getCommunityProfileMetrics({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],

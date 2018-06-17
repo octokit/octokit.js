@@ -650,6 +650,55 @@ The authenticated user must have admin access to the repository. <a href="https:
 
 
 /**
+ * @api {GET} /orgs/:org/installation findOrgInstallation
+ * @apiName findOrgInstallation
+ * @apiDescription Enables an authenticated GitHub App to find the organization's installation information. <a href="https://developer.github.com/v3/apps/#find-organization-installation">REST API doc</a>
+ * @apiGroup Apps
+ *
+ * @apiParam {string} org  
+ * @apiExample {js} async/await
+ * const result = await octokit.apps.findOrgInstallation({org})
+ * @apiExample {js} Promise
+ * octokit.apps.findOrgInstallation({org}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.apps.findOrgInstallation({org}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/installation findRepoInstallation
+ * @apiName findRepoInstallation
+ * @apiDescription Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to. <a href="https://developer.github.com/v3/apps/#find-repository-installation">REST API doc</a>
+ * @apiGroup Apps
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiExample {js} async/await
+ * const result = await octokit.apps.findRepoInstallation({owner, repo})
+ * @apiExample {js} Promise
+ * octokit.apps.findRepoInstallation({owner, repo}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.apps.findRepoInstallation({owner, repo}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /users/:username/installation findUserInstallation
+ * @apiName findUserInstallation
+ * @apiDescription Enables an authenticated GitHub App to find the user’s installation information. <a href="https://developer.github.com/v3/apps/#find-user-installation">REST API doc</a>
+ * @apiGroup Apps
+ *
+ * @apiParam {string} username  
+ * @apiExample {js} async/await
+ * const result = await octokit.apps.findUserInstallation({username})
+ * @apiExample {js} Promise
+ * octokit.apps.findUserInstallation({username}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.apps.findUserInstallation({username}, (error, result) => {})
+ */
+
+
+/**
  * @api {GET} /app get
  * @apiName get
  * @apiDescription Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app) used. <a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
@@ -2912,6 +2961,22 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 
 
 /**
+ * @api {DELETE} /user/migrations/:migration_id/archive deleteArchiveForAuthenticatedUser
+ * @apiName deleteArchiveForAuthenticatedUser
+ * @apiDescription Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [Get a list of user migrations](#get-a-list-of-user-migrations) and [Get the status of a user migration](#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted. <a href="https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive">REST API doc</a>
+ * @apiGroup Migrations
+ *
+ * @apiParam {string} migration_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id})
+ * @apiExample {js} Promise
+ * octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}, (error, result) => {})
+ */
+
+
+/**
  * @api {DELETE} /orgs/:org/migrations/:migration_id/archive deleteMigrationArchive
  * @apiName deleteMigrationArchive
  * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href="https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive">REST API doc</a>
@@ -2925,6 +2990,44 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * octokit.migrations.deleteMigrationArchive({org, migration_id}).then(result => {})
  * @apiExample {js} Callback
  * octokit.migrations.deleteMigrationArchive({org, migration_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /user/migrations/:migration_id/archive getArchiveForAuthenticatedUser
+ * @apiName getArchiveForAuthenticatedUser
+ * @apiDescription Fetches the URL to download the migration archive as a `tar.gz` file. Depending on the resources your repository uses, the migration archive can contain JSON files with data for these objects:
+
+*   attachments
+*   bases
+*   commit_comments
+*   issue_comments
+*   issue_events
+*   issues
+*   milestones
+*   organizations
+*   projects
+*   protected_branches
+*   pull\_request\_reviews
+*   pull_requests
+*   releases
+*   repositories
+*   review_comments
+*   schema
+*   users
+
+The archive will also contain an `attachments` directory that includes all attachment files uploaded to GitHub.com and a `repositories` directory that contains the repository's Git data.
+
+ <a href="https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive">REST API doc</a>
+ * @apiGroup Migrations
+ *
+ * @apiParam {string} migration_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.migrations.getArchiveForAuthenticatedUser({migration_id})
+ * @apiExample {js} Promise
+ * octokit.migrations.getArchiveForAuthenticatedUser({migration_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.migrations.getArchiveForAuthenticatedUser({migration_id}, (error, result) => {})
  */
 
 
@@ -3077,6 +3180,46 @@ The `state` of a migration can be one of the following values:
 
 
 /**
+ * @api {GET} /user/migrations/:migration_id getStatusForAuthenticatedUser
+ * @apiName getStatusForAuthenticatedUser
+ * @apiDescription Fetches a single user migration. The response includes the `state` of the migration, which can be one of the following values:
+
+*   `pending` \- the migration hasn't started yet.
+*   `exporting` \- the migration is in progress.
+*   `exported` \- the migration finished successfully.
+*   `failed` \- the migration failed.
+
+Once the migration has been `exported` you can [download the migration archive](#download-a-user-migration-archive). <a href="https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration">REST API doc</a>
+ * @apiGroup Migrations
+ *
+ * @apiParam {string} migration_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.migrations.getStatusForAuthenticatedUser({migration_id})
+ * @apiExample {js} Promise
+ * octokit.migrations.getStatusForAuthenticatedUser({migration_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.migrations.getStatusForAuthenticatedUser({migration_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /user/migrations listForAuthenticatedUser
+ * @apiName listForAuthenticatedUser
+ * @apiDescription Lists all migrations a user has started. <a href="https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations">REST API doc</a>
+ * @apiGroup Migrations
+ *
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.migrations.listForAuthenticatedUser({per_page, page})
+ * @apiExample {js} Promise
+ * octokit.migrations.listForAuthenticatedUser({per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.migrations.listForAuthenticatedUser({per_page, page}, (error, result) => {})
+ */
+
+
+/**
  * @api {PATCH} /repos/:owner/:repo/import/authors/:author_id mapImportCommitAuthor
  * @apiName mapImportCommitAuthor
  * @apiDescription Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href="https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author">REST API doc</a>
@@ -3111,6 +3254,24 @@ The `state` of a migration can be one of the following values:
  * octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}).then(result => {})
  * @apiExample {js} Callback
  * octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /user/migrations startForAuthenticatedUser
+ * @apiName startForAuthenticatedUser
+ * @apiDescription Initiates the generation of a user migration archive. <a href="https://developer.github.com/v3/migrations/users/#start-a-user-migration">REST API doc</a>
+ * @apiGroup Migrations
+ *
+ * @apiParam {string[]} repositories  An array of repositories to include in the migration.
+ * @apiParam {boolean} [lock_repositories="false"]  Locks the `repositories` to prevent changes during the migration when set to `true`.
+ * @apiParam {boolean} [exclude_attachments="false"]  Does not include attachments uploaded to GitHub.com in the migration data when set to `true`. Excluding attachments will reduce the migration archive file size.
+ * @apiExample {js} async/await
+ * const result = await octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments})
+ * @apiExample {js} Promise
+ * octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}, (error, result) => {})
  */
 
 
@@ -3152,6 +3313,23 @@ The `state` of a migration can be one of the following values:
  * octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})
  * @apiExample {js} Callback
  * octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})
+ */
+
+
+/**
+ * @api {DELETE} /user/migrations/:migration_id/repos/:repo_name/lock unlockRepoForAuthenticatedUser
+ * @apiName unlockRepoForAuthenticatedUser
+ * @apiDescription Unlocks a repository. You can lock repositories when you [start a user migration](#start-a-user-migration). Once the migration is complete you can unlock each repository to begin using it again or [delete the repository](https://developer.github.com/v3/repos/#delete-a-repository) if you no longer need the source data. Returns a status of `404 Not Found` if the repository is not locked. <a href="https://developer.github.com/v3/migrations/users/#unlock-a-user-repository">REST API doc</a>
+ * @apiGroup Migrations
+ *
+ * @apiParam {string} migration_id  
+ * @apiParam {string} repo_name  
+ * @apiExample {js} async/await
+ * const result = await octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name})
+ * @apiExample {js} Promise
+ * octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}, (error, result) => {})
  */
 
 
@@ -6698,19 +6876,19 @@ Additionally, a combined `state` is returned. The `state` is one of:
 
 
 /**
- * @api {GET} /repos/:owner/:name/community/profile getCommunityProfileMetrics
+ * @api {GET} /repos/:owner/:repo/community/profile getCommunityProfileMetrics
  * @apiName getCommunityProfileMetrics
  * @apiDescription This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE\_TEMPLATE, PULL\_REQUEST_TEMPLATE, README, and CONTRIBUTING files. <a href="https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
- * @apiParam {string} name  
+ * @apiParam {string} repo  
  * @apiExample {js} async/await
- * const result = await octokit.repos.getCommunityProfileMetrics({owner, name})
+ * const result = await octokit.repos.getCommunityProfileMetrics({owner, repo})
  * @apiExample {js} Promise
- * octokit.repos.getCommunityProfileMetrics({owner, name}).then(result => {})
+ * octokit.repos.getCommunityProfileMetrics({owner, repo}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getCommunityProfileMetrics({owner, name}, (error, result) => {})
+ * octokit.repos.getCommunityProfileMetrics({owner, repo}, (error, result) => {})
  */
 
 
