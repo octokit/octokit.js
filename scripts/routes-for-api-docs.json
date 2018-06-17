@@ -1104,6 +1104,64 @@
       ],
       "path": "/installations/:installation_id/access_tokens"
     },
+    "findOrgInstallation": {
+      "description": "Enables an authenticated GitHub App to find the organization's installation information.",
+      "documentationUrl": "https://developer.github.com/v3/apps/#find-organization-installation",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Find organization installation",
+      "params": [
+        {
+          "name": "org",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/orgs/:org/installation"
+    },
+    "findRepoInstallation": {
+      "description": "Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.",
+      "documentationUrl": "https://developer.github.com/v3/apps/#find-repository-installation",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Find repository installation",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/repos/:owner/:repo/installation"
+    },
+    "findUserInstallation": {
+      "description": "Enables an authenticated GitHub App to find the user’s installation information.",
+      "documentationUrl": "https://developer.github.com/v3/apps/#find-user-installation",
+      "enabledForApps": false,
+      "method": "GET",
+      "name": "Find user installation",
+      "params": [
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/users/:username/installation"
+    },
     "get": {
       "description": "Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app) used.",
       "documentationUrl": "https://developer.github.com/v3/apps/#get-the-authenticated-github-app",
