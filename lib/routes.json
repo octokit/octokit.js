@@ -618,6 +618,49 @@
       },
       "url": "/installations/:installation_id/access_tokens"
     },
+    "findOrgInstallation": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/orgs/:org/installation"
+    },
+    "findRepoInstallation": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/installation"
+    },
+    "findUserInstallation": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/users/:username/installation"
+    },
     "get": {
       "method": "GET",
       "params": {},
