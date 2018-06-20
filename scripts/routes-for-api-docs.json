@@ -3803,7 +3803,7 @@
       "enabledForApps": true,
       "isOverride": true,
       "method": "GET",
-      "name": "Get a Reference",
+      "name": "Get a reference",
       "params": [
         {
           "name": "owner",
