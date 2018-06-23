@@ -258,6 +258,10 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
 
     // Workaround for https://github.com/octokit/routes/issues/121
     Object.keys(currentParams).forEach(name => {
+      if (!currentEndpoint.params[name]) {
+        throw new Error(`"${name}" parameter is missing for .${scope}.${methodName} (${currentEndpoint.method} ${currentEndpoint.url})`)
+      }
+
       if (!currentEndpoint.params[name].enum) {
         return
       }
