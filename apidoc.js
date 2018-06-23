@@ -5800,7 +5800,9 @@ To prevent abuse, you are limited to sending 50 invitations to a repository per 
  * @apiParam {string} repo  
  * @apiParam {string} [title]  A name for the key.
  * @apiParam {string} key  The contents of the key.
- * @apiParam {boolean} [read_only]  If `true`, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.
+ * @apiParam {boolean} [read_only]  If `true`, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.  
+  
+Deploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see "[Repository permission levels for an organization](https://help.github.com/articles/repository-permission-levels-for-an-organization/)" and "[Permission levels for a user account repository](https://help.github.com/articles/permission-levels-for-a-user-account-repository/)."
  * @apiExample {js} async/await
  * const result = await octokit.repos.addDeployKey({owner, repo, title, key, read_only})
  * @apiExample {js} Promise
@@ -8223,13 +8225,13 @@ Build requests are limited to one concurrent build per repository and one concur
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} [new_owner]  **Required:** The username or organization name the repository will be transferred to.
- * @apiParam {integer[]} [team_id]  ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
+ * @apiParam {integer[]} [team_ids]  ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
  * @apiExample {js} async/await
- * const result = await octokit.repos.transfer({owner, repo, new_owner, team_id})
+ * const result = await octokit.repos.transfer({owner, repo, new_owner, team_ids})
  * @apiExample {js} Promise
- * octokit.repos.transfer({owner, repo, new_owner, team_id}).then(result => {})
+ * octokit.repos.transfer({owner, repo, new_owner, team_ids}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.transfer({owner, repo, new_owner, team_id}, (error, result) => {})
+ * octokit.repos.transfer({owner, repo, new_owner, team_ids}, (error, result) => {})
  */
 
 

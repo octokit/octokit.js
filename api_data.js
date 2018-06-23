@@ -17892,7 +17892,7 @@ define({ "api": [
             "type": "boolean",
             "optional": true,
             "field": "read_only",
-            "description": "<p>If <code>true</code>, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.</p>"
+            "description": "<p>If <code>true</code>, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.</p> <p>Deploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see &quot;<a href=\"https://help.github.com/articles/repository-permission-levels-for-an-organization/\">Repository permission levels for an organization</a>&quot; and &quot;<a href=\"https://help.github.com/articles/permission-levels-for-a-user-account-repository/\">Permission levels for a user account repository</a>.&quot;</p>"
           }
         ]
       }
@@ -25334,7 +25334,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "integer[]",
             "optional": true,
-            "field": "team_id",
+            "field": "team_ids",
             "description": "<p>ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.</p>"
           }
         ]
@@ -25343,17 +25343,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.transfer({owner, repo, new_owner, team_id})",
+        "content": "const result = await octokit.repos.transfer({owner, repo, new_owner, team_ids})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.transfer({owner, repo, new_owner, team_id}).then(result => {})",
+        "content": "octokit.repos.transfer({owner, repo, new_owner, team_ids}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.transfer({owner, repo, new_owner, team_id}, (error, result) => {})",
+        "content": "octokit.repos.transfer({owner, repo, new_owner, team_ids}, (error, result) => {})",
         "type": "js"
       }
     ],
