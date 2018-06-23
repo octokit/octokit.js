@@ -11109,7 +11109,7 @@
         {
           "name": "read_only",
           "type": "boolean",
-          "description": "If `true`, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.",
+          "description": "If `true`, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.  \n  \nDeploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see \"[Repository permission levels for an organization](https://help.github.com/articles/repository-permission-levels-for-an-organization/)\" and \"[Permission levels for a user account repository](https://help.github.com/articles/permission-levels-for-a-user-account-repository/).\"",
           "required": false,
           "location": "body"
         }
@@ -15792,7 +15792,7 @@
           "location": "body"
         },
         {
-          "name": "team_id",
+          "name": "team_ids",
           "type": "integer[]",
           "description": "ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.",
           "required": false,
