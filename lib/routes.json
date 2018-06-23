@@ -9958,6 +9958,10 @@
           "type": "string"
         },
         "team_id": {
+          "alias": "team_ids",
+          "deprecated": true
+        },
+        "team_ids": {
           "type": "integer[]"
         }
       },
