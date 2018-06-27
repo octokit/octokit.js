@@ -142,7 +142,7 @@ declare namespace Github {
     {{#params}}
       {{#deprecated}}
       /**
-       * @deprecated {{{.}}}
+       * @deprecated "{{key}}" has been renamed to "{{alias}}"
        */
        {{/deprecated}}
       "{{key}}"{{^required}}?{{/required}}: {{{type}}};
@@ -162,7 +162,7 @@ declare namespace Github {
     {{#params}}
       {{#deprecated}}
       /**
-       * @deprecated {{{.}}}
+       * @deprecated "{{key}}" has been renamed to "{{alias}}"
        */
        {{/deprecated}}
       "{{key}}"{{^required}}?{{/required}}: {{{type}}};

@@ -29,7 +29,7 @@ function parameterize (key, definition) {
   return {
     name: pascalcase(key),
     key: key,
-    required: definition.required,
+    required: !definition.deprecated && definition.required,
     type: enums || type,
     alias: definition.alias,
     deprecated: definition.deprecated
@@ -63,7 +63,7 @@ function toParamAlias (param, i, params) {
   }
 
   const actualParam = params.find(({key}) => key === param.alias)
-  param.required = actualParam.required
+  param.required = !param.deprecated && actualParam.required
   param.type = actualParam.type
   return param
 }
