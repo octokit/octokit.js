@@ -8663,6 +8663,13 @@
           "location": "url"
         },
         {
+          "name": "archived_state",
+          "type": "string",
+          "description": "Use to list `all`,`archived`, or `not_archived` project cards. Defaults to `not_archived` when you omit this parameter.",
+          "required": false,
+          "location": "query"
+        },
+        {
           "name": "per_page",
           "type": "integer",
           "required": false,
@@ -8987,6 +8994,13 @@
           "name": "note",
           "type": "string",
           "description": "The card's note content. Only valid for cards without another type of content, so this cannot be specified if the card already has a `content_id` and `content_type`.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "archived",
+          "type": "boolean",
+          "description": "Use `true` to archive a project card. Specify `false` if you need to restore a previously archived project card.",
           "required": false,
           "location": "body"
         }
