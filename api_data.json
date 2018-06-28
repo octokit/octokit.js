@@ -14227,6 +14227,13 @@
           },
           {
             "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "archived_state",
+            "description": "<p>Use to list <code>all</code>,<code>archived</code>, or <code>not_archived</code> project cards. Defaults to <code>not_archived</code> when you omit this parameter.</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "integer",
             "optional": true,
             "field": "per_page",
@@ -14247,17 +14254,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.getProjectCards({column_id, per_page, page})",
+        "content": "const result = await octokit.projects.getProjectCards({column_id, archived_state, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.getProjectCards({column_id, per_page, page}).then(result => {})",
+        "content": "octokit.projects.getProjectCards({column_id, archived_state, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.projects.getProjectCards({column_id, per_page, page}, (error, result) => {})",
+        "content": "octokit.projects.getProjectCards({column_id, archived_state, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14768,6 +14775,13 @@
             "optional": true,
             "field": "note",
             "description": "<p>The card's note content. Only valid for cards without another type of content, so this cannot be specified if the card already has a <code>content_id</code> and <code>content_type</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": true,
+            "field": "archived",
+            "description": "<p>Use <code>true</code> to archive a project card. Specify <code>false</code> if you need to restore a previously archived project card.</p>"
           }
         ]
       }
@@ -14775,17 +14789,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.updateProjectCard({card_id, note})",
+        "content": "const result = await octokit.projects.updateProjectCard({card_id, note, archived})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.updateProjectCard({card_id, note}).then(result => {})",
+        "content": "octokit.projects.updateProjectCard({card_id, note, archived}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.projects.updateProjectCard({card_id, note}, (error, result) => {})",
+        "content": "octokit.projects.updateProjectCard({card_id, note, archived}, (error, result) => {})",
         "type": "js"
       }
     ],

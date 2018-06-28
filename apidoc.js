@@ -4738,14 +4738,15 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiGroup Projects
  *
  * @apiParam {string} column_id  
+ * @apiParam {string} [archived_state]  Use to list `all`,`archived`, or `not_archived` project cards. Defaults to `not_archived` when you omit this parameter.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.projects.getProjectCards({column_id, per_page, page})
+ * const result = await octokit.projects.getProjectCards({column_id, archived_state, per_page, page})
  * @apiExample {js} Promise
- * octokit.projects.getProjectCards({column_id, per_page, page}).then(result => {})
+ * octokit.projects.getProjectCards({column_id, archived_state, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.projects.getProjectCards({column_id, per_page, page}, (error, result) => {})
+ * octokit.projects.getProjectCards({column_id, archived_state, per_page, page}, (error, result) => {})
  */
 
 
@@ -4905,12 +4906,13 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  *
  * @apiParam {string} card_id  
  * @apiParam {string} [note]  The card's note content. Only valid for cards without another type of content, so this cannot be specified if the card already has a `content_id` and `content_type`.
+ * @apiParam {boolean} [archived]  Use `true` to archive a project card. Specify `false` if you need to restore a previously archived project card.
  * @apiExample {js} async/await
- * const result = await octokit.projects.updateProjectCard({card_id, note})
+ * const result = await octokit.projects.updateProjectCard({card_id, note, archived})
  * @apiExample {js} Promise
- * octokit.projects.updateProjectCard({card_id, note}).then(result => {})
+ * octokit.projects.updateProjectCard({card_id, note, archived}).then(result => {})
  * @apiExample {js} Callback
- * octokit.projects.updateProjectCard({card_id, note}, (error, result) => {})
+ * octokit.projects.updateProjectCard({card_id, note, archived}, (error, result) => {})
  */
 
 
