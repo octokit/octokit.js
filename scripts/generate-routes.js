@@ -217,6 +217,7 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
 
     currentEndpoint.url = newEndpoint.path
     currentEndpoint.params = newParams
+    delete currentEndpoint.responses
 
     // we no longer need description, we can generate docs from @octokit/routes
     delete currentEndpoint.description

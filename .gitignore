@@ -19,3 +19,4 @@ dist/
 
 # cypress
 cypress/
+test/typescript/index.js

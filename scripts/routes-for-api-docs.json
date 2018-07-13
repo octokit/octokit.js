@@ -83,7 +83,7 @@
       ]
     },
     "getEvents": {
-      "description": "We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago.",
+      "description": "",
       "documentationUrl": "https://developer.github.com/v3/activity/events/#list-public-events",
       "enabledForApps": true,
       "method": "GET",
@@ -1050,7 +1050,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -1222,7 +1222,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -1363,7 +1363,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -1518,7 +1518,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -1961,7 +1961,7 @@
   },
   "apps": {
     "addRepoToInstallation": {
-      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Add a single repository to an installation.\n\nThe authenticated user must have admin access to the repository.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#add-repository-to-installation",
       "enabledForApps": false,
       "method": "PUT",
@@ -2139,7 +2139,7 @@
       ]
     },
     "createInstallationToken": {
-      "description": "Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.\n\nYou must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+      "description": "Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.",
       "documentationUrl": "https://developer.github.com/v3/apps/#create-a-new-installation-token",
       "enabledForApps": true,
       "method": "POST",
@@ -2168,7 +2168,7 @@
       ]
     },
     "findOrgInstallation": {
-      "description": "Enables an authenticated GitHub App to find the organization's installation information.\n\nYou must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+      "description": "Enables an authenticated GitHub App to find the organization's installation information.",
       "documentationUrl": "https://developer.github.com/v3/apps/#find-organization-installation",
       "enabledForApps": false,
       "method": "GET",
@@ -2234,7 +2234,7 @@
       ]
     },
     "findRepoInstallation": {
-      "description": "Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.\n\nYou must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+      "description": "Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.",
       "documentationUrl": "https://developer.github.com/v3/apps/#find-repository-installation",
       "enabledForApps": false,
       "method": "GET",
@@ -2307,7 +2307,7 @@
       ]
     },
     "findUserInstallation": {
-      "description": "Enables an authenticated GitHub App to find the user’s installation information.\n\nYou must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+      "description": "Enables an authenticated GitHub App to find the user’s installation information.",
       "documentationUrl": "https://developer.github.com/v3/apps/#find-user-installation",
       "enabledForApps": false,
       "method": "GET",
@@ -2373,7 +2373,7 @@
       ]
     },
     "get": {
-      "description": "Returns the GitHub App associated with the authentication credentials used.\n\nYou must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+      "description": "Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app) used.",
       "documentationUrl": "https://developer.github.com/v3/apps/#get-the-authenticated-github-app",
       "enabledForApps": true,
       "method": "GET",
@@ -2414,7 +2414,7 @@
       ]
     },
     "getForSlug": {
-      "description": "**Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`).\n\nIf the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "**Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`).",
       "documentationUrl": "https://developer.github.com/v3/apps/#get-a-single-github-app",
       "enabledForApps": true,
       "method": "GET",
@@ -2463,7 +2463,7 @@
       ]
     },
     "getInstallation": {
-      "description": "You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+      "description": "",
       "documentationUrl": "https://developer.github.com/v3/apps/#get-a-single-installation",
       "enabledForApps": true,
       "method": "GET",
@@ -2523,7 +2523,7 @@
       ]
     },
     "getInstallationRepositories": {
-      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#list-repositories",
       "enabledForApps": true,
       "method": "GET",
@@ -2662,7 +2662,7 @@
       ]
     },
     "getInstallations": {
-      "description": "You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.\n\nThe permissions the installation has are included under the `permissions` key.",
+      "description": "The permissions the installation has are included under the `permissions` key.",
       "documentationUrl": "https://developer.github.com/v3/apps/#find-installations",
       "enabledForApps": true,
       "method": "GET",
@@ -3034,7 +3034,7 @@
       ]
     },
     "removeRepoFromInstallation": {
-      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Remove a single repository from an installation.\n\nThe authenticated user must have admin access to the repository.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#remove-repository-from-installation",
       "enabledForApps": false,
       "method": "DELETE",
@@ -3894,7 +3894,7 @@
         {
           "name": "conclusion",
           "type": "string",
-          "description": "**Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.  \n**Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.",
+          "description": "**Required if you provide a status of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.  \n**Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.",
           "required": false,
           "enum": [
             "success",
@@ -4694,10 +4694,7 @@
               "blob_href": "https://github.com/octocat/Hello-World/blob/837db83be4137ca555d9a5598d0a1ea2987ecfee/README.md",
               "start_line": 2,
               "end_line": 2,
-              "start_column": 5,
-              "end_column": 10,
               "warning_level": "warning",
-              "title": "Spell Checker",
               "message": "Check your spelling for 'banaas'.",
               "raw_details": "Do you mean 'bananas' or 'banana'?"
             }
@@ -5507,7 +5504,7 @@
           "name": "name",
           "type": "string",
           "description": "The name of the check. For example, \"code-coverage\".",
-          "required": false,
+          "required": true,
           "location": "body"
         },
         {
@@ -5546,7 +5543,7 @@
         {
           "name": "conclusion",
           "type": "string",
-          "description": "**Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`.  \n**Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.",
+          "description": "**Required if you provide a status of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`.  \n**Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.",
           "required": false,
           "enum": [
             "success",
@@ -5863,7 +5860,7 @@
       "path": "/gists/:gist_id/star"
     },
     "create": {
-      "description": "Allows you to add a new gist with one or more files.\n\n**Note:** Don't name your files \"gistfile\" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.",
+      "description": "The keys in the `files` object are the `string` filename, and the value is another `object` with a key of `content`, and a value of the file contents. For example:\n\n**Note:** Don't name your files \"gistfile\" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.",
       "documentationUrl": "https://developer.github.com/v3/gists/#create-a-gist",
       "enabledForApps": false,
       "method": "POST",
@@ -5872,28 +5869,21 @@
         {
           "name": "files",
           "type": "object",
-          "description": "The filenames and content of each file in the gist. The keys in the `files` object represent the filename and have the type `string`.",
+          "description": "Files that make up this gist.",
           "required": true,
-          "location": "body"
-        },
-        {
-          "name": "files.content",
-          "type": "string",
-          "description": "The content of the file.",
-          "required": false,
           "location": "body"
         },
         {
           "name": "description",
           "type": "string",
-          "description": "A descriptive name for this gist.",
+          "description": "A description of the gist.",
           "required": false,
           "location": "body"
         },
         {
           "name": "public",
           "type": "boolean",
-          "description": "When `true`, the gist will be public and available for anyone to see.",
+          "description": "Indicates whether the gist is public.",
           "default": false,
           "required": false,
           "location": "body"
@@ -5902,20 +5892,11 @@
       "path": "/gists",
       "requests": [
         {
-          "description": "Hello World Examples",
+          "description": "the description for this gist",
           "public": true,
           "files": {
-            "hello_world.rb": {
-              "content": "class HelloWorld\n   def initialize(name)\n      @name = name.capitalize\n   end\n   def sayHi\n      puts \"Hello !\"\n   end\nend\n\nhello = HelloWorld.new(\"World\")\nhello.sayHi"
-            },
-            "hello_world.py": {
-              "content": "class HelloWorld:\n\n    def __init__(self, name):\n        self.name = name.capitalize()\n       \n    def sayHi(self):\n        print \"Hello \" + self.name + \"!\"\n\nhello = HelloWorld(\"world\")\nhello.sayHi()"
-            },
-            "hello_world_ruby.txt": {
-              "content": "Run `ruby hello_world.rb` to print Hello World"
-            },
-            "hello_world_python.txt": {
-              "content": "Run `python hello_world.py` to print Hello World"
+            "file1.txt": {
+              "content": "String file contents"
             }
           }
         }
@@ -5932,54 +5913,8 @@
             "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
             "id": "aa5a315d61ae9438b18d",
             "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-            "files": {
-              "hello_world.rb": {
-                "filename": "hello_world.rb",
-                "type": "application/x-ruby",
-                "language": "Ruby",
-                "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                "size": 167,
-                "truncated": false,
-                "content": "class HelloWorld\n   def initialize(name)\n      @name = name.capitalize\n   end\n   def sayHi\n      puts \"Hello !\"\n   end\nend\n\nhello = HelloWorld.new(\"World\")\nhello.sayHi"
-              },
-              "hello_world.py": {
-                "filename": "hello_world.py",
-                "type": "application/x-python",
-                "language": "Python",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/99c1bf3a345505c2e6195198d5f8c36267de570b/hello_world.py",
-                "size": 199,
-                "truncated": false,
-                "content": "class HelloWorld:\n\n    def __init__(self, name):\n        self.name = name.capitalize()\n       \n    def sayHi(self):\n        print \"Hello \" + self.name + \"!\"\n\nhello = HelloWorld(\"world\")\nhello.sayHi()"
-              },
-              "hello_world_ruby.txt": {
-                "filename": "hello_world_ruby.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/9e4544db60e01a261aac098592b11333704e9082/hello_world_ruby.txt",
-                "size": 46,
-                "truncated": false,
-                "content": "Run `ruby hello_world.rb` to print Hello World"
-              },
-              "hello_world_python.txt": {
-                "filename": "hello_world_python.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/076b4b78c10c9b7e1e0b73ffb99631bfc948de3b/hello_world_python.txt",
-                "size": 48,
-                "truncated": false,
-                "content": "Run `python hello_world.py` to print Hello World"
-              }
-            },
+            "description": "description of gist",
             "public": true,
-            "created_at": "2010-04-14T02:15:15Z",
-            "updated_at": "2011-06-20T11:34:15Z",
-            "description": "Hello World Examples",
-            "comments": 0,
-            "user": null,
-            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
             "owner": {
               "login": "octocat",
               "id": 1,
@@ -6000,7 +5935,25 @@
               "type": "User",
               "site_admin": false
             },
+            "user": null,
+            "files": {
+              "ring.erl": {
+                "size": 932,
+                "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                "type": "text/plain",
+                "language": "Erlang",
+                "truncated": false,
+                "content": "contents of gist"
+              }
+            },
             "truncated": false,
+            "comments": 0,
+            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "created_at": "2010-04-14T02:15:15Z",
+            "updated_at": "2011-06-20T11:34:15Z",
             "forks": [
               {
                 "user": {
@@ -6188,7 +6141,7 @@
       ]
     },
     "edit": {
-      "description": "Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.",
+      "description": "The keys in the `files` object are the `string` filename. The value is another `object` with a key of `content` (indicating the new contents), or `filename` (indicating the new filename). For example:\n\n**Note**: All files from the previous version of the gist are carried over by default if not included in the object. Deletes can be performed by including the filename with a `null` object.",
       "documentationUrl": "https://developer.github.com/v3/gists/#edit-a-gist",
       "enabledForApps": false,
       "method": "PATCH",
@@ -6204,28 +6157,28 @@
         {
           "name": "description",
           "type": "string",
-          "description": "A descriptive name for this gist.",
+          "description": "A description of the gist.",
           "required": false,
           "location": "body"
         },
         {
           "name": "files",
           "type": "object",
-          "description": "The filenames and content that make up this gist.",
+          "description": "Files that make up this gist.",
           "required": false,
           "location": "body"
         },
         {
-          "name": "files.content",
+          "name": "content",
           "type": "string",
-          "description": "The updated content of the file.",
+          "description": "Updated file contents.",
           "required": false,
           "location": "body"
         },
         {
-          "name": "files.filename",
+          "name": "filename",
           "type": "string",
-          "description": "The new name for this file. To delete a file, set the value of the filename to `null`.",
+          "description": "New name for this file.",
           "required": false,
           "location": "body"
         }
@@ -6233,16 +6186,19 @@
       "path": "/gists/:gist_id",
       "requests": [
         {
-          "description": "Hello World Examples",
+          "description": "the description for this gist",
           "files": {
-            "hello_world_ruby.txt": {
-              "content": "Run `ruby hello_world.rb` or `python hello_world.py` to print Hello World",
-              "filename": "hello_world.md"
+            "file1.txt": {
+              "content": "updated file contents"
             },
-            "hello_world_python.txt": null,
+            "old_name.txt": {
+              "filename": "new_name.txt",
+              "content": "modified contents"
+            },
             "new_file.txt": {
-              "content": "This is a new placeholder file."
-            }
+              "content": "a new file"
+            },
+            "delete_this_file.txt": null
           }
         }
       ],
@@ -6258,54 +6214,8 @@
             "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
             "id": "aa5a315d61ae9438b18d",
             "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-            "files": {
-              "hello_world.rb": {
-                "filename": "hello_world.rb",
-                "type": "application/x-ruby",
-                "language": "Ruby",
-                "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                "size": 167,
-                "truncated": false,
-                "content": "class HelloWorld\n   def initialize(name)\n      @name = name.capitalize\n   end\n   def sayHi\n      puts \"Hello !\"\n   end\nend\n\nhello = HelloWorld.new(\"World\")\nhello.sayHi"
-              },
-              "hello_world.py": {
-                "filename": "hello_world.py",
-                "type": "application/x-python",
-                "language": "Python",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/99c1bf3a345505c2e6195198d5f8c36267de570b/hello_world.py",
-                "size": 199,
-                "truncated": false,
-                "content": "class HelloWorld:\n\n    def __init__(self, name):\n        self.name = name.capitalize()\n       \n    def sayHi(self):\n        print \"Hello \" + self.name + \"!\"\n\nhello = HelloWorld(\"world\")\nhello.sayHi()"
-              },
-              "hello_world.md": {
-                "filename": "hello_world.md",
-                "type": "text/plain",
-                "language": "Markdown",
-                "raw_url": "https://gist.githubusercontent.com/octocat/8df0a8f642973cbda937bf542d37d4e9/raw/4221bb4b942568c4e3ab253022d2b7fec7844f21/hello_world.md",
-                "size": 73,
-                "truncated": false,
-                "content": "Run `ruby hello_world.rb` or `python hello_world.py` to print Hello World"
-              },
-              "new_file.txt": {
-                "filename": "new_file.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/8df0a8f642973cbda937bf542d37d4e9/raw/56ab7bdf864fa11c1e16acce2a5116171514d2d1/new_file.txt",
-                "size": 31,
-                "truncated": false,
-                "content": "This is a new placeholder file."
-              }
-            },
+            "description": "description of gist",
             "public": true,
-            "created_at": "2010-04-14T02:15:15Z",
-            "updated_at": "2011-06-20T11:34:15Z",
-            "description": "Hello World Examples",
-            "comments": 0,
-            "user": null,
-            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
             "owner": {
               "login": "octocat",
               "id": 1,
@@ -6326,7 +6236,25 @@
               "type": "User",
               "site_admin": false
             },
+            "user": null,
+            "files": {
+              "ring.erl": {
+                "size": 932,
+                "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                "type": "text/plain",
+                "language": "Erlang",
+                "truncated": false,
+                "content": "contents of gist"
+              }
+            },
             "truncated": false,
+            "comments": 0,
+            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "created_at": "2010-04-14T02:15:15Z",
+            "updated_at": "2011-06-20T11:34:15Z",
             "forks": [
               {
                 "user": {
@@ -6491,25 +6419,8 @@
             "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
             "id": "aa5a315d61ae9438b18d",
             "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-            "files": {
-              "hello_world.rb": {
-                "filename": "hello_world.rb",
-                "type": "application/x-ruby",
-                "language": "Ruby",
-                "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                "size": 167
-              }
-            },
+            "description": "description of gist",
             "public": true,
-            "created_at": "2010-04-14T02:15:15Z",
-            "updated_at": "2011-06-20T11:34:15Z",
-            "description": "Hello World Examples",
-            "comments": 0,
-            "user": null,
-            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
             "owner": {
               "login": "octocat",
               "id": 1,
@@ -6530,7 +6441,24 @@
               "type": "User",
               "site_admin": false
             },
-            "truncated": false
+            "user": null,
+            "files": {
+              "ring.erl": {
+                "size": 932,
+                "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                "type": "text/plain",
+                "truncated": false,
+                "language": "Erlang"
+              }
+            },
+            "truncated": false,
+            "comments": 0,
+            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "created_at": "2010-04-14T02:15:15Z",
+            "updated_at": "2011-06-20T11:34:15Z"
           }
         }
       ]
@@ -6563,54 +6491,8 @@
             "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
             "id": "aa5a315d61ae9438b18d",
             "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-            "files": {
-              "hello_world.rb": {
-                "filename": "hello_world.rb",
-                "type": "application/x-ruby",
-                "language": "Ruby",
-                "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                "size": 167,
-                "truncated": false,
-                "content": "class HelloWorld\n   def initialize(name)\n      @name = name.capitalize\n   end\n   def sayHi\n      puts \"Hello !\"\n   end\nend\n\nhello = HelloWorld.new(\"World\")\nhello.sayHi"
-              },
-              "hello_world.py": {
-                "filename": "hello_world.py",
-                "type": "application/x-python",
-                "language": "Python",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/99c1bf3a345505c2e6195198d5f8c36267de570b/hello_world.py",
-                "size": 199,
-                "truncated": false,
-                "content": "class HelloWorld:\n\n    def __init__(self, name):\n        self.name = name.capitalize()\n       \n    def sayHi(self):\n        print \"Hello \" + self.name + \"!\"\n\nhello = HelloWorld(\"world\")\nhello.sayHi()"
-              },
-              "hello_world_ruby.txt": {
-                "filename": "hello_world_ruby.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/9e4544db60e01a261aac098592b11333704e9082/hello_world_ruby.txt",
-                "size": 46,
-                "truncated": false,
-                "content": "Run `ruby hello_world.rb` to print Hello World"
-              },
-              "hello_world_python.txt": {
-                "filename": "hello_world_python.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/076b4b78c10c9b7e1e0b73ffb99631bfc948de3b/hello_world_python.txt",
-                "size": 48,
-                "truncated": false,
-                "content": "Run `python hello_world.py` to print Hello World"
-              }
-            },
+            "description": "description of gist",
             "public": true,
-            "created_at": "2010-04-14T02:15:15Z",
-            "updated_at": "2011-06-20T11:34:15Z",
-            "description": "Hello World Examples",
-            "comments": 0,
-            "user": null,
-            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
             "owner": {
               "login": "octocat",
               "id": 1,
@@ -6631,7 +6513,25 @@
               "type": "User",
               "site_admin": false
             },
+            "user": null,
+            "files": {
+              "ring.erl": {
+                "size": 932,
+                "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                "type": "text/plain",
+                "language": "Erlang",
+                "truncated": false,
+                "content": "contents of gist"
+              }
+            },
             "truncated": false,
+            "comments": 0,
+            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "created_at": "2010-04-14T02:15:15Z",
+            "updated_at": "2011-06-20T11:34:15Z",
             "forks": [
               {
                 "user": {
@@ -6741,25 +6641,8 @@
               "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
               "id": "aa5a315d61ae9438b18d",
               "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-              "files": {
-                "hello_world.rb": {
-                  "filename": "hello_world.rb",
-                  "type": "application/x-ruby",
-                  "language": "Ruby",
-                  "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                  "size": 167
-                }
-              },
+              "description": "description of gist",
               "public": true,
-              "created_at": "2010-04-14T02:15:15Z",
-              "updated_at": "2011-06-20T11:34:15Z",
-              "description": "Hello World Examples",
-              "comments": 0,
-              "user": null,
-              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
               "owner": {
                 "login": "octocat",
                 "id": 1,
@@ -6780,7 +6663,24 @@
                 "type": "User",
                 "site_admin": false
               },
-              "truncated": false
+              "user": null,
+              "files": {
+                "ring.erl": {
+                  "size": 932,
+                  "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                  "type": "text/plain",
+                  "truncated": false,
+                  "language": "Erlang"
+                }
+              },
+              "truncated": false,
+              "comments": 0,
+              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "created_at": "2010-04-14T02:15:15Z",
+              "updated_at": "2011-06-20T11:34:15Z"
             }
           ]
         }
@@ -7042,25 +6942,8 @@
               "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
               "id": "aa5a315d61ae9438b18d",
               "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-              "files": {
-                "hello_world.rb": {
-                  "filename": "hello_world.rb",
-                  "type": "application/x-ruby",
-                  "language": "Ruby",
-                  "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                  "size": 167
-                }
-              },
+              "description": "description of gist",
               "public": true,
-              "created_at": "2010-04-14T02:15:15Z",
-              "updated_at": "2011-06-20T11:34:15Z",
-              "description": "Hello World Examples",
-              "comments": 0,
-              "user": null,
-              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
               "owner": {
                 "login": "octocat",
                 "id": 1,
@@ -7081,7 +6964,24 @@
                 "type": "User",
                 "site_admin": false
               },
-              "truncated": false
+              "user": null,
+              "files": {
+                "ring.erl": {
+                  "size": 932,
+                  "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                  "type": "text/plain",
+                  "truncated": false,
+                  "language": "Erlang"
+                }
+              },
+              "truncated": false,
+              "comments": 0,
+              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "created_at": "2010-04-14T02:15:15Z",
+              "updated_at": "2011-06-20T11:34:15Z"
             }
           ]
         }
@@ -7201,25 +7101,8 @@
               "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
               "id": "aa5a315d61ae9438b18d",
               "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-              "files": {
-                "hello_world.rb": {
-                  "filename": "hello_world.rb",
-                  "type": "application/x-ruby",
-                  "language": "Ruby",
-                  "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                  "size": 167
-                }
-              },
+              "description": "description of gist",
               "public": true,
-              "created_at": "2010-04-14T02:15:15Z",
-              "updated_at": "2011-06-20T11:34:15Z",
-              "description": "Hello World Examples",
-              "comments": 0,
-              "user": null,
-              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
               "owner": {
                 "login": "octocat",
                 "id": 1,
@@ -7240,7 +7123,24 @@
                 "type": "User",
                 "site_admin": false
               },
-              "truncated": false
+              "user": null,
+              "files": {
+                "ring.erl": {
+                  "size": 932,
+                  "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                  "type": "text/plain",
+                  "truncated": false,
+                  "language": "Erlang"
+                }
+              },
+              "truncated": false,
+              "comments": 0,
+              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "created_at": "2010-04-14T02:15:15Z",
+              "updated_at": "2011-06-20T11:34:15Z"
             }
           ]
         }
@@ -7281,54 +7181,8 @@
             "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
             "id": "aa5a315d61ae9438b18d",
             "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-            "files": {
-              "hello_world.rb": {
-                "filename": "hello_world.rb",
-                "type": "application/x-ruby",
-                "language": "Ruby",
-                "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                "size": 167,
-                "truncated": false,
-                "content": "class HelloWorld\n   def initialize(name)\n      @name = name.capitalize\n   end\n   def sayHi\n      puts \"Hello !\"\n   end\nend\n\nhello = HelloWorld.new(\"World\")\nhello.sayHi"
-              },
-              "hello_world.py": {
-                "filename": "hello_world.py",
-                "type": "application/x-python",
-                "language": "Python",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/99c1bf3a345505c2e6195198d5f8c36267de570b/hello_world.py",
-                "size": 199,
-                "truncated": false,
-                "content": "class HelloWorld:\n\n    def __init__(self, name):\n        self.name = name.capitalize()\n       \n    def sayHi(self):\n        print \"Hello \" + self.name + \"!\"\n\nhello = HelloWorld(\"world\")\nhello.sayHi()"
-              },
-              "hello_world_ruby.txt": {
-                "filename": "hello_world_ruby.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/9e4544db60e01a261aac098592b11333704e9082/hello_world_ruby.txt",
-                "size": 46,
-                "truncated": false,
-                "content": "Run `ruby hello_world.rb` to print Hello World"
-              },
-              "hello_world_python.txt": {
-                "filename": "hello_world_python.txt",
-                "type": "text/plain",
-                "language": "Text",
-                "raw_url": "https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/076b4b78c10c9b7e1e0b73ffb99631bfc948de3b/hello_world_python.txt",
-                "size": 48,
-                "truncated": false,
-                "content": "Run `python hello_world.py` to print Hello World"
-              }
-            },
+            "description": "description of gist",
             "public": true,
-            "created_at": "2010-04-14T02:15:15Z",
-            "updated_at": "2011-06-20T11:34:15Z",
-            "description": "Hello World Examples",
-            "comments": 0,
-            "user": null,
-            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
             "owner": {
               "login": "octocat",
               "id": 1,
@@ -7349,7 +7203,25 @@
               "type": "User",
               "site_admin": false
             },
+            "user": null,
+            "files": {
+              "ring.erl": {
+                "size": 932,
+                "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                "type": "text/plain",
+                "language": "Erlang",
+                "truncated": false,
+                "content": "contents of gist"
+              }
+            },
             "truncated": false,
+            "comments": 0,
+            "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+            "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+            "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+            "created_at": "2010-04-14T02:15:15Z",
+            "updated_at": "2011-06-20T11:34:15Z",
             "forks": [
               {
                 "user": {
@@ -7459,25 +7331,8 @@
               "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
               "id": "aa5a315d61ae9438b18d",
               "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-              "files": {
-                "hello_world.rb": {
-                  "filename": "hello_world.rb",
-                  "type": "application/x-ruby",
-                  "language": "Ruby",
-                  "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-                  "size": 167
-                }
-              },
+              "description": "description of gist",
               "public": true,
-              "created_at": "2010-04-14T02:15:15Z",
-              "updated_at": "2011-06-20T11:34:15Z",
-              "description": "Hello World Examples",
-              "comments": 0,
-              "user": null,
-              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
               "owner": {
                 "login": "octocat",
                 "id": 1,
@@ -7498,7 +7353,24 @@
                 "type": "User",
                 "site_admin": false
               },
-              "truncated": false
+              "user": null,
+              "files": {
+                "ring.erl": {
+                  "size": 932,
+                  "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                  "type": "text/plain",
+                  "truncated": false,
+                  "language": "Erlang"
+                }
+              },
+              "truncated": false,
+              "comments": 0,
+              "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
+              "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
+              "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
+              "created_at": "2010-04-14T02:15:15Z",
+              "updated_at": "2011-06-20T11:34:15Z"
             }
           ]
         }
@@ -16160,22 +16032,7 @@
               "members_url": "https://api.github.com/orgs/github/members{/member}",
               "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
               "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "description": "A great organization",
-              "name": "github",
-              "company": "GitHub",
-              "blog": "https://github.com/blog",
-              "location": "San Francisco",
-              "email": "octocat@github.com",
-              "is_verified": true,
-              "has_organization_projects": true,
-              "has_repository_projects": true,
-              "public_repos": 2,
-              "public_gists": 1,
-              "followers": 20,
-              "following": 0,
-              "html_url": "https://github.com/octocat",
-              "created_at": "2008-01-14T04:33:35Z",
-              "type": "Organization"
+              "description": "A great organization"
             }
           }
         }
@@ -16482,22 +16339,7 @@
               "members_url": "https://api.github.com/orgs/github/members{/member}",
               "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
               "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "description": "A great organization",
-              "name": "github",
-              "company": "GitHub",
-              "blog": "https://github.com/blog",
-              "location": "San Francisco",
-              "email": "octocat@github.com",
-              "is_verified": true,
-              "has_organization_projects": true,
-              "has_repository_projects": true,
-              "public_repos": 2,
-              "public_gists": 1,
-              "followers": 20,
-              "following": 0,
-              "html_url": "https://github.com/octocat",
-              "created_at": "2008-01-14T04:33:35Z",
-              "type": "Organization"
+              "description": "A great organization"
             }
           }
         }
@@ -16543,7 +16385,6 @@
             "blog": "https://github.com/blog",
             "location": "San Francisco",
             "email": "octocat@github.com",
-            "is_verified": true,
             "has_organization_projects": true,
             "has_repository_projects": true,
             "public_repos": 2,
@@ -17381,22 +17222,7 @@
               "members_url": "https://api.github.com/orgs/github/members{/member}",
               "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
               "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "description": "A great organization",
-              "name": "github",
-              "company": "GitHub",
-              "blog": "https://github.com/blog",
-              "location": "San Francisco",
-              "email": "octocat@github.com",
-              "is_verified": true,
-              "has_organization_projects": true,
-              "has_repository_projects": true,
-              "public_repos": 2,
-              "public_gists": 1,
-              "followers": 20,
-              "following": 0,
-              "html_url": "https://github.com/octocat",
-              "created_at": "2008-01-14T04:33:35Z",
-              "type": "Organization"
+              "description": "A great organization"
             }
           }
         }
@@ -17569,7 +17395,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -18068,7 +17894,6 @@
             "blog": "https://github.com/blog",
             "location": "San Francisco",
             "email": "octocat@github.com",
-            "is_verified": true,
             "has_organization_projects": true,
             "has_repository_projects": true,
             "public_repos": 2,
@@ -18783,14 +18608,8 @@
         {
           "name": "archived_state",
           "type": "string",
-          "description": "Filters the project cards that are returned by the card's state. Can be one of `all`,`archived`, or `not_archived`.",
-          "default": "not_archived",
+          "description": "Use to list `all`,`archived`, or `not_archived` project cards. Defaults to `not_archived` when you omit this parameter.",
           "required": false,
-          "enum": [
-            "all",
-            "archived",
-            "not_archived"
-          ],
           "location": "query"
         },
         {
@@ -19622,7 +19441,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -19752,7 +19571,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -20327,7 +20146,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -20457,7 +20276,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -21825,7 +21644,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -21955,7 +21774,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -22355,7 +22174,7 @@
                   "private": false,
                   "html_url": "https://github.com/octocat/Hello-World",
                   "description": "This your first repo!",
-                  "fork": false,
+                  "fork": true,
                   "url": "https://api.github.com/repos/octocat/Hello-World",
                   "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                   "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -22485,7 +22304,7 @@
                   "private": false,
                   "html_url": "https://github.com/octocat/Hello-World",
                   "description": "This your first repo!",
-                  "fork": false,
+                  "fork": true,
                   "url": "https://api.github.com/repos/octocat/Hello-World",
                   "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                   "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -23948,7 +23767,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -24078,7 +23897,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -26184,7 +26003,7 @@
             "private": false,
             "html_url": "https://github.com/octocat/Hello-World",
             "description": "This your first repo!",
-            "fork": false,
+            "fork": true,
             "url": "https://api.github.com/repos/octocat/Hello-World",
             "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
             "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -26907,7 +26726,7 @@
             "private": false,
             "html_url": "https://github.com/octocat/Hello-World",
             "description": "This your first repo!",
-            "fork": false,
+            "fork": true,
             "url": "https://api.github.com/repos/octocat/Hello-World",
             "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
             "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -28069,7 +27888,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -28174,7 +27993,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -28977,7 +28796,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -29082,7 +28901,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -29165,7 +28984,7 @@
       ]
     },
     "getAll": {
-      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.",
+      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.",
       "documentationUrl": "https://developer.github.com/v3/repos/#list-your-repositories",
       "enabledForApps": false,
       "method": "GET",
@@ -31512,7 +31331,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -35068,7 +34887,7 @@
             "private": false,
             "html_url": "https://github.com/octocat/Hello-World",
             "description": "This your first repo!",
-            "fork": false,
+            "fork": true,
             "url": "https://api.github.com/repos/octocat/Hello-World",
             "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
             "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -36977,7 +36796,7 @@
       ]
     },
     "addRepoToInstallation": {
-      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Add a single repository to an installation.\n\nThe authenticated user must have admin access to the repository.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#add-repository-to-installation",
       "enabledForApps": false,
       "method": "PUT",
@@ -37108,20 +36927,12 @@
       "path": "/users/:username/following/:target_user"
     },
     "createGpgKey": {
-      "description": "Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "description": "Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key",
       "enabledForApps": false,
       "method": "POST",
       "name": "Create a GPG key",
-      "params": [
-        {
-          "name": "armored_public_key",
-          "type": "string",
-          "description": "Your GPG key, generated in ASCII-armored format. See \"[Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/)\" for help creating a GPG key.",
-          "required": false,
-          "location": "body"
-        }
-      ],
+      "params": [],
       "path": "/user/gpg_keys",
       "requests": [
         {
@@ -37172,27 +36983,12 @@
       ]
     },
     "createKey": {
-      "description": "Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "description": "Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#create-a-public-key",
       "enabledForApps": false,
       "method": "POST",
       "name": "Create a public key",
-      "params": [
-        {
-          "name": "title",
-          "type": "string",
-          "description": "A descriptive name for the new key. Use a name that will help you recognize this key in your GitHub account. For example, if you're using a personal Mac, you might call this key \"Personal MacBook Air\".",
-          "required": false,
-          "location": "body"
-        },
-        {
-          "name": "key",
-          "type": "string",
-          "description": "The public SSH key to add to your GitHub account. See \"[Generating a new SSH key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)\" for guidance on how to create a public SSH key.",
-          "required": false,
-          "location": "body"
-        }
-      ],
+      "params": [],
       "path": "/user/keys",
       "requests": [
         {
@@ -37267,7 +37063,7 @@
       ]
     },
     "deleteGpgKey": {
-      "description": "Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "description": "Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key",
       "enabledForApps": false,
       "method": "DELETE",
@@ -37292,7 +37088,7 @@
       ]
     },
     "deleteKey": {
-      "description": "Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "description": "Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#delete-a-public-key",
       "enabledForApps": false,
       "method": "DELETE",
@@ -38125,7 +37921,7 @@
       ]
     },
     "getInstallationRepos": {
-      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.\n\nYou must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.\n\nThe access the user has to each repository is included in the hash under the `permissions` key.",
+      "description": "List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.\n\nThe access the user has to each repository is included in the hash under the `permissions` key.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation",
       "enabledForApps": false,
       "method": "GET",
@@ -38193,7 +37989,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -38277,7 +38073,7 @@
       ]
     },
     "getInstallations": {
-      "description": "Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nYou must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.\n\nThe permissions the installation has are included under the `permissions` key.",
+      "description": "Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nThe permissions the installation has are included under the `permissions` key.",
       "documentationUrl": "https://developer.github.com/v3/apps/#list-installations-for-user",
       "enabledForApps": false,
       "method": "GET",
@@ -38391,7 +38187,7 @@
       ]
     },
     "getKey": {
-      "description": "View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "description": "View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#get-a-single-public-key",
       "enabledForApps": false,
       "method": "GET",
@@ -38425,7 +38221,7 @@
       ]
     },
     "getKeys": {
-      "description": "Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "description": "Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#list-your-public-keys",
       "enabledForApps": false,
       "method": "GET",
@@ -38470,7 +38266,7 @@
       ]
     },
     "getKeysForUser": {
-      "description": "Lists the _verified_ public SSH keys for a user. This is accessible by anyone.",
+      "description": "Lists the _verified_ public keys for a user. This is accessible by anyone.",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user",
       "enabledForApps": true,
       "method": "GET",
@@ -39147,22 +38943,7 @@
                 "members_url": "https://api.github.com/orgs/github/members{/member}",
                 "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
                 "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "description": "A great organization",
-                "name": "github",
-                "company": "GitHub",
-                "blog": "https://github.com/blog",
-                "location": "San Francisco",
-                "email": "octocat@github.com",
-                "is_verified": true,
-                "has_organization_projects": true,
-                "has_repository_projects": true,
-                "public_repos": 2,
-                "public_gists": 1,
-                "followers": 20,
-                "following": 0,
-                "html_url": "https://github.com/octocat",
-                "created_at": "2008-01-14T04:33:35Z",
-                "type": "Organization"
+                "description": "A great organization"
               }
             }
           ]
@@ -39170,7 +38951,7 @@
       ]
     },
     "removeRepoFromInstallation": {
-      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Remove a single repository from an installation.\n\nThe authenticated user must have admin access to the repository.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#remove-repository-from-installation",
       "enabledForApps": false,
       "method": "DELETE",

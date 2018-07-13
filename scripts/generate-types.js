@@ -8,8 +8,10 @@ const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelCase')
 const set = require('lodash/set')
+const TypeWriter = require('@gimenete/type-writer')
+const prettier = require('prettier')
 
-const ROUTES = require('../lib/routes.json')
+const ROUTES = require('./routes-for-api-docs.json')
 
 const typeMap = {
   integer: 'number',
@@ -71,6 +73,7 @@ function toParamAlias (param, i, params) {
 function generateTypes (languageName, templateFile, outputFile) {
   const templatePath = pathJoin(__dirname, 'templates', templateFile)
   const template = readFileSync(templatePath, 'utf8')
+  const typeWriter = new TypeWriter()
 
   debug(`Generating ${languageName} types...`)
 
@@ -120,12 +123,21 @@ function generateTypes (languageName, templateFile, outputFile) {
         ? namespacedParamsName
         : pascalcase('EmptyParams')
 
+      let responseType = 'Github.AnyResponse'
+      if (entry[1].responses) {
+        const typeName = 'Github.' + typeWriter.add(entry[1].responses.map(response => response.body || {}), {
+          rootTypeName: pascalcase(`${entry[0]}Response`)
+        })
+        responseType = 'Github.Response<' + typeName + '>'
+      }
+
       return methods.concat({
         method: methodName,
         paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
-        exclude: !hasParams
+        exclude: !hasParams,
+        responseType
       })
     }, [])
 
@@ -136,6 +148,7 @@ function generateTypes (languageName, templateFile, outputFile) {
   }, [])
 
   const body = Mustache.render(template, {
+    responseTypes: typeWriter.generate('typescript'),
     namespaces,
     childParams: Object.keys(childParams).map(key => {
       return {
@@ -145,8 +158,10 @@ function generateTypes (languageName, templateFile, outputFile) {
     })
   })
 
+  const source = prettier.format(body, { parser: languageName.toLowerCase() })
+
   const definitionFilePath = pathJoin(__dirname, '..', outputFile)
   debug(`Writing ${languageName} declarations file to ${definitionFilePath}`)
 
-  writeFileSync(definitionFilePath, body, 'utf8')
+  writeFileSync(definitionFilePath, source, 'utf8')
 }
