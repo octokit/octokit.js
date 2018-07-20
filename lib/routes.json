@@ -2764,6 +2764,9 @@
       "url": "/repos/:owner/:repo/issues/:number/assignees"
     },
     "addLabels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "POST",
       "params": {
         "labels": {
@@ -2866,6 +2869,9 @@
       "url": "/repos/:owner/:repo/issues/:number/comments"
     },
     "createLabel": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "POST",
       "params": {
         "color": {
@@ -3527,6 +3533,9 @@
       "url": "/user/issues"
     },
     "getIssueLabels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "GET",
       "params": {
         "number": {
@@ -3551,6 +3560,9 @@
       "url": "/repos/:owner/:repo/issues/:number/labels"
     },
     "getLabel": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "GET",
       "params": {
         "name": {
@@ -3569,6 +3581,9 @@
       "url": "/repos/:owner/:repo/labels/:name"
     },
     "getLabels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "GET",
       "params": {
         "owner": {
@@ -3607,6 +3622,9 @@
       "url": "/repos/:owner/:repo/milestones/:number"
     },
     "getMilestoneLabels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "GET",
       "params": {
         "number": {
@@ -3700,6 +3718,9 @@
       "url": "/repos/:owner/:repo/issues/:number/lock"
     },
     "removeAllLabels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "number": {
@@ -3739,6 +3760,9 @@
       "url": "/repos/:owner/:repo/issues/:number/assignees"
     },
     "removeLabel": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "name": {
@@ -3761,6 +3785,9 @@
       "url": "/repos/:owner/:repo/issues/:number/labels/:name"
     },
     "replaceAllLabels": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "PUT",
       "params": {
         "labels": {
@@ -3802,6 +3829,9 @@
       "url": "/repos/:owner/:repo/issues/:number/lock"
     },
     "updateLabel": {
+      "headers": {
+        "accept": "application/vnd.github.symmetra-preview+json"
+      },
       "method": "PATCH",
       "params": {
         "color": {
@@ -7311,6 +7341,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts"
     },
     "addProtectedBranchTeamRestrictions": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "POST",
       "params": {
         "branch": {
@@ -7357,6 +7390,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "checkCollaborator": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "GET",
       "params": {
         "owner": {
@@ -8420,6 +8456,9 @@
       "url": "/repos/:owner/:repo/traffic/clones"
     },
     "getCollaborators": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "GET",
       "params": {
         "affiliation": {
@@ -9223,6 +9262,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions"
     },
     "getProtectedBranchTeamRestrictions": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "GET",
       "params": {
         "branch": {
@@ -9497,6 +9539,9 @@
       "url": "/repos/:owner/:repo/tags"
     },
     "getTeams": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "GET",
       "params": {
         "owner": {
@@ -9754,6 +9799,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions"
     },
     "removeProtectedBranchTeamRestrictions": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "branch": {
@@ -9823,6 +9871,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts"
     },
     "replaceProtectedBranchTeamRestrictions": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json"
+      },
       "method": "PUT",
       "params": {
         "branch": {
@@ -9974,6 +10025,9 @@
       "url": "/repos/:owner/:repo/transfer"
     },
     "updateBranchProtection": {
+      "headers": {
+        "accept": "application/vnd.github.hellcat-preview+json,application/vnd.github.luke-cage-preview+json,application/vnd.github.zzzax-preview+json"
+      },
       "method": "PUT",
       "params": {
         "branch": {

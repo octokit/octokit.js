@@ -19,3 +19,7 @@ dist/
 
 # cypress
 cypress/
+
+# IntelliJ
+.idea/
+*.iml
