@@ -5674,6 +5674,9 @@
       },
       "method": "GET",
       "params": {
+        "archived_state": {
+          "type": "string"
+        },
         "column_id": {
           "required": true,
           "type": "string"
@@ -5890,6 +5893,9 @@
       },
       "method": "PATCH",
       "params": {
+        "archived": {
+          "type": "boolean"
+        },
         "card_id": {
           "required": true,
           "type": "string"

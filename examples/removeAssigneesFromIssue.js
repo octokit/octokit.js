@@ -11,5 +11,5 @@ octokit.issues.removeAssigneesFromIssue({
   owner: 'octokit',
   repo: 'rest.js',
   number: '4',
-  body: { 'assignees': ['first9890'] }
+  assignees: ['first9890']
 })
