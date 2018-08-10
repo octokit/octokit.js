@@ -98,7 +98,7 @@
     "build:docs": "node scripts/generate-api-docs",
     "postbuild:docs": "apidoc -i doc/ -o doc/",
     "build:flow": "node scripts/generate-flow-types",
-    "build:ts": "node scripts/generate-typescript-types && tsc test/typescript/index.ts",
+    "build:ts": "node scripts/generate-typescript-types",
     "prebuild:browser": "mkdirp dist/",
     "build:browser": "npm-run-all build:browser:*",
     "build:browser:development": "webpack --mode development --entry . --output-library=Octokit --output=./dist/octokit-rest.js --profile --json > dist/bundle-stats.json",
