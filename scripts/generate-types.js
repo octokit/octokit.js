@@ -18,11 +18,12 @@ const typeMap = {
   'integer[]': 'number[]'
 }
 
-function parameterize (key, definition) {
+function parameterize (definition) {
   if (definition === null) {
     return {}
   }
 
+  const key = definition.name
   const type = typeMap[definition.type] || definition.type
   const enums = definition.enum
     ? definition.enum.map(JSON.stringify).join('|')
@@ -54,9 +55,9 @@ function entries (object) {
   return Object.keys(object).map((key) => [key, object[key]])
 }
 
-function toCombineParams (params, entry) {
+function toCombineParams (params, param) {
   return params
-    .concat(parameterize.apply(null, entry))
+    .concat(parameterize(param))
 }
 
 function toParamAlias (param, i, params) {
@@ -87,8 +88,8 @@ function generateTypes (languageName, templateFile, outputFile) {
         }, [])
 
       const namespacedParamsName = pascalcase(`${namespace}-${entry[0]}Params`)
-      const ownParams = entries(entry[1].params)
-        .filter((entry) => isLocalParam(entry[0]))
+      const ownParams = entry[1].params
+        .filter((param) => isLocalParam(param.name))
         .reduce(toCombineParams, [])
         .map(toParamAlias)
         // handle "object" & "object[]" types
