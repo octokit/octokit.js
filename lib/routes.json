@@ -1135,10 +1135,6 @@
         "external_id": {
           "type": "string"
         },
-        "head_branch": {
-          "required": true,
-          "type": "string"
-        },
         "head_sha": {
           "required": true,
           "type": "string"
@@ -1241,9 +1237,6 @@
       },
       "method": "POST",
       "params": {
-        "head_branch": {
-          "type": "string"
-        },
         "head_sha": {
           "required": true,
           "type": "string"
