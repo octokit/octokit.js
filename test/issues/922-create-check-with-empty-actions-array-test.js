@@ -15,7 +15,6 @@ describe('https://github.com/octokit/rest.js/issues/922', () => {
       repo: 'test',
       name: 'QA',
       head_sha: 'SHA',
-      head_branch: 'XXX',
       status: 'in_progress',
       started_at: '2018-01-01T06:00:00Z',
       output: {
