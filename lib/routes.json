@@ -1125,7 +1125,10 @@
             "cancelled",
             "timed_out",
             "action_required",
-            "details_url"
+            "details_url",
+            "conclusion",
+            "status",
+            "completed"
           ],
           "type": "string"
         },
@@ -1532,7 +1535,9 @@
             "cancelled",
             "timed_out",
             "action_required",
-            "details_url"
+            "conclusion",
+            "status",
+            "completed"
           ],
           "type": "string"
         },
@@ -1543,7 +1548,6 @@
           "type": "string"
         },
         "name": {
-          "required": true,
           "type": "string"
         },
         "output": {
@@ -1933,6 +1937,9 @@
           "required": true,
           "type": "object"
         },
+        "files.content": {
+          "type": "string"
+        },
         "public": {
           "type": "boolean"
         }
@@ -1988,17 +1995,17 @@
     "edit": {
       "method": "PATCH",
       "params": {
-        "content": {
-          "type": "string"
-        },
         "description": {
-          "type": "string"
-        },
-        "filename": {
           "type": "string"
         },
         "files": {
           "type": "object"
+        },
+        "files.content": {
+          "type": "string"
+        },
+        "files.filename": {
+          "type": "string"
         },
         "gist_id": {
           "required": true,
@@ -5668,6 +5675,11 @@
       "method": "GET",
       "params": {
         "archived_state": {
+          "enum": [
+            "all",
+            "archived",
+            "not_archived"
+          ],
           "type": "string"
         },
         "column_id": {
@@ -9226,6 +9238,12 @@
           "required": true,
           "type": "string"
         },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
         "repo": {
           "required": true,
           "type": "string"
@@ -10522,12 +10540,23 @@
         "accept": "application/vnd.github.cryptographer-preview"
       },
       "method": "POST",
-      "params": {},
+      "params": {
+        "armored_public_key": {
+          "type": "string"
+        }
+      },
       "url": "/user/gpg_keys"
     },
     "createKey": {
       "method": "POST",
-      "params": {},
+      "params": {
+        "key": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
       "url": "/user/keys"
     },
     "declineRepoInvite": {
