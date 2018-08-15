@@ -4,7 +4,7 @@
     "url": "/notifications/threads/:thread_id/subscription",
     "title": "checkNotificationThreadSubscription",
     "name": "checkNotificationThreadSubscription",
-    "description": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://developer.github.com/v3/activity/watching/#get-a-repository-subscription\">get a Repository subscription</a>.</p> <p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mention</strong>ed, or manually subscribe to a thread. <a href=\"https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription\">REST API doc</a></p>",
+    "description": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://developer.github.com/v3/activity/watching/#get-a-repository-subscription\">get a Repository subscription</a>.</p> <p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mentioned</strong>, or manually subscribe to a thread. <a href=\"https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -134,7 +134,7 @@
     "url": "/events",
     "title": "getEvents",
     "name": "getEvents",
-    "description": "<p><a href=\"https://developer.github.com/v3/activity/events/#list-public-events\">REST API doc</a></p>",
+    "description": "<p>We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago. <a href=\"https://developer.github.com/v3/activity/events/#list-public-events\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1738,7 +1738,7 @@
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "addRepoToInstallation",
     "name": "addRepoToInstallation",
-    "description": "<p>Add a single repository to an installation.</p> <p>The authenticated user must have admin access to the repository. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
+    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1900,7 +1900,7 @@
     "url": "/installations/:installation_id/access_tokens",
     "title": "createInstallationToken",
     "name": "createInstallationToken",
-    "description": "<p>Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token. <a href=\"https://developer.github.com/v3/apps/#create-a-new-installation-token\">REST API doc</a></p>",
+    "description": "<p>Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#create-a-new-installation-token\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1941,7 +1941,7 @@
     "url": "/orgs/:org/installation",
     "title": "findOrgInstallation",
     "name": "findOrgInstallation",
-    "description": "<p>Enables an authenticated GitHub App to find the organization's installation information. <a href=\"https://developer.github.com/v3/apps/#find-organization-installation\">REST API doc</a></p>",
+    "description": "<p>Enables an authenticated GitHub App to find the organization's installation information.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#find-organization-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1982,7 +1982,7 @@
     "url": "/repos/:owner/:repo/installation",
     "title": "findRepoInstallation",
     "name": "findRepoInstallation",
-    "description": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to. <a href=\"https://developer.github.com/v3/apps/#find-repository-installation\">REST API doc</a></p>",
+    "description": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#find-repository-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2030,7 +2030,7 @@
     "url": "/users/:username/installation",
     "title": "findUserInstallation",
     "name": "findUserInstallation",
-    "description": "<p>Enables an authenticated GitHub App to find the user’s installation information. <a href=\"https://developer.github.com/v3/apps/#find-user-installation\">REST API doc</a></p>",
+    "description": "<p>Enables an authenticated GitHub App to find the user’s installation information.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#find-user-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2071,7 +2071,7 @@
     "url": "/app",
     "title": "get",
     "name": "get",
-    "description": "<p>Returns the GitHub App associated with the <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app\">authentication credentials</a> used. <a href=\"https://developer.github.com/v3/apps/#get-the-authenticated-github-app\">REST API doc</a></p>",
+    "description": "<p>Returns the GitHub App associated with the authentication credentials used.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#get-the-authenticated-github-app\">REST API doc</a></p>",
     "group": "Apps",
     "examples": [
       {
@@ -2099,7 +2099,7 @@
     "url": "/apps/:app_slug",
     "title": "getForSlug",
     "name": "getForSlug",
-    "description": "<p><strong>Note</strong>: The <code>:app_slug</code> is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., <code>https://github.com/settings/apps/:app_slug</code>). <a href=\"https://developer.github.com/v3/apps/#get-a-single-github-app\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The <code>:app_slug</code> is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., <code>https://github.com/settings/apps/:app_slug</code>).</p> <p>If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">personal access token</a> or an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#get-a-single-github-app\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2140,7 +2140,7 @@
     "url": "/app/installations/:installation_id",
     "title": "getInstallation",
     "name": "getInstallation",
-    "description": "<p><a href=\"https://developer.github.com/v3/apps/#get-a-single-installation\">REST API doc</a></p>",
+    "description": "<p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#get-a-single-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2181,7 +2181,7 @@
     "url": "/installation/repositories",
     "title": "getInstallationRepositories",
     "name": "getInstallationRepositories",
-    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2231,7 +2231,7 @@
     "url": "/app/installations",
     "title": "getInstallations",
     "name": "getInstallations",
-    "description": "<p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#find-installations\">REST API doc</a></p>",
+    "description": "<p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#find-installations\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2541,7 +2541,7 @@
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "removeRepoFromInstallation",
     "name": "removeRepoFromInstallation",
-    "description": "<p>Remove a single repository from an installation.</p> <p>The authenticated user must have admin access to the repository. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
+    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -3380,14 +3380,7 @@
             "type": "string",
             "optional": false,
             "field": "name",
-            "description": "<p>The name of the check (e.g., &quot;code-coverage&quot;).</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "head_branch",
-            "description": "<p>The name of the branch to perform a check against.</p>"
+            "description": "<p>The name of the check. For example, &quot;code-coverage&quot;.</p>"
           },
           {
             "group": "Parameter",
@@ -3440,11 +3433,14 @@
               "cancelled",
               "timed_out",
               "action_required",
-              "details_url"
+              "details_url",
+              "conclusion",
+              "status",
+              "completed"
             ],
             "optional": true,
             "field": "conclusion",
-            "description": "<p><strong>Required if you provide a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>.</p>"
+            "description": "<p><strong>Required if you provide <code>completed_at</code> or a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>.<br> <em>Note:</em>* Providing <code>conclusion</code> will automatically set the <code>status</code> parameter to <code>completed</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -3493,14 +3489,14 @@
             "type": "string",
             "optional": false,
             "field": "output:annotations:filename",
-            "description": "<p>The name of the file to add an annotation to.</p>"
+            "description": "<p>The path of the file to add an annotation to. For example, <code>assets/css/main.css</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
             "field": "output:annotations:blob_href",
-            "description": "<p>The file's full blob URL.</p>"
+            "description": "<p>The file's full blob URL. You can find the <code>blob_href</code> in the response of the <a href=\"https://developer.github.com/v3/repos/commits/#get-a-single-commit\">Get a single commit</a> endpoint, by reading the <code>blob_url</code> from an element of the <code>files</code> array. You can also construct the blob URL from the <code>head_sha</code>, the repository, and the filename:<br> <code>https://github.com/:owner/:repo/blob/:head_sha/:filename</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -3611,17 +3607,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier})",
+        "content": "const result = await octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})",
+        "content": "octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.create({owner, repo, name, head_branch, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})",
+        "content": "octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].filename, output.annotations[].blob_href, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].warning_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3659,13 +3655,6 @@
             "optional": false,
             "field": "head_sha",
             "description": "<p>The sha of the head commit.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "head_branch",
-            "description": "<p>The name of the head branch where the code changes are implemented.</p>"
           }
         ]
       }
@@ -3673,17 +3662,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.checks.createSuite({owner, repo, head_sha, head_branch})",
+        "content": "const result = await octokit.checks.createSuite({owner, repo, head_sha})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.checks.createSuite({owner, repo, head_sha, head_branch}).then(result => {})",
+        "content": "octokit.checks.createSuite({owner, repo, head_sha}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.checks.createSuite({owner, repo, head_sha, head_branch}, (error, result) => {})",
+        "content": "octokit.checks.createSuite({owner, repo, head_sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3877,7 +3866,7 @@
     "url": "/repos/:owner/:repo/commits/:ref/check-runs",
     "title": "listForRef",
     "name": "listForRef",
-    "description": "<p>Lists check runs for a SHA, branch name, or tag name. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3901,7 +3890,7 @@
             "type": "string",
             "optional": false,
             "field": "ref",
-            "description": "<p>Can be a SHA, branch name, or tag name.</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
@@ -4081,7 +4070,7 @@
     "url": "/repos/:owner/:repo/commits/:ref/check-suites",
     "title": "listSuitesForRef",
     "name": "listSuitesForRef",
-    "description": "<p>Lists the check suites that were created for a commit <code>ref</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Lists check suites for a commit <code>ref</code>. The <code>ref</code> can be a SHA, branch name, or a tag name. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -4105,7 +4094,7 @@
             "type": "string",
             "optional": false,
             "field": "ref",
-            "description": "<p>The <code>ref</code> can be a SHA, branch name, or a tag name.</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
@@ -4320,9 +4309,9 @@
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "name",
-            "description": "<p>The name of the check (e.g., &quot;code-coverage&quot;).</p>"
+            "description": "<p>The name of the check. For example, &quot;code-coverage&quot;.</p>"
           },
           {
             "group": "Parameter",
@@ -4367,11 +4356,13 @@
               "cancelled",
               "timed_out",
               "action_required",
-              "details_url"
+              "conclusion",
+              "status",
+              "completed"
             ],
             "optional": true,
             "field": "conclusion",
-            "description": "<p><strong>Required if you provide a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>. When the conclusion is <code>action_required</code>, additional details should be provided on the site specified by <code>details_url</code>.</p>"
+            "description": "<p><strong>Required if you provide <code>completed_at</code> or a <code>status</code> of <code>completed</code></strong>. The final conclusion of the check. Can be one of <code>success</code>, <code>failure</code>, <code>neutral</code>, <code>cancelled</code>, <code>timed_out</code>, or <code>action_required</code>.<br> <em>Note:</em>* Providing <code>conclusion</code> will automatically set the <code>status</code> parameter to <code>completed</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -4420,14 +4411,14 @@
             "type": "string",
             "optional": false,
             "field": "output:annotations:filename",
-            "description": "<p>The name of the file to add an annotation to.</p>"
+            "description": "<p>The path of the file to add an annotation to. For example, <code>assets/css/main.css</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
             "field": "output:annotations:blob_href",
-            "description": "<p>The file's full blob URL.</p>"
+            "description": "<p>The file's full blob URL. You can find the <code>blob_href</code> in the response of the <a href=\"https://developer.github.com/v3/repos/commits/#get-a-single-commit\">Get a single commit</a> endpoint, by reading the <code>blob_url</code> from an element of the <code>files</code> array. You can also construct the blob URL from the <code>head_sha</code>, the repository, and the filename:<br> <code>https://github.com/:owner/:repo/blob/:head_sha/:filename</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -4602,7 +4593,7 @@
     "url": "/gists",
     "title": "create",
     "name": "create",
-    "description": "<p>The keys in the <code>files</code> object are the <code>string</code> filename, and the value is another <code>object</code> with a key of <code>content</code>, and a value of the file contents. For example: <em>Note:</em>* Don't name your files &quot;gistfile&quot; with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. <a href=\"https://developer.github.com/v3/gists/#create-a-gist\">REST API doc</a></p>",
+    "description": "<p>Allows you to add a new gist with one or more files. <em>Note:</em>* Don't name your files &quot;gistfile&quot; with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. <a href=\"https://developer.github.com/v3/gists/#create-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4612,14 +4603,21 @@
             "type": "object",
             "optional": false,
             "field": "files",
-            "description": "<p>Files that make up this gist.</p>"
+            "description": "<p>The filenames and content of each file in the gist. The keys in the <code>files</code> object represent the filename and have the type <code>string</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "files:content",
+            "description": "<p>The content of the file.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "description",
-            "description": "<p>A description of the gist.</p>"
+            "description": "<p>A descriptive name for this gist.</p>"
           },
           {
             "group": "Parameter",
@@ -4627,7 +4625,7 @@
             "optional": true,
             "field": "public",
             "defaultValue": "false",
-            "description": "<p>Indicates whether the gist is public.</p>"
+            "description": "<p>When <code>true</code>, the gist will be public and available for anyone to see.</p>"
           }
         ]
       }
@@ -4635,17 +4633,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.create({files, description, public})",
+        "content": "const result = await octokit.gists.create({files, files.content, description, public})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.create({files, description, public}).then(result => {})",
+        "content": "octokit.gists.create({files, files.content, description, public}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.create({files, description, public}, (error, result) => {})",
+        "content": "octokit.gists.create({files, files.content, description, public}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4795,7 +4793,7 @@
     "url": "/gists/:gist_id",
     "title": "edit",
     "name": "edit",
-    "description": "<p>The keys in the <code>files</code> object are the <code>string</code> filename. The value is another <code>object</code> with a key of <code>content</code> (indicating the new contents), or <code>filename</code> (indicating the new filename). For example: <em>Note</em>*: All files from the previous version of the gist are carried over by default if not included in the object. Deletes can be performed by including the filename with a <code>null</code> object. <a href=\"https://developer.github.com/v3/gists/#edit-a-gist\">REST API doc</a></p>",
+    "description": "<p>Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged. <a href=\"https://developer.github.com/v3/gists/#edit-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4812,28 +4810,28 @@
             "type": "string",
             "optional": true,
             "field": "description",
-            "description": "<p>A description of the gist.</p>"
+            "description": "<p>A descriptive name for this gist.</p>"
           },
           {
             "group": "Parameter",
             "type": "object",
             "optional": true,
             "field": "files",
-            "description": "<p>Files that make up this gist.</p>"
+            "description": "<p>The filenames and content that make up this gist.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "content",
-            "description": "<p>Updated file contents.</p>"
+            "field": "files:content",
+            "description": "<p>The updated content of the file.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
-            "field": "filename",
-            "description": "<p>New name for this file.</p>"
+            "field": "files:filename",
+            "description": "<p>The new name for this file. To delete a file, set the value of the filename to <code>null</code>.</p>"
           }
         ]
       }
@@ -4841,17 +4839,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.gists.edit({gist_id, description, files, content, filename})",
+        "content": "const result = await octokit.gists.edit({gist_id, description, files, files.content, files.filename})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.gists.edit({gist_id, description, files, content, filename}).then(result => {})",
+        "content": "octokit.gists.edit({gist_id, description, files, files.content, files.filename}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.gists.edit({gist_id, description, files, content, filename}, (error, result) => {})",
+        "content": "octokit.gists.edit({gist_id, description, files, files.content, files.filename}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7339,7 +7337,7 @@
     "url": "/repos/:owner/:repo/issues/:number",
     "title": "get",
     "name": "get",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <a href=\"https://developer.github.com/v3/issues/#get-a-single-issue\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#get-a-single-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7646,7 +7644,7 @@
     "url": "/repos/:owner/:repo/issues/:number/comments",
     "title": "getComments",
     "name": "getComments",
-    "description": "<p>Issue Comments are ordered by ascending ID. <a href=\"https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue\">REST API doc</a></p>",
+    "description": "<p>Issue Comments are ordered by ascending ID.</p> <p><a href=\"https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7724,7 +7722,7 @@
     "url": "/repos/:owner/:repo/issues/comments",
     "title": "getCommentsForRepo",
     "name": "getCommentsForRepo",
-    "description": "<p>By default, Issue Comments are ordered by ascending ID. <a href=\"https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository\">REST API doc</a></p>",
+    "description": "<p>By default, Issue Comments are ordered by ascending ID.</p> <p><a href=\"https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -14228,9 +14226,15 @@
           {
             "group": "Parameter",
             "type": "string",
+            "allowedValues": [
+              "all",
+              "archived",
+              "not_archived"
+            ],
             "optional": true,
             "field": "archived_state",
-            "description": "<p>Use to list <code>all</code>,<code>archived</code>, or <code>not_archived</code> project cards. Defaults to <code>not_archived</code> when you omit this parameter.</p>"
+            "defaultValue": "not_archived",
+            "description": "<p>Filters the project cards that are returned by the card's state. Can be one of <code>all</code>,<code>archived</code>, or <code>not_archived</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -15728,7 +15732,7 @@
     "url": "/repos/:owner/:repo/pulls/:number",
     "title": "get",
     "name": "get",
-    "description": "<p>Lists details of a pull request by providing its number.</p> <p>When you get, <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">create</a>, or <a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">edit</a> a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the <code>mergeable</code> key. For more information, see &quot;<a href=\"https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>&quot;.</p> <p>The value of the <code>mergeable</code> attribute can be <code>true</code>, <code>false</code>, or <code>null</code>. If the value is <code>null</code>, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-<code>null</code> value for the <code>mergeable</code> attribute in the response. If <code>mergable</code> is <code>true</code>, then <code>merge_commit_sha</code> will be the SHA of the <em>test</em> merge commit.</p> <p>The value of the <code>merge_commit_sha</code> attribute changes depending on the state of the pull request. Before merging a pull request, the <code>merge_commit_sha</code> attribute holds the SHA of the <em>test</em> merge commit. After merging a pull request, the <code>merge_commit_sha</code> attribute changes depending on how you merged the pull request: If merged as a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/\">merge commit</a>, <code>merge_commit_sha</code> represents the SHA of the merge commit. If merged via a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits\">squash</a>, <code>merge_commit_sha</code> represents the SHA of the squashed commit on the base branch. If <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits\">rebased</a>, <code>merge_commit_sha</code> represents the commit that the base branch was updated to.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">REST API doc</a></p>",
+    "description": "<p>Lists details of a pull request by providing its number.</p> <p>When you get, <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">create</a>, or <a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">edit</a> a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the <code>mergeable</code> key. For more information, see &quot;<a href=\"https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>&quot;.</p> <p>The value of the <code>mergeable</code> attribute can be <code>true</code>, <code>false</code>, or <code>null</code>. If the value is <code>null</code>, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-<code>null</code> value for the <code>mergeable</code> attribute in the response. If <code>mergeable</code> is <code>true</code>, then <code>merge_commit_sha</code> will be the SHA of the <em>test</em> merge commit.</p> <p>The value of the <code>merge_commit_sha</code> attribute changes depending on the state of the pull request. Before merging a pull request, the <code>merge_commit_sha</code> attribute holds the SHA of the <em>test</em> merge commit. After merging a pull request, the <code>merge_commit_sha</code> attribute changes depending on how you merged the pull request: If merged as a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/\">merge commit</a>, <code>merge_commit_sha</code> represents the SHA of the merge commit. If merged via a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits\">squash</a>, <code>merge_commit_sha</code> represents the SHA of the squashed commit on the base branch. If <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits\">rebased</a>, <code>merge_commit_sha</code> represents the commit that the base branch was updated to.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">REST API doc</a></p>",
     "group": "PullRequests",
     "parameter": {
       "fields": {
@@ -15955,7 +15959,7 @@
     "url": "/repos/:owner/:repo/pulls/:number/comments",
     "title": "getComments",
     "name": "getComments",
-    "description": "<p>By default, review comments are ordered by ascending ID. <a href=\"https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request\">REST API doc</a></p>",
+    "description": "<p>By default, review comments are ordered by ascending ID.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request\">REST API doc</a></p>",
     "group": "PullRequests",
     "parameter": {
       "fields": {
@@ -16056,7 +16060,7 @@
     "url": "/repos/:owner/:repo/pulls/comments",
     "title": "getCommentsForRepo",
     "name": "getCommentsForRepo",
-    "description": "<p>By default, review comments are ordered by ascending ID. <a href=\"https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository\">REST API doc</a></p>",
+    "description": "<p>By default, review comments are ordered by ascending ID.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository\">REST API doc</a></p>",
     "group": "PullRequests",
     "parameter": {
       "fields": {
@@ -20354,7 +20358,7 @@
     "url": "/user/repos",
     "title": "getAll",
     "name": "getAll",
-    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access. <a href=\"https://developer.github.com/v3/repos/#list-your-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership. <a href=\"https://developer.github.com/v3/repos/#list-your-repositories\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20471,7 +20475,7 @@
     "url": "/repos/:owner/:repo/comments",
     "title": "getAllCommitComments",
     "name": "getAllCommitComments",
-    "description": "<p>Commit Comments use <a href=\"#custom-media-types\">these custom media types</a>. You can read more about the use of media types in the API <a href=\"https://developer.github.com/v3/media/\">here</a>.</p> <p>Comments are ordered by ascending ID. <a href=\"https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository\">REST API doc</a></p>",
+    "description": "<p>Commit Comments use <a href=\"#custom-media-types\">these custom media types</a>. You can read more about the use of media types in the API <a href=\"https://developer.github.com/v3/media/\">here</a>.</p> <p>Comments are ordered by ascending ID.</p> <p><a href=\"https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23244,6 +23248,22 @@
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
           }
         ]
       }
@@ -23251,17 +23271,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26584,7 +26604,7 @@
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "addRepoToInstallation",
     "name": "addRepoToInstallation",
-    "description": "<p>Add a single repository to an installation.</p> <p>The authenticated user must have admin access to the repository. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
+    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26803,22 +26823,35 @@
     "url": "/user/gpg_keys",
     "title": "createGpgKey",
     "name": "createGpgKey",
-    "description": "<p>Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key\">REST API doc</a></p>",
+    "description": "<p>Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key\">REST API doc</a></p>",
     "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "armored_public_key",
+            "description": "<p>Your GPG key, generated in ASCII-armored format. See &quot;<a href=\"https://help.github.com/articles/generating-a-new-gpg-key/\">Generating a new GPG key</a>&quot; for help creating a GPG key.</p>"
+          }
+        ]
+      }
+    },
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.createGpgKey({})",
+        "content": "const result = await octokit.users.createGpgKey({armored_public_key})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.createGpgKey({}).then(result => {})",
+        "content": "octokit.users.createGpgKey({armored_public_key}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.createGpgKey({}, (error, result) => {})",
+        "content": "octokit.users.createGpgKey({armored_public_key}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26831,22 +26864,42 @@
     "url": "/user/keys",
     "title": "createKey",
     "name": "createKey",
-    "description": "<p>Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#create-a-public-key\">REST API doc</a></p>",
+    "description": "<p>Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#create-a-public-key\">REST API doc</a></p>",
     "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "title",
+            "description": "<p>A descriptive name for the new key. Use a name that will help you recognize this key in your GitHub account. For example, if you're using a personal Mac, you might call this key &quot;Personal MacBook Air&quot;.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "key",
+            "description": "<p>The public SSH key to add to your GitHub account. See &quot;<a href=\"https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/\">Generating a new SSH key</a>&quot; for guidance on how to create a public SSH key.</p>"
+          }
+        ]
+      }
+    },
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.createKey({})",
+        "content": "const result = await octokit.users.createKey({title, key})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.createKey({}).then(result => {})",
+        "content": "octokit.users.createKey({title, key}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.createKey({}, (error, result) => {})",
+        "content": "octokit.users.createKey({title, key}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26928,7 +26981,7 @@
     "url": "/user/gpg_keys/:gpg_key_id",
     "title": "deleteGpgKey",
     "name": "deleteGpgKey",
-    "description": "<p>Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
+    "description": "<p>Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26969,7 +27022,7 @@
     "url": "/user/keys/:key_id",
     "title": "deleteKey",
     "name": "deleteKey",
-    "description": "<p>Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
+    "description": "<p>Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27729,7 +27782,7 @@
     "url": "/user/installations/:installation_id/repositories",
     "title": "getInstallationRepos",
     "name": "getInstallationRepos",
-    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The access the user has to each repository is included in the hash under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The access the user has to each repository is included in the hash under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27786,7 +27839,7 @@
     "url": "/user/installations",
     "title": "getInstallations",
     "name": "getInstallations",
-    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
+    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27836,7 +27889,7 @@
     "url": "/user/keys/:key_id",
     "title": "getKey",
     "name": "getKey",
-    "description": "<p>View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
+    "description": "<p>View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27877,7 +27930,7 @@
     "url": "/user/keys",
     "title": "getKeys",
     "name": "getKeys",
-    "description": "<p>Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#list-your-public-keys\">REST API doc</a></p>",
+    "description": "<p>Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#list-your-public-keys\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27927,7 +27980,7 @@
     "url": "/users/:username/keys",
     "title": "getKeysForUser",
     "name": "getKeysForUser",
-    "description": "<p>Lists the <em>verified</em> public keys for a user. This is accessible by anyone. <a href=\"https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user\">REST API doc</a></p>",
+    "description": "<p>Lists the <em>verified</em> public SSH keys for a user. This is accessible by anyone. <a href=\"https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -28386,7 +28439,7 @@
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "removeRepoFromInstallation",
     "name": "removeRepoFromInstallation",
-    "description": "<p>Remove a single repository from an installation.</p> <p>The authenticated user must have admin access to the repository. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
+    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
