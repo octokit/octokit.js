@@ -58,7 +58,7 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {GET} /events getEvents
  * @apiName getEvents
- * @apiDescription We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago. <a href="https://developer.github.com/v3/activity/events/#list-public-events">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/activity/events/#list-public-events">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -581,9 +581,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {PUT} /user/installations/:installation_id/repositories/:repository_id addRepoToInstallation
  * @apiName addRepoToInstallation
- * @apiDescription Add a single repository to an installation. The authenticated user must have admin access to the repository.
+ * @apiDescription Add a single repository to an installation.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
+The authenticated user must have admin access to the repository. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} installation_id  
@@ -636,9 +636,7 @@ You must use an [installation access token](https://developer.github.com/apps/bu
 /**
  * @api {POST} /installations/:installation_id/access_tokens createInstallationToken
  * @apiName createInstallationToken
- * @apiDescription Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.
-
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#create-a-new-installation-token">REST API doc</a>
+ * @apiDescription Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token. <a href="https://developer.github.com/v3/apps/#create-a-new-installation-token">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} installation_id  
@@ -654,9 +652,7 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {GET} /orgs/:org/installation findOrgInstallation
  * @apiName findOrgInstallation
- * @apiDescription Enables an authenticated GitHub App to find the organization's installation information.
-
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#find-organization-installation">REST API doc</a>
+ * @apiDescription Enables an authenticated GitHub App to find the organization's installation information. <a href="https://developer.github.com/v3/apps/#find-organization-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} org  
@@ -672,9 +668,7 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {GET} /repos/:owner/:repo/installation findRepoInstallation
  * @apiName findRepoInstallation
- * @apiDescription Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.
-
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#find-repository-installation">REST API doc</a>
+ * @apiDescription Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to. <a href="https://developer.github.com/v3/apps/#find-repository-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} owner  
@@ -691,9 +685,7 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {GET} /users/:username/installation findUserInstallation
  * @apiName findUserInstallation
- * @apiDescription Enables an authenticated GitHub App to find the user’s installation information.
-
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#find-user-installation">REST API doc</a>
+ * @apiDescription Enables an authenticated GitHub App to find the user’s installation information. <a href="https://developer.github.com/v3/apps/#find-user-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} username  
@@ -709,9 +701,7 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {GET} /app get
  * @apiName get
- * @apiDescription Returns the GitHub App associated with the authentication credentials used.
-
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
+ * @apiDescription Returns the GitHub App associated with the [authentication credentials](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app) used. <a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiExample {js} async/await
@@ -726,9 +716,7 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {GET} /apps/:app_slug getForSlug
  * @apiName getForSlug
- * @apiDescription **Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`).
-
-If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-a-single-github-app">REST API doc</a>
+ * @apiDescription **Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`). <a href="https://developer.github.com/v3/apps/#get-a-single-github-app">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} app_slug  
@@ -744,7 +732,7 @@ If the GitHub App you specify is public, you can access this endpoint without au
 /**
  * @api {GET} /app/installations/:installation_id getInstallation
  * @apiName getInstallation
- * @apiDescription You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-a-single-installation">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/apps/#get-a-single-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} installation_id  
@@ -760,11 +748,7 @@ If the GitHub App you specify is public, you can access this endpoint without au
 /**
  * @api {GET} /installation/repositories getInstallationRepositories
  * @apiName getInstallationRepositories
- * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.
-
-The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
-
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#list-repositories">REST API doc</a>
+ * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation. <a href="https://developer.github.com/v3/apps/installations/#list-repositories">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -781,9 +765,7 @@ You must use an [installation access token](https://developer.github.com/apps/bu
 /**
  * @api {GET} /app/installations getInstallations
  * @apiName getInstallations
- * @apiDescription You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
-
-The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#find-installations">REST API doc</a>
+ * @apiDescription The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#find-installations">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -874,9 +856,9 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {DELETE} /user/installations/:installation_id/repositories/:repository_id removeRepoFromInstallation
  * @apiName removeRepoFromInstallation
- * @apiDescription Remove a single repository from an installation. The authenticated user must have admin access to the repository.
+ * @apiDescription Remove a single repository from an installation.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
+The authenticated user must have admin access to the repository. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} installation_id  
@@ -1177,7 +1159,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
  * @apiParam {string=queued,in_progress,completed} [status="queued"]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
  * @apiParam {string} [started_at]  The time that the check run began in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
- * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,conclusion,status,completed} [conclusion]  **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.  
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,conclusion,status,completed} [conclusion]  **Required if you provide a status of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.  
 **Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.
  * @apiParam {string} [completed_at]  **Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object) description.
@@ -1400,12 +1382,12 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} check_run_id  
- * @apiParam {string} [name]  The name of the check. For example, "code-coverage".
+ * @apiParam {string} name  The name of the check. For example, "code-coverage".
  * @apiParam {string} [details_url]  The URL of the integrator's site that has the full details of the check.
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
  * @apiParam {string} [started_at]  A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {string=queued,in_progress,completed} [status]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
- * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,conclusion,status,completed} [conclusion]  **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`.  
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,conclusion,status,completed} [conclusion]  **Required if you provide a status of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`.  
 **Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.
  * @apiParam {string} [completed_at]  **Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object-1) description.
@@ -1465,21 +1447,20 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {POST} /gists create
  * @apiName create
- * @apiDescription Allows you to add a new gist with one or more files.
+ * @apiDescription The keys in the `files` object are the `string` filename, and the value is another `object` with a key of `content`, and a value of the file contents. For example:
 
 **Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. <a href="https://developer.github.com/v3/gists/#create-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
- * @apiParam {object} files  The filenames and content of each file in the gist. The keys in the `files` object represent the filename and have the type `string`.
- * @apiParam {string} [files:content]  The content of the file.
- * @apiParam {string} [description]  A descriptive name for this gist.
- * @apiParam {boolean} [public="false"]  When `true`, the gist will be public and available for anyone to see.
+ * @apiParam {object} files  Files that make up this gist.
+ * @apiParam {string} [description]  A description of the gist.
+ * @apiParam {boolean} [public="false"]  Indicates whether the gist is public.
  * @apiExample {js} async/await
- * const result = await octokit.gists.create({files, files.content, description, public})
+ * const result = await octokit.gists.create({files, description, public})
  * @apiExample {js} Promise
- * octokit.gists.create({files, files.content, description, public}).then(result => {})
+ * octokit.gists.create({files, description, public}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.create({files, files.content, description, public}, (error, result) => {})
+ * octokit.gists.create({files, description, public}, (error, result) => {})
  */
 
 
@@ -1536,20 +1517,22 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {PATCH} /gists/:gist_id edit
  * @apiName edit
- * @apiDescription Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged. <a href="https://developer.github.com/v3/gists/#edit-a-gist">REST API doc</a>
+ * @apiDescription The keys in the `files` object are the `string` filename. The value is another `object` with a key of `content` (indicating the new contents), or `filename` (indicating the new filename). For example:
+
+**Note**: All files from the previous version of the gist are carried over by default if not included in the object. Deletes can be performed by including the filename with a `null` object. <a href="https://developer.github.com/v3/gists/#edit-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} [description]  A descriptive name for this gist.
- * @apiParam {object} [files]  The filenames and content that make up this gist.
- * @apiParam {string} [files:content]  The updated content of the file.
- * @apiParam {string} [files:filename]  The new name for this file. To delete a file, set the value of the filename to `null`.
+ * @apiParam {string} [description]  A description of the gist.
+ * @apiParam {object} [files]  Files that make up this gist.
+ * @apiParam {string} [content]  Updated file contents.
+ * @apiParam {string} [filename]  New name for this file.
  * @apiExample {js} async/await
- * const result = await octokit.gists.edit({gist_id, description, files, files.content, files.filename})
+ * const result = await octokit.gists.edit({gist_id, description, files, content, filename})
  * @apiExample {js} Promise
- * octokit.gists.edit({gist_id, description, files, files.content, files.filename}).then(result => {})
+ * octokit.gists.edit({gist_id, description, files, content, filename}).then(result => {})
  * @apiExample {js} Callback
- * octokit.gists.edit({gist_id, description, files, files.content, files.filename}, (error, result) => {})
+ * octokit.gists.edit({gist_id, description, files, content, filename}, (error, result) => {})
  */
 
 
@@ -4773,7 +4756,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiGroup Projects
  *
  * @apiParam {string} column_id  
- * @apiParam {string=all,archived,not_archived} [archived_state="not_archived"]  Filters the project cards that are returned by the card's state. Can be one of `all`,`archived`, or `not_archived`.
+ * @apiParam {string} [archived_state]  Use to list `all`,`archived`, or `not_archived` project cards. Defaults to `not_archived` when you omit this parameter.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -6605,9 +6588,7 @@ Forking a Repository happens asynchronously. Therefore, you may have to wait a s
 /**
  * @api {GET} /user/repos getAll
  * @apiName getAll
- * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.
-
-The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership. <a href="https://developer.github.com/v3/repos/#list-your-repositories">REST API doc</a>
+ * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access. <a href="https://developer.github.com/v3/repos/#list-your-repositories">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string=all,public,private} [visibility="all"]  Can be one of `all`, `public`, or `private`.
@@ -8837,9 +8818,9 @@ When searching for users, you can get text match metadata for the issue **login*
 /**
  * @api {PUT} /user/installations/:installation_id/repositories/:repository_id addRepoToInstallation
  * @apiName addRepoToInstallation
- * @apiDescription Add a single repository to an installation. The authenticated user must have admin access to the repository.
+ * @apiDescription Add a single repository to an installation.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
+The authenticated user must have admin access to the repository. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} installation_id  
@@ -8923,33 +8904,30 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {POST} /user/gpg_keys createGpgKey
  * @apiName createGpgKey
- * @apiDescription Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key">REST API doc</a>
+ * @apiDescription Creates a GPG key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} [armored_public_key]  Your GPG key, generated in ASCII-armored format. See "[Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/)" for help creating a GPG key.
  * @apiExample {js} async/await
- * const result = await octokit.users.createGpgKey({armored_public_key})
+ * const result = await octokit.users.createGpgKey({})
  * @apiExample {js} Promise
- * octokit.users.createGpgKey({armored_public_key}).then(result => {})
+ * octokit.users.createGpgKey({}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.createGpgKey({armored_public_key}, (error, result) => {})
+ * octokit.users.createGpgKey({}, (error, result) => {})
  */
 
 
 /**
  * @api {POST} /user/keys createKey
  * @apiName createKey
- * @apiDescription Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#create-a-public-key">REST API doc</a>
+ * @apiDescription Creates a public key. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#create-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} [title]  A descriptive name for the new key. Use a name that will help you recognize this key in your GitHub account. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
- * @apiParam {string} [key]  The public SSH key to add to your GitHub account. See "[Generating a new SSH key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)" for guidance on how to create a public SSH key.
  * @apiExample {js} async/await
- * const result = await octokit.users.createKey({title, key})
+ * const result = await octokit.users.createKey({})
  * @apiExample {js} Promise
- * octokit.users.createKey({title, key}).then(result => {})
+ * octokit.users.createKey({}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.createKey({title, key}, (error, result) => {})
+ * octokit.users.createKey({}, (error, result) => {})
  */
 
 
@@ -8987,7 +8965,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {DELETE} /user/gpg_keys/:gpg_key_id deleteGpgKey
  * @apiName deleteGpgKey
- * @apiDescription Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
+ * @apiDescription Removes a GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} gpg_key_id  
@@ -9003,7 +8981,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {DELETE} /user/keys/:key_id deleteKey
  * @apiName deleteKey
- * @apiDescription Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
+ * @apiDescription Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} key_id  
@@ -9286,10 +9264,6 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * @apiName getInstallationRepos
  * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.
 
-The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
-
-You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.
-
 The access the user has to each repository is included in the hash under the `permissions` key. <a href="https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation">REST API doc</a>
  * @apiGroup Users
  *
@@ -9310,10 +9284,6 @@ The access the user has to each repository is included in the hash under the `pe
  * @apiName getInstallations
  * @apiDescription Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.
 
-You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.
-
-The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
-
 The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#list-installations-for-user">REST API doc</a>
  * @apiGroup Users
  *
@@ -9331,7 +9301,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /user/keys/:key_id getKey
  * @apiName getKey
- * @apiDescription View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
+ * @apiDescription View extended details for a single public key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} key_id  
@@ -9347,7 +9317,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /user/keys getKeys
  * @apiName getKeys
- * @apiDescription Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#list-your-public-keys">REST API doc</a>
+ * @apiDescription Lists the current user's keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#list-your-public-keys">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -9364,7 +9334,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /users/:username/keys getKeysForUser
  * @apiName getKeysForUser
- * @apiDescription Lists the _verified_ public SSH keys for a user. This is accessible by anyone. <a href="https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user">REST API doc</a>
+ * @apiDescription Lists the _verified_ public keys for a user. This is accessible by anyone. <a href="https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -9524,9 +9494,9 @@ This only lists organizations that your authorization allows you to operate on i
 /**
  * @api {DELETE} /user/installations/:installation_id/repositories/:repository_id removeRepoFromInstallation
  * @apiName removeRepoFromInstallation
- * @apiDescription Remove a single repository from an installation. The authenticated user must have admin access to the repository.
+ * @apiDescription Remove a single repository from an installation.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
+The authenticated user must have admin access to the repository. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} installation_id  
