@@ -8,19 +8,22 @@ const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelCase')
 const set = require('lodash/set')
+const TypeWriter = require('@gimenete/type-writer')
+const prettier = require('prettier')
 
-const ROUTES = require('../lib/routes.json')
+const ROUTES = require('./routes-for-api-docs.json')
 
 const typeMap = {
   integer: 'number',
   'integer[]': 'number[]'
 }
 
-function parameterize (key, definition) {
+function parameterize (definition) {
   if (definition === null) {
     return {}
   }
 
+  const key = definition.name
   const type = typeMap[definition.type] || definition.type
   const enums = definition.enum
     ? definition.enum.map(JSON.stringify).join('|')
@@ -52,9 +55,9 @@ function entries (object) {
   return Object.keys(object).map((key) => [key, object[key]])
 }
 
-function toCombineParams (params, entry) {
+function toCombineParams (params, param) {
   return params
-    .concat(parameterize.apply(null, entry))
+    .concat(parameterize(param))
 }
 
 function toParamAlias (param, i, params) {
@@ -71,6 +74,7 @@ function toParamAlias (param, i, params) {
 function generateTypes (languageName, templateFile, outputFile) {
   const templatePath = pathJoin(__dirname, 'templates', templateFile)
   const template = readFileSync(templatePath, 'utf8')
+  const typeWriter = new TypeWriter()
 
   debug(`Generating ${languageName} types...`)
 
@@ -84,8 +88,8 @@ function generateTypes (languageName, templateFile, outputFile) {
         }, [])
 
       const namespacedParamsName = pascalcase(`${namespace}-${entry[0]}Params`)
-      const ownParams = entries(entry[1].params)
-        .filter((entry) => isLocalParam(entry[0]))
+      const ownParams = entry[1].params
+        .filter((param) => isLocalParam(param.name))
         .reduce(toCombineParams, [])
         .map(toParamAlias)
         // handle "object" & "object[]" types
@@ -120,12 +124,21 @@ function generateTypes (languageName, templateFile, outputFile) {
         ? namespacedParamsName
         : pascalcase('EmptyParams')
 
+      let responseType = 'Github.AnyResponse'
+      if (entry[1].responses) {
+        const typeName = 'Github.' + typeWriter.add(entry[1].responses.map(response => response.body || {}), {
+          rootTypeName: pascalcase(`${entry[0]}Response`)
+        })
+        responseType = 'Github.Response<' + typeName + '>'
+      }
+
       return methods.concat({
         method: methodName,
         paramTypeName,
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
-        exclude: !hasParams
+        exclude: !hasParams,
+        responseType
       })
     }, [])
 
@@ -136,6 +149,7 @@ function generateTypes (languageName, templateFile, outputFile) {
   }, [])
 
   const body = Mustache.render(template, {
+    responseTypes: typeWriter.generate('typescript'),
     namespaces,
     childParams: Object.keys(childParams).map(key => {
       return {
@@ -145,8 +159,10 @@ function generateTypes (languageName, templateFile, outputFile) {
     })
   })
 
+  const source = prettier.format(body, { parser: languageName.toLowerCase() })
+
   const definitionFilePath = pathJoin(__dirname, '..', outputFile)
   debug(`Writing ${languageName} declarations file to ${definitionFilePath}`)
 
-  writeFileSync(definitionFilePath, body, 'utf8')
+  writeFileSync(definitionFilePath, source, 'utf8')
 }

@@ -82,7 +82,7 @@ declare module "github" {
     {{#ownParams}}
     & {
     {{#params}}
-      {{key}}{{^required}}?{{/required}}: {{{type}}};
+      "{{key}}"{{^required}}?{{/required}}: {{{type}}};
     {{/params}}
     };
     {{/ownParams}}
