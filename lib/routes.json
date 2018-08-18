@@ -1460,6 +1460,7 @@
       "url": "/repos/:owner/:repo/commits/:ref/check-suites"
     },
     "requestSuites": {
+      "deprecated": "use `rerequestSuite` instead",
       "headers": {
         "accept": "application/vnd.github.antiope-preview+json"
       },
@@ -1478,6 +1479,24 @@
         }
       },
       "url": "/repos/:owner/:repo/check-suite-requests"
+    },
+    "rerequestSuite": {
+      "method": "POST",
+      "params": {
+        "check_suite_id": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/check-suites/:check_suite_id/rerequest"
     },
     "setSuitesPreferences": {
       "headers": {
