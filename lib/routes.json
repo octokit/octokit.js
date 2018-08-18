@@ -1152,24 +1152,38 @@
         "output.annotations": {
           "type": "object[]"
         },
-        "output.annotations[].blob_href": {
+        "output.annotations[].annotation_level": {
+          "enum": [
+            "notice",
+            "warning",
+            "failure"
+          ],
           "required": true,
           "type": "string"
+        },
+        "output.annotations[].end_column": {
+          "type": "integer"
         },
         "output.annotations[].end_line": {
           "required": true,
           "type": "integer"
         },
         "output.annotations[].filename": {
-          "required": true,
-          "type": "string"
+          "alias": "output.annotations[].path"
         },
         "output.annotations[].message": {
           "required": true,
           "type": "string"
         },
+        "output.annotations[].path": {
+          "required": true,
+          "type": "string"
+        },
         "output.annotations[].raw_details": {
           "type": "string"
+        },
+        "output.annotations[].start_column": {
+          "type": "integer"
         },
         "output.annotations[].start_line": {
           "required": true,
@@ -1179,13 +1193,7 @@
           "type": "string"
         },
         "output.annotations[].warning_level": {
-          "enum": [
-            "notice",
-            "warning",
-            "failure"
-          ],
-          "required": true,
-          "type": "string"
+          "alias": "annotation_level"
         },
         "output.images": {
           "type": "object[]"
@@ -1556,24 +1564,38 @@
         "output.annotations": {
           "type": "object[]"
         },
-        "output.annotations[].blob_href": {
+        "output.annotations[].annotation_level": {
+          "enum": [
+            "notice",
+            "warning",
+            "failure"
+          ],
           "required": true,
           "type": "string"
+        },
+        "output.annotations[].end_column": {
+          "type": "integer"
         },
         "output.annotations[].end_line": {
           "required": true,
           "type": "integer"
         },
         "output.annotations[].filename": {
-          "required": true,
-          "type": "string"
+          "alias": "output.annotations[].path"
         },
         "output.annotations[].message": {
           "required": true,
           "type": "string"
         },
+        "output.annotations[].path": {
+          "required": true,
+          "type": "string"
+        },
         "output.annotations[].raw_details": {
           "type": "string"
+        },
+        "output.annotations[].start_column": {
+          "type": "integer"
         },
         "output.annotations[].start_line": {
           "required": true,
@@ -1583,13 +1605,7 @@
           "type": "string"
         },
         "output.annotations[].warning_level": {
-          "enum": [
-            "notice",
-            "warning",
-            "failure"
-          ],
-          "required": true,
-          "type": "string"
+          "alias": "annotation_level"
         },
         "output.images": {
           "type": "object[]"
