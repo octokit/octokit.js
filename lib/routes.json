@@ -616,7 +616,7 @@
           "type": "string"
         }
       },
-      "url": "/installations/:installation_id/access_tokens"
+      "url": "/app/installations/:installation_id/access_tokens"
     },
     "findOrgInstallation": {
       "headers": {
