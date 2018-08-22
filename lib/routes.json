@@ -1724,6 +1724,27 @@
       },
       "url": "/admin/pre_receive_hooks/:id"
     },
+    "deleteRepoPreReceiveHook": {
+      "headers": {
+        "accept": "application/vnd.github.eye-scream-preview"
+      },
+      "method": "DELETE",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id"
+    },
     "editPreReceiveEnvironment": {
       "method": "PATCH",
       "params": {
@@ -1816,6 +1837,44 @@
       "method": "GET",
       "params": {},
       "url": "/admin/pre-receive-hooks"
+    },
+    "getRepoPreReceiveHook": {
+      "headers": {
+        "accept": "application/vnd.github.eye-scream-preview"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id"
+    },
+    "getRepoPreReceiveHooks": {
+      "headers": {
+        "accept": "application/vnd.github.eye-scream-preview"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pre-receive-hooks"
     },
     "queueIndexingJob": {
       "method": "POST",
@@ -1910,6 +1969,31 @@
         }
       },
       "url": "/admin/ldap/users/:username/mapping"
+    },
+    "updateRepoPreReceiveHook": {
+      "headers": {
+        "accept": "application/vnd.github.eye-scream-preview"
+      },
+      "method": "PATCH",
+      "params": {
+        "enforcement": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "pre_receive_hook_id": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id"
     }
   },
   "gists": {
