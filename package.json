@@ -36,7 +36,6 @@
     "node": ">=4"
   },
   "dependencies": {
-    "@gimenete/type-writer": "^0.1.3",
     "before-after-hook": "^1.1.0",
     "btoa-lite": "^1.0.0",
     "debug": "^3.1.0",
@@ -47,6 +46,7 @@
     "url-template": "^2.0.8"
   },
   "devDependencies": {
+    "@gimenete/type-writer": "^0.1.3",
     "@gr2m/node-fetch": "^2.0.0",
     "@octokit/fixtures-server": "^2.1.5",
     "@octokit/routes": "11.4.2",
