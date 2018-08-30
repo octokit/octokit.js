@@ -141,6 +141,23 @@ octokit.authenticate({
   type: 'app',
   token: 'secrettoken123'
 })
+
+// GitHub app, authenticating as the application
+// Allowing access to the endpoints marked as requiring a JWT at https://developer.github.com/v3/apps/
+octokit.authenticate({
+  type: 'app',
+  appId: 'your_app_id',
+  privateKey: 'your_private_key'
+})
+
+// GitHub app, authenticating as an installation
+// Allowing access to the endpoints at https://developer.github.com/v3/apps/available-endpoints/
+octokit.authenticate({
+  type: 'app',
+  appId: 'your_app_id',
+  installationId: 'installation_id',
+  privateKey: 'your_private_key'
+})
 ```
 
 Note: `authenticate` is synchronous because it only sets the credentials
