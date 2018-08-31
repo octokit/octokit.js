@@ -141,13 +141,32 @@ octokit.authenticate({
   type: 'app',
   token: 'secrettoken123'
 })
+```
+
+Authenticating as a Github App is slightly more involved. It is up to you to
+provide a JSON Web Token, as this process differs between node and browsers.
+On node we recommend using the `jsonwebtoken` package.
+
+```javascript
+const jsonwebtoken = require('jsonwebtoken')
+
+function jwt (id, pem) {
+  const payload = {
+    iat: Math.floor(Date.now() / 1000), // Issued at time
+    exp: Math.floor(Date.now() / 1000) + 60, // JWT expiration time
+    iss: id // Integration's GitHub id
+  }
+
+  // Sign with RSA SHA256
+  return jsonwebtoken.sign(payload, pem, {algorithm: 'RS256'})
+}
 
 // GitHub app, authenticating as the application
 // Allowing access to the endpoints marked as requiring a JWT at https://developer.github.com/v3/apps/
 octokit.authenticate({
   type: 'app',
   appId: 'your_app_id',
-  privateKey: 'your_private_key'
+  appTokenGenerator: (id) => jwt(id, 'your_private_key')
 })
 
 // GitHub app, authenticating as an installation
@@ -156,7 +175,7 @@ octokit.authenticate({
   type: 'app',
   appId: 'your_app_id',
   installationId: 'installation_id',
-  privateKey: 'your_private_key'
+  appTokenGenerator: (id) => jwt(id, 'your_private_key')
 })
 ```
 
