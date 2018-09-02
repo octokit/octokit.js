@@ -1263,7 +1263,7 @@
       "params": {
         "check_run_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1284,7 +1284,7 @@
       "params": {
         "check_suite_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1305,7 +1305,7 @@
       "params": {
         "check_run_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1380,7 +1380,7 @@
         },
         "check_suite_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "filter": {
           "enum": [
@@ -1522,7 +1522,7 @@
         },
         "check_run_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "completed_at": {
           "type": "string"
