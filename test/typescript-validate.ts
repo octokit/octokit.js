@@ -40,4 +40,11 @@ export default async function() {
   repo.headers.link
   repo.headers.etag
   repo.headers.status
+
+  await octokit.issues.addLabels({
+    owner: 'octokit',
+    repo: 'rest.js',
+    number: 10,
+    labels: ['label'],
+  });
 }

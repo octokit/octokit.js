@@ -8793,6 +8793,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "labels"
         }
       ],
       "path": "/repos/:owner/:repo/issues/:number/labels",
@@ -13053,6 +13059,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "labels"
         }
       ],
       "path": "/repos/:owner/:repo/issues/:number/labels",
@@ -15485,7 +15497,14 @@
       "enabledForApps": true,
       "method": "POST",
       "name": "Render a Markdown document in raw mode",
-      "params": [],
+      "params": [
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string",
+          "name": "data"
+        }
+      ],
       "path": "/markdown/raw",
       "responses": [
         {
@@ -25551,6 +25570,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "contexts"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -25599,6 +25624,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "teams"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -25658,6 +25689,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "users"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -34483,6 +34520,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "contexts"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -34561,6 +34604,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "teams"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -34620,6 +34669,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "users"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -34686,6 +34741,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "contexts"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
@@ -34733,6 +34794,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "teams"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
@@ -34792,6 +34859,12 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "users"
         }
       ],
       "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
@@ -36080,6 +36153,12 @@
           "description": "An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.",
           "required": false,
           "location": "query"
+        },
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string | object",
+          "name": "file"
         }
       ],
       "path": ":url"
@@ -36953,7 +37032,14 @@
       "enabledForApps": false,
       "method": "POST",
       "name": "Add email address(es)",
-      "params": [],
+      "params": [
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "emails"
+        }
+      ],
       "path": "/user/emails",
       "requests": [
         [
@@ -37255,7 +37341,14 @@
       "enabledForApps": false,
       "method": "DELETE",
       "name": "Delete email address(es)",
-      "params": [],
+      "params": [
+        {
+          "mapTo": "input",
+          "required": true,
+          "type": "string[]",
+          "name": "emails"
+        }
+      ],
       "path": "/user/emails",
       "requests": [
         [
