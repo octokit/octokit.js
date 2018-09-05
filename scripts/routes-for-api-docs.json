@@ -4377,7 +4377,7 @@
         },
         {
           "name": "check_run_id",
-          "type": "string",
+          "type": "integer",
           "required": true,
           "description": "",
           "location": "url"
@@ -4487,7 +4487,7 @@
         },
         {
           "name": "check_suite_id",
-          "type": "string",
+          "type": "integer",
           "required": true,
           "description": "",
           "location": "url"
@@ -4666,7 +4666,7 @@
         },
         {
           "name": "check_run_id",
-          "type": "string",
+          "type": "integer",
           "required": true,
           "description": "",
           "location": "url"
@@ -4896,7 +4896,7 @@
         },
         {
           "name": "check_suite_id",
-          "type": "string",
+          "type": "integer",
           "required": true,
           "description": "",
           "location": "url"
@@ -5499,7 +5499,7 @@
         },
         {
           "name": "check_run_id",
-          "type": "string",
+          "type": "integer",
           "required": true,
           "description": "",
           "location": "url"
