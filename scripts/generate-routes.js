@@ -234,6 +234,12 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
       if (currentParams[name].alias || currentParams[name].mapTo) {
         currentEndpoint.params[name] = currentParams[name]
       }
+
+      // Add the mapped name to the newEndpoint so that we expose the
+      // mapped parameter in the documentation (and the typescript types)
+      if (currentParams[name].mapTo) {
+        newEndpoint.params.push({...currentParams[name], name: name})
+      }
     })
 
     // DEPRECATED: workaround to leave "validation" property. We won’t be able
