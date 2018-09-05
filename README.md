@@ -165,8 +165,7 @@ function jwt (id, pem) {
 // Allowing access to the endpoints marked as requiring a JWT at https://developer.github.com/v3/apps/
 octokit.authenticate({
   type: 'app',
-  appId: 'your_app_id',
-  appTokenGenerator: (id) => jwt(id, 'your_private_key')
+  appTokenGenerator: () => jwt('your_app_id', 'your_private_key')
 })
 
 // GitHub app, authenticating as an installation
@@ -175,7 +174,7 @@ octokit.authenticate({
   type: 'app',
   appId: 'your_app_id',
   installationId: 'installation_id',
-  appTokenGenerator: (id) => jwt(id, 'your_private_key')
+  appTokenGenerator: () => jwt('your_app_id', 'your_private_key')
 })
 ```
 
