@@ -6629,6 +6629,13 @@ define({ "api": [
             "optional": false,
             "field": "number",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "labels",
+            "description": ""
           }
         ]
       }
@@ -6636,17 +6643,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.addLabels({owner, repo, number})",
+        "content": "const result = await octokit.issues.addLabels({owner, repo, number, labels})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.addLabels({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.addLabels({owner, repo, number, labels}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.addLabels({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.addLabels({owner, repo, number, labels}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9150,6 +9157,13 @@ define({ "api": [
             "optional": false,
             "field": "number",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "labels",
+            "description": ""
           }
         ]
       }
@@ -9157,17 +9171,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.replaceAllLabels({owner, repo, number})",
+        "content": "const result = await octokit.issues.replaceAllLabels({owner, repo, number, labels})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.replaceAllLabels({owner, repo, number}).then(result => {})",
+        "content": "octokit.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.replaceAllLabels({owner, repo, number}, (error, result) => {})",
+        "content": "octokit.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10868,20 +10882,33 @@ define({ "api": [
     "name": "renderMarkdownRaw",
     "description": "<p>You must send Markdown as plain text (using a <code>Content-Type</code> header of <code>text/plain</code> or <code>text/x-markdown</code>) to this endpoint, rather than using JSON format. In raw mode, <a href=\"https://github.github.com/gfm/\">GitHub Flavored Markdown</a> is not supported and Markdown will be rendered in plain format like a README.md file. Markdown content must be 400 KB or less.</p> <p><a href=\"https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode\">REST API doc</a></p>",
     "group": "Misc",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      }
+    },
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.misc.renderMarkdownRaw({})",
+        "content": "const result = await octokit.misc.renderMarkdownRaw({data})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.misc.renderMarkdownRaw({}).then(result => {})",
+        "content": "octokit.misc.renderMarkdownRaw({data}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.misc.renderMarkdownRaw({}, (error, result) => {})",
+        "content": "octokit.misc.renderMarkdownRaw({data}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18090,6 +18117,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "contexts",
+            "description": ""
           }
         ]
       }
@@ -18097,17 +18131,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})",
+        "content": "const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18145,6 +18179,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "teams",
+            "description": ""
           }
         ]
       }
@@ -18152,17 +18193,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18200,6 +18241,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "users",
+            "description": ""
           }
         ]
       }
@@ -18207,17 +18255,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24779,6 +24827,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "contexts",
+            "description": ""
           }
         ]
       }
@@ -24786,17 +24841,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24889,6 +24944,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "teams",
+            "description": ""
           }
         ]
       }
@@ -24896,17 +24958,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24944,6 +25006,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "users",
+            "description": ""
           }
         ]
       }
@@ -24951,17 +25020,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24999,6 +25068,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "contexts",
+            "description": ""
           }
         ]
       }
@@ -25006,17 +25082,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})",
+        "content": "const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25054,6 +25130,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "teams",
+            "description": ""
           }
         ]
       }
@@ -25061,17 +25144,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25109,6 +25192,13 @@ define({ "api": [
             "optional": false,
             "field": "branch",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "users",
+            "description": ""
           }
         ]
       }
@@ -25116,17 +25206,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch})",
+        "content": "const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})",
+        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})",
+        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25999,6 +26089,13 @@ define({ "api": [
             "optional": true,
             "field": "label",
             "description": "<p>An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "file",
+            "description": ""
           }
         ]
       }
@@ -26006,17 +26103,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label})",
+        "content": "const result = await octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label}).then(result => {})",
+        "content": "octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label}, (error, result) => {})",
+        "content": "octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26592,20 +26689,33 @@ define({ "api": [
     "name": "addEmails",
     "description": "<p>You can post a single email address or an array of addresses: <a href=\"https://developer.github.com/v3/users/emails/#add-email-addresses\">REST API doc</a></p>",
     "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "emails",
+            "description": ""
+          }
+        ]
+      }
+    },
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.addEmails({})",
+        "content": "const result = await octokit.users.addEmails({emails})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.addEmails({}).then(result => {})",
+        "content": "octokit.users.addEmails({emails}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.addEmails({}, (error, result) => {})",
+        "content": "octokit.users.addEmails({emails}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26969,20 +27079,33 @@ define({ "api": [
     "name": "deleteEmails",
     "description": "<p>You can include a single email address or an array of addresses: <a href=\"https://developer.github.com/v3/users/emails/#delete-email-addresses\">REST API doc</a></p>",
     "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "emails",
+            "description": ""
+          }
+        ]
+      }
+    },
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.users.deleteEmails({})",
+        "content": "const result = await octokit.users.deleteEmails({emails})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.users.deleteEmails({}).then(result => {})",
+        "content": "octokit.users.deleteEmails({emails}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.users.deleteEmails({}, (error, result) => {})",
+        "content": "octokit.users.deleteEmails({emails}, (error, result) => {})",
         "type": "js"
       }
     ],

@@ -2148,12 +2148,13 @@ This example adds two assignees to the existing `octocat` assignee. <a href="htt
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
+ * @apiParam {string[]} labels  
  * @apiExample {js} async/await
- * const result = await octokit.issues.addLabels({owner, repo, number})
+ * const result = await octokit.issues.addLabels({owner, repo, number, labels})
  * @apiExample {js} Promise
- * octokit.issues.addLabels({owner, repo, number}).then(result => {})
+ * octokit.issues.addLabels({owner, repo, number, labels}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.addLabels({owner, repo, number}, (error, result) => {})
+ * octokit.issues.addLabels({owner, repo, number, labels}, (error, result) => {})
  */
 
 
@@ -2903,12 +2904,13 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
+ * @apiParam {string[]} labels  
  * @apiExample {js} async/await
- * const result = await octokit.issues.replaceAllLabels({owner, repo, number})
+ * const result = await octokit.issues.replaceAllLabels({owner, repo, number, labels})
  * @apiExample {js} Promise
- * octokit.issues.replaceAllLabels({owner, repo, number}).then(result => {})
+ * octokit.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.replaceAllLabels({owner, repo, number}, (error, result) => {})
+ * octokit.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})
  */
 
 
@@ -3606,12 +3608,13 @@ Similar to [the repository contents API](https://developer.github.com/v3/repos/c
  <a href="https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode">REST API doc</a>
  * @apiGroup Misc
  *
+ * @apiParam {string} data  
  * @apiExample {js} async/await
- * const result = await octokit.misc.renderMarkdownRaw({})
+ * const result = await octokit.misc.renderMarkdownRaw({data})
  * @apiExample {js} Promise
- * octokit.misc.renderMarkdownRaw({}).then(result => {})
+ * octokit.misc.renderMarkdownRaw({data}).then(result => {})
  * @apiExample {js} Callback
- * octokit.misc.renderMarkdownRaw({}, (error, result) => {})
+ * octokit.misc.renderMarkdownRaw({data}, (error, result) => {})
  */
 
 
@@ -5900,12 +5903,13 @@ Deploy keys with write access can perform the same actions as an organization me
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} contexts  
  * @apiExample {js} async/await
- * const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})
+ * const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
- * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})
+ * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -5922,12 +5926,13 @@ Deploy keys with write access can perform the same actions as an organization me
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} teams  
  * @apiExample {js} async/await
- * const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
- * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -5944,12 +5949,13 @@ Deploy keys with write access can perform the same actions as an organization me
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} users  
  * @apiExample {js} async/await
- * const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
- * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -8057,12 +8063,13 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} contexts  
  * @apiExample {js} async/await
- * const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
- * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -8097,12 +8104,13 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} teams  
  * @apiExample {js} async/await
- * const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
- * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -8119,12 +8127,13 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} users  
  * @apiExample {js} async/await
- * const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
- * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -8137,12 +8146,13 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} contexts  
  * @apiExample {js} async/await
- * const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})
+ * const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
- * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})
+ * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -8159,12 +8169,13 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} teams  
  * @apiExample {js} async/await
- * const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
- * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -8181,12 +8192,13 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string} branch  
+ * @apiParam {string[]} users  
  * @apiExample {js} async/await
- * const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch})
+ * const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
- * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})
+ * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})
+ * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -8456,12 +8468,13 @@ This may leave an empty asset with a state of `"new"`. It can be safely deleted.
  * @apiParam {string} Content-Type  The content type of the asset. This should be set in the Header. Example: `"application/zip"`. For a list of acceptable types, refer this list of [media types](https://www.iana.org/assignments/media-types/media-types.xhtml).
  * @apiParam {string} name  The file name of the asset. This should be set in a URI query parameter.
  * @apiParam {string} [label]  An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.
+ * @apiParam {object} file  
  * @apiExample {js} async/await
- * const result = await octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label})
+ * const result = await octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file})
  * @apiExample {js} Promise
- * octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label}).then(result => {})
+ * octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label}, (error, result) => {})
+ * octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}, (error, result) => {})
  */
 
 
@@ -8827,12 +8840,13 @@ When searching for users, you can get text match metadata for the issue **login*
  * @apiDescription You can post a single email address or an array of addresses: <a href="https://developer.github.com/v3/users/emails/#add-email-addresses">REST API doc</a>
  * @apiGroup Users
  *
+ * @apiParam {string[]} emails  
  * @apiExample {js} async/await
- * const result = await octokit.users.addEmails({})
+ * const result = await octokit.users.addEmails({emails})
  * @apiExample {js} Promise
- * octokit.users.addEmails({}).then(result => {})
+ * octokit.users.addEmails({emails}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.addEmails({}, (error, result) => {})
+ * octokit.users.addEmails({emails}, (error, result) => {})
  */
 
 
@@ -8977,12 +8991,13 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * @apiDescription You can include a single email address or an array of addresses: <a href="https://developer.github.com/v3/users/emails/#delete-email-addresses">REST API doc</a>
  * @apiGroup Users
  *
+ * @apiParam {string[]} emails  
  * @apiExample {js} async/await
- * const result = await octokit.users.deleteEmails({})
+ * const result = await octokit.users.deleteEmails({emails})
  * @apiExample {js} Promise
- * octokit.users.deleteEmails({}).then(result => {})
+ * octokit.users.deleteEmails({emails}).then(result => {})
  * @apiExample {js} Callback
- * octokit.users.deleteEmails({}, (error, result) => {})
+ * octokit.users.deleteEmails({emails}, (error, result) => {})
  */
 
 
