@@ -127,7 +127,7 @@ function generateTypes (languageName, templateFile, outputFile) {
       let responseType = 'Github.AnyResponse'
       if (entry[1].responses) {
         const typeName = 'Github.' + typeWriter.add(entry[1].responses.map(response => response.body || {}), {
-          rootTypeName: pascalcase(`${entry[0]}Response`)
+          rootTypeName: pascalcase(`${namespace}-${entry[0]}Response`)
         })
         responseType = 'Github.Response<' + typeName + '>'
       }
