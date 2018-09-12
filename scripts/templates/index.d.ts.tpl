@@ -120,7 +120,7 @@ declare namespace Github {
 
   export type Link =
     | { link: string; }
-    | { meta: { link: string; }; }
+    | { headers: { link: string; }; }
     | string;
 
   export interface Callback<T> {
