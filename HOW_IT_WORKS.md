@@ -23,7 +23,7 @@ Both are merged with **③ user options** passed into the method. Altogether the
 **Example**: get all public repositories of the the [@octokit GitHub organization](https://github.com/octokit).
 
 ```js
-github.repos.getForOrg({org: 'octokit', type: 'public'})
+github.repos.getForOrg({ org: 'octokit', type: 'public' })
 ```
 
 **④ endpoint options** will be
