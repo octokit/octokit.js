@@ -74,7 +74,7 @@
     "sinon": "^6.0.0",
     "sinon-chai": "^3.0.0",
     "standard": "^11.0.0",
-    "standard-markdown": "^4.0.2",
+    "standard-markdown": "^5.0.1",
     "string-to-arraybuffer": "^1.0.0",
     "typescript": "^2.9.2",
     "webpack": "^4.0.0",
