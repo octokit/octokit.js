@@ -27,5 +27,5 @@ function myPlugin (octokit) {
 octokit.plugin(myPlugin)
 
 octokit.myMethod()
-octokit.request({url: '/'}) // runs before/after hooks defined above
+octokit.request({ url: '/' }) // runs before/after hooks defined above
 ```

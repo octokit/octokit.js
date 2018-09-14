@@ -20,7 +20,7 @@ const octokit = require('@octokit/rest')()
 octokit.repos.getForOrg({
   org: 'octokit',
   type: 'public'
-}).then(({data, headers, status}) => {
+}).then(({ data, headers, status }) => {
   // handle data
 })
 ```
@@ -81,7 +81,7 @@ pass a custom `accept` header, which you can do with any endpoint method documen
 in the [API docs](https://octokit.github.io/rest.js/), e.g.
 
 ```js
-const {data: {topics}} = octokit.repos.get({
+const { data: { topics } } = octokit.repos.get({
   owner: 'octokit',
   repo: 'rest.js',
   headers: {
@@ -93,7 +93,7 @@ const {data: {topics}} = octokit.repos.get({
 Multiple preview headers can be combined by separating them with commas
 
 ```js
-const {data: {topics, code_of_conduct}} = octokit.repos.get({
+const { data: { topics, codeOfConduct } } = octokit.repos.get({
   owner: 'octokit',
   repo: 'rest.js',
   headers: {
@@ -163,8 +163,8 @@ Usage
 
 ```js
 async function paginate (method) {
-  let response = await method({per_page: 100})
-  let {data} = response
+  let response = await method({ per_page: 100 })
+  let { data } = response
   while (octokit.hasNextPage(response)) {
     response = await octokit.getNextPage(response)
     data = data.concat(response.data)
