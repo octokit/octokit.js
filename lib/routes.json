@@ -6104,6 +6104,10 @@
           "required": true,
           "type": "string"
         },
+        "issue": {
+          "required": true,
+          "type": "integer"
+        },
         "maintainer_can_modify": {
           "type": "boolean"
         },
@@ -6112,10 +6116,6 @@
           "type": "string"
         },
         "repo": {
-          "required": true,
-          "type": "string"
-        },
-        "title": {
           "required": true,
           "type": "string"
         }
