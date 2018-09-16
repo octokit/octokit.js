@@ -61,7 +61,7 @@ declare module "github" {
 
   declare type Link =
     | { link: string; }
-    | { meta: { link: string; }; }
+    | { headers: { link: string; }; }
     | string
     | any;
 
