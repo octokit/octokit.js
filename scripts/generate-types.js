@@ -35,7 +35,8 @@ function parameterize (definition) {
     required: !definition.deprecated && definition.required,
     type: enums || type,
     alias: definition.alias,
-    deprecated: definition.deprecated
+    deprecated: definition.deprecated,
+    allowNull: definition.allowNull
   }
 }
 
