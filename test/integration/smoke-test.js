@@ -18,19 +18,19 @@ describe('smoke', () => {
       baseUrl: 'http://myhost.com/my/api'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
   })
 
   it('response.status & response.headers', () => {
     nock('http://myhost.com')
       .get('/my/api/orgs/myorg')
-      .reply(200, {}, {'x-foo': 'bar'})
+      .reply(200, {}, { 'x-foo': 'bar' })
 
     const github = new GitHub({
       baseUrl: 'http://myhost.com/my/api'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .then(response => {
         expect(response.headers['x-foo']).to.equal('bar')
@@ -47,7 +47,7 @@ describe('smoke', () => {
       baseUrl: 'https://smoke-test.com'
     })
 
-    github.orgs.get({org: 'myorg'}, done)
+    github.orgs.get({ org: 'myorg' }, done)
   })
 
   it('custom header', () => {

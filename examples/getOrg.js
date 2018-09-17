@@ -7,5 +7,5 @@ octokit.orgs.get({
   org: 'octokit'
 }).then(result => {
   // result.data looks like https://developer.github.com/v3/orgs/#response-3
-  assert.equal(result.data.login, 'octokit')
+  assert.strictEqual(result.data.login, 'octokit')
 })

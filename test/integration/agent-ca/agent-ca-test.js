@@ -1,6 +1,6 @@
 const https = require('https')
-const {readFileSync} = require('fs')
-const {resolve} = require('path')
+const { readFileSync } = require('fs')
+const { resolve } = require('path')
 
 const Octokit = require('../../..')
 const ca = readFileSync(resolve(__dirname, './ca.crt'))

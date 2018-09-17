@@ -28,7 +28,7 @@ describe('apps', () => {
       token: '123'
     })
 
-    return client.orgs.get({org: 'myorg'})
+    return client.orgs.get({ org: 'myorg' })
   })
 
   it('adds "machine-man" preview header to custom accept header', () => {

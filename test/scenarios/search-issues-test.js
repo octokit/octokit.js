@@ -1,4 +1,4 @@
-const {getInstance} = require('../util')
+const { getInstance } = require('../util')
 
 require('../mocha-node-setup')
 
@@ -19,7 +19,7 @@ describe('api.github.com', () => {
   })
 
   it('github.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
-    return github.search.issues({q: 'sesame repo:octokit-fixture-org/search-issues'})
+    return github.search.issues({ q: 'sesame repo:octokit-fixture-org/search-issues' })
 
       .then((response) => {
         expect(response.data.total_count).to.equal(2)

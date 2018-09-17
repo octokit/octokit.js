@@ -12,8 +12,8 @@ const GitHub = require('../')
 function loadFixture (scenario) {
   return fetch('http://localhost:3000/fixtures', {
     method: 'post',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({scenario})
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ scenario })
   })
 
     .then(response => response.json())
@@ -27,7 +27,7 @@ function loadFixture (scenario) {
     })
 }
 
-function fixtureToInstace ({url}, options) {
+function fixtureToInstace ({ url }, options) {
   return new GitHub(merge(options, {
     baseUrl: url
   }))

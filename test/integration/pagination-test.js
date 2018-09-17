@@ -13,19 +13,19 @@ describe('pagination', () => {
       }
     })
       .get('/organizations')
-      .query({page: 3, per_page: 1})
+      .query({ page: 3, per_page: 1 })
       .reply(200, [{}], {
         'Link': '<https://pagination-test.com/organizations?page=4&per_page=1>; rel="next", <https://pagination-test.com/organizations?page=1&per_page=1>; rel="first", <https://pagination-test.com/organizations?page=2&per_page=1>; rel="prev"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/organizations')
-      .query({page: 1, per_page: 1})
+      .query({ page: 1, per_page: 1 })
       .reply(200, [{}])
       .get('/organizations')
-      .query({page: 2, per_page: 1})
+      .query({ page: 2, per_page: 1 })
       .reply(200, [{}])
       .get('/organizations')
-      .query({page: 4, per_page: 1})
+      .query({ page: 4, per_page: 1 })
       .reply(404, {})
 
     const github = new GitHub({
@@ -65,7 +65,7 @@ describe('pagination', () => {
               resolve()
             })
           }),
-          github.getPreviousPage(result, {foo: 'bar', accept: 'application/vnd.github.v3+json'}),
+          github.getPreviousPage(result, { foo: 'bar', accept: 'application/vnd.github.v3+json' }),
           github.getNextPage(result).catch(callback),
           new Promise(resolve => {
             github.getLastPage(result, { foo: 'bar' }, (error) => {
@@ -92,13 +92,13 @@ describe('pagination', () => {
       }
     })
       .get('/users/octocat/starred')
-      .query({per_page: 1})
+      .query({ per_page: 1 })
       .reply(200, [{}], {
         'Link': '<https://pagination-test.com/users/octocat/starred?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; param=star; format=json'
       })
       .get('/users/octocat/starred')
-      .query({page: 2, per_page: 1})
+      .query({ page: 2, per_page: 1 })
       .reply(200, [])
 
     const client = new GitHub({

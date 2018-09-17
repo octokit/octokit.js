@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const {writeFileSync} = require('fs')
-const {join: pathJoin} = require('path')
+const { writeFileSync } = require('fs')
+const { join: pathJoin } = require('path')
 
 const debug = require('debug')('octokit:rest')
 const upperFirst = require('lodash/upperFirst')

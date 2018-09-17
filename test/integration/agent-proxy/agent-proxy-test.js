@@ -10,7 +10,7 @@ const urlParse = require('url').parse
 const Proxy = require('proxy')
 const HttpProxyAgent = require('http-proxy-agent')
 
-const {getInstance, loadFixture} = require('../../util')
+const { getInstance, loadFixture } = require('../../util')
 const Octokit = require('../../../')
 
 require('../../mocha-node-setup')
@@ -49,7 +49,7 @@ describe('client proxy', function () {
     })
 
       .then(github => {
-        return github.orgs.get({org: 'octokit-fixture-org'})
+        return github.orgs.get({ org: 'octokit-fixture-org' })
       })
 
       .then((response) => {
@@ -69,7 +69,7 @@ describe('client proxy', function () {
     return loadFixture('get-organization')
 
       .then(options => {
-        const {hostname: host, port, path: pathPrefix} = urlParse(options.url)
+        const { hostname: host, port, path: pathPrefix } = urlParse(options.url)
         return new Octokit({
           protocol: 'http',
           host,
@@ -80,7 +80,7 @@ describe('client proxy', function () {
       })
 
       .then(github => {
-        return github.orgs.get({org: 'octokit-fixture-org'})
+        return github.orgs.get({ org: 'octokit-fixture-org' })
       })
 
       .then((response) => {
@@ -102,7 +102,7 @@ describe('client proxy', function () {
     })
 
       .then(github => {
-        return github.orgs.get({org: 'octokit-fixture-org'})
+        return github.orgs.get({ org: 'octokit-fixture-org' })
       })
 
       .then((response) => {

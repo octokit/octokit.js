@@ -1,7 +1,7 @@
 module.exports = generateTypes
 
-const {readFileSync, writeFileSync} = require('fs')
-const {join: pathJoin} = require('path')
+const { readFileSync, writeFileSync } = require('fs')
+const { join: pathJoin } = require('path')
 
 const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
@@ -66,7 +66,7 @@ function toParamAlias (param, i, params) {
     return param
   }
 
-  const actualParam = params.find(({key}) => key === param.alias)
+  const actualParam = params.find(({ key }) => key === param.alias)
   param.required = !param.deprecated && actualParam.required
   param.type = actualParam.type
   return param

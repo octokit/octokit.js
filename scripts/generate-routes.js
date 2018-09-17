@@ -238,7 +238,7 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
       // Add the mapped name to the newEndpoint so that we expose the
       // mapped parameter in the documentation (and the typescript types)
       if (currentParams[name].mapTo) {
-        newEndpoint.params.push({...currentParams[name], name: name})
+        newEndpoint.params.push({ ...currentParams[name], name: name })
       }
     })
 

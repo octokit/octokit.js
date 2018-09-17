@@ -7,7 +7,7 @@ describe('https://github.com/octokit/rest.js/issues/765', () => {
   it('octokit.issues.edit({..., milestone: null})', () => {
     nock('https://api.github.com')
       .patch('/repos/epmatsw/example-repo/issues/1', (body) => {
-        expect(body).to.deep.equal({milestone: null})
+        expect(body).to.deep.equal({ milestone: null })
         return true
       })
       .reply(200, {})

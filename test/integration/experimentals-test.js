@@ -16,7 +16,7 @@ describe('authentication plugin', () => {
   it('OAuth authentication with URL containing ?', () => {
     nock('https://authentication-plugin-test-host.com')
       .get('/')
-      .query({foo: 'bar', client_id: 'oauthkey', client_secret: 'oauthsecret'})
+      .query({ foo: 'bar', client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, {})
 
     github.authenticate({

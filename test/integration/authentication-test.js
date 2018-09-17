@@ -28,7 +28,7 @@ describe('authentication', () => {
       password: 'password'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
   })
 
   it('token', () => {
@@ -45,13 +45,13 @@ describe('authentication', () => {
       token: 'abc4567'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
   })
 
   it('oauth token', () => {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
-      .query({access_token: 'abc4567'})
+      .query({ access_token: 'abc4567' })
       .reply(200, {})
 
     github.authenticate({
@@ -59,13 +59,13 @@ describe('authentication', () => {
       token: 'abc4567'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
   })
 
   it('oauth token with query', () => {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg/repos')
-      .query({per_page: 1, access_token: 'abc4567'})
+      .query({ per_page: 1, access_token: 'abc4567' })
       .reply(200, [])
 
     github.authenticate({
@@ -73,13 +73,13 @@ describe('authentication', () => {
       token: 'abc4567'
     })
 
-    return github.repos.getForOrg({org: 'myorg', per_page: 1})
+    return github.repos.getForOrg({ org: 'myorg', per_page: 1 })
   })
 
   it('oauth key & secret', () => {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg')
-      .query({client_id: 'oauthkey', client_secret: 'oauthsecret'})
+      .query({ client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, {})
 
     github.authenticate({
@@ -88,13 +88,13 @@ describe('authentication', () => {
       secret: 'oauthsecret'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
   })
 
   it('oauth key & secret with query', () => {
     nock('https://authentication-test-host.com')
       .get('/orgs/myorg/repos')
-      .query({per_page: 1, client_id: 'oauthkey', client_secret: 'oauthsecret'})
+      .query({ per_page: 1, client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, [])
 
     github.authenticate({
@@ -103,7 +103,7 @@ describe('authentication', () => {
       secret: 'oauthsecret'
     })
 
-    return github.repos.getForOrg({org: 'myorg', per_page: 1})
+    return github.repos.getForOrg({ org: 'myorg', per_page: 1 })
   })
 
   it('app', () => {
@@ -120,7 +120,7 @@ describe('authentication', () => {
       token: 'abc4567'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
   })
 
   it('authenticate without options', () => {
@@ -133,15 +133,15 @@ describe('authentication', () => {
     }).to.throw(Error)
 
     expect(() => {
-      github.authenticate({type: 'basic'})
+      github.authenticate({ type: 'basic' })
     }).to.throw(Error)
 
     expect(() => {
-      github.authenticate({type: 'oauth'})
+      github.authenticate({ type: 'oauth' })
     }).to.throw(Error)
 
     expect(() => {
-      github.authenticate({type: 'token'})
+      github.authenticate({ type: 'token' })
     }).to.throw(Error)
   })
 })

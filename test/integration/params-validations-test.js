@@ -29,7 +29,7 @@ describe('params validations', () => {
       baseUrl: 'https://127.0.0.1:8' // port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     })
 
-    return github.orgs.get({org: 'foo'})
+    return github.orgs.get({ org: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -47,7 +47,7 @@ describe('params validations', () => {
   it('invalid value for github.issues.getAll({filter})', () => {
     const github = new GitHub()
 
-    return github.issues.getAll({filter: 'foo'})
+    return github.issues.getAll({ filter: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -65,7 +65,7 @@ describe('params validations', () => {
   it('invalid value for github.projects.moveProjectCard({position})', () => {
     const github = new GitHub()
 
-    return github.projects.moveProjectCard({id: 123, position: 'foo'})
+    return github.projects.moveProjectCard({ id: 123, position: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')

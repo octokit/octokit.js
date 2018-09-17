@@ -16,7 +16,7 @@ describe('request errors', () => {
       timeout: 1000
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -34,7 +34,7 @@ describe('request errors', () => {
       baseUrl: 'https://request-errors-test.com'
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -53,7 +53,7 @@ describe('request errors', () => {
       timeout: 1000
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -72,7 +72,7 @@ describe('request errors', () => {
       timeout: 1000
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -93,7 +93,7 @@ describe('request errors', () => {
       timeout: 1000
     })
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')

@@ -1,5 +1,5 @@
 const stringToArrayBuffer = require('string-to-arraybuffer')
-const {getInstance} = require('../util')
+const { getInstance } = require('../util')
 
 require('../mocha-node-setup')
 

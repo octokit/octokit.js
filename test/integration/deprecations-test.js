@@ -144,7 +144,7 @@ describe('deprecations', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    return github.orgs.get({org: 'myorg'})
+    return github.orgs.get({ org: 'myorg' })
 
       .then(response => {
         expect(response.meta).to.deep.equal(response.headers)

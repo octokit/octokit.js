@@ -1,4 +1,4 @@
-const {getInstance} = require('../util')
+const { getInstance } = require('../util')
 
 require('../mocha-node-setup')
 
@@ -14,7 +14,7 @@ describe('api.github.com', () => {
   })
 
   it('github.repos.getContent()', () => {
-    return github.repos.getContent({owner: 'octokit-fixture-org', repo: 'hello-world', path: ''})
+    return github.repos.getContent({ owner: 'octokit-fixture-org', repo: 'hello-world', path: '' })
 
       .then((response) => {
         expect(response.data.length).to.equal(1)
