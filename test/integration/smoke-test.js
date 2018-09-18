@@ -1,4 +1,5 @@
 const nock = require('nock')
+const getUserAgent = require('universal-user-agent')
 
 const GitHub = require('../../')
 
@@ -53,7 +54,7 @@ describe('smoke', () => {
   it('custom header', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
-        'user-agent': 'blah'
+        'user-agent': `blah octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       }
     })
       .get('/orgs/octokit')
@@ -63,7 +64,7 @@ describe('smoke', () => {
       baseUrl: 'https://smoke-test.com'
     })
 
-    github.orgs.get({
+    return github.orgs.get({
       org: 'octokit',
       headers: {
         'User-Agent': 'blah'
