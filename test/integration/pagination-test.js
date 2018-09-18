@@ -8,8 +8,7 @@ describe('pagination', () => {
   it('first / previous / next / last', (done) => {
     nock('https://pagination-test.com', {
       reqheaders: {
-        authorization: 'token secrettoken123',
-        'user-agent': `octokit/rest.js v0.0.0-semantically-released`
+        authorization: 'token secrettoken123'
       }
     })
       .get('/organizations')
