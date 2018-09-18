@@ -32,7 +32,7 @@ const options = octokitRestEndpoint({
   method: 'GET',
   url: 'https://api.github.com/orgs/octokit/repos?type=private',
   headers: {
-    'user-agent': 'octokit/rest.js v1.2.3',
+    'user-agent': 'myApp v1.2.3',
     accept: 'application/vnd.github.v3+json'
   }
 }
@@ -58,7 +58,7 @@ e.g. `/orgs/:org/repos`. The `url` is parsed using
 | **method**             | `'get'`                                                                             |
 | **baseUrl**            | `'https://api.github.com'`                                                          |
 | **headers.accept**     | `'application/vnd.github.v3+json'`                                                  |
-| **headers.user-agent** | `'octokit/rest.js v1.2.3'` (1.2.3 being the current `@octokit.rest` version number) |
+| **headers.user-agent** | `'octokit/rest.js v1.2.3'` (1.2.3 being the current `@octokit/rest` version number) plus what ever [universal-user-agent](https://www.npmjs.com/package/universal-user-agent) returns. If you pass a custom value such as `myApp v1.2.3` then it will be used as prefix |
 
 _To be done_: change defaults with
 
