@@ -1961,7 +1961,7 @@
   },
   "apps": {
     "addRepoToInstallation": {
-      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#add-repository-to-installation",
       "enabledForApps": false,
       "method": "PUT",
@@ -3034,7 +3034,7 @@
       ]
     },
     "removeRepoFromInstallation": {
-      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#remove-repository-from-installation",
       "enabledForApps": false,
       "method": "DELETE",
@@ -4101,9 +4101,11 @@
           "body": {
             "id": 4,
             "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
+            "node_id": "MDg6Q2hlY2tSdW40",
             "external_id": "42",
             "url": "https://api.github.com/repos/github/hello-world/check-runs/4",
             "html_url": "http://github.com/github/hello-world/runs/4",
+            "details_url": "https://example.com",
             "status": "in_progress",
             "conclusion": null,
             "started_at": "2018-05-04T01:14:52Z",
@@ -4213,6 +4215,7 @@
           },
           "body": {
             "id": 5,
+            "node_id": "MDEwOkNoZWNrU3VpdGU1",
             "head_branch": "master",
             "head_sha": "d6fde92930d4715a2b49857d24b940956b26d2d3",
             "status": "completed",
@@ -4393,9 +4396,11 @@
           "body": {
             "id": 4,
             "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
+            "node_id": "MDg6Q2hlY2tSdW40",
             "external_id": "",
             "url": "https://api.github.com/repos/github/hello-world/check-runs/4",
             "html_url": "http://github.com/github/hello-world/runs/4",
+            "details_url": "https://example.com",
             "status": "completed",
             "conclusion": "neutral",
             "started_at": "2018-05-04T01:14:52Z",
@@ -4502,6 +4507,7 @@
           },
           "body": {
             "id": 5,
+            "node_id": "MDEwOkNoZWNrU3VpdGU1",
             "head_branch": "master",
             "head_sha": "d6fde92930d4715a2b49857d24b940956b26d2d3",
             "status": "completed",
@@ -4800,9 +4806,11 @@
               {
                 "id": 4,
                 "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
+                "node_id": "MDg6Q2hlY2tSdW40",
                 "external_id": "",
                 "url": "https://api.github.com/repos/github/hello-world/check-runs/4",
                 "html_url": "http://github.com/github/hello-world/runs/4",
+                "details_url": "https://example.com",
                 "status": "completed",
                 "conclusion": "neutral",
                 "started_at": "2018-05-04T01:14:52Z",
@@ -4962,9 +4970,11 @@
               {
                 "id": 4,
                 "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
+                "node_id": "MDg6Q2hlY2tSdW40",
                 "external_id": "",
                 "url": "https://api.github.com/repos/github/hello-world/check-runs/4",
                 "html_url": "http://github.com/github/hello-world/runs/4",
+                "details_url": "https://example.com",
                 "status": "completed",
                 "conclusion": "neutral",
                 "started_at": "2018-05-04T01:14:52Z",
@@ -5111,6 +5121,7 @@
             "check_suites": [
               {
                 "id": 5,
+                "node_id": "MDEwOkNoZWNrU3VpdGU1",
                 "head_branch": "master",
                 "head_sha": "d6fde92930d4715a2b49857d24b940956b26d2d3",
                 "status": "completed",
@@ -5778,9 +5789,11 @@
           "body": {
             "id": 4,
             "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
+            "node_id": "MDg6Q2hlY2tSdW40",
             "external_id": "",
             "url": "https://api.github.com/repos/github/hello-world/check-runs/4",
             "html_url": "http://github.com/github/hello-world/runs/4",
+            "details_url": "https://example.com",
             "status": "completed",
             "conclusion": "neutral",
             "started_at": "2018-05-04T01:14:52Z",
@@ -13387,10 +13400,10 @@
     },
     "deleteMigrationArchive": {
       "description": "Deletes a previous migration archive. Migration archives are automatically deleted after seven days.",
-      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive",
       "enabledForApps": false,
       "method": "DELETE",
-      "name": "Delete a migration archive",
+      "name": "Delete an organization migration archive",
       "params": [
         {
           "name": "org",
@@ -13635,10 +13648,10 @@
     },
     "getMigrationArchiveLink": {
       "description": "Fetches the URL to a migration archive.\n\n",
-      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#download-a-migration-archive",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#download-an-organization-migration-archive",
       "enabledForApps": false,
       "method": "GET",
-      "name": "Download a migration archive",
+      "name": "Download an organization migration archive",
       "params": [
         {
           "name": "org",
@@ -13667,10 +13680,10 @@
     },
     "getMigrationStatus": {
       "description": "Fetches the status of a migration.\n\nThe `state` of a migration can be one of the following values:\n\n*   `pending`, which means the migration hasn't started yet.\n*   `exporting`, which means the migration is in progress.\n*   `exported`, which means the migration finished successfully.\n*   `failed`, which means the migration failed.",
-      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#get-the-status-of-a-migration",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration",
       "enabledForApps": false,
       "method": "GET",
-      "name": "Get the status of a migration",
+      "name": "Get the status of an organization migration",
       "params": [
         {
           "name": "org",
@@ -13831,10 +13844,10 @@
     },
     "getMigrations": {
       "description": "Lists the most recent migrations.",
-      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#get-a-list-of-migrations",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations",
       "enabledForApps": false,
       "method": "GET",
-      "name": "Get a list of migrations",
+      "name": "Get a list of organization migrations",
       "params": [
         {
           "name": "org",
@@ -14755,10 +14768,10 @@
     },
     "startMigration": {
       "description": "Initiates the generation of a migration archive.",
-      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#start-a-migration",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration",
       "enabledForApps": false,
       "method": "POST",
-      "name": "Start a migration",
+      "name": "Start an organization migration",
       "params": [
         {
           "name": "org",
@@ -14974,10 +14987,10 @@
     },
     "unlockRepoLockedForMigration": {
       "description": "Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data.",
-      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#unlock-a-repository",
+      "documentationUrl": "https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository",
       "enabledForApps": false,
       "method": "DELETE",
-      "name": "Unlock a repository",
+      "name": "Unlock an organization repository",
       "params": [
         {
           "name": "org",
@@ -17594,7 +17607,7 @@
               "private": false,
               "html_url": "https://github.com/octocat/Hello-World",
               "description": "This your first repo!",
-              "fork": false,
+              "fork": true,
               "url": "https://api.github.com/repos/octocat/Hello-World",
               "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
               "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -19647,7 +19660,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -19777,7 +19790,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -20352,7 +20365,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -20482,7 +20495,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -21850,7 +21863,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -21980,7 +21993,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -22380,7 +22393,7 @@
                   "private": false,
                   "html_url": "https://github.com/octocat/Hello-World",
                   "description": "This your first repo!",
-                  "fork": false,
+                  "fork": true,
                   "url": "https://api.github.com/repos/octocat/Hello-World",
                   "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                   "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -22510,7 +22523,7 @@
                   "private": false,
                   "html_url": "https://github.com/octocat/Hello-World",
                   "description": "This your first repo!",
-                  "fork": false,
+                  "fork": true,
                   "url": "https://api.github.com/repos/octocat/Hello-World",
                   "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                   "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -23973,7 +23986,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -24103,7 +24116,7 @@
                 "private": false,
                 "html_url": "https://github.com/octocat/Hello-World",
                 "description": "This your first repo!",
-                "fork": false,
+                "fork": true,
                 "url": "https://api.github.com/repos/octocat/Hello-World",
                 "archive_url": "http://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
                 "assignees_url": "http://api.github.com/repos/octocat/Hello-World/assignees{/user}",
@@ -37069,7 +37082,7 @@
       ]
     },
     "addRepoToInstallation": {
-      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#add-repository-to-installation",
       "enabledForApps": false,
       "method": "PUT",
@@ -39269,7 +39282,7 @@
       ]
     },
     "removeRepoFromInstallation": {
-      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.",
+      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/installations/#remove-repository-from-installation",
       "enabledForApps": false,
       "method": "DELETE",
