@@ -67,7 +67,10 @@ const octokit = require('@octokit/rest')({
   baseUrl: 'https://api.github.com',
 
   // Node only: advanced request options can be passed as http(s) agent
-  agent: undefined
+  agent: undefined,
+
+  // User function to make http calls can be passed
+  httpClient: undefined
 })
 ```
 
