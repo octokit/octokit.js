@@ -1481,6 +1481,9 @@
       "url": "/repos/:owner/:repo/check-suite-requests"
     },
     "rerequestSuite": {
+      "headers": {
+        "accept": "application/vnd.github.antiope-preview+json"
+      },
       "method": "POST",
       "params": {
         "check_suite_id": {
