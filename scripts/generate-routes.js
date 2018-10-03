@@ -52,7 +52,7 @@ function matchesRoute (currentEndpoint, newEndpoint) {
   //    a. repos.updateFile
   const route = `${newEndpoint.method} ${newEndpoint.path}`
   const additionalParameter = {
-    'POST /repos/:owner/:repo/pulls': 'issues',
+    'POST /repos/:owner/:repo/pulls': 'issue',
     'POST /repos/:owner/:repo/pulls/:number/comments': 'in_reply_to',
     'PUT /repos/:owner/:repo/contents/:path': 'sha'
   }[route]
@@ -170,7 +170,7 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
     }
 
     if (currentEndpoint.deprecated) {
-      console.log(`No endpoint found for deprecated ${currentEndpoint.method} ${currentEndpoint.url}, leaving route as is.`)
+      console.log(`No endpoint found for deprecated method ${scope}.${methodName}, leaving route as is.`)
       newRoutes[scope][methodName] = currentEndpoint
       return
     }
