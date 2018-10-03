@@ -9,7 +9,7 @@
         },
         "thread_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/notifications/threads/:thread_id/subscription"
@@ -37,7 +37,7 @@
         },
         "thread_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/notifications/threads/:thread_id/subscription"
@@ -213,7 +213,7 @@
         },
         "thread_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/notifications/threads/:thread_id"
@@ -430,7 +430,7 @@
         },
         "thread_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/notifications/threads/:thread_id"
@@ -473,7 +473,7 @@
         },
         "thread_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/notifications/threads/:thread_id/subscription"
@@ -550,11 +550,11 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repository_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/installations/:installation_id/repositories/:repository_id"
@@ -567,7 +567,7 @@
       "params": {
         "account_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "account_id",
@@ -590,7 +590,7 @@
       "params": {
         "account_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "account_id",
@@ -613,7 +613,7 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/app/installations/:installation_id/access_tokens"
@@ -687,7 +687,7 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/app/installations/:installation_id"
@@ -747,7 +747,7 @@
         },
         "plan_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "sort": {
           "enum": [
@@ -799,7 +799,7 @@
         },
         "plan_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "sort": {
           "enum": [
@@ -834,11 +834,11 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repository_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/installations/:installation_id/repositories/:repository_id"
@@ -889,7 +889,7 @@
       "params": {
         "authorization_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "authorization_id",
@@ -903,7 +903,7 @@
       "params": {
         "grant_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "grant_id",
@@ -917,7 +917,7 @@
       "params": {
         "authorization_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "authorization_id",
@@ -943,7 +943,7 @@
       "params": {
         "grant_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "grant_id",
@@ -1067,7 +1067,7 @@
         },
         "authorization_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "fingerprint": {
           "type": "string"
@@ -1271,7 +1271,7 @@
       "params": {
         "check_run_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1292,7 +1292,7 @@
       "params": {
         "check_suite_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1313,7 +1313,7 @@
       "params": {
         "check_run_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1388,7 +1388,7 @@
         },
         "check_suite_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "filter": {
           "enum": [
@@ -1488,7 +1488,7 @@
       "params": {
         "check_suite_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -1552,7 +1552,7 @@
         },
         "check_run_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "completed_at": {
           "type": "string"
@@ -2017,7 +2017,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "gist_id": {
           "required": true,
@@ -2065,7 +2065,7 @@
         },
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "gist_id": {
           "required": true,
@@ -2126,7 +2126,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "gist_id": {
           "required": true,
@@ -2967,7 +2967,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -3079,7 +3079,7 @@
         },
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -3199,7 +3199,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -3291,7 +3291,7 @@
       "params": {
         "event_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "event_id",
@@ -3931,7 +3931,7 @@
       "params": {
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/migrations/:migration_id/archive"
@@ -3948,7 +3948,7 @@
         },
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "org": {
           "required": true,
@@ -3965,7 +3965,7 @@
       "params": {
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/migrations/:migration_id/archive"
@@ -4040,7 +4040,7 @@
         },
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "org": {
           "required": true,
@@ -4061,7 +4061,7 @@
         },
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "org": {
           "required": true,
@@ -4097,7 +4097,7 @@
       "params": {
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/migrations/:migration_id"
@@ -4125,7 +4125,7 @@
       "params": {
         "author_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "email": {
           "type": "string"
@@ -4262,7 +4262,7 @@
       "params": {
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repo_name": {
           "required": true,
@@ -4283,7 +4283,7 @@
         },
         "migration_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "org": {
           "required": true,
@@ -4503,7 +4503,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -4544,7 +4544,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/repos/:owner/:repo"
@@ -4631,7 +4631,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/repos/:owner/:repo"
@@ -4780,7 +4780,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -4805,7 +4805,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id"
@@ -4830,7 +4830,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/repos/:owner/:repo"
@@ -4862,7 +4862,7 @@
         },
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -4908,7 +4908,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id"
@@ -4969,7 +4969,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/teams"
@@ -4995,7 +4995,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -5029,7 +5029,7 @@
       "params": {
         "invitation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "org": {
           "required": true,
@@ -5143,7 +5143,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/invitations"
@@ -5176,7 +5176,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id"
@@ -5207,7 +5207,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/members"
@@ -5224,7 +5224,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -5251,7 +5251,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/repos"
@@ -5280,7 +5280,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -5361,7 +5361,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -5455,7 +5455,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -5498,7 +5498,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content_id": {
           "type": "integer"
@@ -5527,7 +5527,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/projects/:project_id/columns"
@@ -5573,7 +5573,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/projects/:project_id"
@@ -5586,7 +5586,7 @@
       "params": {
         "card_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "card_id"
@@ -5602,7 +5602,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "column_id"
@@ -5636,7 +5636,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/projects/:project_id/collaborators"
@@ -5685,7 +5685,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/projects/:project_id"
@@ -5698,7 +5698,7 @@
       "params": {
         "card_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "card_id"
@@ -5722,7 +5722,7 @@
         },
         "column_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "page": {
           "type": "integer"
@@ -5741,7 +5741,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "column_id"
@@ -5766,7 +5766,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/projects/:project_id/columns"
@@ -5814,7 +5814,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -5831,7 +5831,7 @@
       "params": {
         "card_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "column_id": {
           "type": "integer"
@@ -5855,7 +5855,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "column_id"
@@ -5880,7 +5880,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "username": {
           "required": true,
@@ -5915,7 +5915,7 @@
         },
         "project_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "public": {
           "type": "boolean"
@@ -5941,7 +5941,7 @@
         },
         "card_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "card_id"
@@ -5960,7 +5960,7 @@
       "params": {
         "column_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "column_id"
@@ -6201,7 +6201,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -6239,7 +6239,7 @@
         },
         "review_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
@@ -6295,7 +6295,7 @@
         },
         "review_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals"
@@ -6312,7 +6312,7 @@
         },
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -6405,7 +6405,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -6575,7 +6575,7 @@
         },
         "review_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
@@ -6607,7 +6607,7 @@
         },
         "review_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments"
@@ -6733,7 +6733,7 @@
         },
         "review_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events"
@@ -6785,7 +6785,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content": {
           "enum": [
@@ -6855,7 +6855,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content": {
           "enum": [
@@ -6892,7 +6892,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content": {
           "enum": [
@@ -6945,7 +6945,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/discussions/:discussion_number/reactions"
@@ -6978,7 +6978,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions"
@@ -6995,7 +6995,7 @@
         },
         "reaction_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/reactions/:reaction_id"
@@ -7008,7 +7008,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content": {
           "enum": [
@@ -7088,7 +7088,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content": {
           "enum": [
@@ -7130,7 +7130,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "content": {
           "enum": [
@@ -7193,7 +7193,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/discussions/:discussion_number/reactions"
@@ -7231,7 +7231,7 @@
         },
         "team_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions"
@@ -7572,7 +7572,7 @@
         },
         "deployment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "description": {
           "type": "string"
@@ -7833,7 +7833,7 @@
       "params": {
         "asset_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "asset_id",
@@ -7855,7 +7855,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -7881,7 +7881,7 @@
         },
         "key_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -7899,7 +7899,7 @@
       "params": {
         "download_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "download_id",
@@ -7956,7 +7956,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -7978,7 +7978,7 @@
       "params": {
         "invitation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -8004,7 +8004,7 @@
         },
         "release_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -8072,7 +8072,7 @@
       "params": {
         "asset_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "asset_id",
@@ -8125,7 +8125,7 @@
         },
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -8170,7 +8170,7 @@
         },
         "release_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -8324,7 +8324,7 @@
       "params": {
         "asset_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "asset_id",
@@ -8360,7 +8360,7 @@
         },
         "release_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -8531,7 +8531,7 @@
       "params": {
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -8681,7 +8681,7 @@
         },
         "key_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -8719,7 +8719,7 @@
       "params": {
         "deployment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "deployment_id",
@@ -8741,7 +8741,7 @@
       "params": {
         "deployment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "deployment_id",
@@ -8770,7 +8770,7 @@
       "params": {
         "deployment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "deployment_id",
@@ -8833,7 +8833,7 @@
       "params": {
         "download_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "download_id",
@@ -8970,7 +8970,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -9097,7 +9097,7 @@
       "params": {
         "build_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "build_id",
@@ -9363,7 +9363,7 @@
         },
         "release_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repo": {
           "required": true,
@@ -9630,7 +9630,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -9975,7 +9975,7 @@
       "params": {
         "hook_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "hook_id",
@@ -10098,7 +10098,7 @@
         },
         "comment_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "comment_id",
@@ -10159,7 +10159,7 @@
       "params": {
         "invitation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "owner": {
           "required": true,
@@ -10487,7 +10487,7 @@
       "params": {
         "invitation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/repository_invitations/:invitation_id"
@@ -10511,11 +10511,11 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repository_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/installations/:installation_id/repositories/:repository_id"
@@ -10599,7 +10599,7 @@
       "params": {
         "invitation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/repository_invitations/:invitation_id"
@@ -10623,7 +10623,7 @@
       "params": {
         "gpg_key_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "gpg_key_id",
@@ -10641,7 +10641,7 @@
         },
         "key_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/keys/:key_id"
@@ -10832,7 +10832,7 @@
       "params": {
         "gpg_key_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "id": {
           "alias": "gpg_key_id",
@@ -10880,7 +10880,7 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "page": {
           "type": "integer"
@@ -10915,7 +10915,7 @@
         },
         "key_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/keys/:key_id"
@@ -11076,11 +11076,11 @@
       "params": {
         "installation_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         },
         "repository_id": {
           "required": true,
-          "type": "string"
+          "type": "integer"
         }
       },
       "url": "/user/installations/:installation_id/repositories/:repository_id"
