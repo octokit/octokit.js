@@ -6100,9 +6100,6 @@
           "required": true,
           "type": "string"
         },
-        "body": {
-          "type": "string"
-        },
         "head": {
           "required": true,
           "type": "string"
