@@ -11,7 +11,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "thread_id",
             "description": ""
@@ -100,7 +100,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "thread_id",
             "description": ""
@@ -696,7 +696,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "thread_id",
             "description": ""
@@ -1351,7 +1351,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "thread_id",
             "description": ""
@@ -1490,7 +1490,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "thread_id",
             "description": ""
@@ -1738,21 +1738,21 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "addRepoToInstallation",
     "name": "addRepoToInstallation",
-    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
+    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "repository_id",
             "description": ""
@@ -1786,14 +1786,14 @@ define({ "api": [
     "url": "/marketplace_listing/accounts/:account_id",
     "title": "checkMarketplaceListingAccount",
     "name": "checkMarketplaceListingAccount",
-    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "account_id",
             "description": ""
@@ -1843,14 +1843,14 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/accounts/:account_id",
     "title": "checkMarketplaceListingStubbedAccount",
     "name": "checkMarketplaceListingStubbedAccount",
-    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "account_id",
             "description": ""
@@ -1897,6 +1897,47 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/app-manifests/:code/conversions",
+    "title": "createFromManifest",
+    "name": "createFromManifest",
+    "description": "<p>Use this endpoint to complete the handshake necessary when implementing the <a href=\"https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/\">GitHub App Manifest flow</a>. When you create a GitHub App with the manifest flow, you receive a temporary <code>code</code> used to retrieve the GitHub App's <code>id</code>, <code>pem</code> (private key), and <code>webhook_secret</code>. <a href=\"https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest\">REST API doc</a></p>",
+    "group": "Apps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.apps.createFromManifest({code})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.apps.createFromManifest({code}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.apps.createFromManifest({code}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Apps"
+  },
+  {
+    "type": "POST",
     "url": "/app/installations/:installation_id/access_tokens",
     "title": "createInstallationToken",
     "name": "createInstallationToken",
@@ -1907,7 +1948,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
@@ -2147,7 +2188,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
@@ -2281,14 +2322,14 @@ define({ "api": [
     "url": "/marketplace_listing/plans/:plan_id/accounts",
     "title": "getMarketplaceListingPlanAccounts",
     "name": "getMarketplaceListingPlanAccounts",
-    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
+    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "plan_id",
             "description": ""
@@ -2361,7 +2402,7 @@ define({ "api": [
     "url": "/marketplace_listing/plans",
     "title": "getMarketplaceListingPlans",
     "name": "getMarketplaceListingPlans",
-    "description": "<p><a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2411,14 +2452,14 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/plans/:plan_id/accounts",
     "title": "getMarketplaceListingStubbedPlanAccounts",
     "name": "getMarketplaceListingStubbedPlanAccounts",
-    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
+    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "plan_id",
             "description": ""
@@ -2491,7 +2532,7 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/plans",
     "title": "getMarketplaceListingStubbedPlans",
     "name": "getMarketplaceListingStubbedPlans",
-    "description": "<p><a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2541,21 +2582,21 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "removeRepoFromInstallation",
     "name": "removeRepoFromInstallation",
-    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
+    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "repository_id",
             "description": ""
@@ -2720,7 +2761,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "authorization_id",
             "description": ""
@@ -2761,7 +2802,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "grant_id",
             "description": ""
@@ -2802,7 +2843,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "authorization_id",
             "description": ""
@@ -2893,7 +2934,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "grant_id",
             "description": ""
@@ -3280,7 +3321,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "authorization_id",
             "description": ""
@@ -3713,7 +3754,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "check_run_id",
             "description": ""
@@ -3768,7 +3809,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "check_suite_id",
             "description": ""
@@ -3823,7 +3864,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "check_run_id",
             "description": ""
@@ -3996,7 +4037,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "check_suite_id",
             "description": ""
@@ -4183,7 +4224,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "check_suite_id",
             "description": ""
@@ -4308,7 +4349,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "check_run_id",
             "description": ""
@@ -4773,7 +4814,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -4890,7 +4931,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -5084,7 +5125,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -7044,7 +7085,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -7317,7 +7358,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -7615,7 +7656,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -7842,7 +7883,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "event_id",
             "description": ""
@@ -9468,7 +9509,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -9502,7 +9543,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id/archive",
     "title": "deleteMigrationArchive",
     "name": "deleteMigrationArchive",
-    "description": "<p>Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href=\"https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive\">REST API doc</a></p>",
+    "description": "<p>Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href=\"https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9516,7 +9557,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -9557,7 +9598,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -9742,7 +9783,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id/archive",
     "title": "getMigrationArchiveLink",
     "name": "getMigrationArchiveLink",
-    "description": "<p>Fetches the URL to a migration archive.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#download-a-migration-archive\">REST API doc</a></p>",
+    "description": "<p>Fetches the URL to a migration archive.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#download-an-organization-migration-archive\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9756,7 +9797,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -9790,7 +9831,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id",
     "title": "getMigrationStatus",
     "name": "getMigrationStatus",
-    "description": "<p>Fetches the status of a migration.</p> <p>The <code>state</code> of a migration can be one of the following values: <code>pending</code>, which means the migration hasn't started yet. <code>exporting</code>, which means the migration is in progress. <code>exported</code>, which means the migration finished successfully. <code>failed</code>, which means the migration failed. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-the-status-of-a-migration\">REST API doc</a></p>",
+    "description": "<p>Fetches the status of a migration.</p> <p>The <code>state</code> of a migration can be one of the following values: <code>pending</code>, which means the migration hasn't started yet. <code>exporting</code>, which means the migration is in progress. <code>exported</code>, which means the migration finished successfully. <code>failed</code>, which means the migration failed. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9804,7 +9845,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -9838,7 +9879,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations",
     "title": "getMigrations",
     "name": "getMigrations",
-    "description": "<p>Lists the most recent migrations. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-a-list-of-migrations\">REST API doc</a></p>",
+    "description": "<p>Lists the most recent migrations. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9902,7 +9943,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -10007,7 +10048,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "author_id",
             "description": ""
@@ -10260,7 +10301,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations",
     "title": "startMigration",
     "name": "startMigration",
-    "description": "<p>Initiates the generation of a migration archive. <a href=\"https://developer.github.com/v3/migrations/orgs/#start-a-migration\">REST API doc</a></p>",
+    "description": "<p>Initiates the generation of a migration archive. <a href=\"https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -10331,7 +10372,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -10372,7 +10413,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock",
     "title": "unlockRepoLockedForMigration",
     "name": "unlockRepoLockedForMigration",
-    "description": "<p>Unlocks a repository that was locked for migration. You should unlock each migrated repository and <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete them</a> when the migration is complete and you no longer need the source data. <a href=\"https://developer.github.com/v3/migrations/orgs/#unlock-a-repository\">REST API doc</a></p>",
+    "description": "<p>Unlocks a repository that was locked for migration. You should unlock each migrated repository and <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete them</a> when the migration is complete and you no longer need the source data. <a href=\"https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -10386,7 +10427,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "migration_id",
             "description": ""
@@ -10696,7 +10737,7 @@ define({ "api": [
     "url": "/rate_limit",
     "title": "getRateLimit",
     "name": "getRateLimit",
-    "description": "<p>Note: Accessing this endpoint does not count against your rate limit. <em>Understanding Your Rate Limit Status</em>*</p> <p>The Search API has a <a href=\"https://developer.github.com/v3/search/#rate-limit\">custom rate limit</a>, separate from the rate limit governing the rest of the API. For that reason, the response (shown above) categorizes your rate limit by resource. Within the <code>&quot;resources&quot;</code> object, the <code>&quot;search&quot;</code> object provides your rate limit status for the <a href=\"https://developer.github.com/v3/search\">Search API</a>. The <code>&quot;core&quot;</code> object provides your rate limit status for all the <em>rest</em> of the API.</p> <p>The <code>&quot;rate&quot;</code> object (shown at the bottom of the response above) is deprecated.</p> <p>If you're writing new API client code (or updating your existing code), you should use the <code>&quot;core&quot;</code> object instead of the <code>&quot;rate&quot;</code> object. The <code>&quot;core&quot;</code> object contains the same information that is present in the <code>&quot;rate&quot;</code> object. <a href=\"https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> Accessing this endpoint does not count against your REST API rate limit. <em>Understanding your rate limit status</em>*</p> <p>The Search API has a <a href=\"https://developer.github.com/v3/search/#rate-limit\">custom rate limit</a>, separate from the rate limit governing the rest of the REST API. The GraphQL API also has a <a href=\"/v4/guides/resource-limitations/#rate-limit\">custom rate limit</a> that is separate from and calculated differently than rate limits in the REST API.</p> <p>For these reasons, the Rate Limit API response categorizes your rate limit. Under <code>resources</code>, you'll see three objects: The <code>core</code> object provides your rate limit status for all non-search-related resources in the REST API. The <code>search</code> object provides your rate limit status for the <a href=\"https://developer.github.com/v3/search/\">Search API</a>. The <code>graphql</code> object provides your rate limit status for the <a href=\"/v4/\">GraphQL API</a>.</p> <p>For more information on the headers and values in the rate limit response, see &quot;<a href=\"https://developer.github.com/v3/#rate-limiting\">Rate limiting</a>.&quot;</p> <p>The <code>rate</code> object (shown at the bottom of the response above) is deprecated.</p> <p>If you're writing new API client code or updating existing code, you should use the <code>core</code> object instead of the <code>rate</code> object. The <code>core</code> object contains the same information that is present in the <code>rate</code> object. <a href=\"https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status\">REST API doc</a></p>",
     "group": "Misc",
     "examples": [
       {
@@ -10988,7 +11029,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -11048,7 +11089,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -11307,7 +11348,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -11740,7 +11781,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -11781,7 +11822,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -11822,7 +11863,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -11884,7 +11925,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -11976,7 +12017,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -12197,7 +12238,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -12318,7 +12359,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -12423,7 +12464,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "invitation_id",
             "description": ""
@@ -12736,7 +12777,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -12850,7 +12891,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -12891,7 +12932,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -12961,7 +13002,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -13009,7 +13050,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -13130,7 +13171,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -13363,7 +13404,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -13578,7 +13619,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -13710,7 +13751,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "column_id",
             "description": ""
@@ -13772,7 +13813,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -13898,7 +13939,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -13939,7 +13980,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "card_id",
             "description": ""
@@ -13980,7 +14021,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "column_id",
             "description": ""
@@ -14021,7 +14062,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -14161,7 +14202,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -14218,7 +14259,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "card_id",
             "description": ""
@@ -14259,7 +14300,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "column_id",
             "description": ""
@@ -14329,7 +14370,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "column_id",
             "description": ""
@@ -14370,7 +14411,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -14504,7 +14545,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -14552,7 +14593,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "card_id",
             "description": ""
@@ -14612,7 +14653,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "column_id",
             "description": ""
@@ -14665,7 +14706,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -14713,7 +14754,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "project_id",
             "description": ""
@@ -14809,7 +14850,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "card_id",
             "description": ""
@@ -14864,7 +14905,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "column_id",
             "description": ""
@@ -15216,10 +15257,10 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
-            "field": "title",
-            "description": "<p>The title of the pull request.</p>"
+            "field": "issue",
+            "description": "<p>The issue number in this repository to turn into a Pull Request.</p>"
           },
           {
             "group": "Parameter",
@@ -15237,13 +15278,6 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "body",
-            "description": "<p>The contents of the pull request.</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "boolean",
             "optional": true,
             "field": "maintainer_can_modify",
@@ -15255,17 +15289,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.pullRequests.createFromIssue({owner, repo, title, head, base, body, maintainer_can_modify})",
+        "content": "const result = await octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.pullRequests.createFromIssue({owner, repo, title, head, base, body, maintainer_can_modify}).then(result => {})",
+        "content": "octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.pullRequests.createFromIssue({owner, repo, title, head, base, body, maintainer_can_modify}, (error, result) => {})",
+        "content": "octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15477,7 +15511,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -15539,7 +15573,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "review_id",
             "description": ""
@@ -15670,7 +15704,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "review_id",
             "description": ""
@@ -15732,7 +15766,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -15966,7 +16000,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -16365,7 +16399,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "review_id",
             "description": ""
@@ -16427,7 +16461,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "review_id",
             "description": ""
@@ -16735,7 +16769,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "review_id",
             "description": ""
@@ -16903,7 +16937,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -17043,7 +17077,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -17113,7 +17147,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -17169,7 +17203,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -17232,7 +17266,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -17302,7 +17336,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "reaction_id",
             "description": ""
@@ -17357,7 +17391,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -17529,7 +17563,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -17615,7 +17649,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -17687,7 +17721,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -17766,7 +17800,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "team_id",
             "description": ""
@@ -18755,7 +18789,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "deployment_id",
             "description": ""
@@ -19435,7 +19469,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "asset_id",
             "description": ""
@@ -19490,7 +19524,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -19545,7 +19579,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "key_id",
             "description": ""
@@ -19600,7 +19634,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "download_id",
             "description": ""
@@ -19746,7 +19780,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -19801,7 +19835,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "invitation_id",
             "description": ""
@@ -19856,7 +19890,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "release_id",
             "description": ""
@@ -20051,7 +20085,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "asset_id",
             "description": ""
@@ -20120,7 +20154,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -20240,7 +20274,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "release_id",
             "description": ""
@@ -20690,7 +20724,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "asset_id",
             "description": ""
@@ -20745,7 +20779,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "release_id",
             "description": ""
@@ -21244,7 +21278,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -21652,7 +21686,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "key_id",
             "description": ""
@@ -21771,7 +21805,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "deployment_id",
             "description": ""
@@ -21826,7 +21860,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "deployment_id",
             "description": ""
@@ -21895,7 +21929,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "deployment_id",
             "description": ""
@@ -22069,7 +22103,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "download_id",
             "description": ""
@@ -22434,7 +22468,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -22809,7 +22843,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "build_id",
             "description": ""
@@ -23593,7 +23627,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "release_id",
             "description": ""
@@ -24438,7 +24472,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -25408,7 +25442,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "hook_id",
             "description": ""
@@ -25678,7 +25712,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "comment_id",
             "description": ""
@@ -25838,7 +25872,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "invitation_id",
             "description": ""
@@ -26653,7 +26687,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "invitation_id",
             "description": ""
@@ -26728,21 +26762,21 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "addRepoToInstallation",
     "name": "addRepoToInstallation",
-    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
+    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "repository_id",
             "description": ""
@@ -27043,7 +27077,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "invitation_id",
             "description": ""
@@ -27125,7 +27159,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "gpg_key_id",
             "description": ""
@@ -27166,7 +27200,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "key_id",
             "description": ""
@@ -27778,7 +27812,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "gpg_key_id",
             "description": ""
@@ -27926,7 +27960,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
@@ -28033,7 +28067,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "key_id",
             "description": ""
@@ -28174,7 +28208,7 @@ define({ "api": [
     "url": "/user/marketplace_purchases",
     "title": "getMarketplacePurchases",
     "name": "getMarketplacePurchases",
-    "description": "<p>Returns only active subscriptions. You need to authenticate this call with the user's OAuth token. <a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
+    "description": "<p>Returns only active subscriptions. You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/\">OAuth token</a>. <a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -28224,7 +28258,7 @@ define({ "api": [
     "url": "/user/marketplace_purchases/stubbed",
     "title": "getMarketplaceStubbedPurchases",
     "name": "getMarketplaceStubbedPurchases",
-    "description": "<p>Returns only active subscriptions. You need to authenticate this call with the user's OAuth token. <a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
+    "description": "<p>Returns only active subscriptions. You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/\">OAuth token</a>. <a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -28576,21 +28610,21 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "removeRepoFromInstallation",
     "name": "removeRepoFromInstallation",
-    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
+    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "installation_id",
             "description": ""
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "integer",
             "optional": false,
             "field": "repository_id",
             "description": ""

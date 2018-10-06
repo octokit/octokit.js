@@ -12,7 +12,7 @@
 Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mentioned**, or manually subscribe to a thread. <a href="https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} thread_id  
+ * @apiParam {integer} thread_id  
  * @apiExample {js} async/await
  * const result = await octokit.activity.checkNotificationThreadSubscription({thread_id})
  * @apiExample {js} Promise
@@ -45,7 +45,7 @@ Note that subscriptions are only generated if a user is participating in a conve
  * @apiDescription Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed. <a href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} thread_id  
+ * @apiParam {integer} thread_id  
  * @apiExample {js} async/await
  * const result = await octokit.activity.deleteNotificationThreadSubscription({thread_id})
  * @apiExample {js} Promise
@@ -249,7 +249,7 @@ Note that subscriptions are only generated if a user is participating in a conve
  * @apiDescription <a href="https://developer.github.com/v3/activity/notifications/#view-a-single-thread">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} thread_id  
+ * @apiParam {integer} thread_id  
  * @apiExample {js} async/await
  * const result = await octokit.activity.getNotificationThread({thread_id})
  * @apiExample {js} Promise
@@ -438,7 +438,7 @@ Note that subscriptions are only generated if a user is participating in a conve
  * @apiDescription <a href="https://developer.github.com/v3/activity/notifications/#mark-a-thread-as-read">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} thread_id  
+ * @apiParam {integer} thread_id  
  * @apiExample {js} async/await
  * const result = await octokit.activity.markNotificationThreadAsRead({thread_id})
  * @apiExample {js} Promise
@@ -488,7 +488,7 @@ Note that subscriptions are only generated if a user is participating in a conve
  * @apiDescription This lets you subscribe or unsubscribe from a conversation. <a href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
- * @apiParam {string} thread_id  
+ * @apiParam {integer} thread_id  
  * @apiParam {boolean} [ignored="false"]  Unsubscribes and subscribes you to a conversation. Set `ignored` to `true` to block all notifications from this thread.
  * @apiExample {js} async/await
  * const result = await octokit.activity.setNotificationThreadSubscription({thread_id, ignored})
@@ -583,11 +583,11 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * @apiName addRepoToInstallation
  * @apiDescription Add a single repository to an installation. The authenticated user must have admin access to the repository.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
+You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} installation_id  
- * @apiParam {string} repository_id  
+ * @apiParam {integer} installation_id  
+ * @apiParam {integer} repository_id  
  * @apiExample {js} async/await
  * const result = await octokit.apps.addRepoToInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
@@ -600,10 +600,12 @@ You must use an [installation access token](https://developer.github.com/apps/bu
 /**
  * @api {GET} /marketplace_listing/accounts/:account_id checkMarketplaceListingAccount
  * @apiName checkMarketplaceListingAccount
- * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
+ * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.
+
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} account_id  
+ * @apiParam {integer} account_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -618,10 +620,12 @@ You must use an [installation access token](https://developer.github.com/apps/bu
 /**
  * @api {GET} /marketplace_listing/stubbed/accounts/:account_id checkMarketplaceListingStubbedAccount
  * @apiName checkMarketplaceListingStubbedAccount
- * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
+ * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.
+
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} account_id  
+ * @apiParam {integer} account_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -634,6 +638,22 @@ You must use an [installation access token](https://developer.github.com/apps/bu
 
 
 /**
+ * @api {POST} /app-manifests/:code/conversions createFromManifest
+ * @apiName createFromManifest
+ * @apiDescription Use this endpoint to complete the handshake necessary when implementing the [GitHub App Manifest flow](https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/). When you create a GitHub App with the manifest flow, you receive a temporary `code` used to retrieve the GitHub App's `id`, `pem` (private key), and `webhook_secret`. <a href="https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest">REST API doc</a>
+ * @apiGroup Apps
+ *
+ * @apiParam {string} code  
+ * @apiExample {js} async/await
+ * const result = await octokit.apps.createFromManifest({code})
+ * @apiExample {js} Promise
+ * octokit.apps.createFromManifest({code}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.apps.createFromManifest({code}, (error, result) => {})
+ */
+
+
+/**
  * @api {POST} /app/installations/:installation_id/access_tokens createInstallationToken
  * @apiName createInstallationToken
  * @apiDescription Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.
@@ -641,7 +661,7 @@ You must use an [installation access token](https://developer.github.com/apps/bu
 You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#create-a-new-installation-token">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} installation_id  
+ * @apiParam {integer} installation_id  
  * @apiExample {js} async/await
  * const result = await octokit.apps.createInstallationToken({installation_id})
  * @apiExample {js} Promise
@@ -747,7 +767,7 @@ If the GitHub App you specify is public, you can access this endpoint without au
  * @apiDescription You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-a-single-installation">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} installation_id  
+ * @apiParam {integer} installation_id  
  * @apiExample {js} async/await
  * const result = await octokit.apps.getInstallation({installation_id})
  * @apiExample {js} Promise
@@ -800,10 +820,12 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /marketplace_listing/plans/:plan_id/accounts getMarketplaceListingPlanAccounts
  * @apiName getMarketplaceListingPlanAccounts
- * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
+ * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.
+
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} plan_id  
+ * @apiParam {integer} plan_id  
  * @apiParam {string=created,updated} [sort="created"]  Sorts the GitHub accounts by the date they were created or last updated. Can be one of `created` or `updated`.
  * @apiParam {string=asc,desc} [direction]  To return the oldest accounts first, set to `asc`. Can be one of `asc` or `desc`. Ignored without the `sort` parameter.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -820,7 +842,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /marketplace_listing/plans getMarketplaceListingPlans
  * @apiName getMarketplaceListingPlans
- * @apiDescription <a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
+ * @apiDescription GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -837,10 +859,12 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /marketplace_listing/stubbed/plans/:plan_id/accounts getMarketplaceListingStubbedPlanAccounts
  * @apiName getMarketplaceListingStubbedPlanAccounts
- * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
+ * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.
+
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} plan_id  
+ * @apiParam {integer} plan_id  
  * @apiParam {string=created,updated} [sort="created"]  Sorts the GitHub accounts by the date they were created or last updated. Can be one of `created` or `updated`.
  * @apiParam {string=asc,desc} [direction]  To return the oldest accounts first, set to `asc`. Can be one of `asc` or `desc`. Ignored without the `sort` parameter.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -857,7 +881,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /marketplace_listing/stubbed/plans getMarketplaceListingStubbedPlans
  * @apiName getMarketplaceListingStubbedPlans
- * @apiDescription <a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
+ * @apiDescription GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -876,11 +900,11 @@ The permissions the installation has are included under the `permissions` key. <
  * @apiName removeRepoFromInstallation
  * @apiDescription Remove a single repository from an installation. The authenticated user must have admin access to the repository.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
+You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
  * @apiGroup Apps
  *
- * @apiParam {string} installation_id  
- * @apiParam {string} repository_id  
+ * @apiParam {integer} installation_id  
+ * @apiParam {integer} repository_id  
  * @apiExample {js} async/await
  * const result = await octokit.apps.removeRepoFromInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
@@ -947,7 +971,7 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * @apiDescription <a href="https://developer.github.com/v3/oauth_authorizations/#delete-an-authorization">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} authorization_id  
+ * @apiParam {integer} authorization_id  
  * @apiExample {js} async/await
  * const result = await octokit.authorization.delete({authorization_id})
  * @apiExample {js} Promise
@@ -963,7 +987,7 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * @apiDescription Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). <a href="https://developer.github.com/v3/oauth_authorizations/#delete-a-grant">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} grant_id  
+ * @apiParam {integer} grant_id  
  * @apiExample {js} async/await
  * const result = await octokit.authorization.deleteGrant({grant_id})
  * @apiExample {js} Promise
@@ -979,7 +1003,7 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * @apiDescription <a href="https://developer.github.com/v3/oauth_authorizations/#get-a-single-authorization">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} authorization_id  
+ * @apiParam {integer} authorization_id  
  * @apiExample {js} async/await
  * const result = await octokit.authorization.get({authorization_id})
  * @apiExample {js} Promise
@@ -1012,7 +1036,7 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * @apiDescription <a href="https://developer.github.com/v3/oauth_authorizations/#get-a-single-grant">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} grant_id  
+ * @apiParam {integer} grant_id  
  * @apiExample {js} async/await
  * const result = await octokit.authorization.getGrant({grant_id})
  * @apiExample {js} Promise
@@ -1140,7 +1164,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiDescription You can only send one of these scope keys at a time. <a href="https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization">REST API doc</a>
  * @apiGroup Authorization
  *
- * @apiParam {string} authorization_id  
+ * @apiParam {integer} authorization_id  
  * @apiParam {string[]} [scopes]  Replaces the authorization scopes with these.
  * @apiParam {string[]} [add_scopes]  A list of scopes to add to this authorization.
  * @apiParam {string[]} [remove_scopes]  A list of scopes to remove from this authorization.
@@ -1237,7 +1261,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} check_run_id  
+ * @apiParam {integer} check_run_id  
  * @apiExample {js} async/await
  * const result = await octokit.checks.get({owner, repo, check_run_id})
  * @apiExample {js} Promise
@@ -1255,7 +1279,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} check_suite_id  
+ * @apiParam {integer} check_suite_id  
  * @apiExample {js} async/await
  * const result = await octokit.checks.getSuite({owner, repo, check_suite_id})
  * @apiExample {js} Promise
@@ -1273,7 +1297,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} check_run_id  
+ * @apiParam {integer} check_run_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -1316,7 +1340,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} check_suite_id  
+ * @apiParam {integer} check_suite_id  
  * @apiParam {string} [check_name]  Returns check runs with the specified `name`.
  * @apiParam {string=queued,in_progress,completed} [status]  Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.
  * @apiParam {string=latest,all} [filter="latest"]  Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.
@@ -1363,7 +1387,7 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} check_suite_id  
+ * @apiParam {integer} check_suite_id  
  * @apiExample {js} async/await
  * const result = await octokit.checks.rerequestSuite({owner, repo, check_suite_id})
  * @apiExample {js} Promise
@@ -1401,7 +1425,7 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} check_run_id  
+ * @apiParam {integer} check_run_id  
  * @apiParam {string} [name]  The name of the check. For example, "code-coverage".
  * @apiParam {string} [details_url]  The URL of the integrator's site that has the full details of the check.
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
@@ -1525,7 +1549,7 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.gists.deleteComment({gist_id, comment_id})
  * @apiExample {js} Promise
@@ -1562,7 +1586,7 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string} body  The comment text.
  * @apiExample {js} async/await
  * const result = await octokit.gists.editComment({gist_id, comment_id, body})
@@ -1630,7 +1654,7 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.gists.getComment({gist_id, comment_id})
  * @apiExample {js} Promise
@@ -2271,7 +2295,7 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.issues.deleteComment({owner, repo, comment_id})
  * @apiExample {js} Promise
@@ -2350,7 +2374,7 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string} body  The contents of the comment.
  * @apiExample {js} async/await
  * const result = await octokit.issues.editComment({owner, repo, comment_id, body})
@@ -2450,7 +2474,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -2517,7 +2541,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} event_id  
+ * @apiParam {integer} event_id  
  * @apiExample {js} async/await
  * const result = await octokit.issues.getEvent({owner, repo, event_id})
  * @apiExample {js} Promise
@@ -3005,7 +3029,7 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * @apiDescription Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [Get a list of user migrations](#get-a-list-of-user-migrations) and [Get the status of a user migration](#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted. <a href="https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id})
  * @apiExample {js} Promise
@@ -3018,11 +3042,11 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 /**
  * @api {DELETE} /orgs/:org/migrations/:migration_id/archive deleteMigrationArchive
  * @apiName deleteMigrationArchive
- * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href="https://developer.github.com/v3/migrations/orgs/#delete-a-migration-archive">REST API doc</a>
+ * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href="https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.deleteMigrationArchive({org, migration_id})
  * @apiExample {js} Promise
@@ -3039,19 +3063,19 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 
 *   attachments
 *   bases
-*   commit_comments
-*   issue_comments
-*   issue_events
+*   commit\_comments
+*   issue\_comments
+*   issue\_events
 *   issues
 *   milestones
 *   organizations
 *   projects
-*   protected_branches
+*   protected\_branches
 *   pull\_request\_reviews
-*   pull_requests
+*   pull\_requests
 *   releases
 *   repositories
-*   review_comments
+*   review\_comments
 *   schema
 *   users
 
@@ -3060,7 +3084,7 @@ The archive will also contain an `attachments` directory that includes all attac
  <a href="https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.getArchiveForAuthenticatedUser({migration_id})
  * @apiExample {js} Promise
@@ -3101,19 +3125,19 @@ This section includes details about the possible values of the `status` field of
 
 An import that does not have errors will progress through these steps:
 
-*   `detecting` \- the "detection" step of the import is in progress because the request did not include a `vcs` parameter. The import is identifying the type of source control present at the URL.
-*   `importing` \- the "raw" step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include `commit_count` (the total number of raw commits that will be imported) and `percent` (0 - 100, the current progress through the import).
-*   `mapping` \- the "rewrite" step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information.
-*   `pushing` \- the "push" step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include `push_percent`, which is the percent value reported by `git push` when it is "Writing objects".
-*   `complete` \- the import is complete, and the repository is ready on GitHub.
+*   `detecting` - the "detection" step of the import is in progress because the request did not include a `vcs` parameter. The import is identifying the type of source control present at the URL.
+*   `importing` - the "raw" step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include `commit_count` (the total number of raw commits that will be imported) and `percent` (0 - 100, the current progress through the import).
+*   `mapping` - the "rewrite" step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information.
+*   `pushing` - the "push" step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include `push_percent`, which is the percent value reported by `git push` when it is "Writing objects".
+*   `complete` - the import is complete, and the repository is ready on GitHub.
 
 If there are problems, you will see one of these in the `status` field:
 
-*   `auth_failed` \- the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.
-*   `error` \- the import encountered an error. The import progress response will include the `failed_step` and an error message. Contact [GitHub support](https://github.com/contact) for more information.
-*   `detection_needs_auth` \- the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.
-*   `detection_found_nothing` \- the importer didn't recognize any source control at the URL. To resolve, [Cancel the import](#cancel-an-import) and [retry](#start-an-import) with the correct URL.
-*   `detection_found_multiple` \- the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a `project_choices` field with the possible project choices as values. To update project choice, please see the [Update Existing Import](#update-existing-import) section.
+*   `auth_failed` - the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.
+*   `error` - the import encountered an error. The import progress response will include the `failed_step` and an error message. Contact [GitHub support](https://github.com/contact) for more information.
+*   `detection_needs_auth` - the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.
+*   `detection_found_nothing` - the importer didn't recognize any source control at the URL. To resolve, [Cancel the import](#cancel-an-import) and [retry](#start-an-import) with the correct URL.
+*   `detection_found_multiple` - the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a `project_choices` field with the possible project choices as values. To update project choice, please see the [Update Existing Import](#update-existing-import) section.
 
 **The project_choices field**
 
@@ -3123,10 +3147,10 @@ When multiple projects are found at the provided URL, the response hash will inc
 
 This section includes details about Git LFS related fields that may be present in the Import Progress response.
 
-*   `use_lfs` \- describes whether the import has been opted in or out of using Git LFS. The value can be `opt_in`, `opt_out`, or `undecided` if no action has been taken.
-*   `has_large_files` \- the boolean value describing whether files larger than 100MB were found during the `importing` step.
-*   `large_files_size` \- the total size in gigabytes of files larger than 100MB found in the originating repository.
-*   `large_files_count` \- the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request. <a href="https://developer.github.com/v3/migrations/source_imports/#get-import-progress">REST API doc</a>
+*   `use_lfs` - describes whether the import has been opted in or out of using Git LFS. The value can be `opt_in`, `opt_out`, or `undecided` if no action has been taken.
+*   `has_large_files` - the boolean value describing whether files larger than 100MB were found during the `importing` step.
+*   `large_files_size` - the total size in gigabytes of files larger than 100MB found in the originating repository.
+*   `large_files_count` - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request. <a href="https://developer.github.com/v3/migrations/source_imports/#get-import-progress">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3162,11 +3186,11 @@ This section includes details about Git LFS related fields that may be present i
  * @apiName getMigrationArchiveLink
  * @apiDescription Fetches the URL to a migration archive.
 
- <a href="https://developer.github.com/v3/migrations/orgs/#download-a-migration-archive">REST API doc</a>
+ <a href="https://developer.github.com/v3/migrations/orgs/#download-an-organization-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.getMigrationArchiveLink({org, migration_id})
  * @apiExample {js} Promise
@@ -3186,11 +3210,11 @@ The `state` of a migration can be one of the following values:
 *   `pending`, which means the migration hasn't started yet.
 *   `exporting`, which means the migration is in progress.
 *   `exported`, which means the migration finished successfully.
-*   `failed`, which means the migration failed. <a href="https://developer.github.com/v3/migrations/orgs/#get-the-status-of-a-migration">REST API doc</a>
+*   `failed`, which means the migration failed. <a href="https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.getMigrationStatus({org, migration_id})
  * @apiExample {js} Promise
@@ -3203,7 +3227,7 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {GET} /orgs/:org/migrations getMigrations
  * @apiName getMigrations
- * @apiDescription Lists the most recent migrations. <a href="https://developer.github.com/v3/migrations/orgs/#get-a-list-of-migrations">REST API doc</a>
+ * @apiDescription Lists the most recent migrations. <a href="https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -3223,15 +3247,15 @@ The `state` of a migration can be one of the following values:
  * @apiName getStatusForAuthenticatedUser
  * @apiDescription Fetches a single user migration. The response includes the `state` of the migration, which can be one of the following values:
 
-*   `pending` \- the migration hasn't started yet.
-*   `exporting` \- the migration is in progress.
-*   `exported` \- the migration finished successfully.
-*   `failed` \- the migration failed.
+*   `pending` - the migration hasn't started yet.
+*   `exporting` - the migration is in progress.
+*   `exported` - the migration finished successfully.
+*   `failed` - the migration failed.
 
 Once the migration has been `exported` you can [download the migration archive](#download-a-user-migration-archive). <a href="https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration">REST API doc</a>
  * @apiGroup Migrations
  *
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.getStatusForAuthenticatedUser({migration_id})
  * @apiExample {js} Promise
@@ -3266,7 +3290,7 @@ Once the migration has been `exported` you can [download the migration archive](
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} author_id  
+ * @apiParam {integer} author_id  
  * @apiParam {string} [email]  The new Git author email.
  * @apiParam {string} [name]  The new Git author name.
  * @apiExample {js} async/await
@@ -3339,7 +3363,7 @@ Once the migration has been `exported` you can [download the migration archive](
 /**
  * @api {POST} /orgs/:org/migrations startMigration
  * @apiName startMigration
- * @apiDescription Initiates the generation of a migration archive. <a href="https://developer.github.com/v3/migrations/orgs/#start-a-migration">REST API doc</a>
+ * @apiDescription Initiates the generation of a migration archive. <a href="https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -3361,7 +3385,7 @@ Once the migration has been `exported` you can [download the migration archive](
  * @apiDescription Unlocks a repository. You can lock repositories when you [start a user migration](#start-a-user-migration). Once the migration is complete you can unlock each repository to begin using it again or [delete the repository](https://developer.github.com/v3/repos/#delete-a-repository) if you no longer need the source data. Returns a status of `404 Not Found` if the repository is not locked. <a href="https://developer.github.com/v3/migrations/users/#unlock-a-user-repository">REST API doc</a>
  * @apiGroup Migrations
  *
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiParam {string} repo_name  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name})
@@ -3375,11 +3399,11 @@ Once the migration has been `exported` you can [download the migration archive](
 /**
  * @api {DELETE} /orgs/:org/migrations/:migration_id/repos/:repo_name/lock unlockRepoLockedForMigration
  * @apiName unlockRepoLockedForMigration
- * @apiDescription Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data. <a href="https://developer.github.com/v3/migrations/orgs/#unlock-a-repository">REST API doc</a>
+ * @apiDescription Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data. <a href="https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
- * @apiParam {string} migration_id  
+ * @apiParam {integer} migration_id  
  * @apiParam {string} repo_name  
  * @apiExample {js} async/await
  * const result = await octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name})
@@ -3522,17 +3546,23 @@ Use the raw [media type](https://developer.github.com/v3/media/) to get the raw 
 /**
  * @api {GET} /rate_limit getRateLimit
  * @apiName getRateLimit
- * @apiDescription Note: Accessing this endpoint does not count against your rate limit.
+ * @apiDescription **Note:** Accessing this endpoint does not count against your REST API rate limit.
 
+**Understanding your rate limit status**
 
+The Search API has a [custom rate limit](https://developer.github.com/v3/search/#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit](/v4/guides/resource-limitations/#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
 
-**Understanding Your Rate Limit Status**
+For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see three objects:
 
-The Search API has a [custom rate limit](https://developer.github.com/v3/search/#rate-limit), separate from the rate limit governing the rest of the API. For that reason, the response (shown above) categorizes your rate limit by resource. Within the `"resources"` object, the `"search"` object provides your rate limit status for the [Search API](https://developer.github.com/v3/search). The `"core"` object provides your rate limit status for all the _rest_ of the API.
+*   The `core` object provides your rate limit status for all non-search-related resources in the REST API.
+*   The `search` object provides your rate limit status for the [Search API](https://developer.github.com/v3/search/).
+*   The `graphql` object provides your rate limit status for the [GraphQL API](/v4/).
 
-The `"rate"` object (shown at the bottom of the response above) is deprecated.
+For more information on the headers and values in the rate limit response, see "[Rate limiting](https://developer.github.com/v3/#rate-limiting)."
 
-If you're writing new API client code (or updating your existing code), you should use the `"core"` object instead of the `"rate"` object. The `"core"` object contains the same information that is present in the `"rate"` object. <a href="https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status">REST API doc</a>
+The `rate` object (shown at the bottom of the response above) is deprecated.
+
+If you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object. <a href="https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status">REST API doc</a>
  * @apiGroup Misc
  *
  * @apiExample {js} async/await
@@ -3642,8 +3672,8 @@ To prevent abuse, the authenticated user is limited to 50 organization invitatio
  * @apiParam {string} org  
  * @apiParam {string} username  
  * @apiParam {string=admin,member} [role="member"]  The role to give the user in the organization. Can be one of:  
-\* `admin` \- The user will become an owner of the organization.  
-\* `member` \- The user will become a non-owner member of the organization.
+\* `admin` - The user will become an owner of the organization.  
+\* `member` - The user will become a non-owner member of the organization.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.addOrgMembership({org, username, role})
  * @apiExample {js} Promise
@@ -3665,11 +3695,11 @@ If the user is already a member of the team, this endpoint will update the role 
 If you attempt to add an organization to a team, you will get this: <a href="https://developer.github.com/v3/teams/members/#add-or-update-team-membership">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} username  
  * @apiParam {string=member,maintainer} [role="member"]  The role that this user should have in the team. Can be one of:  
-\* `member` \- a normal member of the team.  
-\* `maintainer` \- a team maintainer. Able to add/remove other team members, promote other team members to team maintainer, and edit the team's name and description.
+\* `member` - a normal member of the team.  
+\* `maintainer` - a team maintainer. Able to add/remove other team members, promote other team members to team maintainer, and edit the team's name and description.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.addTeamMembership({team_id, username, role})
  * @apiExample {js} Promise
@@ -3691,13 +3721,13 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
  <a href="https://developer.github.com/v3/teams/#add-or-update-team-repository">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {string=pull,push,admin} [permission]  The permission to grant the team on this repository. Can be one of:  
-\* `pull` \- team members can pull, but not push to or administer this repository.  
-\* `push` \- team members can pull and push, but not administer this repository.  
-\* `admin` \- team members can pull, push and administer this repository.  
+\* `pull` - team members can pull, but not push to or administer this repository.  
+\* `push` - team members can pull and push, but not administer this repository.  
+\* `admin` - team members can pull, push and administer this repository.  
   
 If no permission is specified, the team's `permission` attribute will be used to determine what permission to grant the team on this repository.  
 **Note**: If you pass the `hellcat-preview` media type, you can promote—but not demote—a `permission` attribute inherited through a parent team.
@@ -3788,7 +3818,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
 You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header: <a href="https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
@@ -3868,9 +3898,9 @@ You can also get information about the specified repository, including what perm
  * @apiParam {integer} [invitee_id]  **Required unless you provide `email`**. GitHub user ID for the person you are inviting.
  * @apiParam {string} [email]  **Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.
  * @apiParam {string=admin,direct_member,billing_manager} [role="direct_member"]  Specify role for new member. Can be one of:  
-\* `admin` \- Organization owners with full administrative rights to the organization and complete access to all repositories and teams.  
-\* `direct_member` \- Non-owner organization members with ability to see other members and join teams by invitation.  
-\* `billing_manager` \- Non-owner organization members with ability to manage the billing settings of your organization.
+\* `admin` - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.  
+\* `direct_member` - Non-owner organization members with ability to see other members and join teams by invitation.  
+\* `billing_manager` - Non-owner organization members with ability to manage the billing settings of your organization.
  * @apiParam {integer[]} [team_ids]  Specify IDs for the teams you want to invite new members to.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids})
@@ -3894,17 +3924,17 @@ You can also get information about the specified repository, including what perm
  * @apiParam {string[]} [repo_names]  The full name (e.g., "organization-name/repository-name") of repositories to add the team to.
  * @apiParam {string=secret,closed} [privacy="secret"]  The level of privacy this team should have. The options are:  
 **For a non-nested team:**  
-\* `secret` \- only visible to organization owners and members of this team.  
-\* `closed` \- visible to all members of this organization.  
+\* `secret` - only visible to organization owners and members of this team.  
+\* `closed` - visible to all members of this organization.  
 Default: `secret`  
 **For a parent or child team:**  
-\* `closed` \- visible to all members of this organization.  
+\* `closed` - visible to all members of this organization.  
 Default for child team: `closed`  
 **Note**: You must pass the `hellcat-preview` media type to set privacy default to `closed` for child teams. **For a parent or child team:**  
  * @apiParam {string=pull,push,admin} [permission="pull"]  **Deprecated**. The permission that new repositories will be added to the team with when none is specified. Can be one of:  
-\* `pull` \- team members can pull, but not push to or administer newly-added repositories.  
-\* `push` \- team members can pull and push, but not administer newly-added repositories.  
-\* `admin` \- team members can pull, push and administer newly-added repositories.
+\* `pull` - team members can pull, but not push to or administer newly-added repositories.  
+\* `push` - team members can pull and push, but not administer newly-added repositories.  
+\* `admin` - team members can pull, push and administer newly-added repositories.
  * @apiParam {integer} [parent_team_id]  The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, permission, parent_team_id})
@@ -3922,7 +3952,7 @@ Default for child team: `closed`
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.deleteHook({org, hook_id})
  * @apiExample {js} Promise
@@ -3940,7 +3970,7 @@ Default for child team: `closed`
 If you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well. <a href="https://developer.github.com/v3/teams/#delete-team">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.deleteTeam({team_id})
  * @apiExample {js} Promise
@@ -3956,7 +3986,7 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * @apiDescription If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team. <a href="https://developer.github.com/v3/teams/#remove-team-repository">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiExample {js} async/await
@@ -3975,7 +4005,7 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiParam {object} [config]  Key/value pairs to provide settings for this webhook. [These are defined below](#update-hook-config-params).
  * @apiParam {string} config:url  The URL to which the payloads will be delivered.
  * @apiParam {string} [config:content_type]  The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
@@ -4000,19 +4030,19 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
 **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`. <a href="https://developer.github.com/v3/teams/#edit-team">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} name  The name of the team.
  * @apiParam {string} [description]  The description of the team.
  * @apiParam {string} [privacy]  The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:  
 **For a non-nested team:**  
-\* `secret` \- only visible to organization owners and members of this team.  
-\* `closed` \- visible to all members of this organization.  
+\* `secret` - only visible to organization owners and members of this team.  
+\* `closed` - visible to all members of this organization.  
 **For a parent or child team:**  
-\* `closed` \- visible to all members of this organization.
+\* `closed` - visible to all members of this organization.
  * @apiParam {string=pull,push,admin} [permission="pull"]  **Deprecated**. The permission that new repositories will be added to the team with when none is specified. Can be one of:  
-\* `pull` \- team members can pull, but not push to or administer newly-added repositories.  
-\* `push` \- team members can pull and push, but not administer newly-added repositories.  
-\* `admin` \- team members can pull, push and administer newly-added repositories.
+\* `pull` - team members can pull, but not push to or administer newly-added repositories.  
+\* `push` - team members can pull and push, but not administer newly-added repositories.  
+\* `admin` - team members can pull, push and administer newly-added repositories.
  * @apiParam {integer} [parent_team_id]  The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id})
@@ -4083,7 +4113,7 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  <a href="https://developer.github.com/v3/teams/#list-child-teams">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4122,7 +4152,7 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.getHook({org, hook_id})
  * @apiExample {js} Promise
@@ -4157,7 +4187,7 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} invitation_id  
+ * @apiParam {integer} invitation_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4179,12 +4209,12 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  *
  * @apiParam {string} org  
  * @apiParam {string=2fa_disabled,all} [filter="all"]  Filter members returned in the list. Can be one of:  
-\* `2fa_disabled` \- Members without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled. Available for organization owners.  
-\* `all` \- All members the authenticated user can see.
+\* `2fa_disabled` - Members without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled. Available for organization owners.  
+\* `all` - All members the authenticated user can see.
  * @apiParam {string=all,admin,member} [role="all"]  Filter members returned by their role. Can be one of:  
-\* `all` \- All members of the organization, regardless of role.  
-\* `admin` \- Organization owners.  
-\* `member` \- Non-owner organization members.
+\* `all` - All members of the organization, regardless of role.  
+\* `admin` - Organization owners.  
+\* `member` - Non-owner organization members.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4260,7 +4290,7 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiDescription The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`. <a href="https://developer.github.com/v3/teams/members/#list-pending-team-invitations">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4296,7 +4326,7 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiDescription <a href="https://developer.github.com/v3/teams/#get-team">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.getTeam({team_id})
  * @apiExample {js} Promise
@@ -4312,11 +4342,11 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiDescription If you pass the `hellcat-preview` media type, team members will include the members of child teams. <a href="https://developer.github.com/v3/teams/members/#list-team-members">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string=member,maintainer,all} [role="all"]  Filters members returned by their role in the team. Can be one of:  
-\* `member` \- normal members of the team.  
-\* `maintainer` \- team maintainers.  
-\* `all` \- all members of the team.
+\* `member` - normal members of the team.  
+\* `maintainer` - team maintainers.  
+\* `all` - all members of the team.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4338,7 +4368,7 @@ To get a user's membership with a team, the team must be visible to the authenti
 **Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team). <a href="https://developer.github.com/v3/teams/members/#get-team-membership">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.getTeamMembership({team_id, username})
@@ -4355,7 +4385,7 @@ To get a user's membership with a team, the team must be visible to the authenti
  * @apiDescription **Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team. <a href="https://developer.github.com/v3/teams/#list-team-repos">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4392,7 +4422,7 @@ To get a user's membership with a team, the team must be visible to the authenti
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.pingHook({org, hook_id})
  * @apiExample {js} Promise
@@ -4480,7 +4510,7 @@ If the specified user is an active member of the organization, this will remove 
  * @apiDescription To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team. <a href="https://developer.github.com/v3/teams/members/#remove-team-membership">REST API doc</a>
  * @apiGroup Orgs
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
  * const result = await octokit.orgs.removeTeamMembership({team_id, username})
@@ -4524,13 +4554,13 @@ If the specified user is an active member of the organization, this will remove 
  * @apiParam {boolean} [has_organization_projects]  Toggles whether organization projects are enabled for the organization.
  * @apiParam {boolean} [has_repository_projects]  Toggles whether repository projects are enabled for repositories that belong to the organization.
  * @apiParam {string=read,write,admin,none} [default_repository_permission="read"]  Default permission level members have for organization repositories:  
-\* `read` \- can pull, but not push to or administer this repository.  
-\* `write` \- can pull and push, but not administer this repository.  
-\* `admin` \- can pull, push, and administer this repository.  
-\* `none` \- no permissions granted by default.
+\* `read` - can pull, but not push to or administer this repository.  
+\* `write` - can pull and push, but not administer this repository.  
+\* `admin` - can pull, push, and administer this repository.  
+\* `none` - no permissions granted by default.
  * @apiParam {boolean} [members_can_create_repositories="true"]  Toggles ability of non-admin organization members to create repositories  
-\* `true` \- all organization members can create repositories.  
-\* `false` \- only admin members can create repositories.
+\* `true` - all organization members can create repositories.  
+\* `false` - only admin members can create repositories.
  * @apiExample {js} async/await
  * const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories})
  * @apiExample {js} Promise
@@ -4553,12 +4583,12 @@ If the specified user is an active member of the organization, this will remove 
  * @apiDescription Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {string} username  
  * @apiParam {string=read,write,admin} [permission="write"]  The permission to grant the collaborator. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." Can be one of:  
-\* `read` \- can read, but not write to or administer this project.  
-\* `write` \- can read and write, but not administer this project.  
-\* `admin` \- can read, write and administer this project.
+\* `read` - can read, but not write to or administer this project.  
+\* `write` - can read and write, but not administer this project.  
+\* `admin` - can read, write and administer this project.
  * @apiExample {js} async/await
  * const result = await octokit.projects.addCollaborator({project_id, username, permission})
  * @apiExample {js} Promise
@@ -4596,7 +4626,7 @@ If the specified user is an active member of the organization, this will remove 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint. <a href="https://developer.github.com/v3/projects/cards/#create-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} column_id  
+ * @apiParam {integer} column_id  
  * @apiParam {string} [note]  The card's note content. Only valid for cards without another type of content, so you must omit when specifying `content_id` and `content_type`.
  * @apiParam {integer} [content_id]  The issue or pull request id you want to associate with this card. You can use the [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository) and [List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests) endpoints to find this id.  
 **Note:** Depending on whether you use the issue id or pull request id, you will need to specify `Issue` or `PullRequest` as the `content_type`.
@@ -4616,7 +4646,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/columns/#create-a-project-column">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {string} name  The name of the column.
  * @apiExample {js} async/await
  * const result = await octokit.projects.createProjectColumn({project_id, name})
@@ -4654,7 +4684,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/#delete-a-project">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiExample {js} async/await
  * const result = await octokit.projects.deleteProject({project_id})
  * @apiExample {js} Promise
@@ -4670,7 +4700,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#delete-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} card_id  
+ * @apiParam {integer} card_id  
  * @apiExample {js} async/await
  * const result = await octokit.projects.deleteProjectCard({card_id})
  * @apiExample {js} Promise
@@ -4686,7 +4716,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/columns/#delete-a-project-column">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} column_id  
+ * @apiParam {integer} column_id  
  * @apiExample {js} async/await
  * const result = await octokit.projects.deleteProjectColumn({column_id})
  * @apiExample {js} Promise
@@ -4702,7 +4732,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators. <a href="https://developer.github.com/v3/projects/collaborators/#list-collaborators">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {string=outside,direct,all} [affiliation="all"]  Filters the collaborators by their affiliation. Can be one of:  
 \* `outside`: Outside collaborators of a project that are not a member of the project's organization.  
 \* `direct`: Collaborators with permissions to a project, regardless of organization membership status.  
@@ -4743,7 +4773,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#get-a-project">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4761,7 +4791,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#get-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} card_id  
+ * @apiParam {integer} card_id  
  * @apiExample {js} async/await
  * const result = await octokit.projects.getProjectCard({card_id})
  * @apiExample {js} Promise
@@ -4777,7 +4807,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#list-project-cards">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} column_id  
+ * @apiParam {integer} column_id  
  * @apiParam {string=all,archived,not_archived} [archived_state="not_archived"]  Filters the project cards that are returned by the card's state. Can be one of `all`,`archived`, or `not_archived`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
@@ -4796,7 +4826,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/columns/#get-a-project-column">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} column_id  
+ * @apiParam {integer} column_id  
  * @apiExample {js} async/await
  * const result = await octokit.projects.getProjectColumn({column_id})
  * @apiExample {js} Promise
@@ -4812,7 +4842,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/columns/#list-project-columns">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4850,7 +4880,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level. <a href="https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
  * const result = await octokit.projects.getUserPermissionLevel({project_id, username})
@@ -4867,7 +4897,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#move-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} card_id  
+ * @apiParam {integer} card_id  
  * @apiParam {string=top,bottom,after:<card_id>} position  Can be one of `top`, `bottom`, or `after:<card_id>`, where `<card_id>` is the `id` value of a card in the same column, or in the new column specified by `column_id`.
  * @apiParam {integer} [column_id]  The `id` value of a column in the same project.
  * @apiExample {js} async/await
@@ -4885,7 +4915,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/columns/#move-a-project-column">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} column_id  
+ * @apiParam {integer} column_id  
  * @apiParam {string=first,last,after:<column_id>} position  Can be one of `first`, `last`, or `after:<column_id>`, where `<column_id>` is the `id` value of a column in the same project.
  * @apiExample {js} async/await
  * const result = await octokit.projects.moveProjectColumn({column_id, position})
@@ -4902,7 +4932,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {string} username  
  * @apiExample {js} async/await
  * const result = await octokit.projects.removeCollaborator({project_id, username})
@@ -4919,14 +4949,14 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#update-a-project">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} project_id  
+ * @apiParam {integer} project_id  
  * @apiParam {string} [name]  The name of the project.
  * @apiParam {string} [body]  The body of the project.
  * @apiParam {string=open,closed} [state]  State of the project. Either `open` or `closed`.
  * @apiParam {string} [organization_permission]  The permission level that all members of the project's organization will have on this project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by `organization_permission`. Updating a project's organization permission requires `admin` access to the project. Setting the organization permission is only available for organization projects.
  * @apiParam {boolean} [public]  Sets visibility of the project within the organization. Updating a project's visibility requires `admin` access to the project. Setting visibility is only available for organization projects. Can be one of:  
-\* `true` \- Anyone that can view the organization can see the project.  
-\* `false` \- The project must be an organization project to set project visibility.
+\* `true` - Anyone that can view the organization can see the project.  
+\* `false` - The project must be an organization project to set project visibility.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -4944,7 +4974,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/cards/#update-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} card_id  
+ * @apiParam {integer} card_id  
  * @apiParam {string} [note]  The card's note content. Only valid for cards without another type of content, so this cannot be specified if the card already has a `content_id` and `content_type`.
  * @apiParam {boolean} [archived]  Use `true` to archive a project card. Specify `false` if you need to restore a previously archived project card.
  * @apiExample {js} async/await
@@ -4962,7 +4992,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiDescription <a href="https://developer.github.com/v3/projects/columns/#update-a-project-column">REST API doc</a>
  * @apiGroup Projects
  *
- * @apiParam {string} column_id  
+ * @apiParam {integer} column_id  
  * @apiParam {string} name  The new name of the column.
  * @apiExample {js} async/await
  * const result = await octokit.projects.updateProjectColumn({column_id, name})
@@ -5074,17 +5104,16 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} title  The title of the pull request.
+ * @apiParam {integer} issue  The issue number in this repository to turn into a Pull Request.
  * @apiParam {string} head  The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.
  * @apiParam {string} base  The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.
- * @apiParam {string} [body]  The contents of the pull request.
  * @apiParam {boolean} [maintainer_can_modify]  Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.
  * @apiExample {js} async/await
- * const result = await octokit.pullRequests.createFromIssue({owner, repo, title, head, base, body, maintainer_can_modify})
+ * const result = await octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify})
  * @apiExample {js} Promise
- * octokit.pullRequests.createFromIssue({owner, repo, title, head, base, body, maintainer_can_modify}).then(result => {})
+ * octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}).then(result => {})
  * @apiExample {js} Callback
- * octokit.pullRequests.createFromIssue({owner, repo, title, head, base, body, maintainer_can_modify}, (error, result) => {})
+ * octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}, (error, result) => {})
  */
 
 
@@ -5143,7 +5172,7 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.deleteComment({owner, repo, comment_id})
  * @apiExample {js} Promise
@@ -5162,7 +5191,7 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} review_id  
+ * @apiParam {integer} review_id  
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, review_id})
  * @apiExample {js} Promise
@@ -5201,7 +5230,7 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} review_id  
+ * @apiParam {integer} review_id  
  * @apiParam {string} [message]  **Required.** The message for the pull request review dismissal
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.dismissReview({owner, repo, number, review_id, message})
@@ -5220,7 +5249,7 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string} body  The text of the comment.
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.editComment({owner, repo, comment_id, body})
@@ -5293,7 +5322,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.getComment({owner, repo, comment_id})
  * @apiExample {js} Promise
@@ -5401,7 +5430,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} review_id  
+ * @apiParam {integer} review_id  
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.getReview({owner, repo, number, review_id})
  * @apiExample {js} Promise
@@ -5420,7 +5449,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} review_id  
+ * @apiParam {integer} review_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -5503,7 +5532,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string} review_id  
+ * @apiParam {integer} review_id  
  * @apiParam {string} [body]  The body text of the pull request review
  * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT} [event]  **Required.** The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. When you leave this blank, the API returns _HTTP 422 (Unrecognizable entity)_ and sets the review action state to `PENDING`, which means you will need to re-submit the pull request review using a review action.
  * @apiExample {js} async/await
@@ -5553,7 +5582,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the commit comment.
  * @apiExample {js} async/await
  * const result = await octokit.reactions.createForCommitComment({owner, repo, comment_id, content})
@@ -5591,7 +5620,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the issue comment.
  * @apiExample {js} async/await
  * const result = await octokit.reactions.createForIssueComment({owner, repo, comment_id, content})
@@ -5610,7 +5639,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the pull request review comment.
  * @apiExample {js} async/await
  * const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content})
@@ -5627,7 +5656,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiDescription Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion">REST API doc</a>
  * @apiGroup Reactions
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} discussion_number  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion.
  * @apiExample {js} async/await
@@ -5645,7 +5674,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiDescription Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment">REST API doc</a>
  * @apiGroup Reactions
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} discussion_number  
  * @apiParam {integer} comment_number  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} content  The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion comment.
@@ -5664,7 +5693,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). <a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
  * @apiGroup Reactions
  *
- * @apiParam {string} reaction_id  
+ * @apiParam {integer} reaction_id  
  * @apiExample {js} async/await
  * const result = await octokit.reactions.delete({reaction_id})
  * @apiExample {js} Promise
@@ -5682,7 +5711,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a commit comment.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
@@ -5724,7 +5753,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to an issue comment.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
@@ -5745,7 +5774,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a pull request review comment.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
@@ -5764,7 +5793,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiDescription List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion">REST API doc</a>
  * @apiGroup Reactions
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} discussion_number  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -5784,7 +5813,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiDescription List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment">REST API doc</a>
  * @apiGroup Reactions
  *
- * @apiParam {string} team_id  
+ * @apiParam {integer} team_id  
  * @apiParam {integer} discussion_number  
  * @apiParam {integer} comment_number  
  * @apiParam {string=+1,-1,laugh,confused,heart,hooray} [content]  Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion comment.
@@ -5822,9 +5851,9 @@ To prevent abuse, you are limited to sending 50 invitations to a repository per 
  * @apiParam {string} repo  
  * @apiParam {string} username  
  * @apiParam {string=pull,push,admin} [permission="push"]  The permission to grant the collaborator. **Only valid on organization-owned repositories.** Can be one of:  
-\* `pull` \- can pull, but not push to or administer this repository.  
-\* `push` \- can pull and push, but not administer this repository.  
-\* `admin` \- can pull, push and administer this repository.
+\* `pull` - can pull, but not push to or administer this repository.  
+\* `push` - can pull and push, but not administer this repository.  
+\* `admin` - can pull, push and administer this repository.
  * @apiExample {js} async/await
  * const result = await octokit.repos.addCollaborator({owner, repo, username, permission})
  * @apiExample {js} Promise
@@ -6126,7 +6155,7 @@ This error happens when the `required_contexts` parameter indicates that one or 
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} deployment_id  
+ * @apiParam {integer} deployment_id  
  * @apiParam {string=error,failure,inactive,pending,success} state  The state of the status. Can be one of `error`, `failure`, `inactive`, `pending`, or `success`. **The `inactive` state requires a custom media type to be specified. Please see more in the alert below.**
  * @apiParam {string} [target_url=""""]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.
  * @apiParam {string} [log_url=""""]  This is functionally equivalent to `target_url`. We will continue accept `target_url` to support legacy uses, but we recommend modifying this to the new name to avoid confusion. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
@@ -6320,7 +6349,7 @@ If an organization owner has configured the organization to prevent members from
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} asset_id  
+ * @apiParam {integer} asset_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteAsset({owner, repo, asset_id})
  * @apiExample {js} Promise
@@ -6338,7 +6367,7 @@ If an organization owner has configured the organization to prevent members from
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteCommitComment({owner, repo, comment_id})
  * @apiExample {js} Promise
@@ -6356,7 +6385,7 @@ If an organization owner has configured the organization to prevent members from
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} key_id  
+ * @apiParam {integer} key_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteDeployKey({owner, repo, key_id})
  * @apiExample {js} Promise
@@ -6374,7 +6403,7 @@ If an organization owner has configured the organization to prevent members from
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} download_id  
+ * @apiParam {integer} download_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteDownload({owner, repo, download_id})
  * @apiExample {js} Promise
@@ -6426,7 +6455,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteHook({owner, repo, hook_id})
  * @apiExample {js} Promise
@@ -6444,7 +6473,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} invitation_id  
+ * @apiParam {integer} invitation_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteInvite({owner, repo, invitation_id})
  * @apiExample {js} Promise
@@ -6462,7 +6491,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} release_id  
+ * @apiParam {integer} release_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.deleteRelease({owner, repo, release_id})
  * @apiExample {js} Promise
@@ -6510,7 +6539,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} asset_id  
+ * @apiParam {integer} asset_id  
  * @apiParam {string} [name]  The file name of the asset.
  * @apiParam {string} [label]  An alternate short description of the asset. Used in place of the filename.
  * @apiExample {js} async/await
@@ -6530,7 +6559,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiParam {object} [config]  Key/value pairs to provide settings for this webhook. [These are defined below](#create-hook-config-params).
  * @apiParam {string} config:url  The URL to which the payloads will be delivered.
  * @apiParam {string} [config:content_type]  The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
@@ -6557,7 +6586,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} release_id  
+ * @apiParam {integer} release_id  
  * @apiParam {string} [tag_name]  The name of the tag.
  * @apiParam {string} [target_commitish="the repository's default branch (usually `master`):"]  Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists.
  * @apiParam {string} [name]  The name of the release.
@@ -6695,7 +6724,7 @@ To follow redirects with curl, use the `-L` switch:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} asset_id  
+ * @apiParam {integer} asset_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getAsset({owner, repo, asset_id})
  * @apiExample {js} Promise
@@ -6713,7 +6742,7 @@ To follow redirects with curl, use the `-L` switch:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} release_id  
+ * @apiParam {integer} release_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -6876,7 +6905,7 @@ Additionally, a combined `state` is returned. The `state` is one of:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getCommitComment({owner, repo, comment_id})
  * @apiExample {js} Promise
@@ -6933,7 +6962,7 @@ Additionally, a combined `state` is returned. The `state` is one of:
 /**
  * @api {GET} /repos/:owner/:repo/community/profile getCommunityProfileMetrics
  * @apiName getCommunityProfileMetrics
- * @apiDescription This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE\_TEMPLATE, PULL\_REQUEST_TEMPLATE, README, and CONTRIBUTING files. <a href="https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics">REST API doc</a>
+ * @apiDescription This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE\_TEMPLATE, PULL\_REQUEST\_TEMPLATE, README, and CONTRIBUTING files. <a href="https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7016,7 +7045,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} key_id  
+ * @apiParam {integer} key_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getDeployKey({owner, repo, key_id})
  * @apiExample {js} Promise
@@ -7055,7 +7084,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} deployment_id  
+ * @apiParam {integer} deployment_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getDeployment({owner, repo, deployment_id})
  * @apiExample {js} Promise
@@ -7077,7 +7106,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} deployment_id  
+ * @apiParam {integer} deployment_id  
  * @apiParam {integer} id  The deployment ID to list the statuses from.
  * @apiParam {integer} status_id  The deployment status ID.
  * @apiExample {js} async/await
@@ -7097,7 +7126,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} deployment_id  
+ * @apiParam {integer} deployment_id  
  * @apiParam {integer} id  The deployment ID to list the statuses from.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
@@ -7141,7 +7170,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} download_id  
+ * @apiParam {integer} download_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getDownload({owner, repo, download_id})
  * @apiExample {js} Promise
@@ -7238,7 +7267,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getHook({owner, repo, hook_id})
  * @apiExample {js} Promise
@@ -7369,7 +7398,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} build_id  
+ * @apiParam {integer} build_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getPagesBuild({owner, repo, build_id})
  * @apiExample {js} Promise
@@ -7628,7 +7657,7 @@ READMEs support [custom media types](#custom-media-types) for retrieving the raw
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} release_id  
+ * @apiParam {integer} release_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.getRelease({owner, repo, release_id})
  * @apiExample {js} Promise
@@ -7746,14 +7775,14 @@ The SHA-1 of the commit reference.
 /**
  * @api {GET} /repos/:owner/:repo/stats/contributors getStatsContributors
  * @apiName getStatsContributors
- * @apiDescription *   `total` \- The Total number of commits authored by the contributor.
+ * @apiDescription *   `total` - The Total number of commits authored by the contributor.
 
 Weekly Hash (`weeks` array):
 
-*   `w` \- Start of the week, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).
-*   `a` \- Number of additions
-*   `d` \- Number of deletions
-*   `c` \- Number of commits
+*   `w` - Start of the week, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).
+*   `a` - Number of additions
+*   `d` - Number of deletions
+*   `c` - Number of commits
 
  <a href="https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts">REST API doc</a>
  * @apiGroup Repos
@@ -7936,7 +7965,7 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.pingHook({owner, repo, hook_id})
  * @apiExample {js} Promise
@@ -8267,7 +8296,7 @@ Build requests are limited to one concurrent build per repository and one concur
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} hook_id  
+ * @apiParam {integer} hook_id  
  * @apiExample {js} async/await
  * const result = await octokit.repos.testHook({owner, repo, hook_id})
  * @apiExample {js} Promise
@@ -8340,7 +8369,7 @@ Build requests are limited to one concurrent build per repository and one concur
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} comment_id  
+ * @apiParam {integer} comment_id  
  * @apiParam {string} body  The contents of the comment
  * @apiExample {js} async/await
  * const result = await octokit.repos.updateCommitComment({owner, repo, comment_id, body})
@@ -8394,7 +8423,7 @@ Both the `author` and `committer` parameters have the same keys:
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} invitation_id  
+ * @apiParam {integer} invitation_id  
  * @apiParam {string=read,write,admin} [permissions]  The permissions that the associated user will have on the repository. Valid values are `read`, `write`, and `admin`.
  * @apiExample {js} async/await
  * const result = await octokit.repos.updateInvite({owner, repo, invitation_id, permissions})
@@ -8756,7 +8785,7 @@ You might want to highlight the matching search terms when displaying search res
 
 This produces the same JSON payload as above, with an extra key called `text_matches`, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
 
-When searching for topics, you can get text match metadata for the topic's **short_description**, **description**, **name**, or **display_name** field. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-topics">REST API doc</a>
+When searching for topics, you can get text match metadata for the topic's **short\_description**, **description**, **name**, or **display\_name** field. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-topics">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search terms.
@@ -8824,7 +8853,7 @@ When searching for users, you can get text match metadata for the issue **login*
  * @apiDescription <a href="https://developer.github.com/v3/repos/invitations/#accept-a-repository-invitation">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} invitation_id  
+ * @apiParam {integer} invitation_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.acceptRepoInvite({invitation_id})
  * @apiExample {js} Promise
@@ -8855,11 +8884,11 @@ When searching for users, you can get text match metadata for the issue **login*
  * @apiName addRepoToInstallation
  * @apiDescription Add a single repository to an installation. The authenticated user must have admin access to the repository.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
+You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} installation_id  
- * @apiParam {string} repository_id  
+ * @apiParam {integer} installation_id  
+ * @apiParam {integer} repository_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.addRepoToInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
@@ -8975,7 +9004,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * @apiDescription <a href="https://developer.github.com/v3/repos/invitations/#decline-a-repository-invitation">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} invitation_id  
+ * @apiParam {integer} invitation_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.declineRepoInvite({invitation_id})
  * @apiExample {js} Promise
@@ -9007,7 +9036,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * @apiDescription Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} gpg_key_id  
+ * @apiParam {integer} gpg_key_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.deleteGpgKey({gpg_key_id})
  * @apiExample {js} Promise
@@ -9023,7 +9052,7 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * @apiDescription Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} key_id  
+ * @apiParam {integer} key_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.deleteKey({key_id})
  * @apiExample {js} Promise
@@ -9253,7 +9282,7 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * @apiDescription View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} gpg_key_id  
+ * @apiParam {integer} gpg_key_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.getGpgKey({gpg_key_id})
  * @apiExample {js} Promise
@@ -9310,7 +9339,7 @@ You must use a [user-to-server OAuth access token](https://developer.github.com/
 The access the user has to each repository is included in the hash under the `permissions` key. <a href="https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} installation_id  
+ * @apiParam {integer} installation_id  
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -9351,7 +9380,7 @@ The permissions the installation has are included under the `permissions` key. <
  * @apiDescription View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} key_id  
+ * @apiParam {integer} key_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.getKey({key_id})
  * @apiExample {js} Promise
@@ -9399,7 +9428,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /user/marketplace_purchases getMarketplacePurchases
  * @apiName getMarketplacePurchases
- * @apiDescription Returns only active subscriptions. You need to authenticate this call with the user's OAuth token. <a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
+ * @apiDescription Returns only active subscriptions. You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an [OAuth token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/). <a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -9416,7 +9445,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /user/marketplace_purchases/stubbed getMarketplaceStubbedPurchases
  * @apiName getMarketplaceStubbedPurchases
- * @apiDescription Returns only active subscriptions. You need to authenticate this call with the user's OAuth token. <a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
+ * @apiDescription Returns only active subscriptions. You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an [OAuth token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/). <a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -9543,11 +9572,11 @@ This only lists organizations that your authorization allows you to operate on i
  * @apiName removeRepoFromInstallation
  * @apiDescription Remove a single repository from an installation. The authenticated user must have admin access to the repository.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
+You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string} installation_id  
- * @apiParam {string} repository_id  
+ * @apiParam {integer} installation_id  
+ * @apiParam {integer} repository_id  
  * @apiExample {js} async/await
  * const result = await octokit.users.removeRepoFromInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
