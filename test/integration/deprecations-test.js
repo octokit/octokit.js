@@ -106,6 +106,38 @@ describe('deprecations', () => {
       })
   })
 
+  it('deprecated client.gitdata.getCommitSignatureVerification()', () => {
+    nock('https://deprecations-test.com')
+      .get('/repos/foo/bar/git/commits/baz')
+      .reply(200, [])
+
+    return github.gitdata.getCommitSignatureVerification({
+      owner: 'foo',
+      repo: 'bar',
+      commit_sha: 'baz'
+    })
+
+      .then(() => {
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
+
+  it('deprecated client.gitdata.getTagSignatureVerification()', () => {
+    nock('https://deprecations-test.com')
+      .get('/repos/foo/bar/git/tags/baz')
+      .reply(200, [])
+
+    return github.gitdata.getTagSignatureVerification({
+      owner: 'foo',
+      repo: 'bar',
+      tag_sha: 'baz'
+    })
+
+      .then(() => {
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
+
   it('deprecated sha parameter for client.gitdata.getCommit({sha})', () => {
     nock('https://deprecations-test.com')
       .get('/repos/foo/bar/git/commits/sha123')
