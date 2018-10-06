@@ -605,6 +605,19 @@
       },
       "url": "/marketplace_listing/stubbed/accounts/:account_id"
     },
+    "createFromManifest": {
+      "headers": {
+        "accept": "application/vnd.github.fury-preview+json,application/vnd.github.machine-man-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "code": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/app-manifests/:code/conversions"
+    },
     "createInstallationToken": {
       "headers": {
         "accept": "application/vnd.github.machine-man-preview+json"
