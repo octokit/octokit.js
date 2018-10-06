@@ -92,8 +92,7 @@
     },
     "getEventsForRepoIssues": {
       "alias": "issues.getEventsForRepo",
-      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`",
-      "params": {}
+      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`"
     },
     "getEventsForRepoNetwork": {
       "method": "GET",
@@ -2538,26 +2537,8 @@
       "url": "/repos/:owner/:repo/git/commits/:commit_sha"
     },
     "getCommitSignatureVerification": {
-      "method": "GET",
-      "params": {
-        "commit_sha": {
-          "required": true,
-          "type": "string"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        },
-        "sha": {
-          "alias": "commit_sha",
-          "deprecated": true
-        }
-      },
-      "url": "/repos/:owner/:repo/git/commits/:commit_sha"
+      "alias": "gitdata.getCommit",
+      "deprecated": "`gitdata.getCommitSignatureVerification()` is deprecated, use `gitdata.getCommit()`"
     },
     "getReference": {
       "method": "GET",
@@ -2620,26 +2601,8 @@
       "url": "/repos/:owner/:repo/git/tags/:tag_sha"
     },
     "getTagSignatureVerification": {
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        },
-        "sha": {
-          "alias": "tag_sha",
-          "deprecated": true
-        },
-        "tag_sha": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/git/tags/:tag_sha"
+      "alias": "gitdata.getTag",
+      "deprecated": "`gitdata.getTagSignatureVerification()` is deprecated, use `gitdata.getTag()`"
     },
     "getTags": {
       "method": "GET",
