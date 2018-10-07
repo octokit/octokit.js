@@ -2025,24 +2025,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
 
 
 /**
- * @api {GET} /repos/:owner/:repo/git/commits/:commit_sha getCommitSignatureVerification
- * @apiName getCommitSignatureVerification
- * @apiDescription Gets a Git [commit object](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects). <a href="https://developer.github.com/v3/git/commits/#get-a-commit">REST API doc</a>
- * @apiGroup Gitdata
- *
- * @apiParam {string} owner  
- * @apiParam {string} repo  
- * @apiParam {string} commit_sha  
- * @apiExample {js} async/await
- * const result = await octokit.gitdata.getCommitSignatureVerification({owner, repo, commit_sha})
- * @apiExample {js} Promise
- * octokit.gitdata.getCommitSignatureVerification({owner, repo, commit_sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getCommitSignatureVerification({owner, repo, commit_sha}, (error, result) => {})
- */
-
-
-/**
  * @api {GET} /repos/:owner/:repo/git/refs/:ref getReference
  * @apiName getReference
  * @apiDescription Returns a branch or tag reference. Other than the [REST API](https://developer.github.com/v3/git/refs/#get-a-reference) it always returns a single reference. If the REST API returns with an array then the method responds with an error. <a href="https://developer.github.com/v3/git/refs/#get-a-reference">REST API doc</a>
@@ -2075,24 +2057,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * octokit.gitdata.getTag({owner, repo, tag_sha}).then(result => {})
  * @apiExample {js} Callback
  * octokit.gitdata.getTag({owner, repo, tag_sha}, (error, result) => {})
- */
-
-
-/**
- * @api {GET} /repos/:owner/:repo/git/tags/:tag_sha getTagSignatureVerification
- * @apiName getTagSignatureVerification
- * @apiDescription <a href="https://developer.github.com/v3/git/tags/#get-a-tag">REST API doc</a>
- * @apiGroup Gitdata
- *
- * @apiParam {string} owner  
- * @apiParam {string} repo  
- * @apiParam {string} tag_sha  
- * @apiExample {js} async/await
- * const result = await octokit.gitdata.getTagSignatureVerification({owner, repo, tag_sha})
- * @apiExample {js} Promise
- * octokit.gitdata.getTagSignatureVerification({owner, repo, tag_sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getTagSignatureVerification({owner, repo, tag_sha}, (error, result) => {})
  */
 
 

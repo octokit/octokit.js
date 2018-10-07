@@ -6225,61 +6225,6 @@
   },
   {
     "type": "GET",
-    "url": "/repos/:owner/:repo/git/commits/:commit_sha",
-    "title": "getCommitSignatureVerification",
-    "name": "getCommitSignatureVerification",
-    "description": "<p>Gets a Git <a href=\"https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects\">commit object</a>. <a href=\"https://developer.github.com/v3/git/commits/#get-a-commit\">REST API doc</a></p>",
-    "group": "Gitdata",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "owner",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "repo",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "commit_sha",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.gitdata.getCommitSignatureVerification({owner, repo, commit_sha})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.gitdata.getCommitSignatureVerification({owner, repo, commit_sha}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getCommitSignatureVerification({owner, repo, commit_sha}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Gitdata"
-  },
-  {
-    "type": "GET",
     "url": "/repos/:owner/:repo/git/refs/:ref",
     "title": "getReference",
     "name": "getReference",
@@ -6381,61 +6326,6 @@
       {
         "title": "Callback",
         "content": "octokit.gitdata.getTag({owner, repo, tag_sha}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Gitdata"
-  },
-  {
-    "type": "GET",
-    "url": "/repos/:owner/:repo/git/tags/:tag_sha",
-    "title": "getTagSignatureVerification",
-    "name": "getTagSignatureVerification",
-    "description": "<p><a href=\"https://developer.github.com/v3/git/tags/#get-a-tag\">REST API doc</a></p>",
-    "group": "Gitdata",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "owner",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "repo",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "tag_sha",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.gitdata.getTagSignatureVerification({owner, repo, tag_sha})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.gitdata.getTagSignatureVerification({owner, repo, tag_sha}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getTagSignatureVerification({owner, repo, tag_sha}, (error, result) => {})",
         "type": "js"
       }
     ],
