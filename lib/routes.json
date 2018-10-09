@@ -288,9 +288,6 @@
       "url": "/repos/:owner/:repo/subscription"
     },
     "getStargazersForRepo": {
-      "headers": {
-        "accept": "application/vnd.github.v3.star+json"
-      },
       "method": "GET",
       "params": {
         "owner": {
@@ -311,9 +308,6 @@
       "url": "/repos/:owner/:repo/stargazers"
     },
     "getStarredRepos": {
-      "headers": {
-        "accept": "application/vnd.github.v3.star+json"
-      },
       "method": "GET",
       "params": {
         "direction": {
@@ -340,9 +334,6 @@
       "url": "/user/starred"
     },
     "getStarredReposForUser": {
-      "headers": {
-        "accept": "application/vnd.github.v3.star+json"
-      },
       "method": "GET",
       "params": {
         "direction": {
@@ -559,9 +550,6 @@
       "url": "/user/installations/:installation_id/repositories/:repository_id"
     },
     "checkMarketplaceListingAccount": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "account_id": {
@@ -582,9 +570,6 @@
       "url": "/marketplace_listing/accounts/:account_id"
     },
     "checkMarketplaceListingStubbedAccount": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "account_id": {
@@ -735,9 +720,6 @@
       "url": "/app/installations"
     },
     "getMarketplaceListingPlanAccounts": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "direction": {
@@ -772,9 +754,6 @@
       "url": "/marketplace_listing/plans/:plan_id/accounts"
     },
     "getMarketplaceListingPlans": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -787,9 +766,6 @@
       "url": "/marketplace_listing/plans"
     },
     "getMarketplaceListingStubbedPlanAccounts": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "direction": {
@@ -824,9 +800,6 @@
       "url": "/marketplace_listing/stubbed/plans/:plan_id/accounts"
     },
     "getMarketplaceListingStubbedPlans": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -1707,9 +1680,6 @@
       "url": "/admin/organizations"
     },
     "createPreReceiveEnvironment": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "POST",
       "params": {
         "image_url": {
@@ -1724,9 +1694,6 @@
       "url": "/admin/pre-receive-environments"
     },
     "createPreReceiveHook": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "POST",
       "params": {
         "allow_downstream_configuration": {
@@ -1813,9 +1780,6 @@
       "url": "/enterprise/settings/license"
     },
     "getPreReceiveEnvironment": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "GET",
       "params": {
         "id": {
@@ -1826,9 +1790,6 @@
       "url": "/admin/pre-receive-environments/:id"
     },
     "getPreReceiveEnvironmentDownloadStatus": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "GET",
       "params": {
         "id": {
@@ -1839,17 +1800,11 @@
       "url": "/admin/pre-receive-environments/:id/downloads/latest"
     },
     "getPreReceiveEnvironments": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "GET",
       "params": {},
       "url": "/admin/pre-receive-environments"
     },
     "getPreReceiveHook": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "GET",
       "params": {
         "id": {
@@ -1860,9 +1815,6 @@
       "url": "/admin/pre-receive-hooks/:id"
     },
     "getPreReceiveHooks": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "GET",
       "params": {},
       "url": "/admin/pre-receive-hooks"
@@ -1921,9 +1873,6 @@
       "url": "/admin/ldap/users/:username/sync"
     },
     "triggerPreReceiveEnvironmentDownload": {
-      "headers": {
-        "accept": "application/vnd.github.eye-scream-preview"
-      },
       "method": "POST",
       "params": {
         "id": {
@@ -4339,9 +4288,6 @@
       "url": "/gitignore/templates"
     },
     "getLicense": {
-      "headers": {
-        "accept": "application/vnd.github.drax-preview+json"
-      },
       "method": "GET",
       "params": {
         "license": {
@@ -4352,9 +4298,6 @@
       "url": "/licenses/:license"
     },
     "getLicenses": {
-      "headers": {
-        "accept": "application/vnd.github.drax-preview+json"
-      },
       "method": "GET",
       "params": {},
       "url": "/licenses"
@@ -4387,9 +4330,6 @@
       "url": "/repos/:owner/:repo/community/code_of_conduct"
     },
     "getRepoLicense": {
-      "headers": {
-        "accept": "application/vnd.github.drax-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": {
@@ -6143,9 +6083,6 @@
       "url": "/repos/:owner/:repo/pulls/:number/reviews"
     },
     "createReviewRequest": {
-      "headers": {
-        "accept": "application/vnd.github.thor-preview+json"
-      },
       "method": "POST",
       "params": {
         "number": {
@@ -6221,9 +6158,6 @@
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
     },
     "deleteReviewRequest": {
-      "headers": {
-        "accept": "application/vnd.github.thor-preview+json"
-      },
       "method": "DELETE",
       "params": {
         "number": {
@@ -6589,9 +6523,6 @@
       "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments"
     },
     "getReviewRequests": {
-      "headers": {
-        "accept": "application/vnd.github.thor-preview+json"
-      },
       "method": "GET",
       "params": {
         "number": {
@@ -7788,9 +7719,6 @@
       "url": "/repos/:owner/:repo/statuses/:sha"
     },
     "delete": {
-      "headers": {
-        "accept": "application/vnd.github.drax-preview+json"
-      },
       "method": "DELETE",
       "params": {
         "owner": {
@@ -7990,9 +7918,6 @@
       "url": "/repos/:owner/:repo/releases/:release_id"
     },
     "edit": {
-      "headers": {
-        "accept": "application/vnd.github.drax-preview+json"
-      },
       "method": "PATCH",
       "params": {
         "allow_merge_commit": {
@@ -8179,9 +8104,6 @@
       "url": "/repos/:owner/:repo/forks"
     },
     "get": {
-      "headers": {
-        "accept": "application/vnd.github.drax-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": {
@@ -8482,9 +8404,6 @@
       "url": "/repos/:owner/:repo/commits/:ref/status"
     },
     "getCommit": {
-      "headers": {
-        "accept": "application/vnd.github.cryptographer-preview"
-      },
       "method": "GET",
       "params": {
         "owner": {
@@ -10547,9 +10466,6 @@
       "url": "/users/:username/following/:target_user"
     },
     "createGpgKey": {
-      "headers": {
-        "accept": "application/vnd.github.cryptographer-preview"
-      },
       "method": "POST",
       "params": {
         "armored_public_key": {
@@ -10592,9 +10508,6 @@
       "url": "/user/emails"
     },
     "deleteGpgKey": {
-      "headers": {
-        "accept": "application/vnd.github.cryptographer-preview"
-      },
       "method": "DELETE",
       "params": {
         "gpg_key_id": {
@@ -10801,9 +10714,6 @@
       "url": "/users/:username"
     },
     "getGpgKey": {
-      "headers": {
-        "accept": "application/vnd.github.cryptographer-preview"
-      },
       "method": "GET",
       "params": {
         "gpg_key_id": {
@@ -10818,9 +10728,6 @@
       "url": "/user/gpg_keys/:gpg_key_id"
     },
     "getGpgKeys": {
-      "headers": {
-        "accept": "application/vnd.github.cryptographer-preview"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -10833,9 +10740,6 @@
       "url": "/user/gpg_keys"
     },
     "getGpgKeysForUser": {
-      "headers": {
-        "accept": "application/vnd.github.cryptographer-preview"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -10925,9 +10829,6 @@
       "url": "/users/:username/keys"
     },
     "getMarketplacePurchases": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "page": {
@@ -10940,9 +10841,6 @@
       "url": "/user/marketplace_purchases"
     },
     "getMarketplaceStubbedPurchases": {
-      "headers": {
-        "accept": "application/vnd.github.valkyrie-preview+json"
-      },
       "method": "GET",
       "params": {
         "page": {
