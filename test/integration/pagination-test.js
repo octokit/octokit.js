@@ -87,16 +87,16 @@ describe('pagination', () => {
   it('carries accept header correctly', () => {
     nock('https://pagination-test.com', {
       reqheaders: {
-        accept: 'application/vnd.github.v3.star+json'
+        accept: 'application/vnd.github.hellcat-preview+json'
       }
     })
-      .get('/users/octocat/starred')
+      .get('/user/teams')
       .query({ per_page: 1 })
       .reply(200, [{}], {
-        'Link': '<https://pagination-test.com/users/octocat/starred?page=2&per_page=1>; rel="next"',
-        'X-GitHub-Media-Type': 'github.v3; param=star; format=json'
+        'Link': '<https://pagination-test.com/user/teams?page=2&per_page=1>; rel="next"',
+        'X-GitHub-Media-Type': 'github; param=hellcat-preview; format=json'
       })
-      .get('/users/octocat/starred')
+      .get('/user/teams')
       .query({ page: 2, per_page: 1 })
       .reply(200, [])
 
@@ -104,7 +104,7 @@ describe('pagination', () => {
       baseUrl: 'https://pagination-test.com'
     })
 
-    return client.activity.getStarredReposForUser({ username: 'octocat', per_page: 1 })
+    return client.users.getTeams({ per_page: 1 })
       .then(response => {
         return client.getNextPage(response)
       })
