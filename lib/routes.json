@@ -10391,7 +10391,6 @@
       "method": "POST",
       "params": {
         "emails": {
-          "mapTo": "input",
           "required": true,
           "type": "string[]"
         }
@@ -10500,7 +10499,6 @@
       "method": "DELETE",
       "params": {
         "emails": {
-          "mapTo": "input",
           "required": true,
           "type": "string[]"
         }
