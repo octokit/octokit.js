@@ -1,7 +1,6 @@
 const octokit = require('@octokit/rest')({
   debug: true,
-  host: 'github.my-ghe-enabled-company.com',
-  pathPrefix: '/api/v3'
+  baseUrl: 'https://github.my-ghe-enabled-company.com/api/v3'
 })
 
 octokit.authenticate({
