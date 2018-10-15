@@ -38,7 +38,7 @@
   "dependencies": {
     "before-after-hook": "^1.1.0",
     "btoa-lite": "^1.0.0",
-    "debug": "^3.1.0",
+    "debug": "^4.1.0",
     "http-proxy-agent": "^2.1.0",
     "https-proxy-agent": "^2.2.0",
     "lodash": "^4.17.4",
