@@ -7525,6 +7525,14 @@
         "author": {
           "type": "object"
         },
+        "author.email": {
+          "required": true,
+          "type": "string"
+        },
+        "author.name": {
+          "required": true,
+          "type": "string"
+        },
         "branch": {
           "type": "string"
         },
@@ -10015,6 +10023,14 @@
       "params": {
         "author": {
           "type": "object"
+        },
+        "author.email": {
+          "required": true,
+          "type": "string"
+        },
+        "author.name": {
+          "required": true,
+          "type": "string"
         },
         "branch": {
           "type": "string"
