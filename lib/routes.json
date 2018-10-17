@@ -2632,79 +2632,29 @@
   },
   "integrations": {
     "addRepoToInstallation": {
-      "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "PUT",
-      "params": {
-        "installation_id": {
-          "required": true,
-          "type": "string"
-        },
-        "repository_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/user/installations/:installation_id/repositories/:repository_id"
+      "alias": "apps.addRepoToInstallation",
+      "deprecated": "`integrations.addRepoToInstallation()` is deprecated, use `apps.addRepoToInstallation()`",
+      "params": {}
     },
     "createInstallationToken": {
-      "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "POST",
-      "params": {
-        "installation_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/installations/:installation_id/access_tokens"
+      "alias": "apps.createInstallationToken",
+      "deprecated": "`integrations.createInstallationToken()` is deprecated, use `apps.createInstallationToken()`",
+      "params": {}
     },
     "getInstallationRepositories": {
-      "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "GET",
-      "params": {},
-      "url": "/installation/repositories"
+      "alias": "apps.getInstallationRepositories",
+      "deprecated": "`integrations.getInstallationRepositories()` is deprecated, use `apps.getInstallationRepositories()`",
+      "params": {}
     },
     "getInstallations": {
-      "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "GET",
-      "params": {
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        }
-      },
-      "url": "/app/installations"
+      "alias": "apps.getInstallations",
+      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.getInstallations()`",
+      "params": {}
     },
     "removeRepoFromInstallation": {
-      "deprecated": "`integrations` has been renamed to `apps`",
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "DELETE",
-      "params": {
-        "installation_id": {
-          "required": true,
-          "type": "string"
-        },
-        "repository_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/user/installations/:installation_id/repositories/:repository_id"
+      "alias": "apps.removeRepoFromInstallation",
+      "deprecated": "`integrations.removeRepoFromInstallation()` is deprecated, use `apps.removeRepoFromInstallation()`",
+      "params": {}
     }
   },
   "issues": {
@@ -4278,9 +4228,9 @@
       "url": "/codes_of_conduct"
     },
     "getEmojis": {
-      "method": "GET",
-      "params": {},
-      "url": "/emojis"
+      "alias": "emojis.get",
+      "deprecated": "`misc.getEmojis()` is deprecated, use `emojis.get()`",
+      "params": {}
     },
     "getGitignoreTemplate": {
       "method": "GET",
@@ -4313,9 +4263,9 @@
       "url": "/licenses"
     },
     "getMeta": {
-      "method": "GET",
-      "params": {},
-      "url": "/meta"
+      "alias": "meta.get",
+      "deprecated": "`misc.getMeta()` is deprecated, use `meta.get()`",
+      "params": {}
     },
     "getRateLimit": {
       "method": "GET",
@@ -10455,21 +10405,9 @@
       "url": "/user/emails"
     },
     "addRepoToInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "PUT",
-      "params": {
-        "installation_id": {
-          "required": true,
-          "type": "integer"
-        },
-        "repository_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/user/installations/:installation_id/repositories/:repository_id"
+      "alias": "apps.addRepoToInstallation",
+      "deprecated": "`integrations.addRepoToInstallation()` is deprecated, use `apps.addRepoToInstallation()`",
+      "params": {}
     },
     "blockUser": {
       "headers": {
@@ -10827,19 +10765,9 @@
       "url": "/user/installations/:installation_id/repositories"
     },
     "getInstallations": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "GET",
-      "params": {
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        }
-      },
-      "url": "/user/installations"
+      "alias": "apps.getInstallations",
+      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.getInstallations()`",
+      "params": {}
     },
     "getKey": {
       "method": "GET",
@@ -10998,21 +10926,9 @@
       "url": "/users/:username/site_admin"
     },
     "removeRepoFromInstallation": {
-      "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
-      },
-      "method": "DELETE",
-      "params": {
-        "installation_id": {
-          "required": true,
-          "type": "integer"
-        },
-        "repository_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/user/installations/:installation_id/repositories/:repository_id"
+      "alias": "apps.removeRepoFromInstallation",
+      "deprecated": "`integrations.removeRepoFromInstallation()` is deprecated, use `apps.removeRepoFromInstallation()`",
+      "params": {}
     },
     "suspend": {
       "method": "PUT",
