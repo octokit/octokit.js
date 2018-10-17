@@ -29,6 +29,8 @@ function parameterize (definition) {
     ? definition.enum.map(JSON.stringify).join('|')
     : null
 
+  const deprecated = definition.deprecated ? `\n@deprecated "${key}" has been renamed to "${definition.alias}"` : ''
+
   return {
     name: pascalcase(key),
     key: key,
@@ -36,7 +38,8 @@ function parameterize (definition) {
     type: enums || type,
     alias: definition.alias,
     deprecated: definition.deprecated,
-    allowNull: definition.allowNull
+    allowNull: definition.allowNull,
+    jsdoc: jsdoc(definition.description + deprecated)
   }
 }
 
@@ -70,6 +73,10 @@ function toParamAlias (param, i, params) {
   param.required = !param.deprecated && actualParam.required
   param.type = actualParam.type
   return param
+}
+
+function jsdoc (description) {
+  return description && '/**\n' + description.split('\n').map(str => '* ' + str) + '\n*/'
 }
 
 function generateTypes (languageName, templateFile, outputFile) {
@@ -139,7 +146,8 @@ function generateTypes (languageName, templateFile, outputFile) {
         unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
         ownParams: ownParams.length > 0 && { params: ownParams },
         exclude: !hasParams,
-        responseType
+        responseType,
+        jsdoc: jsdoc(entry[1].description)
       })
     }, [])
 
