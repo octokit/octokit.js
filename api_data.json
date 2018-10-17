@@ -661,7 +661,7 @@
     "url": "/feeds",
     "title": "getFeeds",
     "name": "getFeeds",
-    "description": "<p>GitHub provides several timeline resources in <a href=\"http://en.wikipedia.org/wiki/Atom_(standard)\">Atom</a> format. The Feeds API lists all the feeds available to the authenticated user: <strong>Timeline</strong>: The GitHub global public timeline <strong>User</strong>: The public timeline for any user, using <a href=\"https://developer.github.com/v3/#hypermedia\">URI template</a> <strong>Current user public</strong>: The public timeline for the authenticated user <strong>Current user</strong>: The private timeline for the authenticated user <strong>Current user actor</strong>: The private timeline for activity created by the authenticated user <strong>Current user organizations</strong>: The private timeline for the organizations the authenticated user is a member of. <em>Note</em>*: Private feeds are only returned when <a href=\"https://developer.github.com/v3/#basic-authentication\">authenticating via Basic Auth</a> since current feed URIs use the older, non revocable auth tokens. <a href=\"https://developer.github.com/v3/activity/feeds/#list-feeds\">REST API doc</a></p>",
+    "description": "<p>GitHub provides several timeline resources in <a href=\"http://en.wikipedia.org/wiki/Atom_(standard)\">Atom</a> format. The Feeds API lists all the feeds available to the authenticated user: <strong>Timeline</strong>: The GitHub global public timeline <strong>User</strong>: The public timeline for any user, using <a href=\"https://developer.github.com/v3/#hypermedia\">URI template</a> <strong>Current user public</strong>: The public timeline for the authenticated user <strong>Current user</strong>: The private timeline for the authenticated user <strong>Current user actor</strong>: The private timeline for activity created by the authenticated user <strong>Current user organizations</strong>: The private timeline for the organizations the authenticated user is a member of. <strong>Security advisories</strong>: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub. <em>Note</em>*: Private feeds are only returned when <a href=\"https://developer.github.com/v3/#basic-authentication\">authenticating via Basic Auth</a> since current feed URIs use the older, non revocable auth tokens. <a href=\"https://developer.github.com/v3/activity/feeds/#list-feeds\">REST API doc</a></p>",
     "group": "Activity",
     "examples": [
       {
@@ -3473,11 +3473,7 @@
               "neutral",
               "cancelled",
               "timed_out",
-              "action_required",
-              "details_url",
-              "conclusion",
-              "status",
-              "completed"
+              "action_required"
             ],
             "optional": true,
             "field": "conclusion",
@@ -4403,10 +4399,7 @@
               "neutral",
               "cancelled",
               "timed_out",
-              "action_required",
-              "conclusion",
-              "status",
-              "completed"
+              "action_required"
             ],
             "optional": true,
             "field": "conclusion",
@@ -4601,6 +4594,34 @@
     "version": "0.0.0",
     "filename": "doc/apidoc.js",
     "groupTitle": "Checks"
+  },
+  {
+    "type": "GET",
+    "url": "/emojis",
+    "title": "get",
+    "name": "get",
+    "description": "<p>Lists all the emojis available to use on GitHub.</p> <p><a href=\"https://developer.github.com/v3/emojis/#emojis\">REST API doc</a></p>",
+    "group": "Emojis",
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.emojis.get({})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.emojis.get({}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.emojis.get({}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Emojis"
   },
   {
     "type": "GET",
@@ -7344,7 +7365,7 @@
     "url": "/issues",
     "title": "getAll",
     "name": "getAll",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7525,7 +7546,7 @@
     "url": "/repos/:owner/:repo/issues/comments/:comment_id",
     "title": "getComment",
     "name": "getComment",
-    "description": "<p><em>Note:</em>* If a user created an issue comment via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/comments/#get-a-single-comment\">REST API doc</a></p>",
+    "description": "<p><a href=\"https://developer.github.com/v3/issues/comments/#get-a-single-comment\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7752,7 +7773,7 @@
     "url": "/repos/:owner/:repo/issues/events/:event_id",
     "title": "getEvent",
     "name": "getEvent",
-    "description": "<p><em>Note:</em>* If the event was triggered by a user via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/events/#get-a-single-event\">REST API doc</a></p>",
+    "description": "<p><a href=\"https://developer.github.com/v3/issues/events/#get-a-single-event\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8013,7 +8034,7 @@
     "url": "/orgs/:org/issues",
     "title": "getForOrg",
     "name": "getForOrg",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8137,7 +8158,7 @@
     "url": "/repos/:owner/:repo/issues",
     "title": "getForRepo",
     "name": "getForRepo",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues-for-a-repository\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#list-issues-for-a-repository\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8281,7 +8302,7 @@
     "url": "/user/issues",
     "title": "getForUser",
     "name": "getForUser",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <em>Note:</em>* If a user opened an issue via a GitHub App, the <code>performed_via_github_app</code> key contains information on that GitHub App. <a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#list-issues\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -9338,6 +9359,34 @@
     "version": "0.0.0",
     "filename": "doc/apidoc.js",
     "groupTitle": "Issues"
+  },
+  {
+    "type": "GET",
+    "url": "/meta",
+    "title": "get",
+    "name": "get",
+    "description": "<p>This endpoint provides a list of GitHub's IP addresses. For more information, see &quot;<a href=\"https://help.github.com/articles/about-github-s-ip-addresses/\">About GitHub's IP addresses</a>.&quot; <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks. <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks. <a href=\"https://developer.github.com/v3/meta/#meta\">REST API doc</a></p>",
+    "group": "Meta",
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.meta.get({})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.meta.get({}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.meta.get({}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Meta"
   },
   {
     "type": "DELETE",
@@ -14491,11 +14540,6 @@
           {
             "group": "Parameter",
             "type": "string",
-            "allowedValues": [
-              "top",
-              "bottom",
-              "after:<card_id>"
-            ],
             "optional": false,
             "field": "position",
             "description": "<p>Can be one of <code>top</code>, <code>bottom</code>, or <code>after:&lt;card_id&gt;</code>, where <code>&lt;card_id&gt;</code> is the <code>id</code> value of a card in the same column, or in the new column specified by <code>column_id</code>.</p>"
@@ -14551,11 +14595,6 @@
           {
             "group": "Parameter",
             "type": "string",
-            "allowedValues": [
-              "first",
-              "last",
-              "after:<column_id>"
-            ],
             "optional": false,
             "field": "position",
             "description": "<p>Can be one of <code>first</code>, <code>last</code>, or <code>after:&lt;column_id&gt;</code>, where <code>&lt;column_id&gt;</code> is the <code>id</code> value of a column in the same project.</p>"
@@ -15264,23 +15303,23 @@
           {
             "group": "Parameter",
             "type": "string",
-            "optional": true,
+            "optional": false,
             "field": "comments:path",
-            "description": "<p><strong>Required.</strong> The relative path to the file that necessitates a review comment.</p>"
+            "description": "<p>The relative path to the file that necessitates a review comment.</p>"
           },
           {
             "group": "Parameter",
             "type": "integer",
-            "optional": true,
+            "optional": false,
             "field": "comments:position",
-            "description": "<p><strong>Required.</strong> The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.</p>"
+            "description": "<p>The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
-            "optional": true,
+            "optional": false,
             "field": "comments:body",
-            "description": "<p><strong>Required.</strong> Text of the review comment.</p>"
+            "description": "<p>Text of the review comment.</p>"
           }
         ]
       }
@@ -15602,9 +15641,9 @@
           {
             "group": "Parameter",
             "type": "string",
-            "optional": true,
+            "optional": false,
             "field": "message",
-            "description": "<p><strong>Required.</strong> The message for the pull request review dismissal</p>"
+            "description": "<p>The message for the pull request review dismissal</p>"
           }
         ]
       }
@@ -16679,9 +16718,9 @@
               "REQUEST_CHANGES",
               "COMMENT"
             ],
-            "optional": true,
+            "optional": false,
             "field": "event",
-            "description": "<p><strong>Required.</strong> The review action you want to perform. The review actions include: <code>APPROVE</code>, <code>REQUEST_CHANGES</code>, or <code>COMMENT</code>. When you leave this blank, the API returns <em>HTTP 422 (Unrecognizable entity)</em> and sets the review action state to <code>PENDING</code>, which means you will need to re-submit the pull request review using a review action.</p>"
+            "description": "<p>The review action you want to perform. The review actions include: <code>APPROVE</code>, <code>REQUEST_CHANGES</code>, or <code>COMMENT</code>. When you leave this blank, the API returns <em>HTTP 422 (Unrecognizable entity)</em> and sets the review action state to <code>PENDING</code>, which means you will need to re-submit the pull request review using a review action.</p>"
           }
         ]
       }
@@ -18542,7 +18581,7 @@
     "url": "/repos/:owner/:repo/deployments",
     "title": "createDeployment",
     "name": "createDeployment",
-    "description": "<p>Deployments offer a few configurable parameters with sane defaults.</p> <p>The <code>ref</code> parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.</p> <p>The <code>environment</code> parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as <code>production</code>, <code>staging</code>, and <code>qa</code>. This allows for easy tracking of which environments had deployments requested. The default environment is <code>production</code>.</p> <p>The <code>auto_merge</code> parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref <em>is</em> behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.</p> <p>By default, <a href=\"https://developer.github.com/v3/repos/statuses\">commit statuses</a> for every submitted context must be in a <code>success</code> state. The <code>required_contexts</code> parameter allows you to specify a subset of contexts that must be <code>success</code>, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.</p> <p>The <code>payload</code> parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.</p> <p>The <code>task</code> parameter is used by the deployment system to allow different execution paths. In the web world this might be <code>deploy:migrations</code> to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.</p> <p>Users with <code>repo</code> or <code>repo_deployment</code> scopes can create a deployment for a given ref:</p> <p>A simple example putting the user and room into the payload to notify back to chat networks.</p> <p>A more advanced example specifying required commit statuses and bypassing auto-merging.</p> <p>This error happens when the <code>auto_merge</code> option is enabled and when the default branch (in this case <code>master</code>), can't be merged into the branch that's being deployed (in this case <code>topic-branch</code>), due to merge conflicts.</p> <p>This error happens when the <code>required_contexts</code> parameter indicates that one or more contexts need to have a <code>success</code> status for the commit to be deployed, but one or more of the required contexts do not have a state of <code>success</code>. <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment\">REST API doc</a></p>",
+    "description": "<p>Deployments offer a few configurable parameters with sane defaults.</p> <p>The <code>ref</code> parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.</p> <p>The <code>environment</code> parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as <code>production</code>, <code>staging</code>, and <code>qa</code>. This parameter makes it easier to track which environments have requested deployments. The default environment is <code>production</code>.</p> <p>The <code>auto_merge</code> parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref <em>is</em> behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.</p> <p>By default, <a href=\"https://developer.github.com/v3/repos/statuses\">commit statuses</a> for every submitted context must be in a <code>success</code> state. The <code>required_contexts</code> parameter allows you to specify a subset of contexts that must be <code>success</code>, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.</p> <p>The <code>payload</code> parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.</p> <p>The <code>task</code> parameter is used by the deployment system to allow different execution paths. In the web world this might be <code>deploy:migrations</code> to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.</p> <p>Users with <code>repo</code> or <code>repo_deployment</code> scopes can create a deployment for a given ref:</p> <p>A simple example putting the user and room into the payload to notify back to chat networks.</p> <p>A more advanced example specifying required commit statuses and bypassing auto-merging.</p> <p>This error happens when the <code>auto_merge</code> option is enabled and when the default branch (in this case <code>master</code>), can't be merged into the branch that's being deployed (in this case <code>topic-branch</code>), due to merge conflicts.</p> <p>This error happens when the <code>required_contexts</code> parameter indicates that one or more contexts need to have a <code>success</code> status for the commit to be deployed, but one or more of the required contexts do not have a state of <code>success</code>. <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18582,14 +18621,14 @@
             "optional": true,
             "field": "auto_merge",
             "defaultValue": "true",
-            "description": "<p>Attempts to automatically merge the default branch into the requested ref, if it is behind the default branch.</p>"
+            "description": "<p>Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch.</p>"
           },
           {
             "group": "Parameter",
             "type": "string[]",
             "optional": true,
             "field": "required_contexts",
-            "description": "<p>The status contexts to verify against commit status checks. If this parameter is omitted, then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.</p>"
+            "description": "<p>The <a href=\"https://developer.github.com/v3/repos/statuses/\">status</a> contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.</p>"
           },
           {
             "group": "Parameter",
@@ -18619,7 +18658,7 @@
             "optional": true,
             "field": "transient_environment",
             "defaultValue": "false",
-            "description": "<p>Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. <strong>This parameter requires a custom media type to be specified. Please see more in the alert below.</strong></p>"
+            "description": "<p>Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: <code>false</code><br> <em>Note:</em>* This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type. <strong>Note:</strong> This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type.</p>"
           },
           {
             "group": "Parameter",
@@ -18627,7 +18666,7 @@
             "optional": true,
             "field": "production_environment",
             "defaultValue": "`true` when `environment` is `production` and `false` otherwise",
-            "description": "<p>Specifies if the given environment is one that end-users directly interact with. <strong>This parameter requires a custom media type to be specified. Please see more in the alert below.</strong></p>"
+            "description": "<p>Specifies if the given environment is one that end-users directly interact with. Default: <code>true</code> when <code>environment</code> is <code>production</code> and <code>false</code> otherwise.<br> <em>Note:</em>* This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type.</p>"
           }
         ]
       }
@@ -18658,7 +18697,7 @@
     "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
     "title": "createDeploymentStatus",
     "name": "createDeploymentStatus",
-    "description": "<p>Users with push access can create deployment statuses for a given deployment: <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment-status\">REST API doc</a></p>",
+    "description": "<p>Users with <code>push</code> access can create deployment statuses for a given deployment.</p> <p>GitHub Apps require <code>read &amp; write</code> access to &quot;Deployments&quot; and <code>read-only</code> access to &quot;Repo contents&quot; (for private repos). OAuth Apps require the <code>repo_deployment</code> scope. <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment-status\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18691,40 +18730,54 @@
               "error",
               "failure",
               "inactive",
+              "in_progress",
+              "queued",
               "pending",
               "success"
             ],
             "optional": false,
             "field": "state",
-            "description": "<p>The state of the status. Can be one of <code>error</code>, <code>failure</code>, <code>inactive</code>, <code>pending</code>, or <code>success</code>. <strong>The <code>inactive</code> state requires a custom media type to be specified. Please see more in the alert below.</strong></p>"
+            "description": "<p>The state of the status. Can be one of <code>error</code>, <code>failure</code>, <code>inactive</code>, <code>in_progress</code>, <code>queued</code> <code>pending</code>, or <code>success</code>. <strong>Note:</strong> To use the <code>inactive</code> state, you must provide the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type. To use the <code>in_progress</code> and <code>queued</code> states, you must provide the <a href=\"https://developer.github.com/v3/previews/#deployment-statuses\"><code>application/vnd.github.flash-preview+json</code></a> custom media type.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "target_url",
-            "description": "<p>&quot;&quot;]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.</p>"
+            "description": "<p>&quot;&quot;]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. <strong>Note:</strong> It's recommended to use the <code>log_url</code> parameter, which replaces <code>target_url</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "log_url",
-            "description": "<p>&quot;&quot;]  This is functionally equivalent to <code>target_url</code>. We will continue accept <code>target_url</code> to support legacy uses, but we recommend modifying this to the new name to avoid confusion. <strong>This parameter requires a custom media type to be specified. Please see more in the alert below.</strong></p>"
+            "description": "<p>&quot;&quot;]  The full URL of the deployment's output. This parameter replaces <code>target_url</code>. We will continue to accept <code>target_url</code> to support legacy uses, but we recommend replacing <code>target_url</code> with <code>log_url</code>. Setting <code>log_url</code> will automatically set <code>target_url</code> to the same value. Default: <code>&quot;&quot;</code><br> <em>Note:</em>* This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type. <strong>Note:</strong> This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "description",
-            "description": "<p>&quot;&quot;]  A short description of the status. Maximum length of 140 characters.</p>"
+            "description": "<p>&quot;&quot;]  A short description of the status. The maximum description length is 140 characters.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "production",
+              "staging",
+              "qa"
+            ],
+            "optional": true,
+            "field": "environment",
+            "description": "<p>Name for the target deployment environment, which can be changed when setting a deploy status. For example, <code>production</code>, <code>staging</code>, or <code>qa</code>. <strong>Note:</strong> This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#deployment-statuses\"><code>application/vnd.github.flash-preview+json</code></a> custom media type.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": true,
             "field": "environment_url",
-            "description": "<p>&quot;&quot;]  Sets the URL for accessing your environment. <strong>This parameter requires a custom media type to be specified. Please see more in the alert below.</strong></p>"
+            "description": "<p>&quot;&quot;]  Sets the URL for accessing your environment. Default: <code>&quot;&quot;</code><br> <em>Note:</em>* This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type. <strong>Note:</strong> This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type.</p>"
           },
           {
             "group": "Parameter",
@@ -18732,7 +18785,7 @@
             "optional": true,
             "field": "auto_inactive",
             "defaultValue": "true",
-            "description": "<p>Adds a new <code>inactive</code> status to all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. <strong>This parameter requires a custom media type to be specified. Please see more in the alert below.</strong></p>"
+            "description": "<p>Adds a new <code>inactive</code> status to all prior non-transient, non-production environment deployments with the same repository and <code>environment</code> name as the created status's deployment. An <code>inactive</code> status is only added to deployments that had a <code>success</code> state. Default: <code>true</code><br> <em>Note:</em>* To add an <code>inactive</code> status to <code>production</code> environments, you must use the <a href=\"https://developer.github.com/v3/previews/#deployment-statuses\"><code>application/vnd.github.flash-preview+json</code></a> custom media type.<br> <em>Note:</em>* This parameter requires you to use the <a href=\"https://developer.github.com/v3/previews/#enhanced-deployments\"><code>application/vnd.github.ant-man-preview+json</code></a> custom media type. <strong>Note:</strong> To add an <code>inactive</code> status to <code>production</code> environments, you must use the <a href=\"https://developer.github.com/v3/previews/#deployment-statuses\"><code>application/vnd.github.flash-preview+json</code></a> custom media type.</p>"
           }
         ]
       }
@@ -18740,17 +18793,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive})",
+        "content": "const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})",
+        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})",
+        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18763,7 +18816,7 @@
     "url": "/repos/:owner/:repo/contents/:path",
     "title": "createFile",
     "name": "createFile",
-    "description": "<p>This method creates a new file in a repository</p> <p>The <code>author</code> section is optional and is filled in with the <code>committer</code> information if omitted. If the <code>committer</code> information is omitted, the authenticated user's information is used.</p> <p>You must provide values for both <code>name</code> and <code>email</code>, whether you choose to use <code>author</code> or <code>committer</code>. Otherwise, you'll receive a <code>422</code> status code.</p> <p>Both the <code>author</code> and <code>committer</code> parameters have the same keys:</p> <table> <thead> <tr> <th>name</th> <th>type</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>string</td> <td>The name of the author (or committer) of the commit</td> </tr> <tr> <td>email</td> <td>string</td> <td>The email of the author (or committer) of the commit</td> </tr> </tbody> </table>",
+    "description": "<p>This method creates a new file in a repository <a href=\"https://developer.github.com/v3/repos/contents/#create-a-file\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18787,7 +18840,7 @@
             "type": "string",
             "optional": false,
             "field": "path",
-            "description": "<p>The content path.</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
@@ -18801,7 +18854,7 @@
             "type": "string",
             "optional": false,
             "field": "content",
-            "description": "<p>The new file content, Base64 encoded.</p>"
+            "description": "<p>The new file content, using Base64 encoding.</p>"
           },
           {
             "group": "Parameter",
@@ -18816,14 +18869,44 @@
             "type": "object",
             "optional": true,
             "field": "committer",
-            "description": "<p>object containing information about the committer.</p>"
+            "defaultValue": "the authenticated user:",
+            "description": "<p>The person that committed the file.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "committer:name",
+            "description": "<p>The name of the author or committer of the commit. You'll receive a <code>422</code> status code if <code>name</code> is omitted.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "committer:email",
+            "description": "<p>The email of the author or committer of the commit. You'll receive a <code>422</code> status code if <code>name</code> is omitted.</p>"
           },
           {
             "group": "Parameter",
             "type": "object",
             "optional": true,
             "field": "author",
-            "description": "<p>object containing information about the author.</p>"
+            "defaultValue": "The `committer` or the authenticated user if you omit `committer`:",
+            "description": "<p>The author of the file.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "author:name",
+            "description": "<p>The name of the author or committer of the commit. You'll receive a <code>422</code> status code if <code>name</code> is omitted.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "author:email",
+            "description": "<p>The email of the author or committer of the commit. You'll receive a <code>422</code> status code if <code>name</code> is omitted.</p>"
           }
         ]
       }
@@ -18831,17 +18914,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author})",
+        "content": "const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}).then(result => {})",
+        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}, (error, result) => {})",
+        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19001,7 +19084,7 @@
     "url": "/repos/:owner/:repo/hooks",
     "title": "createHook",
     "name": "createHook",
-    "description": "<p>Repositories can have multiple webhooks installed. Each webhook should have a unique <code>config</code>. Multiple webhooks can share the same <code>config</code> as long as those webhooks do not have any <code>events</code> that overlap. <em>Note</em>*: Repository service hooks (like email or Campfire) can have at most one configured at a time. Creating hooks for a service that already has one configured will <a href=\"#edit-a-hook\">update the existing hook</a>. <em>Note</em>*: GitHub Services will no longer be supported as of October 1, 2018. Please see the <a href=\"/changes/2018-04-25-github-services-deprecation\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks.</p> <p>Here's how you can create a hook that posts payloads in JSON format: <a href=\"https://developer.github.com/v3/repos/hooks/#create-a-hook\">REST API doc</a></p>",
+    "description": "<p>Repositories can have multiple webhooks installed. Each webhook should have a unique <code>config</code>. Multiple webhooks can share the same <code>config</code> as long as those webhooks do not have any <code>events</code> that overlap. <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks.</p> <p>Here's how you can create a hook that posts payloads in JSON format: <a href=\"https://developer.github.com/v3/repos/hooks/#create-a-hook\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19025,7 +19108,7 @@
             "type": "string",
             "optional": false,
             "field": "name",
-            "description": "<p>Use &quot;web&quot; for a webhook or use the name of a valid service. You can use <a href=\"https://api.github.com/hooks\">/hooks</a> for the list of valid service names. <strong>Note</strong>: GitHub Services will no longer be supported as of October 1, 2018. Please see the <a href=\"/changes/2018-04-25-github-services-deprecation\">blog post</a> for details.</p>"
+            "description": "<p>Use &quot;web&quot; for a webhook. <strong>Note</strong>: Because we have <a href=\"/changes/2018-10-01-denying-new-github-services\">deprecated GitHub Services</a>, this endpoint now only accepts <code>web</code> as a valid value for the <code>name</code> parameter. However, when we implement <a href=\"/changes/2018-09-25-stricter-validation-coming-soon-in-the-rest-api/\">stricter API validation</a> beginning November 1, 2018, requests sending this value will be rejected because <code>name</code> will no longer be an accepted parameter.</p>"
           },
           {
             "group": "Parameter",
@@ -20241,7 +20324,7 @@
     "url": "/repos/:owner/:repo/forks",
     "title": "fork",
     "name": "fork",
-    "description": "<p>Create a fork for the authenticated user.</p> <p>Forking a Repository happens asynchronously. Therefore, you may have to wait a short period before accessing the git objects. If this takes longer than 5 minutes, be sure to contact <a href=\"https://github.com/contact\">GitHub support</a>. <a href=\"https://developer.github.com/v3/repos/forks/#create-a-fork\">REST API doc</a></p>",
+    "description": "<p>Create a fork for the authenticated user. <em>Note</em>*: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact <a href=\"https://github.com/contact\">GitHub support</a>. <a href=\"https://developer.github.com/v3/repos/forks/#create-a-fork\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21674,7 +21757,7 @@
     "url": "/repos/:owner/:repo/deployments/:deployment_id",
     "title": "getDeployment",
     "name": "getDeployment",
-    "description": "<p><em>Note:</em>* If a user created a deployment via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment\">REST API doc</a></p>",
+    "description": "<p><a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21729,7 +21812,7 @@
     "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id",
     "title": "getDeploymentStatus",
     "name": "getDeploymentStatus",
-    "description": "<p>Users with pull access can view a deployment status for a deployment: <em>Note:</em>* If a user created a deployment status via a GitHub App, the <code>performed_via_github_app</code> key will contain information on that GitHub App. <a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status\">REST API doc</a></p>",
+    "description": "<p>Users with pull access can view a deployment status for a deployment: <a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21901,7 +21984,7 @@
             "optional": true,
             "field": "sha",
             "defaultValue": "none",
-            "description": "<p>The SHA that was recorded at creation time.</p>"
+            "description": "<p>The SHA recorded at creation time.</p>"
           },
           {
             "group": "Parameter",
@@ -25643,7 +25726,7 @@
     "url": "/repos/:owner/:repo/contents/:path",
     "title": "updateFile",
     "name": "updateFile",
-    "description": "<p>This method updates a file in a repository</p> <p>The <code>author</code> section is optional and is filled in with the <code>committer</code> information if omitted. If the <code>committer</code> information is omitted, the authenticated user's information is used.</p> <p>You must provide values for both <code>name</code> and <code>email</code>, whether you choose to use <code>author</code> or <code>committer</code>. Otherwise, you'll receive a <code>422</code> status code.</p> <p>Both the <code>author</code> and <code>committer</code> parameters have the same keys:</p> <table> <thead> <tr> <th>name</th> <th>type</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>string</td> <td>The name of the author (or committer) of the commit</td> </tr> <tr> <td>email</td> <td>string</td> <td>The email of the author (or committer) of the commit</td> </tr> </tbody> </table>",
+    "description": "<p>This method updates a file in a repository <a href=\"https://developer.github.com/v3/repos/contents/#update-a-file\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -25667,7 +25750,7 @@
             "type": "string",
             "optional": false,
             "field": "path",
-            "description": "<p>The content path.</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
@@ -25681,7 +25764,7 @@
             "type": "string",
             "optional": false,
             "field": "content",
-            "description": "<p>The updated file content, Base64 encoded.</p>"
+            "description": "<p>The new file content, using Base64 encoding.</p>"
           },
           {
             "group": "Parameter",
@@ -25703,14 +25786,44 @@
             "type": "object",
             "optional": true,
             "field": "committer",
-            "description": "<p>object containing information about the committer.</p>"
+            "defaultValue": "the authenticated user:",
+            "description": "<p>The person that committed the file.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "committer:name",
+            "description": "<p>The name of the author or committer of the commit. You'll receive a <code>422</code> status code if you omit <code>name</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "committer:email",
+            "description": "<p>The email of the author or committer of the commit. You'll receive a <code>422</code> status code if you omit <code>name</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "object",
             "optional": true,
             "field": "author",
-            "description": "<p>object containing information about the author.</p>"
+            "defaultValue": "The `committer` or the authenticated user if you omit `committer`:",
+            "description": "<p>The author of the file.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "author:name",
+            "description": "<p>The name of the author or committer of the commit. You'll receive a <code>422</code> status code if you omit <code>name</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "author:email",
+            "description": "<p>The email of the author or committer of the commit. You'll receive a <code>422</code> status code if you omit <code>name</code>.</p>"
           }
         ]
       }
@@ -25718,17 +25831,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author})",
+        "content": "const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}).then(result => {})",
+        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}, (error, result) => {})",
+        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26611,7 +26724,7 @@
     "url": "/user/emails",
     "title": "addEmails",
     "name": "addEmails",
-    "description": "<p>You can post a single email address or an array of addresses: <a href=\"https://developer.github.com/v3/users/emails/#add-email-addresses\">REST API doc</a></p>",
+    "description": "<p><a href=\"https://developer.github.com/v3/users/emails/#add-email-addresses\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26621,7 +26734,7 @@
             "type": "string[]",
             "optional": false,
             "field": "emails",
-            "description": ""
+            "description": "<p>Adds one or more email addresses to your GitHub account. Must contain at least one email address. <strong>Note:</strong> Alternatively, you can pass a single email address or an <code>array</code> of emails addresses directly, but we recommend that you pass an object using the <code>emails</code> key.</p>"
           }
         ]
       }
@@ -27001,7 +27114,7 @@
     "url": "/user/emails",
     "title": "deleteEmails",
     "name": "deleteEmails",
-    "description": "<p>You can include a single email address or an array of addresses: <a href=\"https://developer.github.com/v3/users/emails/#delete-email-addresses\">REST API doc</a></p>",
+    "description": "<p><a href=\"https://developer.github.com/v3/users/emails/#delete-email-addresses\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27011,7 +27124,7 @@
             "type": "string[]",
             "optional": false,
             "field": "emails",
-            "description": ""
+            "description": "<p>Deletes one or more email addresses from your GitHub account. Must contain at least one email address. <strong>Note:</strong> Alternatively, you can pass a single email address or an <code>array</code> of emails addresses directly, but we recommend that you pass an object using the <code>emails</code> key.</p>"
           }
         ]
       }

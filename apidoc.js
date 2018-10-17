@@ -230,6 +230,7 @@ Note that subscriptions are only generated if a user is participating in a conve
 *   **Current user**: The private timeline for the authenticated user
 *   **Current user actor**: The private timeline for activity created by the authenticated user
 *   **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.
+*   **Security advisories**: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub.
 
 **Note**: Private feeds are only returned when [authenticating via Basic Auth](https://developer.github.com/v3/#basic-authentication) since current feed URIs use the older, non revocable auth tokens. <a href="https://developer.github.com/v3/activity/feeds/#list-feeds">REST API doc</a>
  * @apiGroup Activity
@@ -1201,7 +1202,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
  * @apiParam {string=queued,in_progress,completed} [status="queued"]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
  * @apiParam {string} [started_at]  The time that the check run began in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
- * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,details_url,conclusion,status,completed} [conclusion]  **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.  
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required} [conclusion]  **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. When the conclusion is `action_required`, additional details should be provided on the site specified by `details_url`.  
 **Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.
  * @apiParam {string} [completed_at]  **Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object) description.
@@ -1431,7 +1432,7 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * @apiParam {string} [external_id]  A reference for the run on the integrator's system.
  * @apiParam {string} [started_at]  A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {string=queued,in_progress,completed} [status]  The current status. Can be one of `queued`, `in_progress`, or `completed`.
- * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required,conclusion,status,completed} [conclusion]  **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`.  
+ * @apiParam {string=success,failure,neutral,cancelled,timed_out,action_required} [conclusion]  **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`.  
 **Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`.
  * @apiParam {string} [completed_at]  **Required if you provide `conclusion`**. The time the check completed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
  * @apiParam {object} [output]  Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](#output-object-1) description.
@@ -1462,6 +1463,30 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})
  * @apiExample {js} Callback
  * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})
+ */
+
+
+
+/**,
+ * Emojis
+ * @namespace Emojis
+ */
+
+
+/**
+ * @api {GET} /emojis get
+ * @apiName get
+ * @apiDescription Lists all the emojis available to use on GitHub.
+
+ <a href="https://developer.github.com/v3/emojis/#emojis">REST API doc</a>
+ * @apiGroup Emojis
+ *
+ * @apiExample {js} async/await
+ * const result = await octokit.emojis.get({})
+ * @apiExample {js} Promise
+ * octokit.emojis.get({}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.emojis.get({}, (error, result) => {})
  */
 
 
@@ -2378,11 +2403,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
-
-
-
-
-**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App. <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
+ <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string=assigned,created,mentioned,subscribed,all} [filter="assigned"]  Indicates which sorts of issues to return. Can be one of:  
@@ -2429,11 +2450,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {GET} /repos/:owner/:repo/issues/comments/:comment_id getComment
  * @apiName getComment
- * @apiDescription 
-
-
-
-**Note:** If a user created an issue comment via a GitHub App, the `performed_via_github_app` key will contain information on that GitHub App. <a href="https://developer.github.com/v3/issues/comments/#get-a-single-comment">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/issues/comments/#get-a-single-comment">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2498,9 +2515,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {GET} /repos/:owner/:repo/issues/events/:event_id getEvent
  * @apiName getEvent
- * @apiDescription 
-
-**Note:** If the event was triggered by a user via a GitHub App, the `performed_via_github_app` key will contain information on that GitHub App. <a href="https://developer.github.com/v3/issues/events/#get-a-single-event">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/issues/events/#get-a-single-event">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2581,11 +2596,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
-
-
-
-
-**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App. <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
+ <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} org  
@@ -2618,11 +2629,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
-
-
-
-
-**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App. <a href="https://developer.github.com/v3/issues/#list-issues-for-a-repository">REST API doc</a>
+ <a href="https://developer.github.com/v3/issues/#list-issues-for-a-repository">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2654,11 +2661,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
-
-
-
-
-**Note:** If a user opened an issue via a GitHub App, the `performed_via_github_app` key contains information on that GitHub App. <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
+ <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string=assigned,created,mentioned,subscribed,all} [filter="assigned"]  Indicates which sorts of issues to return. Can be one of:  
@@ -2960,6 +2963,32 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})
  * @apiExample {js} Callback
  * octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})
+ */
+
+
+
+/**,
+ * Meta
+ * @namespace Meta
+ */
+
+
+/**
+ * @api {GET} /meta get
+ * @apiName get
+ * @apiDescription This endpoint provides a list of GitHub's IP addresses. For more information, see "[About GitHub's IP addresses](https://help.github.com/articles/about-github-s-ip-addresses/)."
+
+**Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.
+
+**Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks. <a href="https://developer.github.com/v3/meta/#meta">REST API doc</a>
+ * @apiGroup Meta
+ *
+ * @apiExample {js} async/await
+ * const result = await octokit.meta.get({})
+ * @apiExample {js} Promise
+ * octokit.meta.get({}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.meta.get({}, (error, result) => {})
  */
 
 
@@ -4862,7 +4891,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiGroup Projects
  *
  * @apiParam {integer} card_id  
- * @apiParam {string=top,bottom,after:<card_id>} position  Can be one of `top`, `bottom`, or `after:<card_id>`, where `<card_id>` is the `id` value of a card in the same column, or in the new column specified by `column_id`.
+ * @apiParam {string} position  Can be one of `top`, `bottom`, or `after:<card_id>`, where `<card_id>` is the `id` value of a card in the same column, or in the new column specified by `column_id`.
  * @apiParam {integer} [column_id]  The `id` value of a column in the same project.
  * @apiExample {js} async/await
  * const result = await octokit.projects.moveProjectCard({card_id, position, column_id})
@@ -4880,7 +4909,7 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiGroup Projects
  *
  * @apiParam {integer} column_id  
- * @apiParam {string=first,last,after:<column_id>} position  Can be one of `first`, `last`, or `after:<column_id>`, where `<column_id>` is the `id` value of a column in the same project.
+ * @apiParam {string} position  Can be one of `first`, `last`, or `after:<column_id>`, where `<column_id>` is the `id` value of a column in the same project.
  * @apiExample {js} async/await
  * const result = await octokit.projects.moveProjectColumn({column_id, position})
  * @apiExample {js} Promise
@@ -5096,9 +5125,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiParam {string} [body]  **Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.
  * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT} [event]  The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://developer.github.com/v3/pulls/reviews/#submit-a-pull-request-review) when you are ready.
  * @apiParam {object[]} [comments]  Use the following table to specify the location, destination, and contents of the draft review comment.
- * @apiParam {string} [comments:path]  **Required.** The relative path to the file that necessitates a review comment.
- * @apiParam {integer} [comments:position]  **Required.** The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
- * @apiParam {string} [comments:body]  **Required.** Text of the review comment.
+ * @apiParam {string} comments:path  The relative path to the file that necessitates a review comment.
+ * @apiParam {integer} comments:position  The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+ * @apiParam {string} comments:body  Text of the review comment.
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body})
  * @apiExample {js} Promise
@@ -5195,7 +5224,7 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiParam {string} repo  
  * @apiParam {integer} number  
  * @apiParam {integer} review_id  
- * @apiParam {string} [message]  **Required.** The message for the pull request review dismissal
+ * @apiParam {string} message  The message for the pull request review dismissal
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.dismissReview({owner, repo, number, review_id, message})
  * @apiExample {js} Promise
@@ -5498,7 +5527,7 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiParam {integer} number  
  * @apiParam {integer} review_id  
  * @apiParam {string} [body]  The body text of the pull request review
- * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT} [event]  **Required.** The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. When you leave this blank, the API returns _HTTP 422 (Unrecognizable entity)_ and sets the review action state to `PENDING`, which means you will need to re-submit the pull request review using a review action.
+ * @apiParam {string=APPROVE,REQUEST_CHANGES,COMMENT} event  The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. When you leave this blank, the API returns _HTTP 422 (Unrecognizable entity)_ and sets the review action state to `PENDING`, which means you will need to re-submit the pull request review using a review action.
  * @apiExample {js} async/await
  * const result = await octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event})
  * @apiExample {js} Promise
@@ -6070,7 +6099,7 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
 
 The `ref` parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.
 
-The `environment` parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as `production`, `staging`, and `qa`. This allows for easy tracking of which environments had deployments requested. The default environment is `production`.
+The `environment` parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as `production`, `staging`, and `qa`. This parameter makes it easier to track which environments have requested deployments. The default environment is `production`.
 
 The `auto_merge` parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref _is_ behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.
 
@@ -6095,13 +6124,15 @@ This error happens when the `required_contexts` parameter indicates that one or 
  * @apiParam {string} repo  
  * @apiParam {string} ref  The ref to deploy. This can be a branch, tag, or SHA.
  * @apiParam {string} [task="deploy"]  Specifies a task to execute (e.g., `deploy` or `deploy:migrations`).
- * @apiParam {boolean} [auto_merge="true"]  Attempts to automatically merge the default branch into the requested ref, if it is behind the default branch.
- * @apiParam {string[]} [required_contexts]  The status contexts to verify against commit status checks. If this parameter is omitted, then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.
+ * @apiParam {boolean} [auto_merge="true"]  Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch.
+ * @apiParam {string[]} [required_contexts]  The [status](https://developer.github.com/v3/repos/statuses/) contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.
  * @apiParam {string} [payload=""""]  JSON payload with extra information about the deployment.
  * @apiParam {string} [environment="production"]  Name for the target deployment environment (e.g., `production`, `staging`, `qa`).
  * @apiParam {string} [description=""""]  Short description of the deployment.
- * @apiParam {boolean} [transient_environment="false"]  Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
- * @apiParam {boolean} [production_environment="`true` when `environment` is `production` and `false` otherwise"]  Specifies if the given environment is one that end-users directly interact with. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
+ * @apiParam {boolean} [transient_environment="false"]  Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: `false`  
+**Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type. **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type.
+ * @apiParam {boolean} [production_environment="`true` when `environment` is `production` and `false` otherwise"]  Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.  
+**Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type.  
  * @apiExample {js} async/await
  * const result = await octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment})
  * @apiExample {js} Promise
@@ -6114,58 +6145,58 @@ This error happens when the `required_contexts` parameter indicates that one or 
 /**
  * @api {POST} /repos/:owner/:repo/deployments/:deployment_id/statuses createDeploymentStatus
  * @apiName createDeploymentStatus
- * @apiDescription Users with push access can create deployment statuses for a given deployment: <a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment-status">REST API doc</a>
+ * @apiDescription Users with `push` access can create deployment statuses for a given deployment.
+
+GitHub Apps require `read & write` access to "Deployments" and `read-only` access to "Repo contents" (for private repos). OAuth Apps require the `repo_deployment` scope. <a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment-status">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} deployment_id  
- * @apiParam {string=error,failure,inactive,pending,success} state  The state of the status. Can be one of `error`, `failure`, `inactive`, `pending`, or `success`. **The `inactive` state requires a custom media type to be specified. Please see more in the alert below.**
- * @apiParam {string} [target_url=""""]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.
- * @apiParam {string} [log_url=""""]  This is functionally equivalent to `target_url`. We will continue accept `target_url` to support legacy uses, but we recommend modifying this to the new name to avoid confusion. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
- * @apiParam {string} [description=""""]  A short description of the status. Maximum length of 140 characters.
- * @apiParam {string} [environment_url=""""]  Sets the URL for accessing your environment. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
- * @apiParam {boolean} [auto_inactive="true"]  Adds a new `inactive` status to all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. **This parameter requires a custom media type to be specified. Please see more in the alert below.**
+ * @apiParam {string=error,failure,inactive,in_progress,queued,pending,success} state  The state of the status. Can be one of `error`, `failure`, `inactive`, `in_progress`, `queued` `pending`, or `success`. **Note:** To use the `inactive` state, you must provide the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type. To use the `in_progress` and `queued` states, you must provide the [`application/vnd.github.flash-preview+json`](https://developer.github.com/v3/previews/#deployment-statuses) custom media type.
+ * @apiParam {string} [target_url=""""]  The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment. **Note:** It's recommended to use the `log_url` parameter, which replaces `target_url`.
+ * @apiParam {string} [log_url=""""]  The full URL of the deployment's output. This parameter replaces `target_url`. We will continue to accept `target_url` to support legacy uses, but we recommend replacing `target_url` with `log_url`. Setting `log_url` will automatically set `target_url` to the same value. Default: `""`  
+**Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type. **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type.
+ * @apiParam {string} [description=""""]  A short description of the status. The maximum description length is 140 characters.
+ * @apiParam {string=production,staging,qa} [environment]  Name for the target deployment environment, which can be changed when setting a deploy status. For example, `production`, `staging`, or `qa`. **Note:** This parameter requires you to use the [`application/vnd.github.flash-preview+json`](https://developer.github.com/v3/previews/#deployment-statuses) custom media type.
+ * @apiParam {string} [environment_url=""""]  Sets the URL for accessing your environment. Default: `""`  
+**Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type. **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type.
+ * @apiParam {boolean} [auto_inactive="true"]  Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status's deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true`  
+**Note:** To add an `inactive` status to `production` environments, you must use the [`application/vnd.github.flash-preview+json`](https://developer.github.com/v3/previews/#deployment-statuses) custom media type.  
+**Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://developer.github.com/v3/previews/#enhanced-deployments) custom media type. **Note:** To add an `inactive` status to `production` environments, you must use the [`application/vnd.github.flash-preview+json`](https://developer.github.com/v3/previews/#deployment-statuses) custom media type.  
  * @apiExample {js} async/await
- * const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive})
+ * const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive})
  * @apiExample {js} Promise
- * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}).then(result => {})
+ * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment_url, auto_inactive}, (error, result) => {})
+ * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}, (error, result) => {})
  */
 
 
 /**
  * @api {PUT} /repos/:owner/:repo/contents/:path createFile
  * @apiName createFile
- * @apiDescription This method creates a new file in a repository
-
-The `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.
-
-You must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.
-
-Both the `author` and `committer` parameters have the same keys:
-
-| name  | type   | description                                          |
-| ----- | ------ | ---------------------------------------------------- |
-| name  | string | The name of the author (or committer) of the commit  |
-| email | string | The email of the author (or committer) of the commit | <a href="https://developer.github.com/v3/repos/contents/#create-a-file">REST API doc</a>
+ * @apiDescription This method creates a new file in a repository <a href="https://developer.github.com/v3/repos/contents/#create-a-file">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} path  The content path.
+ * @apiParam {string} path  
  * @apiParam {string} message  The commit message.
- * @apiParam {string} content  The new file content, Base64 encoded.
+ * @apiParam {string} content  The new file content, using Base64 encoding.
  * @apiParam {string} [branch="the repository’s default branch (usually `master`)"]  The branch name.
- * @apiParam {object} [committer]  object containing information about the committer.
- * @apiParam {object} [author]  object containing information about the author.
+ * @apiParam {object} [committer="the authenticated user:"]  The person that committed the file.
+ * @apiParam {string} committer:name  The name of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
+ * @apiParam {string} committer:email  The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
+ * @apiParam {object} [author="The `committer` or the authenticated user if you omit `committer`:"]  The author of the file.
+ * @apiParam {string} author:name  The name of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
+ * @apiParam {string} author:email  The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
  * @apiExample {js} async/await
- * const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author})
+ * const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email})
  * @apiExample {js} Promise
- * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}).then(result => {})
+ * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, author}, (error, result) => {})
+ * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})
  */
 
 
@@ -6211,16 +6242,14 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
  * @apiName createHook
  * @apiDescription Repositories can have multiple webhooks installed. Each webhook should have a unique `config`. Multiple webhooks can share the same `config` as long as those webhooks do not have any `events` that overlap.
 
-**Note**: Repository service hooks (like email or Campfire) can have at most one configured at a time. Creating hooks for a service that already has one configured will [update the existing hook](#edit-a-hook).
-
-**Note**: GitHub Services will no longer be supported as of October 1, 2018. Please see the [blog post](/changes/2018-04-25-github-services-deprecation) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.
+**Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.
 
 Here's how you can create a hook that posts payloads in JSON format: <a href="https://developer.github.com/v3/repos/hooks/#create-a-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} name  Use "web" for a webhook or use the name of a valid service. You can use [/hooks](https://api.github.com/hooks) for the list of valid service names. **Note**: GitHub Services will no longer be supported as of October 1, 2018. Please see the [blog post](/changes/2018-04-25-github-services-deprecation) for details.
+ * @apiParam {string} name  Use "web" for a webhook. **Note**: Because we have [deprecated GitHub Services](/changes/2018-10-01-denying-new-github-services), this endpoint now only accepts `web` as a valid value for the `name` parameter. However, when we implement [stricter API validation](/changes/2018-09-25-stricter-validation-coming-soon-in-the-rest-api/) beginning November 1, 2018, requests sending this value will be rejected because `name` will no longer be an accepted parameter.
  * @apiParam {object} config  Key/value pairs to provide settings for this webhook. [These are defined below](#create-hook-config-params).
  * @apiParam {string} config:url  The URL to which the payloads will be delivered.
  * @apiParam {string} [config:content_type]  The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
@@ -6571,7 +6600,7 @@ Both the `author` and `committer` parameters have the same keys:
  * @apiName fork
  * @apiDescription Create a fork for the authenticated user.
 
-Forking a Repository happens asynchronously. Therefore, you may have to wait a short period before accessing the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub support](https://github.com/contact). <a href="https://developer.github.com/v3/repos/forks/#create-a-fork">REST API doc</a>
+**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub support](https://github.com/contact). <a href="https://developer.github.com/v3/repos/forks/#create-a-fork">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7041,9 +7070,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
 /**
  * @api {GET} /repos/:owner/:repo/deployments/:deployment_id getDeployment
  * @apiName getDeployment
- * @apiDescription 
-
-**Note:** If a user created a deployment via a GitHub App, the `performed_via_github_app` key will contain information on that GitHub App. <a href="https://developer.github.com/v3/repos/deployments/#get-a-single-deployment">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/repos/deployments/#get-a-single-deployment">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7061,11 +7088,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
 /**
  * @api {GET} /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id getDeploymentStatus
  * @apiName getDeploymentStatus
- * @apiDescription Users with pull access can view a deployment status for a deployment:
-
-
-
-**Note:** If a user created a deployment status via a GitHub App, the `performed_via_github_app` key will contain information on that GitHub App. <a href="https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status">REST API doc</a>
+ * @apiDescription Users with pull access can view a deployment status for a deployment: <a href="https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7111,7 +7134,7 @@ GitHub identifies contributors by author email address. This endpoint groups con
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} [sha="none"]  The SHA that was recorded at creation time.
+ * @apiParam {string} [sha="none"]  The SHA recorded at creation time.
  * @apiParam {string} [ref="none"]  The name of the ref. This can be a branch, tag, or SHA.
  * @apiParam {string} [task="none"]  The name of the task for the deployment (e.g., `deploy` or `deploy:migrations`).
  * @apiParam {string} [environment="none"]  The name of the environment that was deployed to (e.g., `staging` or `production`).
@@ -8347,35 +8370,28 @@ Build requests are limited to one concurrent build per repository and one concur
 /**
  * @api {PUT} /repos/:owner/:repo/contents/:path updateFile
  * @apiName updateFile
- * @apiDescription This method updates a file in a repository
-
-The `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.
-
-You must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.
-
-Both the `author` and `committer` parameters have the same keys:
-
-| name  | type   | description                                          |
-| ----- | ------ | ---------------------------------------------------- |
-| name  | string | The name of the author (or committer) of the commit  |
-| email | string | The email of the author (or committer) of the commit | <a href="https://developer.github.com/v3/repos/contents/#update-a-file">REST API doc</a>
+ * @apiDescription This method updates a file in a repository <a href="https://developer.github.com/v3/repos/contents/#update-a-file">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
  * @apiParam {string} repo  
- * @apiParam {string} path  The content path.
+ * @apiParam {string} path  
  * @apiParam {string} message  The commit message.
- * @apiParam {string} content  The updated file content, Base64 encoded.
+ * @apiParam {string} content  The new file content, using Base64 encoding.
  * @apiParam {string} sha  The blob SHA of the file being replaced.
  * @apiParam {string} [branch="the repository’s default branch (usually `master`)"]  The branch name.
- * @apiParam {object} [committer]  object containing information about the committer.
- * @apiParam {object} [author]  object containing information about the author.
+ * @apiParam {object} [committer="the authenticated user:"]  The person that committed the file.
+ * @apiParam {string} committer:name  The name of the author or committer of the commit. You'll receive a `422` status code if you omit `name`.
+ * @apiParam {string} committer:email  The email of the author or committer of the commit. You'll receive a `422` status code if you omit `name`.
+ * @apiParam {object} [author="The `committer` or the authenticated user if you omit `committer`:"]  The author of the file.
+ * @apiParam {string} author:name  The name of the author or committer of the commit. You'll receive a `422` status code if you omit `name`.
+ * @apiParam {string} author:email  The email of the author or committer of the commit. You'll receive a `422` status code if you omit `name`.
  * @apiExample {js} async/await
- * const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author})
+ * const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email})
  * @apiExample {js} Promise
- * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}).then(result => {})
+ * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, author}, (error, result) => {})
+ * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})
  */
 
 
@@ -8830,10 +8846,10 @@ When searching for users, you can get text match metadata for the issue **login*
 /**
  * @api {POST} /user/emails addEmails
  * @apiName addEmails
- * @apiDescription You can post a single email address or an array of addresses: <a href="https://developer.github.com/v3/users/emails/#add-email-addresses">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/users/emails/#add-email-addresses">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string[]} emails  
+ * @apiParam {string[]} emails  Adds one or more email addresses to your GitHub account. Must contain at least one email address. **Note:** Alternatively, you can pass a single email address or an `array` of emails addresses directly, but we recommend that you pass an object using the `emails` key.
  * @apiExample {js} async/await
  * const result = await octokit.users.addEmails({emails})
  * @apiExample {js} Promise
@@ -8981,10 +8997,10 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {DELETE} /user/emails deleteEmails
  * @apiName deleteEmails
- * @apiDescription You can include a single email address or an array of addresses: <a href="https://developer.github.com/v3/users/emails/#delete-email-addresses">REST API doc</a>
+ * @apiDescription <a href="https://developer.github.com/v3/users/emails/#delete-email-addresses">REST API doc</a>
  * @apiGroup Users
  *
- * @apiParam {string[]} emails  
+ * @apiParam {string[]} emails  Deletes one or more email addresses from your GitHub account. Must contain at least one email address. **Note:** Alternatively, you can pass a single email address or an `array` of emails addresses directly, but we recommend that you pass an object using the `emails` key.
  * @apiExample {js} async/await
  * const result = await octokit.users.deleteEmails({emails})
  * @apiExample {js} Promise
