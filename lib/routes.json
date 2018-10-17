@@ -3833,6 +3833,13 @@
       "url": "/repos/:owner/:repo/milestones/:number"
     }
   },
+  "meta": {
+    "get": {
+      "method": "GET",
+      "params": {},
+      "url": "/meta"
+    }
+  },
   "migrations": {
     "cancelImport": {
       "headers": {
