@@ -61,7 +61,6 @@
     "dotenv": "^6.0.0",
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
-    "jsondiff": "0.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^5.0.0",
     "mustache": "^3.0.0",
