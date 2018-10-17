@@ -1110,11 +1110,7 @@
             "neutral",
             "cancelled",
             "timed_out",
-            "action_required",
-            "details_url",
-            "conclusion",
-            "status",
-            "completed"
+            "action_required"
           ],
           "type": "string"
         },
@@ -1550,10 +1546,7 @@
             "neutral",
             "cancelled",
             "timed_out",
-            "action_required",
-            "conclusion",
-            "status",
-            "completed"
+            "action_required"
           ],
           "type": "string"
         },
