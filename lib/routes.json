@@ -2481,7 +2481,8 @@
     },
     "getCommitSignatureVerification": {
       "alias": "gitdata.getCommit",
-      "deprecated": "`gitdata.getCommitSignatureVerification()` is deprecated, use `gitdata.getCommit()`"
+      "deprecated": "`gitdata.getCommitSignatureVerification()` is deprecated, use `gitdata.getCommit()`",
+      "params": {}
     },
     "getReference": {
       "method": "GET",
@@ -2545,7 +2546,8 @@
     },
     "getTagSignatureVerification": {
       "alias": "gitdata.getTag",
-      "deprecated": "`gitdata.getTagSignatureVerification()` is deprecated, use `gitdata.getTag()`"
+      "deprecated": "`gitdata.getTagSignatureVerification()` is deprecated, use `gitdata.getTag()`",
+      "params": {}
     },
     "getTags": {
       "method": "GET",
