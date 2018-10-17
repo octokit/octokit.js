@@ -7499,6 +7499,14 @@
         "description": {
           "type": "string"
         },
+        "environment": {
+          "enum": [
+            "production",
+            "staging",
+            "qa"
+          ],
+          "type": "string"
+        },
         "environment_url": {
           "type": "string"
         },
@@ -7522,6 +7530,8 @@
             "error",
             "failure",
             "inactive",
+            "in_progress",
+            "queued",
             "pending",
             "success"
           ],
