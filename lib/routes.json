@@ -7564,6 +7564,14 @@
         "committer": {
           "type": "object"
         },
+        "committer.email": {
+          "required": true,
+          "type": "string"
+        },
+        "committer.name": {
+          "required": true,
+          "type": "string"
+        },
         "content": {
           "required": true,
           "type": "string"
@@ -10062,6 +10070,14 @@
         },
         "committer": {
           "type": "object"
+        },
+        "committer.email": {
+          "required": true,
+          "type": "string"
+        },
+        "committer.name": {
+          "required": true,
+          "type": "string"
         },
         "content": {
           "required": true,
