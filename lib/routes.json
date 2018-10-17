@@ -1655,6 +1655,13 @@
       "url": "/repos/:owner/:repo/check-runs/:check_run_id"
     }
   },
+  "emojis": {
+    "get": {
+      "method": "GET",
+      "params": {},
+      "url": "/emojis"
+    }
+  },
   "enterprise": {
     "createOrg": {
       "method": "POST",
