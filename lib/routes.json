@@ -6058,12 +6058,15 @@
           "type": "object[]"
         },
         "comments[].body": {
+          "required": true,
           "type": "string"
         },
         "comments[].path": {
+          "required": true,
           "type": "string"
         },
         "comments[].position": {
+          "required": true,
           "type": "integer"
         },
         "commit_id": {
@@ -6199,6 +6202,7 @@
           "deprecated": true
         },
         "message": {
+          "required": true,
           "type": "string"
         },
         "number": {
@@ -6630,6 +6634,7 @@
             "REQUEST_CHANGES",
             "COMMENT"
           ],
+          "required": true,
           "type": "string"
         },
         "id": {
