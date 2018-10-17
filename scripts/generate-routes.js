@@ -107,12 +107,14 @@ const mapScopes = {
   apps: 'apps',
   checks: 'checks',
   codesOfConduct: false,
+  emojis: 'emojis',
   gists: 'gists',
   git: 'gitdata',
   gitignore: false,
   issues: 'issues',
   licenses: false,
   markdown: false,
+  meta: 'meta',
   migrations: 'migrations',
   misc: 'misc',
   oauthAuthorizations: 'authorization',
@@ -282,6 +284,19 @@ Object.keys(CURRENT_ROUTES).sort().forEach(scope => {
       currentEndpoint.params[name].validation = `^(${currentEndpoint.params[name].enum.join('|')})$`.replace(/<\w+_id>/, '\\d+')
       delete currentEndpoint.params[name].enum
     })
+
+    // regex -> validation
+    Object.keys(currentEndpoint.params).forEach(name => {
+      if (!currentEndpoint.params[name].regex) {
+        return
+      }
+
+      currentEndpoint.params[name].validation = currentEndpoint.params[name].regex
+      delete currentEndpoint.params[name].regex
+    })
+
+    // delete previews
+    delete currentEndpoint.previews
 
     newRoutes[scope][methodName] = currentEndpoint
     newDocRoutes[scope][methodName] = newEndpoint
