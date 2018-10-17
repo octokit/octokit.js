@@ -92,7 +92,8 @@
     },
     "getEventsForRepoIssues": {
       "alias": "issues.getEventsForRepo",
-      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`"
+      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`",
+      "params": {}
     },
     "getEventsForRepoNetwork": {
       "method": "GET",
