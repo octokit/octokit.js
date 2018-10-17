@@ -144,11 +144,7 @@ declare namespace Github {
     {{#ownParams}}
     & {
     {{#params}}
-      {{#deprecated}}
-      /**
-       * @deprecated "{{key}}" has been renamed to "{{alias}}"
-       */
-       {{/deprecated}}
+      {{&jsdoc}}
       "{{key}}"{{^required}}?{{/required}}: {{{type}}}{{#allowNull}} | null{{/allowNull}};
     {{/params}}
     };
@@ -198,6 +194,7 @@ declare class Github {
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
+    {{&jsdoc}}
     {{method}}({{#paramTypeName}}params: Github.{{.}}, {{/paramTypeName}}callback?: Github.Callback<{{&responseType}}>): Promise<{{&responseType}}>;
     {{/methods}}
   };
