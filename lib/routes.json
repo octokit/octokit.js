@@ -929,6 +929,21 @@
       },
       "url": "/app/installations"
     },
+    "listInstallationsForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/user/installations"
+    },
     "listMarketplacePurchasesForAuthenticatedUser": {
       "method": "GET",
       "params": {
@@ -10587,6 +10602,34 @@
       },
       "url": "/repos/:owner/:repo/hooks/:hook_id"
     },
+    "updateInformationAboutPagesSite": {
+      "headers": {
+        "accept": "application/vnd.github.mister-fantastic-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "cname": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "\"gh-pages\"",
+            "\"master\"",
+            "\"master /docs\""
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pages"
+    },
     "updateInvitation": {
       "method": "PATCH",
       "params": {
@@ -10786,7 +10829,93 @@
       "url": ":url"
     }
   },
-  "scim": {},
+  "scim": {
+    "getProvisionedIdentitiesList": {
+      "method": "GET",
+      "params": {
+        "count": {
+          "type": "integer"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "organization_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "startIndex": {
+          "type": "integer"
+        }
+      },
+      "url": "/scim/v2/organizations/:organization_id/Users"
+    },
+    "getProvisioningDetailsForUser": {
+      "method": "GET",
+      "params": {
+        "external_identity_guid": {
+          "required": true,
+          "type": "string"
+        },
+        "organization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/scim/v2/organizations/:organization_id/Users/:external_identity_guid"
+    },
+    "provisionInviteUsers": {
+      "method": "POST",
+      "params": {
+        "organization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/scim/v2/organizations/:organization_id/Users"
+    },
+    "removeUserFromOrg": {
+      "method": "DELETE",
+      "params": {
+        "external_identity_guid": {
+          "required": true,
+          "type": "string"
+        },
+        "organization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/scim/v2/organizations/:organization_id/Users/:external_identity_guid"
+    },
+    "updateProvisionedOrgMembership": {
+      "method": "PUT",
+      "params": {
+        "external_identity_guid": {
+          "required": true,
+          "type": "string"
+        },
+        "organization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/scim/v2/organizations/:organization_id/Users/:external_identity_guid"
+    },
+    "updateUserAttribute": {
+      "method": "PATCH",
+      "params": {
+        "external_identity_guid": {
+          "required": true,
+          "type": "string"
+        },
+        "organization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/scim/v2/organizations/:organization_id/Users/:external_identity_guid"
+    }
+  },
   "search": {
     "code": {
       "method": "GET",
@@ -10992,6 +11121,20 @@
     }
   },
   "teams": {
+    "addMember": {
+      "method": "PUT",
+      "params": {
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/members/:username"
+    },
     "addOrUpdateMembership": {
       "headers": {
         "accept": "application/vnd.github.hellcat-preview+json"
@@ -11019,6 +11162,31 @@
         }
       },
       "url": "/teams/:team_id/memberships/:username"
+    },
+    "addOrUpdateProject": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "permission": {
+          "enum": [
+            "read",
+            "write",
+            "admin"
+          ],
+          "type": "string"
+        },
+        "project_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects/:project_id"
     },
     "addOrUpdateRepo": {
       "headers": {
@@ -11126,6 +11294,51 @@
       },
       "url": "/orgs/:org/teams"
     },
+    "createDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "title": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/discussions"
+    },
+    "createDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments"
+    },
     "delete": {
       "headers": {
         "accept": "application/vnd.github.hellcat-preview+json"
@@ -11143,6 +11356,44 @@
       },
       "url": "/teams/:team_id"
     },
+    "deleteDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number"
+    },
+    "deleteDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "comment_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+    },
     "get": {
       "headers": {
         "accept": "application/vnd.github.hellcat-preview+json"
@@ -11159,6 +11410,58 @@
         }
       },
       "url": "/teams/:team_id"
+    },
+    "getDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number"
+    },
+    "getDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "comment_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+    },
+    "getMember": {
+      "method": "GET",
+      "params": {
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/members/:username"
     },
     "getMembership": {
       "headers": {
@@ -11222,6 +11525,62 @@
         }
       },
       "url": "/teams/:team_id/teams"
+    },
+    "listDiscussionComments": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments"
+    },
+    "listDiscussions": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions"
     },
     "listForAuthenticatedUser": {
       "headers": {
@@ -11289,6 +11648,25 @@
       },
       "url": "/teams/:team_id/invitations"
     },
+    "listProjects": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects"
+    },
     "listRepos": {
       "headers": {
         "accept": "application/vnd.github.hellcat-preview+json"
@@ -11312,6 +11690,20 @@
       },
       "url": "/teams/:team_id/repos"
     },
+    "removeMember": {
+      "method": "DELETE",
+      "params": {
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/members/:username"
+    },
     "removeMembership": {
       "headers": {
         "accept": "application/vnd.github.hellcat-preview+json"
@@ -11332,6 +11724,20 @@
         }
       },
       "url": "/teams/:team_id/memberships/:username"
+    },
+    "removeProject": {
+      "method": "DELETE",
+      "params": {
+        "project_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects/:project_id"
     },
     "removeRepo": {
       "headers": {
@@ -11357,6 +11763,23 @@
         }
       },
       "url": "/teams/:team_id/repos/:owner/:repo"
+    },
+    "reviewProject": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "project_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects/:project_id"
     },
     "update": {
       "headers": {
@@ -11395,6 +11818,54 @@
         }
       },
       "url": "/teams/:team_id"
+    },
+    "updateDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "PATCH",
+      "params": {
+        "body": {
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number"
+    },
+    "updateDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "PATCH",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "comment_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
     }
   },
   "users": {
