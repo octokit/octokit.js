@@ -2068,6 +2068,26 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
 
 
 /**
+ * @api {GET} /repos/:owner/:repo/git/refs/:namespace getReferences
+ * @apiName getReferences
+ * @apiDescription This will return an array of all the references on the system, including things like notes and stashes if they exist on the server <a href="https://developer.github.com/v3/git/refs/#get-all-references">REST API doc</a>
+ * @apiGroup Gitdata
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} [namespace]  Filter by sub-namespace (reference prefix). Most commen examples would be `'heads/'` and `'tags/'` to retrieve branches or tags
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.gitdata.getReferences({owner, repo, namespace, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}, (error, result) => {})
+ */
+
+
+/**
  * @api {GET} /repos/:owner/:repo/git/tags/:tag_sha getTag
  * @apiName getTag
  * @apiDescription <a href="https://developer.github.com/v3/git/tags/#get-a-tag">REST API doc</a>
@@ -8860,25 +8880,6 @@ When searching for users, you can get text match metadata for the issue **login*
 
 
 /**
- * @api {PUT} /user/installations/:installation_id/repositories/:repository_id addRepoToInstallation
- * @apiName addRepoToInstallation
- * @apiDescription Add a single repository to an installation. The authenticated user must have admin access to the repository.
-
-You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
- * @apiGroup Users
- *
- * @apiParam {integer} installation_id  
- * @apiParam {integer} repository_id  
- * @apiExample {js} async/await
- * const result = await octokit.users.addRepoToInstallation({installation_id, repository_id})
- * @apiExample {js} Promise
- * octokit.users.addRepoToInstallation({installation_id, repository_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
- */
-
-
-/**
  * @api {PUT} /user/blocks/:username blockUser
  * @apiName blockUser
  * @apiDescription <a href="https://developer.github.com/v3/users/blocking/#block-a-user">REST API doc</a>
@@ -9332,29 +9333,6 @@ The access the user has to each repository is included in the hash under the `pe
 
 
 /**
- * @api {GET} /user/installations getInstallations
- * @apiName getInstallations
- * @apiDescription Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.
-
-You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.
-
-The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
-
-The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#list-installations-for-user">REST API doc</a>
- * @apiGroup Users
- *
- * @apiParam {integer} [per_page="30"]  Results per page (max 100)
- * @apiParam {integer} [page="1"]  Page number of the results to fetch.
- * @apiExample {js} async/await
- * const result = await octokit.users.getInstallations({per_page, page})
- * @apiExample {js} Promise
- * octokit.users.getInstallations({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getInstallations({per_page, page}, (error, result) => {})
- */
-
-
-/**
  * @api {GET} /user/keys/:key_id getKey
  * @apiName getKey
  * @apiDescription View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
@@ -9544,25 +9522,6 @@ This only lists organizations that your authorization allows you to operate on i
  * octokit.users.getTeams({per_page, page}).then(result => {})
  * @apiExample {js} Callback
  * octokit.users.getTeams({per_page, page}, (error, result) => {})
- */
-
-
-/**
- * @api {DELETE} /user/installations/:installation_id/repositories/:repository_id removeRepoFromInstallation
- * @apiName removeRepoFromInstallation
- * @apiDescription Remove a single repository from an installation. The authenticated user must have admin access to the repository.
-
-You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
- * @apiGroup Users
- *
- * @apiParam {integer} installation_id  
- * @apiParam {integer} repository_id  
- * @apiExample {js} async/await
- * const result = await octokit.users.removeRepoFromInstallation({installation_id, repository_id})
- * @apiExample {js} Promise
- * octokit.users.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 

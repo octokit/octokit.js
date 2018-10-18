@@ -6301,6 +6301,77 @@
   },
   {
     "type": "GET",
+    "url": "/repos/:owner/:repo/git/refs/:namespace",
+    "title": "getReferences",
+    "name": "getReferences",
+    "description": "<p>This will return an array of all the references on the system, including things like notes and stashes if they exist on the server <a href=\"https://developer.github.com/v3/git/refs/#get-all-references\">REST API doc</a></p>",
+    "group": "Gitdata",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "namespace",
+            "description": "<p>Filter by sub-namespace (reference prefix). Most commen examples would be <code>'heads/'</code> and <code>'tags/'</code> to retrieve branches or tags</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.gitdata.getReferences({owner, repo, namespace, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Gitdata"
+  },
+  {
+    "type": "GET",
     "url": "/repos/:owner/:repo/git/tags/:tag_sha",
     "title": "getTag",
     "name": "getTag",
@@ -26762,54 +26833,6 @@
   },
   {
     "type": "PUT",
-    "url": "/user/installations/:installation_id/repositories/:repository_id",
-    "title": "addRepoToInstallation",
-    "name": "addRepoToInstallation",
-    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
-    "group": "Users",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "installation_id",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "repository_id",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.users.addRepoToInstallation({installation_id, repository_id})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.users.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Users"
-  },
-  {
-    "type": "PUT",
     "url": "/user/blocks/:username",
     "title": "blockUser",
     "name": "blockUser",
@@ -28010,56 +28033,6 @@
   },
   {
     "type": "GET",
-    "url": "/user/installations",
-    "title": "getInstallations",
-    "name": "getInstallations",
-    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
-    "group": "Users",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "per_page",
-            "defaultValue": "30",
-            "description": "<p>Results per page (max 100)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "page",
-            "defaultValue": "1",
-            "description": "<p>Page number of the results to fetch.</p>"
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.users.getInstallations({per_page, page})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.users.getInstallations({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getInstallations({per_page, page}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Users"
-  },
-  {
-    "type": "GET",
     "url": "/user/keys/:key_id",
     "title": "getKey",
     "name": "getKey",
@@ -28601,54 +28574,6 @@
       {
         "title": "Callback",
         "content": "octokit.users.getTeams({per_page, page}, (error, result) => {})",
-        "type": "js"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "doc/apidoc.js",
-    "groupTitle": "Users"
-  },
-  {
-    "type": "DELETE",
-    "url": "/user/installations/:installation_id/repositories/:repository_id",
-    "title": "removeRepoFromInstallation",
-    "name": "removeRepoFromInstallation",
-    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
-    "group": "Users",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "installation_id",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "repository_id",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "async/await",
-        "content": "const result = await octokit.users.removeRepoFromInstallation({installation_id, repository_id})",
-        "type": "js"
-      },
-      {
-        "title": "Promise",
-        "content": "octokit.users.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
