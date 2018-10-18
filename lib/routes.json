@@ -3775,8 +3775,7 @@
           "type": "string"
         },
         "milestone": {
-          "type": "string",
-          "validation": "^([0-9]+|none|\\*)$"
+          "type": "string"
         },
         "owner": {
           "required": true,
