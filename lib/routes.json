@@ -2512,6 +2512,9 @@
     "getReferences": {
       "method": "GET",
       "params": {
+        "namespace": {
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -2527,7 +2530,7 @@
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/git/refs"
+      "url": "/repos/:owner/:repo/git/refs/:namespace"
     },
     "getTag": {
       "method": "GET",
