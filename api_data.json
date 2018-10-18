@@ -21913,13 +21913,6 @@
             "group": "Parameter",
             "type": "integer",
             "optional": false,
-            "field": "id",
-            "description": "<p>The deployment ID to list the statuses from.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
             "field": "status_id",
             "description": "<p>The deployment status ID.</p>"
           }
@@ -21929,17 +21922,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id})",
+        "content": "const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}).then(result => {})",
+        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}, (error, result) => {})",
+        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21981,13 +21974,6 @@
           {
             "group": "Parameter",
             "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>The deployment ID to list the statuses from.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
             "optional": true,
             "field": "per_page",
             "defaultValue": "30",
@@ -22007,17 +21993,17 @@
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page})",
+        "content": "const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}).then(result => {})",
+        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}, (error, result) => {})",
+        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],

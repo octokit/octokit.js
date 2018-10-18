@@ -7114,14 +7114,13 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} deployment_id  
- * @apiParam {integer} id  The deployment ID to list the statuses from.
  * @apiParam {integer} status_id  The deployment status ID.
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id})
+ * const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id})
  * @apiExample {js} Promise
- * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}).then(result => {})
+ * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, id, status_id}, (error, result) => {})
+ * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}, (error, result) => {})
  */
 
 
@@ -7134,15 +7133,14 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} deployment_id  
- * @apiParam {integer} id  The deployment ID to list the statuses from.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page})
+ * const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page})
  * @apiExample {js} Promise
- * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}).then(result => {})
+ * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}).then(result => {})
  * @apiExample {js} Callback
- * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, id, per_page, page}, (error, result) => {})
+ * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}, (error, result) => {})
  */
 
 
