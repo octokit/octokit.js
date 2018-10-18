@@ -32456,13 +32456,6 @@
           "location": "url"
         },
         {
-          "name": "id",
-          "type": "integer",
-          "description": "The deployment ID to list the statuses from.",
-          "required": true,
-          "location": "query"
-        },
-        {
           "name": "status_id",
           "type": "integer",
           "description": "The deployment status ID.",
@@ -32559,13 +32552,6 @@
           "required": true,
           "description": "",
           "location": "url"
-        },
-        {
-          "name": "id",
-          "type": "integer",
-          "description": "The deployment ID to list the statuses from.",
-          "required": true,
-          "location": "query"
         },
         {
           "name": "per_page",
