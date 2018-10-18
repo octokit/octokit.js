@@ -1659,256 +1659,6 @@
       "url": "/emojis"
     }
   },
-  "enterprise": {
-    "createOrg": {
-      "method": "POST",
-      "params": {
-        "admin": {
-          "required": true,
-          "type": "string"
-        },
-        "login": {
-          "required": true,
-          "type": "string"
-        },
-        "profile_name": {
-          "type": "string"
-        }
-      },
-      "url": "/admin/organizations"
-    },
-    "createPreReceiveEnvironment": {
-      "method": "POST",
-      "params": {
-        "image_url": {
-          "required": true,
-          "type": "string"
-        },
-        "name": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-environments"
-    },
-    "createPreReceiveHook": {
-      "method": "POST",
-      "params": {
-        "allow_downstream_configuration": {
-          "type": "boolean"
-        },
-        "enforcement": {
-          "type": "string"
-        },
-        "environment": {
-          "required": true,
-          "type": "object"
-        },
-        "name": {
-          "required": true,
-          "type": "string"
-        },
-        "script": {
-          "required": true,
-          "type": "string"
-        },
-        "script_repository": {
-          "required": true,
-          "type": "object"
-        }
-      },
-      "url": "/admin/pre-receive-hooks"
-    },
-    "deletePreReceiveEnvironment": {
-      "method": "DELETE",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-environments/:id"
-    },
-    "deletePreReceiveHook": {
-      "method": "DELETE",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre_receive_hooks/:id"
-    },
-    "editPreReceiveEnvironment": {
-      "method": "PATCH",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        },
-        "image_url": {
-          "required": true,
-          "type": "string"
-        },
-        "name": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-environments/:id"
-    },
-    "editPreReceiveHook": {
-      "method": "PATCH",
-      "params": {
-        "hook": {
-          "mapTo": "input",
-          "required": true,
-          "type": "object"
-        },
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre_receive_hooks/:id"
-    },
-    "getLicense": {
-      "method": "GET",
-      "params": {},
-      "url": "/enterprise/settings/license"
-    },
-    "getPreReceiveEnvironment": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-environments/:id"
-    },
-    "getPreReceiveEnvironmentDownloadStatus": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-environments/:id/downloads/latest"
-    },
-    "getPreReceiveEnvironments": {
-      "method": "GET",
-      "params": {},
-      "url": "/admin/pre-receive-environments"
-    },
-    "getPreReceiveHook": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-hooks/:id"
-    },
-    "getPreReceiveHooks": {
-      "method": "GET",
-      "params": {},
-      "url": "/admin/pre-receive-hooks"
-    },
-    "queueIndexingJob": {
-      "method": "POST",
-      "params": {
-        "target": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/staff/indexing_jobs"
-    },
-    "stats": {
-      "method": "GET",
-      "params": {
-        "type": {
-          "enum": [
-            "issues",
-            "hooks",
-            "milestones",
-            "orgs",
-            "comments",
-            "pages",
-            "users",
-            "gists",
-            "pulls",
-            "repos",
-            "all"
-          ],
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/enterprise/stats/:type"
-    },
-    "syncLdapForTeam": {
-      "method": "POST",
-      "params": {
-        "team_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/admin/ldap/teams/:team_id/sync"
-    },
-    "syncLdapForUser": {
-      "method": "POST",
-      "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/ldap/users/:username/sync"
-    },
-    "triggerPreReceiveEnvironmentDownload": {
-      "method": "POST",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/pre-receive-environments/:id/downloads"
-    },
-    "updateLdapForTeam": {
-      "method": "PATCH",
-      "params": {
-        "ldap_dn": {
-          "required": true,
-          "type": "string"
-        },
-        "team_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/admin/ldap/teams/:team_id/mapping"
-    },
-    "updateLdapForUser": {
-      "method": "PATCH",
-      "params": {
-        "ldap_dn": {
-          "required": true,
-          "type": "string"
-        },
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/admin/ldap/users/:username/mapping"
-    }
-  },
   "gists": {
     "checkIsStarred": {
       "method": "GET",
@@ -2458,26 +2208,6 @@
         }
       },
       "url": "/repos/:owner/:repo/git/tags/:tag_sha"
-    },
-    "getTags": {
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/git/refs/tags"
     },
     "getTree": {
       "method": "GET",
@@ -7287,16 +7017,6 @@
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection"
     },
-    "getById": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repositories/:id"
-    },
     "getClones": {
       "method": "GET",
       "params": {
@@ -10536,16 +10256,6 @@
       },
       "url": "/user/keys/:key_id"
     },
-    "demote": {
-      "method": "DELETE",
-      "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/users/:username/site_admin"
-    },
     "follow": {
       "method": "PUT",
       "params": {
@@ -10560,16 +10270,6 @@
       "method": "GET",
       "params": {},
       "url": "/user"
-    },
-    "getById": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/user/:id"
     },
     "getByUsername": {
       "method": "GET",
@@ -10785,26 +10485,6 @@
       },
       "url": "/users/:username/keys"
     },
-    "promote": {
-      "method": "PUT",
-      "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/users/:username/site_admin"
-    },
-    "suspend": {
-      "method": "PUT",
-      "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/users/:username/suspended"
-    },
     "togglePrimaryEmailVisibility": {
       "method": "PATCH",
       "params": {
@@ -10841,16 +10521,6 @@
         }
       },
       "url": "/user/following/:username"
-    },
-    "unsuspend": {
-      "method": "DELETE",
-      "params": {
-        "username": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/users/:username/suspended"
     },
     "updateAuthenticated": {
       "method": "PATCH",
