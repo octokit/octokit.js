@@ -8552,6 +8552,55 @@
       "path": "/repos/:owner/:repo/git/refs/:ref",
       "previews": []
     },
+    "getReferences": {
+      "description": "This will return an array of all the references on the system, including things like notes and stashes if they exist on the server",
+      "documentationUrl": "https://developer.github.com/v3/git/refs/#get-all-references",
+      "enabledForApps": true,
+      "isOverride": true,
+      "method": "GET",
+      "name": "Get all references",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "Filter by sub-namespace (reference prefix). Most commen examples would be `'heads/'` and `'tags/'` to retrieve branches or tags",
+          "required": false,
+          "location": "url"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/repos/:owner/:repo/git/refs/:namespace",
+      "previews": []
+    },
     "getTag": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/git/tags/#get-a-tag",
@@ -38669,45 +38718,6 @@
         }
       ]
     },
-    "addRepoToInstallation": {
-      "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nYou must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.",
-      "documentationUrl": "https://developer.github.com/v3/apps/installations/#add-repository-to-installation",
-      "enabledForApps": false,
-      "method": "PUT",
-      "name": "Add repository to installation",
-      "params": [
-        {
-          "name": "installation_id",
-          "type": "integer",
-          "required": true,
-          "description": "",
-          "location": "url"
-        },
-        {
-          "name": "repository_id",
-          "type": "integer",
-          "required": true,
-          "description": "",
-          "location": "url"
-        }
-      ],
-      "path": "/user/installations/:installation_id/repositories/:repository_id",
-      "previews": [
-        {
-          "name": "machine-man",
-          "description": "**Note:** To access the API with your GitHub App, you must provide a custom [media type](/v3/media) in the `Accept` Header for your requests.\n\n`application/vnd.github.machine-man-preview+json`",
-          "required": true
-        }
-      ],
-      "responses": [
-        {
-          "headers": {
-            "status": "204 No Content",
-            "content-type": "application/json; charset=utf-8"
-          }
-        }
-      ]
-    },
     "blockUser": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/users/blocking/#block-a-user",
@@ -40029,127 +40039,6 @@
         }
       ]
     },
-    "getInstallations": {
-      "description": "Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nYou must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.\n\nThe permissions the installation has are included under the `permissions` key.",
-      "documentationUrl": "https://developer.github.com/v3/apps/#list-installations-for-user",
-      "enabledForApps": false,
-      "method": "GET",
-      "name": "List installations for user",
-      "params": [
-        {
-          "name": "per_page",
-          "type": "integer",
-          "required": false,
-          "description": "Results per page (max 100)",
-          "default": 30,
-          "location": "query"
-        },
-        {
-          "name": "page",
-          "type": "integer",
-          "required": false,
-          "description": "Page number of the results to fetch.",
-          "default": 1,
-          "location": "query"
-        }
-      ],
-      "path": "/user/installations",
-      "previews": [
-        {
-          "name": "machine-man",
-          "description": "**Note:** To access the API with your GitHub App, you must provide a custom [media type](/v3/media) in the `Accept` Header for your requests.\n\n`application/vnd.github.machine-man-preview+json`",
-          "required": true
-        }
-      ],
-      "responses": [
-        {
-          "headers": {
-            "status": "200 OK",
-            "content-type": "application/json; charset=utf-8"
-          },
-          "body": {
-            "total_count": 2,
-            "installations": [
-              {
-                "id": 1,
-                "account": {
-                  "login": "github",
-                  "id": 1,
-                  "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-                  "url": "https://api.github.com/orgs/github",
-                  "repos_url": "https://api.github.com/orgs/github/repos",
-                  "events_url": "https://api.github.com/orgs/github/events",
-                  "hooks_url": "https://api.github.com/orgs/github/hooks",
-                  "issues_url": "https://api.github.com/orgs/github/issues",
-                  "members_url": "https://api.github.com/orgs/github/members{/member}",
-                  "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
-                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                  "description": "A great organization"
-                },
-                "access_tokens_url": "https://api.github.com/installations/1/access_tokens",
-                "repositories_url": "https://api.github.com/installation/repositories",
-                "html_url": "https://github.com/organizations/github/settings/installations/1",
-                "app_id": 1,
-                "target_id": 1,
-                "target_type": "Organization",
-                "permissions": {
-                  "metadata": "read",
-                  "contents": "read",
-                  "issues": "write",
-                  "single_file": "write"
-                },
-                "events": [
-                  "push",
-                  "pull_request"
-                ],
-                "single_file_name": "config.yml"
-              },
-              {
-                "id": 3,
-                "account": {
-                  "login": "octocat",
-                  "id": 2,
-                  "node_id": "MDQ6VXNlcjE=",
-                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                  "gravatar_id": "",
-                  "url": "https://api.github.com/users/octocat",
-                  "html_url": "https://github.com/octocat",
-                  "followers_url": "https://api.github.com/users/octocat/followers",
-                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                  "organizations_url": "https://api.github.com/users/octocat/orgs",
-                  "repos_url": "https://api.github.com/users/octocat/repos",
-                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                  "received_events_url": "https://api.github.com/users/octocat/received_events",
-                  "type": "User",
-                  "site_admin": false
-                },
-                "access_tokens_url": "https://api.github.com/installations/1/access_tokens",
-                "repositories_url": "https://api.github.com/installation/repositories",
-                "html_url": "https://github.com/organizations/github/settings/installations/1",
-                "app_id": 1,
-                "target_id": 1,
-                "target_type": "Organization",
-                "permissions": {
-                  "metadata": "read",
-                  "contents": "read",
-                  "issues": "write",
-                  "single_file": "write"
-                },
-                "events": [
-                  "push",
-                  "pull_request"
-                ],
-                "single_file_name": "config.yml"
-              }
-            ]
-          },
-          "description": "The permissions the installation has are included under the `permissions` key."
-        }
-      ]
-    },
     "getKey": {
       "description": "View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
       "documentationUrl": "https://developer.github.com/v3/users/keys/#get-a-single-public-key",
@@ -40945,45 +40834,6 @@
               }
             }
           ]
-        }
-      ]
-    },
-    "removeRepoFromInstallation": {
-      "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository.\n\nYou must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.",
-      "documentationUrl": "https://developer.github.com/v3/apps/installations/#remove-repository-from-installation",
-      "enabledForApps": false,
-      "method": "DELETE",
-      "name": "Remove repository from installation",
-      "params": [
-        {
-          "name": "installation_id",
-          "type": "integer",
-          "required": true,
-          "description": "",
-          "location": "url"
-        },
-        {
-          "name": "repository_id",
-          "type": "integer",
-          "required": true,
-          "description": "",
-          "location": "url"
-        }
-      ],
-      "path": "/user/installations/:installation_id/repositories/:repository_id",
-      "previews": [
-        {
-          "name": "machine-man",
-          "description": "**Note:** To access the API with your GitHub App, you must provide a custom [media type](/v3/media) in the `Accept` Header for your requests.\n\n`application/vnd.github.machine-man-preview+json`",
-          "required": true
-        }
-      ],
-      "responses": [
-        {
-          "headers": {
-            "status": "204 No Content",
-            "content-type": "application/json; charset=utf-8"
-          }
         }
       ]
     },
