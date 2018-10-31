@@ -178,6 +178,27 @@ paginate(octokit.repos.getAll)
   })
 ```
 
+## Custom requests
+
+To send custom requests you can use the lower-level `octokit.request()` method
+
+```js
+octokit.request('GET /')
+```
+
+The `baseUrl`, headers and other defaults are already set. For more information
+on the `octokit.request()` API see [`@octokit/request`](https://github.com/octokit/request.js/)
+
+All the endpoint methods such as `client.repos.get()` are aliases of `octokit.request()`
+with pre-bound default options. So you can use the `@octokit/request` API to
+get the default options or get generic request option to use with your prefered
+request library.
+
+```js
+const defaultOptions = client.repos.get.endpoint.DEFAULTS
+const requestOptions = client.repos.get.endpoint()
+```
+
 ## Debug
 
 Set `DEBUG=octokit:rest*` for additional debug logs.
