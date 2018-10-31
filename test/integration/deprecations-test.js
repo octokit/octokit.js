@@ -170,34 +170,4 @@ describe('deprecations', () => {
         expect(console.warn.callCount).to.equal(1)
       })
   })
-
-  it('deprecated response.meta', () => {
-    nock('https://deprecations-test.com')
-      .get('/orgs/myorg')
-      .reply(200, {})
-
-    return github.orgs.get({ org: 'myorg' })
-
-      .then(response => {
-        expect(response.meta).to.deep.equal(response.headers)
-        expect(console.warn.callCount).to.equal(1)
-      })
-  })
-
-  it('deprecated options.input', () => {
-    nock('https://deprecations-test.com')
-      .post('/markdown/raw')
-      .reply(201, '<h1>Test</h1>')
-
-    return github.request({
-      method: 'POST',
-      url: '/markdown/raw',
-      input: '# Test'
-    })
-
-      .then(response => {
-        expect(response.data).to.deep.equal('<h1>Test</h1>')
-        expect(console.warn.callCount).to.equal(1)
-      })
-  })
 })
