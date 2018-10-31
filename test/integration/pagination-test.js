@@ -50,28 +50,19 @@ describe('pagination', () => {
         const callback = () => {}
 
         return Promise.all([
-          new Promise((resolve, reject) => {
-            github.getFirstPage(result, (error, result) => {
-              if (error) {
-                return reject(error)
-              }
-
+          github.getFirstPage(result)
+            .then(result => {
               expect(() => {
                 github.hasPreviousPage(result)
               }).to.not.throw()
               expect(github.hasPreviousPage(result)).to.be.an('undefined')
-
-              resolve()
-            })
-          }),
+            }),
           github.getPreviousPage(result, { foo: 'bar', accept: 'application/vnd.github.v3+json' }),
           github.getNextPage(result).catch(callback),
-          new Promise(resolve => {
-            github.getLastPage(result, { foo: 'bar' }, (error) => {
+          github.getLastPage(result, { foo: 'bar' })
+            .catch(error => {
               expect(error.code).to.equal(404)
-              resolve()
-            })
-          }),
+            }),
           // test error with promise
           github.getLastPage(result).catch(callback)
         ])
