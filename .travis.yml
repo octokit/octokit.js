@@ -9,6 +9,7 @@ cache:
 branches:
   only:
     - master
+    - next
     - /^greenkeeper.*$/
 
 stages:
