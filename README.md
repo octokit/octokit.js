@@ -71,8 +71,9 @@ const octokit = require('@octokit/rest')({
 })
 ```
 
-`@octokit/rest` API docs: https://octokit.github.io/rest.js/  
-GitHub v3 REST API docs: https://developer.github.com/v3/
+## API docs
+
+Find all APIs documented at https://octokit.github.io/rest.js/.
 
 ## API Previews
 
@@ -203,42 +204,9 @@ const requestOptions = client.repos.get.endpoint()
 
 Set `DEBUG=octokit:rest*` for additional debug logs.
 
-## Tests
-
-Before running any tests you have to start the [fixtures server](https://github.com/octokit/fixtures-server)
-
-```
-$ npm run start-fixtures-server
-```
-
-In a second terminal, run the tests
-
-```bash
-$ npm test
-```
-
-Or run a specific test
-
-```bash
-$ ./node_modules/.bin/mocha test/scenarios/get-repository-test.js
-```
-
-Run browser tests
-
-```bash
-$ npm run test:browser
-```
-
-**Note**: In order to run the same [scenario tests](test/scenarios) in both Node
-and browser, we simulate the Cypress environment in Node, see [test/mocha-node-setup.js](test/mocha-node-setup.js).
-
-The examples are run as part of the tests. You can set an `EXAMPLES_GITHUB_TOKEN` environment
-variable (or set it in a `.env` file) to avoid running against GitHub's rate limit.
-
 ## Contributing
 
-We would love you to contribute to `@octokit/rest`, pull requests are very welcomed!
-Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+We would love you to contribute to `@octokit/rest`, pull requests are very welcomed! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ## Credits
 
