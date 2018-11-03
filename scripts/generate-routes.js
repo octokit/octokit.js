@@ -11,7 +11,7 @@ function sortRoutesByKeys (routes) {
     Object.keys(routes[scope]).forEach(method => {
       routes[scope][method] = sortByKeys(routes[scope][method])
 
-      // routes-for-api-docs keeps parameters as array, while lib/routes.json uses an object
+      // routes-for-api-docs keeps parameters as array, while plugins/endpoint-methods/routes.json uses an object
       if (Array.isArray(routes[scope][method].params)) {
         return
       }
@@ -101,7 +101,7 @@ NEW_ROUTES['users'].push(...NEW_ROUTES['orgs'].filter(endpoint => ORG_USER_PATHS
 NEW_ROUTES['users'].push(...NEW_ROUTES['repos'].filter(endpoint => REPOS_USER_PATHS.includes(endpoint.path)))
 NEW_ROUTES['users'].push(...NEW_ROUTES['apps'].filter(endpoint => APPS_USER_PATHS.includes(endpoint.path)))
 
-// map scopes from @octokit/routes to what we currently have in lib/routes.json
+// map scopes from @octokit/routes to what we currently have in plugins/endpoint-methods/routes.json
 const mapScopes = {
   activity: 'activity',
   apps: 'apps',
@@ -314,5 +314,5 @@ newRoutes.users.unsuspend = CURRENT_ROUTES.users.unsuspend
 // don’t break the deprecated "integrations" scope
 newRoutes.integrations = CURRENT_ROUTES.integrations
 
-writeFileSync('lib/routes.json', JSON.stringify(sortRoutesByKeys(newRoutes), null, 2) + '\n')
+writeFileSync('plugins/endpoint-methods/routes.json', JSON.stringify(sortRoutesByKeys(newRoutes), null, 2) + '\n')
 writeFileSync('scripts/routes-for-api-docs.json', JSON.stringify(sortRoutesByKeys(newDocRoutes), null, 2))

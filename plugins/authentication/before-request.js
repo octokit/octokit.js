@@ -3,7 +3,7 @@ module.exports = authenticationBeforeRequest
 const btoa = require('btoa-lite')
 const uniq = require('lodash/uniq')
 
-const deprecate = require('../../deprecate')
+const deprecate = require('../../lib/deprecate')
 
 function authenticationBeforeRequest (state, options) {
   if (!state.auth.type) {

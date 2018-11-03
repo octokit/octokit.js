@@ -6,7 +6,7 @@ const set = require('lodash/set')
 const get = require('lodash/get')
 const HttpError = require('@octokit/request/lib/http-error')
 
-const deprecate = require('../../deprecate')
+const deprecate = require('../../lib/deprecate')
 
 function validate (options) {
   if (!options.request.endpoint) {

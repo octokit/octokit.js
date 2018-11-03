@@ -5,7 +5,7 @@ module.exports = apiPlugin
 const set = require('lodash/set')
 
 const validate = require('./validate')
-const ENDPOINT_DEFAULTS = require('../../routes.json')
+const ENDPOINT_DEFAULTS = require('./routes.json')
 
 function apiPlugin (octokit) {
   octokit.hook.before('request', validate)
