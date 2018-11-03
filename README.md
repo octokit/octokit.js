@@ -200,6 +200,68 @@ const defaultOptions = client.repos.get.endpoint.DEFAULTS
 const requestOptions = client.repos.get.endpoint()
 ```
 
+## Hooks
+
+You can customize Octokit’s request lifecycle with hooks. Available methods are
+
+```js
+github.hook.before('request', async (options) => {
+  validate(options)
+})
+github.hook.after('request', async (response, options) => {
+  console.log(`${options.method} ${options.url}: ${response.status}`)
+})
+github.hook.error('request', async (error, options) => {
+  if (error.status === 304) {
+    return findInCache(error.headers.etag)
+  }
+
+  throw error
+})
+github.hook.wrap('request', async (request, options) => {
+  // add logic before, after, catch errors or replace the request altogether
+  return request(options)
+})
+```
+
+See [before-after-hook](https://github.com/gr2m/before-after-hook#readme) for more
+documentation on hooks.
+
+## Plugins
+
+You can customize and extend Octokit’s functionality using plugins
+
+```js
+// index.js
+const MyOctokit = require('@octokit/request')
+  .plugin(require('./lib/my-plugin'))
+  .plugin(require('octokit-plugin-example'))
+
+// lib/my-plugin.js
+module.exports = (octokit, options = { greeting: 'Hello' }) => {
+  // add a custom method
+  octokit.helloWorld = () => console.log(`${options.greeting}, world!`)
+
+  // hook into the request lifecycle
+  octokit.hook.wrap('request', async (request, options) => {
+    const time = Date.now()
+    const response = await request(options)
+    console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - now}ms`)
+    return response
+  })
+}
+```
+
+You can add new methods to the `octokit` instance passed as first argument to
+the plugin function. The 2nd argument is the options object passed to the
+constructor when instantiating the `octokit` client.
+
+```js
+const octokit = new MyOctokit({ greeting: 'Hola' })
+octokit.helloWorld()
+// Hola, world!
+```
+
 ## Debug
 
 Set `DEBUG=octokit:rest*` for additional debug logs.
