@@ -18,6 +18,40 @@ Before you create a new Issue:
 3. If it is a feature request, please share the motivation for the new feature and how you would implement it.
 4. Please include links to the corresponding github documentation.
 
+## Tests
+
+If you want to submit a bug fix or new feature, make sure that all tests are passing.
+
+Before running any tests you have to start the [fixtures server](https://github.com/octokit/fixtures-server)
+
+```
+$ npm run start-fixtures-server
+```
+
+In a second terminal, run the tests
+
+```bash
+$ npm test
+```
+
+Or run a specific test
+
+```bash
+$ ./node_modules/.bin/mocha test/scenarios/get-repository-test.js
+```
+
+Run browser tests
+
+```bash
+$ npm run test:browser
+```
+
+**Note**: In order to run the same [scenario tests](test/scenarios) in both Node
+and browser, we simulate the Cypress environment in Node, see [test/mocha-node-setup.js](test/mocha-node-setup.js).
+
+The examples are run as part of the tests. You can set an `EXAMPLES_GITHUB_TOKEN` environment
+variable (or set it in a `.env` file) to avoid running against GitHub's rate limit.
+
 ## Making Changes
 
 Here is an overview of [how `@octokit/rest` works](HOW_IT_WORKS.md).

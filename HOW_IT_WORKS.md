@@ -76,7 +76,7 @@ github.repos.getForOrg({ org: 'octokit', type: 'public' })
 <a name="transform"></a>
 ## Transform endpoint to request options (⑥ - ⑦)
 
-**④ Endpoint options** are **⑥ transformed** into **⑦ request options**. Most of the transform is happening in [lib/endpoint/index.js](lib/endpoint/index.js).
+**④ Endpoint options** are **⑥ transformed** into **⑦ request options** using [@octokit/endpoint](https://github.com/octokit/endpoint.js).
 
 For example, the endpoint options shown above would result in
 
@@ -105,22 +105,22 @@ For example, the endpoint options shown above would result in
 
 Using **⑦ request options** a **⑧ request** is sent to the GitHub REST API. The **⑩ response** is returned to the user.
 
-Most of the request/response is happening in [lib/request/request.js](lib/request/request.js). It is currently using Node’s native [http](https://nodejs.org/api/http.html) & [https](https://nodejs.org/api/https.html) modules, but we will probably use a fetch polyfill in future for better browser compatibility & smaller bundle size.
+Requests are sent using [`@octokit/request`](https://github.com/octokit/request.js). It's using the native fetch method in the browsers and [node-fetch](https://github.com/bitinn/node-fetch) in other environments.
 
 <a name="hooks"></a>
 ## Hooks ⑤ & ⑨
+f
+Hooks are used TO inject functionality like authentication. For example, the internal [authentication plugin](lib/plugins/authentication) is registering a request hook in [lib/plugins/authentication/index.js](lib/plugins/authentication/index.js). The method sets the `authorization` header based on authentication previously set using `github.authenticate()` before the **⑧ request**.
 
-Hooks are used internally to inject functionality like authentication. For example, the internal [authentication plugin](lib/plugins/authentication) is registering a request hook in [lib/plugins/authentication/index.js](lib/plugins/authentication/index.js). The method sets the `authorization` header based on authentication previously set using `github.authenticate()` before the **⑧ request**.
-
-Hooks will be used in future for request pagination, throttling and handling of rate limits.
-
-Hooks can be registered using `github.hook.{before|after}`:
+Hooks can be registered using `github.hook.{before|after|error|wrap}`:
 
 ```js
-github.hook.before('request', (options) => {})
-github.hook.after('request', (response, options) => {})
+github.hook.before('request', async (options) => {})
+github.hook.after('request', async (response, options) => {})
+github.hook.error('request', async (error, options) => {})
+github.hook.wrap('request', async (request, options) => {})
 ```
 
-The callbacks can return a Promise for asynchronous execution. `options` can be changed in the `github.hook.before` callback before they are transformed **⑥ transformed**. The **⑩ response** can be changed in the `github.hook.after` callback before it is returned to the user.
+The methods can return a Promise for asynchronous execution. `options` can be changed in the `github.hook.before` callback before they are transformed **⑥ transformed**. The **⑩ response** can be changed in the `github.hook.after` callback before it is returned to the user. `github.hook.wrap` allows to do both, or replace the original request method altogether with a custom request method.
 
-⚠️ The API is currently experimental and can change at any time.
+See [before-after-hook](https://github.com/gr2m/before-after-hook) for more details.
