@@ -14,7 +14,7 @@
 <a name="endpoint-options"></a>
 ## Endpoint options (① - ④)
 
-`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `github.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [lib/routes.json](lib/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
+`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `github.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [plugins/endpoint-methods/routes.json](plugins/endpoint-methods/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
 
 **② endpoint default options** are merged with **① global defaults**, which are based on [lib/endpoint/defaults.js](lib/endpoint/defaults.js) and the options that were passed into the `require('@octokit/rest')(options)` client setup.
 
@@ -115,9 +115,19 @@ Hooks are used TO inject functionality like authentication. For example, the int
 Hooks can be registered using `github.hook.{before|after|error|wrap}`:
 
 ```js
-github.hook.before('request', async (options) => {})
-github.hook.after('request', async (response, options) => {})
-github.hook.error('request', async (error, options) => {})
+github.hook.before('request', async (options) => {
+  validate(options)
+})
+github.hook.after('request', async (response, options) => {
+  console.log(`${options.method} ${options.url}: ${response.status}`)
+})
+github.hook.error('request', async (error, options) => {
+  if (error.status === 304) {
+    return findInCache(error.headers.etag)
+  }
+
+  throw error
+})
 github.hook.wrap('request', async (request, options) => {})
 ```
 
