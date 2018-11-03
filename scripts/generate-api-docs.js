@@ -36,7 +36,7 @@ function toSectionComment (namespaceName) {
 function toApiComment (namespaceName, apiName, api) {
   if (!api.method) {
     throw new Error(
-      `No HTTP method specified for ${namespaceName}.${apiName} in routes.json`
+      `No HTTP method specified for ${namespaceName}.${apiName} in plugins/endpoint-methods/routes.json`
     )
   }
 
