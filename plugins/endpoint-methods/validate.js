@@ -9,12 +9,11 @@ const HttpError = require('@octokit/request/lib/http-error')
 const deprecate = require('../../lib/deprecate')
 
 function validate (options) {
-  if (!options.request.endpoint) {
+  if (!options.request.validate) {
     return
   }
 
-  const endpointParams = options.request.endpoint.params
-  const deprecated = options.request.endpoint.deprecated
+  const { validate: params, deprecated } = options.request
 
   if (deprecated) {
     deprecate(deprecated)
@@ -25,24 +24,24 @@ function validate (options) {
   // around, the final parameter name is the mapTo value, but validation
   // rules are on parameter with the mapTo property
   Object.keys(options).forEach(optionName => {
-    if (!endpointParams[optionName] || !endpointParams[optionName].alias) {
+    if (!params[optionName] || !params[optionName].alias) {
       return
     }
 
-    set(options, endpointParams[optionName].alias, options[optionName])
+    set(options, params[optionName].alias, options[optionName])
     delete options[optionName]
 
     // right now all parameters with an alias property also have a deprecated
     // property, but that might change in future, so we wrap it in the if block,
     // but ignore if for coverage
     /* istanbul ignore else */
-    if (endpointParams[optionName].deprecated) {
-      deprecate(`"${optionName}" parameter has been renamed to "${endpointParams[optionName].alias}"`)
+    if (params[optionName].deprecated) {
+      deprecate(`"${optionName}" parameter has been renamed to "${params[optionName].alias}"`)
     }
   })
 
-  Object.keys(endpointParams).forEach(parameterName => {
-    const parameter = get(endpointParams, parameterName)
+  Object.keys(params).forEach(parameterName => {
+    const parameter = get(params, parameterName)
     const expectedType = parameter.type
     let parentParameterName
     let parentValue
