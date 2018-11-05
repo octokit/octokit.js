@@ -692,7 +692,7 @@
     },
     "getInstallationRepositories": {
       "headers": {
-        "accept": "application/vnd.github.machine-man-preview+json"
+        "accept": "application/vnd.github.mercy-preview+json,application/vnd.github.machine-man-preview+json"
       },
       "method": "GET",
       "params": {
