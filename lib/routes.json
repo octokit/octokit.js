@@ -10076,6 +10076,34 @@
       },
       "url": "/repos/:owner/:repo/contents/:path"
     },
+    "updateInformationAboutPagesSite": {
+      "headers": {
+        "accept": "application/vnd.github.mister-fantastic-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "cname": {
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "\"gh-pages\"",
+            "\"master\"",
+            "\"master /docs\""
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pages"
+    },
     "updateInvite": {
       "method": "PATCH",
       "params": {
