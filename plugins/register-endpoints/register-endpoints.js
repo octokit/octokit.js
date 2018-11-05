@@ -1,24 +1,17 @@
-'use strict'
+module.exports = registerEndpoints
 
-module.exports = apiPlugin
-
-const validate = require('./validate')
-const ENDPOINT_DEFAULTS = require('./routes.json')
-
-function apiPlugin (octokit) {
-  octokit.hook.before('request', validate)
-
-  Object.keys(ENDPOINT_DEFAULTS).forEach(namespaceName => {
+function registerEndpoints (octokit, routes) {
+  Object.keys(routes).forEach(namespaceName => {
     octokit[namespaceName] = {}
 
-    Object.keys(ENDPOINT_DEFAULTS[namespaceName]).forEach(apiName => {
-      let apiOptions = ENDPOINT_DEFAULTS[namespaceName][apiName]
+    Object.keys(routes[namespaceName]).forEach(apiName => {
+      let apiOptions = routes[namespaceName][apiName]
       let deprecated
 
       if (apiOptions.alias) {
         deprecated = apiOptions.deprecated
         const [aliasNamespaceName, aliasApiName] = apiOptions.alias.split('.')
-        apiOptions = ENDPOINT_DEFAULTS[aliasNamespaceName][aliasApiName]
+        apiOptions = routes[aliasNamespaceName][aliasApiName]
       }
 
       const endpointDefaults = ['method', 'url', 'headers'].reduce((map, key) => {
