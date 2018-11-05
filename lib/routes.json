@@ -10433,6 +10433,350 @@
       "url": "/search/users"
     }
   },
+  "teams": {
+    "addMember": {
+      "method": "PUT",
+      "params": {
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/members/:username"
+    },
+    "addOrUpdateProject": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "permission": {
+          "enum": [
+            "read",
+            "write",
+            "admin"
+          ],
+          "type": "string"
+        },
+        "project_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects/:project_id"
+    },
+    "createDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "title": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/discussions"
+    },
+    "createDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments"
+    },
+    "deleteDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number"
+    },
+    "deleteDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "comment_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+    },
+    "getDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number"
+    },
+    "getDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "comment_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+    },
+    "getMember": {
+      "method": "GET",
+      "params": {
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/members/:username"
+    },
+    "listDiscussionComments": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments"
+    },
+    "listDiscussions": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions"
+    },
+    "listProjects": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects"
+    },
+    "removeMember": {
+      "method": "DELETE",
+      "params": {
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/members/:username"
+    },
+    "removeProject": {
+      "method": "DELETE",
+      "params": {
+        "project_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects/:project_id"
+    },
+    "reviewProject": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "project_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/projects/:project_id"
+    },
+    "updateDiscussion": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "PATCH",
+      "params": {
+        "body": {
+          "type": "string"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number"
+    },
+    "updateDiscussionComment": {
+      "headers": {
+        "accept": "application/vnd.github.echo-preview+json"
+      },
+      "method": "PATCH",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "comment_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "discussion_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "team_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+    }
+  },
   "users": {
     "acceptRepoInvite": {
       "method": "PATCH",
