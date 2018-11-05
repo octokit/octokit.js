@@ -2725,7 +2725,7 @@
     },
     "create": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -2761,7 +2761,7 @@
     },
     "createComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -2842,7 +2842,7 @@
     },
     "deleteComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "DELETE",
       "params": {
@@ -2903,7 +2903,7 @@
     },
     "edit": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -2950,7 +2950,7 @@
     },
     "editComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -2979,7 +2979,7 @@
     },
     "get": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3000,7 +3000,7 @@
     },
     "getAll": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3074,7 +3074,7 @@
     },
     "getComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3105,7 +3105,7 @@
     },
     "getComments": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3135,7 +3135,7 @@
     },
     "getCommentsForRepo": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3239,7 +3239,7 @@
     },
     "getEventsTimeline": {
       "headers": {
-        "accept": "application/vnd.github.mockingbird-preview"
+        "accept": "application/vnd.github.mockingbird-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3270,7 +3270,7 @@
     },
     "getForOrg": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3328,7 +3328,7 @@
     },
     "getForRepo": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3393,7 +3393,7 @@
     },
     "getForUser": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3796,7 +3796,7 @@
   "migrations": {
     "cancelImport": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "DELETE",
       "params": {
@@ -3860,7 +3860,7 @@
     },
     "getImportCommitAuthors": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3880,7 +3880,7 @@
     },
     "getImportProgress": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3897,7 +3897,7 @@
     },
     "getLargeImportFiles": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "GET",
       "params": {
@@ -4007,7 +4007,7 @@
     },
     "mapImportCommitAuthor": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -4034,7 +4034,7 @@
     },
     "setImportLfsPreference": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -4082,7 +4082,7 @@
     },
     "startImport": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "PUT",
       "params": {
@@ -4186,7 +4186,7 @@
     },
     "updateImport": {
       "headers": {
-        "accept": "application/vnd.github.barred-rock-preview"
+        "accept": "application/vnd.github.barred-rock-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -5908,7 +5908,7 @@
     },
     "createComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -5945,7 +5945,7 @@
     },
     "createCommentReply": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -6074,7 +6074,7 @@
     },
     "deleteComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "DELETE",
       "params": {
@@ -6179,7 +6179,7 @@
     },
     "editComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "PATCH",
       "params": {
@@ -6276,7 +6276,7 @@
     },
     "getComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -6301,7 +6301,7 @@
     },
     "getComments": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -6345,7 +6345,7 @@
     },
     "getCommentsForRepo": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -6654,7 +6654,7 @@
   "reactions": {
     "createForCommitComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -6691,7 +6691,7 @@
     },
     "createForIssue": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -6724,7 +6724,7 @@
     },
     "createForIssueComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -6761,7 +6761,7 @@
     },
     "createForPullRequestReviewComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -6860,7 +6860,7 @@
     },
     "delete": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "DELETE",
       "params": {
@@ -6877,7 +6877,7 @@
     },
     "getForCommitComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -6919,7 +6919,7 @@
     },
     "getForIssue": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -6957,7 +6957,7 @@
     },
     "getForIssueComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -6999,7 +6999,7 @@
     },
     "getForPullRequestReviewComment": {
       "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
