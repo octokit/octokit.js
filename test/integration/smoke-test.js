@@ -152,4 +152,26 @@ describe('smoke', () => {
 
     expect(github1.request.endpoint.DEFAULTS).to.deep.equal(github2.request.endpoint.DEFAULTS)
   })
+
+  it('registerEndpoints', () => {
+    nock('https://smoke-test.com')
+      .get('/baz')
+      .reply(200, {})
+
+    const github = new GitHub({
+      baseUrl: 'https://smoke-test.com'
+    })
+    expect(github.registerEndpoints).to.be.a('function')
+
+    github.registerEndpoints({
+      foo: {
+        bar: {
+          method: 'GET',
+          url: '/baz'
+        }
+      }
+    })
+
+    return github.foo.bar()
+  })
 })
