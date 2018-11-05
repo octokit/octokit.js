@@ -37306,6 +37306,70 @@
         }
       ]
     },
+    "updateInformationAboutPagesSite": {
+      "description": "",
+      "documentationUrl": "https://developer.github.com/v3/repos/pages/#update-information-about-a-pages-site",
+      "enabledForApps": true,
+      "method": "PUT",
+      "name": "Update information about a Pages site",
+      "params": [
+        {
+          "name": "owner",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "repo",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "cname",
+          "type": "string",
+          "description": "Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see \"[Using a custom domain with GitHub Pages](https://help.github.com/articles/using-a-custom-domain-with-github-pages/).\"",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Update the source for the repository. Must include the branch name, and may optionally specify the subdirectory `/docs`. Possible values are `\"gh-pages\"`, `\"master\"`, and `\"master /docs\"`.",
+          "required": false,
+          "enum": [
+            "\"gh-pages\"",
+            "\"master\"",
+            "\"master /docs\""
+          ],
+          "location": "body"
+        }
+      ],
+      "path": "/repos/:owner/:repo/pages",
+      "previews": [
+        {
+          "name": "mister-fantastic",
+          "description": "**Note:** The GitHub Pages API on GitHub is currently available for developers to preview. To access the API, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.mister-fantastic-preview+json\n\n```",
+          "required": true
+        }
+      ],
+      "requests": [
+        {
+          "cname": "octocatblog.com",
+          "source": "master /docs"
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ]
+    },
     "updateInvite": {
       "description": "",
       "documentationUrl": "https://developer.github.com/v3/repos/invitations/#update-a-repository-invitation",
