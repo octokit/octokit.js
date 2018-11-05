@@ -38687,6 +38687,1335 @@
       ]
     }
   },
+  "teams": {
+    "addMember": {
+      "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTo add a user to a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with, and the user being added must already be a member of at least one other team on the same organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nIf you attempt to add an organization to a team, you will get this:\n\nIf you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this:",
+      "documentationUrl": "https://developer.github.com/v3/teams/members/#add-team-member",
+      "enabledForApps": true,
+      "method": "PUT",
+      "name": "Add team member",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/members/:username",
+      "previews": [],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        },
+        {
+          "headers": {
+            "status": "422 Unprocessable Entity",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "message": "Cannot add an organization as a member.",
+            "errors": [
+              {
+                "code": "org",
+                "field": "user",
+                "resource": "TeamMember"
+              }
+            ]
+          },
+          "description": "If you attempt to add an organization to a team, you will get this:"
+        },
+        {
+          "headers": {
+            "status": "422 Unprocessable Entity",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "message": "User isn't a member of this organization. Please invite them first.",
+            "errors": [
+              {
+                "code": "unaffiliated",
+                "field": "user",
+                "resource": "TeamMember"
+              }
+            ]
+          },
+          "description": "If you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this:"
+        }
+      ]
+    },
+    "addOrUpdateProject": {
+      "description": "Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.",
+      "documentationUrl": "https://developer.github.com/v3/teams/#add-or-update-team-project",
+      "enabledForApps": true,
+      "method": "PUT",
+      "name": "Add or update team project",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "project_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "permission",
+          "type": "string",
+          "description": "The permission to grant to the team for this project. Can be one of:  \n\\* `read` - team members can read, but not write to or administer this project.  \n\\* `write` - team members can read and write, but not administer this project.  \n\\* `admin` - team members can read, write and administer this project.  \nDefault: the team's `permission` attribute will be used to determine what permission to grant the team on this project. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"  \n**Note**: If you pass the `hellcat-preview` media type, you can promote—but not demote—a `permission` attribute inherited from a parent team.",
+          "required": false,
+          "enum": [
+            "read",
+            "write",
+            "admin"
+          ],
+          "location": "body"
+        }
+      ],
+      "path": "/teams/:team_id/projects/:project_id",
+      "previews": [
+        {
+          "name": "inertia",
+          "description": "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\n  application/vnd.github.inertia-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "hellcat",
+          "description": "**Note:** The Nested Teams API is currently available for developers to preview. See the [blog post](/changes/2017-08-30-preview-nested-teams) for full details. To access the API, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.hellcat-preview+json\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ]
+    },
+    "createDiscussion": {
+      "description": "Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussions/#create-a-discussion",
+      "enabledForApps": true,
+      "method": "POST",
+      "name": "Create a discussion",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The discussion post's title.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "description": "The discussion post's body text.",
+          "required": true,
+          "location": "body"
+        },
+        {
+          "name": "private",
+          "type": "boolean",
+          "description": "Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.",
+          "default": false,
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/teams/:team_id/discussions",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "requests": [
+        {
+          "title": "Our first team post",
+          "body": "Hi! This is an area for us to collaborate as a team."
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "201 Created",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "author": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "body": "Hi! This is an area for us to collaborate as a team.",
+            "body_html": "<p>Hi! This is an area for us to collaborate as a team</p>",
+            "body_version": "0d495416a700fb06133c612575d92bfb",
+            "comments_count": 0,
+            "comments_url": "https://api.github.com/teams/2343027/discussions/1/comments",
+            "created_at": "2018-01-25T18:56:31Z",
+            "last_edited_at": null,
+            "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1",
+            "node_id": "MDE0OlRlYW1EaXNjdXNzaW9uMQ==",
+            "number": 1,
+            "pinned": false,
+            "private": false,
+            "team_url": "https://api.github.com/teams/2343027",
+            "title": "Our first team post",
+            "updated_at": "2018-01-25T18:56:31Z",
+            "url": "https://api.github.com/teams/2343027/discussions/1",
+            "reactions": {
+              "url": "https://api.github.com/teams/2343027/discussions/1/reactions",
+              "total_count": 5,
+              "+1": 3,
+              "-1": 1,
+              "laugh": 0,
+              "confused": 0,
+              "heart": 1,
+              "hooray": 0
+            }
+          }
+        }
+      ]
+    },
+    "createDiscussionComment": {
+      "description": "Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussion_comments/#create-a-comment",
+      "enabledForApps": true,
+      "method": "POST",
+      "name": "Create a comment",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "description": "The discussion comment's body text.",
+          "required": true,
+          "location": "body"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "requests": [
+        {
+          "body": "Do you like apples?"
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "201 Created",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "author": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "body": "Do you like apples?",
+            "body_html": "<p>Do you like apples?</p>",
+            "body_version": "5eb32b219cdc6a5a9b29ba5d6caa9c51",
+            "created_at": "2018-01-15T23:53:58Z",
+            "last_edited_at": null,
+            "discussion_url": "https://api.github.com/teams/2403582/discussions/1",
+            "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1/comments/1",
+            "node_id": "MDIxOlRlYW1EaXNjdXNzaW9uQ29tbWVudDE=",
+            "number": 1,
+            "updated_at": "2018-01-15T23:53:58Z",
+            "url": "https://api.github.com/teams/2403582/discussions/1/comments/1",
+            "reactions": {
+              "url": "https://api.github.com/teams/2403582/discussions/1/reactions",
+              "total_count": 5,
+              "+1": 3,
+              "-1": 1,
+              "laugh": 0,
+              "confused": 0,
+              "heart": 1,
+              "hooray": 0
+            }
+          }
+        }
+      ]
+    },
+    "deleteDiscussion": {
+      "description": "Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussions/#delete-a-discussion",
+      "enabledForApps": true,
+      "method": "DELETE",
+      "name": "Delete a discussion",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ]
+    },
+    "deleteDiscussionComment": {
+      "description": "Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment",
+      "enabledForApps": true,
+      "method": "DELETE",
+      "name": "Delete a comment",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "comment_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ]
+    },
+    "getDiscussion": {
+      "description": "Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussions/#get-a-single-discussion",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "Get a single discussion",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "author": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "body": "Hi! This is an area for us to collaborate as a team.",
+            "body_html": "<p>Hi! This is an area for us to collaborate as a team</p>",
+            "body_version": "0d495416a700fb06133c612575d92bfb",
+            "comments_count": 0,
+            "comments_url": "https://api.github.com/teams/2343027/discussions/1/comments",
+            "created_at": "2018-01-25T18:56:31Z",
+            "last_edited_at": null,
+            "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1",
+            "node_id": "MDE0OlRlYW1EaXNjdXNzaW9uMQ==",
+            "number": 1,
+            "pinned": false,
+            "private": false,
+            "team_url": "https://api.github.com/teams/2343027",
+            "title": "Our first team post",
+            "updated_at": "2018-01-25T18:56:31Z",
+            "url": "https://api.github.com/teams/2343027/discussions/1",
+            "reactions": {
+              "url": "https://api.github.com/teams/2343027/discussions/1/reactions",
+              "total_count": 5,
+              "+1": 3,
+              "-1": 1,
+              "laugh": 0,
+              "confused": 0,
+              "heart": 1,
+              "hooray": 0
+            }
+          }
+        }
+      ]
+    },
+    "getDiscussionComment": {
+      "description": "Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "Get a single comment",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "comment_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "author": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "body": "Do you like apples?",
+            "body_html": "<p>Do you like apples?</p>",
+            "body_version": "5eb32b219cdc6a5a9b29ba5d6caa9c51",
+            "created_at": "2018-01-15T23:53:58Z",
+            "last_edited_at": null,
+            "discussion_url": "https://api.github.com/teams/2403582/discussions/1",
+            "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1/comments/1",
+            "node_id": "MDIxOlRlYW1EaXNjdXNzaW9uQ29tbWVudDE=",
+            "number": 1,
+            "updated_at": "2018-01-15T23:53:58Z",
+            "url": "https://api.github.com/teams/2403582/discussions/1/comments/1",
+            "reactions": {
+              "url": "https://api.github.com/teams/2403582/discussions/1/reactions",
+              "total_count": 5,
+              "+1": 3,
+              "-1": 1,
+              "laugh": 0,
+              "confused": 0,
+              "heart": 1,
+              "hooray": 0
+            }
+          }
+        }
+      ]
+    },
+    "getMember": {
+      "description": "The \"Get team member\" API (described below) is deprecated.\n\nWe recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.\n\nTo list members in a team, the team must be visible to the authenticated user.",
+      "documentationUrl": "https://developer.github.com/v3/teams/members/#get-team-member",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "Get team member",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/members/:username",
+      "previews": []
+    },
+    "listDiscussionComments": {
+      "description": "List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussion_comments/#list-comments",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "List comments",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "description": "Sorts the discussion comments by the date they were created. To return the oldest comments first, set to `asc`. Can be one of `asc` or `desc`.",
+          "default": "desc",
+          "required": false,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": [
+            {
+              "author": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "body": "Do you like apples?",
+              "body_html": "<p>Do you like apples?</p>",
+              "body_version": "5eb32b219cdc6a5a9b29ba5d6caa9c51",
+              "created_at": "2018-01-15T23:53:58Z",
+              "last_edited_at": null,
+              "discussion_url": "https://api.github.com/teams/2403582/discussions/1",
+              "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1/comments/1",
+              "node_id": "MDIxOlRlYW1EaXNjdXNzaW9uQ29tbWVudDE=",
+              "number": 1,
+              "updated_at": "2018-01-15T23:53:58Z",
+              "url": "https://api.github.com/teams/2403582/discussions/1/comments/1",
+              "reactions": {
+                "url": "https://api.github.com/teams/2403582/discussions/1/reactions",
+                "total_count": 5,
+                "+1": 3,
+                "-1": 1,
+                "laugh": 0,
+                "confused": 0,
+                "heart": 1,
+                "hooray": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "listDiscussions": {
+      "description": "List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussions/#list-discussions",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "List discussions",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "description": "Sorts the discussion comments by the date they were created. To return the oldest comments first, set to `asc`. Can be one of `asc` or `desc`.",
+          "default": "desc",
+          "required": false,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "location": "query"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/teams/:team_id/discussions",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": [
+            {
+              "author": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "body": "Hi! This is an area for us to collaborate as a team.",
+              "body_html": "<p>Hi! This is an area for us to collaborate as a team</p>",
+              "body_version": "0d495416a700fb06133c612575d92bfb",
+              "comments_count": 0,
+              "comments_url": "https://api.github.com/teams/2343027/discussions/1/comments",
+              "created_at": "2018-01-25T18:56:31Z",
+              "last_edited_at": null,
+              "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1",
+              "node_id": "MDE0OlRlYW1EaXNjdXNzaW9uMQ==",
+              "number": 1,
+              "pinned": false,
+              "private": false,
+              "team_url": "https://api.github.com/teams/2343027",
+              "title": "Our first team post",
+              "updated_at": "2018-01-25T18:56:31Z",
+              "url": "https://api.github.com/teams/2343027/discussions/1",
+              "reactions": {
+                "url": "https://api.github.com/teams/2343027/discussions/1/reactions",
+                "total_count": 5,
+                "+1": 3,
+                "-1": 1,
+                "laugh": 0,
+                "confused": 0,
+                "heart": 1,
+                "hooray": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "listProjects": {
+      "description": "Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.",
+      "documentationUrl": "https://developer.github.com/v3/teams/#list-team-projects",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "List team projects",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "description": "Results per page (max 100)",
+          "default": 30,
+          "location": "query"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "description": "Page number of the results to fetch.",
+          "default": 1,
+          "location": "query"
+        }
+      ],
+      "path": "/teams/:team_id/projects",
+      "previews": [
+        {
+          "name": "inertia",
+          "description": "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\n  application/vnd.github.inertia-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "hellcat",
+          "description": "**Note:** The Nested Teams API is currently available for developers to preview. See the [blog post](/changes/2017-08-30-preview-nested-teams) for full details. To access the API, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.hellcat-preview+json\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": [
+            {
+              "owner_url": "https://api.github.com/orgs/octocat",
+              "url": "https://api.github.com/projects/1002605",
+              "html_url": "https://github.com/orgs/api-playground/projects/13",
+              "columns_url": "https://api.github.com/projects/1002605/columns",
+              "id": 1002605,
+              "node_id": "MDc6UHJvamVjdDEwMDI2MDU=",
+              "name": "Organization Roadmap",
+              "body": "High-level roadmap for the upcoming year.",
+              "number": 1,
+              "state": "open",
+              "creator": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "created_at": "2011-04-11T20:09:31Z",
+              "updated_at": "2014-03-04T18:58:10Z",
+              "organization_permission": "write",
+              "private": false,
+              "permissions": {
+                "read": true,
+                "write": true,
+                "admin": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "removeMember": {
+      "description": "The \"Remove team member\" API (described below) is deprecated.\n\nWe recommend using the [Remove team membership API](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.\n\nTo remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team.",
+      "documentationUrl": "https://developer.github.com/v3/teams/members/#remove-team-member",
+      "enabledForApps": true,
+      "method": "DELETE",
+      "name": "Remove team member",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/members/:username",
+      "previews": [],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ]
+    },
+    "removeProject": {
+      "description": "Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.",
+      "documentationUrl": "https://developer.github.com/v3/teams/#remove-team-project",
+      "enabledForApps": true,
+      "method": "DELETE",
+      "name": "Remove team project",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "project_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/projects/:project_id",
+      "previews": [],
+      "responses": [
+        {
+          "headers": {
+            "status": "204 No Content",
+            "content-type": "application/json; charset=utf-8"
+          }
+        }
+      ]
+    },
+    "reviewProject": {
+      "description": "Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.",
+      "documentationUrl": "https://developer.github.com/v3/teams/#review-a-team-project",
+      "enabledForApps": true,
+      "method": "GET",
+      "name": "Review a team project",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "project_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        }
+      ],
+      "path": "/teams/:team_id/projects/:project_id",
+      "previews": [
+        {
+          "name": "inertia",
+          "description": "The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the [blog post](/changes/2016-10-27-changes-to-projects-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\n  application/vnd.github.inertia-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "hellcat",
+          "description": "**Note:** The Nested Teams API is currently available for developers to preview. See the [blog post](/changes/2017-08-30-preview-nested-teams) for full details. To access the API, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.hellcat-preview+json\n\n```",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "owner_url": "https://api.github.com/orgs/octocat",
+            "url": "https://api.github.com/projects/1002605",
+            "html_url": "https://github.com/orgs/api-playground/projects/13",
+            "columns_url": "https://api.github.com/projects/1002605/columns",
+            "id": 1002605,
+            "node_id": "MDc6UHJvamVjdDEwMDI2MDU=",
+            "name": "Organization Roadmap",
+            "body": "High-level roadmap for the upcoming year.",
+            "number": 1,
+            "state": "open",
+            "creator": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "created_at": "2011-04-11T20:09:31Z",
+            "updated_at": "2014-03-04T18:58:10Z",
+            "organization_permission": "write",
+            "private": false,
+            "permissions": {
+              "read": true,
+              "write": true,
+              "admin": false
+            }
+          }
+        }
+      ]
+    },
+    "updateDiscussion": {
+      "description": "Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussions/#edit-a-discussion",
+      "enabledForApps": true,
+      "method": "PATCH",
+      "name": "Edit a discussion",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "The discussion post's title.",
+          "required": false,
+          "location": "body"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "description": "The discussion post's body text.",
+          "required": false,
+          "location": "body"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "requests": [
+        {
+          "title": "Welcome to our first team post"
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "author": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "body": "Hi! This is an area for us to collaborate as a team.",
+            "body_html": "<p>Hi! This is an area for us to collaborate as a team</p>",
+            "body_version": "0d495416a700fb06133c612575d92bfb",
+            "comments_count": 1,
+            "comments_url": "https://api.github.com/teams/2343027/discussions/1/comments",
+            "created_at": "2018-01-25T18:56:31Z",
+            "last_edited_at": "2018-01-26T18:22:20Z",
+            "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1",
+            "node_id": "MDE0OlRlYW1EaXNjdXNzaW9uMQ==",
+            "number": 1,
+            "pinned": false,
+            "private": false,
+            "team_url": "https://api.github.com/teams/2343027",
+            "title": "Welcome to our first team post",
+            "updated_at": "2018-01-26T18:22:20Z",
+            "url": "https://api.github.com/teams/2343027/discussions/1",
+            "reactions": {
+              "url": "https://api.github.com/teams/2343027/discussions/1/reactions",
+              "total_count": 5,
+              "+1": 3,
+              "-1": 1,
+              "laugh": 0,
+              "confused": 0,
+              "heart": 1,
+              "hooray": 0
+            }
+          }
+        }
+      ]
+    },
+    "updateDiscussionComment": {
+      "description": "Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).",
+      "documentationUrl": "https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment",
+      "enabledForApps": true,
+      "method": "PATCH",
+      "name": "Edit a comment",
+      "params": [
+        {
+          "name": "team_id",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "discussion_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "comment_number",
+          "type": "integer",
+          "required": true,
+          "description": "",
+          "location": "url"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "description": "The discussion comment's body text.",
+          "required": true,
+          "location": "body"
+        }
+      ],
+      "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+      "previews": [
+        {
+          "name": "echo",
+          "description": "**Note:** The team discussions API is currently available for developers to preview. See the [blog post](/changes/2018-02-07-team-discussions-api) for full details. To access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.echo-preview+json\n\n```",
+          "required": true
+        },
+        {
+          "name": "squirrel-girl",
+          "description": "**Note:** The [reactions API](/v3/reactions/) is available for developers to preview. The `url` can be used to construct the API location for [listing and creating](/v3/reactions) reactions. See the [blog post](/changes/2016-05-12-reactions-api-preview) for full details. To receive the `reactions` object in the response for this endpoint you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\napplication/vnd.github.squirrel-girl-preview\n\n```",
+          "required": false
+        }
+      ],
+      "requests": [
+        {
+          "body": "Do you like pineapples?"
+        }
+      ],
+      "responses": [
+        {
+          "headers": {
+            "status": "200 OK",
+            "content-type": "application/json; charset=utf-8"
+          },
+          "body": {
+            "author": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "body": "Do you like pineapples?",
+            "body_html": "<p>Do you like pineapples?</p>",
+            "body_version": "e6907b24d9c93cc0c5024a7af5888116",
+            "created_at": "2018-01-15T23:53:58Z",
+            "last_edited_at": "2018-01-26T18:22:20Z",
+            "discussion_url": "https://api.github.com/teams/2403582/discussions/1",
+            "html_url": "https://github.com/orgs/github/teams/justice-league/discussions/1/comments/1",
+            "node_id": "MDIxOlRlYW1EaXNjdXNzaW9uQ29tbWVudDE=",
+            "number": 1,
+            "updated_at": "2018-01-26T18:22:20Z",
+            "url": "https://api.github.com/teams/2403582/discussions/1/comments/1",
+            "reactions": {
+              "url": "https://api.github.com/teams/2403582/discussions/1/reactions",
+              "total_count": 5,
+              "+1": 3,
+              "-1": 1,
+              "laugh": 0,
+              "confused": 0,
+              "heart": 1,
+              "hooray": 0
+            }
+          }
+        }
+      ]
+    }
+  },
   "users": {
     "acceptRepoInvite": {
       "description": "",

@@ -126,7 +126,7 @@ const mapScopes = {
   repos: 'repos',
   scim: false,
   search: 'search',
-  teams: false,
+  teams: 'teams',
   users: 'users'
 }
 
