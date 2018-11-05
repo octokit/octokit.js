@@ -77,11 +77,11 @@ describe('apps', () => {
     })
   })
 
-  it('adds "machine-man" preview header when authenticated as installation', () => {
+  it('adds "mercy" and "machine-man" preview headers when authenticated as installation', () => {
     nock('https://apps-test-host.com', {
       reqheaders: {
         authorization: 'token xyz-installation-token',
-        accept: 'application/vnd.github.machine-man-preview+json'
+        accept: 'application/vnd.github.mercy-preview+json,application/vnd.github.machine-man-preview+json'
       }
     })
       .get('/installation/repositories')
