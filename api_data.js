@@ -29036,6 +29036,56 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/user/installations",
+    "title": "getInstallations",
+    "name": "getInstallations",
+    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.users.getInstallations({per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.users.getInstallations({per_page, page}).then(result => {})",
+        "type": "js"
+      },
+      {
+        "title": "Callback",
+        "content": "octokit.users.getInstallations({per_page, page}, (error, result) => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "GET",
     "url": "/user/keys/:key_id",
     "title": "getKey",
     "name": "getKey",
