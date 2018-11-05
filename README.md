@@ -190,15 +190,62 @@ octokit.request('GET /')
 The `baseUrl`, headers and other defaults are already set. For more information
 on the `octokit.request()` API see [`@octokit/request`](https://github.com/octokit/request.js/)
 
-All the endpoint methods such as `client.repos.get()` are aliases of `octokit.request()`
+All the endpoint methods such as `octokit.repos.get()` are aliases of `octokit.request()`
 with pre-bound default options. So you can use the `@octokit/request` API to
 get the default options or get generic request option to use with your prefered
 request library.
 
 ```js
-const defaultOptions = client.repos.get.endpoint.DEFAULTS
-const requestOptions = client.repos.get.endpoint()
+const defaultOptions = octokit.repos.get.endpoint.DEFAULTS
+const requestOptions = octokit.repos.get.endpoint()
 ```
+
+## Register custom endpoint methods
+
+You can register custom endpoint methods such as `octokit.repos.get()` using
+the `octokit.registerEndpoints(routes)` method
+
+```js
+octokit.registerEndpoints({
+  foo: {
+    bar: {
+      method: 'PATCH',
+      url: '/repos/:owner/:repo/foo',
+      headers: {
+        accept: 'application/vnd.github.foo-bar-preview+json'
+      },
+      params: {
+        owner: {
+          required: true,
+          type: 'string'
+        },
+        repo: {
+          required: true,
+          type: 'string'
+        },
+        baz: {
+          required: true,
+          type: 'string',
+          enum: [
+            'qux',
+            'quux',
+            'quuz'
+          ]
+        }
+      }
+    }
+  }
+})
+
+octokit.foo.bar({
+  owner: 'octokit',
+  repo: 'rest.js',
+  baz: 'quz'
+})
+```
+
+This is useful when you participate in private beta features and prefer the
+convenience of methods for the new endpoints instead of using [`octokit.request()`]('#customrequests').
 
 ## Hooks
 
