@@ -281,8 +281,10 @@ You can customize and extend Octokit’s functionality using plugins
 ```js
 // index.js
 const MyOctokit = require('@octokit/request')
-  .plugin(require('./lib/my-plugin'))
-  .plugin(require('octokit-plugin-example'))
+  .plugin([
+    require('./lib/my-plugin'),
+    require('octokit-plugin-example')
+  ])
 
 // lib/my-plugin.js
 module.exports = (octokit, options = { greeting: 'Hello' }) => {
@@ -298,6 +300,8 @@ module.exports = (octokit, options = { greeting: 'Hello' }) => {
   })
 }
 ```
+
+`.plugin` accepts a function or an array of functions.
 
 You can add new methods to the `octokit` instance passed as first argument to
 the plugin function. The 2nd argument is the options object passed to the

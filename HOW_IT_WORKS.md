@@ -14,7 +14,7 @@
 <a name="endpoint-options"></a>
 ## Endpoint options (① - ④)
 
-`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `github.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [plugins/endpoint-methods/routes.json](plugins/endpoint-methods/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
+`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `github.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [plugins/rest-api-endpoints/routes.json](plugins/rest-api-endpoints/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
 
 **② endpoint default options** are merged with **① global defaults**, which are based on [lib/endpoint/defaults.js](lib/endpoint/defaults.js) and the options that were passed into the `require('@octokit/rest')(options)` client setup.
 
