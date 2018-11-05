@@ -1151,7 +1151,8 @@
           "type": "integer"
         },
         "output.annotations[].filename": {
-          "alias": "output.annotations[].path"
+          "alias": "output.annotations[].path",
+          "deprecated": true
         },
         "output.annotations[].message": {
           "required": true,
@@ -1175,7 +1176,8 @@
           "type": "string"
         },
         "output.annotations[].warning_level": {
-          "alias": "annotation_level"
+          "alias": "output.annotations[].annotation_level",
+          "deprecated": true
         },
         "output.images": {
           "type": "object[]"
@@ -1582,7 +1584,8 @@
           "type": "integer"
         },
         "output.annotations[].filename": {
-          "alias": "output.annotations[].path"
+          "alias": "output.annotations[].path",
+          "deprecated": true
         },
         "output.annotations[].message": {
           "required": true,
@@ -1606,7 +1609,8 @@
           "type": "string"
         },
         "output.annotations[].warning_level": {
-          "alias": "annotation_level"
+          "alias": "output.annotations[].annotation_level",
+          "deprecated": true
         },
         "output.images": {
           "type": "object[]"
@@ -5398,7 +5402,8 @@
       "method": "POST",
       "params": {
         "id": {
-          "alias": "project_id"
+          "alias": "project_id",
+          "deprecated": true
         },
         "name": {
           "required": true,
@@ -5448,7 +5453,8 @@
       "method": "DELETE",
       "params": {
         "id": {
-          "alias": "project_id"
+          "alias": "project_id",
+          "deprecated": true
         },
         "project_id": {
           "required": true,
@@ -5468,7 +5474,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "card_id"
+          "alias": "card_id",
+          "deprecated": true
         }
       },
       "url": "/projects/columns/cards/:card_id"
@@ -5484,7 +5491,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "column_id"
+          "alias": "column_id",
+          "deprecated": true
         }
       },
       "url": "/projects/columns/:column_id"
@@ -5554,7 +5562,8 @@
       "method": "GET",
       "params": {
         "id": {
-          "alias": "project_id"
+          "alias": "project_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -5580,7 +5589,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "card_id"
+          "alias": "card_id",
+          "deprecated": true
         }
       },
       "url": "/projects/columns/cards/:card_id"
@@ -5623,7 +5633,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "column_id"
+          "alias": "column_id",
+          "deprecated": true
         }
       },
       "url": "/projects/columns/:column_id"
@@ -5635,7 +5646,8 @@
       "method": "GET",
       "params": {
         "id": {
-          "alias": "project_id"
+          "alias": "project_id",
+          "deprecated": true
         },
         "page": {
           "type": "integer"
@@ -5716,7 +5728,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "card_id"
+          "alias": "card_id",
+          "deprecated": true
         },
         "position": {
           "required": true,
@@ -5737,7 +5750,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "column_id"
+          "alias": "column_id",
+          "deprecated": true
         },
         "position": {
           "required": true,
@@ -5778,7 +5792,8 @@
           "type": "string"
         },
         "id": {
-          "alias": "project_id"
+          "alias": "project_id",
+          "deprecated": true
         },
         "name": {
           "type": "string"
@@ -5823,7 +5838,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "card_id"
+          "alias": "card_id",
+          "deprecated": true
         },
         "note": {
           "type": "string"
@@ -5842,7 +5858,8 @@
           "type": "integer"
         },
         "id": {
-          "alias": "column_id"
+          "alias": "column_id",
+          "deprecated": true
         },
         "name": {
           "required": true,
@@ -10149,10 +10166,12 @@
       "method": "POST",
       "params": {
         "contentLength": {
-          "alias": "headers.content-length"
+          "alias": "headers.content-length",
+          "deprecated": true
         },
         "contentType": {
-          "alias": "headers.content-type"
+          "alias": "headers.content-type",
+          "deprecated": true
         },
         "file": {
           "mapTo": "input",
