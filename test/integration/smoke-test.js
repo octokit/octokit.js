@@ -125,4 +125,31 @@ describe('smoke', () => {
     })
     return github.request('GET /')
   })
+
+  it('.request.endpoint("GET /")', () => {
+    const github = new GitHub({
+      baseUrl: 'https://smoke-test.com'
+    })
+
+    const requestOptions = github.request.endpoint('GET /')
+    expect(requestOptions).to.deep.equal({
+      method: 'GET',
+      url: 'https://smoke-test.com/',
+      headers: {
+        accept: 'application/vnd.github.v3+json',
+        'user-agent': `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+      },
+      request: {
+        agent: undefined,
+        timeout: 0
+      }
+    })
+  })
+
+  it('global defaults', () => {
+    const github1 = new GitHub()
+    const github2 = new GitHub()
+
+    expect(github1.request.endpoint.DEFAULTS).to.deep.equal(github2.request.endpoint.DEFAULTS)
+  })
 })
