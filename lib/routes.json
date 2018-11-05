@@ -11159,9 +11159,16 @@
       "url": "/user/installations/:installation_id/repositories"
     },
     "getInstallations": {
-      "alias": "apps.getInstallations",
-      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.getInstallations()`",
-      "params": {}
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/user/installations"
     },
     "getKey": {
       "method": "GET",
