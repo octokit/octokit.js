@@ -2,8 +2,6 @@
 
 module.exports = apiPlugin
 
-const set = require('lodash/set')
-
 const validate = require('./validate')
 const ENDPOINT_DEFAULTS = require('./routes.json')
 
@@ -31,9 +29,10 @@ function apiPlugin (octokit) {
         return map
       }, {})
 
-      set(endpointDefaults, 'request.endpoint', Object.assign({
+      endpointDefaults.request = {
+        validate: apiOptions.params,
         deprecated
-      }, apiOptions))
+      }
 
       octokit[namespaceName][apiName] = octokit.request.defaults(endpointDefaults)
     })
