@@ -8414,6 +8414,25 @@ Build requests are limited to one concurrent build per repository and one concur
 
 
 /**
+ * @api {PUT} /repos/:owner/:repo/pages updateInformationAboutPagesSite
+ * @apiName updateInformationAboutPagesSite
+ * @apiDescription <a href="https://developer.github.com/v3/repos/pages/#update-information-about-a-pages-site">REST API doc</a>
+ * @apiGroup Repos
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string} [cname]  Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see "[Using a custom domain with GitHub Pages](https://help.github.com/articles/using-a-custom-domain-with-github-pages/)."
+ * @apiParam {string="gh-pages","master","master /docs"} [source]  Update the source for the repository. Must include the branch name, and may optionally specify the subdirectory `/docs`. Possible values are `"gh-pages"`, `"master"`, and `"master /docs"`.
+ * @apiExample {js} async/await
+ * const result = await octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source})
+ * @apiExample {js} Promise
+ * octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source}, (error, result) => {})
+ */
+
+
+/**
  * @api {PATCH} /repos/:owner/:repo/invitations/:invitation_id updateInvite
  * @apiName updateInvite
  * @apiDescription <a href="https://developer.github.com/v3/repos/invitations/#update-a-repository-invitation">REST API doc</a>
@@ -8835,6 +8854,341 @@ When searching for users, you can get text match metadata for the issue **login*
  * octokit.search.users({q, sort, order, per_page, page}).then(result => {})
  * @apiExample {js} Callback
  * octokit.search.users({q, sort, order, per_page, page}, (error, result) => {})
+ */
+
+
+
+/**,
+ * Teams
+ * @namespace Teams
+ */
+
+
+/**
+ * @api {PUT} /teams/:team_id/members/:username addMember
+ * @apiName addMember
+ * @apiDescription The "Add team member" API (described below) is deprecated.
+
+We recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.
+
+To add a user to a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with, and the user being added must already be a member of at least one other team on the same organization.
+
+Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+
+If you attempt to add an organization to a team, you will get this:
+
+If you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this: <a href="https://developer.github.com/v3/teams/members/#add-team-member">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {string} username  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.addMember({team_id, username})
+ * @apiExample {js} Promise
+ * octokit.teams.addMember({team_id, username}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.addMember({team_id, username}, (error, result) => {})
+ */
+
+
+/**
+ * @api {PUT} /teams/:team_id/projects/:project_id addOrUpdateProject
+ * @apiName addOrUpdateProject
+ * @apiDescription Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization. <a href="https://developer.github.com/v3/teams/#add-or-update-team-project">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} project_id  
+ * @apiParam {string=read,write,admin} [permission]  The permission to grant to the team for this project. Can be one of:  
+\* `read` - team members can read, but not write to or administer this project.  
+\* `write` - team members can read and write, but not administer this project.  
+\* `admin` - team members can read, write and administer this project.  
+Default: the team's `permission` attribute will be used to determine what permission to grant the team on this project. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."  
+**Note**: If you pass the `hellcat-preview` media type, you can promote—but not demote—a `permission` attribute inherited from a parent team.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.addOrUpdateProject({team_id, project_id, permission})
+ * @apiExample {js} Promise
+ * octokit.teams.addOrUpdateProject({team_id, project_id, permission}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.addOrUpdateProject({team_id, project_id, permission}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /teams/:team_id/discussions createDiscussion
+ * @apiName createDiscussion
+ * @apiDescription Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#create-a-discussion">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {string} title  The discussion post's title.
+ * @apiParam {string} body  The discussion post's body text.
+ * @apiParam {boolean} [private="false"]  Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.createDiscussion({team_id, title, body, private})
+ * @apiExample {js} Promise
+ * octokit.teams.createDiscussion({team_id, title, body, private}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.createDiscussion({team_id, title, body, private}, (error, result) => {})
+ */
+
+
+/**
+ * @api {POST} /teams/:team_id/discussions/:discussion_number/comments createDiscussionComment
+ * @apiName createDiscussionComment
+ * @apiDescription Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#create-a-comment">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {string} body  The discussion comment's body text.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.createDiscussionComment({team_id, discussion_number, body})
+ * @apiExample {js} Promise
+ * octokit.teams.createDiscussionComment({team_id, discussion_number, body}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.createDiscussionComment({team_id, discussion_number, body}, (error, result) => {})
+ */
+
+
+/**
+ * @api {DELETE} /teams/:team_id/discussions/:discussion_number deleteDiscussion
+ * @apiName deleteDiscussion
+ * @apiDescription Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#delete-a-discussion">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.deleteDiscussion({team_id, discussion_number})
+ * @apiExample {js} Promise
+ * octokit.teams.deleteDiscussion({team_id, discussion_number}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.deleteDiscussion({team_id, discussion_number}, (error, result) => {})
+ */
+
+
+/**
+ * @api {DELETE} /teams/:team_id/discussions/:discussion_number/comments/:comment_number deleteDiscussionComment
+ * @apiName deleteDiscussionComment
+ * @apiDescription Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {integer} comment_number  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number})
+ * @apiExample {js} Promise
+ * octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/discussions/:discussion_number getDiscussion
+ * @apiName getDiscussion
+ * @apiDescription Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#get-a-single-discussion">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.getDiscussion({team_id, discussion_number})
+ * @apiExample {js} Promise
+ * octokit.teams.getDiscussion({team_id, discussion_number}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.getDiscussion({team_id, discussion_number}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/discussions/:discussion_number/comments/:comment_number getDiscussionComment
+ * @apiName getDiscussionComment
+ * @apiDescription Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {integer} comment_number  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number})
+ * @apiExample {js} Promise
+ * octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/members/:username getMember
+ * @apiName getMember
+ * @apiDescription The "Get team member" API (described below) is deprecated.
+
+We recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.
+
+To list members in a team, the team must be visible to the authenticated user. <a href="https://developer.github.com/v3/teams/members/#get-team-member">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {string} username  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.getMember({team_id, username})
+ * @apiExample {js} Promise
+ * octokit.teams.getMember({team_id, username}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.getMember({team_id, username}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/discussions/:discussion_number/comments listDiscussionComments
+ * @apiName listDiscussionComments
+ * @apiDescription List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#list-comments">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {string=asc,desc} [direction="desc"]  Sorts the discussion comments by the date they were created. To return the oldest comments first, set to `asc`. Can be one of `asc` or `desc`.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/discussions listDiscussions
+ * @apiName listDiscussions
+ * @apiDescription List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#list-discussions">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {string=asc,desc} [direction="desc"]  Sorts the discussion comments by the date they were created. To return the oldest comments first, set to `asc`. Can be one of `asc` or `desc`.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.listDiscussions({team_id, direction, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.teams.listDiscussions({team_id, direction, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.listDiscussions({team_id, direction, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/projects listProjects
+ * @apiName listProjects
+ * @apiDescription Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team. <a href="https://developer.github.com/v3/teams/#list-team-projects">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.listProjects({team_id, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.teams.listProjects({team_id, per_page, page}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.listProjects({team_id, per_page, page}, (error, result) => {})
+ */
+
+
+/**
+ * @api {DELETE} /teams/:team_id/members/:username removeMember
+ * @apiName removeMember
+ * @apiDescription The "Remove team member" API (described below) is deprecated.
+
+We recommend using the [Remove team membership API](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.
+
+To remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team. <a href="https://developer.github.com/v3/teams/members/#remove-team-member">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {string} username  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.removeMember({team_id, username})
+ * @apiExample {js} Promise
+ * octokit.teams.removeMember({team_id, username}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.removeMember({team_id, username}, (error, result) => {})
+ */
+
+
+/**
+ * @api {DELETE} /teams/:team_id/projects/:project_id removeProject
+ * @apiName removeProject
+ * @apiDescription Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it. <a href="https://developer.github.com/v3/teams/#remove-team-project">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} project_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.removeProject({team_id, project_id})
+ * @apiExample {js} Promise
+ * octokit.teams.removeProject({team_id, project_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.removeProject({team_id, project_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {GET} /teams/:team_id/projects/:project_id reviewProject
+ * @apiName reviewProject
+ * @apiDescription Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team. <a href="https://developer.github.com/v3/teams/#review-a-team-project">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} project_id  
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.reviewProject({team_id, project_id})
+ * @apiExample {js} Promise
+ * octokit.teams.reviewProject({team_id, project_id}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.reviewProject({team_id, project_id}, (error, result) => {})
+ */
+
+
+/**
+ * @api {PATCH} /teams/:team_id/discussions/:discussion_number updateDiscussion
+ * @apiName updateDiscussion
+ * @apiDescription Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#edit-a-discussion">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {string} [title]  The discussion post's title.
+ * @apiParam {string} [body]  The discussion post's body text.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.updateDiscussion({team_id, discussion_number, title, body})
+ * @apiExample {js} Promise
+ * octokit.teams.updateDiscussion({team_id, discussion_number, title, body}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.updateDiscussion({team_id, discussion_number, title, body}, (error, result) => {})
+ */
+
+
+/**
+ * @api {PATCH} /teams/:team_id/discussions/:discussion_number/comments/:comment_number updateDiscussionComment
+ * @apiName updateDiscussionComment
+ * @apiDescription Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment">REST API doc</a>
+ * @apiGroup Teams
+ *
+ * @apiParam {integer} team_id  
+ * @apiParam {integer} discussion_number  
+ * @apiParam {integer} comment_number  
+ * @apiParam {string} body  The discussion comment's body text.
+ * @apiExample {js} async/await
+ * const result = await octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body})
+ * @apiExample {js} Promise
+ * octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body}).then(result => {})
+ * @apiExample {js} Callback
+ * octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body}, (error, result) => {})
  */
 
 
