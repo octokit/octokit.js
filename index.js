@@ -1,4 +1,4 @@
-const factory = require('./lib/factory')
+const Octokit = require('./lib/core')
 
 const CORE_PLUGINS = [
   require('./plugins/authentication'),
@@ -8,4 +8,4 @@ const CORE_PLUGINS = [
   require('./plugins/validate')
 ]
 
-module.exports = factory(CORE_PLUGINS)
+module.exports = Octokit.plugin(CORE_PLUGINS)
