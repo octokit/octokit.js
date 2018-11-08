@@ -45,6 +45,7 @@
     "https-proxy-agent": "^2.2.0",
     "lodash": "^4.17.4",
     "node-fetch": "^2.1.1",
+    "octokit-pagination-methods": "^1.1.0",
     "universal-user-agent": "^2.0.0",
     "url-template": "^2.0.8"
   },
