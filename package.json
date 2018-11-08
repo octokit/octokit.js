@@ -119,7 +119,8 @@
     "index.js",
     "index.d.ts",
     "index.js.flow",
-    "lib"
+    "lib",
+    "plugins"
   ],
   "apidoc": {
     "template": {
