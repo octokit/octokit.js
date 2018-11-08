@@ -1786,7 +1786,7 @@ define({ "api": [
     "url": "/marketplace_listing/accounts/:account_id",
     "title": "checkMarketplaceListingAccount",
     "name": "checkMarketplaceListingAccount",
-    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1843,7 +1843,7 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/accounts/:account_id",
     "title": "checkMarketplaceListingStubbedAccount",
     "name": "checkMarketplaceListingStubbedAccount",
-    "description": "<p>Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2322,7 +2322,7 @@ define({ "api": [
     "url": "/marketplace_listing/plans/:plan_id/accounts",
     "title": "getMarketplaceListingPlanAccounts",
     "name": "getMarketplaceListingPlanAccounts",
-    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
+    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2452,7 +2452,7 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/plans/:plan_id/accounts",
     "title": "getMarketplaceListingStubbedPlanAccounts",
     "name": "getMarketplaceListingStubbedPlanAccounts",
-    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
+    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -3729,7 +3729,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-runs/:check_run_id",
     "title": "get",
     "name": "get",
-    "description": "<p>Gets a single check run using its <code>id</code>. To get a check run, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#get-a-single-check-run\">REST API doc</a></p>",
+    "description": "<p>Gets a single check run using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#get-a-single-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3784,7 +3784,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id",
     "title": "getSuite",
     "name": "getSuite",
-    "description": "<p>Gets a single check suite using its <code>id</code>. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check suites. <a href=\"https://developer.github.com/v3/checks/suites/#get-a-single-check-suite\">REST API doc</a></p>",
+    "description": "<p>Gets a single check suite using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check suites in a private repository. <a href=\"https://developer.github.com/v3/checks/suites/#get-a-single-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3839,7 +3839,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations",
     "title": "listAnnotations",
     "name": "listAnnotations",
-    "description": "<p>Lists annotations for a check run using the annotation <code>id</code>. To list annotations for a check run, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run\">REST API doc</a></p>",
+    "description": "<p>Lists annotations for a check run using the annotation <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the <code>repo</code> scope to get annotations for a check run in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3910,7 +3910,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:ref/check-runs",
     "title": "listForRef",
     "name": "listForRef",
-    "description": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -4012,7 +4012,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id/check-runs",
     "title": "listForSuite",
     "name": "listForSuite",
-    "description": "<p>Lists check runs for a check suite using its <code>id</code>. To list check runs, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite\">REST API doc</a></p>",
+    "description": "<p>Lists check runs for a check suite using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -4114,7 +4114,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:ref/check-suites",
     "title": "listSuitesForRef",
     "name": "listSuitesForRef",
-    "description": "<p>Lists check suites for a commit <code>ref</code>. The <code>ref</code> can be a SHA, branch name, or a tag name. Your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Lists check suites for a commit <code>ref</code>. The <code>ref</code> can be a SHA, branch name, or a tag name. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check suites in a private repository. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -6658,7 +6658,7 @@ define({ "api": [
             "type": "string[]",
             "optional": false,
             "field": "labels",
-            "description": ""
+            "description": "<p>The name of the label to add to the issue. Must contain at least one label. <strong>Note:</strong> Alternatively, you can pass a single label as a <code>string</code> or an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key.</p>"
           }
         ]
       }
@@ -9180,13 +9180,6 @@ define({ "api": [
             "optional": false,
             "field": "number",
             "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "string[]",
-            "optional": false,
-            "field": "labels",
-            "description": ""
           }
         ]
       }
@@ -9194,17 +9187,17 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.issues.replaceAllLabels({owner, repo, number, labels})",
+        "content": "const result = await octokit.issues.replaceAllLabels({owner, repo, number})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})",
+        "content": "octokit.issues.replaceAllLabels({owner, repo, number}).then(result => {})",
         "type": "js"
       },
       {
         "title": "Callback",
-        "content": "octokit.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})",
+        "content": "octokit.issues.replaceAllLabels({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],

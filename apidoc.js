@@ -601,7 +601,7 @@ You must use a personal access token (which you can create via the [command line
 /**
  * @api {GET} /marketplace_listing/accounts/:account_id checkMarketplaceListingAccount
  * @apiName checkMarketplaceListingAccount
- * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.
+ * @apiDescription Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
 GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
@@ -621,7 +621,7 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
 /**
  * @api {GET} /marketplace_listing/stubbed/accounts/:account_id checkMarketplaceListingStubbedAccount
  * @apiName checkMarketplaceListingStubbedAccount
- * @apiDescription Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.
+ * @apiDescription Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
 GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
@@ -821,7 +821,7 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /marketplace_listing/plans/:plan_id/accounts getMarketplaceListingPlanAccounts
  * @apiName getMarketplaceListingPlanAccounts
- * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.
+ * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
 GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
@@ -860,7 +860,7 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
 /**
  * @api {GET} /marketplace_listing/stubbed/plans/:plan_id/accounts getMarketplaceListingStubbedPlanAccounts
  * @apiName getMarketplaceListingStubbedPlanAccounts
- * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.
+ * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
 GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
@@ -1257,7 +1257,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id get
  * @apiName get
- * @apiDescription Gets a single check run using its `id`. To get a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#get-a-single-check-run">REST API doc</a>
+ * @apiDescription Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository. <a href="https://developer.github.com/v3/checks/runs/#get-a-single-check-run">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -1275,7 +1275,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id getSuite
  * @apiName getSuite
- * @apiDescription Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. <a href="https://developer.github.com/v3/checks/suites/#get-a-single-check-suite">REST API doc</a>
+ * @apiDescription Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository. <a href="https://developer.github.com/v3/checks/suites/#get-a-single-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -1293,7 +1293,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id/annotations listAnnotations
  * @apiName listAnnotations
- * @apiDescription Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run">REST API doc</a>
+ * @apiDescription Lists annotations for a check run using the annotation `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the `repo` scope to get annotations for a check run in a private repository. <a href="https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -1313,7 +1313,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/commits/:ref/check-runs listForRef
  * @apiName listForRef
- * @apiDescription Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref">REST API doc</a>
+ * @apiDescription Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -1336,7 +1336,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id/check-runs listForSuite
  * @apiName listForSuite
- * @apiDescription Lists check runs for a check suite using its `id`. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite">REST API doc</a>
+ * @apiDescription Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -1359,7 +1359,7 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/commits/:ref/check-suites listSuitesForRef
  * @apiName listSuitesForRef
- * @apiDescription Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. <a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
+ * @apiDescription Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository. <a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -2181,7 +2181,7 @@ This example adds two assignees to the existing `octocat` assignee. <a href="htt
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string[]} labels  
+ * @apiParam {string[]} labels  The name of the label to add to the issue. Must contain at least one label. **Note:** Alternatively, you can pass a single label as a `string` or an `array` of labels directly, but GitHub recommends passing an object with the `labels` key.
  * @apiExample {js} async/await
  * const result = await octokit.issues.addLabels({owner, repo, number, labels})
  * @apiExample {js} Promise
@@ -2915,13 +2915,12 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * @apiParam {string} owner  
  * @apiParam {string} repo  
  * @apiParam {integer} number  
- * @apiParam {string[]} labels  
  * @apiExample {js} async/await
- * const result = await octokit.issues.replaceAllLabels({owner, repo, number, labels})
+ * const result = await octokit.issues.replaceAllLabels({owner, repo, number})
  * @apiExample {js} Promise
- * octokit.issues.replaceAllLabels({owner, repo, number, labels}).then(result => {})
+ * octokit.issues.replaceAllLabels({owner, repo, number}).then(result => {})
  * @apiExample {js} Callback
- * octokit.issues.replaceAllLabels({owner, repo, number, labels}, (error, result) => {})
+ * octokit.issues.replaceAllLabels({owner, repo, number}, (error, result) => {})
  */
 
 
