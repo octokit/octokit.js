@@ -16,18 +16,33 @@ describe('pagination', () => {
       .get('/organizations')
       .query({ page: 2, per_page: 1 })
       .reply(200, [{ id: 2 }])
+      .persist()
 
     const github = new GitHub({
       baseUrl: 'https://pagination-test.com'
     })
 
-    github.paginate('GET /organizations', { per_page: 1 })
-      .then(organizations => {
-        expect(organizations).to.deep.equal([
-          { id: 1 },
-          { id: 2 }
-        ])
-      })
+    return Promise.all([
+      github.paginate('GET /organizations', { per_page: 1 })
+        .then(organizations => {
+          expect(organizations).to.deep.equal([
+            { id: 1 },
+            { id: 2 }
+          ])
+        }),
+      github.paginate('GET /organizations', { per_page: 1 }, response => response.data.map(org => org.id))
+        .then(organizations => {
+          expect(organizations).to.deep.equal([1, 2])
+        }),
+      github.paginate({
+        method: 'GET',
+        url: '/organizations',
+        per_page: 1
+      }, response => response.data.map(org => org.id))
+        .then(organizations => {
+          expect(organizations).to.deep.equal([1, 2])
+        })
+    ])
   })
   it('.paginate.iterator for end endpoints that don’t paginate', () => {
     nock('https://pagination-test.com')
