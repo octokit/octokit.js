@@ -3147,7 +3147,7 @@ An import that does not have errors will progress through these steps:
 If there are problems, you will see one of these in the `status` field:
 
 *   `auth_failed` - the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.
-*   `error` - the import encountered an error. The import progress response will include the `failed_step` and an error message. Contact [GitHub support](https://github.com/contact) for more information.
+*   `error` - the import encountered an error. The import progress response will include the `failed_step` and an error message. Contact [GitHub Support](https://github.com/contact) for more information.
 *   `detection_needs_auth` - the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the [Update Existing Import](#update-existing-import) section.
 *   `detection_found_nothing` - the importer didn't recognize any source control at the URL. To resolve, [Cancel the import](#cancel-an-import) and [retry](#start-an-import) with the correct URL.
 *   `detection_found_multiple` - the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a `project_choices` field with the possible project choices as values. To update project choice, please see the [Update Existing Import](#update-existing-import) section.
@@ -6620,7 +6620,7 @@ Both the `author` and `committer` parameters have the same keys:
  * @apiName fork
  * @apiDescription Create a fork for the authenticated user.
 
-**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub support](https://github.com/contact). <a href="https://developer.github.com/v3/repos/forks/#create-a-fork">REST API doc</a>
+**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Support](https://github.com/contact). <a href="https://developer.github.com/v3/repos/forks/#create-a-fork">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
