@@ -78,7 +78,6 @@
     "sinon-chai": "^3.0.0",
     "sort-keys": "^2.0.0",
     "standard": "^12.0.0",
-    "standard-markdown": "^5.0.1",
     "string-to-arraybuffer": "^1.0.0",
     "typescript": "^2.9.2",
     "webpack": "^4.0.0",
@@ -93,7 +92,7 @@
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
-    "pretest": "standard && standard-markdown *.md",
+    "pretest": "standard",
     "test": "nyc mocha test/mocha-node-setup.js \"test/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
     "test:examples": "node test/examples.js",
