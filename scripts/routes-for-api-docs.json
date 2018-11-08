@@ -2036,7 +2036,7 @@
       ]
     },
     "checkMarketplaceListingAccount": {
-      "description": "Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
+      "description": "Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing",
       "enabledForApps": false,
       "method": "GET",
@@ -2081,6 +2081,29 @@
             "login": "github",
             "email": null,
             "organization_billing_email": "billing@github.com",
+            "marketplace_pending_change": {
+              "effective_date": "2017-11-11T00:00:00Z",
+              "unit_count": null,
+              "id": 77,
+              "plan": {
+                "url": "https://api.github.com/marketplace_listing/plans/1111",
+                "accounts_url": "https://api.github.com/marketplace_listing/plans/1111/accounts",
+                "id": 1111,
+                "number": 2,
+                "name": "Startup",
+                "description": "A professional-grade CI solution",
+                "monthly_price_in_cents": 699,
+                "yearly_price_in_cents": 7870,
+                "price_model": "flat-rate",
+                "has_free_trial": true,
+                "state": "published",
+                "unit_name": null,
+                "bullets": [
+                  "Up to 10 private repositories",
+                  "3 concurrent builds"
+                ]
+              }
+            },
             "marketplace_purchase": {
               "billing_cycle": "monthly",
               "next_billing_date": "2017-11-11T00:00:00Z",
@@ -2089,20 +2112,21 @@
               "free_trial_ends_on": "2017-11-11T00:00:00Z",
               "updated_at": "2017-11-02T01:12:12Z",
               "plan": {
-                "url": "https://api.github.com/marketplace_listing/plans/9",
-                "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-                "id": 9,
+                "url": "https://api.github.com/marketplace_listing/plans/1313",
+                "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+                "id": 1313,
+                "number": 3,
                 "name": "Pro",
                 "description": "A professional-grade CI solution",
                 "monthly_price_in_cents": 1099,
                 "yearly_price_in_cents": 11870,
                 "price_model": "flat-rate",
                 "has_free_trial": true,
-                "state": "published",
                 "unit_name": null,
+                "state": "published",
                 "bullets": [
-                  "This is the first bullet of the plan",
-                  "This is the second bullet of the plan"
+                  "Up to 25 private repositories",
+                  "11 concurrent builds"
                 ]
               }
             }
@@ -2111,7 +2135,7 @@
       ]
     },
     "checkMarketplaceListingStubbedAccount": {
-      "description": "Checks whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
+      "description": "Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing",
       "enabledForApps": false,
       "method": "GET",
@@ -2156,6 +2180,29 @@
             "login": "github",
             "email": null,
             "organization_billing_email": "billing@github.com",
+            "marketplace_pending_change": {
+              "effective_date": "2017-11-11T00:00:00Z",
+              "unit_count": null,
+              "id": 77,
+              "plan": {
+                "url": "https://api.github.com/marketplace_listing/plans/1111",
+                "accounts_url": "https://api.github.com/marketplace_listing/plans/1111/accounts",
+                "id": 1111,
+                "number": 2,
+                "name": "Startup",
+                "description": "A professional-grade CI solution",
+                "monthly_price_in_cents": 699,
+                "yearly_price_in_cents": 7870,
+                "price_model": "flat-rate",
+                "has_free_trial": true,
+                "state": "published",
+                "unit_name": null,
+                "bullets": [
+                  "Up to 10 private repositories",
+                  "3 concurrent builds"
+                ]
+              }
+            },
             "marketplace_purchase": {
               "billing_cycle": "monthly",
               "next_billing_date": "2017-11-11T00:00:00Z",
@@ -2164,20 +2211,21 @@
               "free_trial_ends_on": "2017-11-11T00:00:00Z",
               "updated_at": "2017-11-02T01:12:12Z",
               "plan": {
-                "url": "https://api.github.com/marketplace_listing/plans/9",
-                "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-                "id": 9,
+                "url": "https://api.github.com/marketplace_listing/plans/1313",
+                "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+                "id": 1313,
+                "number": 3,
                 "name": "Pro",
                 "description": "A professional-grade CI solution",
                 "monthly_price_in_cents": 1099,
                 "yearly_price_in_cents": 11870,
                 "price_model": "flat-rate",
                 "has_free_trial": true,
-                "state": "published",
                 "unit_name": null,
+                "state": "published",
                 "bullets": [
-                  "This is the first bullet of the plan",
-                  "This is the second bullet of the plan"
+                  "Up to 25 private repositories",
+                  "11 concurrent builds"
                 ]
               }
             }
@@ -2896,7 +2944,7 @@
       ]
     },
     "getMarketplaceListingPlanAccounts": {
-      "description": "Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
+      "description": "Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan",
       "enabledForApps": false,
       "method": "GET",
@@ -2965,6 +3013,29 @@
               "login": "github",
               "email": null,
               "organization_billing_email": "billing@github.com",
+              "marketplace_pending_change": {
+                "effective_date": "2017-11-11T00:00:00Z",
+                "unit_count": null,
+                "id": 77,
+                "plan": {
+                  "url": "https://api.github.com/marketplace_listing/plans/1111",
+                  "accounts_url": "https://api.github.com/marketplace_listing/plans/1111/accounts",
+                  "id": 1111,
+                  "number": 2,
+                  "name": "Startup",
+                  "description": "A professional-grade CI solution",
+                  "monthly_price_in_cents": 699,
+                  "yearly_price_in_cents": 7870,
+                  "price_model": "flat-rate",
+                  "has_free_trial": true,
+                  "state": "published",
+                  "unit_name": null,
+                  "bullets": [
+                    "Up to 10 private repositories",
+                    "3 concurrent builds"
+                  ]
+                }
+              },
               "marketplace_purchase": {
                 "billing_cycle": "monthly",
                 "next_billing_date": "2017-11-11T00:00:00Z",
@@ -2973,20 +3044,21 @@
                 "free_trial_ends_on": "2017-11-11T00:00:00Z",
                 "updated_at": "2017-11-02T01:12:12Z",
                 "plan": {
-                  "url": "https://api.github.com/marketplace_listing/plans/9",
-                  "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-                  "id": 9,
+                  "url": "https://api.github.com/marketplace_listing/plans/1313",
+                  "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+                  "id": 1313,
+                  "number": 3,
                   "name": "Pro",
                   "description": "A professional-grade CI solution",
                   "monthly_price_in_cents": 1099,
                   "yearly_price_in_cents": 11870,
                   "price_model": "flat-rate",
                   "has_free_trial": true,
-                  "state": "published",
                   "unit_name": null,
+                  "state": "published",
                   "bullets": [
-                    "This is the first bullet of the plan",
-                    "This is the second bullet of the plan"
+                    "Up to 25 private repositories",
+                    "11 concurrent builds"
                   ]
                 }
               }
@@ -3029,20 +3101,21 @@
           },
           "body": [
             {
-              "url": "https://api.github.com/marketplace_listing/plans/9",
-              "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-              "id": 9,
+              "url": "https://api.github.com/marketplace_listing/plans/1313",
+              "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+              "id": 1313,
+              "number": 3,
               "name": "Pro",
               "description": "A professional-grade CI solution",
               "monthly_price_in_cents": 1099,
               "yearly_price_in_cents": 11870,
               "price_model": "flat-rate",
               "has_free_trial": true,
-              "state": "published",
               "unit_name": null,
+              "state": "published",
               "bullets": [
-                "This is the first bullet of the plan",
-                "This is the second bullet of the plan"
+                "Up to 25 private repositories",
+                "11 concurrent builds"
               ]
             }
           ]
@@ -3050,7 +3123,7 @@
       ]
     },
     "getMarketplaceListingStubbedPlanAccounts": {
-      "description": "Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
+      "description": "Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.\n\nGitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.",
       "documentationUrl": "https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan",
       "enabledForApps": false,
       "method": "GET",
@@ -3119,6 +3192,29 @@
               "login": "github",
               "email": null,
               "organization_billing_email": "billing@github.com",
+              "marketplace_pending_change": {
+                "effective_date": "2017-11-11T00:00:00Z",
+                "unit_count": null,
+                "id": 77,
+                "plan": {
+                  "url": "https://api.github.com/marketplace_listing/plans/1111",
+                  "accounts_url": "https://api.github.com/marketplace_listing/plans/1111/accounts",
+                  "id": 1111,
+                  "number": 2,
+                  "name": "Startup",
+                  "description": "A professional-grade CI solution",
+                  "monthly_price_in_cents": 699,
+                  "yearly_price_in_cents": 7870,
+                  "price_model": "flat-rate",
+                  "has_free_trial": true,
+                  "state": "published",
+                  "unit_name": null,
+                  "bullets": [
+                    "Up to 10 private repositories",
+                    "3 concurrent builds"
+                  ]
+                }
+              },
               "marketplace_purchase": {
                 "billing_cycle": "monthly",
                 "next_billing_date": "2017-11-11T00:00:00Z",
@@ -3127,20 +3223,21 @@
                 "free_trial_ends_on": "2017-11-11T00:00:00Z",
                 "updated_at": "2017-11-02T01:12:12Z",
                 "plan": {
-                  "url": "https://api.github.com/marketplace_listing/plans/9",
-                  "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-                  "id": 9,
+                  "url": "https://api.github.com/marketplace_listing/plans/1313",
+                  "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+                  "id": 1313,
+                  "number": 3,
                   "name": "Pro",
                   "description": "A professional-grade CI solution",
                   "monthly_price_in_cents": 1099,
                   "yearly_price_in_cents": 11870,
                   "price_model": "flat-rate",
                   "has_free_trial": true,
-                  "state": "published",
                   "unit_name": null,
+                  "state": "published",
                   "bullets": [
-                    "This is the first bullet of the plan",
-                    "This is the second bullet of the plan"
+                    "Up to 25 private repositories",
+                    "11 concurrent builds"
                   ]
                 }
               }
@@ -3183,20 +3280,21 @@
           },
           "body": [
             {
-              "url": "https://api.github.com/marketplace_listing/plans/9",
-              "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-              "id": 9,
+              "url": "https://api.github.com/marketplace_listing/plans/1313",
+              "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+              "id": 1313,
+              "number": 3,
               "name": "Pro",
               "description": "A professional-grade CI solution",
               "monthly_price_in_cents": 1099,
               "yearly_price_in_cents": 11870,
               "price_model": "flat-rate",
               "has_free_trial": true,
-              "state": "published",
               "unit_name": null,
+              "state": "published",
               "bullets": [
-                "This is the first bullet of the plan",
-                "This is the second bullet of the plan"
+                "Up to 25 private repositories",
+                "11 concurrent builds"
               ]
             }
           ]
@@ -4559,7 +4657,7 @@
       ]
     },
     "get": {
-      "description": "Gets a single check run using its `id`. To get a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "description": "Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#get-a-single-check-run",
       "enabledForApps": true,
       "method": "GET",
@@ -4678,7 +4776,7 @@
       ]
     },
     "getSuite": {
-      "description": "Gets a single check suite using its `id`. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites.",
+      "description": "Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#get-a-single-check-suite",
       "enabledForApps": true,
       "method": "GET",
@@ -4865,7 +4963,7 @@
       ]
     },
     "listAnnotations": {
-      "description": "Lists annotations for a check run using the annotation `id`. To list annotations for a check run, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "description": "Lists annotations for a check run using the annotation `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the `repo` scope to get annotations for a check run in a private repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run",
       "enabledForApps": true,
       "method": "GET",
@@ -4940,7 +5038,7 @@
       ]
     },
     "listForRef": {
-      "description": "Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "description": "Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref",
       "enabledForApps": true,
       "method": "GET",
@@ -5111,7 +5209,7 @@
       ]
     },
     "listForSuite": {
-      "description": "Lists check runs for a check suite using its `id`. To list check runs, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.",
+      "description": "Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite",
       "enabledForApps": true,
       "method": "GET",
@@ -5282,7 +5380,7 @@
       ]
     },
     "listSuitesForRef": {
-      "description": "Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. Your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites.",
+      "description": "Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.",
       "documentationUrl": "https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
       "enabledForApps": true,
       "method": "GET",
@@ -6019,8 +6117,8 @@
                 "title": "Spell Checker",
                 "message": "Check your spelling for 'banaas'.",
                 "raw_details": "Do you mean 'bananas' or 'banana'?",
-                "start_line": "2",
-                "end_line": "2"
+                "start_line": 2,
+                "end_line": 2
               },
               {
                 "path": "README.md",
@@ -6028,8 +6126,8 @@
                 "title": "Spell Checker",
                 "message": "Check your spelling for 'aples'",
                 "raw_details": "Do you mean 'apples' or 'Naples'",
-                "start_line": "4",
-                "end_line": "4"
+                "start_line": 4,
+                "end_line": 4
               }
             ],
             "images": [
@@ -8876,7 +8974,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -9045,11 +9143,10 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
           "name": "labels",
           "type": "string[]",
+          "description": "The name of the label to add to the issue. Must contain at least one label. **Note:** Alternatively, you can pass a single label as a `string` or an `array` of labels directly, but GitHub recommends passing an object with the `labels` key.",
           "required": true,
-          "description": "",
           "location": "body"
         }
       ],
@@ -9062,10 +9159,12 @@
         }
       ],
       "requests": [
-        [
-          "Label1",
-          "Label2"
-        ]
+        {
+          "labels": [
+            "bug",
+            "enhancement"
+          ]
+        }
       ],
       "responses": [
         {
@@ -9079,9 +9178,18 @@
               "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
               "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
               "name": "bug",
-              "description": "Houston, we have a problem",
+              "description": "Something isn't working",
               "color": "f29513",
               "default": true
+            },
+            {
+              "id": 208045947,
+              "node_id": "MDU6TGFiZWwyMDgwNDU5NDc=",
+              "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement",
+              "name": "enhancement",
+              "description": "New feature or request",
+              "color": "a2eeef",
+              "default": false
             }
           ]
         }
@@ -9265,7 +9373,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -9520,7 +9628,7 @@
       "requests": [
         {
           "name": "bug",
-          "description": "Houston, we have a problem",
+          "description": "Something isn't working",
           "color": "f29513"
         }
       ],
@@ -9535,7 +9643,7 @@
             "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
             "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
             "name": "bug",
-            "description": "Houston, we have a problem",
+            "description": "Something isn't working",
             "color": "f29513",
             "default": true
           }
@@ -9923,7 +10031,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -10211,7 +10319,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -10486,7 +10594,7 @@
                   "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                   "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                   "name": "bug",
-                  "description": "Houston, we have a problem",
+                  "description": "Something isn't working",
                   "color": "f29513",
                   "default": true
                 }
@@ -11179,7 +11287,7 @@
                   "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                   "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                   "name": "bug",
-                  "description": "Houston, we have a problem",
+                  "description": "Something isn't working",
                   "color": "f29513",
                   "default": true
                 }
@@ -11498,7 +11606,7 @@
                     "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                     "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                     "name": "bug",
-                    "description": "Houston, we have a problem",
+                    "description": "Something isn't working",
                     "color": "f29513",
                     "default": true
                   }
@@ -11860,7 +11968,7 @@
                   "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                   "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                   "name": "bug",
-                  "description": "Houston, we have a problem",
+                  "description": "Something isn't working",
                   "color": "f29513",
                   "default": true
                 }
@@ -12248,7 +12356,7 @@
                   "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                   "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                   "name": "bug",
-                  "description": "Houston, we have a problem",
+                  "description": "Something isn't working",
                   "color": "f29513",
                   "default": true
                 }
@@ -12504,7 +12612,7 @@
                   "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                   "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                   "name": "bug",
-                  "description": "Houston, we have a problem",
+                  "description": "Something isn't working",
                   "color": "f29513",
                   "default": true
                 }
@@ -12775,9 +12883,18 @@
               "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
               "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
               "name": "bug",
-              "description": "Houston, we have a problem",
+              "description": "Something isn't working",
               "color": "f29513",
               "default": true
+            },
+            {
+              "id": 208045947,
+              "node_id": "MDU6TGFiZWwyMDgwNDU5NDc=",
+              "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement",
+              "name": "enhancement",
+              "description": "New feature or request",
+              "color": "a2eeef",
+              "default": false
             }
           ]
         }
@@ -12831,7 +12948,7 @@
             "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
             "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
             "name": "bug",
-            "description": "Houston, we have a problem",
+            "description": "Something isn't working",
             "color": "f29513",
             "default": true
           }
@@ -12896,9 +13013,18 @@
               "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
               "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
               "name": "bug",
-              "description": "Houston, we have a problem",
+              "description": "Something isn't working",
               "color": "f29513",
               "default": true
+            },
+            {
+              "id": 208045947,
+              "node_id": "MDU6TGFiZWwyMDgwNDU5NDc=",
+              "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement",
+              "name": "enhancement",
+              "description": "New feature or request",
+              "color": "a2eeef",
+              "default": false
             }
           ]
         }
@@ -13381,7 +13507,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -13553,14 +13679,6 @@
           "required": true,
           "description": "",
           "location": "url"
-        },
-        {
-          "mapTo": "input",
-          "name": "labels",
-          "type": "string[]",
-          "required": true,
-          "description": "",
-          "location": "body"
         }
       ],
       "path": "/repos/:owner/:repo/issues/:number/labels",
@@ -41717,20 +41835,21 @@
                 "type": "Organization"
               },
               "plan": {
-                "url": "https://api.github.com/marketplace_listing/plans/9",
-                "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-                "id": 9,
+                "url": "https://api.github.com/marketplace_listing/plans/1313",
+                "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+                "id": 1313,
+                "number": 3,
                 "name": "Pro",
                 "description": "A professional-grade CI solution",
                 "monthly_price_in_cents": 1099,
                 "yearly_price_in_cents": 11870,
                 "price_model": "flat-rate",
                 "has_free_trial": true,
-                "state": "published",
                 "unit_name": null,
+                "state": "published",
                 "bullets": [
-                  "This is the first bullet of the plan",
-                  "This is the second bullet of the plan"
+                  "Up to 25 private repositories",
+                  "11 concurrent builds"
                 ]
               }
             }
@@ -41787,20 +41906,21 @@
                 "type": "Organization"
               },
               "plan": {
-                "url": "https://api.github.com/marketplace_listing/plans/9",
-                "accounts_url": "https://api.github.com/marketplace_listing/plans/9/accounts",
-                "id": 9,
+                "url": "https://api.github.com/marketplace_listing/plans/1313",
+                "accounts_url": "https://api.github.com/marketplace_listing/plans/1313/accounts",
+                "id": 1313,
+                "number": 3,
                 "name": "Pro",
                 "description": "A professional-grade CI solution",
                 "monthly_price_in_cents": 1099,
                 "yearly_price_in_cents": 11870,
                 "price_model": "flat-rate",
                 "has_free_trial": true,
-                "state": "published",
                 "unit_name": null,
+                "state": "published",
                 "bullets": [
-                  "This is the first bullet of the plan",
-                  "This is the second bullet of the plan"
+                  "Up to 25 private repositories",
+                  "11 concurrent builds"
                 ]
               }
             }
