@@ -181,7 +181,14 @@ octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 're
   })
 ```
 
-`octokit.paginate()` accepts the same options as [`octokit.request()`](#customrequests).
+`octokit.paginate()` accepts the same options as [`octokit.request()`](#customrequests). You can optionally pass an additional function to map the results from each response. The map mast return a new value, usually an array with mapped data.
+
+```js
+octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' }, response => response.data.map(issue => issue.title))
+  .then(issueTitles => {
+    // issueTitles is now an array with the titles only
+  })
+```
 
 To paginate responses for one of the registered endpoint methods such as `octokit.issues.listForRepo()` you can use the [`.endpoint.merge()`](https://github.com/octokit/endpoint.js#endpointmerge) method registered for all endpoint methods:
 
