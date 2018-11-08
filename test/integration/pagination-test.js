@@ -5,99 +5,51 @@ const GitHub = require('../../')
 require('../mocha-node-setup')
 
 describe('pagination', () => {
-  it('first / previous / next / last', (done) => {
-    nock('https://pagination-test.com', {
-      reqheaders: {
-        authorization: 'token secrettoken123'
-      }
-    })
+  it('.paginate()', () => {
+    nock('https://pagination-test.com')
       .get('/organizations')
-      .query({ page: 3, per_page: 1 })
-      .reply(200, [{}], {
-        'Link': '<https://pagination-test.com/organizations?page=4&per_page=1>; rel="next", <https://pagination-test.com/organizations?page=1&per_page=1>; rel="first", <https://pagination-test.com/organizations?page=2&per_page=1>; rel="prev"',
+      .query({ page: 1, per_page: 1 })
+      .reply(200, [{ id: 1 }], {
+        'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/organizations')
-      .query({ page: 1, per_page: 1 })
-      .reply(200, [{}])
-      .get('/organizations')
       .query({ page: 2, per_page: 1 })
-      .reply(200, [{}])
-      .get('/organizations')
-      .query({ page: 4, per_page: 1 })
-      .reply(404, {})
+      .reply(200, [{ id: 2 }])
 
     const github = new GitHub({
       baseUrl: 'https://pagination-test.com'
     })
 
-    github.authenticate({
-      type: 'token',
-      token: 'secrettoken123'
-    })
-
-    github.orgs.getAll({
-      page: 3,
-      per_page: 1
-    })
-
-      .then((result) => {
-        expect(github.hasNextPage(result)).to.be.a('string')
-        expect(github.hasPreviousPage(result)).to.be.a('string')
-        expect(github.hasFirstPage(result)).to.be.a('string')
-        expect(github.hasLastPage(result)).to.be.an('undefined')
-
-        const callback = () => {}
-
-        return Promise.all([
-          github.getFirstPage(result)
-            .then(result => {
-              expect(() => {
-                github.hasPreviousPage(result)
-              }).to.not.throw()
-              expect(github.hasPreviousPage(result)).to.be.an('undefined')
-            }),
-          github.getPreviousPage(result, { foo: 'bar', accept: 'application/vnd.github.v3+json' }),
-          github.getNextPage(result).catch(callback),
-          github.getLastPage(result, { foo: 'bar' })
-            .catch(error => {
-              expect(error.code).to.equal(404)
-            }),
-          // test error with promise
-          github.getLastPage(result).catch(callback)
+    github.paginate('GET /organizations', { per_page: 1 })
+      .then(organizations => {
+        expect(organizations).to.deep.equal([
+          { id: 1 },
+          { id: 2 }
         ])
       })
-
-      .then(() => {
-        done()
-      })
-
-      .catch(done)
   })
-
-  it('carries accept header correctly', () => {
-    nock('https://pagination-test.com', {
-      reqheaders: {
-        accept: 'application/vnd.github.hellcat-preview+json'
-      }
-    })
-      .get('/user/teams')
-      .query({ per_page: 1 })
-      .reply(200, [{}], {
-        'Link': '<https://pagination-test.com/user/teams?page=2&per_page=1>; rel="next"',
-        'X-GitHub-Media-Type': 'github; param=hellcat-preview; format=json'
+  it('.paginate.iterator for end endpoints that don’t paginate', () => {
+    nock('https://pagination-test.com')
+      .get('/orgs/myorg')
+      .query({ page: 1 })
+      .reply(200, {
+        foo: 'bar'
       })
-      .get('/user/teams')
-      .query({ page: 2, per_page: 1 })
-      .reply(200, [])
 
-    const client = new GitHub({
+    const github = new GitHub({
       baseUrl: 'https://pagination-test.com'
     })
 
-    return client.users.getTeams({ per_page: 1 })
-      .then(response => {
-        return client.getNextPage(response)
+    const iterator = github.paginate.iterator({
+      method: 'GET',
+      url: '/orgs/:org',
+      org: 'myorg'
+    })[Symbol.asyncIterator]()
+
+    return iterator.next()
+      .then(result => {
+        expect(result.value.data.foo).to.equal('bar')
       })
   })
 })
