@@ -147,38 +147,6 @@ octokit.authenticate({
 Note: `authenticate` is synchronous because it only sets the credentials
 for the following requests.
 
-## Pagination
-
-There are a few pagination-related methods:
-
-- `hasNextPage(response)`
-- `hasPreviousPage(response)`
-- `hasFirstPage(response)`
-- `hasLastPage(response)`
-- `getNextPage(response)`
-- `getPreviousPage(response)`
-- `getFirstPage(response)`
-- `getLastPage(response)`
-
-Usage
-
-```js
-async function paginate (method) {
-  let response = await method({ per_page: 100 })
-  let { data } = response
-  while (octokit.hasNextPage(response)) {
-    response = await octokit.getNextPage(response)
-    data = data.concat(response.data)
-  }
-  return data
-}
-
-paginate(octokit.repos.getAll)
-  .then(data => {
-    // handle all results
-  })
-```
-
 ## Custom requests
 
 To send custom requests you can use the lower-level `octokit.request()` method
@@ -200,52 +168,42 @@ const defaultOptions = octokit.repos.get.endpoint.DEFAULTS
 const requestOptions = octokit.repos.get.endpoint()
 ```
 
-## Register custom endpoint methods
+## Pagination
 
-You can register custom endpoint methods such as `octokit.repos.get()` using
-the `octokit.registerEndpoints(routes)` method
+All endpoint methods starting with `.list*` do not return all responses at once but instead return the first 30 items by default, see also [GitHub’s REST API pagination documentation](https://developer.github.com/v3/#pagination).
+
+To automatically receive all results across all pages, you can use the `github.paginate()` method:
 
 ```js
-octokit.registerEndpoints({
-  foo: {
-    bar: {
-      method: 'PATCH',
-      url: '/repos/:owner/:repo/foo',
-      headers: {
-        accept: 'application/vnd.github.foo-bar-preview+json'
-      },
-      params: {
-        owner: {
-          required: true,
-          type: 'string'
-        },
-        repo: {
-          required: true,
-          type: 'string'
-        },
-        baz: {
-          required: true,
-          type: 'string',
-          enum: [
-            'qux',
-            'quux',
-            'quuz'
-          ]
-        }
-      }
-    }
-  }
-})
-
-octokit.foo.bar({
-  owner: 'octokit',
-  repo: 'rest.js',
-  baz: 'quz'
-})
+octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
+  .then(issues => {
+    // issues is an array of all issue objects
+  })
 ```
 
-This is useful when you participate in private beta features and prefer the
-convenience of methods for the new endpoints instead of using [`octokit.request()`]('#customrequests').
+`octokit.paginate()` accepts the same options as [`octokit.request()`](#customrequests).
+
+To paginate responses for one of the registered endpoint methods such as `octokit.issues.listForRepo()` you can use the [`.endpoint.merge()`](https://github.com/octokit/endpoint.js#endpointmerge) method registered for all endpoint methods:
+
+```js
+const options = octokit.issues.liftForRepo.endpoint.merge({ owner: 'octokit', repo: 'rest.js' })
+octokit.paginate(options)
+  .then(issues => {
+    // issues is an array of all issue objects
+  })
+```
+
+If your runtime environment supports async iterators (such as Node 10+), you can iterate trough each response
+
+```js
+for await (const response of github.paginate.iterator(options) {
+  // do whatever you want with each response, break out of loop, etc.
+}
+```
+
+`github.paginate.iterator()` accepts the same options as `github.paginate()`.
+
+More [examples for pagination](https://github.com/octokit/rest.js/blob/master/examples/pagination.js).
 
 ## Hooks
 
@@ -312,6 +270,53 @@ const octokit = new MyOctokit({ greeting: 'Hola' })
 octokit.helloWorld()
 // Hola, world!
 ```
+
+## Register custom endpoint methods
+
+You can register custom endpoint methods such as `octokit.repos.get()` using
+the `octokit.registerEndpoints(routes)` method
+
+```js
+octokit.registerEndpoints({
+  foo: {
+    bar: {
+      method: 'PATCH',
+      url: '/repos/:owner/:repo/foo',
+      headers: {
+        accept: 'application/vnd.github.foo-bar-preview+json'
+      },
+      params: {
+        owner: {
+          required: true,
+          type: 'string'
+        },
+        repo: {
+          required: true,
+          type: 'string'
+        },
+        baz: {
+          required: true,
+          type: 'string',
+          enum: [
+            'qux',
+            'quux',
+            'quuz'
+          ]
+        }
+      }
+    }
+  }
+})
+
+octokit.foo.bar({
+  owner: 'octokit',
+  repo: 'rest.js',
+  baz: 'quz'
+})
+```
+
+This is useful when you participate in private beta features and prefer the
+convenience of methods for the new endpoints instead of using [`octokit.request()`]('#customrequests').
 
 ## Debug
 
