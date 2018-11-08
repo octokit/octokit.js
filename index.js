@@ -5,7 +5,10 @@ const CORE_PLUGINS = [
   require('./plugins/pagination'),
   require('./plugins/register-endpoints'),
   require('./plugins/rest-api-endpoints'),
-  require('./plugins/validate')
+  require('./plugins/validate'),
+
+  // deprecated: remove in v17
+  require('octokit-pagination-methods')
 ]
 
 module.exports = Octokit.plugin(CORE_PLUGINS)
