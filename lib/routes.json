@@ -1768,7 +1768,7 @@
       "method": "PATCH",
       "params": {
         "hook": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "object"
         },
@@ -2690,7 +2690,7 @@
       "method": "POST",
       "params": {
         "labels": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -3687,7 +3687,7 @@
       "method": "PUT",
       "params": {
         "labels": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -4337,7 +4337,7 @@
       "method": "POST",
       "params": {
         "data": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string"
         }
@@ -7227,7 +7227,7 @@
           "type": "string"
         },
         "contexts": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -7258,7 +7258,7 @@
           "type": "string"
         },
         "teams": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         }
@@ -7281,7 +7281,7 @@
           "type": "string"
         },
         "users": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         }
@@ -9672,7 +9672,7 @@
           "type": "string"
         },
         "contexts": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -9721,7 +9721,7 @@
           "type": "string"
         },
         "teams": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         }
@@ -9744,7 +9744,7 @@
           "type": "string"
         },
         "users": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         }
@@ -9759,7 +9759,7 @@
           "type": "string"
         },
         "contexts": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -9790,7 +9790,7 @@
           "type": "string"
         },
         "teams": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         }
@@ -9813,7 +9813,7 @@
           "type": "string"
         },
         "users": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         }
@@ -10202,7 +10202,7 @@
           "deprecated": true
         },
         "file": {
-          "mapTo": "input",
+          "mapTo": "data",
           "required": true,
           "type": "string | object"
         },

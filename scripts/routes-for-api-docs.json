@@ -16310,7 +16310,7 @@
       "name": "Render a Markdown document in raw mode",
       "params": [
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "data",
           "type": "string",
           "required": true,
@@ -26874,7 +26874,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "contexts",
           "type": "string[]",
           "required": true,
@@ -26931,7 +26931,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "teams",
           "type": "string[]",
           "required": true,
@@ -27005,7 +27005,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "users",
           "type": "string[]",
           "required": true,
@@ -36119,7 +36119,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "contexts",
           "type": "string[]",
           "required": true,
@@ -36207,7 +36207,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "teams",
           "type": "string[]",
           "required": true,
@@ -36281,7 +36281,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "users",
           "type": "string[]",
           "required": true,
@@ -36356,7 +36356,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "contexts",
           "type": "string[]",
           "required": true,
@@ -36412,7 +36412,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "teams",
           "type": "string[]",
           "required": true,
@@ -36486,7 +36486,7 @@
           "location": "url"
         },
         {
-          "mapTo": "input",
+          "mapTo": "data",
           "name": "users",
           "type": "string[]",
           "required": true,
@@ -37925,7 +37925,7 @@
           "description": "",
           "required": true,
           "location": "body",
-          "mapTo": "input"
+          "mapTo": "data"
         }
       ],
       "path": ":url",
