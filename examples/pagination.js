@@ -39,3 +39,19 @@ mapIssues({
     return issues.map(issue => ({ title: issue.title }))
   }
 })
+
+// automatically paginate with using request parameter
+octokit.hook.wrap('request', (request, options) => {
+  if (!options.request.paginate) {
+    return request(options)
+  }
+
+  delete options.request.paginate
+  return octokit.paginate(options)
+})
+
+octokit.issues.getForRepo({
+  owner: 'octokit',
+  repo: 'rest.js',
+  request: { paginate: true }
+})
