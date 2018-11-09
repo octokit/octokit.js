@@ -183,4 +183,21 @@ describe('deprecations', () => {
         expect(console.warn.callCount).to.equal(1)
       })
   })
+
+  it('deprecated options.input', () => {
+    nock('https://deprecations-test.com')
+      .post('/markdown/raw')
+      .reply(201, '<h1>Test</h1>')
+
+    return github.request({
+      method: 'POST',
+      url: '/markdown/raw',
+      input: '# Test'
+    })
+
+      .then(response => {
+        expect(response.data).to.deep.equal('<h1>Test</h1>')
+        expect(console.warn.callCount).to.equal(1)
+      })
+  })
 })
