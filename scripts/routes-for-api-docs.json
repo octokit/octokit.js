@@ -1460,9 +1460,6 @@
                 "push": false,
                 "pull": true
               },
-              "allow_rebase_merge": true,
-              "allow_squash_merge": true,
-              "allow_merge_commit": true,
               "subscribers_count": 42,
               "network_count": 0,
               "license": {
@@ -1616,9 +1613,6 @@
                 "push": false,
                 "pull": true
               },
-              "allow_rebase_merge": true,
-              "allow_squash_merge": true,
-              "allow_merge_commit": true,
               "subscribers_count": 42,
               "network_count": 0,
               "license": {
@@ -13172,9 +13166,18 @@
               "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
               "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
               "name": "bug",
-              "description": "Houston, we have a problem",
+              "description": "Something isn't working",
               "color": "f29513",
               "default": true
+            },
+            {
+              "id": 208045947,
+              "node_id": "MDU6TGFiZWwyMDgwNDU5NDc=",
+              "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement",
+              "name": "enhancement",
+              "description": "New feature or request",
+              "color": "a2eeef",
+              "default": false
             }
           ]
         }
@@ -13608,7 +13611,7 @@
       ]
     },
     "removeLabel": {
-      "description": "",
+      "description": "Removes the specified label from the issue, and returns the remaining labels on the issue.",
       "documentationUrl": "https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue",
       "enabledForApps": true,
       "method": "DELETE",
@@ -13653,7 +13656,7 @@
       ]
     },
     "replaceAllLabels": {
-      "description": "Sending an empty array (`[]`) will remove all Labels from the Issue.",
+      "description": "",
       "documentationUrl": "https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue",
       "enabledForApps": true,
       "method": "PUT",
@@ -13679,6 +13682,13 @@
           "required": true,
           "description": "",
           "location": "url"
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "The names of the labels to add to the issue. You can pass an empty array to remove all labels. **Note:** Alternatively, you can pass a single label as a `string` or an `array` of labels directly, but GitHub recommends passing an object with the `labels` key.",
+          "required": false,
+          "location": "body"
         }
       ],
       "path": "/repos/:owner/:repo/issues/:number/labels",
@@ -13690,10 +13700,12 @@
         }
       ],
       "requests": [
-        [
-          "Label1",
-          "Label2"
-        ]
+        {
+          "labels": [
+            "bug",
+            "enhancement"
+          ]
+        }
       ],
       "responses": [
         {
@@ -13707,9 +13719,18 @@
               "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
               "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
               "name": "bug",
-              "description": "Houston, we have a problem",
+              "description": "Something isn't working",
               "color": "f29513",
               "default": true
+            },
+            {
+              "id": 208045947,
+              "node_id": "MDU6TGFiZWwyMDgwNDU5NDc=",
+              "url": "https://api.github.com/repos/octocat/Hello-World/labels/enhancement",
+              "name": "enhancement",
+              "description": "New feature or request",
+              "color": "a2eeef",
+              "default": false
             }
           ]
         }
@@ -15887,7 +15908,13 @@
         }
       ],
       "path": "/codes_of_conduct/:key",
-      "previews": [],
+      "previews": [
+        {
+          "name": "scarlet-witch",
+          "description": "**Note:** The Codes of Conduct API is currently available for developers to preview.\n\nTo access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\n  application/vnd.github.scarlet-witch-preview+json\n\n```",
+          "required": true
+        }
+      ],
       "responses": [
         {
           "headers": {
@@ -15911,7 +15938,13 @@
       "name": "List all codes of conduct",
       "params": [],
       "path": "/codes_of_conduct",
-      "previews": [],
+      "previews": [
+        {
+          "name": "scarlet-witch",
+          "description": "**Note:** The Codes of Conduct API is currently available for developers to preview.\n\nTo access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\n  application/vnd.github.scarlet-witch-preview+json\n\n```",
+          "required": true
+        }
+      ],
       "responses": [
         {
           "headers": {
@@ -16176,7 +16209,13 @@
         }
       ],
       "path": "/repos/:owner/:repo/community/code_of_conduct",
-      "previews": [],
+      "previews": [
+        {
+          "name": "scarlet-witch",
+          "description": "**Note:** The Codes of Conduct API is currently available for developers to preview.\n\nTo access the API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:\n\n```\n  application/vnd.github.scarlet-witch-preview+json\n\n```",
+          "required": true
+        }
+      ],
       "responses": [
         {
           "headers": {
@@ -18599,9 +18638,6 @@
                 "push": false,
                 "pull": true
               },
-              "allow_rebase_merge": true,
-              "allow_squash_merge": true,
-              "allow_merge_commit": true,
               "subscribers_count": 42,
               "network_count": 0,
               "license": {
@@ -20659,7 +20695,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -21365,7 +21401,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -21980,7 +22016,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -22883,7 +22919,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -23420,7 +23456,7 @@
                   "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                   "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                   "name": "bug",
-                  "description": "Houston, we have a problem",
+                  "description": "Something isn't working",
                   "color": "f29513",
                   "default": true
                 }
@@ -25049,7 +25085,7 @@
                 "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
                 "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
                 "name": "bug",
-                "description": "Houston, we have a problem",
+                "description": "Something isn't working",
                 "color": "f29513",
                 "default": true
               }
@@ -28015,7 +28051,7 @@
       ]
     },
     "createFile": {
-      "description": "This method creates a new file in a repository",
+      "description": "Creates a new file in a repository.",
       "documentationUrl": "https://developer.github.com/v3/repos/contents/#create-a-file",
       "enabledForApps": true,
       "method": "PUT",
@@ -29000,7 +29036,7 @@
       ]
     },
     "deleteFile": {
-      "description": "This method deletes a file in a repository\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
+      "description": "Deletes a file in a repository.\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
       "documentationUrl": "https://developer.github.com/v3/repos/contents/#delete-a-file",
       "enabledForApps": true,
       "method": "DELETE",
@@ -29023,8 +29059,8 @@
         {
           "name": "path",
           "type": "string",
-          "description": "The content path.",
           "required": true,
+          "description": "",
           "location": "url"
         },
         {
@@ -30809,7 +30845,7 @@
       ]
     },
     "getArchiveLink": {
-      "description": "This method will return a `302` to a URL to download a tarball or zipball archive for a repository. Please make sure your HTTP framework is configured to follow redirects or you will need to use the `Location` header to make a second `GET` request.\n\n_Note_: For private repositories, these links are temporary and expire after five minutes.\n\nTo follow redirects with curl, use the `-L` switch:\n\n",
+      "description": "Gets a redirect URL to download an archive for a repository. The `:archive_format` can be either `tarball` or `zipball`. The `:ref` must be a valid Git reference. If you omit `:ref`, the repository’s default branch (usually `master`) will be used. Please make sure your HTTP framework is configured to follow redirects or you will need to use the `Location` header to make a second `GET` request.\n\n_Note_: For private repositories, these links are temporary and expire after five minutes.\n\nTo follow redirects with curl, use the `-L` switch:\n\n",
       "documentationUrl": "https://developer.github.com/v3/repos/contents/#get-archive-link",
       "enabledForApps": true,
       "method": "GET",
@@ -30832,21 +30868,15 @@
         {
           "name": "archive_format",
           "type": "string",
-          "description": "Can be either `tarball` or `zipball`.",
-          "default": "tarball",
           "required": true,
-          "enum": [
-            "tarball",
-            "zipball"
-          ],
+          "description": "",
           "location": "url"
         },
         {
           "name": "ref",
           "type": "string",
-          "description": "A valid Git reference.",
-          "default": "the repository’s default branch (usually `master`)",
           "required": true,
+          "description": "",
           "location": "url"
         }
       ],
@@ -32258,7 +32288,7 @@
       ]
     },
     "getContent": {
-      "description": "This method returns the contents of a file or directory in a repository.\n\nFiles and symlinks support [a custom media type](#custom-media-types) for retrieving the raw content or rendered HTML (when supported). All content types support [a custom media type](#custom-media-types) to ensure the content is returned in a consistent object format.\n\n**Note**:\n\n*   To get a repository's contents recursively, you can [recursively get the tree](https://developer.github.com/v3/git/trees/).\n*   This API has an upper limit of 1,000 files for a directory. If you need to retrieve more files, use the [Git Trees API](https://developer.github.com/v3/git/trees/#get-a-tree).\n*   This API supports files up to 1 megabyte in size.\n\nThe response will be an array of objects, one object for each item in the directory.\n\nWhen listing the contents of a directory, submodules have their \"type\" specified as \"file\". Logically, the value _should_ be \"submodule\". This behavior exists in API v3 [for backwards compatibility purposes](https://git.io/v1YCW). In the next major version of the API, the type will be returned as \"submodule\".\n\nIf the requested `:path` points to a symlink, and the symlink's target is a normal file in the repository, then the API responds with the content of the file (in the [format shown above](#response-if-content-is-a-file)).\n\nOtherwise, the API responds with an object describing the symlink itself:\n\nThe `submodule_git_url` identifies the location of the submodule repository, and the `sha` identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit.\n\nIf the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links[\"git\"]`) and the github.com URLs (`html_url` and `_links[\"html\"]`) will have null values.",
+      "description": "Gets the contents of a file or directory in a repository. Specify the file path or directory in `:path`. If you omit `:path`, you will receive the contents of all files in the repository.\n\nFiles and symlinks support [a custom media type](#custom-media-types) for retrieving the raw content or rendered HTML (when supported). All content types support [a custom media type](#custom-media-types) to ensure the content is returned in a consistent object format.\n\n**Note**:\n\n*   To get a repository's contents recursively, you can [recursively get the tree](https://developer.github.com/v3/git/trees/).\n*   This API has an upper limit of 1,000 files for a directory. If you need to retrieve more files, use the [Git Trees API](https://developer.github.com/v3/git/trees/#get-a-tree).\n*   This API supports files up to 1 megabyte in size.\n\nThe response will be an array of objects, one object for each item in the directory.\n\nWhen listing the contents of a directory, submodules have their \"type\" specified as \"file\". Logically, the value _should_ be \"submodule\". This behavior exists in API v3 [for backwards compatibility purposes](https://git.io/v1YCW). In the next major version of the API, the type will be returned as \"submodule\".\n\nIf the requested `:path` points to a symlink, and the symlink's target is a normal file in the repository, then the API responds with the content of the file (in the [format shown above](#response-if-content-is-a-file)).\n\nOtherwise, the API responds with an object describing the symlink itself:\n\nThe `submodule_git_url` identifies the location of the submodule repository, and the `sha` identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit.\n\nIf the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links[\"git\"]`) and the github.com URLs (`html_url` and `_links[\"html\"]`) will have null values.",
       "documentationUrl": "https://developer.github.com/v3/repos/contents/#get-contents",
       "enabledForApps": true,
       "method": "GET",
@@ -32281,8 +32311,8 @@
         {
           "name": "path",
           "type": "string",
-          "description": "The content path.",
           "required": true,
+          "description": "",
           "location": "url"
         },
         {
@@ -32576,8 +32606,8 @@
         {
           "name": "status_id",
           "type": "integer",
-          "description": "The deployment status ID.",
           "required": true,
+          "description": "",
           "location": "url"
         }
       ],
@@ -32748,7 +32778,7 @@
       ]
     },
     "getDeployments": {
-      "description": "",
+      "description": "Simple filtering of deployments is available via query parameters:",
       "documentationUrl": "https://developer.github.com/v3/repos/deployments/#list-deployments",
       "enabledForApps": true,
       "method": "GET",
@@ -33142,9 +33172,6 @@
                 "push": false,
                 "pull": true
               },
-              "allow_rebase_merge": true,
-              "allow_squash_merge": true,
-              "allow_merge_commit": true,
               "subscribers_count": 42,
               "network_count": 0,
               "license": {
@@ -33391,9 +33418,6 @@
                 "push": false,
                 "pull": true
               },
-              "allow_rebase_merge": true,
-              "allow_squash_merge": true,
-              "allow_merge_commit": true,
               "subscribers_count": 42,
               "network_count": 0,
               "license": {
@@ -34537,7 +34561,7 @@
       ]
     },
     "getReadme": {
-      "description": "This method returns the preferred README for a repository.\n\nREADMEs support [custom media types](#custom-media-types) for retrieving the raw content or rendered HTML.",
+      "description": "Gets the preferred README for a repository.\n\nREADMEs support [custom media types](#custom-media-types) for retrieving the raw content or rendered HTML.",
       "documentationUrl": "https://developer.github.com/v3/repos/contents/#get-the-readme",
       "enabledForApps": true,
       "method": "GET",
@@ -37249,7 +37273,7 @@
       ]
     },
     "updateFile": {
-      "description": "This method updates a file in a repository",
+      "description": "Updates a file in a repository.",
       "documentationUrl": "https://developer.github.com/v3/repos/contents/#update-a-file",
       "enabledForApps": true,
       "method": "PUT",

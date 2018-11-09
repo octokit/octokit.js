@@ -8206,10 +8206,6 @@
       "method": "GET",
       "params": {
         "archive_format": {
-          "enum": [
-            "tarball",
-            "zipball"
-          ],
           "required": true,
           "type": "string"
         },
