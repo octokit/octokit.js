@@ -29,9 +29,11 @@ describe('api.github.com', () => {
       .then(result => {
         return github.repos.uploadAsset({
           url: result.data.upload_url,
+          headers: {
+            'content-type': 'text/plain',
+            'content-length': 14
+          },
           file: Buffer.from('Hello, world!\n'),
-          contentType: 'text/plain',
-          contentLength: 14,
           name: 'test-upload.txt',
           label: 'test'
         })
@@ -48,9 +50,11 @@ describe('api.github.com', () => {
       .then(result => {
         return github.repos.uploadAsset({
           url: result.data.upload_url,
+          headers: {
+            'content-type': 'text/plain',
+            'content-length': 14
+          },
           file: stringToArrayBuffer('Hello, world!\n'),
-          contentType: 'text/plain',
-          contentLength: 14,
           name: 'test-upload.txt',
           label: 'test'
         })

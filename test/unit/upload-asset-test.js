@@ -20,9 +20,11 @@ describe('github.repos.uploadAsset', () => {
 
     return github.repos.uploadAsset({
       url: 'https://upload.test',
+      headers: {
+        'content-type': 'text/json',
+        'content-length': size
+      },
       file: fs.createReadStream(__filename),
-      contentType: 'text/json',
-      contentLength: size,
       name: 'package.json'
     })
   })

@@ -33,9 +33,11 @@ describe('api.github.com', () => {
 
         return github.repos.uploadAsset({
           url: result.data.upload_url,
+          headers: {
+            'content-type': 'text/plain',
+            'content-length': 14
+          },
           file: 'Hello, world!\n',
-          contentType: 'text/plain',
-          contentLength: 14,
           name: 'test-upload.txt',
           label: 'test'
         })
