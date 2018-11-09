@@ -65,9 +65,7 @@ function toApiComment (namespaceName, apiName, api) {
     ' * @apiExample {js} async/await',
     ` * const result = await octokit.${namespaceName}.${apiName}({${paramsString}})`,
     ' * @apiExample {js} Promise',
-    ` * octokit.${namespaceName}.${apiName}({${paramsString}}).then(result => {})`,
-    ' * @apiExample {js} Callback',
-    ` * octokit.${namespaceName}.${apiName}({${paramsString}}, (error, result) => {})`
+    ` * octokit.${namespaceName}.${apiName}({${paramsString}}).then(result => {})`
   ]).join('\n') + '\n */'
 }
 
