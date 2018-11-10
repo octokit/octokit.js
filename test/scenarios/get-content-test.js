@@ -13,13 +13,13 @@ describe('api.github.com', () => {
       })
   })
 
-  it('github.repos.getContent()', () => {
-    return github.repos.getContent({ owner: 'octokit-fixture-org', repo: 'hello-world', path: '' })
+  it('github.repos.getContents()', () => {
+    return github.repos.getContents({ owner: 'octokit-fixture-org', repo: 'hello-world', path: '' })
 
       .then((response) => {
         expect(response.data.length).to.equal(1)
 
-        return github.repos.getContent({
+        return github.repos.getContents({
           owner: 'octokit-fixture-org',
           repo: 'hello-world',
           path: 'README.md',

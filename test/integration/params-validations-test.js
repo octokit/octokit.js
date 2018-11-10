@@ -37,10 +37,10 @@ describe('params validations', () => {
       })
   })
 
-  it('invalid value for github.issues.getAll({filter})', () => {
+  it('invalid value for github.issues.list({filter})', () => {
     const github = new GitHub()
 
-    return github.issues.getAll({ filter: 'foo' })
+    return github.issues.list({ filter: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -52,10 +52,10 @@ describe('params validations', () => {
       })
   })
 
-  it('invalid value for github.projects.moveProjectCard({position})', () => {
+  it('invalid value for github.projects.moveCard({position})', () => {
     const github = new GitHub()
 
-    return github.projects.moveProjectCard({ id: 123, position: 'foo' })
+    return github.projects.moveCard({ card_id: 123, position: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -139,7 +139,7 @@ describe('params validations', () => {
       })
       .reply(200, {})
 
-    return github.activity.getNotifications({
+    return github.activity.listNotifications({
       since: '2018-01-21T23:27:31.000Z'
     })
   })

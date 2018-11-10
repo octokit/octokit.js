@@ -4,12 +4,12 @@ const Octokit = require('../../')
 require('../mocha-node-setup')
 
 describe('https://github.com/octokit/rest.js/issues/818', () => {
-  it('octokit.apps.getInstallations()', () => {
+  it('octokit.apps.listInstallations()', () => {
     nock('https://api.github.com')
       .get('/app/installations')
       .reply(200, [])
 
     const client = new Octokit()
-    return client.apps.getInstallations()
+    return client.apps.listInstallations()
   })
 })

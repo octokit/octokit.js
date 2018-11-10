@@ -19,7 +19,7 @@ describe('api.github.com', () => {
   })
 
   it('github.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)', () => {
-    return github.repos.edit({
+    return github.repos.update({
       owner: 'octokit-fixture-org',
       repo: 'rename-repository',
       name: 'rename-repository-newname',
@@ -41,7 +41,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.repos.edit({
+        return github.repos.update({
           owner: 'octokit-fixture-org',
           repo: 'rename-repository',
           // TODO: remove once #587 is resolved

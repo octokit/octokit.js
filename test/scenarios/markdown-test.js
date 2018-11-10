@@ -13,8 +13,8 @@ describe('api.github.com', () => {
       })
   })
 
-  it('github.misc.renderMarkdown() & .renderMarkdownRaw()', () => {
-    return github.misc.renderMarkdown({
+  it('github.markdown.render() & .renderMarkdownRaw()', () => {
+    return github.markdown.render({
       text: `### Hello
 
 b597b5d`,
@@ -30,7 +30,7 @@ b597b5d`,
         expect(response.data).to.match(/\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/)
         expect(response.data).to.match(/<tt>b597b5d<\/tt>/)
 
-        return github.misc.renderMarkdownRaw({
+        return github.markdown.renderRaw({
           data: `### Hello
 
 b597b5d`,
@@ -42,8 +42,8 @@ b597b5d`,
       })
   })
 
-  it('github.misc.renderMarkdown() with capitalized headers.Accept', () => {
-    return github.misc.renderMarkdown({
+  it('github.markdown.render() with capitalized headers.Accept', () => {
+    return github.markdown.render({
       text: `### Hello
 
 b597b5d`,

@@ -7,7 +7,7 @@ const GitHub = require('../../')
 
 chai.should()
 
-describe('github.repos.uploadAsset', () => {
+describe('github.repos.uploadReleaseAsset', () => {
   it('accepts file stream (#675)', () => {
     const github = new GitHub()
     const size = fs.statSync(__filename).size
@@ -18,7 +18,7 @@ describe('github.repos.uploadAsset', () => {
       })
       .reply(200)
 
-    return github.repos.uploadAsset({
+    return github.repos.uploadReleaseAsset({
       url: 'https://upload.test',
       headers: {
         'content-type': 'text/json',

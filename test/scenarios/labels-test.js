@@ -19,7 +19,7 @@ describe('api.github.com', () => {
   })
 
   it('github.issues.*', () => {
-    return github.issues.getLabels({
+    return github.issues.listLabelsForRepo({
       owner: 'octokit-fixture-org',
       repo: 'labels'
     })
