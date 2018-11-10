@@ -41,12 +41,12 @@ export default async function() {
   repo.headers.etag
   repo.headers.status
 
-  const user = await octokit.users.getForUser({username: 'octokit'})
+  const user = await octokit.users.getByUsername({username: 'octokit'})
   // Check Response
   user.data.login
   user.data.type
-  
-  const userIssues = await octokit.issues.getForUser({state: 'open'})
+
+  const userIssues = await octokit.issues.listForAuthenticatedUser({state: 'open'})
   // Check Response
   userIssues.data[0].locked
 
