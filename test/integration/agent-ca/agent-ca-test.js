@@ -25,33 +25,6 @@ describe('custom client certificate', () => {
     server.listen(0, done)
   })
 
-  // we skip tests with options.ca because it screws our tests of deprecation
-  // messages in test/integration/deprecations-test.js, see #871
-  it.skip('options.ca', () => {
-    const octokit = new Octokit({
-      baseUrl: 'https://localhost:' + server.address().port,
-      ca
-    })
-
-    return octokit.repos.get({
-      owner: 'octokit',
-      repo: 'rest.js'
-    })
-  })
-
-  it.skip('options.ca & options.rejectUnauthorized', () => {
-    const octokit = new Octokit({
-      baseUrl: 'https://localhost:' + server.address().port,
-      ca: 'invalid',
-      rejectUnauthorized: false
-    })
-
-    return octokit.repos.get({
-      owner: 'octokit',
-      repo: 'rest.js'
-    })
-  })
-
   it('https.Agent({ca})', () => {
     const agent = new https.Agent({
       ca
