@@ -36,7 +36,7 @@ describe('api.github.com', () => {
       }
     }
     const results = []
-    for await (const result of github.paginate.iterator(github.issues.getForRepo.endpoint.merge(options))) {
+    for await (const result of github.paginate.iterator(github.issues.listForRepo.endpoint.merge(options))) {
       results.push(...result.data)
     }
     expect(results.length).to.equal(13)

@@ -92,6 +92,6 @@ describe('apps', () => {
       token: 'xyz-installation-token'
     })
 
-    return client.apps.getInstallationRepositories({})
+    return client.apps.listRepos({})
   })
 })

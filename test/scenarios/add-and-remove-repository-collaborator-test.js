@@ -32,7 +32,7 @@ describe('api.github.com', () => {
     })
 
       .then(() => {
-        return githubUserA.repos.getInvites({
+        return githubUserA.repos.listInvitations({
           owner: 'octokit-fixture-org',
           repo: 'add-and-remove-repository-collaborator'
         })
@@ -41,13 +41,13 @@ describe('api.github.com', () => {
       .then((response) => {
         expect(response.data.length).to.equal(1)
 
-        return githubUserB.users.acceptRepoInvite({
+        return githubUserB.repos.acceptInvitation({
           invitation_id: response.data[0].id
         })
       })
 
       .then(() => {
-        return githubUserA.repos.getCollaborators({
+        return githubUserA.repos.listCollaborators({
           owner: 'octokit-fixture-org',
           repo: 'add-and-remove-repository-collaborator'
         })
@@ -64,7 +64,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return githubUserA.repos.getCollaborators({
+        return githubUserA.repos.listCollaborators({
           owner: 'octokit-fixture-org',
           repo: 'add-and-remove-repository-collaborator'
         })

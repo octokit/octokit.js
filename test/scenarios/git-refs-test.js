@@ -19,13 +19,13 @@ describe('api.github.com', () => {
   })
 
   it('github.gitdata.*', () => {
-    return github.gitdata.getReferences({
+    return github.gitdata.listRefs({
       owner: 'octokit-fixture-org',
       repo: 'git-refs'
     })
 
       .then(() => {
-        return github.gitdata.createReference({
+        return github.gitdata.createRef({
           owner: 'octokit-fixture-org',
           repo: 'git-refs',
           ref: 'refs/heads/test',
@@ -34,7 +34,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.gitdata.updateReference({
+        return github.gitdata.updateRef({
           owner: 'octokit-fixture-org',
           repo: 'git-refs',
           ref: 'heads/test',
@@ -43,14 +43,14 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.gitdata.getReferences({
+        return github.gitdata.listRefs({
           owner: 'octokit-fixture-org',
           repo: 'git-refs'
         })
       })
 
       .then(() => {
-        return github.gitdata.deleteReference({
+        return github.gitdata.deleteRef({
           owner: 'octokit-fixture-org',
           repo: 'git-refs',
           ref: 'heads/test'

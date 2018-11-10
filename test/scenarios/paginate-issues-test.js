@@ -32,7 +32,7 @@ describe('api.github.com', () => {
       }
     }
 
-    const iterator = github.paginate.iterator(github.issues.getForRepo.endpoint.merge(options))[Symbol.asyncIterator]()
+    const iterator = github.paginate.iterator(github.issues.listForRepo.endpoint.merge(options))[Symbol.asyncIterator]()
 
     return iterator.next()
       .then(result => {

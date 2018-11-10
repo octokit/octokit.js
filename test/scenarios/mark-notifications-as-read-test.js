@@ -18,7 +18,7 @@ describe('api.github.com', () => {
       })
   })
 
-  it('github.activity.markNotificationsAsRead()', () => {
-    return github.activity.markNotificationsAsRead()
+  it('github.activity.markAsRead()', () => {
+    return github.activity.markAsRead()
   })
 })

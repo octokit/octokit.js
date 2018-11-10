@@ -41,7 +41,7 @@ describe('api.github.com', () => {
     ])
 
       .then(() => {
-        return github.repos.getStatuses({
+        return github.repos.listStatusesForRef({
           owner: 'octokit-fixture-org',
           repo: 'create-status',
           ref: '0000000000000000000000000000000000000001'
