@@ -2322,7 +2322,6 @@
       "method": "POST",
       "params": {
         "labels": {
-          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -3222,8 +3221,6 @@
       "method": "PUT",
       "params": {
         "labels": {
-          "mapTo": "data",
-          "required": true,
           "type": "string[]"
         },
         "number": {
@@ -3858,7 +3855,6 @@
       "url": "/repos/:owner/:repo/import"
     }
   },
-  "misc": {},
   "orgs": {
     "addOrUpdateMembership": {
       "method": "PUT",
@@ -6983,10 +6979,6 @@
       "method": "GET",
       "params": {
         "archive_format": {
-          "enum": [
-            "tarball",
-            "zipball"
-          ],
           "required": true,
           "type": "string"
         },
