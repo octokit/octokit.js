@@ -31,7 +31,7 @@ describe('api.github.com', () => {
       .then(result => {
         releaseId = result.data.id
 
-        return github.repos.uploadAsset({
+        return github.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
             'content-type': 'text/plain',
@@ -46,7 +46,7 @@ describe('api.github.com', () => {
       .then(result => {
         assetId = releaseId
 
-        return github.repos.getAssets({
+        return github.repos.listAssetsForRelease({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           release_id: releaseId
@@ -54,7 +54,7 @@ describe('api.github.com', () => {
       })
 
       .then(result => {
-        return github.repos.getAsset({
+        return github.repos.getReleaseAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           asset_id: assetId
@@ -62,7 +62,7 @@ describe('api.github.com', () => {
       })
 
       .then(result => {
-        return github.repos.editAsset({
+        return github.repos.updateReleaseAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           asset_id: assetId,
@@ -72,7 +72,7 @@ describe('api.github.com', () => {
       })
 
       .then(result => {
-        return github.repos.deleteAsset({
+        return github.repos.deleteReleaseAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           asset_id: assetId

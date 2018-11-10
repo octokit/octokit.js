@@ -73,7 +73,7 @@ describe('authentication', () => {
       token: 'abc4567'
     })
 
-    return github.repos.getForOrg({ org: 'myorg', per_page: 1 })
+    return github.repos.listForOrg({ org: 'myorg', per_page: 1 })
   })
 
   it('oauth key & secret', () => {
@@ -103,7 +103,7 @@ describe('authentication', () => {
       secret: 'oauthsecret'
     })
 
-    return github.repos.getForOrg({ org: 'myorg', per_page: 1 })
+    return github.repos.listForOrg({ org: 'myorg', per_page: 1 })
   })
 
   it('app', () => {

@@ -4,7 +4,7 @@ const Octokit = require('../../')
 require('../mocha-node-setup')
 
 describe('https://github.com/octokit/rest.js/issues/922', () => {
-  it('octokit.issues.edit({..., milestone: null})', () => {
+  it('octokit.issues.update({..., milestone: null})', () => {
     nock('https://api.github.com')
       .post('/repos/chrisvariety/test/check-runs')
       .reply(200, [])

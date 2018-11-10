@@ -19,7 +19,7 @@ describe('api.github.com', () => {
       })
   })
 
-  it('github.repos.uploadAsset as Buffer', () => {
+  it('github.repos.uploadReleaseAsset as Buffer', () => {
     return github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
@@ -27,7 +27,7 @@ describe('api.github.com', () => {
     })
 
       .then(result => {
-        return github.repos.uploadAsset({
+        return github.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
             'content-type': 'text/plain',
@@ -40,7 +40,7 @@ describe('api.github.com', () => {
       })
   })
 
-  it('github.repos.uploadAsset as ArrayBuffer', () => {
+  it('github.repos.uploadReleaseAsset as ArrayBuffer', () => {
     return github.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
@@ -48,7 +48,7 @@ describe('api.github.com', () => {
     })
 
       .then(result => {
-        return github.repos.uploadAsset({
+        return github.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
             'content-type': 'text/plain',
