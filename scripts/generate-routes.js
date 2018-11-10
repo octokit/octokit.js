@@ -1,7 +1,6 @@
 const _ = require('lodash')
 const sortKeys = require('sort-keys')
 const routes = require('@octokit/routes')
-const origRoutes = require('../plugins/rest-api-endpoints/routes')
 
 const mapScopes = {
   git: 'gitdata',
@@ -20,7 +19,6 @@ const endpoints = Object.keys(routes).reduce((result, scope) => {
     // See https://github.com/octokit/plugin-scim.js
     return result
   }
-
   const scopeEndpoints = routes[scope]
   scopeEndpoints.forEach(endpoint => {
     endpoint.scope = scope
@@ -57,6 +55,10 @@ endpoints.forEach(endpoint => {
       }
       if (param.mapTo) {
         result[param.name].mapTo = param.mapTo === 'input' ? 'data' : param.mapTo
+
+        if (result[param.name].mapTo === 'data' === param.name) {
+          delete result[param.name].mapTo
+        }
       }
       if (param.enum) {
         result[param.name].enum = param.enum
@@ -102,12 +104,6 @@ endpoints.forEach(endpoint => {
       'content-type': 'text/plain; charset=utf-8'
     }
   }
-})
-
-Object.keys(newRoutes).forEach(scope => {
-  Object.keys(newRoutes[scope]).forEach(methodName => {
-    newRoutes[scope][methodName].headers = origRoutes[scope][methodName].headers
-  })
 })
 
 require('fs').writeFileSync(require('path').join(__dirname, '..', 'plugins', 'rest-api-endpoints', 'routes.json'), JSON.stringify(sortKeys(newRoutes, { deep: true }), null, 2) + '\n')
