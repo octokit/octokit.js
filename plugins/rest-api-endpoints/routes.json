@@ -63,8 +63,8 @@
       "deprecated": "`activity.getEventsForRepo()` is deprecated, use `activity.listRepoEvents()`"
     },
     "getEventsForRepoIssues": {
-      "alias": "issues.getEventsForRepo",
-      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`",
+      "alias": "issues.listEventsForRepo",
+      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.listEventsForRepo`",
       "params": {}
     },
     "getEventsForRepoNetwork": {
@@ -3002,13 +3002,13 @@
       "params": {}
     },
     "getInstallationRepositories": {
-      "alias": "apps.getInstallationRepositories",
-      "deprecated": "`integrations.getInstallationRepositories()` is deprecated, use `apps.getInstallationRepositories()`",
+      "alias": "apps.listRepos",
+      "deprecated": "`integrations.getInstallationRepositories()` is deprecated, use `apps.listRepos()`",
       "params": {}
     },
     "getInstallations": {
-      "alias": "apps.getInstallations",
-      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.getInstallations()`",
+      "alias": "apps.listInstallations",
+      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.listInstallations()`",
       "params": {}
     },
     "removeRepoFromInstallation": {
