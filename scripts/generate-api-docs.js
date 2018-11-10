@@ -3,57 +3,60 @@
 const { writeFileSync } = require('fs')
 const { join: pathJoin } = require('path')
 
+const _ = require('lodash')
 const debug = require('debug')('octokit:rest')
-const upperFirst = require('lodash/upperFirst')
 
-const ROUTES = require('./routes-for-api-docs.json')
+const ROUTES = require('@octokit/routes')
 
 debug('Converting routes to functions')
 
 const apiDocs = Object.keys(ROUTES)
-  .map(namespaceName => prepareNamespace(ROUTES[namespaceName], namespaceName))
+  .filter(namespaceName => namespaceName !== 'scim')
+  .map(namespaceName => prepareNamespace(namespaceName))
   .join('\n\n\n')
 
-function prepareNamespace (namespace, namespaceName) {
-  return [toSectionComment(namespaceName)]
-    .concat(
-      Object.keys(namespace).map(apiName => prepareApi(namespace[apiName], apiName, namespaceName))
-    ).join('\n\n\n')
+function normalize (methodName) {
+  return _.camelCase(methodName.replace(/^edit/, 'update'))
 }
 
-function prepareApi (api, apiName, namespaceName) {
-  return toApiComment(namespaceName, apiName, api)
+function prepareNamespace (namespaceName) {
+  return [toSectionComment(namespaceName)]
+    .concat(
+      ROUTES[namespaceName]
+        .filter(endpoint => !/legacy$/.test(endpoint.idName))
+        .map(endpoint => toApiComment(namespaceName, normalize(endpoint.idName), endpoint))
+    ).join('\n\n\n')
 }
 
 function toSectionComment (namespaceName) {
   return `
 /**,
- * ${upperFirst(namespaceName)}
- * @namespace ${upperFirst(namespaceName)}
+ * ${_.upperFirst(namespaceName)}
+ * @namespace ${_.upperFirst(namespaceName)}
  */`
 }
 
-function toApiComment (namespaceName, apiName, api) {
-  if (!api.method) {
+function toApiComment (namespaceName, apiName, endpoint) {
+  if (!endpoint.method) {
     throw new Error(
-      `No HTTP method specified for ${namespaceName}.${apiName} in plugins/rest-api-endpoints/routes-for-api-docs.json`
+      `No HTTP method specified for ${namespaceName}.${apiName} in @octokit/routes`
     )
   }
 
-  const method = api['method'].toUpperCase()
-  const params = api['params']
+  const method = endpoint.method.toUpperCase()
+  const params = endpoint.params
 
   const descriptionWithLinkToV3Docs = [
-    api.description,
-    `<a href="${api.documentationUrl}">REST API doc</a>`
+    endpoint.description,
+    `<a href="${endpoint.documentationUrl}">REST API doc</a>`
   ].filter(Boolean).join(' ')
 
   const commentLines = [
     '/**',
-    ` * @api {${method}} ${api.path} ${apiName}`,
+    ` * @api {${method}} ${endpoint.path} ${apiName}`,
     ` * @apiName ${apiName}`,
     ` * @apiDescription ${descriptionWithLinkToV3Docs}`,
-    ` * @apiGroup ${upperFirst(namespaceName)}`,
+    ` * @apiGroup ${_.upperFirst(namespaceName)}`,
     ' *'
   ].concat(
     params.map(toApiParamComment)
