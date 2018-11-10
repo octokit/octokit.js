@@ -3,8 +3,6 @@ module.exports = authenticationBeforeRequest
 const btoa = require('btoa-lite')
 const uniq = require('lodash/uniq')
 
-const deprecate = require('../../lib/deprecate')
-
 function authenticationBeforeRequest (state, options) {
   if (!state.auth.type) {
     return
@@ -19,12 +17,6 @@ function authenticationBeforeRequest (state, options) {
   if (state.auth.type === 'token') {
     options.headers['authorization'] = `token ${state.auth.token}`
     return
-  }
-
-  // deprecate state.auth.type === 'integration', rename to 'app'
-  if (state.auth.type === 'integration') {
-    deprecate('authentication type "integration" is deprecated. Use "app" instead.')
-    state.auth.type = 'app'
   }
 
   if (state.auth.type === 'app') {
