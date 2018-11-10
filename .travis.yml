@@ -77,9 +77,8 @@ jobs:
         - npm run build:browser
         - npm run generate-bundle-report
         - npm run semantic-release
-    # re-enable for v16. Disabled so the deprecated methods are still documented
-    # - node_js: lts/*
-    #   env: docs update
-    #   script:
-    #     - npm run build:docs
-    #     - npm run deploy-docs
+    - node_js: lts/*
+      env: docs update
+      script:
+        - npm run build:docs
+        - npm run deploy-docs
