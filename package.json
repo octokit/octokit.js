@@ -43,6 +43,7 @@
     "deepmerge": "^2.2.1",
     "http-proxy-agent": "^2.1.0",
     "https-proxy-agent": "^2.2.0",
+    "is-plain-object": "^2.0.4",
     "lodash": "^4.17.4",
     "node-fetch": "^2.1.1",
     "octokit-pagination-methods": "^1.1.0",
