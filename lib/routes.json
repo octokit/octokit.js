@@ -63,8 +63,8 @@
       "deprecated": "`activity.getEventsForRepo()` is deprecated, use `activity.listRepoEvents()`"
     },
     "getEventsForRepoIssues": {
-      "alias": "issues.listEventsForRepo",
-      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.listEventsForRepo`",
+      "alias": "issues.getEventsForRepo",
+      "deprecated": "`activity.getEventsForRepoIssues()` is deprecated, use `issues.getEventsForRepo`",
       "params": {}
     },
     "getEventsForRepoNetwork": {
@@ -3002,13 +3002,13 @@
       "params": {}
     },
     "getInstallationRepositories": {
-      "alias": "apps.listRepos",
-      "deprecated": "`integrations.getInstallationRepositories()` is deprecated, use `apps.listRepos()`",
+      "alias": "apps.getInstallationRepositories",
+      "deprecated": "`integrations.getInstallationRepositories()` is deprecated, use `apps.getInstallationRepositories()`",
       "params": {}
     },
     "getInstallations": {
-      "alias": "apps.listInstallations",
-      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.listInstallations()`",
+      "alias": "apps.getInstallations",
+      "deprecated": "`integrations.getInstallations()` is deprecated, use `apps.getInstallations()`",
       "params": {}
     },
     "removeRepoFromInstallation": {
@@ -3047,6 +3047,7 @@
       "method": "POST",
       "params": {
         "labels": {
+          "mapTo": "data",
           "required": true,
           "type": "string[]"
         },
@@ -4043,6 +4044,8 @@
       "method": "PUT",
       "params": {
         "labels": {
+          "mapTo": "data",
+          "required": true,
           "type": "string[]"
         },
         "number": {
@@ -8405,6 +8408,10 @@
       "method": "GET",
       "params": {
         "archive_format": {
+          "enum": [
+            "tarball",
+            "zipball"
+          ],
           "required": true,
           "type": "string"
         },
