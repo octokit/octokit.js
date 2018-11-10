@@ -7061,16 +7061,6 @@
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection"
     },
-    "getById": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repositories/:id"
-    },
     "getClones": {
       "method": "GET",
       "params": {
@@ -10237,16 +10227,6 @@
       "method": "GET",
       "params": {},
       "url": "/user"
-    },
-    "getById": {
-      "method": "GET",
-      "params": {
-        "id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/user/:id"
     },
     "getByUsername": {
       "method": "GET",
