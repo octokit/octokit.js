@@ -2206,26 +2206,6 @@
       },
       "url": "/repos/:owner/:repo/git/tags/:tag_sha"
     },
-    "getTags": {
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/git/refs/tags"
-    },
     "getTree": {
       "method": "GET",
       "params": {
