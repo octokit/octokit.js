@@ -6,39 +6,12 @@ const set = require('lodash/set')
 const get = require('lodash/get')
 const HttpError = require('@octokit/request/lib/http-error')
 
-const deprecate = require('../../lib/deprecate')
-
 function validate (options) {
   if (!options.request.validate) {
     return
   }
 
-  const { validate: params, deprecated } = options.request
-
-  if (deprecated) {
-    deprecate(deprecated)
-  }
-
-  // Alias are handled before validation, as validation rules
-  // are set to the aliased parameter. The `mapTo` property is the other way
-  // around, the final parameter name is the mapTo value, but validation
-  // rules are on parameter with the mapTo property
-  Object.keys(options).forEach(optionName => {
-    if (!params[optionName] || !params[optionName].alias) {
-      return
-    }
-
-    set(options, params[optionName].alias, options[optionName])
-    delete options[optionName]
-
-    // right now all parameters with an alias property also have a deprecated
-    // property, but that might change in future, so we wrap it in the if block,
-    // but ignore if for coverage
-    /* istanbul ignore else */
-    if (params[optionName].deprecated) {
-      deprecate(`"${optionName}" parameter has been renamed to "${params[optionName].alias}"`)
-    }
-  })
+  const { validate: params } = options.request
 
   Object.keys(params).forEach(parameterName => {
     const parameter = get(params, parameterName)
