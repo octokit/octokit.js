@@ -177,7 +177,7 @@ endpoints.forEach(endpoint => {
   if (routes.length === 0) {
     summaryNewRoutes.push(`- \`${newRoute}\` ([${endpoint.method} ${endpoint.path}](${endpoint.documentationUrl}))`)
     counts.added++
-    // updateRoute({ scope, idName, endpoint })
+    updateRoute({ scope, idName, endpoint })
     return
   }
 
@@ -188,7 +188,7 @@ endpoints.forEach(endpoint => {
     if (newRoute === route) {
       counts.same++
 
-      // updateRoute({ scope, idName, endpoint })
+      updateRoute({ scope, idName, endpoint })
       return
     }
 
