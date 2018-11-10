@@ -76,22 +76,4 @@ describe('apps', () => {
       }
     })
   })
-
-  it('adds "machine-man" preview header when authenticated as installation', () => {
-    nock('https://apps-test-host.com', {
-      reqheaders: {
-        authorization: 'token xyz-installation-token',
-        accept: 'application/vnd.github.machine-man-preview+json'
-      }
-    })
-      .get('/installation/repositories')
-      .reply(200, {})
-
-    client.authenticate({
-      type: 'token',
-      token: 'xyz-installation-token'
-    })
-
-    return client.apps.listRepos({})
-  })
 })
