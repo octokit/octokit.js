@@ -6,13 +6,6 @@ function registerEndpoints (octokit, routes) {
 
     Object.keys(routes[namespaceName]).forEach(apiName => {
       let apiOptions = routes[namespaceName][apiName]
-      let deprecated
-
-      if (apiOptions.alias) {
-        deprecated = apiOptions.deprecated
-        const [aliasNamespaceName, aliasApiName] = apiOptions.alias.split('.')
-        apiOptions = routes[aliasNamespaceName][aliasApiName]
-      }
 
       const endpointDefaults = ['method', 'url', 'headers'].reduce((map, key) => {
         if (typeof apiOptions[key] !== 'undefined') {
@@ -23,8 +16,7 @@ function registerEndpoints (octokit, routes) {
       }, {})
 
       endpointDefaults.request = {
-        validate: apiOptions.params,
-        deprecated
+        validate: apiOptions.params
       }
 
       octokit[namespaceName][apiName] = octokit.request.defaults(endpointDefaults)

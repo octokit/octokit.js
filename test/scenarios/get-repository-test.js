@@ -16,11 +16,7 @@ describe('api.github.com', () => {
   it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
     return github.repos.get({
       owner: 'octokit-fixture-org',
-      repo: 'hello-world',
-      // TODO: remove once #587 is resolved
-      headers: {
-        accept: 'application/vnd.github.v3+json'
-      }
+      repo: 'hello-world'
     })
 
       .then((response) => {

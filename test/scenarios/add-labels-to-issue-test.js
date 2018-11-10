@@ -22,11 +22,7 @@ describe('api.github.com', () => {
     return github.issues.create({
       owner: 'octokit-fixture-org',
       repo: 'add-labels-to-issue',
-      title: 'Issue without a label',
-      // TODO: remove once #587 is resolved
-      headers: {
-        accept: 'application/vnd.github.v3+json'
-      }
+      title: 'Issue without a label'
     })
 
       .then(() => {

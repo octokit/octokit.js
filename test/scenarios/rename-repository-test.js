@@ -22,21 +22,13 @@ describe('api.github.com', () => {
     return github.repos.update({
       owner: 'octokit-fixture-org',
       repo: 'rename-repository',
-      name: 'rename-repository-newname',
-      // TODO: remove once #587 is resolved
-      headers: {
-        accept: 'application/vnd.github.v3+json'
-      }
+      name: 'rename-repository-newname'
     })
 
       .then(() => {
         return github.repos.get({
           owner: 'octokit-fixture-org',
-          repo: 'rename-repository',
-          // TODO: remove once #587 is resolved
-          headers: {
-            accept: 'application/vnd.github.v3+json'
-          }
+          repo: 'rename-repository'
         })
       })
 
@@ -44,10 +36,6 @@ describe('api.github.com', () => {
         return github.repos.update({
           owner: 'octokit-fixture-org',
           repo: 'rename-repository',
-          // TODO: remove once #587 is resolved
-          headers: {
-            accept: 'application/vnd.github.v3+json'
-          },
           name: 'rename-repository-newname',
           description: 'test description'
         })
