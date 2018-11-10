@@ -17,8 +17,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.checkNotificationThreadSubscription({thread_id})
  * @apiExample {js} Promise
  * octokit.activity.checkNotificationThreadSubscription({thread_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.checkNotificationThreadSubscription({thread_id}, (error, result) => {})
  */
 
 
@@ -34,8 +32,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.checkStarringRepo({owner, repo})
  * @apiExample {js} Promise
  * octokit.activity.checkStarringRepo({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.checkStarringRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -50,8 +46,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.deleteNotificationThreadSubscription({thread_id})
  * @apiExample {js} Promise
  * octokit.activity.deleteNotificationThreadSubscription({thread_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.deleteNotificationThreadSubscription({thread_id}, (error, result) => {})
  */
 
 
@@ -67,8 +61,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEvents({per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEvents({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEvents({per_page, page}, (error, result) => {})
  */
 
 
@@ -85,8 +77,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsForOrg({org, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsForOrg({org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsForOrg({org, per_page, page}, (error, result) => {})
  */
 
 
@@ -104,8 +94,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsForRepo({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsForRepo({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsForRepo({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -123,8 +111,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsForRepoNetwork({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsForRepoNetwork({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsForRepoNetwork({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -141,8 +127,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -160,8 +144,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsForUserOrg({username, org, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsForUserOrg({username, org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsForUserOrg({username, org, per_page, page}, (error, result) => {})
  */
 
 
@@ -178,8 +160,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsForUserPublic({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsForUserPublic({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsForUserPublic({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -196,8 +176,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsReceived({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsReceived({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsReceived({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -214,8 +192,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getEventsReceivedPublic({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getEventsReceivedPublic({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getEventsReceivedPublic({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -239,8 +215,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getFeeds({})
  * @apiExample {js} Promise
  * octokit.activity.getFeeds({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getFeeds({}, (error, result) => {})
  */
 
 
@@ -255,8 +229,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getNotificationThread({thread_id})
  * @apiExample {js} Promise
  * octokit.activity.getNotificationThread({thread_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getNotificationThread({thread_id}, (error, result) => {})
  */
 
 
@@ -276,8 +248,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getNotifications({all, participating, since, before, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getNotifications({all, participating, since, before, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getNotifications({all, participating, since, before, per_page, page}, (error, result) => {})
  */
 
 
@@ -299,8 +269,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before, per_page, page}, (error, result) => {})
  */
 
 
@@ -316,8 +284,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getRepoSubscription({owner, repo})
  * @apiExample {js} Promise
  * octokit.activity.getRepoSubscription({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getRepoSubscription({owner, repo}, (error, result) => {})
  */
 
 
@@ -335,8 +301,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getStargazersForRepo({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getStargazersForRepo({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getStargazersForRepo({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -354,8 +318,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getStarredRepos({sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getStarredRepos({sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getStarredRepos({sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -374,8 +336,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getStarredReposForUser({username, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getStarredReposForUser({username, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getStarredReposForUser({username, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -391,8 +351,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getWatchedRepos({per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getWatchedRepos({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getWatchedRepos({per_page, page}, (error, result) => {})
  */
 
 
@@ -409,8 +367,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getWatchedReposForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getWatchedReposForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getWatchedReposForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -428,8 +384,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.getWatchersForRepo({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.activity.getWatchersForRepo({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.getWatchersForRepo({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -444,8 +398,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.markNotificationThreadAsRead({thread_id})
  * @apiExample {js} Promise
  * octokit.activity.markNotificationThreadAsRead({thread_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.markNotificationThreadAsRead({thread_id}, (error, result) => {})
  */
 
 
@@ -460,8 +412,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.markNotificationsAsRead({last_read_at})
  * @apiExample {js} Promise
  * octokit.activity.markNotificationsAsRead({last_read_at}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.markNotificationsAsRead({last_read_at}, (error, result) => {})
  */
 
 
@@ -478,8 +428,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at})
  * @apiExample {js} Promise
  * octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}, (error, result) => {})
  */
 
 
@@ -495,8 +443,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.setNotificationThreadSubscription({thread_id, ignored})
  * @apiExample {js} Promise
  * octokit.activity.setNotificationThreadSubscription({thread_id, ignored}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.setNotificationThreadSubscription({thread_id, ignored}, (error, result) => {})
  */
 
 
@@ -514,8 +460,6 @@ Note that subscriptions are only generated if a user is participating in a conve
  * const result = await octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored})
  * @apiExample {js} Promise
  * octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}, (error, result) => {})
  */
 
 
@@ -533,8 +477,6 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * const result = await octokit.activity.starRepo({owner, repo})
  * @apiExample {js} Promise
  * octokit.activity.starRepo({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.starRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -550,8 +492,6 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * const result = await octokit.activity.unstarRepo({owner, repo})
  * @apiExample {js} Promise
  * octokit.activity.unstarRepo({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.unstarRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -567,8 +507,6 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * const result = await octokit.activity.unwatchRepo({owner, repo})
  * @apiExample {js} Promise
  * octokit.activity.unwatchRepo({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.activity.unwatchRepo({owner, repo}, (error, result) => {})
  */
 
 
@@ -593,8 +531,6 @@ You must use a personal access token (which you can create via the [command line
  * const result = await octokit.apps.addRepoToInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
  * octokit.apps.addRepoToInstallation({installation_id, repository_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -613,8 +549,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -633,8 +567,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -649,8 +581,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.createFromManifest({code})
  * @apiExample {js} Promise
  * octokit.apps.createFromManifest({code}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.createFromManifest({code}, (error, result) => {})
  */
 
 
@@ -667,8 +597,6 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * const result = await octokit.apps.createInstallationToken({installation_id})
  * @apiExample {js} Promise
  * octokit.apps.createInstallationToken({installation_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.createInstallationToken({installation_id}, (error, result) => {})
  */
 
 
@@ -685,8 +613,6 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * const result = await octokit.apps.findOrgInstallation({org})
  * @apiExample {js} Promise
  * octokit.apps.findOrgInstallation({org}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.findOrgInstallation({org}, (error, result) => {})
  */
 
 
@@ -704,8 +630,6 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * const result = await octokit.apps.findRepoInstallation({owner, repo})
  * @apiExample {js} Promise
  * octokit.apps.findRepoInstallation({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.findRepoInstallation({owner, repo}, (error, result) => {})
  */
 
 
@@ -722,8 +646,6 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * const result = await octokit.apps.findUserInstallation({username})
  * @apiExample {js} Promise
  * octokit.apps.findUserInstallation({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.findUserInstallation({username}, (error, result) => {})
  */
 
 
@@ -739,8 +661,6 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * const result = await octokit.apps.get({})
  * @apiExample {js} Promise
  * octokit.apps.get({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.get({}, (error, result) => {})
  */
 
 
@@ -757,8 +677,6 @@ If the GitHub App you specify is public, you can access this endpoint without au
  * const result = await octokit.apps.getForSlug({app_slug})
  * @apiExample {js} Promise
  * octokit.apps.getForSlug({app_slug}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getForSlug({app_slug}, (error, result) => {})
  */
 
 
@@ -773,8 +691,6 @@ If the GitHub App you specify is public, you can access this endpoint without au
  * const result = await octokit.apps.getInstallation({installation_id})
  * @apiExample {js} Promise
  * octokit.apps.getInstallation({installation_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getInstallation({installation_id}, (error, result) => {})
  */
 
 
@@ -794,8 +710,6 @@ You must use an [installation access token](https://developer.github.com/apps/bu
  * const result = await octokit.apps.getInstallationRepositories({per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.getInstallationRepositories({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getInstallationRepositories({per_page, page}, (error, result) => {})
  */
 
 
@@ -813,8 +727,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.apps.getInstallations({per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.getInstallations({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getInstallations({per_page, page}, (error, result) => {})
  */
 
 
@@ -835,8 +747,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -852,8 +762,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.getMarketplaceListingPlans({per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.getMarketplaceListingPlans({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getMarketplaceListingPlans({per_page, page}, (error, result) => {})
  */
 
 
@@ -874,8 +782,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -891,8 +797,6 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.getMarketplaceListingStubbedPlans({per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.getMarketplaceListingStubbedPlans({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.getMarketplaceListingStubbedPlans({per_page, page}, (error, result) => {})
  */
 
 
@@ -910,8 +814,6 @@ You must use a personal access token (which you can create via the [command line
  * const result = await octokit.apps.removeRepoFromInstallation({installation_id, repository_id})
  * @apiExample {js} Promise
  * octokit.apps.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.apps.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})
  */
 
 
@@ -934,8 +836,6 @@ You must use a personal access token (which you can create via the [command line
  * const result = await octokit.authorization.check({client_id, access_token})
  * @apiExample {js} Promise
  * octokit.authorization.check({client_id, access_token}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.check({client_id, access_token}, (error, result) => {})
  */
 
 
@@ -961,8 +861,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint})
  * @apiExample {js} Promise
  * octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}, (error, result) => {})
  */
 
 
@@ -977,8 +875,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.delete({authorization_id})
  * @apiExample {js} Promise
  * octokit.authorization.delete({authorization_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.delete({authorization_id}, (error, result) => {})
  */
 
 
@@ -993,8 +889,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.deleteGrant({grant_id})
  * @apiExample {js} Promise
  * octokit.authorization.deleteGrant({grant_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.deleteGrant({grant_id}, (error, result) => {})
  */
 
 
@@ -1009,8 +903,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.get({authorization_id})
  * @apiExample {js} Promise
  * octokit.authorization.get({authorization_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.get({authorization_id}, (error, result) => {})
  */
 
 
@@ -1026,8 +918,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.getAll({per_page, page})
  * @apiExample {js} Promise
  * octokit.authorization.getAll({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.getAll({per_page, page}, (error, result) => {})
  */
 
 
@@ -1042,8 +932,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.getGrant({grant_id})
  * @apiExample {js} Promise
  * octokit.authorization.getGrant({grant_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.getGrant({grant_id}, (error, result) => {})
  */
 
 
@@ -1059,8 +947,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.getGrants({per_page, page})
  * @apiExample {js} Promise
  * octokit.authorization.getGrants({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.getGrants({per_page, page}, (error, result) => {})
  */
 
 
@@ -1080,8 +966,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.getOrCreateAuthorizationForApp({client_id, client_secret, scopes, note, note_url, fingerprint})
  * @apiExample {js} Promise
  * octokit.authorization.getOrCreateAuthorizationForApp({client_id, client_secret, scopes, note, note_url, fingerprint}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.getOrCreateAuthorizationForApp({client_id, client_secret, scopes, note, note_url, fingerprint}, (error, result) => {})
  */
 
 
@@ -1101,8 +985,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url})
  * @apiExample {js} Promise
  * octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url}, (error, result) => {})
  */
 
 
@@ -1118,8 +1000,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.reset({client_id, access_token})
  * @apiExample {js} Promise
  * octokit.authorization.reset({client_id, access_token}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.reset({client_id, access_token}, (error, result) => {})
  */
 
 
@@ -1135,8 +1015,6 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * const result = await octokit.authorization.revoke({client_id, access_token})
  * @apiExample {js} Promise
  * octokit.authorization.revoke({client_id, access_token}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.revoke({client_id, access_token}, (error, result) => {})
  */
 
 
@@ -1154,8 +1032,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.authorization.revokeGrant({client_id, access_token})
  * @apiExample {js} Promise
  * octokit.authorization.revokeGrant({client_id, access_token}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.revokeGrant({client_id, access_token}, (error, result) => {})
  */
 
 
@@ -1176,8 +1052,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint})
  * @apiExample {js} Promise
  * octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})
- * @apiExample {js} Callback
- * octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})
  */
 
 
@@ -1231,8 +1105,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier})
  * @apiExample {js} Promise
  * octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})
  */
 
 
@@ -1249,8 +1121,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.createSuite({owner, repo, head_sha})
  * @apiExample {js} Promise
  * octokit.checks.createSuite({owner, repo, head_sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.createSuite({owner, repo, head_sha}, (error, result) => {})
  */
 
 
@@ -1267,8 +1137,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.get({owner, repo, check_run_id})
  * @apiExample {js} Promise
  * octokit.checks.get({owner, repo, check_run_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.get({owner, repo, check_run_id}, (error, result) => {})
  */
 
 
@@ -1285,8 +1153,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.getSuite({owner, repo, check_suite_id})
  * @apiExample {js} Promise
  * octokit.checks.getSuite({owner, repo, check_suite_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.getSuite({owner, repo, check_suite_id}, (error, result) => {})
  */
 
 
@@ -1305,8 +1171,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1328,8 +1192,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page})
  * @apiExample {js} Promise
  * octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}, (error, result) => {})
  */
 
 
@@ -1351,8 +1213,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page})
  * @apiExample {js} Promise
  * octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}, (error, result) => {})
  */
 
 
@@ -1373,8 +1233,6 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * const result = await octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page})
  * @apiExample {js} Promise
  * octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})
  */
 
 
@@ -1393,8 +1251,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.checks.rerequestSuite({owner, repo, check_suite_id})
  * @apiExample {js} Promise
  * octokit.checks.rerequestSuite({owner, repo, check_suite_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.rerequestSuite({owner, repo, check_suite_id}, (error, result) => {})
  */
 
 
@@ -1413,8 +1269,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting})
  * @apiExample {js} Promise
  * octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})
  */
 
 
@@ -1461,8 +1315,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier})
  * @apiExample {js} Promise
  * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})
- * @apiExample {js} Callback
- * octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})
  */
 
 
@@ -1485,8 +1337,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.emojis.get({})
  * @apiExample {js} Promise
  * octokit.emojis.get({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.emojis.get({}, (error, result) => {})
  */
 
 
@@ -1508,8 +1358,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.checkStar({gist_id})
  * @apiExample {js} Promise
  * octokit.gists.checkStar({gist_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.checkStar({gist_id}, (error, result) => {})
  */
 
 
@@ -1529,8 +1377,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.create({files, files.content, description, public})
  * @apiExample {js} Promise
  * octokit.gists.create({files, files.content, description, public}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.create({files, files.content, description, public}, (error, result) => {})
  */
 
 
@@ -1546,8 +1392,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.createComment({gist_id, body})
  * @apiExample {js} Promise
  * octokit.gists.createComment({gist_id, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.createComment({gist_id, body}, (error, result) => {})
  */
 
 
@@ -1562,8 +1406,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.delete({gist_id})
  * @apiExample {js} Promise
  * octokit.gists.delete({gist_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.delete({gist_id}, (error, result) => {})
  */
 
 
@@ -1579,8 +1421,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.deleteComment({gist_id, comment_id})
  * @apiExample {js} Promise
  * octokit.gists.deleteComment({gist_id, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.deleteComment({gist_id, comment_id}, (error, result) => {})
  */
 
 
@@ -1599,8 +1439,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.edit({gist_id, description, files, files.content, files.filename})
  * @apiExample {js} Promise
  * octokit.gists.edit({gist_id, description, files, files.content, files.filename}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.edit({gist_id, description, files, files.content, files.filename}, (error, result) => {})
  */
 
 
@@ -1617,8 +1455,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.editComment({gist_id, comment_id, body})
  * @apiExample {js} Promise
  * octokit.gists.editComment({gist_id, comment_id, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.editComment({gist_id, comment_id, body}, (error, result) => {})
  */
 
 
@@ -1633,8 +1469,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.fork({gist_id})
  * @apiExample {js} Promise
  * octokit.gists.fork({gist_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.fork({gist_id}, (error, result) => {})
  */
 
 
@@ -1649,8 +1483,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.get({gist_id})
  * @apiExample {js} Promise
  * octokit.gists.get({gist_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.get({gist_id}, (error, result) => {})
  */
 
 
@@ -1667,8 +1499,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.getAll({since, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getAll({since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getAll({since, per_page, page}, (error, result) => {})
  */
 
 
@@ -1684,8 +1514,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.getComment({gist_id, comment_id})
  * @apiExample {js} Promise
  * octokit.gists.getComment({gist_id, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getComment({gist_id, comment_id}, (error, result) => {})
  */
 
 
@@ -1702,8 +1530,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.getComments({gist_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getComments({gist_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getComments({gist_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1720,8 +1546,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.getCommits({gist_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getCommits({gist_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getCommits({gist_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1739,8 +1563,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.getForUser({username, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getForUser({username, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getForUser({username, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -1757,8 +1579,6 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * const result = await octokit.gists.getForks({gist_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getForks({gist_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getForks({gist_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -1777,8 +1597,6 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * const result = await octokit.gists.getPublic({since, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getPublic({since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getPublic({since, per_page, page}, (error, result) => {})
  */
 
 
@@ -1794,8 +1612,6 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * const result = await octokit.gists.getRevision({gist_id, sha})
  * @apiExample {js} Promise
  * octokit.gists.getRevision({gist_id, sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getRevision({gist_id, sha}, (error, result) => {})
  */
 
 
@@ -1812,8 +1628,6 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * const result = await octokit.gists.getStarred({since, per_page, page})
  * @apiExample {js} Promise
  * octokit.gists.getStarred({since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.getStarred({since, per_page, page}, (error, result) => {})
  */
 
 
@@ -1828,8 +1642,6 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * const result = await octokit.gists.star({gist_id})
  * @apiExample {js} Promise
  * octokit.gists.star({gist_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.star({gist_id}, (error, result) => {})
  */
 
 
@@ -1844,8 +1656,6 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * const result = await octokit.gists.unstar({gist_id})
  * @apiExample {js} Promise
  * octokit.gists.unstar({gist_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gists.unstar({gist_id}, (error, result) => {})
  */
 
 
@@ -1870,8 +1680,6 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * const result = await octokit.gitdata.createBlob({owner, repo, content, encoding})
  * @apiExample {js} Promise
  * octokit.gitdata.createBlob({owner, repo, content, encoding}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.createBlob({owner, repo, content, encoding}, (error, result) => {})
  */
 
 
@@ -1910,8 +1718,6 @@ In this example, the payload that the signature is over would have been:
  * const result = await octokit.gitdata.createCommit({owner, repo, message, tree, parents, committer, author})
  * @apiExample {js} Promise
  * octokit.gitdata.createCommit({owner, repo, message, tree, parents, committer, author}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.createCommit({owner, repo, message, tree, parents, committer, author}, (error, result) => {})
  */
 
 
@@ -1929,8 +1735,6 @@ In this example, the payload that the signature is over would have been:
  * const result = await octokit.gitdata.createReference({owner, repo, ref, sha})
  * @apiExample {js} Promise
  * octokit.gitdata.createReference({owner, repo, ref, sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.createReference({owner, repo, ref, sha}, (error, result) => {})
  */
 
 
@@ -1954,8 +1758,6 @@ In this example, the payload that the signature is over would have been:
  * const result = await octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger, tagger.name, tagger.email, tagger.date})
  * @apiExample {js} Promise
  * octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger, tagger.name, tagger.email, tagger.date}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger, tagger.name, tagger.email, tagger.date}, (error, result) => {})
  */
 
 
@@ -1978,8 +1780,6 @@ In this example, the payload that the signature is over would have been:
  * const result = await octokit.gitdata.createTree({owner, repo, tree, tree[].path, tree[].mode, tree[].type, tree[].sha, tree[].content, base_tree})
  * @apiExample {js} Promise
  * octokit.gitdata.createTree({owner, repo, tree, tree[].path, tree[].mode, tree[].type, tree[].sha, tree[].content, base_tree}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.createTree({owner, repo, tree, tree[].path, tree[].mode, tree[].type, tree[].sha, tree[].content, base_tree}, (error, result) => {})
  */
 
 
@@ -2006,8 +1806,6 @@ DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
  * const result = await octokit.gitdata.deleteReference({owner, repo, ref})
  * @apiExample {js} Promise
  * octokit.gitdata.deleteReference({owner, repo, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.deleteReference({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -2026,8 +1824,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.getBlob({owner, repo, file_sha})
  * @apiExample {js} Promise
  * octokit.gitdata.getBlob({owner, repo, file_sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getBlob({owner, repo, file_sha}, (error, result) => {})
  */
 
 
@@ -2044,8 +1840,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.getCommit({owner, repo, commit_sha})
  * @apiExample {js} Promise
  * octokit.gitdata.getCommit({owner, repo, commit_sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getCommit({owner, repo, commit_sha}, (error, result) => {})
  */
 
 
@@ -2062,8 +1856,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.getReference({owner, repo, ref})
  * @apiExample {js} Promise
  * octokit.gitdata.getReference({owner, repo, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getReference({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -2082,8 +1874,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.getReferences({owner, repo, namespace, per_page, page})
  * @apiExample {js} Promise
  * octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}, (error, result) => {})
  */
 
 
@@ -2100,8 +1890,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.getTag({owner, repo, tag_sha})
  * @apiExample {js} Promise
  * octokit.gitdata.getTag({owner, repo, tag_sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getTag({owner, repo, tag_sha}, (error, result) => {})
  */
 
 
@@ -2119,8 +1907,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.getTree({owner, repo, tree_sha, recursive})
  * @apiExample {js} Promise
  * octokit.gitdata.getTree({owner, repo, tree_sha, recursive}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.getTree({owner, repo, tree_sha, recursive}, (error, result) => {})
  */
 
 
@@ -2139,8 +1925,6 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
  * const result = await octokit.gitdata.updateReference({owner, repo, ref, sha, force})
  * @apiExample {js} Promise
  * octokit.gitdata.updateReference({owner, repo, ref, sha, force}).then(result => {})
- * @apiExample {js} Callback
- * octokit.gitdata.updateReference({owner, repo, ref, sha, force}, (error, result) => {})
  */
 
 
@@ -2167,8 +1951,6 @@ This example adds two assignees to the existing `octocat` assignee. <a href="htt
  * const result = await octokit.issues.addAssigneesToIssue({owner, repo, number, assignees})
  * @apiExample {js} Promise
  * octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}, (error, result) => {})
  */
 
 
@@ -2186,8 +1968,6 @@ This example adds two assignees to the existing `octocat` assignee. <a href="htt
  * const result = await octokit.issues.addLabels({owner, repo, number, labels})
  * @apiExample {js} Promise
  * octokit.issues.addLabels({owner, repo, number, labels}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.addLabels({owner, repo, number, labels}, (error, result) => {})
  */
 
 
@@ -2208,8 +1988,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.checkAssignee({owner, repo, assignee})
  * @apiExample {js} Promise
  * octokit.issues.checkAssignee({owner, repo, assignee}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.checkAssignee({owner, repo, assignee}, (error, result) => {})
  */
 
 
@@ -2231,8 +2009,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees})
  * @apiExample {js} Promise
  * octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}, (error, result) => {})
  */
 
 
@@ -2250,8 +2026,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.createComment({owner, repo, number, body})
  * @apiExample {js} Promise
  * octokit.issues.createComment({owner, repo, number, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.createComment({owner, repo, number, body}, (error, result) => {})
  */
 
 
@@ -2270,8 +2044,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.createLabel({owner, repo, name, color, description})
  * @apiExample {js} Promise
  * octokit.issues.createLabel({owner, repo, name, color, description}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.createLabel({owner, repo, name, color, description}, (error, result) => {})
  */
 
 
@@ -2291,8 +2063,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.createMilestone({owner, repo, title, state, description, due_on})
  * @apiExample {js} Promise
  * octokit.issues.createMilestone({owner, repo, title, state, description, due_on}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.createMilestone({owner, repo, title, state, description, due_on}, (error, result) => {})
  */
 
 
@@ -2309,8 +2079,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.deleteComment({owner, repo, comment_id})
  * @apiExample {js} Promise
  * octokit.issues.deleteComment({owner, repo, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.deleteComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -2327,8 +2095,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.deleteLabel({owner, repo, name})
  * @apiExample {js} Promise
  * octokit.issues.deleteLabel({owner, repo, name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.deleteLabel({owner, repo, name}, (error, result) => {})
  */
 
 
@@ -2345,8 +2111,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.deleteMilestone({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.issues.deleteMilestone({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.deleteMilestone({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2370,8 +2134,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees})
  * @apiExample {js} Promise
  * octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}, (error, result) => {})
  */
 
 
@@ -2389,8 +2151,6 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * const result = await octokit.issues.editComment({owner, repo, comment_id, body})
  * @apiExample {js} Promise
  * octokit.issues.editComment({owner, repo, comment_id, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.editComment({owner, repo, comment_id, body}, (error, result) => {})
  */
 
 
@@ -2411,8 +2171,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.get({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.issues.get({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.get({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2443,8 +2201,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getAll({filter, state, labels, sort, direction, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getAll({filter, state, labels, sort, direction, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getAll({filter, state, labels, sort, direction, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -2462,8 +2218,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getAssignees({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getAssignees({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getAssignees({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -2482,8 +2236,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getComment({owner, repo, comment_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getComment({owner, repo, comment_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getComment({owner, repo, comment_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -2505,8 +2257,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getComments({owner, repo, number, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getComments({owner, repo, number, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getComments({owner, repo, number, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -2527,8 +2277,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since})
  * @apiExample {js} Promise
  * octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since}, (error, result) => {})
  */
 
 
@@ -2545,8 +2293,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getEvent({owner, repo, event_id})
  * @apiExample {js} Promise
  * octokit.issues.getEvent({owner, repo, event_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getEvent({owner, repo, event_id}, (error, result) => {})
  */
 
 
@@ -2565,8 +2311,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getEvents({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getEvents({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getEvents({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -2584,8 +2328,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getEventsForRepo({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getEventsForRepo({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getEventsForRepo({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -2604,8 +2346,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getEventsTimeline({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getEventsTimeline({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getEventsTimeline({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -2637,8 +2377,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -2669,8 +2407,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, mentioned, labels, sort, direction, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, mentioned, labels, sort, direction, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, mentioned, labels, sort, direction, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -2701,8 +2437,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getForUser({filter, state, labels, sort, direction, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getForUser({filter, state, labels, sort, direction, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getForUser({filter, state, labels, sort, direction, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -2721,8 +2455,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getIssueLabels({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getIssueLabels({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getIssueLabels({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -2739,8 +2471,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getLabel({owner, repo, name})
  * @apiExample {js} Promise
  * octokit.issues.getLabel({owner, repo, name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getLabel({owner, repo, name}, (error, result) => {})
  */
 
 
@@ -2758,8 +2488,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getLabels({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getLabels({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getLabels({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -2776,8 +2504,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getMilestone({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.issues.getMilestone({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getMilestone({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2796,8 +2522,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getMilestoneLabels({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getMilestoneLabels({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getMilestoneLabels({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -2818,8 +2542,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.issues.getMilestones({owner, repo, state, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.issues.getMilestones({owner, repo, state, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.getMilestones({owner, repo, state, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -2843,8 +2565,6 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
  * const result = await octokit.issues.lock({owner, repo, number, lock_reason})
  * @apiExample {js} Promise
  * octokit.issues.lock({owner, repo, number, lock_reason}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.lock({owner, repo, number, lock_reason}, (error, result) => {})
  */
 
 
@@ -2861,8 +2581,6 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
  * const result = await octokit.issues.removeAllLabels({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.issues.removeAllLabels({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.removeAllLabels({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2882,8 +2600,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.issues.removeAssigneesFromIssue({owner, repo, number, assignees})
  * @apiExample {js} Promise
  * octokit.issues.removeAssigneesFromIssue({owner, repo, number, assignees}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.removeAssigneesFromIssue({owner, repo, number, assignees}, (error, result) => {})
  */
 
 
@@ -2901,8 +2617,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.issues.removeLabel({owner, repo, number, name})
  * @apiExample {js} Promise
  * octokit.issues.removeLabel({owner, repo, number, name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.removeLabel({owner, repo, number, name}, (error, result) => {})
  */
 
 
@@ -2919,8 +2633,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.issues.replaceAllLabels({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.issues.replaceAllLabels({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.replaceAllLabels({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2937,8 +2649,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.issues.unlock({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.issues.unlock({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.unlock({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -2958,8 +2668,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.issues.updateLabel({owner, repo, current_name, name, color, description})
  * @apiExample {js} Promise
  * octokit.issues.updateLabel({owner, repo, current_name, name, color, description}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.updateLabel({owner, repo, current_name, name, color, description}, (error, result) => {})
  */
 
 
@@ -2980,8 +2688,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on})
  * @apiExample {js} Promise
  * octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})
- * @apiExample {js} Callback
- * octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})
  */
 
 
@@ -3006,8 +2712,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.meta.get({})
  * @apiExample {js} Promise
  * octokit.meta.get({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.meta.get({}, (error, result) => {})
  */
 
 
@@ -3030,8 +2734,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.migrations.cancelImport({owner, repo})
  * @apiExample {js} Promise
  * octokit.migrations.cancelImport({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.cancelImport({owner, repo}, (error, result) => {})
  */
 
 
@@ -3046,8 +2748,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id})
  * @apiExample {js} Promise
  * octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}, (error, result) => {})
  */
 
 
@@ -3063,8 +2763,6 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * const result = await octokit.migrations.deleteMigrationArchive({org, migration_id})
  * @apiExample {js} Promise
  * octokit.migrations.deleteMigrationArchive({org, migration_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.deleteMigrationArchive({org, migration_id}, (error, result) => {})
  */
 
 
@@ -3101,8 +2799,6 @@ The archive will also contain an `attachments` directory that includes all attac
  * const result = await octokit.migrations.getArchiveForAuthenticatedUser({migration_id})
  * @apiExample {js} Promise
  * octokit.migrations.getArchiveForAuthenticatedUser({migration_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getArchiveForAuthenticatedUser({migration_id}, (error, result) => {})
  */
 
 
@@ -3121,8 +2817,6 @@ This API method and the "Map a commit author" method allow you to provide correc
  * const result = await octokit.migrations.getImportCommitAuthors({owner, repo, since})
  * @apiExample {js} Promise
  * octokit.migrations.getImportCommitAuthors({owner, repo, since}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getImportCommitAuthors({owner, repo, since}, (error, result) => {})
  */
 
 
@@ -3171,8 +2865,6 @@ This section includes details about Git LFS related fields that may be present i
  * const result = await octokit.migrations.getImportProgress({owner, repo})
  * @apiExample {js} Promise
  * octokit.migrations.getImportProgress({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getImportProgress({owner, repo}, (error, result) => {})
  */
 
 
@@ -3188,8 +2880,6 @@ This section includes details about Git LFS related fields that may be present i
  * const result = await octokit.migrations.getLargeImportFiles({owner, repo})
  * @apiExample {js} Promise
  * octokit.migrations.getLargeImportFiles({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getLargeImportFiles({owner, repo}, (error, result) => {})
  */
 
 
@@ -3207,8 +2897,6 @@ This section includes details about Git LFS related fields that may be present i
  * const result = await octokit.migrations.getMigrationArchiveLink({org, migration_id})
  * @apiExample {js} Promise
  * octokit.migrations.getMigrationArchiveLink({org, migration_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getMigrationArchiveLink({org, migration_id}, (error, result) => {})
  */
 
 
@@ -3231,8 +2919,6 @@ The `state` of a migration can be one of the following values:
  * const result = await octokit.migrations.getMigrationStatus({org, migration_id})
  * @apiExample {js} Promise
  * octokit.migrations.getMigrationStatus({org, migration_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getMigrationStatus({org, migration_id}, (error, result) => {})
  */
 
 
@@ -3249,8 +2935,6 @@ The `state` of a migration can be one of the following values:
  * const result = await octokit.migrations.getMigrations({org, per_page, page})
  * @apiExample {js} Promise
  * octokit.migrations.getMigrations({org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getMigrations({org, per_page, page}, (error, result) => {})
  */
 
 
@@ -3272,8 +2956,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.getStatusForAuthenticatedUser({migration_id})
  * @apiExample {js} Promise
  * octokit.migrations.getStatusForAuthenticatedUser({migration_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.getStatusForAuthenticatedUser({migration_id}, (error, result) => {})
  */
 
 
@@ -3289,8 +2971,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.listForAuthenticatedUser({per_page, page})
  * @apiExample {js} Promise
  * octokit.migrations.listForAuthenticatedUser({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.listForAuthenticatedUser({per_page, page}, (error, result) => {})
  */
 
 
@@ -3309,8 +2989,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name})
  * @apiExample {js} Promise
  * octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}, (error, result) => {})
  */
 
 
@@ -3327,8 +3005,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.setImportLfsPreference({owner, repo, use_lfs})
  * @apiExample {js} Promise
  * octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}, (error, result) => {})
  */
 
 
@@ -3345,8 +3021,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments})
  * @apiExample {js} Promise
  * octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}, (error, result) => {})
  */
 
 
@@ -3367,8 +3041,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project})
  * @apiExample {js} Promise
  * octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}, (error, result) => {})
  */
 
 
@@ -3386,8 +3058,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments})
  * @apiExample {js} Promise
  * octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})
  */
 
 
@@ -3403,8 +3073,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name})
  * @apiExample {js} Promise
  * octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}, (error, result) => {})
  */
 
 
@@ -3421,8 +3089,6 @@ Once the migration has been `exported` you can [download the migration archive](
  * const result = await octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name})
  * @apiExample {js} Promise
  * octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}, (error, result) => {})
  */
 
 
@@ -3446,8 +3112,6 @@ To restart an import, no parameters are provided in the update request. <a href=
  * const result = await octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password})
  * @apiExample {js} Promise
  * octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}).then(result => {})
- * @apiExample {js} Callback
- * octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}, (error, result) => {})
  */
 
 
@@ -3469,8 +3133,6 @@ To restart an import, no parameters are provided in the update request. <a href=
  * const result = await octokit.misc.getCodeOfConduct({key})
  * @apiExample {js} Promise
  * octokit.misc.getCodeOfConduct({key}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getCodeOfConduct({key}, (error, result) => {})
  */
 
 
@@ -3484,8 +3146,6 @@ To restart an import, no parameters are provided in the update request. <a href=
  * const result = await octokit.misc.getCodesOfConduct({})
  * @apiExample {js} Promise
  * octokit.misc.getCodesOfConduct({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getCodesOfConduct({}, (error, result) => {})
  */
 
 
@@ -3504,8 +3164,6 @@ Use the raw [media type](https://developer.github.com/v3/media/) to get the raw 
  * const result = await octokit.misc.getGitignoreTemplate({name})
  * @apiExample {js} Promise
  * octokit.misc.getGitignoreTemplate({name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getGitignoreTemplate({name}, (error, result) => {})
  */
 
 
@@ -3519,8 +3177,6 @@ Use the raw [media type](https://developer.github.com/v3/media/) to get the raw 
  * const result = await octokit.misc.getGitignoreTemplates({})
  * @apiExample {js} Promise
  * octokit.misc.getGitignoreTemplates({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getGitignoreTemplates({}, (error, result) => {})
  */
 
 
@@ -3535,8 +3191,6 @@ Use the raw [media type](https://developer.github.com/v3/media/) to get the raw 
  * const result = await octokit.misc.getLicense({license})
  * @apiExample {js} Promise
  * octokit.misc.getLicense({license}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getLicense({license}, (error, result) => {})
  */
 
 
@@ -3550,8 +3204,6 @@ Use the raw [media type](https://developer.github.com/v3/media/) to get the raw 
  * const result = await octokit.misc.getLicenses({})
  * @apiExample {js} Promise
  * octokit.misc.getLicenses({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getLicenses({}, (error, result) => {})
  */
 
 
@@ -3581,8 +3233,6 @@ If you're writing new API client code or updating existing code, you should use 
  * const result = await octokit.misc.getRateLimit({})
  * @apiExample {js} Promise
  * octokit.misc.getRateLimit({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getRateLimit({}, (error, result) => {})
  */
 
 
@@ -3598,8 +3248,6 @@ If you're writing new API client code or updating existing code, you should use 
  * const result = await octokit.misc.getRepoCodeOfConduct({owner, repo})
  * @apiExample {js} Promise
  * octokit.misc.getRepoCodeOfConduct({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getRepoCodeOfConduct({owner, repo}, (error, result) => {})
  */
 
 
@@ -3617,8 +3265,6 @@ Similar to [the repository contents API](https://developer.github.com/v3/repos/c
  * const result = await octokit.misc.getRepoLicense({owner, repo})
  * @apiExample {js} Promise
  * octokit.misc.getRepoLicense({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.getRepoLicense({owner, repo}, (error, result) => {})
  */
 
 
@@ -3637,8 +3283,6 @@ Similar to [the repository contents API](https://developer.github.com/v3/repos/c
  * const result = await octokit.misc.renderMarkdown({text, mode, context})
  * @apiExample {js} Promise
  * octokit.misc.renderMarkdown({text, mode, context}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.renderMarkdown({text, mode, context}, (error, result) => {})
  */
 
 
@@ -3655,8 +3299,6 @@ Similar to [the repository contents API](https://developer.github.com/v3/repos/c
  * const result = await octokit.misc.renderMarkdownRaw({data})
  * @apiExample {js} Promise
  * octokit.misc.renderMarkdownRaw({data}).then(result => {})
- * @apiExample {js} Callback
- * octokit.misc.renderMarkdownRaw({data}, (error, result) => {})
  */
 
 
@@ -3690,8 +3332,6 @@ To prevent abuse, the authenticated user is limited to 50 organization invitatio
  * const result = await octokit.orgs.addOrgMembership({org, username, role})
  * @apiExample {js} Promise
  * octokit.orgs.addOrgMembership({org, username, role}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.addOrgMembership({org, username, role}, (error, result) => {})
  */
 
 
@@ -3716,8 +3356,6 @@ If you attempt to add an organization to a team, you will get this: <a href="htt
  * const result = await octokit.orgs.addTeamMembership({team_id, username, role})
  * @apiExample {js} Promise
  * octokit.orgs.addTeamMembership({team_id, username, role}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.addTeamMembership({team_id, username, role}, (error, result) => {})
  */
 
 
@@ -3747,8 +3385,6 @@ If no permission is specified, the team's `permission` attribute will be used to
  * const result = await octokit.orgs.addTeamRepo({team_id, owner, repo, permission})
  * @apiExample {js} Promise
  * octokit.orgs.addTeamRepo({team_id, owner, repo, permission}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.addTeamRepo({team_id, owner, repo, permission}, (error, result) => {})
  */
 
 
@@ -3764,8 +3400,6 @@ If no permission is specified, the team's `permission` attribute will be used to
  * const result = await octokit.orgs.blockUser({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.blockUser({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.blockUser({org, username}, (error, result) => {})
  */
 
 
@@ -3783,8 +3417,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
  * const result = await octokit.orgs.checkBlockedUser({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.checkBlockedUser({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.checkBlockedUser({org, username}, (error, result) => {})
  */
 
 
@@ -3800,8 +3432,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
  * const result = await octokit.orgs.checkMembership({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.checkMembership({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.checkMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3817,8 +3447,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
  * const result = await octokit.orgs.checkPublicMembership({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.checkPublicMembership({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.checkPublicMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3837,8 +3465,6 @@ You can also get information about the specified repository, including what perm
  * const result = await octokit.orgs.checkTeamRepo({team_id, owner, repo})
  * @apiExample {js} Promise
  * octokit.orgs.checkTeamRepo({team_id, owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.checkTeamRepo({team_id, owner, repo}, (error, result) => {})
  */
 
 
@@ -3854,8 +3480,6 @@ You can also get information about the specified repository, including what perm
  * const result = await octokit.orgs.concealMembership({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.concealMembership({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.concealMembership({org, username}, (error, result) => {})
  */
 
 
@@ -3871,8 +3495,6 @@ You can also get information about the specified repository, including what perm
  * const result = await octokit.orgs.convertMemberToOutsideCollaborator({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.convertMemberToOutsideCollaborator({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.convertMemberToOutsideCollaborator({org, username}, (error, result) => {})
  */
 
 
@@ -3895,8 +3517,6 @@ You can also get information about the specified repository, including what perm
  * const result = await octokit.orgs.createHook({org, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})
  * @apiExample {js} Promise
  * octokit.orgs.createHook({org, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.createHook({org, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})
  */
 
 
@@ -3918,8 +3538,6 @@ You can also get information about the specified repository, including what perm
  * const result = await octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids})
  * @apiExample {js} Promise
  * octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}, (error, result) => {})
  */
 
 
@@ -3952,8 +3570,6 @@ Default for child team: `closed`
  * const result = await octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, permission, parent_team_id})
  * @apiExample {js} Promise
  * octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, permission, parent_team_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, permission, parent_team_id}, (error, result) => {})
  */
 
 
@@ -3969,8 +3585,6 @@ Default for child team: `closed`
  * const result = await octokit.orgs.deleteHook({org, hook_id})
  * @apiExample {js} Promise
  * octokit.orgs.deleteHook({org, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.deleteHook({org, hook_id}, (error, result) => {})
  */
 
 
@@ -3987,8 +3601,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.deleteTeam({team_id})
  * @apiExample {js} Promise
  * octokit.orgs.deleteTeam({team_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.deleteTeam({team_id}, (error, result) => {})
  */
 
 
@@ -4005,8 +3617,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.deleteTeamRepo({team_id, owner, repo})
  * @apiExample {js} Promise
  * octokit.orgs.deleteTeamRepo({team_id, owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.deleteTeamRepo({team_id, owner, repo}, (error, result) => {})
  */
 
 
@@ -4029,8 +3639,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})
  * @apiExample {js} Promise
  * octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})
  */
 
 
@@ -4060,8 +3668,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id})
  * @apiExample {js} Promise
  * octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}, (error, result) => {})
  */
 
 
@@ -4076,8 +3682,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.get({org})
  * @apiExample {js} Promise
  * octokit.orgs.get({org}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.get({org}, (error, result) => {})
  */
 
 
@@ -4096,8 +3700,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.getAll({since, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getAll({since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getAll({since, per_page, page}, (error, result) => {})
  */
 
 
@@ -4112,8 +3714,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.getBlockedUsers({org})
  * @apiExample {js} Promise
  * octokit.orgs.getBlockedUsers({org}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getBlockedUsers({org}, (error, result) => {})
  */
 
 
@@ -4132,8 +3732,6 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * const result = await octokit.orgs.getChildTeams({team_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getChildTeams({team_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getChildTeams({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4152,8 +3750,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -4169,8 +3765,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getHook({org, hook_id})
  * @apiExample {js} Promise
  * octokit.orgs.getHook({org, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getHook({org, hook_id}, (error, result) => {})
  */
 
 
@@ -4187,8 +3781,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getHooks({org, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getHooks({org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getHooks({org, per_page, page}, (error, result) => {})
  */
 
 
@@ -4206,8 +3798,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4233,8 +3823,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getMembers({org, filter, role, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getMembers({org, filter, role, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getMembers({org, filter, role, per_page, page}, (error, result) => {})
  */
 
 
@@ -4250,8 +3838,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getOrgMembership({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.getOrgMembership({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getOrgMembership({org, username}, (error, result) => {})
  */
 
 
@@ -4273,8 +3859,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getOutsideCollaborators({org, filter, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getOutsideCollaborators({org, filter, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getOutsideCollaborators({org, filter, per_page, page}, (error, result) => {})
  */
 
 
@@ -4291,8 +3875,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getPendingOrgInvites({org, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getPendingOrgInvites({org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getPendingOrgInvites({org, per_page, page}, (error, result) => {})
  */
 
 
@@ -4309,8 +3891,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getPendingTeamInvites({team_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getPendingTeamInvites({team_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getPendingTeamInvites({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4327,8 +3907,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getPublicMembers({org, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getPublicMembers({org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getPublicMembers({org, per_page, page}, (error, result) => {})
  */
 
 
@@ -4343,8 +3921,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getTeam({team_id})
  * @apiExample {js} Promise
  * octokit.orgs.getTeam({team_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getTeam({team_id}, (error, result) => {})
  */
 
 
@@ -4365,8 +3941,6 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * const result = await octokit.orgs.getTeamMembers({team_id, role, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getTeamMembers({team_id, role, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getTeamMembers({team_id, role, per_page, page}, (error, result) => {})
  */
 
 
@@ -4386,8 +3960,6 @@ To get a user's membership with a team, the team must be visible to the authenti
  * const result = await octokit.orgs.getTeamMembership({team_id, username})
  * @apiExample {js} Promise
  * octokit.orgs.getTeamMembership({team_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getTeamMembership({team_id, username}, (error, result) => {})
  */
 
 
@@ -4404,8 +3976,6 @@ To get a user's membership with a team, the team must be visible to the authenti
  * const result = await octokit.orgs.getTeamRepos({team_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getTeamRepos({team_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getTeamRepos({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4422,8 +3992,6 @@ To get a user's membership with a team, the team must be visible to the authenti
  * const result = await octokit.orgs.getTeams({org, per_page, page})
  * @apiExample {js} Promise
  * octokit.orgs.getTeams({org, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.getTeams({org, per_page, page}, (error, result) => {})
  */
 
 
@@ -4439,8 +4007,6 @@ To get a user's membership with a team, the team must be visible to the authenti
  * const result = await octokit.orgs.pingHook({org, hook_id})
  * @apiExample {js} Promise
  * octokit.orgs.pingHook({org, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.pingHook({org, hook_id}, (error, result) => {})
  */
 
 
@@ -4458,8 +4024,6 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * const result = await octokit.orgs.publicizeMembership({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.publicizeMembership({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.publicizeMembership({org, username}, (error, result) => {})
  */
 
 
@@ -4475,8 +4039,6 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * const result = await octokit.orgs.removeMember({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.removeMember({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.removeMember({org, username}, (error, result) => {})
  */
 
 
@@ -4494,8 +4056,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.orgs.removeOrgMembership({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.removeOrgMembership({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.removeOrgMembership({org, username}, (error, result) => {})
  */
 
 
@@ -4511,8 +4071,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.orgs.removeOutsideCollaborator({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.removeOutsideCollaborator({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.removeOutsideCollaborator({org, username}, (error, result) => {})
  */
 
 
@@ -4528,8 +4086,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.orgs.removeTeamMembership({team_id, username})
  * @apiExample {js} Promise
  * octokit.orgs.removeTeamMembership({team_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.removeTeamMembership({team_id, username}, (error, result) => {})
  */
 
 
@@ -4545,8 +4101,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.orgs.unblockUser({org, username})
  * @apiExample {js} Promise
  * octokit.orgs.unblockUser({org, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.unblockUser({org, username}, (error, result) => {})
  */
 
 
@@ -4577,8 +4131,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories})
  * @apiExample {js} Promise
  * octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories}).then(result => {})
- * @apiExample {js} Callback
- * octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories}, (error, result) => {})
  */
 
 
@@ -4605,8 +4157,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.projects.addCollaborator({project_id, username, permission})
  * @apiExample {js} Promise
  * octokit.projects.addCollaborator({project_id, username, permission}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.addCollaborator({project_id, username, permission}, (error, result) => {})
  */
 
 
@@ -4625,8 +4175,6 @@ If the specified user is an active member of the organization, this will remove 
  * const result = await octokit.projects.createOrgProject({org, name, body, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.createOrgProject({org, name, body, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.createOrgProject({org, name, body, per_page, page}, (error, result) => {})
  */
 
 
@@ -4647,8 +4195,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.createProjectCard({column_id, note, content_id, content_type})
  * @apiExample {js} Promise
  * octokit.projects.createProjectCard({column_id, note, content_id, content_type}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.createProjectCard({column_id, note, content_id, content_type}, (error, result) => {})
  */
 
 
@@ -4664,8 +4210,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.createProjectColumn({project_id, name})
  * @apiExample {js} Promise
  * octokit.projects.createProjectColumn({project_id, name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.createProjectColumn({project_id, name}, (error, result) => {})
  */
 
 
@@ -4685,8 +4229,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.createRepoProject({owner, repo, name, body, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.createRepoProject({owner, repo, name, body, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.createRepoProject({owner, repo, name, body, per_page, page}, (error, result) => {})
  */
 
 
@@ -4701,8 +4243,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.deleteProject({project_id})
  * @apiExample {js} Promise
  * octokit.projects.deleteProject({project_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.deleteProject({project_id}, (error, result) => {})
  */
 
 
@@ -4717,8 +4257,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.deleteProjectCard({card_id})
  * @apiExample {js} Promise
  * octokit.projects.deleteProjectCard({card_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.deleteProjectCard({card_id}, (error, result) => {})
  */
 
 
@@ -4733,8 +4271,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.deleteProjectColumn({column_id})
  * @apiExample {js} Promise
  * octokit.projects.deleteProjectColumn({column_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.deleteProjectColumn({column_id}, (error, result) => {})
  */
 
 
@@ -4755,8 +4291,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getCollaborators({project_id, affiliation, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.getCollaborators({project_id, affiliation, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getCollaborators({project_id, affiliation, per_page, page}, (error, result) => {})
  */
 
 
@@ -4774,8 +4308,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getOrgProjects({org, state, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.getOrgProjects({org, state, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getOrgProjects({org, state, per_page, page}, (error, result) => {})
  */
 
 
@@ -4792,8 +4324,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getProject({project_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.getProject({project_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getProject({project_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4808,8 +4338,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getProjectCard({card_id})
  * @apiExample {js} Promise
  * octokit.projects.getProjectCard({card_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getProjectCard({card_id}, (error, result) => {})
  */
 
 
@@ -4827,8 +4355,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getProjectCards({column_id, archived_state, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.getProjectCards({column_id, archived_state, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getProjectCards({column_id, archived_state, per_page, page}, (error, result) => {})
  */
 
 
@@ -4843,8 +4369,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getProjectColumn({column_id})
  * @apiExample {js} Promise
  * octokit.projects.getProjectColumn({column_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getProjectColumn({column_id}, (error, result) => {})
  */
 
 
@@ -4861,8 +4385,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getProjectColumns({project_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.getProjectColumns({project_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getProjectColumns({project_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -4881,8 +4403,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getRepoProjects({owner, repo, state, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.getRepoProjects({owner, repo, state, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getRepoProjects({owner, repo, state, per_page, page}, (error, result) => {})
  */
 
 
@@ -4898,8 +4418,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.getUserPermissionLevel({project_id, username})
  * @apiExample {js} Promise
  * octokit.projects.getUserPermissionLevel({project_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.getUserPermissionLevel({project_id, username}, (error, result) => {})
  */
 
 
@@ -4916,8 +4434,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.moveProjectCard({card_id, position, column_id})
  * @apiExample {js} Promise
  * octokit.projects.moveProjectCard({card_id, position, column_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.moveProjectCard({card_id, position, column_id}, (error, result) => {})
  */
 
 
@@ -4933,8 +4449,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.moveProjectColumn({column_id, position})
  * @apiExample {js} Promise
  * octokit.projects.moveProjectColumn({column_id, position}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.moveProjectColumn({column_id, position}, (error, result) => {})
  */
 
 
@@ -4950,8 +4464,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.removeCollaborator({project_id, username})
  * @apiExample {js} Promise
  * octokit.projects.removeCollaborator({project_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.removeCollaborator({project_id, username}, (error, result) => {})
  */
 
 
@@ -4975,8 +4487,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.updateProject({project_id, name, body, state, organization_permission, public, per_page, page})
  * @apiExample {js} Promise
  * octokit.projects.updateProject({project_id, name, body, state, organization_permission, public, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.updateProject({project_id, name, body, state, organization_permission, public, per_page, page}, (error, result) => {})
  */
 
 
@@ -4993,8 +4503,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.updateProjectCard({card_id, note, archived})
  * @apiExample {js} Promise
  * octokit.projects.updateProjectCard({card_id, note, archived}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.updateProjectCard({card_id, note, archived}, (error, result) => {})
  */
 
 
@@ -5010,8 +4518,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.projects.updateProjectColumn({column_id, name})
  * @apiExample {js} Promise
  * octokit.projects.updateProjectColumn({column_id, name}).then(result => {})
- * @apiExample {js} Callback
- * octokit.projects.updateProjectColumn({column_id, name}, (error, result) => {})
  */
 
 
@@ -5035,8 +4541,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.pullRequests.checkMerged({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.pullRequests.checkMerged({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.checkMerged({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -5057,8 +4561,6 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * const result = await octokit.pullRequests.create({owner, repo, title, head, base, body, maintainer_can_modify})
  * @apiExample {js} Promise
  * octokit.pullRequests.create({owner, repo, title, head, base, body, maintainer_can_modify}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.create({owner, repo, title, head, base, body, maintainer_can_modify}, (error, result) => {})
  */
 
 
@@ -5081,8 +4583,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position})
  * @apiExample {js} Promise
  * octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}, (error, result) => {})
  */
 
 
@@ -5103,8 +4603,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to})
  * @apiExample {js} Promise
  * octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}, (error, result) => {})
  */
 
 
@@ -5124,8 +4622,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify})
  * @apiExample {js} Promise
  * octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}, (error, result) => {})
  */
 
 
@@ -5151,8 +4647,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body})
  * @apiExample {js} Promise
  * octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body}, (error, result) => {})
  */
 
 
@@ -5171,8 +4665,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers})
  * @apiExample {js} Promise
  * octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})
  */
 
 
@@ -5189,8 +4681,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.deleteComment({owner, repo, comment_id})
  * @apiExample {js} Promise
  * octokit.pullRequests.deleteComment({owner, repo, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.deleteComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -5208,8 +4698,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.deletePendingReview({owner, repo, number, review_id})
  * @apiExample {js} Promise
  * octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}, (error, result) => {})
  */
 
 
@@ -5228,8 +4716,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers})
  * @apiExample {js} Promise
  * octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})
  */
 
 
@@ -5248,8 +4734,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.dismissReview({owner, repo, number, review_id, message})
  * @apiExample {js} Promise
  * octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}, (error, result) => {})
  */
 
 
@@ -5267,8 +4751,6 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pullRequests.editComment({owner, repo, comment_id, body})
  * @apiExample {js} Promise
  * octokit.pullRequests.editComment({owner, repo, comment_id, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.editComment({owner, repo, comment_id, body}, (error, result) => {})
  */
 
 
@@ -5297,8 +4779,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.get({owner, repo, number})
  * @apiExample {js} Promise
  * octokit.pullRequests.get({owner, repo, number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.get({owner, repo, number}, (error, result) => {})
  */
 
 
@@ -5321,8 +4801,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -5339,8 +4817,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getComment({owner, repo, comment_id})
  * @apiExample {js} Promise
  * octokit.pullRequests.getComment({owner, repo, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -5364,8 +4840,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getComments({owner, repo, number, sort, direction, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getComments({owner, repo, number, sort, direction, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getComments({owner, repo, number, sort, direction, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -5388,8 +4862,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, per_page, page}, (error, result) => {})
  */
 
 
@@ -5408,8 +4880,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getCommits({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getCommits({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getCommits({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -5428,8 +4898,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getFiles({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getFiles({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getFiles({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -5447,8 +4915,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getReview({owner, repo, number, review_id})
  * @apiExample {js} Promise
  * octokit.pullRequests.getReview({owner, repo, number, review_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getReview({owner, repo, number, review_id}, (error, result) => {})
  */
 
 
@@ -5468,8 +4934,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -5488,8 +4952,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getReviewRequests({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getReviewRequests({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getReviewRequests({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -5508,8 +4970,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.getReviews({owner, repo, number, per_page, page})
  * @apiExample {js} Promise
  * octokit.pullRequests.getReviews({owner, repo, number, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.getReviews({owner, repo, number, per_page, page}, (error, result) => {})
  */
 
 
@@ -5530,8 +4990,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method})
  * @apiExample {js} Promise
  * octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}, (error, result) => {})
  */
 
 
@@ -5551,8 +5009,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event})
  * @apiExample {js} Promise
  * octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}, (error, result) => {})
  */
 
 
@@ -5574,8 +5030,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify})
  * @apiExample {js} Promise
  * octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}).then(result => {})
- * @apiExample {js} Callback
- * octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}, (error, result) => {})
  */
 
 
@@ -5600,8 +5054,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.createForCommitComment({owner, repo, comment_id, content})
  * @apiExample {js} Promise
  * octokit.reactions.createForCommitComment({owner, repo, comment_id, content}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.createForCommitComment({owner, repo, comment_id, content}, (error, result) => {})
  */
 
 
@@ -5619,8 +5071,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.createForIssue({owner, repo, number, content})
  * @apiExample {js} Promise
  * octokit.reactions.createForIssue({owner, repo, number, content}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.createForIssue({owner, repo, number, content}, (error, result) => {})
  */
 
 
@@ -5638,8 +5088,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.createForIssueComment({owner, repo, comment_id, content})
  * @apiExample {js} Promise
  * octokit.reactions.createForIssueComment({owner, repo, comment_id, content}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.createForIssueComment({owner, repo, comment_id, content}, (error, result) => {})
  */
 
 
@@ -5657,8 +5105,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content})
  * @apiExample {js} Promise
  * octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}, (error, result) => {})
  */
 
 
@@ -5675,8 +5121,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content})
  * @apiExample {js} Promise
  * octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}, (error, result) => {})
  */
 
 
@@ -5694,8 +5138,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content})
  * @apiExample {js} Promise
  * octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}, (error, result) => {})
  */
 
 
@@ -5710,8 +5152,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.delete({reaction_id})
  * @apiExample {js} Promise
  * octokit.reactions.delete({reaction_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.delete({reaction_id}, (error, result) => {})
  */
 
 
@@ -5731,8 +5171,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page})
  * @apiExample {js} Promise
  * octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5752,8 +5190,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.getForIssue({owner, repo, number, content, per_page, page})
  * @apiExample {js} Promise
  * octokit.reactions.getForIssue({owner, repo, number, content, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.getForIssue({owner, repo, number, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5773,8 +5209,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page})
  * @apiExample {js} Promise
  * octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5794,8 +5228,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page})
  * @apiExample {js} Promise
  * octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5814,8 +5246,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page})
  * @apiExample {js} Promise
  * octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5835,8 +5265,6 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * const result = await octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page})
  * @apiExample {js} Promise
  * octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}, (error, result) => {})
  */
 
 
@@ -5870,8 +5298,6 @@ To prevent abuse, you are limited to sending 50 invitations to a repository per 
  * const result = await octokit.repos.addCollaborator({owner, repo, username, permission})
  * @apiExample {js} Promise
  * octokit.repos.addCollaborator({owner, repo, username, permission}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addCollaborator({owner, repo, username, permission}, (error, result) => {})
  */
 
 
@@ -5894,8 +5320,6 @@ Deploy keys with write access can perform the same actions as an organization me
  * const result = await octokit.repos.addDeployKey({owner, repo, title, key, read_only})
  * @apiExample {js} Promise
  * octokit.repos.addDeployKey({owner, repo, title, key, read_only}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addDeployKey({owner, repo, title, key, read_only}, (error, result) => {})
  */
 
 
@@ -5912,8 +5336,6 @@ Deploy keys with write access can perform the same actions as an organization me
  * const result = await octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5930,8 +5352,6 @@ Deploy keys with write access can perform the same actions as an organization me
  * const result = await octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -5949,8 +5369,6 @@ Deploy keys with write access can perform the same actions as an organization me
  * const result = await octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
  * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -5972,8 +5390,6 @@ Deploy keys with write access can perform the same actions as an organization me
  * const result = await octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
  * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -5995,8 +5411,6 @@ Deploy keys with write access can perform the same actions as an organization me
  * const result = await octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
  * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -6015,8 +5429,6 @@ If you pass the `hellcat-preview` media type, team members will include the memb
  * const result = await octokit.repos.checkCollaborator({owner, repo, username})
  * @apiExample {js} Promise
  * octokit.repos.checkCollaborator({owner, repo, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.checkCollaborator({owner, repo, username}, (error, result) => {})
  */
 
 
@@ -6048,8 +5460,6 @@ For comparisons with extremely large diffs, you may receive an error response in
  * const result = await octokit.repos.compareCommits({owner, repo, base, head})
  * @apiExample {js} Promise
  * octokit.repos.compareCommits({owner, repo, base, head}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.compareCommits({owner, repo, base, head}, (error, result) => {})
  */
 
 
@@ -6084,8 +5494,6 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
  * const result = await octokit.repos.create({name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge})
  * @apiExample {js} Promise
  * octokit.repos.create({name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.create({name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}, (error, result) => {})
  */
 
 
@@ -6106,8 +5514,6 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
  * const result = await octokit.repos.createCommitComment({owner, repo, sha, body, path, position, line})
  * @apiExample {js} Promise
  * octokit.repos.createCommitComment({owner, repo, sha, body, path, position, line}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createCommitComment({owner, repo, sha, body, path, position, line}, (error, result) => {})
  */
 
 
@@ -6156,8 +5562,6 @@ This error happens when the `required_contexts` parameter indicates that one or 
  * const result = await octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment})
  * @apiExample {js} Promise
  * octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment}, (error, result) => {})
  */
 
 
@@ -6187,8 +5591,6 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
  * const result = await octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive})
  * @apiExample {js} Promise
  * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}, (error, result) => {})
  */
 
 
@@ -6214,8 +5616,6 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
  * const result = await octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email})
  * @apiExample {js} Promise
  * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})
  */
 
 
@@ -6251,8 +5651,6 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
  * const result = await octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge})
  * @apiExample {js} Promise
  * octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}, (error, result) => {})
  */
 
 
@@ -6280,8 +5678,6 @@ Here's how you can create a hook that posts payloads in JSON format: <a href="ht
  * const result = await octokit.repos.createHook({owner, repo, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active})
  * @apiExample {js} Promise
  * octokit.repos.createHook({owner, repo, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createHook({owner, repo, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})
  */
 
 
@@ -6303,8 +5699,6 @@ Here's how you can create a hook that posts payloads in JSON format: <a href="ht
  * const result = await octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease})
  * @apiExample {js} Promise
  * octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
  */
 
 
@@ -6329,8 +5723,6 @@ For example, if your continuous integration system is posting build status, you 
  * const result = await octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context})
  * @apiExample {js} Promise
  * octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}, (error, result) => {})
  */
 
 
@@ -6348,8 +5740,6 @@ If an organization owner has configured the organization to prevent members from
  * const result = await octokit.repos.delete({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.delete({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.delete({owner, repo}, (error, result) => {})
  */
 
 
@@ -6366,8 +5756,6 @@ If an organization owner has configured the organization to prevent members from
  * const result = await octokit.repos.deleteAsset({owner, repo, asset_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteAsset({owner, repo, asset_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteAsset({owner, repo, asset_id}, (error, result) => {})
  */
 
 
@@ -6384,8 +5772,6 @@ If an organization owner has configured the organization to prevent members from
  * const result = await octokit.repos.deleteCommitComment({owner, repo, comment_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteCommitComment({owner, repo, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteCommitComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -6402,8 +5788,6 @@ If an organization owner has configured the organization to prevent members from
  * const result = await octokit.repos.deleteDeployKey({owner, repo, key_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteDeployKey({owner, repo, key_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteDeployKey({owner, repo, key_id}, (error, result) => {})
  */
 
 
@@ -6420,8 +5804,6 @@ If an organization owner has configured the organization to prevent members from
  * const result = await octokit.repos.deleteDownload({owner, repo, download_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteDownload({owner, repo, download_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteDownload({owner, repo, download_id}, (error, result) => {})
  */
 
 
@@ -6454,8 +5836,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author})
  * @apiExample {js} Promise
  * octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}, (error, result) => {})
  */
 
 
@@ -6472,8 +5852,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.deleteHook({owner, repo, hook_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteHook({owner, repo, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -6490,8 +5868,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.deleteInvite({owner, repo, invitation_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteInvite({owner, repo, invitation_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteInvite({owner, repo, invitation_id}, (error, result) => {})
  */
 
 
@@ -6508,8 +5884,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.deleteRelease({owner, repo, release_id})
  * @apiExample {js} Promise
  * octokit.repos.deleteRelease({owner, repo, release_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.deleteRelease({owner, repo, release_id}, (error, result) => {})
  */
 
 
@@ -6538,8 +5912,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.edit({owner, repo, name, description, homepage, private, has_issues, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, archived})
  * @apiExample {js} Promise
  * octokit.repos.edit({owner, repo, name, description, homepage, private, has_issues, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, archived}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.edit({owner, repo, name, description, homepage, private, has_issues, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, archived}, (error, result) => {})
  */
 
 
@@ -6558,8 +5930,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.editAsset({owner, repo, asset_id, name, label})
  * @apiExample {js} Promise
  * octokit.repos.editAsset({owner, repo, asset_id, name, label}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.editAsset({owner, repo, asset_id, name, label}, (error, result) => {})
  */
 
 
@@ -6585,8 +5955,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active})
  * @apiExample {js} Promise
  * octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}, (error, result) => {})
  */
 
 
@@ -6609,8 +5977,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease})
  * @apiExample {js} Promise
  * octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})
  */
 
 
@@ -6629,8 +5995,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.fork({owner, repo, organization})
  * @apiExample {js} Promise
  * octokit.repos.fork({owner, repo, organization}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.fork({owner, repo, organization}, (error, result) => {})
  */
 
 
@@ -6646,8 +6010,6 @@ Both the `author` and `committer` parameters have the same keys:
  * const result = await octokit.repos.get({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.get({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.get({owner, repo}, (error, result) => {})
  */
 
 
@@ -6675,8 +6037,6 @@ Will cause a `422` error if used in the same request as **visibility** or **affi
  * const result = await octokit.repos.getAll({visibility, affiliation, type, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getAll({visibility, affiliation, type, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getAll({visibility, affiliation, type, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -6698,8 +6058,6 @@ Comments are ordered by ascending ID.
  * const result = await octokit.repos.getAllCommitComments({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getAllCommitComments({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getAllCommitComments({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -6723,8 +6081,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getArchiveLink({owner, repo, archive_format, ref})
  * @apiExample {js} Promise
  * octokit.repos.getArchiveLink({owner, repo, archive_format, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getArchiveLink({owner, repo, archive_format, ref}, (error, result) => {})
  */
 
 
@@ -6741,8 +6097,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getAsset({owner, repo, asset_id})
  * @apiExample {js} Promise
  * octokit.repos.getAsset({owner, repo, asset_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getAsset({owner, repo, asset_id}, (error, result) => {})
  */
 
 
@@ -6761,8 +6115,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getAssets({owner, repo, release_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getAssets({owner, repo, release_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getAssets({owner, repo, release_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -6779,8 +6131,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getBranch({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getBranch({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getBranch({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -6797,8 +6147,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getBranchProtection({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getBranchProtection({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getBranchProtection({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -6817,8 +6165,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getBranches({owner, repo, protected, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getBranches({owner, repo, protected, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getBranches({owner, repo, protected, per_page, page}, (error, result) => {})
  */
 
 
@@ -6835,8 +6181,6 @@ To follow redirects with curl, use the `-L` switch:
  * const result = await octokit.repos.getClones({owner, repo, per})
  * @apiExample {js} Promise
  * octokit.repos.getClones({owner, repo, per}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getClones({owner, repo, per}, (error, result) => {})
  */
 
 
@@ -6860,8 +6204,6 @@ If you pass the `hellcat-preview` media type, team members will include the memb
  * const result = await octokit.repos.getCollaborators({owner, repo, affiliation, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getCollaborators({owner, repo, affiliation, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCollaborators({owner, repo, affiliation, per_page, page}, (error, result) => {})
  */
 
 
@@ -6886,8 +6228,6 @@ Additionally, a combined `state` is returned. The `state` is one of:
  * const result = await octokit.repos.getCombinedStatusForRef({owner, repo, ref})
  * @apiExample {js} Promise
  * octokit.repos.getCombinedStatusForRef({owner, repo, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCombinedStatusForRef({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -6904,8 +6244,6 @@ Additionally, a combined `state` is returned. The `state` is one of:
  * const result = await octokit.repos.getCommit({owner, repo, sha})
  * @apiExample {js} Promise
  * octokit.repos.getCommit({owner, repo, sha}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCommit({owner, repo, sha}, (error, result) => {})
  */
 
 
@@ -6922,8 +6260,6 @@ Additionally, a combined `state` is returned. The `state` is one of:
  * const result = await octokit.repos.getCommitComment({owner, repo, comment_id})
  * @apiExample {js} Promise
  * octokit.repos.getCommitComment({owner, repo, comment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCommitComment({owner, repo, comment_id}, (error, result) => {})
  */
 
 
@@ -6942,8 +6278,6 @@ Additionally, a combined `state` is returned. The `state` is one of:
  * const result = await octokit.repos.getCommitComments({owner, repo, ref, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getCommitComments({owner, repo, ref, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCommitComments({owner, repo, ref, per_page, page}, (error, result) => {})
  */
 
 
@@ -6966,8 +6300,6 @@ Additionally, a combined `state` is returned. The `state` is one of:
  * const result = await octokit.repos.getCommits({owner, repo, sha, path, author, since, until, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getCommits({owner, repo, sha, path, author, since, until, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCommits({owner, repo, sha, path, author, since, until, per_page, page}, (error, result) => {})
  */
 
 
@@ -6983,8 +6315,6 @@ Additionally, a combined `state` is returned. The `state` is one of:
  * const result = await octokit.repos.getCommunityProfileMetrics({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getCommunityProfileMetrics({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getCommunityProfileMetrics({owner, repo}, (error, result) => {})
  */
 
 
@@ -7022,8 +6352,6 @@ If the submodule repository is not hosted on github.com, the Git URLs (`git_url`
  * const result = await octokit.repos.getContent({owner, repo, path, ref})
  * @apiExample {js} Promise
  * octokit.repos.getContent({owner, repo, path, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getContent({owner, repo, path, ref}, (error, result) => {})
  */
 
 
@@ -7044,8 +6372,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getContributors({owner, repo, anon, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getContributors({owner, repo, anon, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getContributors({owner, repo, anon, per_page, page}, (error, result) => {})
  */
 
 
@@ -7062,8 +6388,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDeployKey({owner, repo, key_id})
  * @apiExample {js} Promise
  * octokit.repos.getDeployKey({owner, repo, key_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDeployKey({owner, repo, key_id}, (error, result) => {})
  */
 
 
@@ -7081,8 +6405,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDeployKeys({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getDeployKeys({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDeployKeys({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7099,8 +6421,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDeployment({owner, repo, deployment_id})
  * @apiExample {js} Promise
  * octokit.repos.getDeployment({owner, repo, deployment_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})
  */
 
 
@@ -7118,8 +6438,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id})
  * @apiExample {js} Promise
  * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}, (error, result) => {})
  */
 
 
@@ -7138,8 +6456,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -7161,8 +6477,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, per_page, page}, (error, result) => {})
  */
 
 
@@ -7179,8 +6493,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDownload({owner, repo, download_id})
  * @apiExample {js} Promise
  * octokit.repos.getDownload({owner, repo, download_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDownload({owner, repo, download_id}, (error, result) => {})
  */
 
 
@@ -7198,8 +6510,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getDownloads({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getDownloads({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getDownloads({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7217,8 +6527,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getForOrg({org, type, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getForOrg({org, type, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getForOrg({org, type, per_page, page}, (error, result) => {})
  */
 
 
@@ -7238,8 +6546,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getForUser({username, type, sort, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getForUser({username, type, sort, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getForUser({username, type, sort, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -7258,8 +6564,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getForks({owner, repo, sort, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getForks({owner, repo, sort, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getForks({owner, repo, sort, per_page, page}, (error, result) => {})
  */
 
 
@@ -7276,8 +6580,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getHook({owner, repo, hook_id})
  * @apiExample {js} Promise
  * octokit.repos.getHook({owner, repo, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -7295,8 +6597,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getHooks({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getHooks({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getHooks({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7316,8 +6616,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getInvites({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getInvites({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getInvites({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7333,8 +6631,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getLanguages({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getLanguages({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getLanguages({owner, repo}, (error, result) => {})
  */
 
 
@@ -7350,8 +6646,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getLatestPagesBuild({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getLatestPagesBuild({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getLatestPagesBuild({owner, repo}, (error, result) => {})
  */
 
 
@@ -7367,8 +6661,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getLatestRelease({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getLatestRelease({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getLatestRelease({owner, repo}, (error, result) => {})
  */
 
 
@@ -7389,8 +6681,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getPages({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getPages({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getPages({owner, repo}, (error, result) => {})
  */
 
 
@@ -7407,8 +6697,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getPagesBuild({owner, repo, build_id})
  * @apiExample {js} Promise
  * octokit.repos.getPagesBuild({owner, repo, build_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getPagesBuild({owner, repo, build_id}, (error, result) => {})
  */
 
 
@@ -7426,8 +6714,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getPagesBuilds({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getPagesBuilds({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getPagesBuilds({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7443,8 +6729,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getPaths({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getPaths({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getPaths({owner, repo}, (error, result) => {})
  */
 
 
@@ -7461,8 +6745,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7479,8 +6761,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7499,8 +6779,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7517,8 +6795,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7535,8 +6811,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7553,8 +6827,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchRestrictions({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchRestrictions({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7573,8 +6845,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page}, (error, result) => {})
  */
 
 
@@ -7591,8 +6861,6 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * const result = await octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -7611,8 +6879,6 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
  * const result = await octokit.repos.getPublic({since, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getPublic({since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getPublic({since, per_page, page}, (error, result) => {})
  */
 
 
@@ -7631,8 +6897,6 @@ READMEs support [custom media types](#custom-media-types) for retrieving the raw
  * const result = await octokit.repos.getReadme({owner, repo, ref})
  * @apiExample {js} Promise
  * octokit.repos.getReadme({owner, repo, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getReadme({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -7648,8 +6912,6 @@ READMEs support [custom media types](#custom-media-types) for retrieving the raw
  * const result = await octokit.repos.getReferrers({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getReferrers({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getReferrers({owner, repo}, (error, result) => {})
  */
 
 
@@ -7666,8 +6928,6 @@ READMEs support [custom media types](#custom-media-types) for retrieving the raw
  * const result = await octokit.repos.getRelease({owner, repo, release_id})
  * @apiExample {js} Promise
  * octokit.repos.getRelease({owner, repo, release_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getRelease({owner, repo, release_id}, (error, result) => {})
  */
 
 
@@ -7684,8 +6944,6 @@ READMEs support [custom media types](#custom-media-types) for retrieving the raw
  * const result = await octokit.repos.getReleaseByTag({owner, repo, tag})
  * @apiExample {js} Promise
  * octokit.repos.getReleaseByTag({owner, repo, tag}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getReleaseByTag({owner, repo, tag}, (error, result) => {})
  */
 
 
@@ -7705,8 +6963,6 @@ Information about published releases are available to everyone. Only users with 
  * const result = await octokit.repos.getReleases({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getReleases({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getReleases({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7733,8 +6989,6 @@ The SHA-1 of the commit reference.
  * const result = await octokit.repos.getShaOfCommitRef({owner, repo, ref})
  * @apiExample {js} Promise
  * octokit.repos.getShaOfCommitRef({owner, repo, ref}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getShaOfCommitRef({owner, repo, ref}, (error, result) => {})
  */
 
 
@@ -7752,8 +7006,6 @@ The SHA-1 of the commit reference.
  * const result = await octokit.repos.getStatsCodeFrequency({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getStatsCodeFrequency({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getStatsCodeFrequency({owner, repo}, (error, result) => {})
  */
 
 
@@ -7771,8 +7023,6 @@ The SHA-1 of the commit reference.
  * const result = await octokit.repos.getStatsCommitActivity({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getStatsCommitActivity({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getStatsCommitActivity({owner, repo}, (error, result) => {})
  */
 
 
@@ -7797,8 +7047,6 @@ Weekly Hash (`weeks` array):
  * const result = await octokit.repos.getStatsContributors({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getStatsContributors({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getStatsContributors({owner, repo}, (error, result) => {})
  */
 
 
@@ -7818,8 +7066,6 @@ The array order is oldest week (index 0) to most recent week.
  * const result = await octokit.repos.getStatsParticipation({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getStatsParticipation({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getStatsParticipation({owner, repo}, (error, result) => {})
  */
 
 
@@ -7841,8 +7087,6 @@ For example, `[2, 14, 25]` indicates that there were 25 total commits, during th
  * const result = await octokit.repos.getStatsPunchCard({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getStatsPunchCard({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getStatsPunchCard({owner, repo}, (error, result) => {})
  */
 
 
@@ -7863,8 +7107,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.getStatuses({owner, repo, ref, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getStatuses({owner, repo, ref, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getStatuses({owner, repo, ref, per_page, page}, (error, result) => {})
  */
 
 
@@ -7882,8 +7124,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.getTags({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getTags({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getTags({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7901,8 +7141,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.getTeams({owner, repo, per_page, page})
  * @apiExample {js} Promise
  * octokit.repos.getTeams({owner, repo, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getTeams({owner, repo, per_page, page}, (error, result) => {})
  */
 
 
@@ -7918,8 +7156,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.getTopics({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.getTopics({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getTopics({owner, repo}, (error, result) => {})
  */
 
 
@@ -7936,8 +7172,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.getViews({owner, repo, per})
  * @apiExample {js} Promise
  * octokit.repos.getViews({owner, repo, per}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.getViews({owner, repo, per}, (error, result) => {})
  */
 
 
@@ -7956,8 +7190,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.merge({owner, repo, base, head, commit_message})
  * @apiExample {js} Promise
  * octokit.repos.merge({owner, repo, base, head, commit_message}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.merge({owner, repo, base, head, commit_message}, (error, result) => {})
  */
 
 
@@ -7974,8 +7206,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.pingHook({owner, repo, hook_id})
  * @apiExample {js} Promise
  * octokit.repos.pingHook({owner, repo, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.pingHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -7992,8 +7222,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeBranchProtection({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.removeBranchProtection({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeBranchProtection({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -8010,8 +7238,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeCollaborator({owner, repo, username})
  * @apiExample {js} Promise
  * octokit.repos.removeCollaborator({owner, repo, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeCollaborator({owner, repo, username}, (error, result) => {})
  */
 
 
@@ -8028,8 +7254,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -8046,8 +7270,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -8064,8 +7286,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -8082,8 +7302,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -8101,8 +7319,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -8119,8 +7335,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})
  */
 
 
@@ -8142,8 +7356,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -8165,8 +7377,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
  * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -8184,8 +7394,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts})
  * @apiExample {js} Promise
  * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})
  */
 
 
@@ -8207,8 +7415,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams})
  * @apiExample {js} Promise
  * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})
  */
 
 
@@ -8230,8 +7436,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users})
  * @apiExample {js} Promise
  * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})
  */
 
 
@@ -8248,8 +7452,6 @@ This resource is also available via a legacy route: `GET /repos/:owner/:repo/sta
  * const result = await octokit.repos.replaceTopics({owner, repo, names})
  * @apiExample {js} Promise
  * octokit.repos.replaceTopics({owner, repo, names}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.replaceTopics({owner, repo, names}, (error, result) => {})
  */
 
 
@@ -8267,8 +7469,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.requestPageBuild({owner, repo})
  * @apiExample {js} Promise
  * octokit.repos.requestPageBuild({owner, repo}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.requestPageBuild({owner, repo}, (error, result) => {})
  */
 
 
@@ -8285,8 +7485,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.reviewUserPermissionLevel({owner, repo, username})
  * @apiExample {js} Promise
  * octokit.repos.reviewUserPermissionLevel({owner, repo, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.reviewUserPermissionLevel({owner, repo, username}, (error, result) => {})
  */
 
 
@@ -8305,8 +7503,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.testHook({owner, repo, hook_id})
  * @apiExample {js} Promise
  * octokit.repos.testHook({owner, repo, hook_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.testHook({owner, repo, hook_id}, (error, result) => {})
  */
 
 
@@ -8324,8 +7520,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.transfer({owner, repo, new_owner, team_ids})
  * @apiExample {js} Promise
  * octokit.repos.transfer({owner, repo, new_owner, team_ids}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.transfer({owner, repo, new_owner, team_ids}, (error, result) => {})
  */
 
 
@@ -8360,8 +7554,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams})
  * @apiExample {js} Promise
  * octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}, (error, result) => {})
  */
 
 
@@ -8379,8 +7571,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateCommitComment({owner, repo, comment_id, body})
  * @apiExample {js} Promise
  * octokit.repos.updateCommitComment({owner, repo, comment_id, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateCommitComment({owner, repo, comment_id, body}, (error, result) => {})
  */
 
 
@@ -8407,8 +7597,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email})
  * @apiExample {js} Promise
  * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})
  */
 
 
@@ -8426,8 +7614,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source})
  * @apiExample {js} Promise
  * octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source}, (error, result) => {})
  */
 
 
@@ -8445,8 +7631,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateInvite({owner, repo, invitation_id, permissions})
  * @apiExample {js} Promise
  * octokit.repos.updateInvite({owner, repo, invitation_id, permissions}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateInvite({owner, repo, invitation_id, permissions}, (error, result) => {})
  */
 
 
@@ -8471,8 +7655,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismissal_restrictions.users, dismissal_restrictions.teams, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count})
  * @apiExample {js} Promise
  * octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismissal_restrictions.users, dismissal_restrictions.teams, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismissal_restrictions.users, dismissal_restrictions.teams, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count}, (error, result) => {})
  */
 
 
@@ -8491,8 +7673,6 @@ Build requests are limited to one concurrent build per repository and one concur
  * const result = await octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts})
  * @apiExample {js} Promise
  * octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}, (error, result) => {})
  */
 
 
@@ -8518,8 +7698,6 @@ This may leave an empty asset with a state of `"new"`. It can be safely deleted.
  * const result = await octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file})
  * @apiExample {js} Promise
  * octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}).then(result => {})
- * @apiExample {js} Callback
- * octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}, (error, result) => {})
  */
 
 
@@ -8580,8 +7758,6 @@ Here's an example response: <a href="https://developer.github.com/v3/search/#sea
  * const result = await octokit.search.code({q, sort, order, per_page, page})
  * @apiExample {js} Promise
  * octokit.search.code({q, sort, order, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.code({q, sort, order, per_page, page}, (error, result) => {})
  */
 
 
@@ -8627,8 +7803,6 @@ When searching for commits, you can get text match metadata for the **message** 
  * const result = await octokit.search.commits({q, sort, order, per_page, page})
  * @apiExample {js} Promise
  * octokit.search.commits({q, sort, order, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.commits({q, sort, order, per_page, page}, (error, result) => {})
  */
 
 
@@ -8688,8 +7862,6 @@ Here's an example response: <a href="https://developer.github.com/v3/search/#sea
  * const result = await octokit.search.issues({q, sort, order, per_page, page})
  * @apiExample {js} Promise
  * octokit.search.issues({q, sort, order, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.issues({q, sort, order, per_page, page}, (error, result) => {})
  */
 
 
@@ -8719,8 +7891,6 @@ When searching for labels, you can get text match metadata for the label **name*
  * const result = await octokit.search.labels({repository_id, q, sort, order})
  * @apiExample {js} Promise
  * octokit.search.labels({repository_id, q, sort, order}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.labels({repository_id, q, sort, order}, (error, result) => {})
  */
 
 
@@ -8769,8 +7939,6 @@ Here's an example response: <a href="https://developer.github.com/v3/search/#sea
  * const result = await octokit.search.repos({q, sort, order, per_page, page})
  * @apiExample {js} Promise
  * octokit.search.repos({q, sort, order, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.repos({q, sort, order, per_page, page}, (error, result) => {})
  */
 
 
@@ -8809,8 +7977,6 @@ When searching for topics, you can get text match metadata for the topic's **sho
  * const result = await octokit.search.topics({q})
  * @apiExample {js} Promise
  * octokit.search.topics({q}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.topics({q}, (error, result) => {})
  */
 
 
@@ -8851,8 +8017,6 @@ When searching for users, you can get text match metadata for the issue **login*
  * const result = await octokit.search.users({q, sort, order, per_page, page})
  * @apiExample {js} Promise
  * octokit.search.users({q, sort, order, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.search.users({q, sort, order, per_page, page}, (error, result) => {})
  */
 
 
@@ -8885,8 +8049,6 @@ If you attempt to add a user to a team and that user is not a member of at least
  * const result = await octokit.teams.addMember({team_id, username})
  * @apiExample {js} Promise
  * octokit.teams.addMember({team_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.addMember({team_id, username}, (error, result) => {})
  */
 
 
@@ -8908,8 +8070,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.addOrUpdateProject({team_id, project_id, permission})
  * @apiExample {js} Promise
  * octokit.teams.addOrUpdateProject({team_id, project_id, permission}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.addOrUpdateProject({team_id, project_id, permission}, (error, result) => {})
  */
 
 
@@ -8927,8 +8087,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.createDiscussion({team_id, title, body, private})
  * @apiExample {js} Promise
  * octokit.teams.createDiscussion({team_id, title, body, private}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.createDiscussion({team_id, title, body, private}, (error, result) => {})
  */
 
 
@@ -8945,8 +8103,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.createDiscussionComment({team_id, discussion_number, body})
  * @apiExample {js} Promise
  * octokit.teams.createDiscussionComment({team_id, discussion_number, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.createDiscussionComment({team_id, discussion_number, body}, (error, result) => {})
  */
 
 
@@ -8962,8 +8118,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.deleteDiscussion({team_id, discussion_number})
  * @apiExample {js} Promise
  * octokit.teams.deleteDiscussion({team_id, discussion_number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.deleteDiscussion({team_id, discussion_number}, (error, result) => {})
  */
 
 
@@ -8980,8 +8134,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number})
  * @apiExample {js} Promise
  * octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number}, (error, result) => {})
  */
 
 
@@ -8997,8 +8149,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.getDiscussion({team_id, discussion_number})
  * @apiExample {js} Promise
  * octokit.teams.getDiscussion({team_id, discussion_number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.getDiscussion({team_id, discussion_number}, (error, result) => {})
  */
 
 
@@ -9015,8 +8165,6 @@ Default: the team's `permission` attribute will be used to determine what permis
  * const result = await octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number})
  * @apiExample {js} Promise
  * octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number}, (error, result) => {})
  */
 
 
@@ -9036,8 +8184,6 @@ To list members in a team, the team must be visible to the authenticated user. <
  * const result = await octokit.teams.getMember({team_id, username})
  * @apiExample {js} Promise
  * octokit.teams.getMember({team_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.getMember({team_id, username}, (error, result) => {})
  */
 
 
@@ -9056,8 +8202,6 @@ To list members in a team, the team must be visible to the authenticated user. <
  * const result = await octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -9075,8 +8219,6 @@ To list members in a team, the team must be visible to the authenticated user. <
  * const result = await octokit.teams.listDiscussions({team_id, direction, per_page, page})
  * @apiExample {js} Promise
  * octokit.teams.listDiscussions({team_id, direction, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.listDiscussions({team_id, direction, per_page, page}, (error, result) => {})
  */
 
 
@@ -9093,8 +8235,6 @@ To list members in a team, the team must be visible to the authenticated user. <
  * const result = await octokit.teams.listProjects({team_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.teams.listProjects({team_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.listProjects({team_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -9114,8 +8254,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.teams.removeMember({team_id, username})
  * @apiExample {js} Promise
  * octokit.teams.removeMember({team_id, username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.removeMember({team_id, username}, (error, result) => {})
  */
 
 
@@ -9131,8 +8269,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.teams.removeProject({team_id, project_id})
  * @apiExample {js} Promise
  * octokit.teams.removeProject({team_id, project_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.removeProject({team_id, project_id}, (error, result) => {})
  */
 
 
@@ -9148,8 +8284,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.teams.reviewProject({team_id, project_id})
  * @apiExample {js} Promise
  * octokit.teams.reviewProject({team_id, project_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.reviewProject({team_id, project_id}, (error, result) => {})
  */
 
 
@@ -9167,8 +8301,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.teams.updateDiscussion({team_id, discussion_number, title, body})
  * @apiExample {js} Promise
  * octokit.teams.updateDiscussion({team_id, discussion_number, title, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.updateDiscussion({team_id, discussion_number, title, body}, (error, result) => {})
  */
 
 
@@ -9186,8 +8318,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body})
  * @apiExample {js} Promise
  * octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body}).then(result => {})
- * @apiExample {js} Callback
- * octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body}, (error, result) => {})
  */
 
 
@@ -9209,8 +8339,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.users.acceptRepoInvite({invitation_id})
  * @apiExample {js} Promise
  * octokit.users.acceptRepoInvite({invitation_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.acceptRepoInvite({invitation_id}, (error, result) => {})
  */
 
 
@@ -9225,8 +8353,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.users.addEmails({emails})
  * @apiExample {js} Promise
  * octokit.users.addEmails({emails}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.addEmails({emails}, (error, result) => {})
  */
 
 
@@ -9241,8 +8367,6 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
  * const result = await octokit.users.blockUser({username})
  * @apiExample {js} Promise
  * octokit.users.blockUser({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.blockUser({username}, (error, result) => {})
  */
 
 
@@ -9259,8 +8383,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.checkBlockedUser({username})
  * @apiExample {js} Promise
  * octokit.users.checkBlockedUser({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.checkBlockedUser({username}, (error, result) => {})
  */
 
 
@@ -9275,8 +8397,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.checkFollowing({username})
  * @apiExample {js} Promise
  * octokit.users.checkFollowing({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.checkFollowing({username}, (error, result) => {})
  */
 
 
@@ -9292,8 +8412,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.checkIfOneFollowersOther({username, target_user})
  * @apiExample {js} Promise
  * octokit.users.checkIfOneFollowersOther({username, target_user}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.checkIfOneFollowersOther({username, target_user}, (error, result) => {})
  */
 
 
@@ -9308,8 +8426,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.createGpgKey({armored_public_key})
  * @apiExample {js} Promise
  * octokit.users.createGpgKey({armored_public_key}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.createGpgKey({armored_public_key}, (error, result) => {})
  */
 
 
@@ -9325,8 +8441,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.createKey({title, key})
  * @apiExample {js} Promise
  * octokit.users.createKey({title, key}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.createKey({title, key}, (error, result) => {})
  */
 
 
@@ -9341,8 +8455,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.declineRepoInvite({invitation_id})
  * @apiExample {js} Promise
  * octokit.users.declineRepoInvite({invitation_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.declineRepoInvite({invitation_id}, (error, result) => {})
  */
 
 
@@ -9357,8 +8469,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.deleteEmails({emails})
  * @apiExample {js} Promise
  * octokit.users.deleteEmails({emails}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.deleteEmails({emails}, (error, result) => {})
  */
 
 
@@ -9373,8 +8483,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.deleteGpgKey({gpg_key_id})
  * @apiExample {js} Promise
  * octokit.users.deleteGpgKey({gpg_key_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.deleteGpgKey({gpg_key_id}, (error, result) => {})
  */
 
 
@@ -9389,8 +8497,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.deleteKey({key_id})
  * @apiExample {js} Promise
  * octokit.users.deleteKey({key_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.deleteKey({key_id}, (error, result) => {})
  */
 
 
@@ -9406,8 +8512,6 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * const result = await octokit.users.editOrgMembership({org, state})
  * @apiExample {js} Promise
  * octokit.users.editOrgMembership({org, state}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.editOrgMembership({org, state}, (error, result) => {})
  */
 
 
@@ -9424,8 +8528,6 @@ Following a user requires the user to be logged in and authenticated with basic 
  * const result = await octokit.users.followUser({username})
  * @apiExample {js} Promise
  * octokit.users.followUser({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.followUser({username}, (error, result) => {})
  */
 
 
@@ -9441,8 +8543,6 @@ Lists public profile information when authenticated through OAuth without the `u
  * const result = await octokit.users.get({})
  * @apiExample {js} Promise
  * octokit.users.get({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.get({}, (error, result) => {})
  */
 
 
@@ -9461,8 +8561,6 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
  * const result = await octokit.users.getAll({since, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getAll({since, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getAll({since, per_page, page}, (error, result) => {})
  */
 
 
@@ -9476,8 +8574,6 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
  * const result = await octokit.users.getBlockedUsers({})
  * @apiExample {js} Promise
  * octokit.users.getBlockedUsers({}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getBlockedUsers({}, (error, result) => {})
  */
 
 
@@ -9496,8 +8592,6 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * const result = await octokit.users.getContextForUser({username, subject_type, subject_id})
  * @apiExample {js} Promise
  * octokit.users.getContextForUser({username, subject_type, subject_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getContextForUser({username, subject_type, subject_id}, (error, result) => {})
  */
 
 
@@ -9513,8 +8607,6 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * const result = await octokit.users.getEmails({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getEmails({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getEmails({per_page, page}, (error, result) => {})
  */
 
 
@@ -9530,8 +8622,6 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * const result = await octokit.users.getFollowers({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getFollowers({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getFollowers({per_page, page}, (error, result) => {})
  */
 
 
@@ -9548,8 +8638,6 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * const result = await octokit.users.getFollowersForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getFollowersForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getFollowersForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -9565,8 +8653,6 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * const result = await octokit.users.getFollowing({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getFollowing({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getFollowing({per_page, page}, (error, result) => {})
  */
 
 
@@ -9583,8 +8669,6 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * const result = await octokit.users.getFollowingForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getFollowingForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getFollowingForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -9603,8 +8687,6 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * const result = await octokit.users.getForUser({username})
  * @apiExample {js} Promise
  * octokit.users.getForUser({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getForUser({username}, (error, result) => {})
  */
 
 
@@ -9619,8 +8701,6 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * const result = await octokit.users.getGpgKey({gpg_key_id})
  * @apiExample {js} Promise
  * octokit.users.getGpgKey({gpg_key_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getGpgKey({gpg_key_id}, (error, result) => {})
  */
 
 
@@ -9636,8 +8716,6 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * const result = await octokit.users.getGpgKeys({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getGpgKeys({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getGpgKeys({per_page, page}, (error, result) => {})
  */
 
 
@@ -9654,8 +8732,6 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * const result = await octokit.users.getGpgKeysForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getGpgKeysForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getGpgKeysForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -9678,8 +8754,6 @@ The access the user has to each repository is included in the hash under the `pe
  * const result = await octokit.users.getInstallationRepos({installation_id, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getInstallationRepos({installation_id, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getInstallationRepos({installation_id, per_page, page}, (error, result) => {})
  */
 
 
@@ -9701,8 +8775,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getInstallations({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getInstallations({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getInstallations({per_page, page}, (error, result) => {})
  */
 
 
@@ -9717,8 +8789,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getKey({key_id})
  * @apiExample {js} Promise
  * octokit.users.getKey({key_id}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getKey({key_id}, (error, result) => {})
  */
 
 
@@ -9734,8 +8804,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getKeys({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getKeys({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getKeys({per_page, page}, (error, result) => {})
  */
 
 
@@ -9752,8 +8820,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getKeysForUser({username, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getKeysForUser({username, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getKeysForUser({username, per_page, page}, (error, result) => {})
  */
 
 
@@ -9769,8 +8835,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getMarketplacePurchases({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getMarketplacePurchases({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getMarketplacePurchases({per_page, page}, (error, result) => {})
  */
 
 
@@ -9786,8 +8850,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getMarketplaceStubbedPurchases({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getMarketplaceStubbedPurchases({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getMarketplaceStubbedPurchases({per_page, page}, (error, result) => {})
  */
 
 
@@ -9802,8 +8864,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getOrgMembership({org})
  * @apiExample {js} Promise
  * octokit.users.getOrgMembership({org}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getOrgMembership({org}, (error, result) => {})
  */
 
 
@@ -9820,8 +8880,6 @@ The permissions the installation has are included under the `permissions` key. <
  * const result = await octokit.users.getOrgMemberships({state, per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getOrgMemberships({state, per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getOrgMemberships({state, per_page, page}, (error, result) => {})
  */
 
 
@@ -9841,8 +8899,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.getOrgs({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getOrgs({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getOrgs({per_page, page}, (error, result) => {})
  */
 
 
@@ -9858,8 +8914,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.getPublicEmails({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getPublicEmails({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getPublicEmails({per_page, page}, (error, result) => {})
  */
 
 
@@ -9877,8 +8931,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.getRepoInvites({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getRepoInvites({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getRepoInvites({per_page, page}, (error, result) => {})
  */
 
 
@@ -9894,8 +8946,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.getTeams({per_page, page})
  * @apiExample {js} Promise
  * octokit.users.getTeams({per_page, page}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.getTeams({per_page, page}, (error, result) => {})
  */
 
 
@@ -9911,8 +8961,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.togglePrimaryEmailVisibility({email, visibility})
  * @apiExample {js} Promise
  * octokit.users.togglePrimaryEmailVisibility({email, visibility}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.togglePrimaryEmailVisibility({email, visibility}, (error, result) => {})
  */
 
 
@@ -9927,8 +8975,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.unblockUser({username})
  * @apiExample {js} Promise
  * octokit.users.unblockUser({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.unblockUser({username}, (error, result) => {})
  */
 
 
@@ -9943,8 +8989,6 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.unfollowUser({username})
  * @apiExample {js} Promise
  * octokit.users.unfollowUser({username}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.unfollowUser({username}, (error, result) => {})
  */
 
 
@@ -9965,6 +9009,4 @@ This only lists organizations that your authorization allows you to operate on i
  * const result = await octokit.users.update({name, email, blog, company, location, hireable, bio})
  * @apiExample {js} Promise
  * octokit.users.update({name, email, blog, company, location, hireable, bio}).then(result => {})
- * @apiExample {js} Callback
- * octokit.users.update({name, email, blog, company, location, hireable, bio}, (error, result) => {})
  */

@@ -29,11 +29,6 @@
         "title": "Promise",
         "content": "octokit.activity.checkNotificationThreadSubscription({thread_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.checkNotificationThreadSubscription({thread_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -77,11 +72,6 @@
         "title": "Promise",
         "content": "octokit.activity.checkStarringRepo({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.checkStarringRepo({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -117,11 +107,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.deleteNotificationThreadSubscription({thread_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.deleteNotificationThreadSubscription({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -167,11 +152,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getEvents({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEvents({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -224,11 +204,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getEventsForOrg({org, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsForOrg({org, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -289,11 +264,6 @@
         "title": "Promise",
         "content": "octokit.activity.getEventsForRepo({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsForRepo({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -353,11 +323,6 @@
         "title": "Promise",
         "content": "octokit.activity.getEventsForRepoNetwork({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsForRepoNetwork({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -409,11 +374,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getEventsForUser({username, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsForUser({username, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -474,11 +434,6 @@
         "title": "Promise",
         "content": "octokit.activity.getEventsForUserOrg({username, org, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsForUserOrg({username, org, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -530,11 +485,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getEventsForUserPublic({username, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsForUserPublic({username, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -588,11 +538,6 @@
         "title": "Promise",
         "content": "octokit.activity.getEventsReceived({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsReceived({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -645,11 +590,6 @@
         "title": "Promise",
         "content": "octokit.activity.getEventsReceivedPublic({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getEventsReceivedPublic({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -672,11 +612,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getFeeds({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getFeeds({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -713,11 +648,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getNotificationThread({thread_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getNotificationThread({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -794,11 +724,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getNotifications({all, participating, since, before, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getNotifications({all, participating, since, before, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -890,11 +815,6 @@
         "title": "Promise",
         "content": "octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getNotificationsForUser({owner, repo, all, participating, since, before, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -937,11 +857,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getRepoSubscription({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getRepoSubscription({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1001,11 +916,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getStargazersForRepo({owner, repo, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getStargazersForRepo({owner, repo, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1075,11 +985,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getStarredRepos({sort, direction, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getStarredRepos({sort, direction, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1157,11 +1062,6 @@
         "title": "Promise",
         "content": "octokit.activity.getStarredReposForUser({username, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getStarredReposForUser({username, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1206,11 +1106,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getWatchedRepos({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getWatchedRepos({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1263,11 +1158,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.getWatchedReposForUser({username, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getWatchedReposForUser({username, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1328,11 +1218,6 @@
         "title": "Promise",
         "content": "octokit.activity.getWatchersForRepo({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.getWatchersForRepo({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1368,11 +1253,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.markNotificationThreadAsRead({thread_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.markNotificationThreadAsRead({thread_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1410,11 +1290,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.markNotificationsAsRead({last_read_at}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.markNotificationsAsRead({last_read_at}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1467,11 +1342,6 @@
         "title": "Promise",
         "content": "octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.markNotificationsAsReadForRepo({owner, repo, last_read_at}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1515,11 +1385,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.setNotificationThreadSubscription({thread_id, ignored}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.setNotificationThreadSubscription({thread_id, ignored}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1578,11 +1443,6 @@
         "title": "Promise",
         "content": "octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.setRepoSubscription({owner, repo, subscribed, ignored}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1625,11 +1485,6 @@
       {
         "title": "Promise",
         "content": "octokit.activity.starRepo({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.starRepo({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1674,11 +1529,6 @@
         "title": "Promise",
         "content": "octokit.activity.unstarRepo({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.unstarRepo({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1722,11 +1572,6 @@
         "title": "Promise",
         "content": "octokit.activity.unwatchRepo({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.activity.unwatchRepo({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1769,11 +1614,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.addRepoToInstallation({installation_id, repository_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.addRepoToInstallation({installation_id, repository_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1827,11 +1667,6 @@
         "title": "Promise",
         "content": "octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.checkMarketplaceListingAccount({account_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1884,11 +1719,6 @@
         "title": "Promise",
         "content": "octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.checkMarketplaceListingStubbedAccount({account_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -1924,11 +1754,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.createFromManifest({code}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.createFromManifest({code}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -1966,11 +1791,6 @@
         "title": "Promise",
         "content": "octokit.apps.createInstallationToken({installation_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.createInstallationToken({installation_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2006,11 +1826,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.findOrgInstallation({org}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.findOrgInstallation({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2055,11 +1870,6 @@
         "title": "Promise",
         "content": "octokit.apps.findRepoInstallation({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.findRepoInstallation({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2096,11 +1906,6 @@
         "title": "Promise",
         "content": "octokit.apps.findUserInstallation({username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.findUserInstallation({username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2123,11 +1928,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.get({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.get({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2165,11 +1965,6 @@
         "title": "Promise",
         "content": "octokit.apps.getForSlug({app_slug}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getForSlug({app_slug}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2205,11 +2000,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.getInstallation({installation_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getInstallation({installation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2256,11 +2046,6 @@
         "title": "Promise",
         "content": "octokit.apps.getInstallationRepositories({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getInstallationRepositories({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2305,11 +2090,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.getInstallations({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getInstallations({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2386,11 +2166,6 @@
         "title": "Promise",
         "content": "octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getMarketplaceListingPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2435,11 +2210,6 @@
       {
         "title": "Promise",
         "content": "octokit.apps.getMarketplaceListingPlans({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getMarketplaceListingPlans({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2516,11 +2286,6 @@
         "title": "Promise",
         "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getMarketplaceListingStubbedPlanAccounts({plan_id, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2566,11 +2331,6 @@
         "title": "Promise",
         "content": "octokit.apps.getMarketplaceListingStubbedPlans({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.getMarketplaceListingStubbedPlans({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2614,11 +2374,6 @@
         "title": "Promise",
         "content": "octokit.apps.removeRepoFromInstallation({installation_id, repository_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.apps.removeRepoFromInstallation({installation_id, repository_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2661,11 +2416,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.check({client_id, access_token}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.check({client_id, access_token}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2738,11 +2488,6 @@
         "title": "Promise",
         "content": "octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.create({scopes, note, note_url, client_id, client_secret, fingerprint}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2778,11 +2523,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.delete({authorization_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.delete({authorization_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2820,11 +2560,6 @@
         "title": "Promise",
         "content": "octokit.authorization.deleteGrant({grant_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.deleteGrant({grant_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2860,11 +2595,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.get({authorization_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.get({authorization_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -2911,11 +2641,6 @@
         "title": "Promise",
         "content": "octokit.authorization.getAll({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.getAll({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -2951,11 +2676,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.getGrant({grant_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.getGrant({grant_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3001,11 +2721,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.getGrants({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.getGrants({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3078,11 +2793,6 @@
         "title": "Promise",
         "content": "octokit.authorization.getOrCreateAuthorizationForApp({client_id, client_secret, scopes, note, note_url, fingerprint}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.getOrCreateAuthorizationForApp({client_id, client_secret, scopes, note, note_url, fingerprint}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -3154,11 +2864,6 @@
         "title": "Promise",
         "content": "octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -3201,11 +2906,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.reset({client_id, access_token}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.reset({client_id, access_token}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3250,11 +2950,6 @@
         "title": "Promise",
         "content": "octokit.authorization.revoke({client_id, access_token}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.revoke({client_id, access_token}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -3297,11 +2992,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.revokeGrant({client_id, access_token}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.revokeGrant({client_id, access_token}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3380,11 +3070,6 @@
       {
         "title": "Promise",
         "content": "octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.authorization.update({authorization_id, scopes, add_scopes, remove_scopes, note, note_url, fingerprint}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3658,11 +3343,6 @@
         "title": "Promise",
         "content": "octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.create({owner, repo, name, head_sha, details_url, external_id, status, started_at, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -3712,11 +3392,6 @@
       {
         "title": "Promise",
         "content": "octokit.checks.createSuite({owner, repo, head_sha}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.createSuite({owner, repo, head_sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3768,11 +3443,6 @@
         "title": "Promise",
         "content": "octokit.checks.get({owner, repo, check_run_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.get({owner, repo, check_run_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -3822,11 +3492,6 @@
       {
         "title": "Promise",
         "content": "octokit.checks.getSuite({owner, repo, check_suite_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.getSuite({owner, repo, check_suite_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3893,11 +3558,6 @@
       {
         "title": "Promise",
         "content": "octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.listAnnotations({owner, repo, check_run_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -3996,11 +3656,6 @@
         "title": "Promise",
         "content": "octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.listForRef({owner, repo, ref, check_name, status, filter, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4098,11 +3753,6 @@
         "title": "Promise",
         "content": "octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.listForSuite({owner, repo, check_suite_id, check_name, status, filter, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4183,11 +3833,6 @@
         "title": "Promise",
         "content": "octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.listSuitesForRef({owner, repo, ref, app_id, check_name, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4237,11 +3882,6 @@
       {
         "title": "Promise",
         "content": "octokit.checks.rerequestSuite({owner, repo, check_suite_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.rerequestSuite({owner, repo, check_suite_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4307,11 +3947,6 @@
       {
         "title": "Promise",
         "content": "octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.setSuitesPreferences({owner, repo, auto_trigger_checks, auto_trigger_checks[].app_id, auto_trigger_checks[].setting}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4584,11 +4219,6 @@
         "title": "Promise",
         "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.checks.update({owner, repo, check_run_id, name, details_url, external_id, started_at, status, conclusion, completed_at, output, output.title, output.summary, output.text, output.annotations, output.annotations[].path, output.annotations[].start_line, output.annotations[].end_line, output.annotations[].start_column, output.annotations[].end_column, output.annotations[].annotation_level, output.annotations[].message, output.annotations[].title, output.annotations[].raw_details, output.images, output.images[].alt, output.images[].image_url, output.images[].caption, actions, actions[].label, actions[].description, actions[].identifier}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4611,11 +4241,6 @@
       {
         "title": "Promise",
         "content": "octokit.emojis.get({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.emojis.get({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4652,11 +4277,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.checkStar({gist_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.checkStar({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4716,11 +4336,6 @@
         "title": "Promise",
         "content": "octokit.gists.create({files, files.content, description, public}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.create({files, files.content, description, public}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4764,11 +4379,6 @@
         "title": "Promise",
         "content": "octokit.gists.createComment({gist_id, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.createComment({gist_id, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4804,11 +4414,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.delete({gist_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.delete({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4852,11 +4457,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.deleteComment({gist_id, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.deleteComment({gist_id, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -4922,11 +4522,6 @@
         "title": "Promise",
         "content": "octokit.gists.edit({gist_id, description, files, files.content, files.filename}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.edit({gist_id, description, files, files.content, files.filename}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -4977,11 +4572,6 @@
         "title": "Promise",
         "content": "octokit.gists.editComment({gist_id, comment_id, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.editComment({gist_id, comment_id, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5018,11 +4608,6 @@
         "title": "Promise",
         "content": "octokit.gists.fork({gist_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.fork({gist_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5058,11 +4643,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.get({gist_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.get({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5116,11 +4696,6 @@
         "title": "Promise",
         "content": "octokit.gists.getAll({since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getAll({since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5163,11 +4738,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.getComment({gist_id, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getComment({gist_id, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5221,11 +4791,6 @@
         "title": "Promise",
         "content": "octokit.gists.getComments({gist_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getComments({gist_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5277,11 +4842,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.getCommits({gist_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getCommits({gist_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5342,11 +4902,6 @@
         "title": "Promise",
         "content": "octokit.gists.getForUser({username, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getForUser({username, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5398,11 +4953,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.getForks({gist_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getForks({gist_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5456,11 +5006,6 @@
         "title": "Promise",
         "content": "octokit.gists.getPublic({since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getPublic({since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5503,11 +5048,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.getRevision({gist_id, sha}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getRevision({gist_id, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5561,11 +5101,6 @@
         "title": "Promise",
         "content": "octokit.gists.getStarred({since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.getStarred({since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5602,11 +5137,6 @@
         "title": "Promise",
         "content": "octokit.gists.star({gist_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.star({gist_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5642,11 +5172,6 @@
       {
         "title": "Promise",
         "content": "octokit.gists.unstar({gist_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gists.unstar({gist_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5704,11 +5229,6 @@
       {
         "title": "Promise",
         "content": "octokit.gitdata.createBlob({owner, repo, content, encoding}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.createBlob({owner, repo, content, encoding}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5788,11 +5308,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.createCommit({owner, repo, message, tree, parents, committer, author}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.createCommit({owner, repo, message, tree, parents, committer, author}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -5849,11 +5364,6 @@
       {
         "title": "Promise",
         "content": "octokit.gitdata.createReference({owner, repo, ref, sha}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.createReference({owner, repo, ref, sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -5959,11 +5469,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger, tagger.name, tagger.email, tagger.date}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.createTag({owner, repo, tag, message, object, type, tagger, tagger.name, tagger.email, tagger.date}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6068,11 +5573,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.createTree({owner, repo, tree, tree[].path, tree[].mode, tree[].type, tree[].sha, tree[].content, base_tree}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.createTree({owner, repo, tree, tree[].path, tree[].mode, tree[].type, tree[].sha, tree[].content, base_tree}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6122,11 +5622,6 @@
       {
         "title": "Promise",
         "content": "octokit.gitdata.deleteReference({owner, repo, ref}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.deleteReference({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6178,11 +5673,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.getBlob({owner, repo, file_sha}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getBlob({owner, repo, file_sha}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6233,11 +5723,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.getCommit({owner, repo, commit_sha}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getCommit({owner, repo, commit_sha}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6287,11 +5772,6 @@
       {
         "title": "Promise",
         "content": "octokit.gitdata.getReference({owner, repo, ref}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getReference({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6359,11 +5839,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getReferences({owner, repo, namespace, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6413,11 +5888,6 @@
       {
         "title": "Promise",
         "content": "octokit.gitdata.getTag({owner, repo, tag_sha}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getTag({owner, repo, tag_sha}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6478,11 +5948,6 @@
       {
         "title": "Promise",
         "content": "octokit.gitdata.getTree({owner, repo, tree_sha, recursive}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.getTree({owner, repo, tree_sha, recursive}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6549,11 +6014,6 @@
         "title": "Promise",
         "content": "octokit.gitdata.updateReference({owner, repo, ref, sha, force}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.gitdata.updateReference({owner, repo, ref, sha, force}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6610,11 +6070,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.addAssigneesToIssue({owner, repo, number, assignees}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6673,11 +6128,6 @@
         "title": "Promise",
         "content": "octokit.issues.addLabels({owner, repo, number, labels}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.addLabels({owner, repo, number, labels}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6727,11 +6177,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.checkAssignee({owner, repo, assignee}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.checkAssignee({owner, repo, assignee}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6818,11 +6263,6 @@
         "title": "Promise",
         "content": "octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.create({owner, repo, title, body, assignee, milestone, labels, assignees}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -6879,11 +6319,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.createComment({owner, repo, number, body}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.createComment({owner, repo, number, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -6948,11 +6383,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.createLabel({owner, repo, name, color, description}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.createLabel({owner, repo, name, color, description}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7030,11 +6460,6 @@
         "title": "Promise",
         "content": "octokit.issues.createMilestone({owner, repo, title, state, description, due_on}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.createMilestone({owner, repo, title, state, description, due_on}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7084,11 +6509,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.deleteComment({owner, repo, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.deleteComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7140,11 +6560,6 @@
         "title": "Promise",
         "content": "octokit.issues.deleteLabel({owner, repo, name}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.deleteLabel({owner, repo, name}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7194,11 +6609,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.deleteMilestone({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.deleteMilestone({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7303,11 +6713,6 @@
         "title": "Promise",
         "content": "octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.edit({owner, repo, number, title, body, assignee, state, milestone, labels, assignees}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7365,11 +6770,6 @@
         "title": "Promise",
         "content": "octokit.issues.editComment({owner, repo, comment_id, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.editComment({owner, repo, comment_id, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7419,11 +6819,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.get({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.get({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7537,11 +6932,6 @@
         "title": "Promise",
         "content": "octokit.issues.getAll({filter, state, labels, sort, direction, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getAll({filter, state, labels, sort, direction, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7600,11 +6990,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getAssignees({owner, repo, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getAssignees({owner, repo, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7671,11 +7056,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getComment({owner, repo, comment_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getComment({owner, repo, comment_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7750,11 +7130,6 @@
         "title": "Promise",
         "content": "octokit.issues.getComments({owner, repo, number, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getComments({owner, repo, number, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7828,11 +7203,6 @@
         "title": "Promise",
         "content": "octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getCommentsForRepo({owner, repo, sort, direction, since}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -7882,11 +7252,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getEvent({owner, repo, event_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getEvent({owner, repo, event_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -7954,11 +7319,6 @@
         "title": "Promise",
         "content": "octokit.issues.getEvents({owner, repo, number, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getEvents({owner, repo, number, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -8017,11 +7377,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getEventsForRepo({owner, repo, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getEventsForRepo({owner, repo, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8088,11 +7443,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getEventsTimeline({owner, repo, number, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getEventsTimeline({owner, repo, number, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8212,11 +7562,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getForOrg({org, filter, state, labels, sort, direction, since, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8357,11 +7702,6 @@
         "title": "Promise",
         "content": "octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, mentioned, labels, sort, direction, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getForRepo({owner, repo, milestone, state, assignee, creator, mentioned, labels, sort, direction, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -8474,11 +7814,6 @@
         "title": "Promise",
         "content": "octokit.issues.getForUser({filter, state, labels, sort, direction, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getForUser({filter, state, labels, sort, direction, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -8545,11 +7880,6 @@
         "title": "Promise",
         "content": "octokit.issues.getIssueLabels({owner, repo, number, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getIssueLabels({owner, repo, number, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -8599,11 +7929,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getLabel({owner, repo, name}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getLabel({owner, repo, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8664,11 +7989,6 @@
         "title": "Promise",
         "content": "octokit.issues.getLabels({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getLabels({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -8718,11 +8038,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getMilestone({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getMilestone({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8789,11 +8104,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.getMilestoneLabels({owner, repo, number, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getMilestoneLabels({owner, repo, number, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -8891,11 +8201,6 @@
         "title": "Promise",
         "content": "octokit.issues.getMilestones({owner, repo, state, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.getMilestones({owner, repo, state, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -8960,11 +8265,6 @@
         "title": "Promise",
         "content": "octokit.issues.lock({owner, repo, number, lock_reason}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.lock({owner, repo, number, lock_reason}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9014,11 +8314,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.removeAllLabels({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.removeAllLabels({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9077,11 +8372,6 @@
         "title": "Promise",
         "content": "octokit.issues.removeAssigneesFromIssue({owner, repo, number, assignees}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.removeAssigneesFromIssue({owner, repo, number, assignees}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9139,11 +8429,6 @@
         "title": "Promise",
         "content": "octokit.issues.removeLabel({owner, repo, number, name}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.removeLabel({owner, repo, number, name}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9194,11 +8479,6 @@
         "title": "Promise",
         "content": "octokit.issues.replaceAllLabels({owner, repo, number}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.replaceAllLabels({owner, repo, number}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9248,11 +8528,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.unlock({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.unlock({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9324,11 +8599,6 @@
       {
         "title": "Promise",
         "content": "octokit.issues.updateLabel({owner, repo, current_name, name, color, description}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.updateLabel({owner, repo, current_name, name, color, description}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9413,11 +8683,6 @@
         "title": "Promise",
         "content": "octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.issues.updateMilestone({owner, repo, number, title, state, description, due_on}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9440,11 +8705,6 @@
       {
         "title": "Promise",
         "content": "octokit.meta.get({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.meta.get({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9489,11 +8749,6 @@
         "title": "Promise",
         "content": "octokit.migrations.cancelImport({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.cancelImport({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9529,11 +8784,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.deleteArchiveForAuthenticatedUser({migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9578,11 +8828,6 @@
         "title": "Promise",
         "content": "octokit.migrations.deleteMigrationArchive({org, migration_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.deleteMigrationArchive({org, migration_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9618,11 +8863,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.getArchiveForAuthenticatedUser({migration_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getArchiveForAuthenticatedUser({migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9674,11 +8914,6 @@
         "title": "Promise",
         "content": "octokit.migrations.getImportCommitAuthors({owner, repo, since}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getImportCommitAuthors({owner, repo, since}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9721,11 +8956,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.getImportProgress({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getImportProgress({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9770,11 +9000,6 @@
         "title": "Promise",
         "content": "octokit.migrations.getLargeImportFiles({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getLargeImportFiles({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9818,11 +9043,6 @@
         "title": "Promise",
         "content": "octokit.migrations.getMigrationArchiveLink({org, migration_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getMigrationArchiveLink({org, migration_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9865,11 +9085,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.getMigrationStatus({org, migration_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getMigrationStatus({org, migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -9923,11 +9138,6 @@
         "title": "Promise",
         "content": "octokit.migrations.getMigrations({org, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getMigrations({org, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -9963,11 +9173,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.getStatusForAuthenticatedUser({migration_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.getStatusForAuthenticatedUser({migration_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10013,11 +9218,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.listForAuthenticatedUser({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.listForAuthenticatedUser({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10083,11 +9283,6 @@
         "title": "Promise",
         "content": "octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.mapImportCommitAuthor({owner, repo, author_id, email, name}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10142,11 +9337,6 @@
         "title": "Promise",
         "content": "octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.setImportLfsPreference({owner, repo, use_lfs}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10198,11 +9388,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.startForAuthenticatedUser({repositories, lock_repositories, exclude_attachments}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10288,11 +9473,6 @@
         "title": "Promise",
         "content": "octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.startImport({owner, repo, vcs_url, vcs, vcs_username, vcs_password, tfvc_project}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10352,11 +9532,6 @@
         "title": "Promise",
         "content": "octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.startMigration({org, repositories, lock_repositories, exclude_attachments}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10399,11 +9574,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.unlockRepoForAuthenticatedUser({migration_id, repo_name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10454,11 +9624,6 @@
       {
         "title": "Promise",
         "content": "octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.unlockRepoLockedForMigration({org, migration_id, repo_name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10517,11 +9682,6 @@
         "title": "Promise",
         "content": "octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.migrations.updateImport({owner, repo, vcs_username, vcs_password}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10558,11 +9718,6 @@
         "title": "Promise",
         "content": "octokit.misc.getCodeOfConduct({key}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getCodeOfConduct({key}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10585,11 +9740,6 @@
       {
         "title": "Promise",
         "content": "octokit.misc.getCodesOfConduct({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getCodesOfConduct({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10627,11 +9777,6 @@
         "title": "Promise",
         "content": "octokit.misc.getGitignoreTemplate({name}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getGitignoreTemplate({name}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10654,11 +9799,6 @@
       {
         "title": "Promise",
         "content": "octokit.misc.getGitignoreTemplates({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getGitignoreTemplates({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10696,11 +9836,6 @@
         "title": "Promise",
         "content": "octokit.misc.getLicense({license}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getLicense({license}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10724,11 +9859,6 @@
         "title": "Promise",
         "content": "octokit.misc.getLicenses({}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getLicenses({}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10751,11 +9881,6 @@
       {
         "title": "Promise",
         "content": "octokit.misc.getRateLimit({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getRateLimit({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10800,11 +9925,6 @@
         "title": "Promise",
         "content": "octokit.misc.getRepoCodeOfConduct({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getRepoCodeOfConduct({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10847,11 +9967,6 @@
       {
         "title": "Promise",
         "content": "octokit.misc.getRepoLicense({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.getRepoLicense({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -10908,11 +10023,6 @@
         "title": "Promise",
         "content": "octokit.misc.renderMarkdown({text, mode, context}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.renderMarkdown({text, mode, context}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -10948,11 +10058,6 @@
       {
         "title": "Promise",
         "content": "octokit.misc.renderMarkdownRaw({data}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.misc.renderMarkdownRaw({data}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11009,11 +10114,6 @@
         "title": "Promise",
         "content": "octokit.orgs.addOrgMembership({org, username, role}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.addOrgMembership({org, username, role}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11068,11 +10168,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.addTeamMembership({team_id, username, role}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.addTeamMembership({team_id, username, role}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11136,11 +10231,6 @@
         "title": "Promise",
         "content": "octokit.orgs.addTeamRepo({team_id, owner, repo, permission}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.addTeamRepo({team_id, owner, repo, permission}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11183,11 +10273,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.blockUser({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.blockUser({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11232,11 +10317,6 @@
         "title": "Promise",
         "content": "octokit.orgs.checkBlockedUser({org, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.checkBlockedUser({org, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11280,11 +10360,6 @@
         "title": "Promise",
         "content": "octokit.orgs.checkMembership({org, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.checkMembership({org, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11327,11 +10402,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.checkPublicMembership({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.checkPublicMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11383,11 +10453,6 @@
         "title": "Promise",
         "content": "octokit.orgs.checkTeamRepo({team_id, owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.checkTeamRepo({team_id, owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11431,11 +10496,6 @@
         "title": "Promise",
         "content": "octokit.orgs.concealMembership({org, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.concealMembership({org, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11478,11 +10538,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.convertMemberToOutsideCollaborator({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.convertMemberToOutsideCollaborator({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11578,11 +10633,6 @@
         "title": "Promise",
         "content": "octokit.orgs.createHook({org, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.createHook({org, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11652,11 +10702,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.createInvitation({org, invitee_id, email, role, team_ids}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11754,11 +10799,6 @@
         "title": "Promise",
         "content": "octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, permission, parent_team_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.createTeam({org, name, description, maintainers, repo_names, privacy, permission, parent_team_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11802,11 +10842,6 @@
         "title": "Promise",
         "content": "octokit.orgs.deleteHook({org, hook_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.deleteHook({org, hook_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -11842,11 +10877,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.deleteTeam({team_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.deleteTeam({team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11897,11 +10927,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.deleteTeamRepo({team_id, owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.deleteTeamRepo({team_id, owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -11997,11 +11022,6 @@
         "title": "Promise",
         "content": "octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.editHook({org, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12079,11 +11099,6 @@
         "title": "Promise",
         "content": "octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.editTeam({team_id, name, description, privacy, permission, parent_team_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12119,11 +11134,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.get({org}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.get({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12177,11 +11187,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getAll({since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getAll({since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12217,11 +11222,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getBlockedUsers({org}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getBlockedUsers({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12275,11 +11275,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getChildTeams({team_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getChildTeams({team_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12332,11 +11327,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getForUser({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getForUser({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12379,11 +11369,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getHook({org, hook_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getHook({org, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12436,11 +11421,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getHooks({org, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getHooks({org, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12500,11 +11480,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getInvitationTeams({org, invitation_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12583,11 +11558,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getMembers({org, filter, role, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getMembers({org, filter, role, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12630,11 +11600,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getOrgMembership({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getOrgMembership({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12700,11 +11665,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getOutsideCollaborators({org, filter, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getOutsideCollaborators({org, filter, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12756,11 +11716,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getPendingOrgInvites({org, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getPendingOrgInvites({org, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12814,11 +11769,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getPendingTeamInvites({team_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getPendingTeamInvites({team_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12871,11 +11821,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getPublicMembers({org, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getPublicMembers({org, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -12911,11 +11856,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getTeam({team_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getTeam({team_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -12982,11 +11922,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getTeamMembers({team_id, role, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getTeamMembers({team_id, role, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13029,11 +11964,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.getTeamMembership({team_id, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getTeamMembership({team_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13087,11 +12017,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getTeamRepos({team_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getTeamRepos({team_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13144,11 +12069,6 @@
         "title": "Promise",
         "content": "octokit.orgs.getTeams({org, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.getTeams({org, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13191,11 +12111,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.pingHook({org, hook_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.pingHook({org, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13240,11 +12155,6 @@
         "title": "Promise",
         "content": "octokit.orgs.publicizeMembership({org, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.publicizeMembership({org, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13287,11 +12197,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.removeMember({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.removeMember({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13336,11 +12241,6 @@
         "title": "Promise",
         "content": "octokit.orgs.removeOrgMembership({org, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.removeOrgMembership({org, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13383,11 +12283,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.removeOutsideCollaborator({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.removeOutsideCollaborator({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13432,11 +12327,6 @@
         "title": "Promise",
         "content": "octokit.orgs.removeTeamMembership({team_id, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.removeTeamMembership({team_id, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13479,11 +12369,6 @@
       {
         "title": "Promise",
         "content": "octokit.orgs.unblockUser({org, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.unblockUser({org, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13599,11 +12484,6 @@
         "title": "Promise",
         "content": "octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13659,11 +12539,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.addCollaborator({project_id, username, permission}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.addCollaborator({project_id, username, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13731,11 +12606,6 @@
         "title": "Promise",
         "content": "octokit.projects.createOrgProject({org, name, body, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.createOrgProject({org, name, body, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13793,11 +12663,6 @@
         "title": "Promise",
         "content": "octokit.projects.createProjectCard({column_id, note, content_id, content_type}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.createProjectCard({column_id, note, content_id, content_type}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13840,11 +12705,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.createProjectColumn({project_id, name}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.createProjectColumn({project_id, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -13919,11 +12779,6 @@
         "title": "Promise",
         "content": "octokit.projects.createRepoProject({owner, repo, name, body, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.createRepoProject({owner, repo, name, body, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -13959,11 +12814,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.deleteProject({project_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.deleteProject({project_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14001,11 +12851,6 @@
         "title": "Promise",
         "content": "octokit.projects.deleteProjectCard({card_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.deleteProjectCard({card_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14041,11 +12886,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.deleteProjectColumn({column_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.deleteProjectColumn({column_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14112,11 +12952,6 @@
         "title": "Promise",
         "content": "octokit.projects.getCollaborators({project_id, affiliation, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getCollaborators({project_id, affiliation, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14182,11 +13017,6 @@
         "title": "Promise",
         "content": "octokit.projects.getOrgProjects({org, state, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getOrgProjects({org, state, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14239,11 +13069,6 @@
         "title": "Promise",
         "content": "octokit.projects.getProject({project_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getProject({project_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14279,11 +13104,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.getProjectCard({card_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getProjectCard({card_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14350,11 +13170,6 @@
         "title": "Promise",
         "content": "octokit.projects.getProjectCards({column_id, archived_state, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getProjectCards({column_id, archived_state, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14390,11 +13205,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.getProjectColumn({column_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getProjectColumn({column_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14447,11 +13257,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.getProjectColumns({project_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getProjectColumns({project_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14525,11 +13330,6 @@
         "title": "Promise",
         "content": "octokit.projects.getRepoProjects({owner, repo, state, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getRepoProjects({owner, repo, state, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14572,11 +13372,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.getUserPermissionLevel({project_id, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.getUserPermissionLevel({project_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14628,11 +13423,6 @@
         "title": "Promise",
         "content": "octokit.projects.moveProjectCard({card_id, position, column_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.moveProjectCard({card_id, position, column_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14676,11 +13466,6 @@
         "title": "Promise",
         "content": "octokit.projects.moveProjectColumn({column_id, position}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.moveProjectColumn({column_id, position}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14723,11 +13508,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.removeCollaborator({project_id, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.removeCollaborator({project_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14820,11 +13600,6 @@
         "title": "Promise",
         "content": "octokit.projects.updateProject({project_id, name, body, state, organization_permission, public, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.updateProject({project_id, name, body, state, organization_permission, public, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14875,11 +13650,6 @@
         "title": "Promise",
         "content": "octokit.projects.updateProjectCard({card_id, note, archived}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.updateProjectCard({card_id, note, archived}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -14922,11 +13692,6 @@
       {
         "title": "Promise",
         "content": "octokit.projects.updateProjectColumn({column_id, name}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.projects.updateProjectColumn({column_id, name}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -14977,11 +13742,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.checkMerged({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.checkMerged({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15061,11 +13821,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.create({owner, repo, title, head, base, body, maintainer_can_modify}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.create({owner, repo, title, head, base, body, maintainer_can_modify}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15144,11 +13899,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.createComment({owner, repo, number, body, commit_id, path, position}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15212,11 +13962,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.createCommentReply({owner, repo, number, body, in_reply_to}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15288,11 +14033,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.createFromIssue({owner, repo, issue, head, base, maintainer_can_modify}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15398,11 +14138,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15467,11 +14202,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.createReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15521,11 +14251,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.deleteComment({owner, repo, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.deleteComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15583,11 +14308,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.deletePendingReview({owner, repo, number, review_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15653,11 +14373,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.deleteReviewRequest({owner, repo, number, reviewers, team_reviewers}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15722,11 +14437,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.dismissReview({owner, repo, number, review_id, message}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15784,11 +14494,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.editComment({owner, repo, comment_id, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.editComment({owner, repo, comment_id, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -15838,11 +14543,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.get({owner, repo, number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.get({owner, repo, number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -15956,11 +14656,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getAll({owner, repo, state, head, base, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16010,11 +14705,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.getComment({owner, repo, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16112,11 +14802,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.getComments({owner, repo, number, sort, direction, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getComments({owner, repo, number, sort, direction, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16206,11 +14891,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getCommentsForRepo({owner, repo, sort, direction, since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16276,11 +14956,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.getCommits({owner, repo, number, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getCommits({owner, repo, number, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16348,11 +15023,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.getFiles({owner, repo, number, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getFiles({owner, repo, number, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16409,11 +15079,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.getReview({owner, repo, number, review_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getReview({owner, repo, number, review_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16488,11 +15153,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getReviewComments({owner, repo, number, review_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16559,11 +15219,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.getReviewRequests({owner, repo, number, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getReviewRequests({owner, repo, number, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16629,11 +15284,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.getReviews({owner, repo, number, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.getReviews({owner, repo, number, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16718,11 +15368,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.merge({owner, repo, number, commit_title, commit_message, sha, merge_method}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16798,11 +15443,6 @@
       {
         "title": "Promise",
         "content": "octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.submitReview({owner, repo, number, review_id, body, event}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -16893,11 +15533,6 @@
         "title": "Promise",
         "content": "octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.pullRequests.update({owner, repo, number, title, body, state, base, maintainer_can_modify}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -16962,11 +15597,6 @@
       {
         "title": "Promise",
         "content": "octokit.reactions.createForCommitComment({owner, repo, comment_id, content}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.createForCommitComment({owner, repo, comment_id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17033,11 +15663,6 @@
         "title": "Promise",
         "content": "octokit.reactions.createForIssue({owner, repo, number, content}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.createForIssue({owner, repo, number, content}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17102,11 +15727,6 @@
       {
         "title": "Promise",
         "content": "octokit.reactions.createForIssueComment({owner, repo, comment_id, content}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.createForIssueComment({owner, repo, comment_id, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17173,11 +15793,6 @@
         "title": "Promise",
         "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.createForPullRequestReviewComment({owner, repo, comment_id, content}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17235,11 +15850,6 @@
       {
         "title": "Promise",
         "content": "octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.createForTeamDiscussion({team_id, discussion_number, content}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17306,11 +15916,6 @@
         "title": "Promise",
         "content": "octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.createForTeamDiscussionComment({team_id, discussion_number, comment_number, content}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17346,11 +15951,6 @@
       {
         "title": "Promise",
         "content": "octokit.reactions.delete({reaction_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.delete({reaction_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17433,11 +16033,6 @@
         "title": "Promise",
         "content": "octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.getForCommitComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17518,11 +16113,6 @@
       {
         "title": "Promise",
         "content": "octokit.reactions.getForIssue({owner, repo, number, content, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.getForIssue({owner, repo, number, content, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17605,11 +16195,6 @@
         "title": "Promise",
         "content": "octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.getForIssueComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17691,11 +16276,6 @@
         "title": "Promise",
         "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.getForPullRequestReviewComment({owner, repo, comment_id, content, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17769,11 +16349,6 @@
       {
         "title": "Promise",
         "content": "octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.getForTeamDiscussion({team_id, discussion_number, content, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17856,11 +16431,6 @@
         "title": "Promise",
         "content": "octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.reactions.getForTeamDiscussionComment({team_id, discussion_number, comment_number, content, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -17923,11 +16493,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.addCollaborator({owner, repo, username, permission}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addCollaborator({owner, repo, username, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -17993,11 +16558,6 @@
         "title": "Promise",
         "content": "octokit.repos.addDeployKey({owner, repo, title, key, read_only}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addDeployKey({owner, repo, title, key, read_only}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -18048,11 +16608,6 @@
         "title": "Promise",
         "content": "octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -18102,11 +16657,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18165,11 +16715,6 @@
         "title": "Promise",
         "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -18226,11 +16771,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18289,11 +16829,6 @@
         "title": "Promise",
         "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.addProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -18343,11 +16878,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.checkCollaborator({owner, repo, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.checkCollaborator({owner, repo, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18405,11 +16935,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.compareCommits({owner, repo, base, head}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.compareCommits({owner, repo, base, head}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18546,11 +17071,6 @@
         "title": "Promise",
         "content": "octokit.repos.create({name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.create({name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -18628,11 +17148,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.createCommitComment({owner, repo, sha, body, path, position, line}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createCommitComment({owner, repo, sha, body, path, position, line}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18744,11 +17259,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createDeployment({owner, repo, ref, task, auto_merge, required_contexts, payload, environment, description, transient_environment, production_environment}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18863,11 +17373,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createDeploymentStatus({owner, repo, deployment_id, state, target_url, log_url, description, environment, environment_url, auto_inactive}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -18984,11 +17489,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createFile({owner, repo, path, message, content, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19132,11 +17632,6 @@
         "title": "Promise",
         "content": "octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createForOrg({org, name, description, homepage, private, has_issues, has_projects, has_wiki, team_id, auto_init, gitignore_template, license_template, allow_squash_merge, allow_merge_commit, allow_rebase_merge}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19238,11 +17733,6 @@
         "title": "Promise",
         "content": "octokit.repos.createHook({owner, repo, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createHook({owner, repo, name, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, active}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19331,11 +17821,6 @@
         "title": "Promise",
         "content": "octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createRelease({owner, repo, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19421,11 +17906,6 @@
         "title": "Promise",
         "content": "octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.createStatus({owner, repo, sha, state, target_url, description, context}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19468,11 +17948,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.delete({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.delete({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19524,11 +17999,6 @@
         "title": "Promise",
         "content": "octokit.repos.deleteAsset({owner, repo, asset_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteAsset({owner, repo, asset_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19578,11 +18048,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.deleteCommitComment({owner, repo, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteCommitComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19634,11 +18099,6 @@
         "title": "Promise",
         "content": "octokit.repos.deleteDeployKey({owner, repo, key_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteDeployKey({owner, repo, key_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19688,11 +18148,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.deleteDownload({owner, repo, download_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteDownload({owner, repo, download_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19780,11 +18235,6 @@
         "title": "Promise",
         "content": "octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteFile({owner, repo, path, message, sha, branch, committer, author}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19834,11 +18284,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.deleteHook({owner, repo, hook_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -19890,11 +18335,6 @@
         "title": "Promise",
         "content": "octokit.repos.deleteInvite({owner, repo, invitation_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteInvite({owner, repo, invitation_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -19944,11 +18384,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.deleteRelease({owner, repo, release_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.deleteRelease({owner, repo, release_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20085,11 +18520,6 @@
         "title": "Promise",
         "content": "octokit.repos.edit({owner, repo, name, description, homepage, private, has_issues, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, archived}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.edit({owner, repo, name, description, homepage, private, has_issues, has_projects, has_wiki, default_branch, allow_squash_merge, allow_merge_commit, allow_rebase_merge, archived}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20153,11 +18583,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.editAsset({owner, repo, asset_id, name, label}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.editAsset({owner, repo, asset_id, name, label}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20274,11 +18699,6 @@
         "title": "Promise",
         "content": "octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.editHook({owner, repo, hook_id, config, config.url, config.content_type, config.secret, config.insecure_ssl, events, add_events, remove_events, active}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20372,11 +18792,6 @@
         "title": "Promise",
         "content": "octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.editRelease({owner, repo, release_id, tag_name, target_commitish, name, body, draft, prerelease}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20427,11 +18842,6 @@
         "title": "Promise",
         "content": "octokit.repos.fork({owner, repo, organization}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.fork({owner, repo, organization}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20474,11 +18884,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.get({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.get({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20592,11 +18997,6 @@
         "title": "Promise",
         "content": "octokit.repos.getAll({visibility, affiliation, type, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getAll({visibility, affiliation, type, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20655,11 +19055,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getAllCommitComments({owner, repo, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getAllCommitComments({owner, repo, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20724,11 +19119,6 @@
         "title": "Promise",
         "content": "octokit.repos.getArchiveLink({owner, repo, archive_format, ref}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getArchiveLink({owner, repo, archive_format, ref}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20778,11 +19168,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getAsset({owner, repo, asset_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getAsset({owner, repo, asset_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -20850,11 +19235,6 @@
         "title": "Promise",
         "content": "octokit.repos.getAssets({owner, repo, release_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getAssets({owner, repo, release_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20905,11 +19285,6 @@
         "title": "Promise",
         "content": "octokit.repos.getBranch({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getBranch({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -20959,11 +19334,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getBranchProtection({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getBranchProtection({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21031,11 +19401,6 @@
         "title": "Promise",
         "content": "octokit.repos.getBranches({owner, repo, protected, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getBranches({owner, repo, protected, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -21090,11 +19455,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getClones({owner, repo, per}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getClones({owner, repo, per}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21168,11 +19528,6 @@
         "title": "Promise",
         "content": "octokit.repos.getCollaborators({owner, repo, affiliation, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCollaborators({owner, repo, affiliation, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -21222,11 +19577,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getCombinedStatusForRef({owner, repo, ref}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCombinedStatusForRef({owner, repo, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21278,11 +19628,6 @@
         "title": "Promise",
         "content": "octokit.repos.getCommit({owner, repo, sha}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCommit({owner, repo, sha}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -21332,11 +19677,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getCommitComment({owner, repo, comment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCommitComment({owner, repo, comment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21403,11 +19743,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getCommitComments({owner, repo, ref, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCommitComments({owner, repo, ref, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21504,11 +19839,6 @@
         "title": "Promise",
         "content": "octokit.repos.getCommits({owner, repo, sha, path, author, since, until, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCommits({owner, repo, sha, path, author, since, until, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -21551,11 +19881,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getCommunityProfileMetrics({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getCommunityProfileMetrics({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21614,11 +19939,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getContent({owner, repo, path, ref}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getContent({owner, repo, path, ref}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21686,11 +20006,6 @@
         "title": "Promise",
         "content": "octokit.repos.getContributors({owner, repo, anon, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getContributors({owner, repo, anon, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -21740,11 +20055,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getDeployKey({owner, repo, key_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDeployKey({owner, repo, key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21805,11 +20115,6 @@
         "title": "Promise",
         "content": "octokit.repos.getDeployKeys({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDeployKeys({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -21859,11 +20164,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getDeployment({owner, repo, deployment_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDeployment({owner, repo, deployment_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21921,11 +20221,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDeploymentStatus({owner, repo, deployment_id, status_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -21992,11 +20287,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDeploymentStatuses({owner, repo, deployment_id, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22089,11 +20379,6 @@
         "title": "Promise",
         "content": "octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDeployments({owner, repo, sha, ref, task, environment, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22143,11 +20428,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getDownload({owner, repo, download_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDownload({owner, repo, download_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22207,11 +20487,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getDownloads({owner, repo, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getDownloads({owner, repo, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22280,11 +20555,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getForOrg({org, type, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getForOrg({org, type, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22377,11 +20647,6 @@
         "title": "Promise",
         "content": "octokit.repos.getForUser({username, type, sort, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getForUser({username, type, sort, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22454,11 +20719,6 @@
         "title": "Promise",
         "content": "octokit.repos.getForks({owner, repo, sort, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getForks({owner, repo, sort, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22508,11 +20768,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getHook({owner, repo, hook_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22573,11 +20828,6 @@
         "title": "Promise",
         "content": "octokit.repos.getHooks({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getHooks({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22637,11 +20887,6 @@
         "title": "Promise",
         "content": "octokit.repos.getInvites({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getInvites({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22684,11 +20929,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getLanguages({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getLanguages({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22733,11 +20973,6 @@
         "title": "Promise",
         "content": "octokit.repos.getLatestPagesBuild({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getLatestPagesBuild({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22781,11 +21016,6 @@
         "title": "Promise",
         "content": "octokit.repos.getLatestRelease({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getLatestRelease({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22828,11 +21058,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getPages({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getPages({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22883,11 +21108,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getPagesBuild({owner, repo, build_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getPagesBuild({owner, repo, build_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -22948,11 +21168,6 @@
         "title": "Promise",
         "content": "octokit.repos.getPagesBuilds({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getPagesBuilds({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -22995,11 +21210,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getPaths({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getPaths({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23051,11 +21261,6 @@
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23105,11 +21310,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23161,11 +21361,6 @@
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23215,11 +21410,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23271,11 +21461,6 @@
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchRequiredStatusChecksContexts({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23325,11 +21510,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchRestrictions({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23397,11 +21577,6 @@
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchTeamRestrictions({owner, repo, branch, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23451,11 +21626,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getProtectedBranchUserRestrictions({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23509,11 +21679,6 @@
         "title": "Promise",
         "content": "octokit.repos.getPublic({since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getPublic({since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23565,11 +21730,6 @@
         "title": "Promise",
         "content": "octokit.repos.getReadme({owner, repo, ref}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getReadme({owner, repo, ref}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23612,11 +21772,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getReferrers({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getReferrers({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23668,11 +21823,6 @@
         "title": "Promise",
         "content": "octokit.repos.getRelease({owner, repo, release_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getRelease({owner, repo, release_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23722,11 +21872,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getReleaseByTag({owner, repo, tag}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getReleaseByTag({owner, repo, tag}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23787,11 +21932,6 @@
         "title": "Promise",
         "content": "octokit.repos.getReleases({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getReleases({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23842,11 +21982,6 @@
         "title": "Promise",
         "content": "octokit.repos.getShaOfCommitRef({owner, repo, ref}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getShaOfCommitRef({owner, repo, ref}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23889,11 +22024,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getStatsCodeFrequency({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getStatsCodeFrequency({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -23938,11 +22068,6 @@
         "title": "Promise",
         "content": "octokit.repos.getStatsCommitActivity({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getStatsCommitActivity({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -23985,11 +22110,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getStatsContributors({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getStatsContributors({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24034,11 +22154,6 @@
         "title": "Promise",
         "content": "octokit.repos.getStatsParticipation({owner, repo}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getStatsParticipation({owner, repo}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24081,11 +22196,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getStatsPunchCard({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getStatsPunchCard({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24153,11 +22263,6 @@
         "title": "Promise",
         "content": "octokit.repos.getStatuses({owner, repo, ref, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getStatuses({owner, repo, ref, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24216,11 +22321,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getTags({owner, repo, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getTags({owner, repo, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24281,11 +22381,6 @@
         "title": "Promise",
         "content": "octokit.repos.getTeams({owner, repo, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getTeams({owner, repo, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24328,11 +22423,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getTopics({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getTopics({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24388,11 +22478,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.getViews({owner, repo, per}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.getViews({owner, repo, per}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24458,11 +22543,6 @@
         "title": "Promise",
         "content": "octokit.repos.merge({owner, repo, base, head, commit_message}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.merge({owner, repo, base, head, commit_message}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24512,11 +22592,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.pingHook({owner, repo, hook_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.pingHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24568,11 +22643,6 @@
         "title": "Promise",
         "content": "octokit.repos.removeBranchProtection({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeBranchProtection({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24622,11 +22692,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.removeCollaborator({owner, repo, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeCollaborator({owner, repo, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24678,11 +22743,6 @@
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchAdminEnforcement({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24732,11 +22792,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchPullRequestReviewEnforcement({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24788,11 +22843,6 @@
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchRequiredSignatures({owner, repo, branch}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24842,11 +22892,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecks({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -24905,11 +22950,6 @@
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -24959,11 +22999,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchRestrictions({owner, repo, branch}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25022,11 +23057,6 @@
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25083,11 +23113,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.removeProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25146,11 +23171,6 @@
         "title": "Promise",
         "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.replaceProtectedBranchRequiredStatusChecksContexts({owner, repo, branch, contexts}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25207,11 +23227,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.replaceProtectedBranchTeamRestrictions({owner, repo, branch, teams}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25270,11 +23285,6 @@
         "title": "Promise",
         "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.replaceProtectedBranchUserRestrictions({owner, repo, branch, users}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25325,11 +23335,6 @@
         "title": "Promise",
         "content": "octokit.repos.replaceTopics({owner, repo, names}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.replaceTopics({owner, repo, names}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25372,11 +23377,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.requestPageBuild({owner, repo}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.requestPageBuild({owner, repo}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25428,11 +23428,6 @@
         "title": "Promise",
         "content": "octokit.repos.reviewUserPermissionLevel({owner, repo, username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.reviewUserPermissionLevel({owner, repo, username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25482,11 +23477,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.testHook({owner, repo, hook_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.testHook({owner, repo, hook_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25544,11 +23534,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.transfer({owner, repo, new_owner, team_ids}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.transfer({owner, repo, new_owner, team_ids}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25698,11 +23683,6 @@
         "title": "Promise",
         "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateBranchProtection({owner, repo, branch, required_status_checks, required_status_checks.strict, required_status_checks.contexts, enforce_admins, required_pull_request_reviews, required_pull_request_reviews.dismissal_restrictions, required_pull_request_reviews.dismissal_restrictions.users, required_pull_request_reviews.dismissal_restrictions.teams, required_pull_request_reviews.dismiss_stale_reviews, required_pull_request_reviews.require_code_owner_reviews, required_pull_request_reviews.required_approving_review_count, restrictions, restrictions.users, restrictions.teams}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25759,11 +23739,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.updateCommitComment({owner, repo, comment_id, body}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateCommitComment({owner, repo, comment_id, body}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -25888,11 +23863,6 @@
         "title": "Promise",
         "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateFile({owner, repo, path, message, content, sha, branch, committer, committer.name, committer.email, author, author.name, author.email}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -25955,11 +23925,6 @@
         "title": "Promise",
         "content": "octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateInformationAboutPagesSite({owner, repo, cname, source}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -26021,11 +23986,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.updateInvite({owner, repo, invitation_id, permissions}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateInvite({owner, repo, invitation_id, permissions}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26119,11 +24079,6 @@
         "title": "Promise",
         "content": "octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismissal_restrictions.users, dismissal_restrictions.teams, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismissal_restrictions.users, dismissal_restrictions.teams, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -26187,11 +24142,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.updateProtectedBranchRequiredStatusChecks({owner, repo, branch, strict, contexts}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26263,11 +24213,6 @@
       {
         "title": "Promise",
         "content": "octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.repos.uploadAsset({url, Content-Length, Content-Type, name, label, file}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26344,11 +24289,6 @@
         "title": "Promise",
         "content": "octokit.search.code({q, sort, order, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.code({q, sort, order, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -26424,11 +24364,6 @@
       {
         "title": "Promise",
         "content": "octokit.search.commits({q, sort, order, per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.commits({q, sort, order, per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26507,11 +24442,6 @@
         "title": "Promise",
         "content": "octokit.search.issues({q, sort, order, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.issues({q, sort, order, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -26578,11 +24508,6 @@
       {
         "title": "Promise",
         "content": "octokit.search.labels({repository_id, q, sort, order}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.labels({repository_id, q, sort, order}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26661,11 +24586,6 @@
         "title": "Promise",
         "content": "octokit.search.repos({q, sort, order, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.repos({q, sort, order, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -26701,11 +24621,6 @@
       {
         "title": "Promise",
         "content": "octokit.search.topics({q}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.topics({q}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26784,11 +24699,6 @@
         "title": "Promise",
         "content": "octokit.search.users({q, sort, order, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.search.users({q, sort, order, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -26831,11 +24741,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.addMember({team_id, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.addMember({team_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26891,11 +24796,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.addOrUpdateProject({team_id, project_id, permission}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.addOrUpdateProject({team_id, project_id, permission}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -26955,11 +24855,6 @@
         "title": "Promise",
         "content": "octokit.teams.createDiscussion({team_id, title, body, private}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.createDiscussion({team_id, title, body, private}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27010,11 +24905,6 @@
         "title": "Promise",
         "content": "octokit.teams.createDiscussionComment({team_id, discussion_number, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.createDiscussionComment({team_id, discussion_number, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27057,11 +24947,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.deleteDiscussion({team_id, discussion_number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.deleteDiscussion({team_id, discussion_number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27113,11 +24998,6 @@
         "title": "Promise",
         "content": "octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.deleteDiscussionComment({team_id, discussion_number, comment_number}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27160,11 +25040,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.getDiscussion({team_id, discussion_number}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.getDiscussion({team_id, discussion_number}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27216,11 +25091,6 @@
         "title": "Promise",
         "content": "octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.getDiscussionComment({team_id, discussion_number, comment_number}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27263,11 +25133,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.getMember({team_id, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.getMember({team_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27340,11 +25205,6 @@
         "title": "Promise",
         "content": "octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.listDiscussionComments({team_id, discussion_number, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27409,11 +25269,6 @@
         "title": "Promise",
         "content": "octokit.teams.listDiscussions({team_id, direction, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.listDiscussions({team_id, direction, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27466,11 +25321,6 @@
         "title": "Promise",
         "content": "octokit.teams.listProjects({team_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.listProjects({team_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27513,11 +25363,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.removeMember({team_id, username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.removeMember({team_id, username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27562,11 +25407,6 @@
         "title": "Promise",
         "content": "octokit.teams.removeProject({team_id, project_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.removeProject({team_id, project_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27609,11 +25449,6 @@
       {
         "title": "Promise",
         "content": "octokit.teams.reviewProject({team_id, project_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.reviewProject({team_id, project_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27672,11 +25507,6 @@
         "title": "Promise",
         "content": "octokit.teams.updateDiscussion({team_id, discussion_number, title, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.updateDiscussion({team_id, discussion_number, title, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27734,11 +25564,6 @@
         "title": "Promise",
         "content": "octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.teams.updateDiscussionComment({team_id, discussion_number, comment_number, body}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27774,11 +25599,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.acceptRepoInvite({invitation_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.acceptRepoInvite({invitation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27816,11 +25636,6 @@
         "title": "Promise",
         "content": "octokit.users.addEmails({emails}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.addEmails({emails}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27856,11 +25671,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.blockUser({username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.blockUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27898,11 +25708,6 @@
         "title": "Promise",
         "content": "octokit.users.checkBlockedUser({username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.checkBlockedUser({username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -27938,11 +25743,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.checkFollowing({username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.checkFollowing({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -27987,11 +25787,6 @@
         "title": "Promise",
         "content": "octokit.users.checkIfOneFollowersOther({username, target_user}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.checkIfOneFollowersOther({username, target_user}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28027,11 +25822,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.createGpgKey({armored_public_key}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.createGpgKey({armored_public_key}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28076,11 +25866,6 @@
         "title": "Promise",
         "content": "octokit.users.createKey({title, key}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.createKey({title, key}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28116,11 +25901,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.declineRepoInvite({invitation_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.declineRepoInvite({invitation_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28158,11 +25938,6 @@
         "title": "Promise",
         "content": "octokit.users.deleteEmails({emails}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.deleteEmails({emails}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28199,11 +25974,6 @@
         "title": "Promise",
         "content": "octokit.users.deleteGpgKey({gpg_key_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.deleteGpgKey({gpg_key_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28239,11 +26009,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.deleteKey({key_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.deleteKey({key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28291,11 +26056,6 @@
         "title": "Promise",
         "content": "octokit.users.editOrgMembership({org, state}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.editOrgMembership({org, state}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28332,11 +26092,6 @@
         "title": "Promise",
         "content": "octokit.users.followUser({username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.followUser({username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28359,11 +26114,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.get({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.get({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28417,11 +26167,6 @@
         "title": "Promise",
         "content": "octokit.users.getAll({since, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getAll({since, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28444,11 +26189,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getBlockedUsers({}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getBlockedUsers({}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28506,11 +26246,6 @@
         "title": "Promise",
         "content": "octokit.users.getContextForUser({username, subject_type, subject_id}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getContextForUser({username, subject_type, subject_id}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28556,11 +26291,6 @@
         "title": "Promise",
         "content": "octokit.users.getEmails({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getEmails({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28605,11 +26335,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getFollowers({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getFollowers({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28663,11 +26388,6 @@
         "title": "Promise",
         "content": "octokit.users.getFollowersForUser({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getFollowersForUser({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28712,11 +26432,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getFollowing({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getFollowing({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28770,11 +26485,6 @@
         "title": "Promise",
         "content": "octokit.users.getFollowingForUser({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getFollowingForUser({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28811,11 +26521,6 @@
         "title": "Promise",
         "content": "octokit.users.getForUser({username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getForUser({username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -28851,11 +26556,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getGpgKey({gpg_key_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getGpgKey({gpg_key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28901,11 +26601,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getGpgKeys({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getGpgKeys({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -28959,11 +26654,6 @@
         "title": "Promise",
         "content": "octokit.users.getGpgKeysForUser({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getGpgKeysForUser({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29016,11 +26706,6 @@
         "title": "Promise",
         "content": "octokit.users.getInstallationRepos({installation_id, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getInstallationRepos({installation_id, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29066,11 +26751,6 @@
         "title": "Promise",
         "content": "octokit.users.getInstallations({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getInstallations({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29106,11 +26786,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getKey({key_id}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getKey({key_id}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29156,11 +26831,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getKeys({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getKeys({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29214,11 +26884,6 @@
         "title": "Promise",
         "content": "octokit.users.getKeysForUser({username, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getKeysForUser({username, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29263,11 +26928,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getMarketplacePurchases({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getMarketplacePurchases({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29314,11 +26974,6 @@
         "title": "Promise",
         "content": "octokit.users.getMarketplaceStubbedPurchases({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getMarketplaceStubbedPurchases({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29354,11 +27009,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getOrgMembership({org}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getOrgMembership({org}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29416,11 +27066,6 @@
         "title": "Promise",
         "content": "octokit.users.getOrgMemberships({state, per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getOrgMemberships({state, per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29465,11 +27110,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getOrgs({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getOrgs({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29516,11 +27156,6 @@
         "title": "Promise",
         "content": "octokit.users.getPublicEmails({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getPublicEmails({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29565,11 +27200,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.getRepoInvites({per_page, page}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getRepoInvites({per_page, page}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29616,11 +27246,6 @@
         "title": "Promise",
         "content": "octokit.users.getTeams({per_page, page}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.getTeams({per_page, page}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29664,11 +27289,6 @@
         "title": "Promise",
         "content": "octokit.users.togglePrimaryEmailVisibility({email, visibility}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.togglePrimaryEmailVisibility({email, visibility}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29705,11 +27325,6 @@
         "title": "Promise",
         "content": "octokit.users.unblockUser({username}).then(result => {})",
         "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.unblockUser({username}, (error, result) => {})",
-        "type": "js"
       }
     ],
     "version": "0.0.0",
@@ -29745,11 +27360,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.unfollowUser({username}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.unfollowUser({username}, (error, result) => {})",
         "type": "js"
       }
     ],
@@ -29828,11 +27438,6 @@
       {
         "title": "Promise",
         "content": "octokit.users.update({name, email, blog, company, location, hireable, bio}).then(result => {})",
-        "type": "js"
-      },
-      {
-        "title": "Callback",
-        "content": "octokit.users.update({name, email, blog, company, location, hireable, bio}, (error, result) => {})",
         "type": "js"
       }
     ],
