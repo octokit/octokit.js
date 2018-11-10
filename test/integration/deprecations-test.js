@@ -164,7 +164,7 @@ describe('deprecations', () => {
       token: 'foo'
     })
 
-    return github.apps.getInstallations({})
+    return github.apps.listInstallations({})
 
       .then(() => {
         expect(console.warn.callCount).to.equal(1)
