@@ -141,7 +141,7 @@ describe('smoke', () => {
       },
       request: {
         agent: undefined,
-        timeout: 0
+        timeout: undefined
       }
     })
   })
