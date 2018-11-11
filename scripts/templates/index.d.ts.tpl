@@ -115,8 +115,7 @@ declare namespace Github {
     | AuthOAuthToken
     | AuthOAuthSecret
     | AuthUserToken
-    | AuthJWT
-    | DeprecatedAuthJWT;
+    | AuthJWT;
 
   export type Link =
     | { link: string; }
