@@ -139,10 +139,7 @@ describe('smoke', () => {
         accept: 'application/vnd.github.v3+json',
         'user-agent': `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       },
-      request: {
-        agent: undefined,
-        timeout: undefined
-      }
+      request: {}
     })
   })
 
