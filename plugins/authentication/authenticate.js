@@ -20,7 +20,6 @@ function authenticate (state, options) {
       break
 
     case 'token':
-    case 'integration':
     case 'app':
       if (!options.token) {
         throw new Error('Token authentication requires a token to be set')
@@ -28,7 +27,7 @@ function authenticate (state, options) {
       break
 
     default:
-      throw new Error("Invalid authentication type, must be 'basic', 'integration', or 'oauth'")
+      throw new Error("Invalid authentication type, must be 'basic', 'oauth', 'token' or 'app'")
   }
 
   state.auth = options
