@@ -210,8 +210,6 @@ for await (const response of github.paginate.iterator(options) {
 
 `github.paginate.iterator()` accepts the same options as `github.paginate()`.
 
-More [examples for pagination](https://github.com/octokit/rest.js/blob/master/examples/pagination.js).
-
 ## Hooks
 
 You can customize Octokit’s request lifecycle with hooks. Available methods are
