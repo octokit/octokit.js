@@ -96,7 +96,6 @@
     "pretest": "standard",
     "test": "nyc mocha test/mocha-node-setup.js \"test/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
-    "test:examples": "node test/examples.js",
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
     "build:docs": "node scripts/generate-api-docs",
@@ -131,7 +130,6 @@
   },
   "nyc": {
     "ignore": [
-      "examples",
       "test"
     ]
   },
