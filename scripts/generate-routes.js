@@ -4,7 +4,6 @@ const routes = require('@octokit/routes')
 
 const mapScopes = {
   git: 'gitdata',
-  integrations: 'apps',
   oauthAuthorizations: 'authorization',
   pulls: 'pullRequests'
 }
@@ -65,12 +64,6 @@ endpoints.forEach(endpoint => {
       }
       if (param.regex) {
         result[param.name].validation = param.regex
-      }
-      if (param.alias) {
-        result[param.name].alias = param.alias
-      }
-      if (param.deprecated) {
-        result[param.name].deprecated = param.deprecated
       }
       return result
     }, {}),

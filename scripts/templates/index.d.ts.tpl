@@ -99,13 +99,7 @@ declare namespace Github {
     token: string;
   }
 
-  /* @deprecated Use "app" instead of "integration" */
-  export interface DeprecatedAuthJWT {
-    type: "integration";
-    token: string;
-  }
-
-    export interface AuthJWT  {
+  export interface AuthJWT  {
     type: "app";
     token: string;
   }
