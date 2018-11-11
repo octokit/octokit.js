@@ -19,6 +19,12 @@ const typeMap = {
   'integer[]': 'number[]'
 }
 
+generateTypes(
+  'TypeScript',
+  'index.d.ts.tpl',
+  'index.d.ts'
+)
+
 function parameterize (definition) {
   if (definition === null) {
     return {}
