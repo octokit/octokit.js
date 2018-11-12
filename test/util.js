@@ -5,7 +5,6 @@ module.exports = {
 }
 
 const fetch = require('node-fetch')
-const merge = require('lodash/merge')
 
 const GitHub = require('../')
 
@@ -28,7 +27,7 @@ function loadFixture (scenario) {
 }
 
 function fixtureToInstace ({ url }, options) {
-  return new GitHub(merge(options, {
+  return new GitHub(Object.assign(options || {}, {
     baseUrl: url
   }))
 }
