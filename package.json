@@ -36,7 +36,7 @@
     "node": ">=4"
   },
   "dependencies": {
-    "@octokit/request": "2.0.1",
+    "@octokit/request": "2.1.1",
     "before-after-hook": "^1.2.0",
     "btoa-lite": "^1.0.0",
     "lodash.get": "^4.4.2",
