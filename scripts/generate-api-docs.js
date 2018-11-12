@@ -3,7 +3,7 @@
 const { writeFileSync } = require('fs')
 const { join: pathJoin } = require('path')
 
-const upperFirst = require('lodash/upperFirst')
+const upperFirst = require('lodash.upperfirst')
 
 const ROUTES = require('./lib/get-routes')()
 const API_DOC_PATH = pathJoin(__dirname, '..', 'doc', 'apidoc.js')
