@@ -56,6 +56,12 @@ jobs:
         - npx bundlesize
         # test typescript definitions
         - npm run validate:ts
+    - node_js: lts/*
+      env: folder size
+      install: npm install --production
+      script:
+        - echo "node_modules is < 1mb"
+        - npx get-folder-size --folder=node_modules/ | grep "^0"
 
     # when updating @octokit/routes, run "generate-routes" script and push
     # new routes.json file to the pull request
