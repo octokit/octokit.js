@@ -32,9 +32,6 @@
     }
   ],
   "repository": "https://github.com/octokit/rest.js",
-  "engines": {
-    "node": ">=4"
-  },
   "dependencies": {
     "@octokit/request": "2.1.1",
     "before-after-hook": "^1.2.0",
