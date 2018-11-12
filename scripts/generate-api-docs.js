@@ -3,36 +3,30 @@
 const { writeFileSync } = require('fs')
 const { join: pathJoin } = require('path')
 
-const _ = require('lodash')
-const debug = require('debug')('octokit:rest')
+const upperFirst = require('lodash/upperFirst')
 
-const ROUTES = require('@octokit/routes')
-
-debug('Converting routes to functions')
+const ROUTES = require('./lib/get-routes')()
+const API_DOC_PATH = pathJoin(__dirname, '..', 'doc', 'apidoc.js')
 
 const apiDocs = Object.keys(ROUTES)
   .filter(namespaceName => namespaceName !== 'scim')
   .map(namespaceName => prepareNamespace(namespaceName))
   .join('\n\n\n')
 
-function normalize (methodName) {
-  return _.camelCase(methodName.replace(/^edit/, 'update'))
-}
-
 function prepareNamespace (namespaceName) {
   return [toSectionComment(namespaceName)]
     .concat(
       ROUTES[namespaceName]
         .filter(endpoint => !/legacy$/.test(endpoint.idName))
-        .map(endpoint => toApiComment(namespaceName, normalize(endpoint.idName), endpoint))
+        .map(endpoint => toApiComment(namespaceName, endpoint.idName, endpoint))
     ).join('\n\n\n')
 }
 
 function toSectionComment (namespaceName) {
   return `
 /**,
- * ${_.upperFirst(namespaceName)}
- * @namespace ${_.upperFirst(namespaceName)}
+ * ${upperFirst(namespaceName)}
+ * @namespace ${upperFirst(namespaceName)}
  */`
 }
 
@@ -56,7 +50,7 @@ function toApiComment (namespaceName, apiName, endpoint) {
     ` * @api {${method}} ${endpoint.path} ${apiName}`,
     ` * @apiName ${apiName}`,
     ` * @apiDescription ${descriptionWithLinkToV3Docs}`,
-    ` * @apiGroup ${_.upperFirst(namespaceName)}`,
+    ` * @apiGroup ${upperFirst(namespaceName)}`,
     ' *'
   ].concat(
     params.map(toApiParamComment)
@@ -113,7 +107,5 @@ function toApiParamComment (paramInfo) {
 //   return 0
 // }
 
-writeFileSync(
-  pathJoin(__dirname, '..', 'doc', 'apidoc.js'),
-  apiDocs.trim() + '\n'
-)
+writeFileSync(API_DOC_PATH, apiDocs.trim() + '\n')
+console.log(`${API_DOC_PATH} written.`)
