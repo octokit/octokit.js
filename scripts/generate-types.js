@@ -4,9 +4,9 @@ const { readFileSync, writeFileSync } = require('fs')
 const { join: pathJoin } = require('path')
 
 const Mustache = require('mustache')
-const upperFirst = require('lodash/upperFirst')
-const camelCase = require('lodash/camelCase')
-const set = require('lodash/set')
+const upperFirst = require('lodash.upperfirst')
+const camelCase = require('lodash.camelcase')
+const set = require('lodash.set')
 const TypeWriter = require('@gimenete/type-writer')
 const prettier = require('prettier')
 

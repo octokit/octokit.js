@@ -1,7 +1,7 @@
 module.exports = authenticationBeforeRequest
 
 const btoa = require('btoa-lite')
-const uniq = require('lodash/uniq')
+const uniq = require('lodash.uniq')
 
 function authenticationBeforeRequest (state, options) {
   if (!state.auth.type) {

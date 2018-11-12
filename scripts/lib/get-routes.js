@@ -1,7 +1,7 @@
 module.exports = getRoutes
 
 const ROUTES = require('@octokit/routes')
-const camelCase = require('lodash/camelCase')
+const camelCase = require('lodash.camelcase')
 
 /**
  * We use @octokit/routes directly to
