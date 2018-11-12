@@ -5,7 +5,7 @@ const { join: pathJoin } = require('path')
 
 const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
-const camelcase = require('lodash/camelCase')
+const camelCase = require('lodash/camelCase')
 const set = require('lodash/set')
 const TypeWriter = require('@gimenete/type-writer')
 const prettier = require('prettier')
@@ -16,12 +16,6 @@ const typeMap = {
   integer: 'number',
   'integer[]': 'number[]'
 }
-
-generateTypes(
-  'TypeScript',
-  'index.d.ts.tpl',
-  'index.d.ts'
-)
 
 function parameterize (definition) {
   if (definition === null) {
@@ -49,7 +43,7 @@ function parameterize (definition) {
 }
 
 function pascalcase (string) {
-  return upperFirst(camelcase(string))
+  return upperFirst(camelCase(string))
 }
 
 function isGlobalParam (name) {
@@ -83,6 +77,12 @@ function jsdoc (description) {
 function normalize (methodName) {
   return camelCase(methodName.replace(/^edit/, 'update'))
 }
+
+generateTypes(
+  'TypeScript',
+  'index.d.ts.tpl',
+  'index.d.ts'
+)
 
 function generateTypes (languageName, templateFile, outputFile) {
   const templatePath = pathJoin(__dirname, 'templates', templateFile)
@@ -158,7 +158,7 @@ function generateTypes (languageName, templateFile, outputFile) {
       }, [])
 
       return namespaces.concat({
-        namespace: camelcase(namespace),
+        namespace: camelCase(namespace),
         methods
       })
     }, [])
