@@ -3,8 +3,6 @@ module.exports = generateTypes
 const { readFileSync, writeFileSync } = require('fs')
 const { join: pathJoin } = require('path')
 
-const _ = require('lodash')
-const debug = require('debug')('octokit:rest')
 const Mustache = require('mustache')
 const upperFirst = require('lodash/upperFirst')
 const camelcase = require('lodash/camelCase')
@@ -12,7 +10,7 @@ const set = require('lodash/set')
 const TypeWriter = require('@gimenete/type-writer')
 const prettier = require('prettier')
 
-const ROUTES = require('@octokit/routes')
+const ROUTES = require('./lib/get-routes')()
 
 const typeMap = {
   integer: 'number',
@@ -83,7 +81,7 @@ function jsdoc (description) {
 }
 
 function normalize (methodName) {
-  return _.camelCase(methodName.replace(/^edit/, 'update'))
+  return camelCase(methodName.replace(/^edit/, 'update'))
 }
 
 function generateTypes (languageName, templateFile, outputFile) {
@@ -91,17 +89,12 @@ function generateTypes (languageName, templateFile, outputFile) {
   const template = readFileSync(templatePath, 'utf8')
   const typeWriter = new TypeWriter()
 
-  debug(`Generating ${languageName} types...`)
+  console.log(`Generating ${languageName} types...`)
 
   const childParams = {}
   const namespaces = Object.keys(ROUTES)
-    .filter(namespace => namespace !== 'scim')
     .reduce((namespaces, namespace) => {
       const methods = ROUTES[namespace].reduce((methods, entry) => {
-        if (/legacy$/.test(entry.idName)) {
-          return
-        }
-
         const unionTypeNames = Object.keys(entry.params)
           .filter(isGlobalParam)
           .reduce((params, name) => {
@@ -184,7 +177,7 @@ function generateTypes (languageName, templateFile, outputFile) {
   const source = prettier.format(body, { parser: languageName.toLowerCase() })
 
   const definitionFilePath = pathJoin(__dirname, '..', outputFile)
-  debug(`Writing ${languageName} declarations file to ${definitionFilePath}`)
 
   writeFileSync(definitionFilePath, source, 'utf8')
+  console.log(`${languageName} declarations written to ${definitionFilePath}`)
 }
