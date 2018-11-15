@@ -164,6 +164,25 @@ declare namespace Github {
   {{/childParams}}
 }
 
+type Plugin = (octikit: Github, options: Github.Options) => void
+
+// See https://github.com/octokit/request.js#octokitrequest
+type HookOptions = {
+  baseUrl: string
+  headers: { [header: string]: any }
+  method: string
+  url: string
+  data: any
+  // See https://github.com/bitinn/node-fetch#options
+  request: {
+    follow?: number
+    timeout?: number
+    compress?: boolean
+    size?: number
+    agent?: string | null
+  }
+}
+
 declare class Github {
   constructor(options?: Github.Options);
   authenticate(auth: Github.Auth): void;
@@ -183,6 +202,19 @@ declare class Github {
 
   getFirstPage(link: Github.Link, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
   getFirstPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
+
+  hook: {
+    before(name: string, callback: (options: HookOptions) => void)
+    after(name: string, callback: (response: Github.Response<any>, options: HookOptions) => void)
+    error(name: string, callback: (error: Github.Response<any>, options: HookOptions) => void)
+    wrap(name: string, callback: (request: (options: HookOptions) => Promise<Github.Response<any>>, options: HookOptions) => void)
+  }
+
+  plugin(plugin: Plugin | [Plugin])
+
+  registerEndpoints(routes: any)
+
+  request: any
 
   {{#namespaces}}
   {{namespace}}: {
