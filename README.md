@@ -258,7 +258,7 @@ module.exports = (octokit, options = { greeting: 'Hello' }) => {
   octokit.hook.wrap('request', async (request, options) => {
     const time = Date.now()
     const response = await request(options)
-    console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - now}ms`)
+    console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - time}ms`)
     return response
   })
 }
