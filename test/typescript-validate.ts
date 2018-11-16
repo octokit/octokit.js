@@ -56,4 +56,33 @@ export default async function() {
     number: 10,
     labels: ['label'],
   });
+
+  // Testing static methods introduced in v16
+  octokit.hook.before('request', async (options) => {
+    console.log('before hook', options.url);
+  })
+  octokit.hook.after('request', async (response, options) => {
+    console.log(`${options.method} ${options.url}: ${response.status}`)
+  })
+
+  const findInCache = (etag: string) => ({ hello: 'world' })
+  octokit.hook.error('request', async (error, options) => {
+    if (error.status === 304) {
+      return findInCache(error.headers.etag)
+    }
+
+    throw error
+  })
+  octokit.hook.wrap('request', async (request, options) => {
+    // add logic before, after, catch errors or replace the request altogether
+    return request(options)
+  })
+  octokit.plugin((octokit, options) => {
+    octokit.hook.wrap('request', async (request, options) => {
+      const time = Date.now()
+      const response = await request(options)
+      console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - time}ms`)
+      return response
+    })
+  })
 }
