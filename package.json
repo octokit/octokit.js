@@ -3,7 +3,7 @@
   "version": "0.0.0-semantically-released",
   "publishConfig": {
     "access": "public",
-    "tag": "deprecations-for-v16"
+    "tag": "next"
   },
   "description": "GitHub REST API client for Node.js",
   "keywords": [
