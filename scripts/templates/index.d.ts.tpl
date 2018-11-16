@@ -17,6 +17,7 @@ declare namespace Github {
 
     /** Response headers */
     headers:{
+      date: string,
       'x-ratelimit-limit': string,
       'x-ratelimit-remaining': string,
       'x-ratelimit-reset': string,
