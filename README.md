@@ -193,7 +193,7 @@ octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 're
 To paginate responses for one of the registered endpoint methods such as `octokit.issues.listForRepo()` you can use the [`.endpoint.merge()`](https://github.com/octokit/endpoint.js#endpointmerge) method registered for all endpoint methods:
 
 ```js
-const options = octokit.issues.liftForRepo.endpoint.merge({ owner: 'octokit', repo: 'rest.js' })
+const options = octokit.issues.listForRepo.endpoint.merge({ owner: 'octokit', repo: 'rest.js' })
 octokit.paginate(options)
   .then(issues => {
     // issues is an array of all issue objects
