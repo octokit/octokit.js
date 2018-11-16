@@ -120,6 +120,37 @@ declare namespace Github {
     (error: Error | null, result: T): any;
   }
 
+  export type Plugin = (octikit: Github, options: Github.Options) => void
+
+  // See https://github.com/octokit/request.js#octokitrequest
+  export type HookOptions = {
+    baseUrl: string
+    headers: { [header: string]: string }
+    method: string
+    url: string
+    data: any
+    // See https://github.com/bitinn/node-fetch#options
+    request: {
+      follow?: number
+      timeout?: number
+      compress?: boolean
+      size?: number
+      agent?: string | null
+    }
+    [index: string]: any
+  }
+
+  export type HookError = Error & {
+    status: number
+    headers: { [header: string]: string }
+    documentation_url?: string
+    errors?: [{
+      resource: string
+      field: string
+      code: string
+    }]
+  }
+
   {{&responseTypes}}
 
   {{#params}}
@@ -164,53 +195,18 @@ declare namespace Github {
   {{/childParams}}
 }
 
-type Plugin = (octikit: Github, options: Github.Options) => void
-
-// See https://github.com/octokit/request.js#octokitrequest
-type HookOptions = {
-  baseUrl: string
-  headers: { [header: string]: any }
-  method: string
-  url: string
-  data: any
-  // See https://github.com/bitinn/node-fetch#options
-  request: {
-    follow?: number
-    timeout?: number
-    compress?: boolean
-    size?: number
-    agent?: string | null
-  }
-}
-
 declare class Github {
   constructor(options?: Github.Options);
   authenticate(auth: Github.Auth): void;
-  hasNextPage(link: Github.Link): string | undefined;
-  hasPreviousPage(link: Github.Link): string | undefined;
-  hasLastPage(link: Github.Link): string | undefined;
-  hasFirstPage(link: Github.Link): string | undefined;
-
-  getNextPage(link: Github.Link, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-  getNextPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-
-  getPreviousPage(link: Github.Link, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-  getPreviousPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-
-  getLastPage(link: Github.Link, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-  getLastPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-
-  getFirstPage(link: Github.Link, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
-  getFirstPage(link: Github.Link, headers?: {[header: string]: any}, callback?: Github.Callback<Github.AnyResponse>): Promise<Github.AnyResponse>;
 
   hook: {
-    before(name: string, callback: (options: HookOptions) => void)
-    after(name: string, callback: (response: Github.Response<any>, options: HookOptions) => void)
-    error(name: string, callback: (error: Github.Response<any>, options: HookOptions) => void)
-    wrap(name: string, callback: (request: (options: HookOptions) => Promise<Github.Response<any>>, options: HookOptions) => void)
+    before(name: string, callback: (options: Github.HookOptions) => void)
+    after(name: string, callback: (response: Github.Response<any>, options: Github.HookOptions) => void)
+    error(name: string, callback: (error: Github.HookError, options: Github.HookOptions) => void)
+    wrap(name: string, callback: (request: (options: Github.HookOptions) => Promise<Github.Response<any>>, options: Github.HookOptions) => void)
   }
 
-  plugin(plugin: Plugin | [Plugin])
+  plugin(plugin: Github.Plugin | [Github.Plugin])
 
   registerEndpoints(routes: any)
 
