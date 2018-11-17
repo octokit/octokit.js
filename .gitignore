@@ -5,7 +5,6 @@ node_modules
 
 # type definitions are generated before publish
 index.d.ts
-index.js.flow
 
 # API DOCs are generated before publish
 doc/
