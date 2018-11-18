@@ -39,7 +39,6 @@ function getRoutes () {
 
     // handle some exceptions. TODO: move this into @octokit/routes
     endpoints.forEach(endpoint => {
-
       const headerParams = endpoint.params.filter(param => param.location === 'headers')
       if (headerParams.length) {
         headerParams.forEach(param => Object.assign(param, { name: `headers.${param.name.toLowerCase()}` }))
