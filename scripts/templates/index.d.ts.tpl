@@ -201,15 +201,15 @@ declare class Github {
   authenticate(auth: Github.Auth): void;
 
   hook: {
-    before(name: string, callback: (options: Github.HookOptions) => void)
-    after(name: string, callback: (response: Github.Response<any>, options: Github.HookOptions) => void)
-    error(name: string, callback: (error: Github.HookError, options: Github.HookOptions) => void)
-    wrap(name: string, callback: (request: (options: Github.HookOptions) => Promise<Github.Response<any>>, options: Github.HookOptions) => void)
+    before(name: string, callback: (options: Github.HookOptions) => void): void
+    after(name: string, callback: (response: Github.Response<any>, options: Github.HookOptions) => void): void
+    error(name: string, callback: (error: Github.HookError, options: Github.HookOptions) => void): void
+    wrap(name: string, callback: (request: (options: Github.HookOptions) => Promise<Github.Response<any>>, options: Github.HookOptions) => void): void
   }
 
-  plugin(plugin: Github.Plugin | [Github.Plugin])
+  plugin(plugin: Github.Plugin | [Github.Plugin]): Github
 
-  registerEndpoints(routes: any)
+  registerEndpoints(routes: any): void
 
   request: any
 
