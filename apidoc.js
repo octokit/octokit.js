@@ -7190,14 +7190,15 @@ This may leave an empty asset with a state of `"new"`. It can be safely deleted.
  *
  * @apiParam {integer} headers:content-length  The content size of the asset in bytes
  * @apiParam {string} headers:content-type  The content type of the asset. This should be set in the Header. Example: `"application/zip"`. For a list of acceptable types, refer this list of [media types](https://www.iana.org/assignments/media-types/media-types.xhtml).
+ * @apiParam {object} headers  Request headers containing `content-type` and `content-length`
  * @apiParam {string} url  
  * @apiParam {string} name  The file name of the asset. This should be set in a URI query parameter.
  * @apiParam {string} [label]  An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.
  * @apiParam {object} file  
  * @apiExample {js} async/await
- * const result = await octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, url, name, label, file})
+ * const result = await octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, headers, url, name, label, file})
  * @apiExample {js} Promise
- * octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, url, name, label, file}).then(result => {})
+ * octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, headers, url, name, label, file}).then(result => {})
  */
 
 

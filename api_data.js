@@ -23842,6 +23842,13 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "headers",
+            "description": "<p>Request headers containing <code>content-type</code> and <code>content-length</code></p>"
+          },
+          {
+            "group": "Parameter",
             "type": "string",
             "optional": false,
             "field": "url",
@@ -23874,12 +23881,12 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, url, name, label, file})",
+        "content": "const result = await octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, headers, url, name, label, file})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, url, name, label, file}).then(result => {})",
+        "content": "octokit.repos.uploadReleaseAsset({headers.content-length, headers.content-type, headers, url, name, label, file}).then(result => {})",
         "type": "js"
       }
     ],
