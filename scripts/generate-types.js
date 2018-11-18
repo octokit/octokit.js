@@ -46,14 +46,6 @@ function pascalcase (string) {
   return upperFirst(camelCase(string))
 }
 
-function isGlobalParam (name) {
-  return name.charAt(0) === '$'
-}
-
-function isLocalParam (name) {
-  return !isGlobalParam(name)
-}
-
 function toCombineParams (params, param) {
   return params
     .concat(parameterize(param))
@@ -95,16 +87,9 @@ function generateTypes (languageName, templateFile, outputFile) {
   const namespaces = Object.keys(ROUTES)
     .reduce((namespaces, namespace) => {
       const methods = ROUTES[namespace].reduce((methods, entry) => {
-        const unionTypeNames = Object.keys(entry.params)
-          .filter(isGlobalParam)
-          .reduce((params, name) => {
-            return params.concat(pascalcase(name.slice(1)))
-          }, [])
-
         const methodName = normalize(entry.idName)
         const namespacedParamsName = pascalcase(`${namespace}-${methodName}Params`)
-        const ownParams = entry.params
-          .filter((param) => isLocalParam(param.name))
+        const params = entry.params
           .reduce(toCombineParams, [])
           .map(toParamAlias)
           // handle "object" & "object[]" types
@@ -132,7 +117,7 @@ function generateTypes (languageName, templateFile, outputFile) {
           })
           .filter(Boolean)
 
-        const hasParams = unionTypeNames.length > 0 || ownParams.length > 0
+        const hasParams = params.length > 0
 
         let paramTypeName = hasParams
           ? namespacedParamsName
@@ -149,8 +134,7 @@ function generateTypes (languageName, templateFile, outputFile) {
         return methods.concat({
           method: methodName,
           paramTypeName,
-          unionTypeNames: unionTypeNames.length > 0 && unionTypeNames,
-          ownParams: ownParams.length > 0 && { params: ownParams },
+          ownParams: params.length > 0 && { params },
           exclude: !hasParams,
           responseType,
           jsdoc: jsdoc(entry.description)
