@@ -54,7 +54,14 @@ function getRoutes () {
         indexes.forEach(i => endpoint.params.splice(i, 1))
         endpoint.params.unshift(
           Object.assign(contentLengthParam, { name: 'headers.content-length' }),
-          Object.assign(contentTypeParam, { name: 'headers.content-type' })
+          Object.assign(contentTypeParam, { name: 'headers.content-type' }),
+          {
+            name: 'headers',
+            location: 'headers',
+            required: true,
+            type: 'object',
+            description: 'Request headers containing `content-type` and `content-length`'
+          }
         )
       }
 
