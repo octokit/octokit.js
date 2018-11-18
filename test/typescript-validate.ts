@@ -77,7 +77,7 @@ export default async function() {
     // add logic before, after, catch errors or replace the request altogether
     return request(options)
   })
-  octokit.plugin((octokit, options) => {
+  Octokit.plugin((octokit, options) => {
     octokit.hook.wrap('request', async (request, options) => {
       const time = Date.now()
       const response = await request(options)

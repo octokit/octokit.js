@@ -207,7 +207,7 @@ declare class Github {
     wrap(name: string, callback: (request: (options: Github.HookOptions) => Promise<Github.Response<any>>, options: Github.HookOptions) => void): void
   }
 
-  plugin(plugin: Github.Plugin | [Github.Plugin]): Github
+  static plugin(plugin: Github.Plugin | [Github.Plugin]): Github
 
   registerEndpoints(routes: any): void
 
