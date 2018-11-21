@@ -9010,6 +9010,10 @@
           "required": true,
           "type": "string | object"
         },
+        "headers": {
+          "required": true,
+          "type": "object"
+        },
         "headers.content-length": {
           "required": true,
           "type": "integer"
