@@ -172,7 +172,7 @@ const requestOptions = octokit.repos.get.endpoint()
 
 All endpoint methods starting with `.list*` do not return all responses at once but instead return the first 30 items by default, see also [GitHub’s REST API pagination documentation](https://developer.github.com/v3/#pagination).
 
-To automatically receive all results across all pages, you can use the `github.paginate()` method:
+To automatically receive all results across all pages, you can use the `octokit.paginate()` method:
 
 ```js
 octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
@@ -203,12 +203,12 @@ octokit.paginate(options)
 If your runtime environment supports async iterators (such as Node 10+), you can iterate trough each response
 
 ```js
-for await (const response of github.paginate.iterator(options) {
+for await (const response of octokit.paginate.iterator(options) {
   // do whatever you want with each response, break out of loop, etc.
 }
 ```
 
-`github.paginate.iterator()` accepts the same options as `github.paginate()`.
+`octokit.paginate.iterator()` accepts the same options as `octokit.paginate()`.
 
 ## Hooks
 
