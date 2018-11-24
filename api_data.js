@@ -6272,7 +6272,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number",
     "title": "get",
     "name": "get",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#get-a-single-issue\">REST API doc</a></p>",
+    "description": "<p>The API returns a <a href=\"https://developer.github.com/v3/#http-redirects\"><code>301 Moved Permanently</code> status</a> if the issue was <a href=\"https://help.github.com/articles/transferring-an-issue-to-another-repository/\">transferred</a> to another repository. If the issue was transferred to or deleted from a repository where the authenticated user lacks read access, the API returns a <code>404 Not Found</code> status. If the issue was deleted from a repository where the authenticated user has read access, the API returns a <code>410 Gone</code> status. To receive webhook events for transferred and deleted issues, subscribe to the <a href=\"https://developer.github.com/v3/activity/events/types/#issuesevent\"><code>issues</code></a> webhook. <em>Note</em>*: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/issues/#get-a-single-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -14508,7 +14508,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/commits",
     "title": "listCommits",
     "name": "listCommits",
-    "description": "<p><strong>Note:</strong> The response includes a maximum of 250 commits. To receive a complete commit list for pull requests with more than 250 commits, use the <a href=\"https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository\">Commit List API</a>. <a href=\"https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request\">REST API doc</a></p>",
+    "description": "<p>Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the <a href=\"https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository\">Commit List API</a>. <a href=\"https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
