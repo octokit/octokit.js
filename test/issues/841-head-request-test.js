@@ -24,7 +24,7 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
       baseUrl: 'https://head-request-test.com'
     })
 
-    client.pullRequests.get({
+    client.pulls.get({
       method: 'head',
       owner: 'whatwg',
       repo: 'html',
@@ -32,7 +32,7 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
     })
 
       .then(() => {
-        return client.pullRequests.get({
+        return client.pulls.get({
           method: 'head',
           owner: 'whatwg',
           repo: 'html',
