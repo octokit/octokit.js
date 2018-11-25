@@ -4877,7 +4877,7 @@
       "url": "/projects/columns/:column_id"
     }
   },
-  "pullRequests": {
+  "pulls": {
     "checkIfMerged": {
       "method": "GET",
       "params": {
