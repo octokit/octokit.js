@@ -844,234 +844,6 @@
       "url": "/user/installations/:installation_id/repositories/:repository_id"
     }
   },
-  "authorization": {
-    "checkAuthorization": {
-      "method": "GET",
-      "params": {
-        "access_token": {
-          "required": true,
-          "type": "string"
-        },
-        "client_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/applications/:client_id/tokens/:access_token"
-    },
-    "createAuthorization": {
-      "method": "POST",
-      "params": {
-        "client_id": {
-          "type": "string"
-        },
-        "client_secret": {
-          "type": "string"
-        },
-        "fingerprint": {
-          "type": "string"
-        },
-        "note": {
-          "required": true,
-          "type": "string"
-        },
-        "note_url": {
-          "type": "string"
-        },
-        "scopes": {
-          "type": "string[]"
-        }
-      },
-      "url": "/authorizations"
-    },
-    "deleteAuthorization": {
-      "method": "DELETE",
-      "params": {
-        "authorization_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/authorizations/:authorization_id"
-    },
-    "deleteGrant": {
-      "method": "DELETE",
-      "params": {
-        "grant_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/applications/grants/:grant_id"
-    },
-    "getAuthorization": {
-      "method": "GET",
-      "params": {
-        "authorization_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/authorizations/:authorization_id"
-    },
-    "getGrant": {
-      "method": "GET",
-      "params": {
-        "grant_id": {
-          "required": true,
-          "type": "integer"
-        }
-      },
-      "url": "/applications/grants/:grant_id"
-    },
-    "getOrCreateAuthorizationForApp": {
-      "method": "PUT",
-      "params": {
-        "client_id": {
-          "required": true,
-          "type": "string"
-        },
-        "client_secret": {
-          "required": true,
-          "type": "string"
-        },
-        "fingerprint": {
-          "type": "string"
-        },
-        "note": {
-          "type": "string"
-        },
-        "note_url": {
-          "type": "string"
-        },
-        "scopes": {
-          "type": "string[]"
-        }
-      },
-      "url": "/authorizations/clients/:client_id"
-    },
-    "getOrCreateAuthorizationForAppFingerprint": {
-      "method": "PUT",
-      "params": {
-        "client_id": {
-          "required": true,
-          "type": "string"
-        },
-        "client_secret": {
-          "required": true,
-          "type": "string"
-        },
-        "fingerprint": {
-          "required": true,
-          "type": "string"
-        },
-        "note": {
-          "type": "string"
-        },
-        "note_url": {
-          "type": "string"
-        },
-        "scopes": {
-          "type": "string[]"
-        }
-      },
-      "url": "/authorizations/clients/:client_id/:fingerprint"
-    },
-    "listAuthorizations": {
-      "method": "GET",
-      "params": {
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        }
-      },
-      "url": "/authorizations"
-    },
-    "listGrants": {
-      "method": "GET",
-      "params": {
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        }
-      },
-      "url": "/applications/grants"
-    },
-    "resetAuthorization": {
-      "method": "POST",
-      "params": {
-        "access_token": {
-          "required": true,
-          "type": "string"
-        },
-        "client_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/applications/:client_id/tokens/:access_token"
-    },
-    "revokeAuthorizationForApplication": {
-      "method": "DELETE",
-      "params": {
-        "access_token": {
-          "required": true,
-          "type": "string"
-        },
-        "client_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/applications/:client_id/tokens/:access_token"
-    },
-    "revokeGrantForApplication": {
-      "method": "DELETE",
-      "params": {
-        "access_token": {
-          "required": true,
-          "type": "string"
-        },
-        "client_id": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/applications/:client_id/grants/:access_token"
-    },
-    "updateAuthorization": {
-      "method": "PATCH",
-      "params": {
-        "add_scopes": {
-          "type": "string[]"
-        },
-        "authorization_id": {
-          "required": true,
-          "type": "integer"
-        },
-        "fingerprint": {
-          "type": "string"
-        },
-        "note": {
-          "type": "string"
-        },
-        "note_url": {
-          "type": "string"
-        },
-        "remove_scopes": {
-          "type": "string[]"
-        },
-        "scopes": {
-          "type": "string[]"
-        }
-      },
-      "url": "/authorizations/:authorization_id"
-    }
-  },
   "checks": {
     "create": {
       "headers": {
@@ -1948,7 +1720,7 @@
       "url": "/gists/:gist_id/comments/:comment_id"
     }
   },
-  "gitdata": {
+  "git": {
     "createBlob": {
       "method": "POST",
       "params": {
@@ -3783,6 +3555,234 @@
       "url": "/repos/:owner/:repo/import"
     }
   },
+  "oauthAuthorizations": {
+    "checkAuthorization": {
+      "method": "GET",
+      "params": {
+        "access_token": {
+          "required": true,
+          "type": "string"
+        },
+        "client_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/applications/:client_id/tokens/:access_token"
+    },
+    "createAuthorization": {
+      "method": "POST",
+      "params": {
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret": {
+          "type": "string"
+        },
+        "fingerprint": {
+          "type": "string"
+        },
+        "note": {
+          "required": true,
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations"
+    },
+    "deleteAuthorization": {
+      "method": "DELETE",
+      "params": {
+        "authorization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/authorizations/:authorization_id"
+    },
+    "deleteGrant": {
+      "method": "DELETE",
+      "params": {
+        "grant_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/applications/grants/:grant_id"
+    },
+    "getAuthorization": {
+      "method": "GET",
+      "params": {
+        "authorization_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/authorizations/:authorization_id"
+    },
+    "getGrant": {
+      "method": "GET",
+      "params": {
+        "grant_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/applications/grants/:grant_id"
+    },
+    "getOrCreateAuthorizationForApp": {
+      "method": "PUT",
+      "params": {
+        "client_id": {
+          "required": true,
+          "type": "string"
+        },
+        "client_secret": {
+          "required": true,
+          "type": "string"
+        },
+        "fingerprint": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations/clients/:client_id"
+    },
+    "getOrCreateAuthorizationForAppFingerprint": {
+      "method": "PUT",
+      "params": {
+        "client_id": {
+          "required": true,
+          "type": "string"
+        },
+        "client_secret": {
+          "required": true,
+          "type": "string"
+        },
+        "fingerprint": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations/clients/:client_id/:fingerprint"
+    },
+    "listAuthorizations": {
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/authorizations"
+    },
+    "listGrants": {
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/applications/grants"
+    },
+    "resetAuthorization": {
+      "method": "POST",
+      "params": {
+        "access_token": {
+          "required": true,
+          "type": "string"
+        },
+        "client_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/applications/:client_id/tokens/:access_token"
+    },
+    "revokeAuthorizationForApplication": {
+      "method": "DELETE",
+      "params": {
+        "access_token": {
+          "required": true,
+          "type": "string"
+        },
+        "client_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/applications/:client_id/tokens/:access_token"
+    },
+    "revokeGrantForApplication": {
+      "method": "DELETE",
+      "params": {
+        "access_token": {
+          "required": true,
+          "type": "string"
+        },
+        "client_id": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/applications/:client_id/grants/:access_token"
+    },
+    "updateAuthorization": {
+      "method": "PATCH",
+      "params": {
+        "add_scopes": {
+          "type": "string[]"
+        },
+        "authorization_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "fingerprint": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "remove_scopes": {
+          "type": "string[]"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations/:authorization_id"
+    }
+  },
   "orgs": {
     "addOrUpdateMembership": {
       "method": "PUT",
@@ -4877,7 +4877,7 @@
       "url": "/projects/columns/:column_id"
     }
   },
-  "pullRequests": {
+  "pulls": {
     "checkIfMerged": {
       "method": "GET",
       "params": {
