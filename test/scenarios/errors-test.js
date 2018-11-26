@@ -3,23 +3,23 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('errors')
 
       .then(instance => {
-        github = instance
+        octokit = instance
       })
   })
 
   it('(#684) errors-test', () => {
-    github.authenticate({
+    octokit.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
     })
 
-    return github.issues.createLabel({
+    return octokit.issues.createLabel({
       owner: 'octokit-fixture-org',
       repo: 'errors',
       name: 'foo',

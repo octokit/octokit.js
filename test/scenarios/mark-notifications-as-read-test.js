@@ -3,22 +3,22 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('mark-notifications-as-read')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.activity.markAsRead()', () => {
-    return github.activity.markAsRead()
+  it('octokit.activity.markAsRead()', () => {
+    return octokit.activity.markAsRead()
   })
 })

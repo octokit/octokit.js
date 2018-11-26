@@ -3,55 +3,55 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('project-cards')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.projects.*ProjectCard()', () => {
-    return github.projects.createCard({
+  it('octokit.projects.*ProjectCard()', () => {
+    return octokit.projects.createCard({
       column_id: 1000,
       note: 'Example card 1'
     })
 
       .then(() => {
-        return github.projects.createCard({
+        return octokit.projects.createCard({
           column_id: 1000,
           note: 'Example card 2'
         })
       })
 
       .then(() => {
-        return github.projects.listCards({
+        return octokit.projects.listCards({
           column_id: 1000
         })
       })
 
       .then(() => {
-        return github.projects.getCard({
+        return octokit.projects.getCard({
           card_id: 1000
         })
       })
 
       .then(() => {
-        return github.projects.updateCard({
+        return octokit.projects.updateCard({
           card_id: 1000,
           note: 'Example card 1 updated'
         })
       })
 
       .then(() => {
-        return github.projects.moveCard({
+        return octokit.projects.moveCard({
           card_id: 1000,
           position: 'top',
           column_id: 1001
@@ -59,7 +59,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.projects.moveCard({
+        return octokit.projects.moveCard({
           card_id: 1001,
           position: 'bottom',
           column_id: 1001
@@ -67,14 +67,14 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.projects.moveCard({
+        return octokit.projects.moveCard({
           card_id: 1000,
           position: 'after:1001'
         })
       })
 
       .then(() => {
-        return github.projects.deleteCard({
+        return octokit.projects.deleteCard({
           card_id: 1000
         })
       })

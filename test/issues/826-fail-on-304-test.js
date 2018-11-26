@@ -9,10 +9,10 @@ describe('https://github.com/octokit/rest.js/issues/826', () => {
       .get('/orgs/octokit/repos?type=public')
       .reply(304, '')
 
-    const client = new Octokit({
+    const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com'
     })
-    return client.repos.listForOrg({
+    return octokit.repos.listForOrg({
       org: 'octokit',
       type: 'public'
     })

@@ -20,11 +20,11 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
         'Content-Length': 120
       })
 
-    const client = new Octokit({
+    const octokit = new Octokit({
       baseUrl: 'https://head-request-test.com'
     })
 
-    client.pullRequests.get({
+    octokit.pullRequests.get({
       method: 'head',
       owner: 'whatwg',
       repo: 'html',
@@ -32,7 +32,7 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
     })
 
       .then(() => {
-        return client.pullRequests.get({
+        return octokit.pullRequests.get({
           method: 'head',
           owner: 'whatwg',
           repo: 'html',

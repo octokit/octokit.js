@@ -3,23 +3,23 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('labels')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.issues.*', () => {
-    return github.issues.listLabelsForRepo({
+  it('octokit.issues.*', () => {
+    return octokit.issues.listLabelsForRepo({
       owner: 'octokit-fixture-org',
       repo: 'labels'
     })
@@ -27,7 +27,7 @@ describe('api.github.com', () => {
       .then((result) => {
         expect(result.data).to.be.an('array')
 
-        return github.issues.createLabel({
+        return octokit.issues.createLabel({
           owner: 'octokit-fixture-org',
           repo: 'labels',
           name: 'test-label',
@@ -38,7 +38,7 @@ describe('api.github.com', () => {
       .then((result) => {
         expect(result.data.name).to.equal('test-label')
 
-        return github.issues.getLabel({
+        return octokit.issues.getLabel({
           owner: 'octokit-fixture-org',
           repo: 'labels',
           name: 'test-label'
@@ -46,7 +46,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.issues.updateLabel({
+        return octokit.issues.updateLabel({
           owner: 'octokit-fixture-org',
           repo: 'labels',
           current_name: 'test-label',
@@ -58,7 +58,7 @@ describe('api.github.com', () => {
       .then((result) => {
         expect(result.data.name).to.equal('test-label-updated')
 
-        return github.issues.deleteLabel({
+        return octokit.issues.deleteLabel({
           owner: 'octokit-fixture-org',
           repo: 'labels',
           name: 'test-label-updated'

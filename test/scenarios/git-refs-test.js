@@ -3,29 +3,29 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('git-refs')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.gitdata.*', () => {
-    return github.gitdata.listRefs({
+  it('octokit.gitdata.*', () => {
+    return octokit.gitdata.listRefs({
       owner: 'octokit-fixture-org',
       repo: 'git-refs'
     })
 
       .then(() => {
-        return github.gitdata.createRef({
+        return octokit.gitdata.createRef({
           owner: 'octokit-fixture-org',
           repo: 'git-refs',
           ref: 'refs/heads/test',
@@ -34,7 +34,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.gitdata.updateRef({
+        return octokit.gitdata.updateRef({
           owner: 'octokit-fixture-org',
           repo: 'git-refs',
           ref: 'heads/test',
@@ -43,14 +43,14 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.gitdata.listRefs({
+        return octokit.gitdata.listRefs({
           owner: 'octokit-fixture-org',
           repo: 'git-refs'
         })
       })
 
       .then(() => {
-        return github.gitdata.deleteRef({
+        return octokit.gitdata.deleteRef({
           owner: 'octokit-fixture-org',
           repo: 'git-refs',
           ref: 'heads/test'

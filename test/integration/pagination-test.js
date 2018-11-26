@@ -1,6 +1,6 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
@@ -18,23 +18,23 @@ describe('pagination', () => {
       .reply(200, [{ id: 2 }])
       .persist()
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://pagination-test.com'
     })
 
     return Promise.all([
-      github.paginate('GET /organizations', { per_page: 1 })
+      octokit.paginate('GET /organizations', { per_page: 1 })
         .then(organizations => {
           expect(organizations).to.deep.equal([
             { id: 1 },
             { id: 2 }
           ])
         }),
-      github.paginate('GET /organizations', { per_page: 1 }, response => response.data.map(org => org.id))
+      octokit.paginate('GET /organizations', { per_page: 1 }, response => response.data.map(org => org.id))
         .then(organizations => {
           expect(organizations).to.deep.equal([1, 2])
         }),
-      github.paginate({
+      octokit.paginate({
         method: 'GET',
         url: '/organizations',
         per_page: 1
@@ -60,20 +60,20 @@ describe('pagination', () => {
       })
       .persist()
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://pagination-test.com'
     })
 
-    github.hook.wrap('request', (request, options) => {
+    octokit.hook.wrap('request', (request, options) => {
       if (!options.request.paginate) {
         return request(options)
       }
 
       delete options.request.paginate
-      return github.paginate(options)
+      return octokit.paginate(options)
     })
 
-    return github.request('GET /organizations', { per_page: 1, request: { paginate: true } })
+    return octokit.request('GET /organizations', { per_page: 1, request: { paginate: true } })
       .then(organizations => {
         expect(organizations).to.deep.equal([
           { id: 1 },
@@ -90,11 +90,11 @@ describe('pagination', () => {
         foo: 'bar'
       })
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://pagination-test.com'
     })
 
-    const iterator = github.paginate.iterator({
+    const iterator = octokit.paginate.iterator({
       method: 'GET',
       url: '/orgs/:org',
       org: 'myorg'

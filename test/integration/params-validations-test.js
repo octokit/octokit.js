@@ -1,14 +1,14 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
 describe('params validations', () => {
-  it('github.orgs.get({})', () => {
-    const github = new GitHub()
+  it('octokit.orgs.get({})', () => {
+    const octokit = new Octokit()
 
-    return github.orgs.get({})
+    return octokit.orgs.get({})
 
       .then(() => {
         expect.fail('should throw error')
@@ -21,11 +21,11 @@ describe('params validations', () => {
   })
 
   it('request error', () => {
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://127.0.0.1:8' // port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     })
 
-    return github.orgs.get({ org: 'foo' })
+    return octokit.orgs.get({ org: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -37,10 +37,10 @@ describe('params validations', () => {
       })
   })
 
-  it('invalid value for github.issues.list({filter})', () => {
-    const github = new GitHub()
+  it('invalid value for octokit.issues.list({filter})', () => {
+    const octokit = new Octokit()
 
-    return github.issues.list({ filter: 'foo' })
+    return octokit.issues.list({ filter: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -52,10 +52,10 @@ describe('params validations', () => {
       })
   })
 
-  it('invalid value for github.projects.moveCard({position})', () => {
-    const github = new GitHub()
+  it('invalid value for octokit.projects.moveCard({position})', () => {
+    const octokit = new Octokit()
 
-    return github.projects.moveCard({ card_id: 123, position: 'foo' })
+    return octokit.projects.moveCard({ card_id: 123, position: 'foo' })
 
       .then(() => {
         expect.fail('should throw error')
@@ -67,10 +67,10 @@ describe('params validations', () => {
       })
   })
 
-  it('Not a number for github.repos.createCommitComment({..., position})', () => {
-    const github = new GitHub()
+  it('Not a number for octokit.repos.createCommitComment({..., position})', () => {
+    const octokit = new Octokit()
 
-    return github.repos.createCommitComment({
+    return octokit.repos.createCommitComment({
       owner: 'foo',
       repo: 'bar',
       sha: 'lala',
@@ -84,10 +84,10 @@ describe('params validations', () => {
       })
   })
 
-  it('Not a valid JSON string for github.repos.createHook({..., config})', () => {
-    const github = new GitHub()
+  it('Not a valid JSON string for octokit.repos.createHook({..., config})', () => {
+    const octokit = new Octokit()
 
-    return github.repos.createHook({
+    return octokit.repos.createHook({
       owner: 'foo',
       repo: 'bar',
       name: 'captain',
@@ -104,8 +104,8 @@ describe('params validations', () => {
       })
   })
 
-  it('Date object for github.issues.createMilestone({..., due_on})', () => {
-    const github = new GitHub({
+  it('Date object for octokit.issues.createMilestone({..., due_on})', () => {
+    const octokit = new Octokit({
       baseUrl: 'https://milestones-test-host.com'
     })
 
@@ -116,7 +116,7 @@ describe('params validations', () => {
       })
       .reply(201, {})
 
-    return github.issues.createMilestone({
+    return octokit.issues.createMilestone({
       owner: 'foo',
       repo: 'bar',
       title: 'Like a rolling ...',
@@ -125,7 +125,7 @@ describe('params validations', () => {
   })
 
   it('Date is passed in correct format for notifications (#716)', () => {
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://notifications-test-host.com'
     })
 
@@ -139,14 +139,14 @@ describe('params validations', () => {
       })
       .reply(200, {})
 
-    return github.activity.listNotifications({
+    return octokit.activity.listNotifications({
       since: '2018-01-21T23:27:31.000Z'
     })
   })
 
-  it('client.gitdata.createTree() with invalid tree[] object', () => {
-    const github = new GitHub()
-    return github.gitdata.createTree({
+  it('octokit.gitdata.createTree() with invalid tree[] object', () => {
+    const octokit = new Octokit()
+    return octokit.gitdata.createTree({
       owner: 'foo',
       repo: 'bar',
       base_tree: '9fb037999f264ba9a7fc6274d15fa3ae2ab98312',
@@ -167,9 +167,9 @@ describe('params validations', () => {
       })
   })
 
-  it('client.issues.createLabel() with description: null', () => {
-    const client = new GitHub()
-    return client.issues.createLabel({
+  it('octokit.issues.createLabel() with description: null', () => {
+    const octokit = new Octokit()
+    return octokit.issues.createLabel({
       owner: 'foo',
       repo: 'bar',
       name: 'baz',
@@ -188,7 +188,7 @@ describe('params validations', () => {
   })
 
   it('does not alter passed options', () => {
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://params-test-host.com'
     })
 
@@ -202,7 +202,7 @@ describe('params validations', () => {
         'x-bar': 'baz'
       }
     }
-    return github.orgs.get(options)
+    return octokit.orgs.get(options)
       .catch(() => {
         // ignore error
       })

@@ -3,13 +3,13 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('get-archive')
 
       .then(instance => {
-        github = instance
+        octokit = instance
       })
   })
 
@@ -17,8 +17,8 @@ describe('api.github.com', () => {
     return it.skip('github.repos.archive() (#758)')
   }
 
-  it('github.repos.archive({owner: "octokit-fixture-org", repo: "get-archive"})', () => {
-    return github.repos.getArchiveLink({
+  it('octokit.repos.archive({owner: "octokit-fixture-org", repo: "get-archive"})', () => {
+    return octokit.repos.getArchiveLink({
       owner: 'octokit-fixture-org',
       repo: 'get-archive',
       archive_format: 'tarball',
