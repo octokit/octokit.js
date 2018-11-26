@@ -4,18 +4,15 @@ module.exports = {
   getInstance
 }
 
-const fetch = require('node-fetch')
-
-const GitHub = require('../')
+const Octokit = require('../')
+const request = require('@octokit/request')
 
 function loadFixture (scenario) {
-  return fetch('http://localhost:3000/fixtures', {
-    method: 'post',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ scenario })
+  return request('POST http://localhost:3000/fixtures', {
+    data: JSON.stringify({ scenario })
   })
 
-    .then(response => response.json())
+    .then(response => response.data)
 
     .catch(error => {
       if (error.code === 'ECONNREFUSED') {
@@ -27,7 +24,7 @@ function loadFixture (scenario) {
 }
 
 function fixtureToInstace ({ url }, options) {
-  return new GitHub(Object.assign(options || {}, {
+  return new Octokit(Object.assign(options || {}, {
     baseUrl: url
   }))
 }
