@@ -39,7 +39,6 @@
     "lodash.pick": "^4.4.0",
     "lodash.set": "^4.3.2",
     "lodash.uniq": "^4.5.0",
-    "node-fetch": "^2.1.1",
     "octokit-pagination-methods": "^1.1.0",
     "universal-user-agent": "^2.0.0",
     "url-template": "^2.0.8"
