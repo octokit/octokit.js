@@ -3,23 +3,23 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('branch-protection')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.repos.{get,update,remove}BranchProtection()', () => {
-    return github.repos.getBranchProtection({
+  it('octokit.repos.{get,update,remove}BranchProtection()', () => {
+    return octokit.repos.getBranchProtection({
       owner: 'octokit-fixture-org',
       repo: 'branch-protection',
       branch: 'master'
@@ -34,7 +34,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.repos.updateBranchProtection({
+        return octokit.repos.updateBranchProtection({
           owner: 'octokit-fixture-org',
           repo: 'branch-protection',
           branch: 'master',
@@ -46,7 +46,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.repos.updateBranchProtection({
+        return octokit.repos.updateBranchProtection({
           owner: 'octokit-fixture-org',
           repo: 'branch-protection',
           branch: 'master',
@@ -73,7 +73,7 @@ describe('api.github.com', () => {
       })
 
       .then(() => {
-        return github.repos.removeBranchProtection({
+        return octokit.repos.removeBranchProtection({
           owner: 'octokit-fixture-org',
           repo: 'branch-protection',
           branch: 'master'

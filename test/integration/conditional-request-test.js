@@ -1,14 +1,14 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
 describe('request 304s', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
-    github = new GitHub({
+    octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com'
     })
   })
@@ -18,7 +18,7 @@ describe('request 304s', () => {
       .get('/orgs/myorg')
       .reply(304, '')
 
-    return github.orgs.get({ org: 'myorg', headers: { 'If-None-Match': 'etag' } })
+    return octokit.orgs.get({ org: 'myorg', headers: { 'If-None-Match': 'etag' } })
       .then((response) => {
         expect.fail('should throw error')
       })
@@ -32,7 +32,7 @@ describe('request 304s', () => {
       .get('/orgs/myorg')
       .reply(304, '')
 
-    return github.orgs.get({ org: 'myorg', headers: { 'If-Modified-Since': 'Sun Dec 24 2017 22:00:00 GMT-0600 (CST)' } })
+    return octokit.orgs.get({ org: 'myorg', headers: { 'If-Modified-Since': 'Sun Dec 24 2017 22:00:00 GMT-0600 (CST)' } })
       .then((response) => {
         expect.fail('should throw error')
       })

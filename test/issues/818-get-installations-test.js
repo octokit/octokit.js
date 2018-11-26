@@ -9,7 +9,7 @@ describe('https://github.com/octokit/rest.js/issues/818', () => {
       .get('/app/installations')
       .reply(200, [])
 
-    const client = new Octokit()
-    return client.apps.listInstallations()
+    const octokit = new Octokit()
+    return octokit.apps.listInstallations()
   })
 })

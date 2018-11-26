@@ -9,8 +9,8 @@ describe('https://github.com/octokit/rest.js/issues/922', () => {
       .post('/repos/chrisvariety/test/check-runs')
       .reply(200, [])
 
-    const client = new Octokit()
-    return client.checks.create({
+    const octokit = new Octokit()
+    return octokit.checks.create({
       owner: 'chrisvariety',
       repo: 'test',
       name: 'QA',

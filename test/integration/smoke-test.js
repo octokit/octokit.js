@@ -1,13 +1,13 @@
 const nock = require('nock')
 const getUserAgent = require('universal-user-agent')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
 describe('smoke', () => {
   it('called as function', () => {
-    GitHub()
+    Octokit()
   })
 
   it('host & pathPrefix options', () => {
@@ -15,11 +15,11 @@ describe('smoke', () => {
       .get('/my/api/orgs/myorg')
       .reply(200, {})
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'http://myhost.com/my/api'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('response.status & response.headers', () => {
@@ -27,11 +27,11 @@ describe('smoke', () => {
       .get('/my/api/orgs/myorg')
       .reply(200, {}, { 'x-foo': 'bar' })
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'http://myhost.com/my/api'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
 
       .then(response => {
         expect(response.headers['x-foo']).to.equal('bar')
@@ -48,14 +48,14 @@ describe('smoke', () => {
       .get('/orgs/octokit')
       .reply(200, {})
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com',
       headers: {
         'User-Agent': 'blah'
       }
     })
 
-    return github.orgs.get({
+    return octokit.orgs.get({
       org: 'octokit'
     })
   })
@@ -69,11 +69,11 @@ describe('smoke', () => {
       .get('/orgs/octokit')
       .reply(200, {})
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com'
     })
 
-    return github.orgs.get({
+    return octokit.orgs.get({
       org: 'octokit',
       headers: {
         'User-Agent': 'blah'
@@ -91,18 +91,18 @@ describe('smoke', () => {
       .reply(200, {})
       .persist()
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com'
     })
 
     return Promise.all([
-      github.orgs.get({
+      octokit.orgs.get({
         org: 'octokit',
         headers: {
           accept: 'foo'
         }
       }),
-      github.orgs.get({
+      octokit.orgs.get({
         org: 'octokit',
         headers: {
           Accept: 'foo'
@@ -120,18 +120,18 @@ describe('smoke', () => {
       .get('/')
       .reply(200, {})
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com'
     })
-    return github.request('GET /')
+    return octokit.request('GET /')
   })
 
   it('.request.endpoint("GET /")', () => {
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com'
     })
 
-    const requestOptions = github.request.endpoint('GET /')
+    const requestOptions = octokit.request.endpoint('GET /')
     expect(requestOptions).to.deep.equal({
       method: 'GET',
       url: 'https://smoke-test.com/',
@@ -144,8 +144,8 @@ describe('smoke', () => {
   })
 
   it('global defaults', () => {
-    const github1 = new GitHub()
-    const github2 = new GitHub()
+    const github1 = new Octokit()
+    const github2 = new Octokit()
 
     expect(github1.request.endpoint.DEFAULTS).to.deep.equal(github2.request.endpoint.DEFAULTS)
   })
@@ -155,12 +155,12 @@ describe('smoke', () => {
       .get('/baz')
       .reply(200, {})
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com'
     })
-    expect(github.registerEndpoints).to.be.a('function')
+    expect(octokit.registerEndpoints).to.be.a('function')
 
-    github.registerEndpoints({
+    octokit.registerEndpoints({
       foo: {
         bar: {
           method: 'GET',
@@ -169,6 +169,6 @@ describe('smoke', () => {
       }
     })
 
-    return github.foo.bar()
+    return octokit.foo.bar()
   })
 })

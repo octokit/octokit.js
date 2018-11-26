@@ -1,14 +1,14 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
 describe('authentication', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
-    github = new GitHub({
+    octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com'
     })
   })
@@ -22,13 +22,13 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'basic',
       username: 'username',
       password: 'password'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('token', () => {
@@ -40,12 +40,12 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'token',
       token: 'abc4567'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('oauth token', () => {
@@ -54,12 +54,12 @@ describe('authentication', () => {
       .query({ access_token: 'abc4567' })
       .reply(200, {})
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'oauth',
       token: 'abc4567'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('oauth token with query', () => {
@@ -68,12 +68,12 @@ describe('authentication', () => {
       .query({ per_page: 1, access_token: 'abc4567' })
       .reply(200, [])
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'oauth',
       token: 'abc4567'
     })
 
-    return github.repos.listForOrg({ org: 'myorg', per_page: 1 })
+    return octokit.repos.listForOrg({ org: 'myorg', per_page: 1 })
   })
 
   it('oauth key & secret', () => {
@@ -82,13 +82,13 @@ describe('authentication', () => {
       .query({ client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, {})
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'oauth',
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('oauth key & secret with query', () => {
@@ -97,13 +97,13 @@ describe('authentication', () => {
       .query({ per_page: 1, client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, [])
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'oauth',
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
 
-    return github.repos.listForOrg({ org: 'myorg', per_page: 1 })
+    return octokit.repos.listForOrg({ org: 'myorg', per_page: 1 })
   })
 
   it('app', () => {
@@ -115,33 +115,33 @@ describe('authentication', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'app',
       token: 'abc4567'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('authenticate without options', () => {
-    github.authenticate()
+    octokit.authenticate()
   })
 
   it('authenticate errors', () => {
     expect(() => {
-      github.authenticate({})
+      octokit.authenticate({})
     }).to.throw(Error)
 
     expect(() => {
-      github.authenticate({ type: 'basic' })
+      octokit.authenticate({ type: 'basic' })
     }).to.throw(Error)
 
     expect(() => {
-      github.authenticate({ type: 'oauth' })
+      octokit.authenticate({ type: 'oauth' })
     }).to.throw(Error)
 
     expect(() => {
-      github.authenticate({ type: 'token' })
+      octokit.authenticate({ type: 'token' })
     }).to.throw(Error)
   })
 })

@@ -18,8 +18,8 @@ describe('plugins', () => {
     const myClient = new MyOctokit()
     expect(myClient.foo).to.equal('bar')
 
-    const client = new Octokit()
-    expect(client.foo).to.equal(undefined)
+    const octokit = new Octokit()
+    expect(octokit.foo).to.equal(undefined)
   })
 
   it('receives client options', () => {

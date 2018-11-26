@@ -1,14 +1,14 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
 describe('apps', () => {
-  let client
+  let octokit
 
   beforeEach(() => {
-    client = new GitHub({
+    octokit = new Octokit({
       baseUrl: 'https://apps-test-host.com'
     })
   })
@@ -23,12 +23,12 @@ describe('apps', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    client.authenticate({
+    octokit.authenticate({
       type: 'app',
       token: '123'
     })
 
-    return client.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('adds "machine-man" preview header to custom accept header', () => {
@@ -41,12 +41,12 @@ describe('apps', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    client.authenticate({
+    octokit.authenticate({
       type: 'app',
       token: '123'
     })
 
-    return client.orgs.get({
+    return octokit.orgs.get({
       org: 'myorg',
       headers: {
         accept: 'foo-bar'
@@ -64,12 +64,12 @@ describe('apps', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    client.authenticate({
+    octokit.authenticate({
       type: 'app',
       token: '123'
     })
 
-    return client.orgs.get({
+    return octokit.orgs.get({
       org: 'myorg',
       headers: {
         accept: 'application/vnd.github.machine-man-preview+json'

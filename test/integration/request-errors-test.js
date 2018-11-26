@@ -1,6 +1,6 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
@@ -11,12 +11,12 @@ describe('request errors', () => {
       .socketDelay(2000)
       .reply(200, {})
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -30,11 +30,11 @@ describe('request errors', () => {
       .get('/orgs/myorg')
       .replyWithError('ooops')
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com'
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -48,12 +48,12 @@ describe('request errors', () => {
       .get('/orgs/myorg')
       .reply(404, 'not found')
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -67,12 +67,12 @@ describe('request errors', () => {
       .get('/orgs/myorg')
       .reply(401)
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
@@ -88,12 +88,12 @@ describe('request errors', () => {
         'x-foo': 'bar'
       })
 
-    const github = new GitHub({
+    const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com',
       timeout: 1000
     })
 
-    return github.orgs.get({ org: 'myorg' })
+    return octokit.orgs.get({ org: 'myorg' })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')

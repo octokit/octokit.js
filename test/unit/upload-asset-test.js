@@ -3,13 +3,13 @@ const fs = require('fs')
 const chai = require('chai')
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 chai.should()
 
 describe('github.repos.uploadReleaseAsset', () => {
   it('accepts file stream (#675)', () => {
-    const github = new GitHub()
+    const octokit = new Octokit()
     const size = fs.statSync(__filename).size
 
     nock('https://upload.test')
@@ -18,7 +18,7 @@ describe('github.repos.uploadReleaseAsset', () => {
       })
       .reply(200)
 
-    return github.repos.uploadReleaseAsset({
+    return octokit.repos.uploadReleaseAsset({
       url: 'https://upload.test',
       headers: {
         'content-type': 'text/json',

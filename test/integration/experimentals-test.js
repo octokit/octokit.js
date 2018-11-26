@@ -1,14 +1,14 @@
 const nock = require('nock')
 
-const GitHub = require('../../')
+const Octokit = require('../../')
 
 require('../mocha-node-setup')
 
 describe('authentication plugin', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
-    github = new GitHub({
+    octokit = new Octokit({
       baseUrl: 'https://authentication-plugin-test-host.com'
     })
   })
@@ -19,13 +19,13 @@ describe('authentication plugin', () => {
       .query({ foo: 'bar', client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, {})
 
-    github.authenticate({
+    octokit.authenticate({
       type: 'oauth',
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
 
-    return github.request({
+    return octokit.request({
       url: '/?foo=bar'
     })
   })

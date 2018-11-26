@@ -4,30 +4,30 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('release-assets')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.repos.uploadReleaseAsset as Buffer', () => {
-    return github.repos.getReleaseByTag({
+  it('octokit.repos.uploadReleaseAsset as Buffer', () => {
+    return octokit.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
     })
 
       .then(result => {
-        return github.repos.uploadReleaseAsset({
+        return octokit.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
             'content-type': 'text/plain',
@@ -40,15 +40,15 @@ describe('api.github.com', () => {
       })
   })
 
-  it('github.repos.uploadReleaseAsset as ArrayBuffer', () => {
-    return github.repos.getReleaseByTag({
+  it('octokit.repos.uploadReleaseAsset as ArrayBuffer', () => {
+    return octokit.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
     })
 
       .then(result => {
-        return github.repos.uploadReleaseAsset({
+        return octokit.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
             'content-type': 'text/plain',

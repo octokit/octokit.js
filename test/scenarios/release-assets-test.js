@@ -3,26 +3,26 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('release-assets')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.repos.*Assets', () => {
+  it('octokit.repos.*Assets', () => {
     let releaseId
     let assetId
 
-    return github.repos.getReleaseByTag({
+    return octokit.repos.getReleaseByTag({
       owner: 'octokit-fixture-org',
       repo: 'release-assets',
       tag: 'v1.0.0'
@@ -31,7 +31,7 @@ describe('api.github.com', () => {
       .then(result => {
         releaseId = result.data.id
 
-        return github.repos.uploadReleaseAsset({
+        return octokit.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
             'content-type': 'text/plain',
@@ -46,7 +46,7 @@ describe('api.github.com', () => {
       .then(result => {
         assetId = releaseId
 
-        return github.repos.listAssetsForRelease({
+        return octokit.repos.listAssetsForRelease({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           release_id: releaseId
@@ -54,7 +54,7 @@ describe('api.github.com', () => {
       })
 
       .then(result => {
-        return github.repos.getReleaseAsset({
+        return octokit.repos.getReleaseAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           asset_id: assetId
@@ -62,7 +62,7 @@ describe('api.github.com', () => {
       })
 
       .then(result => {
-        return github.repos.updateReleaseAsset({
+        return octokit.repos.updateReleaseAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           asset_id: assetId,
@@ -72,7 +72,7 @@ describe('api.github.com', () => {
       })
 
       .then(result => {
-        return github.repos.deleteReleaseAsset({
+        return octokit.repos.deleteReleaseAsset({
           owner: 'octokit-fixture-org',
           repo: 'release-assets',
           asset_id: assetId

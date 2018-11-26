@@ -3,18 +3,18 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('markdown')
 
       .then(instance => {
-        github = instance
+        octokit = instance
       })
   })
 
-  it('github.markdown.render() & .renderMarkdownRaw()', () => {
-    return github.markdown.render({
+  it('octokit.markdown.render() & .renderMarkdownRaw()', () => {
+    return octokit.markdown.render({
       text: `### Hello
 
 b597b5d`,
@@ -30,7 +30,7 @@ b597b5d`,
         expect(response.data).to.match(/\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/)
         expect(response.data).to.match(/<tt>b597b5d<\/tt>/)
 
-        return github.markdown.renderRaw({
+        return octokit.markdown.renderRaw({
           data: `### Hello
 
 b597b5d`,
@@ -42,8 +42,8 @@ b597b5d`,
       })
   })
 
-  it('github.markdown.render() with capitalized headers.Accept', () => {
-    return github.markdown.render({
+  it('octokit.markdown.render() with capitalized headers.Accept', () => {
+    return octokit.markdown.render({
       text: `### Hello
 
 b597b5d`,

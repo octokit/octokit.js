@@ -3,23 +3,23 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('get-content')
 
       .then(instance => {
-        github = instance
+        octokit = instance
       })
   })
 
-  it('github.repos.getContents()', () => {
-    return github.repos.getContents({ owner: 'octokit-fixture-org', repo: 'hello-world', path: '' })
+  it('octokit.repos.getContents()', () => {
+    return octokit.repos.getContents({ owner: 'octokit-fixture-org', repo: 'hello-world', path: '' })
 
       .then((response) => {
         expect(response.data.length).to.equal(1)
 
-        return github.repos.getContents({
+        return octokit.repos.getContents({
           owner: 'octokit-fixture-org',
           repo: 'hello-world',
           path: 'README.md',

@@ -12,8 +12,8 @@ describe('https://github.com/octokit/rest.js/issues/765', () => {
       })
       .reply(200, {})
 
-    const client = new Octokit()
-    return client.issues.update({
+    const octokit = new Octokit()
+    return octokit.issues.update({
       owner: 'epmatsw',
       repo: 'example-repo',
       milestone: null,

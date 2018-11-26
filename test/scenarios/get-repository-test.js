@@ -3,18 +3,18 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('get-repository')
 
       .then(instance => {
-        github = instance
+        octokit = instance
       })
   })
 
-  it('github.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
-    return github.repos.get({
+  it('octokit.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
+    return octokit.repos.get({
       owner: 'octokit-fixture-org',
       repo: 'hello-world'
     })

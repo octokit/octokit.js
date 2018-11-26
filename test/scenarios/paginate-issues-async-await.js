@@ -4,12 +4,12 @@
 const { getInstance } = require('../util')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   if (global.navigator) {
     const chromeVersion = parseInt(global.navigator.appVersion.match(/Chrome\/(\d+)/).pop(), 10)
     if (chromeVersion < 63) {
-      return it.skip(`for await (let result of github.paginate.iterator() (Chrome v${chromeVersion} does not support async iterators, they were introduced in v63)`)
+      return it.skip(`for await (let result of octokit.paginate.iterator() (Chrome v${chromeVersion} does not support async iterators, they were introduced in v63)`)
     }
   }
 
@@ -17,16 +17,16 @@ describe('api.github.com', () => {
     return getInstance('paginate-issues')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('for await (let result of github.paginate.iterator()', async () => {
+  it('for await (let result of octokit.paginate.iterator()', async () => {
     const options = {
       owner: 'octokit-fixture-org',
       repo: 'paginate-issues',
@@ -36,7 +36,7 @@ describe('api.github.com', () => {
       }
     }
     const results = []
-    for await (const result of github.paginate.iterator(github.issues.listForRepo.endpoint.merge(options))) {
+    for await (const result of octokit.paginate.iterator(octokit.issues.listForRepo.endpoint.merge(options))) {
       results.push(...result.data)
     }
     expect(results.length).to.equal(13)

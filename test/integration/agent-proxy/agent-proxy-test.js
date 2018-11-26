@@ -43,8 +43,8 @@ describe('client proxy', function () {
       agent: new HttpProxyAgent(proxyUrl)
     })
 
-      .then(github => {
-        return github.orgs.get({ org: 'octokit-fixture-org' })
+      .then(octokit => {
+        return octokit.orgs.get({ org: 'octokit-fixture-org' })
       })
 
       .then((response) => {

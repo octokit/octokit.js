@@ -7,15 +7,15 @@ if (!process.browser && parseInt(process.version.substr(1), 10) >= 10) {
 }
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('paginate-issues')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
@@ -32,7 +32,7 @@ describe('api.github.com', () => {
       }
     }
 
-    const iterator = github.paginate.iterator(github.issues.listForRepo.endpoint.merge(options))[Symbol.asyncIterator]()
+    const iterator = octokit.paginate.iterator(octokit.issues.listForRepo.endpoint.merge(options))[Symbol.asyncIterator]()
 
     return iterator.next()
       .then(result => {

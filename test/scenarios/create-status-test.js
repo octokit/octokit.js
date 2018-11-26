@@ -3,24 +3,24 @@ const { getInstance } = require('../util')
 require('../mocha-node-setup')
 
 describe('api.github.com', () => {
-  let github
+  let octokit
 
   beforeEach(() => {
     return getInstance('create-status')
 
       .then(instance => {
-        github = instance
+        octokit = instance
 
-        github.authenticate({
+        octokit.authenticate({
           type: 'token',
           token: '0000000000000000000000000000000000000001'
         })
       })
   })
 
-  it('github.repos.createStatus()', () => {
+  it('octokit.repos.createStatus()', () => {
     return Promise.all([
-      github.repos.createStatus({
+      octokit.repos.createStatus({
         owner: 'octokit-fixture-org',
         repo: 'create-status',
         sha: '0000000000000000000000000000000000000001',
@@ -29,7 +29,7 @@ describe('api.github.com', () => {
         description: 'create-status failure test',
         context: 'example/1'
       }),
-      github.repos.createStatus({
+      octokit.repos.createStatus({
         owner: 'octokit-fixture-org',
         repo: 'create-status',
         sha: '0000000000000000000000000000000000000001',
@@ -41,7 +41,7 @@ describe('api.github.com', () => {
     ])
 
       .then(() => {
-        return github.repos.listStatusesForRef({
+        return octokit.repos.listStatusesForRef({
           owner: 'octokit-fixture-org',
           repo: 'create-status',
           ref: '0000000000000000000000000000000000000001'
@@ -51,7 +51,7 @@ describe('api.github.com', () => {
       .then((response) => {
         expect(response.data.length).to.equal(2)
 
-        return github.repos.getCombinedStatusForRef({
+        return octokit.repos.getCombinedStatusForRef({
           owner: 'octokit-fixture-org',
           repo: 'create-status',
           ref: '0000000000000000000000000000000000000001'
