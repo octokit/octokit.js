@@ -105,13 +105,6 @@ declare namespace Github {
     token: string;
   }
 
-  export type Auth =
-    | AuthBasic
-    | AuthOAuthToken
-    | AuthOAuthSecret
-    | AuthUserToken
-    | AuthJWT;
-
   export type Link =
     | { link: string; }
     | { headers: { link: string; }; }
@@ -198,7 +191,11 @@ declare namespace Github {
 
 declare class Github {
   constructor(options?: Github.Options);
-  authenticate(auth: Github.Auth): void;
+  authenticate(auth: Github.AuthBasic): void;
+  authenticate(auth: Github.AuthOAuthToken): void;
+  authenticate(auth: Github.AuthOAuthSecret): void;
+  authenticate(auth: Github.AuthUserToken): void;
+  authenticate(auth: Github.AuthJWT): void;
 
   hook: {
     before(name: string, callback: (options: Github.HookOptions) => void): void
