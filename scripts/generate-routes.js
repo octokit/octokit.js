@@ -6,11 +6,6 @@ const sortKeys = require('sort-keys')
 const ROUTES = require('./lib/get-routes')()
 const ROUTES_PATH = join(__dirname, '..', 'plugins', 'rest-api-endpoints', 'routes.json')
 
-const mapScopes = {
-  git: 'gitdata',
-  oauthAuthorizations: 'authorization',
-  pulls: 'pullRequests'
-}
 const newRoutes = {}
 
 const endpoints = Object.keys(ROUTES).reduce((result, scope) => {
@@ -22,7 +17,7 @@ const endpoints = Object.keys(ROUTES).reduce((result, scope) => {
 }, [])
 
 endpoints.forEach(endpoint => {
-  const scope = mapScopes[endpoint.scope] || endpoint.scope
+  const scope = endpoint.scope
 
   if (!newRoutes[scope]) {
     newRoutes[scope] = {}
