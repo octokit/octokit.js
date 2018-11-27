@@ -82,7 +82,7 @@ pass a custom `accept` header, which you can do with any endpoint method documen
 in the [API docs](https://octokit.github.io/rest.js/), e.g.
 
 ```js
-const { data: { topics } } = octokit.repos.get({
+const { data: { topics } } = await octokit.repos.get({
   owner: 'octokit',
   repo: 'rest.js',
   headers: {
@@ -94,7 +94,7 @@ const { data: { topics } } = octokit.repos.get({
 Multiple preview headers can be combined by separating them with commas
 
 ```js
-const { data: { topics, codeOfConduct } } = octokit.repos.get({
+const { data: { topics, codeOfConduct } } = await octokit.repos.get({
   owner: 'octokit',
   repo: 'rest.js',
   headers: {
