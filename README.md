@@ -4,7 +4,7 @@ This package will integrate several standalone packages for the all-batteries-in
 
 - [x] REST API: `@octokit/rest`
 - [x] GraphQL API: `@octokit/graphql`
-- [ ] Oauth
+- [ ] OAuth
 - [x] Webhooks: `@octokit/webhooks`
 - [x] Apps: `@octokit/apps`
 - [ ] Actions
@@ -59,7 +59,10 @@ const client = new Octokit({
 
   // Node.js only: advanced request options can be passed as http(s) agent,
   // such as custom SSL certificate or proxy settings.
-  agent: undefined
+  request: {
+    agent: undefined,
+    timeout: 0
+  }
 })
 ```
 
