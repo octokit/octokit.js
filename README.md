@@ -200,7 +200,7 @@ octokit.paginate(options)
   })
 ```
 
-If your runtime environment supports async iterators (such as Node 10+), you can iterate trough each response
+If your runtime environment supports async iterators (such as Node 10+), you can iterate through each response
 
 ```js
 for await (const response of octokit.paginate.iterator(options) {
