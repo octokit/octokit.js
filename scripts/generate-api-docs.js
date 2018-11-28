@@ -43,7 +43,7 @@ function toApiComment (namespaceName, apiName, endpoint) {
   const descriptionWithLinkToV3Docs = [
     endpoint.description,
     `<a href="${endpoint.documentationUrl}">REST API doc</a>`
-  ].filter(Boolean).join(' ')
+  ].filter(Boolean).join('\n\n')
 
   const commentLines = [
     '/**',
