@@ -4,7 +4,7 @@ This package will integrate several standalone packages for the all-batteries-in
 
 - [x] REST API: `@octokit/rest`
 - [x] GraphQL API: `@octokit/graphql`
-- [ ] OAuth
+- [ ] ~~OAuth~~ postponed.
 - [x] Webhooks: `@octokit/webhooks`
 - [x] Apps: `@octokit/apps`
 - [ ] Actions
@@ -155,10 +155,6 @@ client.graphql(`{
   }
 }`)
 ```
-
-### OAuth
-
-_tbd_, see https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps
 
 ### Webhooks
 
