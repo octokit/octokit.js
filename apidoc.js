@@ -7,7 +7,9 @@
 /**
  * @api {GET} /applications/grants listGrants
  * @apiName listGrants
- * @apiDescription You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `["repo", "user"]`. <a href="https://developer.github.com/v3/oauth_authorizations/#list-your-grants">REST API doc</a>
+ * @apiDescription You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `["repo", "user"]`.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#list-your-grants">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -36,7 +38,9 @@
 /**
  * @api {DELETE} /applications/grants/:grant_id deleteGrant
  * @apiName deleteGrant
- * @apiDescription Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). <a href="https://developer.github.com/v3/oauth_authorizations/#delete-a-grant">REST API doc</a>
+ * @apiDescription Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#delete-a-grant">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {integer} grant_id  
@@ -85,7 +89,9 @@ If your OAuth application intends to create multiple tokens for one user, use `f
 
 You can also create OAuth tokens through the web UI via the [personal access tokens settings](https://github.com/settings/tokens). Read more about these tokens on the [GitHub Help site](https://help.github.com/articles/creating-an-access-token-for-command-line-use).
 
-Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the [GitHub Help site](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on). <a href="https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization">REST API doc</a>
+Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the [GitHub Help site](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string[]} [scopes]  A list of scopes that this authorization is in.
@@ -104,7 +110,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 /**
  * @api {PUT} /authorizations/clients/:client_id getOrCreateAuthorizationForApp
  * @apiName getOrCreateAuthorizationForApp
- * @apiDescription This method will create a new authorization for the specified OAuth application, only if an authorization for that application doesn't already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one. <a href="https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app">REST API doc</a>
+ * @apiDescription This method will create a new authorization for the specified OAuth application, only if an authorization for that application doesn't already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string} client_id  
@@ -123,7 +131,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 /**
  * @api {PUT} /authorizations/clients/:client_id/:fingerprint getOrCreateAuthorizationForAppFingerprint
  * @apiName getOrCreateAuthorizationForAppFingerprint
- * @apiDescription This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one. <a href="https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint">REST API doc</a>
+ * @apiDescription This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string} client_id  
@@ -142,7 +152,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 /**
  * @api {PATCH} /authorizations/:authorization_id updateAuthorization
  * @apiName updateAuthorization
- * @apiDescription You can only send one of these scope keys at a time. <a href="https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization">REST API doc</a>
+ * @apiDescription You can only send one of these scope keys at a time.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {integer} authorization_id  
@@ -176,7 +188,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 /**
  * @api {GET} /applications/:client_id/tokens/:access_token checkAuthorization
  * @apiName checkAuthorization
- * @apiDescription OAuth applications can use a special API method for checking OAuth token validity without running afoul of normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`. <a href="https://developer.github.com/v3/oauth_authorizations/#check-an-authorization">REST API doc</a>
+ * @apiDescription OAuth applications can use a special API method for checking OAuth token validity without running afoul of normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#check-an-authorization">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string} client_id  
@@ -191,7 +205,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 /**
  * @api {POST} /applications/:client_id/tokens/:access_token resetAuthorization
  * @apiName resetAuthorization
- * @apiDescription OAuth applications can use this API method to reset a valid OAuth token without end user involvement. Applications must save the "token" property in the response, because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`. <a href="https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization">REST API doc</a>
+ * @apiDescription OAuth applications can use this API method to reset a valid OAuth token without end user involvement. Applications must save the "token" property in the response, because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string} client_id  
@@ -206,7 +222,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 /**
  * @api {DELETE} /applications/:client_id/tokens/:access_token revokeAuthorizationForApplication
  * @apiName revokeAuthorizationForApplication
- * @apiDescription OAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`. <a href="https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application">REST API doc</a>
+ * @apiDescription OAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string} client_id  
@@ -223,7 +241,9 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * @apiName revokeGrantForApplication
  * @apiDescription OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`. You must also provide a valid token as `:token` and the grant for the token's owner will be deleted.
 
-Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). <a href="https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application">REST API doc</a>
+Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application">REST API doc</a>
  * @apiGroup OauthAuthorizations
  *
  * @apiParam {string} client_id  
@@ -245,7 +265,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /events listPublicEvents
  * @apiName listPublicEvents
- * @apiDescription We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago. <a href="https://developer.github.com/v3/activity/events/#list-public-events">REST API doc</a>
+ * @apiDescription We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago.
+
+<a href="https://developer.github.com/v3/activity/events/#list-public-events">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -310,7 +332,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /users/:username/received_events listReceivedEventsForUser
  * @apiName listReceivedEventsForUser
- * @apiDescription These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events. <a href="https://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received">REST API doc</a>
+ * @apiDescription These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events.
+
+<a href="https://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} username  
@@ -342,7 +366,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /users/:username/events listEventsForUser
  * @apiName listEventsForUser
- * @apiDescription If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events. <a href="https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user">REST API doc</a>
+ * @apiDescription If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.
+
+<a href="https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} username  
@@ -374,7 +400,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /users/:username/events/orgs/:org listEventsForOrg
  * @apiName listEventsForOrg
- * @apiDescription This is the user's organization dashboard. You must be authenticated as the user to view this. <a href="https://developer.github.com/v3/activity/events/#list-events-for-an-organization">REST API doc</a>
+ * @apiDescription This is the user's organization dashboard. You must be authenticated as the user to view this.
+
+<a href="https://developer.github.com/v3/activity/events/#list-events-for-an-organization">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} username  
@@ -401,7 +429,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 *   **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.
 *   **Security advisories**: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub.
 
-**Note**: Private feeds are only returned when [authenticating via Basic Auth](https://developer.github.com/v3/#basic-authentication) since current feed URIs use the older, non revocable auth tokens. <a href="https://developer.github.com/v3/activity/feeds/#list-feeds">REST API doc</a>
+**Note**: Private feeds are only returned when [authenticating via Basic Auth](https://developer.github.com/v3/#basic-authentication) since current feed URIs use the older, non revocable auth tokens.
+
+<a href="https://developer.github.com/v3/activity/feeds/#list-feeds">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiExample {js} async/await
@@ -414,7 +444,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /notifications listNotifications
  * @apiName listNotifications
- * @apiDescription List all notifications for the current user, sorted by most recently updated. <a href="https://developer.github.com/v3/activity/notifications/#list-your-notifications">REST API doc</a>
+ * @apiDescription List all notifications for the current user, sorted by most recently updated.
+
+<a href="https://developer.github.com/v3/activity/notifications/#list-your-notifications">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {boolean} [all="false"]  If `true`, show notifications marked as read.
@@ -433,7 +465,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {GET} /repos/:owner/:repo/notifications listNotificationsForRepo
  * @apiName listNotificationsForRepo
- * @apiDescription List all notifications for the current user. <a href="https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository">REST API doc</a>
+ * @apiDescription List all notifications for the current user.
+
+<a href="https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -454,7 +488,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {PUT} /notifications markAsRead
  * @apiName markAsRead
- * @apiDescription Marking a notification as "read" removes it from the [default view on GitHub](https://github.com/notifications). <a href="https://developer.github.com/v3/activity/notifications/#mark-as-read">REST API doc</a>
+ * @apiDescription Marking a notification as "read" removes it from the [default view on GitHub](https://github.com/notifications).
+
+<a href="https://developer.github.com/v3/activity/notifications/#mark-as-read">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} [last_read_at="current date/time"]  Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -468,7 +504,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
 /**
  * @api {PUT} /repos/:owner/:repo/notifications markNotificationsAsReadForRepo
  * @apiName markNotificationsAsReadForRepo
- * @apiDescription Marking all notifications in a repository as "read" removes them from the [default view on GitHub](https://github.com/notifications). <a href="https://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository">REST API doc</a>
+ * @apiDescription Marking all notifications in a repository as "read" removes them from the [default view on GitHub](https://github.com/notifications).
+
+<a href="https://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -514,7 +552,9 @@ Deleting an OAuth application's grant will also delete all OAuth tokens associat
  * @apiName getThreadSubscription
  * @apiDescription This checks to see if the current user is subscribed to a thread. You can also [get a Repository subscription](https://developer.github.com/v3/activity/watching/#get-a-repository-subscription).
 
-Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mentioned**, or manually subscribe to a thread. <a href="https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription">REST API doc</a>
+Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mentioned**, or manually subscribe to a thread.
+
+<a href="https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {integer} thread_id  
@@ -528,7 +568,9 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {PUT} /notifications/threads/:thread_id/subscription setThreadSubscription
  * @apiName setThreadSubscription
- * @apiDescription This lets you subscribe or unsubscribe from a conversation. <a href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">REST API doc</a>
+ * @apiDescription This lets you subscribe or unsubscribe from a conversation.
+
+<a href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {integer} thread_id  
@@ -543,7 +585,9 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {DELETE} /notifications/threads/:thread_id/subscription deleteThreadSubscription
  * @apiName deleteThreadSubscription
- * @apiDescription Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed. <a href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">REST API doc</a>
+ * @apiDescription Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed.
+
+<a href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {integer} thread_id  
@@ -557,7 +601,9 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {GET} /repos/:owner/:repo/stargazers listStargazersForRepo
  * @apiName listStargazersForRepo
- * @apiDescription You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header: <a href="https://developer.github.com/v3/activity/starring/#list-stargazers">REST API doc</a>
+ * @apiDescription You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
+
+<a href="https://developer.github.com/v3/activity/starring/#list-stargazers">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -574,7 +620,9 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {GET} /users/:username/starred listReposStarredByUser
  * @apiName listReposStarredByUser
- * @apiDescription You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header: <a href="https://developer.github.com/v3/activity/starring/#list-repositories-being-starred">REST API doc</a>
+ * @apiDescription You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
+
+<a href="https://developer.github.com/v3/activity/starring/#list-repositories-being-starred">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} username  
@@ -592,7 +640,9 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {GET} /user/starred listReposStarredByAuthenticatedUser
  * @apiName listReposStarredByAuthenticatedUser
- * @apiDescription You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header: <a href="https://developer.github.com/v3/activity/starring/#list-repositories-being-starred">REST API doc</a>
+ * @apiDescription You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
+
+<a href="https://developer.github.com/v3/activity/starring/#list-repositories-being-starred">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string=created,updated} [sort="created"]  One of `created` (when the repository was starred) or `updated` (when it was last pushed to).
@@ -609,7 +659,9 @@ Note that subscriptions are only generated if a user is participating in a conve
 /**
  * @api {GET} /user/starred/:owner/:repo checkStarringRepo
  * @apiName checkStarringRepo
- * @apiDescription Requires for the user to be authenticated. <a href="https://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository">REST API doc</a>
+ * @apiDescription Requires for the user to be authenticated.
+
+<a href="https://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -626,7 +678,9 @@ Note that subscriptions are only generated if a user is participating in a conve
  * @apiName starRepo
  * @apiDescription Requires for the user to be authenticated.
 
-Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." <a href="https://developer.github.com/v3/activity/starring/#star-a-repository">REST API doc</a>
+Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+
+<a href="https://developer.github.com/v3/activity/starring/#star-a-repository">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -641,7 +695,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {DELETE} /user/starred/:owner/:repo unstarRepo
  * @apiName unstarRepo
- * @apiDescription Requires for the user to be authenticated. <a href="https://developer.github.com/v3/activity/starring/#unstar-a-repository">REST API doc</a>
+ * @apiDescription Requires for the user to be authenticated.
+
+<a href="https://developer.github.com/v3/activity/starring/#unstar-a-repository">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -719,7 +775,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {PUT} /repos/:owner/:repo/subscription setRepoSubscription
  * @apiName setRepoSubscription
- * @apiDescription If you would like to watch a repository, set `subscribed` to `true`. If you would like to ignore notifications made within a repository, set `ignored` to `true`. If you would like to stop watching a repository, [delete the repository's subscription](#delete-a-repository-subscription) completely. <a href="https://developer.github.com/v3/activity/watching/#set-a-repository-subscription">REST API doc</a>
+ * @apiDescription If you would like to watch a repository, set `subscribed` to `true`. If you would like to ignore notifications made within a repository, set `ignored` to `true`. If you would like to stop watching a repository, [delete the repository's subscription](#delete-a-repository-subscription) completely.
+
+<a href="https://developer.github.com/v3/activity/watching/#set-a-repository-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -736,7 +794,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {DELETE} /repos/:owner/:repo/subscription deleteRepoSubscription
  * @apiName deleteRepoSubscription
- * @apiDescription This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, [set the repository's subscription manually](#set-a-repository-subscription). <a href="https://developer.github.com/v3/activity/watching/#delete-a-repository-subscription">REST API doc</a>
+ * @apiDescription This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, [set the repository's subscription manually](#set-a-repository-subscription).
+
+<a href="https://developer.github.com/v3/activity/watching/#delete-a-repository-subscription">REST API doc</a>
  * @apiGroup Activity
  *
  * @apiParam {string} owner  
@@ -758,7 +818,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {POST} /repos/:owner/:repo/check-runs create
  * @apiName create
- * @apiDescription Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs. <a href="https://developer.github.com/v3/checks/runs/#create-a-check-run">REST API doc</a>
+ * @apiDescription Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.
+
+<a href="https://developer.github.com/v3/checks/runs/#create-a-check-run">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -804,7 +866,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {PATCH} /repos/:owner/:repo/check-runs/:check_run_id update
  * @apiName update
- * @apiDescription Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs. <a href="https://developer.github.com/v3/checks/runs/#update-a-check-run">REST API doc</a>
+ * @apiDescription Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.
+
+<a href="https://developer.github.com/v3/checks/runs/#update-a-check-run">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -850,7 +914,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /repos/:owner/:repo/commits/:ref/check-runs listForRef
  * @apiName listForRef
- * @apiDescription Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref">REST API doc</a>
+ * @apiDescription Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
+
+<a href="https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -871,7 +937,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id/check-runs listForSuite
  * @apiName listForSuite
- * @apiDescription Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository. <a href="https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite">REST API doc</a>
+ * @apiDescription Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
+
+<a href="https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -892,7 +960,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id get
  * @apiName get
- * @apiDescription Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository. <a href="https://developer.github.com/v3/checks/runs/#get-a-single-check-run">REST API doc</a>
+ * @apiDescription Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
+
+<a href="https://developer.github.com/v3/checks/runs/#get-a-single-check-run">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -908,7 +978,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /repos/:owner/:repo/check-runs/:check_run_id/annotations listAnnotations
  * @apiName listAnnotations
- * @apiDescription Lists annotations for a check run using the annotation `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the `repo` scope to get annotations for a check run in a private repository. <a href="https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run">REST API doc</a>
+ * @apiDescription Lists annotations for a check run using the annotation `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the `repo` scope to get annotations for a check run in a private repository.
+
+<a href="https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -926,7 +998,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /repos/:owner/:repo/check-suites/:check_suite_id getSuite
  * @apiName getSuite
- * @apiDescription Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository. <a href="https://developer.github.com/v3/checks/suites/#get-a-single-check-suite">REST API doc</a>
+ * @apiDescription Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.
+
+<a href="https://developer.github.com/v3/checks/suites/#get-a-single-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -942,7 +1016,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /repos/:owner/:repo/commits/:ref/check-suites listSuitesForRef
  * @apiName listSuitesForRef
- * @apiDescription Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository. <a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
+ * @apiDescription Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.
+
+<a href="https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -962,7 +1038,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {PATCH} /repos/:owner/:repo/check-suites/preferences setSuitesPreferences
  * @apiName setSuitesPreferences
- * @apiDescription Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites. <a href="https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository">REST API doc</a>
+ * @apiDescription Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.
+
+<a href="https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -980,7 +1058,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {POST} /repos/:owner/:repo/check-suites createSuite
  * @apiName createSuite
- * @apiDescription By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using "[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)". Your GitHub App must have the `checks:write` permission to create check suites. <a href="https://developer.github.com/v3/checks/suites/#create-a-check-suite">REST API doc</a>
+ * @apiDescription By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using "[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)". Your GitHub App must have the `checks:write` permission to create check suites.
+
+<a href="https://developer.github.com/v3/checks/suites/#create-a-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -998,7 +1078,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * @apiName rerequestSuite
  * @apiDescription Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the [`check_run` webhook](https://developer.github.com/v3/activity/events/types/#checkrunevent) event with the action `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the `conclusion` is cleared.
 
-To rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository. <a href="https://developer.github.com/v3/checks/suites/#rerequest-check-suite">REST API doc</a>
+To rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.
+
+<a href="https://developer.github.com/v3/checks/suites/#rerequest-check-suite">REST API doc</a>
  * @apiGroup Checks
  *
  * @apiParam {string} owner  
@@ -1056,7 +1138,9 @@ To rerequest a check suite, your GitHub App must have the `checks:read` permissi
  * @apiName listPublic
  * @apiDescription List all public gists sorted by most recently updated to least recently updated.
 
-Note: With [pagination](https://developer.github.com/v3/#pagination), you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page. <a href="https://developer.github.com/v3/gists/#list-all-public-gists">REST API doc</a>
+Note: With [pagination](https://developer.github.com/v3/#pagination), you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.
+
+<a href="https://developer.github.com/v3/gists/#list-all-public-gists">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} [since]  A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Only gists updated at or after this time are returned.
@@ -1072,7 +1156,9 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
 /**
  * @api {GET} /gists/starred listStarred
  * @apiName listStarred
- * @apiDescription List the authenticated user's starred gists: <a href="https://developer.github.com/v3/gists/#list-starred-gists">REST API doc</a>
+ * @apiDescription List the authenticated user's starred gists:
+
+<a href="https://developer.github.com/v3/gists/#list-starred-gists">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} [since]  A timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Only gists updated at or after this time are returned.
@@ -1119,7 +1205,9 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * @apiName create
  * @apiDescription Allows you to add a new gist with one or more files.
 
-**Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. <a href="https://developer.github.com/v3/gists/#create-a-gist">REST API doc</a>
+**Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.
+
+<a href="https://developer.github.com/v3/gists/#create-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {object} files  The filenames and content of each file in the gist. The keys in the `files` object represent the filename and have the type `string`.
@@ -1136,7 +1224,9 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
 /**
  * @api {PATCH} /gists/:gist_id update
  * @apiName update
- * @apiDescription Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged. <a href="https://developer.github.com/v3/gists/#edit-a-gist">REST API doc</a>
+ * @apiDescription Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.
+
+<a href="https://developer.github.com/v3/gists/#edit-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
@@ -1170,7 +1260,9 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
 /**
  * @api {PUT} /gists/:gist_id/star star
  * @apiName star
- * @apiDescription Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." <a href="https://developer.github.com/v3/gists/#star-a-gist">REST API doc</a>
+ * @apiDescription Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+
+<a href="https://developer.github.com/v3/gists/#star-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
@@ -1212,7 +1304,9 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
 /**
  * @api {POST} /gists/:gist_id/forks fork
  * @apiName fork
- * @apiDescription **Note**: This was previously `/gists/:gist_id/fork`. <a href="https://developer.github.com/v3/gists/#fork-a-gist">REST API doc</a>
+ * @apiDescription **Note**: This was previously `/gists/:gist_id/fork`.
+
+<a href="https://developer.github.com/v3/gists/#fork-a-gist">REST API doc</a>
  * @apiGroup Gists
  *
  * @apiParam {string} gist_id  
@@ -1342,7 +1436,9 @@ Note: With [pagination](https://developer.github.com/v3/#pagination), you can fe
  * @apiName getBlob
  * @apiDescription The `content` in the response will always be Base64 encoded.
 
-_Note_: This API supports blobs up to 100 megabytes in size. <a href="https://developer.github.com/v3/git/blobs/#get-a-blob">REST API doc</a>
+_Note_: This API supports blobs up to 100 megabytes in size.
+
+<a href="https://developer.github.com/v3/git/blobs/#get-a-blob">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1375,7 +1471,9 @@ _Note_: This API supports blobs up to 100 megabytes in size. <a href="https://de
 /**
  * @api {GET} /repos/:owner/:repo/git/commits/:commit_sha getCommit
  * @apiName getCommit
- * @apiDescription Gets a Git [commit object](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects). <a href="https://developer.github.com/v3/git/commits/#get-a-commit">REST API doc</a>
+ * @apiDescription Gets a Git [commit object](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects).
+
+<a href="https://developer.github.com/v3/git/commits/#get-a-commit">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1409,7 +1507,9 @@ You can also provide an optional string `signature` parameter. This value will b
 
 In this example, the payload that the signature is over would have been:
 
- <a href="https://developer.github.com/v3/git/commits/#create-a-commit">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/git/commits/#create-a-commit">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1429,7 +1529,9 @@ In this example, the payload that the signature is over would have been:
 /**
  * @api {GET} /repos/:owner/:repo/git/refs/:ref getRef
  * @apiName getRef
- * @apiDescription Returns a branch or tag reference. Other than the [REST API](https://developer.github.com/v3/git/refs/#get-a-reference) it always returns a single reference. If the REST API returns with an array then the method responds with an error. <a href="https://developer.github.com/v3/git/refs/#get-a-reference">REST API doc</a>
+ * @apiDescription Returns a branch or tag reference. Other than the [REST API](https://developer.github.com/v3/git/refs/#get-a-reference) it always returns a single reference. If the REST API returns with an array then the method responds with an error.
+
+<a href="https://developer.github.com/v3/git/refs/#get-a-reference">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1445,7 +1547,9 @@ In this example, the payload that the signature is over would have been:
 /**
  * @api {GET} /repos/:owner/:repo/git/refs/:namespace listRefs
  * @apiName listRefs
- * @apiDescription This will return an array of all the references on the system, including things like notes and stashes if they exist on the server <a href="https://developer.github.com/v3/git/refs/#get-all-references">REST API doc</a>
+ * @apiDescription This will return an array of all the references on the system, including things like notes and stashes if they exist on the server
+
+<a href="https://developer.github.com/v3/git/refs/#get-all-references">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1463,7 +1567,9 @@ In this example, the payload that the signature is over would have been:
 /**
  * @api {POST} /repos/:owner/:repo/git/refs createRef
  * @apiName createRef
- * @apiDescription Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches. <a href="https://developer.github.com/v3/git/refs/#create-a-reference">REST API doc</a>
+ * @apiDescription Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.
+
+<a href="https://developer.github.com/v3/git/refs/#create-a-reference">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1508,7 +1614,9 @@ Example: Deleting a tag:
 
 ```
 DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
-``` <a href="https://developer.github.com/v3/git/refs/#delete-a-reference">REST API doc</a>
+```
+
+<a href="https://developer.github.com/v3/git/refs/#delete-a-reference">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1540,7 +1648,9 @@ DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
 /**
  * @api {POST} /repos/:owner/:repo/git/tags createTag
  * @apiName createTag
- * @apiDescription Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then [create](https://developer.github.com/v3/git/refs/#create-a-reference) the `refs/tags/[tag]` reference. If you want to create a lightweight tag, you only have to [create](https://developer.github.com/v3/git/refs/#create-a-reference) the tag reference - this call would be unnecessary. <a href="https://developer.github.com/v3/git/tags/#create-a-tag-object">REST API doc</a>
+ * @apiDescription Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then [create](https://developer.github.com/v3/git/refs/#create-a-reference) the `refs/tags/[tag]` reference. If you want to create a lightweight tag, you only have to [create](https://developer.github.com/v3/git/refs/#create-a-reference) the tag reference - this call would be unnecessary.
+
+<a href="https://developer.github.com/v3/git/tags/#create-a-tag-object">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1563,7 +1673,9 @@ DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
 /**
  * @api {GET} /repos/:owner/:repo/git/trees/:tree_sha getTree
  * @apiName getTree
- * @apiDescription If `truncated` in the response is `true`, the number of items in the `tree` array exceeded our maximum limit. If you need to fetch more items, omit the `recursive` parameter, and fetch one sub-tree at a time. If you need to fetch even more items, you can clone the repository and iterate over the Git data locally. <a href="https://developer.github.com/v3/git/trees/#get-a-tree">REST API doc</a>
+ * @apiDescription If `truncated` in the response is `true`, the number of items in the `tree` array exceeded our maximum limit. If you need to fetch more items, omit the `recursive` parameter, and fetch one sub-tree at a time. If you need to fetch even more items, you can clone the repository and iterate over the Git data locally.
+
+<a href="https://developer.github.com/v3/git/trees/#get-a-tree">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1580,7 +1692,9 @@ DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
 /**
  * @api {POST} /repos/:owner/:repo/git/trees createTree
  * @apiName createTree
- * @apiDescription The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out. <a href="https://developer.github.com/v3/git/trees/#create-a-tree">REST API doc</a>
+ * @apiDescription The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.
+
+<a href="https://developer.github.com/v3/git/trees/#create-a-tree">REST API doc</a>
  * @apiGroup Git
  *
  * @apiParam {string} owner  
@@ -1611,7 +1725,9 @@ DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
  * @apiName getBySlug
  * @apiDescription **Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`).
 
-If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-a-single-github-app">REST API doc</a>
+If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#get-a-single-github-app">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} app_slug  
@@ -1627,7 +1743,9 @@ If the GitHub App you specify is public, you can access this endpoint without au
  * @apiName getAuthenticated
  * @apiDescription Returns the GitHub App associated with the authentication credentials used.
 
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
+You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#get-the-authenticated-github-app">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiExample {js} async/await
@@ -1642,7 +1760,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * @apiName listInstallations
  * @apiDescription You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
 
-The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#find-installations">REST API doc</a>
+The permissions the installation has are included under the `permissions` key.
+
+<a href="https://developer.github.com/v3/apps/#find-installations">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1657,7 +1777,9 @@ The permissions the installation has are included under the `permissions` key. <
 /**
  * @api {GET} /app/installations/:installation_id getInstallation
  * @apiName getInstallation
- * @apiDescription You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#get-a-single-installation">REST API doc</a>
+ * @apiDescription You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#get-a-single-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} installation_id  
@@ -1677,7 +1799,9 @@ You must use a [user-to-server OAuth access token](https://developer.github.com/
 
 The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
 
-The permissions the installation has are included under the `permissions` key. <a href="https://developer.github.com/v3/apps/#list-installations-for-user">REST API doc</a>
+The permissions the installation has are included under the `permissions` key.
+
+<a href="https://developer.github.com/v3/apps/#list-installations-for-user">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1694,7 +1818,9 @@ The permissions the installation has are included under the `permissions` key. <
  * @apiName createInstallationToken
  * @apiDescription Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.
 
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#create-a-new-installation-token">REST API doc</a>
+You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#create-a-new-installation-token">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} installation_id  
@@ -1710,7 +1836,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * @apiName findOrgInstallation
  * @apiDescription Enables an authenticated GitHub App to find the organization's installation information.
 
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#find-organization-installation">REST API doc</a>
+You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#find-organization-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} org  
@@ -1726,7 +1854,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * @apiName findRepoInstallation
  * @apiDescription Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.
 
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#find-repository-installation">REST API doc</a>
+You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#find-repository-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} owner  
@@ -1743,7 +1873,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
  * @apiName findUserInstallation
  * @apiDescription Enables an authenticated GitHub App to find the user’s installation information.
 
-You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. <a href="https://developer.github.com/v3/apps/#find-user-installation">REST API doc</a>
+You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/#find-user-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} username  
@@ -1757,7 +1889,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {POST} /app-manifests/:code/conversions createFromManifest
  * @apiName createFromManifest
- * @apiDescription Use this endpoint to complete the handshake necessary when implementing the [GitHub App Manifest flow](https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/). When you create a GitHub App with the manifest flow, you receive a temporary `code` used to retrieve the GitHub App's `id`, `pem` (private key), and `webhook_secret`. <a href="https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest">REST API doc</a>
+ * @apiDescription Use this endpoint to complete the handshake necessary when implementing the [GitHub App Manifest flow](https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/). When you create a GitHub App with the manifest flow, you receive a temporary `code` used to retrieve the GitHub App's `id`, `pem` (private key), and `webhook_secret`.
+
+<a href="https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {string} code  
@@ -1775,7 +1909,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 
 The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
 
-You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#list-repositories">REST API doc</a>
+You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/installations/#list-repositories">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1796,7 +1932,9 @@ The authenticated user has explicit permission to access repositories they own, 
 
 You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.
 
-The access the user has to each repository is included in the hash under the `permissions` key. <a href="https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation">REST API doc</a>
+The access the user has to each repository is included in the hash under the `permissions` key.
+
+<a href="https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} installation_id  
@@ -1814,7 +1952,9 @@ The access the user has to each repository is included in the hash under the `pe
  * @apiName addRepoToInstallation
  * @apiDescription Add a single repository to an installation. The authenticated user must have admin access to the repository.
 
-You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
+You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/installations/#add-repository-to-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} installation_id  
@@ -1831,7 +1971,9 @@ You must use a personal access token (which you can create via the [command line
  * @apiName removeRepoFromInstallation
  * @apiDescription Remove a single repository from an installation. The authenticated user must have admin access to the repository.
 
-You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint. <a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
+You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/installations/#remove-repository-from-installation">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} installation_id  
@@ -1846,7 +1988,9 @@ You must use a personal access token (which you can create via the [command line
 /**
  * @api {GET} /marketplace_listing/plans listPlans
  * @apiName listPlans
- * @apiDescription GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
+ * @apiDescription GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1861,7 +2005,9 @@ You must use a personal access token (which you can create via the [command line
 /**
  * @api {GET} /marketplace_listing/stubbed/plans listPlansStubbed
  * @apiName listPlansStubbed
- * @apiDescription GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
+ * @apiDescription GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1878,7 +2024,9 @@ You must use a personal access token (which you can create via the [command line
  * @apiName listAccountsUserOrOrgOnPlan
  * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
-GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} plan_id  
@@ -1898,7 +2046,9 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * @apiName listAccountsUserOrOrgOnPlanStubbed
  * @apiDescription Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
-GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} plan_id  
@@ -1918,7 +2068,9 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * @apiName checkAccountIsAssociatedWithAny
  * @apiDescription Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
-GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} account_id  
@@ -1936,7 +2088,9 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * @apiName checkAccountIsAssociatedWithAnyStubbed
  * @apiDescription Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.
 
-GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint. <a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
+GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
+
+<a href="https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} account_id  
@@ -1952,7 +2106,9 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
 /**
  * @api {GET} /user/marketplace_purchases listMarketplacePurchasesForAuthenticatedUser
  * @apiName listMarketplacePurchasesForAuthenticatedUser
- * @apiDescription Returns only active subscriptions. You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an [OAuth token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/). <a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
+ * @apiDescription Returns only active subscriptions. You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an [OAuth token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/).
+
+<a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1967,7 +2123,9 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
 /**
  * @api {GET} /user/marketplace_purchases/stubbed listMarketplacePurchasesForAuthenticatedUserStubbed
  * @apiName listMarketplacePurchasesForAuthenticatedUserStubbed
- * @apiDescription Returns only active subscriptions. You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an [OAuth token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/). <a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
+ * @apiDescription Returns only active subscriptions. You must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an [OAuth token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/).
+
+<a href="https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases">REST API doc</a>
  * @apiGroup Apps
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -1993,7 +2151,9 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
- <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string=assigned,created,mentioned,subscribed,all} [filter="assigned"]  Indicates which sorts of issues to return. Can be one of:  
@@ -2023,7 +2183,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
- <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string=assigned,created,mentioned,subscribed,all} [filter="assigned"]  Indicates which sorts of issues to return. Can be one of:  
@@ -2053,7 +2215,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
- <a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/#list-issues">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} org  
@@ -2084,7 +2248,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
- <a href="https://developer.github.com/v3/issues/#list-issues-for-a-repository">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/#list-issues-for-a-repository">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2116,7 +2282,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 
 Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
 
- <a href="https://developer.github.com/v3/issues/#get-a-single-issue">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/#get-a-single-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2132,7 +2300,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {POST} /repos/:owner/:repo/issues create
  * @apiName create
- * @apiDescription Any user with pull access to a repository can create an issue. <a href="https://developer.github.com/v3/issues/#create-an-issue">REST API doc</a>
+ * @apiDescription Any user with pull access to a repository can create an issue.
+
+<a href="https://developer.github.com/v3/issues/#create-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2153,7 +2323,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {PATCH} /repos/:owner/:repo/issues/:number update
  * @apiName update
- * @apiDescription Issue owners and users with push access can edit an issue. <a href="https://developer.github.com/v3/issues/#edit-an-issue">REST API doc</a>
+ * @apiDescription Issue owners and users with push access can edit an issue.
+
+<a href="https://developer.github.com/v3/issues/#edit-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2178,7 +2350,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
  * @apiName lock
  * @apiDescription Users with push access can lock an issue or pull request's conversation.
 
-Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." <a href="https://developer.github.com/v3/issues/#lock-an-issue">REST API doc</a>
+Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+
+<a href="https://developer.github.com/v3/issues/#lock-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2199,7 +2373,9 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
 /**
  * @api {DELETE} /repos/:owner/:repo/issues/:number/lock unlock
  * @apiName unlock
- * @apiDescription Users with push access can unlock an issue's conversation. <a href="https://developer.github.com/v3/issues/#unlock-an-issue">REST API doc</a>
+ * @apiDescription Users with push access can unlock an issue's conversation.
+
+<a href="https://developer.github.com/v3/issues/#unlock-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2215,7 +2391,9 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
 /**
  * @api {GET} /repos/:owner/:repo/assignees listAssignees
  * @apiName listAssignees
- * @apiDescription Lists the [available assignees](https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/) for issues in a repository. <a href="https://developer.github.com/v3/issues/assignees/#list-assignees">REST API doc</a>
+ * @apiDescription Lists the [available assignees](https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/) for issues in a repository.
+
+<a href="https://developer.github.com/v3/issues/assignees/#list-assignees">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2236,7 +2414,9 @@ Note that, if you choose not to pass any parameters, you'll need to set `Content
 
 If the `assignee` can be assigned to issues in the repository, a `204` header with no content is returned.
 
-Otherwise a `404` status code is returned. <a href="https://developer.github.com/v3/issues/assignees/#check-assignee">REST API doc</a>
+Otherwise a `404` status code is returned.
+
+<a href="https://developer.github.com/v3/issues/assignees/#check-assignee">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2254,7 +2434,9 @@ Otherwise a `404` status code is returned. <a href="https://developer.github.com
  * @apiName addAssignees
  * @apiDescription Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.
 
-This example adds two assignees to the existing `octocat` assignee. <a href="https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue">REST API doc</a>
+This example adds two assignees to the existing `octocat` assignee.
+
+<a href="https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2273,7 +2455,9 @@ This example adds two assignees to the existing `octocat` assignee. <a href="htt
  * @apiName removeAssignees
  * @apiDescription Removes one or more assignees from an issue.
 
-This example removes two of three assignees, leaving the `octocat` assignee. <a href="https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue">REST API doc</a>
+This example removes two of three assignees, leaving the `octocat` assignee.
+
+<a href="https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2292,7 +2476,9 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * @apiName listComments
  * @apiDescription Issue Comments are ordered by ascending ID.
 
- <a href="https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2313,7 +2499,9 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
  * @apiName listCommentsForRepo
  * @apiDescription By default, Issue Comments are ordered by ascending ID.
 
- <a href="https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2571,7 +2759,9 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 /**
  * @api {DELETE} /repos/:owner/:repo/issues/:number/labels/:name removeLabel
  * @apiName removeLabel
- * @apiDescription Removes the specified label from the issue, and returns the remaining labels on the issue. <a href="https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue">REST API doc</a>
+ * @apiDescription Removes the specified label from the issue, and returns the remaining labels on the issue.
+
+<a href="https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue">REST API doc</a>
  * @apiGroup Issues
  *
  * @apiParam {string} owner  
@@ -2755,7 +2945,9 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 /**
  * @api {POST} /orgs/:org/migrations startForOrg
  * @apiName startForOrg
- * @apiDescription Initiates the generation of a migration archive. <a href="https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration">REST API doc</a>
+ * @apiDescription Initiates the generation of a migration archive.
+
+<a href="https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -2772,7 +2964,9 @@ This example removes two of three assignees, leaving the `octocat` assignee. <a 
 /**
  * @api {GET} /orgs/:org/migrations listForOrg
  * @apiName listForOrg
- * @apiDescription Lists the most recent migrations. <a href="https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations">REST API doc</a>
+ * @apiDescription Lists the most recent migrations.
+
+<a href="https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -2795,7 +2989,9 @@ The `state` of a migration can be one of the following values:
 *   `pending`, which means the migration hasn't started yet.
 *   `exporting`, which means the migration is in progress.
 *   `exported`, which means the migration finished successfully.
-*   `failed`, which means the migration failed. <a href="https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration">REST API doc</a>
+*   `failed`, which means the migration failed.
+
+<a href="https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -2812,7 +3008,9 @@ The `state` of a migration can be one of the following values:
  * @apiName getArchiveForOrg
  * @apiDescription Fetches the URL to a migration archive.
 
- <a href="https://developer.github.com/v3/migrations/orgs/#download-an-organization-migration-archive">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/migrations/orgs/#download-an-organization-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -2827,7 +3025,9 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {DELETE} /orgs/:org/migrations/:migration_id/archive deleteArchiveForOrg
  * @apiName deleteArchiveForOrg
- * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href="https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive">REST API doc</a>
+ * @apiDescription Deletes a previous migration archive. Migration archives are automatically deleted after seven days.
+
+<a href="https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -2842,7 +3042,9 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {DELETE} /orgs/:org/migrations/:migration_id/repos/:repo_name/lock unlockRepoForOrg
  * @apiName unlockRepoForOrg
- * @apiDescription Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data. <a href="https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository">REST API doc</a>
+ * @apiDescription Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data.
+
+<a href="https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} org  
@@ -2858,7 +3060,9 @@ The `state` of a migration can be one of the following values:
 /**
  * @api {PUT} /repos/:owner/:repo/import startImport
  * @apiName startImport
- * @apiDescription Start a source import to a GitHub repository using GitHub Importer. <a href="https://developer.github.com/v3/migrations/source_imports/#start-an-import">REST API doc</a>
+ * @apiDescription Start a source import to a GitHub repository using GitHub Importer.
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#start-an-import">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2911,7 +3115,9 @@ This section includes details about Git LFS related fields that may be present i
 *   `use_lfs` - describes whether the import has been opted in or out of using Git LFS. The value can be `opt_in`, `opt_out`, or `undecided` if no action has been taken.
 *   `has_large_files` - the boolean value describing whether files larger than 100MB were found during the `importing` step.
 *   `large_files_size` - the total size in gigabytes of files larger than 100MB found in the originating repository.
-*   `large_files_count` - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request. <a href="https://developer.github.com/v3/migrations/source_imports/#get-import-progress">REST API doc</a>
+*   `large_files_count` - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request.
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#get-import-progress">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2932,7 +3138,9 @@ Some servers (e.g. TFS servers) can have several projects at a single URL. In th
 
 The following example demonstrates the workflow for updating an import with "project1" as the project choice. Given a `project_choices` array like such:
 
-To restart an import, no parameters are provided in the update request. <a href="https://developer.github.com/v3/migrations/source_imports/#update-existing-import">REST API doc</a>
+To restart an import, no parameters are provided in the update request.
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#update-existing-import">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2951,7 +3159,9 @@ To restart an import, no parameters are provided in the update request. <a href=
  * @apiName getCommitAuthors
  * @apiDescription Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username `hubot` into something like `hubot <hubot@12341234-abab-fefe-8787-fedcba987654>`.
 
-This API method and the "Map a commit author" method allow you to provide correct Git author information. <a href="https://developer.github.com/v3/migrations/source_imports/#get-commit-authors">REST API doc</a>
+This API method and the "Map a commit author" method allow you to provide correct Git author information.
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#get-commit-authors">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2967,7 +3177,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 /**
  * @api {PATCH} /repos/:owner/:repo/import/authors/:author_id mapCommitAuthor
  * @apiName mapCommitAuthor
- * @apiDescription Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href="https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author">REST API doc</a>
+ * @apiDescription Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository.
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -2985,7 +3197,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 /**
  * @api {PATCH} /repos/:owner/:repo/import/lfs setLfsPreference
  * @apiName setLfsPreference
- * @apiDescription You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by [Git LFS](https://git-lfs.github.com). You can learn more about our LFS feature and working with large files [on our help site](https://help.github.com/articles/versioning-large-files/). <a href="https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference">REST API doc</a>
+ * @apiDescription You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by [Git LFS](https://git-lfs.github.com). You can learn more about our LFS feature and working with large files [on our help site](https://help.github.com/articles/versioning-large-files/).
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3001,7 +3215,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 /**
  * @api {GET} /repos/:owner/:repo/import/large_files getLargeFiles
  * @apiName getLargeFiles
- * @apiDescription List files larger than 100MB found during the import <a href="https://developer.github.com/v3/migrations/source_imports/#get-large-files">REST API doc</a>
+ * @apiDescription List files larger than 100MB found during the import
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#get-large-files">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3016,7 +3232,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 /**
  * @api {DELETE} /repos/:owner/:repo/import cancelImport
  * @apiName cancelImport
- * @apiDescription Stop an import for a repository. <a href="https://developer.github.com/v3/migrations/source_imports/#cancel-an-import">REST API doc</a>
+ * @apiDescription Stop an import for a repository.
+
+<a href="https://developer.github.com/v3/migrations/source_imports/#cancel-an-import">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string} owner  
@@ -3031,7 +3249,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 /**
  * @api {POST} /user/migrations startForAuthenticatedUser
  * @apiName startForAuthenticatedUser
- * @apiDescription Initiates the generation of a user migration archive. <a href="https://developer.github.com/v3/migrations/users/#start-a-user-migration">REST API doc</a>
+ * @apiDescription Initiates the generation of a user migration archive.
+
+<a href="https://developer.github.com/v3/migrations/users/#start-a-user-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {string[]} repositories  An array of repositories to include in the migration.
@@ -3047,7 +3267,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 /**
  * @api {GET} /user/migrations listForAuthenticatedUser
  * @apiName listForAuthenticatedUser
- * @apiDescription Lists all migrations a user has started. <a href="https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations">REST API doc</a>
+ * @apiDescription Lists all migrations a user has started.
+
+<a href="https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -3069,7 +3291,9 @@ This API method and the "Map a commit author" method allow you to provide correc
 *   `exported` - the migration finished successfully.
 *   `failed` - the migration failed.
 
-Once the migration has been `exported` you can [download the migration archive](#download-a-user-migration-archive). <a href="https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration">REST API doc</a>
+Once the migration has been `exported` you can [download the migration archive](#download-a-user-migration-archive).
+
+<a href="https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {integer} migration_id  
@@ -3105,7 +3329,9 @@ Once the migration has been `exported` you can [download the migration archive](
 
 The archive will also contain an `attachments` directory that includes all attachment files uploaded to GitHub.com and a `repositories` directory that contains the repository's Git data.
 
- <a href="https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {integer} migration_id  
@@ -3119,7 +3345,9 @@ The archive will also contain an `attachments` directory that includes all attac
 /**
  * @api {DELETE} /user/migrations/:migration_id/archive deleteArchiveForAuthenticatedUser
  * @apiName deleteArchiveForAuthenticatedUser
- * @apiDescription Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [Get a list of user migrations](#get-a-list-of-user-migrations) and [Get the status of a user migration](#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted. <a href="https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive">REST API doc</a>
+ * @apiDescription Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [Get a list of user migrations](#get-a-list-of-user-migrations) and [Get the status of a user migration](#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted.
+
+<a href="https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {integer} migration_id  
@@ -3133,7 +3361,9 @@ The archive will also contain an `attachments` directory that includes all attac
 /**
  * @api {DELETE} /user/migrations/:migration_id/repos/:repo_name/lock unlockRepoForAuthenticatedUser
  * @apiName unlockRepoForAuthenticatedUser
- * @apiDescription Unlocks a repository. You can lock repositories when you [start a user migration](#start-a-user-migration). Once the migration is complete you can unlock each repository to begin using it again or [delete the repository](https://developer.github.com/v3/repos/#delete-a-repository) if you no longer need the source data. Returns a status of `404 Not Found` if the repository is not locked. <a href="https://developer.github.com/v3/migrations/users/#unlock-a-user-repository">REST API doc</a>
+ * @apiDescription Unlocks a repository. You can lock repositories when you [start a user migration](#start-a-user-migration). Once the migration is complete you can unlock each repository to begin using it again or [delete the repository](https://developer.github.com/v3/repos/#delete-a-repository) if you no longer need the source data. Returns a status of `404 Not Found` if the repository is not locked.
+
+<a href="https://developer.github.com/v3/migrations/users/#unlock-a-user-repository">REST API doc</a>
  * @apiGroup Migrations
  *
  * @apiParam {integer} migration_id  
@@ -3182,7 +3412,9 @@ The archive will also contain an `attachments` directory that includes all attac
 /**
  * @api {GET} /repos/:owner/:repo/community/code_of_conduct getForRepo
  * @apiName getForRepo
- * @apiDescription This method returns the contents of the repository's code of conduct file, if one is detected. <a href="https://developer.github.com/v3/codes_of_conduct/#get-the-contents-of-a-repositorys-code-of-conduct">REST API doc</a>
+ * @apiDescription This method returns the contents of the repository's code of conduct file, if one is detected.
+
+<a href="https://developer.github.com/v3/codes_of_conduct/#get-the-contents-of-a-repositorys-code-of-conduct">REST API doc</a>
  * @apiGroup CodesOfConduct
  *
  * @apiParam {string} owner  
@@ -3206,7 +3438,9 @@ The archive will also contain an `attachments` directory that includes all attac
  * @apiName get
  * @apiDescription Lists all the emojis available to use on GitHub.
 
- <a href="https://developer.github.com/v3/emojis/#emojis">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/emojis/#emojis">REST API doc</a>
  * @apiGroup Emojis
  *
  * @apiExample {js} async/await
@@ -3226,7 +3460,9 @@ The archive will also contain an `attachments` directory that includes all attac
 /**
  * @api {GET} /gitignore/templates listTemplates
  * @apiName listTemplates
- * @apiDescription List all templates available to pass as an option when [creating a repository](https://developer.github.com/v3/repos/#create). <a href="https://developer.github.com/v3/gitignore/#listing-available-templates">REST API doc</a>
+ * @apiDescription List all templates available to pass as an option when [creating a repository](https://developer.github.com/v3/repos/#create).
+
+<a href="https://developer.github.com/v3/gitignore/#listing-available-templates">REST API doc</a>
  * @apiGroup Gitignore
  *
  * @apiExample {js} async/await
@@ -3243,7 +3479,9 @@ The archive will also contain an `attachments` directory that includes all attac
 
 Use the raw [media type](https://developer.github.com/v3/media/) to get the raw contents.
 
- <a href="https://developer.github.com/v3/gitignore/#get-a-single-template">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/gitignore/#get-a-single-template">REST API doc</a>
  * @apiGroup Gitignore
  *
  * @apiParam {string} name  
@@ -3293,7 +3531,9 @@ Use the raw [media type](https://developer.github.com/v3/media/) to get the raw 
  * @apiName getForRepo
  * @apiDescription This method returns the contents of the repository's license file, if one is detected.
 
-Similar to [the repository contents API](https://developer.github.com/v3/repos/contents/#get-contents), this method also supports [custom media types](https://developer.github.com/v3/repos/contents/#custom-media-types) for retrieving the raw license content or rendered license HTML. <a href="https://developer.github.com/v3/licenses/#get-the-contents-of-a-repositorys-license">REST API doc</a>
+Similar to [the repository contents API](https://developer.github.com/v3/repos/contents/#get-contents), this method also supports [custom media types](https://developer.github.com/v3/repos/contents/#custom-media-types) for retrieving the raw license content or rendered license HTML.
+
+<a href="https://developer.github.com/v3/licenses/#get-the-contents-of-a-repositorys-license">REST API doc</a>
  * @apiGroup Licenses
  *
  * @apiParam {string} owner  
@@ -3335,7 +3575,9 @@ Similar to [the repository contents API](https://developer.github.com/v3/repos/c
  * @apiName renderRaw
  * @apiDescription You must send Markdown as plain text (using a `Content-Type` header of `text/plain` or `text/x-markdown`) to this endpoint, rather than using JSON format. In raw mode, [GitHub Flavored Markdown](https://github.github.com/gfm/) is not supported and Markdown will be rendered in plain format like a README.md file. Markdown content must be 400 KB or less.
 
- <a href="https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/markdown/#render-a-markdown-document-in-raw-mode">REST API doc</a>
  * @apiGroup Markdown
  *
  * @apiParam {string} data  
@@ -3360,7 +3602,9 @@ Similar to [the repository contents API](https://developer.github.com/v3/repos/c
 
 **Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.
 
-**Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks. <a href="https://developer.github.com/v3/meta/#meta">REST API doc</a>
+**Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.
+
+<a href="https://developer.github.com/v3/meta/#meta">REST API doc</a>
  * @apiGroup Meta
  *
  * @apiExample {js} async/await
@@ -3396,7 +3640,9 @@ For more information on the headers and values in the rate limit response, see "
 
 The `rate` object (shown at the bottom of the response above) is deprecated.
 
-If you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object. <a href="https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status">REST API doc</a>
+If you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object.
+
+<a href="https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status">REST API doc</a>
  * @apiGroup RateLimit
  *
  * @apiExample {js} async/await
@@ -3420,7 +3666,9 @@ If you're writing new API client code or updating existing code, you should use 
 
 **OAuth scope requirements**
 
-This only lists organizations that your authorization allows you to operate on in some way (e.g., you can list teams with `read:org` scope, you can publicize your organization membership with `user` scope, etc.). Therefore, this API requires at least `user` or `read:org` scope. OAuth requests with insufficient scope receive a `403 Forbidden` response. <a href="https://developer.github.com/v3/orgs/#list-your-organizations">REST API doc</a>
+This only lists organizations that your authorization allows you to operate on in some way (e.g., you can list teams with `read:org` scope, you can publicize your organization membership with `user` scope, etc.). Therefore, this API requires at least `user` or `read:org` scope. OAuth requests with insufficient scope receive a `403 Forbidden` response.
+
+<a href="https://developer.github.com/v3/orgs/#list-your-organizations">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -3437,7 +3685,9 @@ This only lists organizations that your authorization allows you to operate on i
  * @apiName list
  * @apiDescription Lists all organizations, in the order that they were created on GitHub.
 
-**Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of organizations. <a href="https://developer.github.com/v3/orgs/#list-all-organizations">REST API doc</a>
+**Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of organizations.
+
+<a href="https://developer.github.com/v3/orgs/#list-all-organizations">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} [since]  The integer ID of the last Organization that you've seen.
@@ -3455,7 +3705,9 @@ This only lists organizations that your authorization allows you to operate on i
  * @apiName listForUser
  * @apiDescription List [public organization memberships](https://help.github.com/articles/publicizing-or-concealing-organization-membership) for the specified user.
 
-This method only lists _public_ memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the [List your organizations](#list-your-organizations) API instead. <a href="https://developer.github.com/v3/orgs/#list-user-organizations">REST API doc</a>
+This method only lists _public_ memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the [List your organizations](#list-your-organizations) API instead.
+
+<a href="https://developer.github.com/v3/orgs/#list-user-organizations">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} username  
@@ -3471,7 +3723,9 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 /**
  * @api {GET} /orgs/:org get
  * @apiName get
- * @apiDescription To see many of the organization response values, you need to be an authenticated organization owner with the `admin:org` scope. When the value of `two_factor_requirement_enabled` is `true`, the organization requires all members, billing managers, and outside collaborators to enable [two-factor authentication](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/). <a href="https://developer.github.com/v3/orgs/#get-an-organization">REST API doc</a>
+ * @apiDescription To see many of the organization response values, you need to be an authenticated organization owner with the `admin:org` scope. When the value of `two_factor_requirement_enabled` is `true`, the organization requires all members, billing managers, and outside collaborators to enable [two-factor authentication](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/).
+
+<a href="https://developer.github.com/v3/orgs/#get-an-organization">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3515,7 +3769,9 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 /**
  * @api {GET} /orgs/:org/blocks listBlockedUsers
  * @apiName listBlockedUsers
- * @apiDescription List the users blocked by an organization. <a href="https://developer.github.com/v3/orgs/blocking/#list-blocked-users">REST API doc</a>
+ * @apiDescription List the users blocked by an organization.
+
+<a href="https://developer.github.com/v3/orgs/blocking/#list-blocked-users">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3531,7 +3787,9 @@ This method only lists _public_ memberships, regardless of authentication. If yo
  * @apiName checkBlockedUser
  * @apiDescription If the user is blocked:
 
-If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocking/#check-whether-a-user-is-blocked-from-an-organization">REST API doc</a>
+If the user is not blocked:
+
+<a href="https://developer.github.com/v3/orgs/blocking/#check-whether-a-user-is-blocked-from-an-organization">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3578,7 +3836,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
  * @apiName listMembers
  * @apiDescription List all users who are members of an organization. If the authenticated user is also a member of this organization then both concealed and public members will be returned.
 
- <a href="https://developer.github.com/v3/orgs/members/#members-list">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/orgs/members/#members-list">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3601,7 +3861,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
 /**
  * @api {GET} /orgs/:org/members/:username checkMembership
  * @apiName checkMembership
- * @apiDescription Check if a user is, publicly or privately, a member of the organization. <a href="https://developer.github.com/v3/orgs/members/#check-membership">REST API doc</a>
+ * @apiDescription Check if a user is, publicly or privately, a member of the organization.
+
+<a href="https://developer.github.com/v3/orgs/members/#check-membership">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3616,7 +3878,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
 /**
  * @api {DELETE} /orgs/:org/members/:username removeMember
  * @apiName removeMember
- * @apiDescription Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories. <a href="https://developer.github.com/v3/orgs/members/#remove-a-member">REST API doc</a>
+ * @apiDescription Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.
+
+<a href="https://developer.github.com/v3/orgs/members/#remove-a-member">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3631,7 +3895,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
 /**
  * @api {GET} /orgs/:org/public_members listPublicMembers
  * @apiName listPublicMembers
- * @apiDescription Members of an organization can choose to have their membership publicized or not. <a href="https://developer.github.com/v3/orgs/members/#public-members-list">REST API doc</a>
+ * @apiDescription Members of an organization can choose to have their membership publicized or not.
+
+<a href="https://developer.github.com/v3/orgs/members/#public-members-list">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3664,7 +3930,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/orgs/blocki
  * @apiName publicizeMembership
  * @apiDescription The user can publicize their own membership. (A user cannot publicize the membership for another user.)
 
-Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)." <a href="https://developer.github.com/v3/orgs/members/#publicize-a-users-membership">REST API doc</a>
+Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+
+<a href="https://developer.github.com/v3/orgs/members/#publicize-a-users-membership">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3694,7 +3962,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {GET} /orgs/:org/memberships/:username getMembership
  * @apiName getMembership
- * @apiDescription In order to get a user's membership with an organization, the authenticated user must be an organization member. <a href="https://developer.github.com/v3/orgs/members/#get-organization-membership">REST API doc</a>
+ * @apiDescription In order to get a user's membership with an organization, the authenticated user must be an organization member.
+
+<a href="https://developer.github.com/v3/orgs/members/#get-organization-membership">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3717,7 +3987,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 
 **Rate limits**
 
-To prevent abuse, the authenticated user is limited to 50 organization invitations per 24 hour period. If the organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period. <a href="https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership">REST API doc</a>
+To prevent abuse, the authenticated user is limited to 50 organization invitations per 24 hour period. If the organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period.
+
+<a href="https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3737,7 +4009,9 @@ To prevent abuse, the authenticated user is limited to 50 organization invitatio
  * @apiName removeMembership
  * @apiDescription In order to remove a user's membership with an organization, the authenticated user must be an organization owner.
 
-If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases. <a href="https://developer.github.com/v3/orgs/members/#remove-organization-membership">REST API doc</a>
+If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.
+
+<a href="https://developer.github.com/v3/orgs/members/#remove-organization-membership">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3752,7 +4026,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {GET} /orgs/:org/invitations/:invitation_id/teams listInvitationTeams
  * @apiName listInvitationTeams
- * @apiDescription List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner. <a href="https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams">REST API doc</a>
+ * @apiDescription List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner.
+
+<a href="https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3769,7 +4045,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {GET} /orgs/:org/invitations listPendingInvitations
  * @apiName listPendingInvitations
- * @apiDescription The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`. <a href="https://developer.github.com/v3/orgs/members/#list-pending-organization-invitations">REST API doc</a>
+ * @apiDescription The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.
+
+<a href="https://developer.github.com/v3/orgs/members/#list-pending-organization-invitations">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3785,7 +4063,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {POST} /orgs/:org/invitations createInvitation
  * @apiName createInvitation
- * @apiDescription Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner. <a href="https://developer.github.com/v3/orgs/members/#create-organization-invitation">REST API doc</a>
+ * @apiDescription Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.
+
+<a href="https://developer.github.com/v3/orgs/members/#create-organization-invitation">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3853,7 +4133,9 @@ If the specified user is an active member of the organization, this will remove 
  * @apiName listOutsideCollaborators
  * @apiDescription List all users who are outside collaborators of an organization.
 
- <a href="https://developer.github.com/v3/orgs/outside_collaborators/#list-outside-collaborators">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/orgs/outside_collaborators/#list-outside-collaborators">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3872,7 +4154,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {DELETE} /orgs/:org/outside_collaborators/:username removeOutsideCollaborator
  * @apiName removeOutsideCollaborator
- * @apiDescription Removing a user from this list will remove them from all the organization's repositories. <a href="https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator">REST API doc</a>
+ * @apiDescription Removing a user from this list will remove them from all the organization's repositories.
+
+<a href="https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3887,7 +4171,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {PUT} /orgs/:org/outside_collaborators/:username convertMemberToOutsideCollaborator
  * @apiName convertMemberToOutsideCollaborator
- * @apiDescription When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see "[Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)". <a href="https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator">REST API doc</a>
+ * @apiDescription When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see "[Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)".
+
+<a href="https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3933,7 +4219,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {POST} /orgs/:org/hooks createHook
  * @apiName createHook
- * @apiDescription Here's how you can create a hook that posts payloads in JSON format: <a href="https://developer.github.com/v3/orgs/hooks/#create-a-hook">REST API doc</a>
+ * @apiDescription Here's how you can create a hook that posts payloads in JSON format:
+
+<a href="https://developer.github.com/v3/orgs/hooks/#create-a-hook">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3977,7 +4265,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {POST} /orgs/:org/hooks/:hook_id/pings pingHook
  * @apiName pingHook
- * @apiDescription This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook. <a href="https://developer.github.com/v3/orgs/hooks/#ping-a-hook">REST API doc</a>
+ * @apiDescription This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook.
+
+<a href="https://developer.github.com/v3/orgs/hooks/#ping-a-hook">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -4014,7 +4304,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {GET} /repos/:owner/:repo/projects listForRepo
  * @apiName listForRepo
- * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#list-repository-projects">REST API doc</a>
+ * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.
+
+<a href="https://developer.github.com/v3/projects/#list-repository-projects">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {string} owner  
@@ -4032,7 +4324,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {GET} /orgs/:org/projects listForOrg
  * @apiName listForOrg
- * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#list-organization-projects">REST API doc</a>
+ * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.
+
+<a href="https://developer.github.com/v3/projects/#list-organization-projects">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {string} org  
@@ -4049,7 +4343,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {GET} /projects/:project_id get
  * @apiName get
- * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#get-a-project">REST API doc</a>
+ * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.
+
+<a href="https://developer.github.com/v3/projects/#get-a-project">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} project_id  
@@ -4065,7 +4361,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {POST} /repos/:owner/:repo/projects createForRepo
  * @apiName createForRepo
- * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#create-a-repository-project">REST API doc</a>
+ * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.
+
+<a href="https://developer.github.com/v3/projects/#create-a-repository-project">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {string} owner  
@@ -4084,7 +4382,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {POST} /orgs/:org/projects createForOrg
  * @apiName createForOrg
- * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#create-an-organization-project">REST API doc</a>
+ * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.
+
+<a href="https://developer.github.com/v3/projects/#create-an-organization-project">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {string} org  
@@ -4102,7 +4402,9 @@ If the specified user is an active member of the organization, this will remove 
 /**
  * @api {PATCH} /projects/:project_id update
  * @apiName update
- * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token. <a href="https://developer.github.com/v3/projects/#update-a-project">REST API doc</a>
+ * @apiDescription **Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.
+
+<a href="https://developer.github.com/v3/projects/#update-a-project">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} project_id  
@@ -4172,7 +4474,9 @@ If the specified user is an active member of the organization, this will remove 
  * @apiName createCard
  * @apiDescription **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
 
-Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint. <a href="https://developer.github.com/v3/projects/cards/#create-a-project-card">REST API doc</a>
+Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
+
+<a href="https://developer.github.com/v3/projects/cards/#create-a-project-card">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} column_id  
@@ -4236,7 +4540,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {GET} /projects/:project_id/collaborators listCollaborators
  * @apiName listCollaborators
- * @apiDescription Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators. <a href="https://developer.github.com/v3/projects/collaborators/#list-collaborators">REST API doc</a>
+ * @apiDescription Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
+
+<a href="https://developer.github.com/v3/projects/collaborators/#list-collaborators">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} project_id  
@@ -4256,7 +4562,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {GET} /projects/:project_id/collaborators/:username/permission reviewUserPermissionLevel
  * @apiName reviewUserPermissionLevel
- * @apiDescription Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level. <a href="https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level">REST API doc</a>
+ * @apiDescription Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level.
+
+<a href="https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} project_id  
@@ -4271,7 +4579,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {PUT} /projects/:project_id/collaborators/:username addCollaborator
  * @apiName addCollaborator
- * @apiDescription Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator">REST API doc</a>
+ * @apiDescription Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator.
+
+<a href="https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} project_id  
@@ -4290,7 +4600,9 @@ Be aware that the `id` of a pull request returned from "Issues" endpoints will b
 /**
  * @api {DELETE} /projects/:project_id/collaborators/:username removeCollaborator
  * @apiName removeCollaborator
- * @apiDescription Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator. <a href="https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator">REST API doc</a>
+ * @apiDescription Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator.
+
+<a href="https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Projects
  *
  * @apiParam {integer} project_id  
@@ -4435,7 +4747,9 @@ The value of the `merge_commit_sha` attribute changes depending on the state of 
 *   If merged via a [squash](https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits), `merge_commit_sha` represents the SHA of the squashed commit on the base branch.
 *   If [rebased](https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits), `merge_commit_sha` represents the commit that the base branch was updated to.
 
-Pass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats. <a href="https://developer.github.com/v3/pulls/#get-a-single-pull-request">REST API doc</a>
+Pass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.
+
+<a href="https://developer.github.com/v3/pulls/#get-a-single-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4451,7 +4765,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {POST} /repos/:owner/:repo/pulls create
  * @apiName create
- * @apiDescription **Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request. <a href="https://developer.github.com/v3/pulls/#create-a-pull-request">REST API doc</a>
+ * @apiDescription **Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.
+
+<a href="https://developer.github.com/v3/pulls/#create-a-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4471,7 +4787,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {POST} /repos/:owner/:repo/pulls createFromIssue
  * @apiName createFromIssue
- * @apiDescription **Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request. <a href="https://developer.github.com/v3/pulls/#create-a-pull-request">REST API doc</a>
+ * @apiDescription **Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.
+
+<a href="https://developer.github.com/v3/pulls/#create-a-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4490,7 +4808,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {PATCH} /repos/:owner/:repo/pulls/:number update
  * @apiName update
- * @apiDescription **Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request. <a href="https://developer.github.com/v3/pulls/#update-a-pull-request">REST API doc</a>
+ * @apiDescription **Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.
+
+<a href="https://developer.github.com/v3/pulls/#update-a-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4511,7 +4831,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {GET} /repos/:owner/:repo/pulls/:number/commits listCommits
  * @apiName listCommits
- * @apiDescription Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [Commit List API](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository). <a href="https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request">REST API doc</a>
+ * @apiDescription Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [Commit List API](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository).
+
+<a href="https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4529,7 +4851,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {GET} /repos/:owner/:repo/pulls/:number/files listFiles
  * @apiName listFiles
- * @apiDescription **Note:** The response includes a maximum of 300 files. <a href="https://developer.github.com/v3/pulls/#list-pull-requests-files">REST API doc</a>
+ * @apiDescription **Note:** The response includes a maximum of 300 files.
+
+<a href="https://developer.github.com/v3/pulls/#list-pull-requests-files">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4583,7 +4907,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 /**
  * @api {GET} /repos/:owner/:repo/pulls/:number/reviews listReviews
  * @apiName listReviews
- * @apiDescription The list of reviews returns in chronological order. <a href="https://developer.github.com/v3/pulls/reviews/#list-reviews-on-a-pull-request">REST API doc</a>
+ * @apiDescription The list of reviews returns in chronological order.
+
+<a href="https://developer.github.com/v3/pulls/reviews/#list-reviews-on-a-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4656,7 +4982,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
  * @apiName createReview
  * @apiDescription **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.
 
-The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file. <a href="https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review">REST API doc</a>
+The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+
+<a href="https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4698,7 +5026,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {PUT} /repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals dismissReview
  * @apiName dismissReview
- * @apiDescription **Note:** To dismiss a pull request review on a [protected branch](https://developer.github.com/v3/repos/branches/), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews. <a href="https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review">REST API doc</a>
+ * @apiDescription **Note:** To dismiss a pull request review on a [protected branch](https://developer.github.com/v3/repos/branches/), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews.
+
+<a href="https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4718,7 +5048,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiName listComments
  * @apiDescription By default, review comments are ordered by ascending ID.
 
- <a href="https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4741,7 +5073,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiName listCommentsForRepo
  * @apiDescription By default, review comments are ordered by ascending ID.
 
- <a href="https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4779,7 +5113,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiName createComment
  * @apiDescription **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.
 
-The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file. <a href="https://developer.github.com/v3/pulls/comments/#create-a-comment">REST API doc</a>
+The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+
+<a href="https://developer.github.com/v3/pulls/comments/#create-a-comment">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4801,7 +5137,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiName createCommentReply
  * @apiDescription **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.
 
-The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file. <a href="https://developer.github.com/v3/pulls/comments/#create-a-comment">REST API doc</a>
+The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+
+<a href="https://developer.github.com/v3/pulls/comments/#create-a-comment">REST API doc</a>
  * @apiGroup Pulls
  *
  * @apiParam {string} owner  
@@ -4913,7 +5251,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {GET} /repos/:owner/:repo/comments/:comment_id/reactions listForCommitComment
  * @apiName listForCommitComment
- * @apiDescription List the reactions to a [commit comment](https://developer.github.com/v3/repos/comments/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment">REST API doc</a>
+ * @apiDescription List the reactions to a [commit comment](https://developer.github.com/v3/repos/comments/).
+
+<a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -4932,7 +5272,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {POST} /repos/:owner/:repo/comments/:comment_id/reactions createForCommitComment
  * @apiName createForCommitComment
- * @apiDescription Create a reaction to a [commit comment](https://developer.github.com/v3/repos/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this commit comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment">REST API doc</a>
+ * @apiDescription Create a reaction to a [commit comment](https://developer.github.com/v3/repos/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this commit comment.
+
+<a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -4949,7 +5291,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {GET} /repos/:owner/:repo/issues/:number/reactions listForIssue
  * @apiName listForIssue
- * @apiDescription List the reactions to an [issue](https://developer.github.com/v3/issues/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-an-issue">REST API doc</a>
+ * @apiDescription List the reactions to an [issue](https://developer.github.com/v3/issues/).
+
+<a href="https://developer.github.com/v3/reactions/#list-reactions-for-an-issue">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -4968,7 +5312,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {POST} /repos/:owner/:repo/issues/:number/reactions createForIssue
  * @apiName createForIssue
- * @apiDescription Create a reaction to an [issue](https://developer.github.com/v3/issues/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-an-issue">REST API doc</a>
+ * @apiDescription Create a reaction to an [issue](https://developer.github.com/v3/issues/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue.
+
+<a href="https://developer.github.com/v3/reactions/#create-reaction-for-an-issue">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -4985,7 +5331,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {GET} /repos/:owner/:repo/issues/comments/:comment_id/reactions listForIssueComment
  * @apiName listForIssueComment
- * @apiDescription List the reactions to an [issue comment](https://developer.github.com/v3/issues/comments/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-an-issue-comment">REST API doc</a>
+ * @apiDescription List the reactions to an [issue comment](https://developer.github.com/v3/issues/comments/).
+
+<a href="https://developer.github.com/v3/reactions/#list-reactions-for-an-issue-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -5004,7 +5352,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {POST} /repos/:owner/:repo/issues/comments/:comment_id/reactions createForIssueComment
  * @apiName createForIssueComment
- * @apiDescription Create a reaction to an [issue comment](https://developer.github.com/v3/issues/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment">REST API doc</a>
+ * @apiDescription Create a reaction to an [issue comment](https://developer.github.com/v3/issues/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue comment.
+
+<a href="https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -5021,7 +5371,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {GET} /repos/:owner/:repo/pulls/comments/:comment_id/reactions listForPullRequestReviewComment
  * @apiName listForPullRequestReviewComment
- * @apiDescription List the reactions to a [pull request review comment](https://developer.github.com/v3/pulls/comments/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment">REST API doc</a>
+ * @apiDescription List the reactions to a [pull request review comment](https://developer.github.com/v3/pulls/comments/).
+
+<a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -5040,7 +5392,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {POST} /repos/:owner/:repo/pulls/comments/:comment_id/reactions createForPullRequestReviewComment
  * @apiName createForPullRequestReviewComment
- * @apiDescription Create a reaction to a [pull request review comment](https://developer.github.com/v3/pulls/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this pull request review comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment">REST API doc</a>
+ * @apiDescription Create a reaction to a [pull request review comment](https://developer.github.com/v3/pulls/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this pull request review comment.
+
+<a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {string} owner  
@@ -5057,7 +5411,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {GET} /teams/:team_id/discussions/:discussion_number/reactions listForTeamDiscussion
  * @apiName listForTeamDiscussion
- * @apiDescription List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion">REST API doc</a>
+ * @apiDescription List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {integer} team_id  
@@ -5075,7 +5431,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {POST} /teams/:team_id/discussions/:discussion_number/reactions createForTeamDiscussion
  * @apiName createForTeamDiscussion
- * @apiDescription Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion">REST API doc</a>
+ * @apiDescription Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.
+
+<a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {integer} team_id  
@@ -5091,7 +5449,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {GET} /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions listForTeamDiscussionComment
  * @apiName listForTeamDiscussionComment
- * @apiDescription List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment">REST API doc</a>
+ * @apiDescription List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {integer} team_id  
@@ -5110,7 +5470,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {POST} /teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions createForTeamDiscussionComment
  * @apiName createForTeamDiscussionComment
- * @apiDescription Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment. <a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment">REST API doc</a>
+ * @apiDescription Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.
+
+<a href="https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {integer} team_id  
@@ -5127,7 +5489,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
 /**
  * @api {DELETE} /reactions/:reaction_id delete
  * @apiName delete
- * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). <a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
+ * @apiDescription OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/).
+
+<a href="https://developer.github.com/v3/reactions/#delete-a-reaction">REST API doc</a>
  * @apiGroup Reactions
  *
  * @apiParam {integer} reaction_id  
@@ -5150,7 +5514,9 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * @apiName list
  * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.
 
-The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership. <a href="https://developer.github.com/v3/repos/#list-your-repositories">REST API doc</a>
+The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
+
+<a href="https://developer.github.com/v3/repos/#list-your-repositories">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string=all,public,private} [visibility="all"]  Can be one of `all`, `public`, or `private`.
@@ -5175,7 +5541,9 @@ Will cause a `422` error if used in the same request as **visibility** or **affi
 /**
  * @api {GET} /users/:username/repos listForUser
  * @apiName listForUser
- * @apiDescription List public repositories for the specified user. <a href="https://developer.github.com/v3/repos/#list-user-repositories">REST API doc</a>
+ * @apiDescription List public repositories for the specified user.
+
+<a href="https://developer.github.com/v3/repos/#list-user-repositories">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} username  
@@ -5194,7 +5562,9 @@ Will cause a `422` error if used in the same request as **visibility** or **affi
 /**
  * @api {GET} /orgs/:org/repos listForOrg
  * @apiName listForOrg
- * @apiDescription List repositories for the specified org. <a href="https://developer.github.com/v3/repos/#list-organization-repositories">REST API doc</a>
+ * @apiDescription List repositories for the specified org.
+
+<a href="https://developer.github.com/v3/repos/#list-organization-repositories">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} org  
@@ -5213,7 +5583,9 @@ Will cause a `422` error if used in the same request as **visibility** or **affi
  * @apiName listPublic
  * @apiDescription This provides a dump of every public repository, in the order that they were created.
 
-Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of repositories. <a href="https://developer.github.com/v3/repos/#list-all-public-repositories">REST API doc</a>
+Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of repositories.
+
+<a href="https://developer.github.com/v3/repos/#list-all-public-repositories">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} [since]  The integer ID of the last Repository that you've seen.
@@ -5236,7 +5608,9 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
 When using [OAuth](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:
 
 *   `public_repo` scope or `repo` scope to create a public repository
-*   `repo` scope to create a private repository <a href="https://developer.github.com/v3/repos/#create">REST API doc</a>
+*   `repo` scope to create a private repository
+
+<a href="https://developer.github.com/v3/repos/#create">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} name  The name of the repository.
@@ -5270,7 +5644,9 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
 When using [OAuth](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), authorizations must include:
 
 *   `public_repo` scope or `repo` scope to create a public repository
-*   `repo` scope to create a private repository <a href="https://developer.github.com/v3/repos/#create">REST API doc</a>
+*   `repo` scope to create a private repository
+
+<a href="https://developer.github.com/v3/repos/#create">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} org  
@@ -5298,7 +5674,9 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
 /**
  * @api {GET} /repos/:owner/:repo get
  * @apiName get
- * @apiDescription The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network. <a href="https://developer.github.com/v3/repos/#get">REST API doc</a>
+ * @apiDescription The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network.
+
+<a href="https://developer.github.com/v3/repos/#get">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5313,7 +5691,9 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
 /**
  * @api {PATCH} /repos/:owner/:repo update
  * @apiName update
- * @apiDescription **Note**: To edit a repository's topics, use the [`topics` endpoint](#replace-all-topics-for-a-repository). <a href="https://developer.github.com/v3/repos/#edit">REST API doc</a>
+ * @apiDescription **Note**: To edit a repository's topics, use the [`topics` endpoint](#replace-all-topics-for-a-repository).
+
+<a href="https://developer.github.com/v3/repos/#edit">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5374,7 +5754,9 @@ When using [OAuth](https://developer.github.com/apps/building-oauth-apps/underst
  * @apiName listContributors
  * @apiDescription Lists contributors to the specified repository and sorts them by the number of commits per contributor in descending order. This endpoint may return information that is a few hours old because the GitHub REST API v3 caches contributor data to improve performance.
 
-GitHub identifies contributors by author email address. This endpoint groups contribution counts by GitHub user, which includes all associated email addresses. To improve performance, only the first 500 author email addresses in the repository link to GitHub users. The rest will appear as anonymous contributors without associated GitHub user information. <a href="https://developer.github.com/v3/repos/#list-contributors">REST API doc</a>
+GitHub identifies contributors by author email address. This endpoint groups contribution counts by GitHub user, which includes all associated email addresses. To improve performance, only the first 500 author email addresses in the repository link to GitHub users. The rest will appear as anonymous contributors without associated GitHub user information.
+
+<a href="https://developer.github.com/v3/repos/#list-contributors">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5392,7 +5774,9 @@ GitHub identifies contributors by author email address. This endpoint groups con
 /**
  * @api {GET} /repos/:owner/:repo/languages listLanguages
  * @apiName listLanguages
- * @apiDescription Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language. <a href="https://developer.github.com/v3/repos/#list-languages">REST API doc</a>
+ * @apiDescription Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language.
+
+<a href="https://developer.github.com/v3/repos/#list-languages">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5443,7 +5827,9 @@ GitHub identifies contributors by author email address. This endpoint groups con
  * @apiName delete
  * @apiDescription Deleting a repository requires admin access. If OAuth is used, the `delete_repo` scope is required.
 
-If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response: <a href="https://developer.github.com/v3/repos/#delete-a-repository">REST API doc</a>
+If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response:
+
+<a href="https://developer.github.com/v3/repos/#delete-a-repository">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5458,7 +5844,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/transfer transfer
  * @apiName transfer
- * @apiDescription A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/). <a href="https://developer.github.com/v3/repos/#transfer-a-repository">REST API doc</a>
+ * @apiDescription A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/).
+
+<a href="https://developer.github.com/v3/repos/#transfer-a-repository">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5529,7 +5917,9 @@ If an organization owner has configured the organization to prevent members from
 
 **Note**: Passing new arrays of `users` and `teams` replaces their previous values.
 
-**Note**: The list of users and teams in total is limited to 100 items. <a href="https://developer.github.com/v3/repos/branches/#update-branch-protection">REST API doc</a>
+**Note**: The list of users and teams in total is limited to 100 items.
+
+<a href="https://developer.github.com/v3/repos/branches/#update-branch-protection">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5591,7 +5981,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PATCH} /repos/:owner/:repo/branches/:branch/protection/required_status_checks updateProtectedBranchRequiredStatusChecks
  * @apiName updateProtectedBranchRequiredStatusChecks
- * @apiDescription Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled. <a href="https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch">REST API doc</a>
+ * @apiDescription Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.
+
+<a href="https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5710,7 +6102,9 @@ If an organization owner has configured the organization to prevent members from
  * @apiName updateProtectedBranchPullRequestReviewEnforcement
  * @apiDescription Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
 
-**Note**: Passing new arrays of `users` and `teams` replaces their previous values. <a href="https://developer.github.com/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch">REST API doc</a>
+**Note**: Passing new arrays of `users` and `teams` replaces their previous values.
+
+<a href="https://developer.github.com/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5750,7 +6144,9 @@ If an organization owner has configured the organization to prevent members from
  * @apiName getProtectedBranchRequiredSignatures
  * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.
 
-**Note**: You must enable branch protection to require signed commits. <a href="https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch">REST API doc</a>
+**Note**: You must enable branch protection to require signed commits.
+
+<a href="https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5766,7 +6162,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/required_signatures addProtectedBranchRequiredSignatures
  * @apiName addProtectedBranchRequiredSignatures
- * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits. <a href="https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch">REST API doc</a>
+ * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.
+
+<a href="https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5782,7 +6180,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_signatures removeProtectedBranchRequiredSignatures
  * @apiName removeProtectedBranchRequiredSignatures
- * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits. <a href="https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch">REST API doc</a>
+ * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5814,7 +6214,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/enforce_admins addProtectedBranchAdminEnforcement
  * @apiName addProtectedBranchAdminEnforcement
- * @apiDescription Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <a href="https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch">REST API doc</a>
+ * @apiDescription Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+
+<a href="https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5830,7 +6232,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/enforce_admins removeProtectedBranchAdminEnforcement
  * @apiName removeProtectedBranchAdminEnforcement
- * @apiDescription Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <a href="https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch">REST API doc</a>
+ * @apiDescription Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5846,7 +6250,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/restrictions getProtectedBranchRestrictions
  * @apiName getProtectedBranchRestrictions
- * @apiDescription **Note**: Teams and users `restrictions` are only available for organization-owned repositories. <a href="https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch">REST API doc</a>
+ * @apiDescription **Note**: Teams and users `restrictions` are only available for organization-owned repositories.
+
+<a href="https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5862,7 +6268,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/restrictions removeProtectedBranchRestrictions
  * @apiName removeProtectedBranchRestrictions
- * @apiDescription Disables the ability to restrict who can push to this branch. <a href="https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch">REST API doc</a>
+ * @apiDescription Disables the ability to restrict who can push to this branch.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5878,7 +6286,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams listProtectedBranchTeamRestrictions
  * @apiName listProtectedBranchTeamRestrictions
- * @apiDescription Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams. <a href="https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch">REST API doc</a>
+ * @apiDescription Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+
+<a href="https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5900,7 +6310,9 @@ If an organization owner has configured the organization to prevent members from
 
 | Type    | Description                                                                                                                         |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. | <a href="https://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch">REST API doc</a>
+| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |
+
+<a href="https://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5921,7 +6333,9 @@ If an organization owner has configured the organization to prevent members from
 
 | Type    | Description                                                                                                                         |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. | <a href="https://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch">REST API doc</a>
+| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |
+
+<a href="https://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5942,7 +6356,9 @@ If an organization owner has configured the organization to prevent members from
 
 | Type    | Description                                                                                                                                  |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. | <a href="https://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch">REST API doc</a>
+| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5959,7 +6375,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/restrictions/users listProtectedBranchUserRestrictions
  * @apiName listProtectedBranchUserRestrictions
- * @apiDescription Lists the people who have push access to this branch. <a href="https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch">REST API doc</a>
+ * @apiDescription Lists the people who have push access to this branch.
+
+<a href="https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -5979,7 +6397,9 @@ If an organization owner has configured the organization to prevent members from
 
 | Type    | Description                                                                                                            |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `array` | Usernames for people who can have push access. **Note**: The list of users and teams in total is limited to 100 items. | <a href="https://developer.github.com/v3/repos/branches/#replace-user-restrictions-of-protected-branch">REST API doc</a>
+| `array` | Usernames for people who can have push access. **Note**: The list of users and teams in total is limited to 100 items. |
+
+<a href="https://developer.github.com/v3/repos/branches/#replace-user-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6000,7 +6420,9 @@ If an organization owner has configured the organization to prevent members from
 
 | Type    | Description                                                                                                            |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `array` | Usernames for people who can have push access. **Note**: The list of users and teams in total is limited to 100 items. | <a href="https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch">REST API doc</a>
+| `array` | Usernames for people who can have push access. **Note**: The list of users and teams in total is limited to 100 items. |
+
+<a href="https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6021,7 +6443,9 @@ If an organization owner has configured the organization to prevent members from
 
 | Type    | Description                                                                                                                            |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `array` | Usernames of the people who should no longer have push access. **Note**: The list of users and teams in total is limited to 100 items. | <a href="https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch">REST API doc</a>
+| `array` | Usernames of the people who should no longer have push access. **Note**: The list of users and teams in total is limited to 100 items. |
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6040,7 +6464,9 @@ If an organization owner has configured the organization to prevent members from
  * @apiName listCollaborators
  * @apiDescription For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.
 
-If you pass the `hellcat-preview` media type, team members will include the members of child teams. <a href="https://developer.github.com/v3/repos/collaborators/#list-collaborators">REST API doc</a>
+If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+
+<a href="https://developer.github.com/v3/repos/collaborators/#list-collaborators">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6063,7 +6489,9 @@ If you pass the `hellcat-preview` media type, team members will include the memb
  * @apiName checkCollaborator
  * @apiDescription For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.
 
-If you pass the `hellcat-preview` media type, team members will include the members of child teams. <a href="https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator">REST API doc</a>
+If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+
+<a href="https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6079,7 +6507,9 @@ If you pass the `hellcat-preview` media type, team members will include the memb
 /**
  * @api {GET} /repos/:owner/:repo/collaborators/:username/permission getCollaboratorPermissionLevel
  * @apiName getCollaboratorPermissionLevel
- * @apiDescription Possible values for the `permission` key: `admin`, `write`, `read`, `none`. <a href="https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level">REST API doc</a>
+ * @apiDescription Possible values for the `permission` key: `admin`, `write`, `read`, `none`.
+
+<a href="https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6101,7 +6531,9 @@ The invitee will receive a notification that they have been invited to the repos
 
 **Rate limits**
 
-To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository. <a href="https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator">REST API doc</a>
+To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.
+
+<a href="https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6141,7 +6573,9 @@ To prevent abuse, you are limited to sending 50 invitations to a repository per 
 
 Comments are ordered by ascending ID.
 
- <a href="https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6267,7 +6701,9 @@ Comments are ordered by ascending ID.
 /**
  * @api {GET} /repos/:owner/:repo/commits/:sha getCommit
  * @apiName getCommit
- * @apiDescription Diffs with binary data will have no 'patch' property. Pass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats. <a href="https://developer.github.com/v3/repos/commits/#get-a-single-commit">REST API doc</a>
+ * @apiDescription Diffs with binary data will have no 'patch' property. Pass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.
+
+<a href="https://developer.github.com/v3/repos/commits/#get-a-single-commit">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6293,7 +6729,9 @@ To check if a remote reference's SHA-1 is the same as your local reference's SHA
 
 The SHA-1 of the commit reference.
 
- <a href="https://developer.github.com/v3/repos/commits/#get-the-sha-1-of-a-commit-reference">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/commits/#get-the-sha-1-of-a-commit-reference">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6323,7 +6761,9 @@ Pass the appropriate [media type](https://developer.github.com/v3/media/#commits
 
 The response will include a comparison of up to 250 commits. If you are working with a larger commit range, you can use the [Commit List API](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository) to enumerate all commits in the range.
 
-For comparisons with extremely large diffs, you may receive an error response indicating that the diff took too long to generate. You can typically resolve this error by using a smaller commit range. <a href="https://developer.github.com/v3/repos/commits/#compare-two-commits">REST API doc</a>
+For comparisons with extremely large diffs, you may receive an error response indicating that the diff took too long to generate. You can typically resolve this error by using a smaller commit range.
+
+<a href="https://developer.github.com/v3/repos/commits/#compare-two-commits">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6340,7 +6780,9 @@ For comparisons with extremely large diffs, you may receive an error response in
 /**
  * @api {GET} /repos/:owner/:repo/community/profile retrieveCommunityProfileMetrics
  * @apiName retrieveCommunityProfileMetrics
- * @apiDescription This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE\_TEMPLATE, PULL\_REQUEST\_TEMPLATE, README, and CONTRIBUTING files. <a href="https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics">REST API doc</a>
+ * @apiDescription This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE\_TEMPLATE, PULL\_REQUEST\_TEMPLATE, README, and CONTRIBUTING files.
+
+<a href="https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6357,7 +6799,9 @@ For comparisons with extremely large diffs, you may receive an error response in
  * @apiName getReadme
  * @apiDescription Gets the preferred README for a repository.
 
-READMEs support [custom media types](#custom-media-types) for retrieving the raw content or rendered HTML. <a href="https://developer.github.com/v3/repos/contents/#get-the-readme">REST API doc</a>
+READMEs support [custom media types](#custom-media-types) for retrieving the raw content or rendered HTML.
+
+<a href="https://developer.github.com/v3/repos/contents/#get-the-readme">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6393,7 +6837,9 @@ Otherwise, the API responds with an object describing the symlink itself:
 
 The `submodule_git_url` identifies the location of the submodule repository, and the `sha` identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit.
 
-If the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links["git"]`) and the github.com URLs (`html_url` and `_links["html"]`) will have null values. <a href="https://developer.github.com/v3/repos/contents/#get-contents">REST API doc</a>
+If the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links["git"]`) and the github.com URLs (`html_url` and `_links["html"]`) will have null values.
+
+<a href="https://developer.github.com/v3/repos/contents/#get-contents">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6410,7 +6856,9 @@ If the submodule repository is not hosted on github.com, the Git URLs (`git_url`
 /**
  * @api {PUT} /repos/:owner/:repo/contents/:path createFile
  * @apiName createFile
- * @apiDescription Creates a new file in a repository. <a href="https://developer.github.com/v3/repos/contents/#create-a-file">REST API doc</a>
+ * @apiDescription Creates a new file in a repository.
+
+<a href="https://developer.github.com/v3/repos/contents/#create-a-file">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6435,7 +6883,9 @@ If the submodule repository is not hosted on github.com, the Git URLs (`git_url`
 /**
  * @api {PUT} /repos/:owner/:repo/contents/:path updateFile
  * @apiName updateFile
- * @apiDescription Updates a file in a repository. <a href="https://developer.github.com/v3/repos/contents/#update-a-file">REST API doc</a>
+ * @apiDescription Updates a file in a repository.
+
+<a href="https://developer.github.com/v3/repos/contents/#update-a-file">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6472,7 +6922,9 @@ Both the `author` and `committer` parameters have the same keys:
 | name  | type   | description                                          |
 | ----- | ------ | ---------------------------------------------------- |
 | name  | string | The name of the author (or committer) of the commit  |
-| email | string | The email of the author (or committer) of the commit | <a href="https://developer.github.com/v3/repos/contents/#delete-a-file">REST API doc</a>
+| email | string | The email of the author (or committer) of the commit |
+
+<a href="https://developer.github.com/v3/repos/contents/#delete-a-file">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6499,7 +6951,9 @@ _Note_: For private repositories, these links are temporary and expire after fiv
 
 To follow redirects with curl, use the `-L` switch:
 
- <a href="https://developer.github.com/v3/repos/contents/#get-archive-link">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/contents/#get-archive-link">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6551,7 +7005,9 @@ To follow redirects with curl, use the `-L` switch:
  * @apiName addDeployKey
  * @apiDescription Here's how you can create a read-only deploy key:
 
- <a href="https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6587,7 +7043,9 @@ Deploy keys with write access can perform the same actions as an organization me
 /**
  * @api {GET} /repos/:owner/:repo/deployments listDeployments
  * @apiName listDeployments
- * @apiDescription Simple filtering of deployments is available via query parameters: <a href="https://developer.github.com/v3/repos/deployments/#list-deployments">REST API doc</a>
+ * @apiDescription Simple filtering of deployments is available via query parameters:
+
+<a href="https://developer.github.com/v3/repos/deployments/#list-deployments">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6646,7 +7104,9 @@ A more advanced example specifying required commit statuses and bypassing auto-m
 
 This error happens when the `auto_merge` option is enabled and when the default branch (in this case `master`), can't be merged into the branch that's being deployed (in this case `topic-branch`), due to merge conflicts.
 
-This error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success` status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`. <a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment">REST API doc</a>
+This error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success` status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.
+
+<a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6672,7 +7132,9 @@ This error happens when the `required_contexts` parameter indicates that one or 
 /**
  * @api {GET} /repos/:owner/:repo/deployments/:deployment_id/statuses listDeploymentStatuses
  * @apiName listDeploymentStatuses
- * @apiDescription Users with pull access can view deployment statuses for a deployment: <a href="https://developer.github.com/v3/repos/deployments/#list-deployment-statuses">REST API doc</a>
+ * @apiDescription Users with pull access can view deployment statuses for a deployment:
+
+<a href="https://developer.github.com/v3/repos/deployments/#list-deployment-statuses">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6690,7 +7152,9 @@ This error happens when the `required_contexts` parameter indicates that one or 
 /**
  * @api {GET} /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id getDeploymentStatus
  * @apiName getDeploymentStatus
- * @apiDescription Users with pull access can view a deployment status for a deployment: <a href="https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status">REST API doc</a>
+ * @apiDescription Users with pull access can view a deployment status for a deployment:
+
+<a href="https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6709,7 +7173,9 @@ This error happens when the `required_contexts` parameter indicates that one or 
  * @apiName createDeploymentStatus
  * @apiDescription Users with `push` access can create deployment statuses for a given deployment.
 
-GitHub Apps require `read & write` access to "Deployments" and `read-only` access to "Repo contents" (for private repos). OAuth Apps require the `repo_deployment` scope. <a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment-status">REST API doc</a>
+GitHub Apps require `read & write` access to "Deployments" and `read-only` access to "Repo contents" (for private repos). OAuth Apps require the `repo_deployment` scope.
+
+<a href="https://developer.github.com/v3/repos/deployments/#create-a-deployment-status">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6805,7 +7271,9 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
  * @apiName createFork
  * @apiDescription Create a fork for the authenticated user.
 
-**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Support](https://github.com/contact). <a href="https://developer.github.com/v3/repos/forks/#create-a-fork">REST API doc</a>
+**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Support](https://github.com/contact).
+
+<a href="https://developer.github.com/v3/repos/forks/#create-a-fork">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6823,7 +7291,9 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
  * @apiName listInvitations
  * @apiDescription When authenticating as a user with admin rights to a repository, this endpoint will list all currently open repository invitations.
 
- <a href="https://developer.github.com/v3/repos/invitations/#list-invitations-for-a-repository">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/invitations/#list-invitations-for-a-repository">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6875,7 +7345,9 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
  * @apiName listInvitationsForAuthenticatedUser
  * @apiDescription When authenticating as a user, this endpoint will list all currently open repository invitations for that user.
 
- <a href="https://developer.github.com/v3/repos/invitations/#list-a-users-repository-invitations">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/invitations/#list-a-users-repository-invitations">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -6941,7 +7413,9 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
 *   `html_url`: The absolute URL (with scheme) to the rendered site. For example, `https://username.github.io`.
 *   `source`: Information about the source branch and directory for the rendered site. The source field includes:
     *   `branch`: The repo branch for [site source files](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) For example, _master_ or _gh-pages_.
-    *   `path`: The repo directory from which the site publishes. Can be either `/` or `/docs`. <a href="https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site">REST API doc</a>
+    *   `path`: The repo directory from which the site publishes. Can be either `/` or `/docs`.
+
+<a href="https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6975,7 +7449,9 @@ GitHub Apps require `read & write` access to "Deployments" and `read-only` acces
  * @apiName requestPageBuild
  * @apiDescription You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.
 
-Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes. <a href="https://developer.github.com/v3/repos/pages/#request-a-page-build">REST API doc</a>
+Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.
+
+<a href="https://developer.github.com/v3/repos/pages/#request-a-page-build">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7040,7 +7516,9 @@ Build requests are limited to one concurrent build per repository and one concur
  * @apiName listReleases
  * @apiDescription This returns a list of releases, which does not include regular Git tags that have not been associated with a release. To get a list of Git tags, use the [Repository Tags API](https://developer.github.com/v3/repos/#list-tags).
 
-Information about published releases are available to everyone. Only users with push access will receive listings for draft releases. <a href="https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository">REST API doc</a>
+Information about published releases are available to everyone. Only users with push access will receive listings for draft releases.
+
+<a href="https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7057,7 +7535,9 @@ Information about published releases are available to everyone. Only users with 
 /**
  * @api {GET} /repos/:owner/:repo/releases/:release_id getRelease
  * @apiName getRelease
- * @apiDescription **Note:** This returns an `upload_url` key corresponding to the endpoint for uploading release assets. This key is a [hypermedia resource](https://developer.github.com/v3/#hypermedia). <a href="https://developer.github.com/v3/repos/releases/#get-a-single-release">REST API doc</a>
+ * @apiDescription **Note:** This returns an `upload_url` key corresponding to the endpoint for uploading release assets. This key is a [hypermedia resource](https://developer.github.com/v3/#hypermedia).
+
+<a href="https://developer.github.com/v3/repos/releases/#get-a-single-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7073,7 +7553,9 @@ Information about published releases are available to everyone. Only users with 
 /**
  * @api {GET} /repos/:owner/:repo/releases/latest getLatestRelease
  * @apiName getLatestRelease
- * @apiDescription View the latest published full release for the repository. Draft releases and prereleases are not returned by this endpoint. <a href="https://developer.github.com/v3/repos/releases/#get-the-latest-release">REST API doc</a>
+ * @apiDescription View the latest published full release for the repository. Draft releases and prereleases are not returned by this endpoint.
+
+<a href="https://developer.github.com/v3/repos/releases/#get-the-latest-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7088,7 +7570,9 @@ Information about published releases are available to everyone. Only users with 
 /**
  * @api {GET} /repos/:owner/:repo/releases/tags/:tag getReleaseByTag
  * @apiName getReleaseByTag
- * @apiDescription Get a published release with the specified tag. <a href="https://developer.github.com/v3/repos/releases/#get-a-release-by-tag-name">REST API doc</a>
+ * @apiDescription Get a published release with the specified tag.
+
+<a href="https://developer.github.com/v3/repos/releases/#get-a-release-by-tag-name">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7104,7 +7588,9 @@ Information about published releases are available to everyone. Only users with 
 /**
  * @api {POST} /repos/:owner/:repo/releases createRelease
  * @apiName createRelease
- * @apiDescription Users with push access to the repository can create a release. <a href="https://developer.github.com/v3/repos/releases/#create-a-release">REST API doc</a>
+ * @apiDescription Users with push access to the repository can create a release.
+
+<a href="https://developer.github.com/v3/repos/releases/#create-a-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7125,7 +7611,9 @@ Information about published releases are available to everyone. Only users with 
 /**
  * @api {PATCH} /repos/:owner/:repo/releases/:release_id updateRelease
  * @apiName updateRelease
- * @apiDescription Users with push access to the repository can edit a release. <a href="https://developer.github.com/v3/repos/releases/#edit-a-release">REST API doc</a>
+ * @apiDescription Users with push access to the repository can edit a release.
+
+<a href="https://developer.github.com/v3/repos/releases/#edit-a-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7147,7 +7635,9 @@ Information about published releases are available to everyone. Only users with 
 /**
  * @api {DELETE} /repos/:owner/:repo/releases/:release_id deleteRelease
  * @apiName deleteRelease
- * @apiDescription Users with push access to the repository can delete a release. <a href="https://developer.github.com/v3/repos/releases/#delete-a-release">REST API doc</a>
+ * @apiDescription Users with push access to the repository can delete a release.
+
+<a href="https://developer.github.com/v3/repos/releases/#delete-a-release">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7187,7 +7677,9 @@ The asset data is expected in its raw binary form, rather than JSON. Everything 
 
 Send the raw binary content of the asset as the request body.
 
-This may leave an empty asset with a state of `"new"`. It can be safely deleted. <a href="https://developer.github.com/v3/repos/releases/#upload-a-release-asset">REST API doc</a>
+This may leave an empty asset with a state of `"new"`. It can be safely deleted.
+
+<a href="https://developer.github.com/v3/repos/releases/#upload-a-release-asset">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {integer} headers:content-length  The content size of the asset in bytes
@@ -7207,7 +7699,9 @@ This may leave an empty asset with a state of `"new"`. It can be safely deleted.
 /**
  * @api {GET} /repos/:owner/:repo/releases/assets/:asset_id getReleaseAsset
  * @apiName getReleaseAsset
- * @apiDescription To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://developer.github.com/v3/media/#media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response. <a href="https://developer.github.com/v3/repos/releases/#get-a-single-release-asset">REST API doc</a>
+ * @apiDescription To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://developer.github.com/v3/media/#media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response.
+
+<a href="https://developer.github.com/v3/repos/releases/#get-a-single-release-asset">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7223,7 +7717,9 @@ This may leave an empty asset with a state of `"new"`. It can be safely deleted.
 /**
  * @api {PATCH} /repos/:owner/:repo/releases/assets/:asset_id updateReleaseAsset
  * @apiName updateReleaseAsset
- * @apiDescription Users with push access to the repository can edit a release asset. <a href="https://developer.github.com/v3/repos/releases/#edit-a-release-asset">REST API doc</a>
+ * @apiDescription Users with push access to the repository can edit a release asset.
+
+<a href="https://developer.github.com/v3/repos/releases/#edit-a-release-asset">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7266,7 +7762,9 @@ Weekly Hash (`weeks` array):
 *   `d` - Number of deletions
 *   `c` - Number of commits
 
- <a href="https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7283,7 +7781,9 @@ Weekly Hash (`weeks` array):
  * @apiName getCommitActivityStats
  * @apiDescription Returns the last year of commit activity grouped by week. The `days` array is a group of commits per day, starting on `Sunday`.
 
- <a href="https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7300,7 +7800,9 @@ Weekly Hash (`weeks` array):
  * @apiName getCodeFrequencyStats
  * @apiDescription Returns a weekly aggregate of the number of additions and deletions pushed to a repository.
 
- <a href="https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7319,7 +7821,9 @@ Weekly Hash (`weeks` array):
 
 The array order is oldest week (index 0) to most recent week.
 
- <a href="https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7340,7 +7844,9 @@ The array order is oldest week (index 0) to most recent week.
 *   `0-23`: Hour of day
 *   Number of commits
 
-For example, `[2, 14, 25]` indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits. <a href="https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day">REST API doc</a>
+For example, `[2, 14, 25]` indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.
+
+<a href="https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7357,7 +7863,9 @@ For example, `[2, 14, 25]` indicates that there were 25 total commits, during th
  * @apiName createStatus
  * @apiDescription Users with push access in a repository can create commit statuses for a given SHA.
 
-Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error. <a href="https://developer.github.com/v3/repos/statuses/#create-a-status">REST API doc</a>
+Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.
+
+<a href="https://developer.github.com/v3/repos/statuses/#create-a-status">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7381,7 +7889,9 @@ For example, if your continuous integration system is posting build status, you 
  * @apiName listStatusesForRef
  * @apiDescription Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.
 
-This resource is also available via a legacy route: `GET /repos/:owner/:repo/statuses/:ref`. <a href="https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref">REST API doc</a>
+This resource is also available via a legacy route: `GET /repos/:owner/:repo/statuses/:ref`.
+
+<a href="https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7407,7 +7917,9 @@ Additionally, a combined `state` is returned. The `state` is one of:
 
 *   **failure** if any of the contexts report as `error` or `failure`
 *   **pending** if there are no statuses or a context is `pending`
-*   **success** if the latest status for all contexts is `success` <a href="https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref">REST API doc</a>
+*   **success** if the latest status for all contexts is `success`
+
+<a href="https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7423,7 +7935,9 @@ Additionally, a combined `state` is returned. The `state` is one of:
 /**
  * @api {GET} /repos/:owner/:repo/traffic/popular/referrers getTopReferrers
  * @apiName getTopReferrers
- * @apiDescription Get the top 10 referrers over the last 14 days. <a href="https://developer.github.com/v3/repos/traffic/#list-referrers">REST API doc</a>
+ * @apiDescription Get the top 10 referrers over the last 14 days.
+
+<a href="https://developer.github.com/v3/repos/traffic/#list-referrers">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7438,7 +7952,9 @@ Additionally, a combined `state` is returned. The `state` is one of:
 /**
  * @api {GET} /repos/:owner/:repo/traffic/popular/paths getTopPaths
  * @apiName getTopPaths
- * @apiDescription Get the top 10 popular contents over the last 14 days. <a href="https://developer.github.com/v3/repos/traffic/#list-paths">REST API doc</a>
+ * @apiDescription Get the top 10 popular contents over the last 14 days.
+
+<a href="https://developer.github.com/v3/repos/traffic/#list-paths">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7453,7 +7969,9 @@ Additionally, a combined `state` is returned. The `state` is one of:
 /**
  * @api {GET} /repos/:owner/:repo/traffic/views getViews
  * @apiName getViews
- * @apiDescription Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday. <a href="https://developer.github.com/v3/repos/traffic/#views">REST API doc</a>
+ * @apiDescription Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.
+
+<a href="https://developer.github.com/v3/repos/traffic/#views">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7469,7 +7987,9 @@ Additionally, a combined `state` is returned. The `state` is one of:
 /**
  * @api {GET} /repos/:owner/:repo/traffic/clones getClones
  * @apiName getClones
- * @apiDescription Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday. <a href="https://developer.github.com/v3/repos/traffic/#clones">REST API doc</a>
+ * @apiDescription Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.
+
+<a href="https://developer.github.com/v3/repos/traffic/#clones">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7522,7 +8042,9 @@ Additionally, a combined `state` is returned. The `state` is one of:
 
 **Note**: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the [blog post](/changes/2018-10-01-denying-new-github-services) for details. You can use the [Replacing GitHub Services guide](https://developer.github.com/v3/guides/replacing-github-services) to help you update your services to webhooks.
 
-Here's how you can create a hook that posts payloads in JSON format: <a href="https://developer.github.com/v3/repos/hooks/#create-a-hook">REST API doc</a>
+Here's how you can create a hook that posts payloads in JSON format:
+
+<a href="https://developer.github.com/v3/repos/hooks/#create-a-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7572,7 +8094,9 @@ Here's how you can create a hook that posts payloads in JSON format: <a href="ht
  * @apiName testPushHook
  * @apiDescription This will trigger the hook with the latest push to the current repository if the hook is subscribed to `push` events. If the hook is not subscribed to `push` events, the server will respond with 204 but no test POST will be generated.
 
-**Note**: Previously `/repos/:owner/:repo/hooks/:hook_id/test` <a href="https://developer.github.com/v3/repos/hooks/#test-a-push-hook">REST API doc</a>
+**Note**: Previously `/repos/:owner/:repo/hooks/:hook_id/test`
+
+<a href="https://developer.github.com/v3/repos/hooks/#test-a-push-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7588,7 +8112,9 @@ Here's how you can create a hook that posts payloads in JSON format: <a href="ht
 /**
  * @api {POST} /repos/:owner/:repo/hooks/:hook_id/pings pingHook
  * @apiName pingHook
- * @apiDescription This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook. <a href="https://developer.github.com/v3/repos/hooks/#ping-a-hook">REST API doc</a>
+ * @apiDescription This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook.
+
+<a href="https://developer.github.com/v3/repos/hooks/#ping-a-hook">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -7657,7 +8183,9 @@ This produces the same JSON payload as above, with an extra key called `text_mat
 
 When searching for repositories, you can get text match metadata for the **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
 
-Here's an example response: <a href="https://developer.github.com/v3/search/#search-repositories">REST API doc</a>
+Here's an example response:
+
+<a href="https://developer.github.com/v3/search/#search-repositories">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search keywords, as well as any qualifiers.
@@ -7702,7 +8230,9 @@ Suppose you want to find commits related to CSS in the [octocat/Spoon-Knife](htt
 
 **Highlighting code search results**
 
-When searching for commits, you can get text match metadata for the **message** field. See the section on [text match metadata](#text-match-metadata) for full details. <a href="https://developer.github.com/v3/search/#search-commits">REST API doc</a>
+When searching for commits, you can get text match metadata for the **message** field. See the section on [text match metadata](#text-match-metadata) for full details.
+
+<a href="https://developer.github.com/v3/search/#search-commits">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search terms.
@@ -7755,7 +8285,9 @@ This produces the same JSON payload as above, with an extra key called `text_mat
 
 When searching for code, you can get text match metadata for the file **content** and file **path** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
 
-Here's an example response: <a href="https://developer.github.com/v3/search/#search-code">REST API doc</a>
+Here's an example response:
+
+<a href="https://developer.github.com/v3/search/#search-code">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search terms.
@@ -7814,7 +8346,9 @@ This produces the same JSON payload as above, with an extra key called `text_mat
 
 When searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
 
-Here's an example response: <a href="https://developer.github.com/v3/search/#search-issues">REST API doc</a>
+Here's an example response:
+
+<a href="https://developer.github.com/v3/search/#search-issues">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search terms.
@@ -7854,7 +8388,9 @@ You might want to highlight the matching search terms when displaying search res
 
 This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
 
-When searching for users, you can get text match metadata for the issue **login**, **email**, and **name** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-users">REST API doc</a>
+When searching for users, you can get text match metadata for the issue **login**, **email**, and **name** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
+
+<a href="https://developer.github.com/v3/search/#search-users">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search terms.
@@ -7896,7 +8432,9 @@ You might want to highlight the matching search terms when displaying search res
 
 This produces the same JSON payload as above, with an extra key called `text_matches`, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
 
-When searching for topics, you can get text match metadata for the topic's **short\_description**, **description**, **name**, or **display\_name** field. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-topics">REST API doc</a>
+When searching for topics, you can get text match metadata for the topic's **short\_description**, **description**, **name**, or **display\_name** field. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
+
+<a href="https://developer.github.com/v3/search/#search-topics">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {string} q  The search terms.
@@ -7922,7 +8460,9 @@ You might want to highlight the matching search terms when displaying search res
 
 This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
 
-When searching for labels, you can get text match metadata for the label **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata). <a href="https://developer.github.com/v3/search/#search-labels">REST API doc</a>
+When searching for labels, you can get text match metadata for the label **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
+
+<a href="https://developer.github.com/v3/search/#search-labels">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {integer} repository_id  The id of the repository.
@@ -7976,7 +8516,9 @@ When searching for labels, you can get text match metadata for the label **name*
 /**
  * @api {POST} /orgs/:org/teams create
  * @apiName create
- * @apiDescription To create a team, the authenticated user must be a member of `:org`. <a href="https://developer.github.com/v3/teams/#create-team">REST API doc</a>
+ * @apiDescription To create a team, the authenticated user must be a member of `:org`.
+
+<a href="https://developer.github.com/v3/teams/#create-team">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {string} org  
@@ -8010,7 +8552,9 @@ Default for child team: `closed`
  * @apiName update
  * @apiDescription To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.
 
-**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`. <a href="https://developer.github.com/v3/teams/#edit-team">REST API doc</a>
+**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.
+
+<a href="https://developer.github.com/v3/teams/#edit-team">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8039,7 +8583,9 @@ Default for child team: `closed`
  * @apiName delete
  * @apiDescription To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.
 
-If you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well. <a href="https://developer.github.com/v3/teams/#delete-team">REST API doc</a>
+If you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.
+
+<a href="https://developer.github.com/v3/teams/#delete-team">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8055,7 +8601,9 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * @apiName listChild
  * @apiDescription At this time, the `hellcat-preview` media type is required to use this endpoint.
 
- <a href="https://developer.github.com/v3/teams/#list-child-teams">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/teams/#list-child-teams">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8071,7 +8619,9 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
 /**
  * @api {GET} /teams/:team_id/repos listRepos
  * @apiName listRepos
- * @apiDescription **Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team. <a href="https://developer.github.com/v3/teams/#list-team-repos">REST API doc</a>
+ * @apiDescription **Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.
+
+<a href="https://developer.github.com/v3/teams/#list-team-repos">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8089,7 +8639,9 @@ If you are an organization owner and you pass the `hellcat-preview` media type, 
  * @apiName checkManagesRepo
  * @apiDescription **Note**: If you pass the `hellcat-preview` media type, repositories inherited through a parent team will be checked.
 
-You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header: <a href="https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository">REST API doc</a>
+You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
+
+<a href="https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8111,7 +8663,9 @@ If you pass the `hellcat-preview` media type, you can modify repository permissi
 
 Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
 
- <a href="https://developer.github.com/v3/teams/#add-or-update-team-repository">REST API doc</a>
+
+
+<a href="https://developer.github.com/v3/teams/#add-or-update-team-repository">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8134,7 +8688,9 @@ If no permission is specified, the team's `permission` attribute will be used to
 /**
  * @api {DELETE} /teams/:team_id/repos/:owner/:repo removeRepo
  * @apiName removeRepo
- * @apiDescription If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team. <a href="https://developer.github.com/v3/teams/#remove-team-repository">REST API doc</a>
+ * @apiDescription If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.
+
+<a href="https://developer.github.com/v3/teams/#remove-team-repository">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8150,7 +8706,9 @@ If no permission is specified, the team's `permission` attribute will be used to
 /**
  * @api {GET} /user/teams listForAuthenticatedUser
  * @apiName listForAuthenticatedUser
- * @apiDescription List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/). <a href="https://developer.github.com/v3/teams/#list-user-teams">REST API doc</a>
+ * @apiDescription List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/#list-user-teams">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -8165,7 +8723,9 @@ If no permission is specified, the team's `permission` attribute will be used to
 /**
  * @api {GET} /teams/:team_id/projects listProjects
  * @apiName listProjects
- * @apiDescription Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team. <a href="https://developer.github.com/v3/teams/#list-team-projects">REST API doc</a>
+ * @apiDescription Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.
+
+<a href="https://developer.github.com/v3/teams/#list-team-projects">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8181,7 +8741,9 @@ If no permission is specified, the team's `permission` attribute will be used to
 /**
  * @api {GET} /teams/:team_id/projects/:project_id reviewProject
  * @apiName reviewProject
- * @apiDescription Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team. <a href="https://developer.github.com/v3/teams/#review-a-team-project">REST API doc</a>
+ * @apiDescription Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.
+
+<a href="https://developer.github.com/v3/teams/#review-a-team-project">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8196,7 +8758,9 @@ If no permission is specified, the team's `permission` attribute will be used to
 /**
  * @api {PUT} /teams/:team_id/projects/:project_id addOrUpdateProject
  * @apiName addOrUpdateProject
- * @apiDescription Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization. <a href="https://developer.github.com/v3/teams/#add-or-update-team-project">REST API doc</a>
+ * @apiDescription Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.
+
+<a href="https://developer.github.com/v3/teams/#add-or-update-team-project">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8217,7 +8781,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {DELETE} /teams/:team_id/projects/:project_id removeProject
  * @apiName removeProject
- * @apiDescription Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it. <a href="https://developer.github.com/v3/teams/#remove-team-project">REST API doc</a>
+ * @apiDescription Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.
+
+<a href="https://developer.github.com/v3/teams/#remove-team-project">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8232,7 +8798,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {GET} /teams/:team_id/discussions listDiscussions
  * @apiName listDiscussions
- * @apiDescription List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#list-discussions">REST API doc</a>
+ * @apiDescription List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussions/#list-discussions">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8249,7 +8817,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {GET} /teams/:team_id/discussions/:discussion_number getDiscussion
  * @apiName getDiscussion
- * @apiDescription Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#get-a-single-discussion">REST API doc</a>
+ * @apiDescription Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussions/#get-a-single-discussion">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8264,7 +8834,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {POST} /teams/:team_id/discussions createDiscussion
  * @apiName createDiscussion
- * @apiDescription Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#create-a-discussion">REST API doc</a>
+ * @apiDescription Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussions/#create-a-discussion">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8281,7 +8853,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {PATCH} /teams/:team_id/discussions/:discussion_number updateDiscussion
  * @apiName updateDiscussion
- * @apiDescription Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#edit-a-discussion">REST API doc</a>
+ * @apiDescription Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussions/#edit-a-discussion">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8298,7 +8872,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {DELETE} /teams/:team_id/discussions/:discussion_number deleteDiscussion
  * @apiName deleteDiscussion
- * @apiDescription Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussions/#delete-a-discussion">REST API doc</a>
+ * @apiDescription Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussions/#delete-a-discussion">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8313,7 +8889,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {GET} /teams/:team_id/discussions/:discussion_number/comments listDiscussionComments
  * @apiName listDiscussionComments
- * @apiDescription List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#list-comments">REST API doc</a>
+ * @apiDescription List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussion_comments/#list-comments">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8331,7 +8909,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {GET} /teams/:team_id/discussions/:discussion_number/comments/:comment_number getDiscussionComment
  * @apiName getDiscussionComment
- * @apiDescription Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment">REST API doc</a>
+ * @apiDescription Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8347,7 +8927,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {POST} /teams/:team_id/discussions/:discussion_number/comments createDiscussionComment
  * @apiName createDiscussionComment
- * @apiDescription Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#create-a-comment">REST API doc</a>
+ * @apiDescription Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussion_comments/#create-a-comment">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8363,7 +8945,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {PATCH} /teams/:team_id/discussions/:discussion_number/comments/:comment_number updateDiscussionComment
  * @apiName updateDiscussionComment
- * @apiDescription Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment">REST API doc</a>
+ * @apiDescription Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8380,7 +8964,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {DELETE} /teams/:team_id/discussions/:discussion_number/comments/:comment_number deleteDiscussionComment
  * @apiName deleteDiscussionComment
- * @apiDescription Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment">REST API doc</a>
+ * @apiDescription Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8396,7 +8982,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 /**
  * @api {GET} /teams/:team_id/members listMembers
  * @apiName listMembers
- * @apiDescription If you pass the `hellcat-preview` media type, team members will include the members of child teams. <a href="https://developer.github.com/v3/teams/members/#list-team-members">REST API doc</a>
+ * @apiDescription If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+
+<a href="https://developer.github.com/v3/teams/members/#list-team-members">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8420,7 +9008,9 @@ Default: the team's `permission` attribute will be used to determine what permis
 
 We recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.
 
-To list members in a team, the team must be visible to the authenticated user. <a href="https://developer.github.com/v3/teams/members/#get-team-member">REST API doc</a>
+To list members in a team, the team must be visible to the authenticated user.
+
+<a href="https://developer.github.com/v3/teams/members/#get-team-member">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8445,7 +9035,9 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 
 If you attempt to add an organization to a team, you will get this:
 
-If you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this: <a href="https://developer.github.com/v3/teams/members/#add-team-member">REST API doc</a>
+If you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this:
+
+<a href="https://developer.github.com/v3/teams/members/#add-team-member">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8464,7 +9056,9 @@ If you attempt to add a user to a team and that user is not a member of at least
 
 We recommend using the [Remove team membership API](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.
 
-To remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team. <a href="https://developer.github.com/v3/teams/members/#remove-team-member">REST API doc</a>
+To remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team.
+
+<a href="https://developer.github.com/v3/teams/members/#remove-team-member">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8483,7 +9077,9 @@ To remove a user from a team, the authenticated user must have 'admin' permissio
 
 To get a user's membership with a team, the team must be visible to the authenticated user.
 
-**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team). <a href="https://developer.github.com/v3/teams/members/#get-team-membership">REST API doc</a>
+**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).
+
+<a href="https://developer.github.com/v3/teams/members/#get-team-membership">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8504,7 +9100,9 @@ If the user is unaffiliated with the team's organization, this endpoint will sen
 
 If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.
 
-If you attempt to add an organization to a team, you will get this: <a href="https://developer.github.com/v3/teams/members/#add-or-update-team-membership">REST API doc</a>
+If you attempt to add an organization to a team, you will get this:
+
+<a href="https://developer.github.com/v3/teams/members/#add-or-update-team-membership">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8522,7 +9120,9 @@ If you attempt to add an organization to a team, you will get this: <a href="htt
 /**
  * @api {DELETE} /teams/:team_id/memberships/:username removeMembership
  * @apiName removeMembership
- * @apiDescription To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team. <a href="https://developer.github.com/v3/teams/members/#remove-team-membership">REST API doc</a>
+ * @apiDescription To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.
+
+<a href="https://developer.github.com/v3/teams/members/#remove-team-membership">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8537,7 +9137,9 @@ If you attempt to add an organization to a team, you will get this: <a href="htt
 /**
  * @api {GET} /teams/:team_id/invitations listPendingInvitations
  * @apiName listPendingInvitations
- * @apiDescription The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`. <a href="https://developer.github.com/v3/teams/members/#list-pending-team-invitations">REST API doc</a>
+ * @apiDescription The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.
+
+<a href="https://developer.github.com/v3/teams/members/#list-pending-team-invitations">REST API doc</a>
  * @apiGroup Teams
  *
  * @apiParam {integer} team_id  
@@ -8564,7 +9166,9 @@ If you attempt to add an organization to a team, you will get this: <a href="htt
 
 The `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://developer.github.com/v3/#authentication).
 
-The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see "[Emails API](https://developer.github.com/v3/users/emails/)". <a href="https://developer.github.com/v3/users/#get-a-single-user">REST API doc</a>
+The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see "[Emails API](https://developer.github.com/v3/users/emails/)".
+
+<a href="https://developer.github.com/v3/users/#get-a-single-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8580,7 +9184,9 @@ The Emails API enables you to list all of your email addresses, and toggle a pri
  * @apiName getAuthenticated
  * @apiDescription Lists public and private profile information when authenticated through basic auth or OAuth with the `user` scope.
 
-Lists public profile information when authenticated through OAuth without the `user` scope. <a href="https://developer.github.com/v3/users/#get-the-authenticated-user">REST API doc</a>
+Lists public profile information when authenticated through OAuth without the `user` scope.
+
+<a href="https://developer.github.com/v3/users/#get-the-authenticated-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiExample {js} async/await
@@ -8593,7 +9199,9 @@ Lists public profile information when authenticated through OAuth without the `u
 /**
  * @api {PATCH} /user updateAuthenticated
  * @apiName updateAuthenticated
- * @apiDescription **Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API. <a href="https://developer.github.com/v3/users/#update-the-authenticated-user">REST API doc</a>
+ * @apiDescription **Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.
+
+<a href="https://developer.github.com/v3/users/#update-the-authenticated-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} [name]  The new name of the user.
@@ -8615,7 +9223,9 @@ Lists public profile information when authenticated through OAuth without the `u
  * @apiName getContextForUser
  * @apiDescription Provides hovercard information when authenticated through basic auth or OAuth with the `repo` scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.
 
-The `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this: <a href="https://developer.github.com/v3/users/#get-contextual-information-about-a-user">REST API doc</a>
+The `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:
+
+<a href="https://developer.github.com/v3/users/#get-contextual-information-about-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8633,7 +9243,9 @@ The `subject_type` and `subject_id` parameters provide context for the person's 
  * @apiName list
  * @apiDescription Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.
 
-Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of users. <a href="https://developer.github.com/v3/users/#get-all-users">REST API doc</a>
+Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of users.
+
+<a href="https://developer.github.com/v3/users/#get-all-users">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} [since]  The integer ID of the last User that you've seen.
@@ -8649,7 +9261,9 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
 /**
  * @api {GET} /user/blocks listBlocked
  * @apiName listBlocked
- * @apiDescription List the users you've blocked on your personal account. <a href="https://developer.github.com/v3/users/blocking/#list-blocked-users">REST API doc</a>
+ * @apiDescription List the users you've blocked on your personal account.
+
+<a href="https://developer.github.com/v3/users/blocking/#list-blocked-users">REST API doc</a>
  * @apiGroup Users
  *
  * @apiExample {js} async/await
@@ -8664,7 +9278,9 @@ Note: Pagination is powered exclusively by the `since` parameter. Use the [Link 
  * @apiName checkBlocked
  * @apiDescription If the user is blocked:
 
-If the user is not blocked: <a href="https://developer.github.com/v3/users/blocking/#check-whether-youve-blocked-a-user">REST API doc</a>
+If the user is not blocked:
+
+<a href="https://developer.github.com/v3/users/blocking/#check-whether-youve-blocked-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8706,7 +9322,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {GET} /user/emails listEmails
  * @apiName listEmails
- * @apiDescription Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope. <a href="https://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user">REST API doc</a>
+ * @apiDescription Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope.
+
+<a href="https://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -8721,7 +9339,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {GET} /user/public_emails listPublicEmails
  * @apiName listPublicEmails
- * @apiDescription Lists your publicly visible email address, which you can set with the [Toggle primary email visibility](#toggle-primary-email-visibility) endpoint. This endpoint is accessible with the `user:email` scope. <a href="https://developer.github.com/v3/users/emails/#list-public-email-addresses-for-a-user">REST API doc</a>
+ * @apiDescription Lists your publicly visible email address, which you can set with the [Toggle primary email visibility](#toggle-primary-email-visibility) endpoint. This endpoint is accessible with the `user:email` scope.
+
+<a href="https://developer.github.com/v3/users/emails/#list-public-email-addresses-for-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -8764,7 +9384,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
 /**
  * @api {PATCH} /user/email/visibility togglePrimaryEmailVisibility
  * @apiName togglePrimaryEmailVisibility
- * @apiDescription Sets the visibility for your primary email addresses. <a href="https://developer.github.com/v3/users/emails/#toggle-primary-email-visibility">REST API doc</a>
+ * @apiDescription Sets the visibility for your primary email addresses.
+
+<a href="https://developer.github.com/v3/users/emails/#toggle-primary-email-visibility">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} email  Specify the _primary_ email address that needs a visibility change.
@@ -8872,7 +9494,9 @@ If the user is not blocked: <a href="https://developer.github.com/v3/users/block
  * @apiName follow
  * @apiDescription Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
 
-Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope. <a href="https://developer.github.com/v3/users/followers/#follow-a-user">REST API doc</a>
+Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.
+
+<a href="https://developer.github.com/v3/users/followers/#follow-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8886,7 +9510,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {DELETE} /user/following/:username unfollow
  * @apiName unfollow
- * @apiDescription Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope. <a href="https://developer.github.com/v3/users/followers/#unfollow-a-user">REST API doc</a>
+ * @apiDescription Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.
+
+<a href="https://developer.github.com/v3/users/followers/#unfollow-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8900,7 +9526,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {GET} /users/:username/keys listPublicKeysForUser
  * @apiName listPublicKeysForUser
- * @apiDescription Lists the _verified_ public SSH keys for a user. This is accessible by anyone. <a href="https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user">REST API doc</a>
+ * @apiDescription Lists the _verified_ public SSH keys for a user. This is accessible by anyone.
+
+<a href="https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8916,7 +9544,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {GET} /user/keys listPublicKeys
  * @apiName listPublicKeys
- * @apiDescription Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#list-your-public-keys">REST API doc</a>
+ * @apiDescription Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/keys/#list-your-public-keys">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -8931,7 +9561,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {GET} /user/keys/:key_id getPublicKey
  * @apiName getPublicKey
- * @apiDescription View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
+ * @apiDescription View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/keys/#get-a-single-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} key_id  
@@ -8945,7 +9577,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {POST} /user/keys createPublicKey
  * @apiName createPublicKey
- * @apiDescription Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#create-a-public-key">REST API doc</a>
+ * @apiDescription Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/keys/#create-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} [title]  A descriptive name for the new key. Use a name that will help you recognize this key in your GitHub account. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
@@ -8960,7 +9594,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {DELETE} /user/keys/:key_id deletePublicKey
  * @apiName deletePublicKey
- * @apiDescription Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
+ * @apiDescription Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/keys/#delete-a-public-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} key_id  
@@ -8974,7 +9610,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {GET} /users/:username/gpg_keys listGpgKeysForUser
  * @apiName listGpgKeysForUser
- * @apiDescription Lists the GPG keys for a user. This information is accessible by anyone. <a href="https://developer.github.com/v3/users/gpg_keys/#list-gpg-keys-for-a-user">REST API doc</a>
+ * @apiDescription Lists the GPG keys for a user. This information is accessible by anyone.
+
+<a href="https://developer.github.com/v3/users/gpg_keys/#list-gpg-keys-for-a-user">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} username  
@@ -8990,7 +9628,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {GET} /user/gpg_keys listGpgKeys
  * @apiName listGpgKeys
- * @apiDescription Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys">REST API doc</a>
+ * @apiDescription Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
@@ -9005,7 +9645,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {GET} /user/gpg_keys/:gpg_key_id getGpgKey
  * @apiName getGpgKey
- * @apiDescription View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key">REST API doc</a>
+ * @apiDescription View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} gpg_key_id  
@@ -9019,7 +9661,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {POST} /user/gpg_keys createGpgKey
  * @apiName createGpgKey
- * @apiDescription Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key">REST API doc</a>
+ * @apiDescription Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {string} [armored_public_key]  Your GPG key, generated in ASCII-armored format. See "[Generating a new GPG key](https://help.github.com/articles/generating-a-new-gpg-key/)" for help creating a GPG key.
@@ -9033,7 +9677,9 @@ Following a user requires the user to be logged in and authenticated with basic 
 /**
  * @api {DELETE} /user/gpg_keys/:gpg_key_id deleteGpgKey
  * @apiName deleteGpgKey
- * @apiDescription Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). <a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
+ * @apiDescription Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+<a href="https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key">REST API doc</a>
  * @apiGroup Users
  *
  * @apiParam {integer} gpg_key_id  

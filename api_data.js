@@ -4,7 +4,7 @@ define({ "api": [
     "url": "/user/starred/:owner/:repo",
     "title": "checkStarringRepo",
     "name": "checkStarringRepo",
-    "description": "<p>Requires for the user to be authenticated. <a href=\"https://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository\">REST API doc</a></p>",
+    "description": "<p>Requires for the user to be authenticated.</p> <p><a href=\"https://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -47,7 +47,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/subscription",
     "title": "deleteRepoSubscription",
     "name": "deleteRepoSubscription",
-    "description": "<p>This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, <a href=\"#set-a-repository-subscription\">set the repository's subscription manually</a>. <a href=\"https://developer.github.com/v3/activity/watching/#delete-a-repository-subscription\">REST API doc</a></p>",
+    "description": "<p>This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, <a href=\"#set-a-repository-subscription\">set the repository's subscription manually</a>.</p> <p><a href=\"https://developer.github.com/v3/activity/watching/#delete-a-repository-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -90,7 +90,7 @@ define({ "api": [
     "url": "/notifications/threads/:thread_id/subscription",
     "title": "deleteThreadSubscription",
     "name": "deleteThreadSubscription",
-    "description": "<p>Mutes all future notifications for a conversation until you comment on the thread or get <strong>@mention</strong>ed. <a href=\"https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription\">REST API doc</a></p>",
+    "description": "<p>Mutes all future notifications for a conversation until you comment on the thread or get <strong>@mention</strong>ed.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -205,7 +205,7 @@ define({ "api": [
     "url": "/notifications/threads/:thread_id/subscription",
     "title": "getThreadSubscription",
     "name": "getThreadSubscription",
-    "description": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://developer.github.com/v3/activity/watching/#get-a-repository-subscription\">get a Repository subscription</a>.</p> <p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mentioned</strong>, or manually subscribe to a thread. <a href=\"https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription\">REST API doc</a></p>",
+    "description": "<p>This checks to see if the current user is subscribed to a thread. You can also <a href=\"https://developer.github.com/v3/activity/watching/#get-a-repository-subscription\">get a Repository subscription</a>.</p> <p>Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were <strong>@mentioned</strong>, or manually subscribe to a thread.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -241,7 +241,7 @@ define({ "api": [
     "url": "/users/:username/events/orgs/:org",
     "title": "listEventsForOrg",
     "name": "listEventsForOrg",
-    "description": "<p>This is the user's organization dashboard. You must be authenticated as the user to view this. <a href=\"https://developer.github.com/v3/activity/events/#list-events-for-an-organization\">REST API doc</a></p>",
+    "description": "<p>This is the user's organization dashboard. You must be authenticated as the user to view this.</p> <p><a href=\"https://developer.github.com/v3/activity/events/#list-events-for-an-organization\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -300,7 +300,7 @@ define({ "api": [
     "url": "/users/:username/events",
     "title": "listEventsForUser",
     "name": "listEventsForUser",
-    "description": "<p>If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events. <a href=\"https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user\">REST API doc</a></p>",
+    "description": "<p>If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.</p> <p><a href=\"https://developer.github.com/v3/activity/events/#list-events-performed-by-a-user\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -352,7 +352,7 @@ define({ "api": [
     "url": "/feeds",
     "title": "listFeeds",
     "name": "listFeeds",
-    "description": "<p>GitHub provides several timeline resources in <a href=\"http://en.wikipedia.org/wiki/Atom_(standard)\">Atom</a> format. The Feeds API lists all the feeds available to the authenticated user: <strong>Timeline</strong>: The GitHub global public timeline <strong>User</strong>: The public timeline for any user, using <a href=\"https://developer.github.com/v3/#hypermedia\">URI template</a> <strong>Current user public</strong>: The public timeline for the authenticated user <strong>Current user</strong>: The private timeline for the authenticated user <strong>Current user actor</strong>: The private timeline for activity created by the authenticated user <strong>Current user organizations</strong>: The private timeline for the organizations the authenticated user is a member of. <strong>Security advisories</strong>: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub. <em>Note</em>*: Private feeds are only returned when <a href=\"https://developer.github.com/v3/#basic-authentication\">authenticating via Basic Auth</a> since current feed URIs use the older, non revocable auth tokens. <a href=\"https://developer.github.com/v3/activity/feeds/#list-feeds\">REST API doc</a></p>",
+    "description": "<p>GitHub provides several timeline resources in <a href=\"http://en.wikipedia.org/wiki/Atom_(standard)\">Atom</a> format. The Feeds API lists all the feeds available to the authenticated user: <strong>Timeline</strong>: The GitHub global public timeline <strong>User</strong>: The public timeline for any user, using <a href=\"https://developer.github.com/v3/#hypermedia\">URI template</a> <strong>Current user public</strong>: The public timeline for the authenticated user <strong>Current user</strong>: The private timeline for the authenticated user <strong>Current user actor</strong>: The private timeline for activity created by the authenticated user <strong>Current user organizations</strong>: The private timeline for the organizations the authenticated user is a member of. <strong>Security advisories</strong>: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub. <em>Note</em>*: Private feeds are only returned when <a href=\"https://developer.github.com/v3/#basic-authentication\">authenticating via Basic Auth</a> since current feed URIs use the older, non revocable auth tokens.</p> <p><a href=\"https://developer.github.com/v3/activity/feeds/#list-feeds\">REST API doc</a></p>",
     "group": "Activity",
     "examples": [
       {
@@ -375,7 +375,7 @@ define({ "api": [
     "url": "/notifications",
     "title": "listNotifications",
     "name": "listNotifications",
-    "description": "<p>List all notifications for the current user, sorted by most recently updated. <a href=\"https://developer.github.com/v3/activity/notifications/#list-your-notifications\">REST API doc</a></p>",
+    "description": "<p>List all notifications for the current user, sorted by most recently updated.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#list-your-notifications\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -451,7 +451,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/notifications",
     "title": "listNotificationsForRepo",
     "name": "listNotificationsForRepo",
-    "description": "<p>List all notifications for the current user. <a href=\"https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository\">REST API doc</a></p>",
+    "description": "<p>List all notifications for the current user.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -541,7 +541,7 @@ define({ "api": [
     "url": "/events",
     "title": "listPublicEvents",
     "name": "listPublicEvents",
-    "description": "<p>We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago. <a href=\"https://developer.github.com/v3/activity/events/#list-public-events\">REST API doc</a></p>",
+    "description": "<p>We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago.</p> <p><a href=\"https://developer.github.com/v3/activity/events/#list-public-events\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -749,7 +749,7 @@ define({ "api": [
     "url": "/users/:username/received_events",
     "title": "listReceivedEventsForUser",
     "name": "listReceivedEventsForUser",
-    "description": "<p>These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events. <a href=\"https://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received\">REST API doc</a></p>",
+    "description": "<p>These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events.</p> <p><a href=\"https://developer.github.com/v3/activity/events/#list-events-that-a-user-has-received\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -912,7 +912,7 @@ define({ "api": [
     "url": "/user/starred",
     "title": "listReposStarredByAuthenticatedUser",
     "name": "listReposStarredByAuthenticatedUser",
-    "description": "<p>You can also find out <em>when</em> stars were created by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header: <a href=\"https://developer.github.com/v3/activity/starring/#list-repositories-being-starred\">REST API doc</a></p>",
+    "description": "<p>You can also find out <em>when</em> stars were created by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header:</p> <p><a href=\"https://developer.github.com/v3/activity/starring/#list-repositories-being-starred\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -981,7 +981,7 @@ define({ "api": [
     "url": "/users/:username/starred",
     "title": "listReposStarredByUser",
     "name": "listReposStarredByUser",
-    "description": "<p>You can also find out <em>when</em> stars were created by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header: <a href=\"https://developer.github.com/v3/activity/starring/#list-repositories-being-starred\">REST API doc</a></p>",
+    "description": "<p>You can also find out <em>when</em> stars were created by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header:</p> <p><a href=\"https://developer.github.com/v3/activity/starring/#list-repositories-being-starred\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1109,7 +1109,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/stargazers",
     "title": "listStargazersForRepo",
     "name": "listStargazersForRepo",
-    "description": "<p>You can also find out <em>when</em> stars were created by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header: <a href=\"https://developer.github.com/v3/activity/starring/#list-stargazers\">REST API doc</a></p>",
+    "description": "<p>You can also find out <em>when</em> stars were created by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header:</p> <p><a href=\"https://developer.github.com/v3/activity/starring/#list-stargazers\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1272,7 +1272,7 @@ define({ "api": [
     "url": "/notifications",
     "title": "markAsRead",
     "name": "markAsRead",
-    "description": "<p>Marking a notification as &quot;read&quot; removes it from the <a href=\"https://github.com/notifications\">default view on GitHub</a>. <a href=\"https://developer.github.com/v3/activity/notifications/#mark-as-read\">REST API doc</a></p>",
+    "description": "<p>Marking a notification as &quot;read&quot; removes it from the <a href=\"https://github.com/notifications\">default view on GitHub</a>.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#mark-as-read\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1309,7 +1309,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/notifications",
     "title": "markNotificationsAsReadForRepo",
     "name": "markNotificationsAsReadForRepo",
-    "description": "<p>Marking all notifications in a repository as &quot;read&quot; removes them from the <a href=\"https://github.com/notifications\">default view on GitHub</a>. <a href=\"https://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository\">REST API doc</a></p>",
+    "description": "<p>Marking all notifications in a repository as &quot;read&quot; removes them from the <a href=\"https://github.com/notifications\">default view on GitHub</a>.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1396,7 +1396,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/subscription",
     "title": "setRepoSubscription",
     "name": "setRepoSubscription",
-    "description": "<p>If you would like to watch a repository, set <code>subscribed</code> to <code>true</code>. If you would like to ignore notifications made within a repository, set <code>ignored</code> to <code>true</code>. If you would like to stop watching a repository, <a href=\"#delete-a-repository-subscription\">delete the repository's subscription</a> completely. <a href=\"https://developer.github.com/v3/activity/watching/#set-a-repository-subscription\">REST API doc</a></p>",
+    "description": "<p>If you would like to watch a repository, set <code>subscribed</code> to <code>true</code>. If you would like to ignore notifications made within a repository, set <code>ignored</code> to <code>true</code>. If you would like to stop watching a repository, <a href=\"#delete-a-repository-subscription\">delete the repository's subscription</a> completely.</p> <p><a href=\"https://developer.github.com/v3/activity/watching/#set-a-repository-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1453,7 +1453,7 @@ define({ "api": [
     "url": "/notifications/threads/:thread_id/subscription",
     "title": "setThreadSubscription",
     "name": "setThreadSubscription",
-    "description": "<p>This lets you subscribe or unsubscribe from a conversation. <a href=\"https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription\">REST API doc</a></p>",
+    "description": "<p>This lets you subscribe or unsubscribe from a conversation.</p> <p><a href=\"https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1497,7 +1497,7 @@ define({ "api": [
     "url": "/user/starred/:owner/:repo",
     "title": "starRepo",
     "name": "starRepo",
-    "description": "<p>Requires for the user to be authenticated.</p> <p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot; <a href=\"https://developer.github.com/v3/activity/starring/#star-a-repository\">REST API doc</a></p>",
+    "description": "<p>Requires for the user to be authenticated.</p> <p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p><a href=\"https://developer.github.com/v3/activity/starring/#star-a-repository\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1540,7 +1540,7 @@ define({ "api": [
     "url": "/user/starred/:owner/:repo",
     "title": "unstarRepo",
     "name": "unstarRepo",
-    "description": "<p>Requires for the user to be authenticated. <a href=\"https://developer.github.com/v3/activity/starring/#unstar-a-repository\">REST API doc</a></p>",
+    "description": "<p>Requires for the user to be authenticated.</p> <p><a href=\"https://developer.github.com/v3/activity/starring/#unstar-a-repository\">REST API doc</a></p>",
     "group": "Activity",
     "parameter": {
       "fields": {
@@ -1583,7 +1583,7 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "addRepoToInstallation",
     "name": "addRepoToInstallation",
-    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
+    "description": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/installations/#add-repository-to-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1626,7 +1626,7 @@ define({ "api": [
     "url": "/marketplace_listing/accounts/:account_id",
     "title": "checkAccountIsAssociatedWithAny",
     "name": "checkAccountIsAssociatedWithAny",
-    "description": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1678,7 +1678,7 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/accounts/:account_id",
     "title": "checkAccountIsAssociatedWithAnyStubbed",
     "name": "checkAccountIsAssociatedWithAnyStubbed",
-    "description": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#check-if-a-github-account-is-associated-with-any-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1730,7 +1730,7 @@ define({ "api": [
     "url": "/app-manifests/:code/conversions",
     "title": "createFromManifest",
     "name": "createFromManifest",
-    "description": "<p>Use this endpoint to complete the handshake necessary when implementing the <a href=\"https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/\">GitHub App Manifest flow</a>. When you create a GitHub App with the manifest flow, you receive a temporary <code>code</code> used to retrieve the GitHub App's <code>id</code>, <code>pem</code> (private key), and <code>webhook_secret</code>. <a href=\"https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest\">REST API doc</a></p>",
+    "description": "<p>Use this endpoint to complete the handshake necessary when implementing the <a href=\"https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/\">GitHub App Manifest flow</a>. When you create a GitHub App with the manifest flow, you receive a temporary <code>code</code> used to retrieve the GitHub App's <code>id</code>, <code>pem</code> (private key), and <code>webhook_secret</code>.</p> <p><a href=\"https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1766,7 +1766,7 @@ define({ "api": [
     "url": "/app/installations/:installation_id/access_tokens",
     "title": "createInstallationToken",
     "name": "createInstallationToken",
-    "description": "<p>Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#create-a-new-installation-token\">REST API doc</a></p>",
+    "description": "<p>Creates an access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#create-a-new-installation-token\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1802,7 +1802,7 @@ define({ "api": [
     "url": "/orgs/:org/installation",
     "title": "findOrgInstallation",
     "name": "findOrgInstallation",
-    "description": "<p>Enables an authenticated GitHub App to find the organization's installation information.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#find-organization-installation\">REST API doc</a></p>",
+    "description": "<p>Enables an authenticated GitHub App to find the organization's installation information.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#find-organization-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1838,7 +1838,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/installation",
     "title": "findRepoInstallation",
     "name": "findRepoInstallation",
-    "description": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#find-repository-installation\">REST API doc</a></p>",
+    "description": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#find-repository-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1881,7 +1881,7 @@ define({ "api": [
     "url": "/users/:username/installation",
     "title": "findUserInstallation",
     "name": "findUserInstallation",
-    "description": "<p>Enables an authenticated GitHub App to find the user’s installation information.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#find-user-installation\">REST API doc</a></p>",
+    "description": "<p>Enables an authenticated GitHub App to find the user’s installation information.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#find-user-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1917,7 +1917,7 @@ define({ "api": [
     "url": "/app",
     "title": "getAuthenticated",
     "name": "getAuthenticated",
-    "description": "<p>Returns the GitHub App associated with the authentication credentials used.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#get-the-authenticated-github-app\">REST API doc</a></p>",
+    "description": "<p>Returns the GitHub App associated with the authentication credentials used.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#get-the-authenticated-github-app\">REST API doc</a></p>",
     "group": "Apps",
     "examples": [
       {
@@ -1940,7 +1940,7 @@ define({ "api": [
     "url": "/apps/:app_slug",
     "title": "getBySlug",
     "name": "getBySlug",
-    "description": "<p><strong>Note</strong>: The <code>:app_slug</code> is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., <code>https://github.com/settings/apps/:app_slug</code>).</p> <p>If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">personal access token</a> or an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#get-a-single-github-app\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The <code>:app_slug</code> is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., <code>https://github.com/settings/apps/:app_slug</code>).</p> <p>If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">personal access token</a> or an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#get-a-single-github-app\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -1976,7 +1976,7 @@ define({ "api": [
     "url": "/app/installations/:installation_id",
     "title": "getInstallation",
     "name": "getInstallation",
-    "description": "<p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/#get-a-single-installation\">REST API doc</a></p>",
+    "description": "<p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/#get-a-single-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2012,7 +2012,7 @@ define({ "api": [
     "url": "/marketplace_listing/plans/:plan_id/accounts",
     "title": "listAccountsUserOrOrgOnPlan",
     "name": "listAccountsUserOrOrgOnPlan",
-    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
+    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2087,7 +2087,7 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/plans/:plan_id/accounts",
     "title": "listAccountsUserOrOrgOnPlanStubbed",
     "name": "listAccountsUserOrOrgOnPlanStubbed",
-    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
+    "description": "<p>Returns any accounts associated with a plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p> <p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-github-accounts-user-or-organization-on-a-specific-plan\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2162,7 +2162,7 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories",
     "title": "listInstallationReposForAuthenticatedUser",
     "name": "listInstallationReposForAuthenticatedUser",
-    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The access the user has to each repository is included in the hash under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The access the user has to each repository is included in the hash under the <code>permissions</code> key.</p> <p><a href=\"https://developer.github.com/v3/apps/installations/#list-repositories-accessible-to-the-user-for-an-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2214,7 +2214,7 @@ define({ "api": [
     "url": "/app/installations",
     "title": "listInstallations",
     "name": "listInstallations",
-    "description": "<p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#find-installations\">REST API doc</a></p>",
+    "description": "<p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p> <p>The permissions the installation has are included under the <code>permissions</code> key.</p> <p><a href=\"https://developer.github.com/v3/apps/#find-installations\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2259,7 +2259,7 @@ define({ "api": [
     "url": "/user/installations",
     "title": "listInstallationsForAuthenticatedUser",
     "name": "listInstallationsForAuthenticatedUser",
-    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>The permissions the installation has are included under the <code>permissions</code> key. <a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
+    "description": "<p>Lists installations in a repository that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>The permissions the installation has are included under the <code>permissions</code> key.</p> <p><a href=\"https://developer.github.com/v3/apps/#list-installations-for-user\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2304,7 +2304,7 @@ define({ "api": [
     "url": "/user/marketplace_purchases",
     "title": "listMarketplacePurchasesForAuthenticatedUser",
     "name": "listMarketplacePurchasesForAuthenticatedUser",
-    "description": "<p>Returns only active subscriptions. You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/\">OAuth token</a>. <a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
+    "description": "<p>Returns only active subscriptions. You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/\">OAuth token</a>.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2349,7 +2349,7 @@ define({ "api": [
     "url": "/user/marketplace_purchases/stubbed",
     "title": "listMarketplacePurchasesForAuthenticatedUserStubbed",
     "name": "listMarketplacePurchasesForAuthenticatedUserStubbed",
-    "description": "<p>Returns only active subscriptions. You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/\">OAuth token</a>. <a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
+    "description": "<p>Returns only active subscriptions. You must use a <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site\">user-to-server OAuth access token</a>, created for a user who has authorized your GitHub App, to access this endpoint. . OAuth Apps must authenticate using an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/\">OAuth token</a>.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#get-a-users-marketplace-purchases\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2394,7 +2394,7 @@ define({ "api": [
     "url": "/marketplace_listing/plans",
     "title": "listPlans",
     "name": "listPlans",
-    "description": "<p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2439,7 +2439,7 @@ define({ "api": [
     "url": "/marketplace_listing/stubbed/plans",
     "title": "listPlansStubbed",
     "name": "listPlansStubbed",
-    "description": "<p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint. <a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
+    "description": "<p>GitHub Apps must use a <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth Apps must use <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/marketplace/#list-all-plans-for-your-marketplace-listing\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2484,7 +2484,7 @@ define({ "api": [
     "url": "/installation/repositories",
     "title": "listRepos",
     "name": "listRepos",
-    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#list-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access for an installation.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/installations/#list-repositories\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2529,7 +2529,7 @@ define({ "api": [
     "url": "/user/installations/:installation_id/repositories/:repository_id",
     "title": "removeRepoFromInstallation",
     "name": "removeRepoFromInstallation",
-    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint. <a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
+    "description": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository.</p> <p>You must use a personal access token (which you can create via the <a href=\"https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/\">command line</a> or the <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">OAuth Authorizations API</a>) or <a href=\"https://developer.github.com/v3/auth/#basic-authentication\">Basic Authentication</a> to access this endpoint.</p> <p><a href=\"https://developer.github.com/v3/apps/installations/#remove-repository-from-installation\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2572,7 +2572,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-runs",
     "title": "create",
     "name": "create",
-    "description": "<p>Creates a new check run for a specific commit in a repository. Your GitHub App must have the <code>checks:write</code> permission to create check runs. <a href=\"https://developer.github.com/v3/checks/runs/#create-a-check-run\">REST API doc</a></p>",
+    "description": "<p>Creates a new check run for a specific commit in a repository. Your GitHub App must have the <code>checks:write</code> permission to create check runs.</p> <p><a href=\"https://developer.github.com/v3/checks/runs/#create-a-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -2844,7 +2844,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites",
     "title": "createSuite",
     "name": "createSuite",
-    "description": "<p>By default, check suites are automatically created when you create a <a href=\"https://developer.github.com/v3/checks/runs/\">check run</a>. You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using &quot;<a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">Set preferences for check suites on a repository</a>&quot;. Your GitHub App must have the <code>checks:write</code> permission to create check suites. <a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">REST API doc</a></p>",
+    "description": "<p>By default, check suites are automatically created when you create a <a href=\"https://developer.github.com/v3/checks/runs/\">check run</a>. You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using &quot;<a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">Set preferences for check suites on a repository</a>&quot;. Your GitHub App must have the <code>checks:write</code> permission to create check suites.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -2894,7 +2894,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-runs/:check_run_id",
     "title": "get",
     "name": "get",
-    "description": "<p>Gets a single check run using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#get-a-single-check-run\">REST API doc</a></p>",
+    "description": "<p>Gets a single check run using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository.</p> <p><a href=\"https://developer.github.com/v3/checks/runs/#get-a-single-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -2944,7 +2944,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id",
     "title": "getSuite",
     "name": "getSuite",
-    "description": "<p>Gets a single check suite using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check suites in a private repository. <a href=\"https://developer.github.com/v3/checks/suites/#get-a-single-check-suite\">REST API doc</a></p>",
+    "description": "<p>Gets a single check suite using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check suites in a private repository.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#get-a-single-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -2994,7 +2994,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-runs/:check_run_id/annotations",
     "title": "listAnnotations",
     "name": "listAnnotations",
-    "description": "<p>Lists annotations for a check run using the annotation <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the <code>repo</code> scope to get annotations for a check run in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run\">REST API doc</a></p>",
+    "description": "<p>Lists annotations for a check run using the annotation <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the <code>repo</code> scope to get annotations for a check run in a private repository.</p> <p><a href=\"https://developer.github.com/v3/checks/runs/#list-annotations-for-a-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3060,7 +3060,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:ref/check-runs",
     "title": "listForRef",
     "name": "listForRef",
-    "description": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Lists check runs for a commit ref. The <code>ref</code> can be a SHA, branch name, or a tag name. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository.</p> <p><a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3157,7 +3157,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id/check-runs",
     "title": "listForSuite",
     "name": "listForSuite",
-    "description": "<p>Lists check runs for a check suite using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository. <a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite\">REST API doc</a></p>",
+    "description": "<p>Lists check runs for a check suite using its <code>id</code>. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check runs in a private repository.</p> <p><a href=\"https://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3254,7 +3254,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:ref/check-suites",
     "title": "listSuitesForRef",
     "name": "listSuitesForRef",
-    "description": "<p>Lists check suites for a commit <code>ref</code>. The <code>ref</code> can be a SHA, branch name, or a tag name. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check suites in a private repository. <a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Lists check suites for a commit <code>ref</code>. The <code>ref</code> can be a SHA, branch name, or a tag name. GitHub Apps must have the <code>checks:read</code> permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the <code>repo</code> scope to get check suites in a private repository.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3334,7 +3334,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id/rerequest",
     "title": "rerequestSuite",
     "name": "rerequestSuite",
-    "description": "<p>Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://developer.github.com/v3/activity/events/types/#checkrunevent\"><code>check_run</code> webhook</a> event with the action <code>rerequested</code>. When a check suite is <code>rerequested</code>, its <code>status</code> is reset to <code>queued</code> and the <code>conclusion</code> is cleared.</p> <p>To rerequest a check suite, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository. <a href=\"https://developer.github.com/v3/checks/suites/#rerequest-check-suite\">REST API doc</a></p>",
+    "description": "<p>Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://developer.github.com/v3/activity/events/types/#checkrunevent\"><code>check_run</code> webhook</a> event with the action <code>rerequested</code>. When a check suite is <code>rerequested</code>, its <code>status</code> is reset to <code>queued</code> and the <code>conclusion</code> is cleared.</p> <p>To rerequest a check suite, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#rerequest-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3384,7 +3384,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-suites/preferences",
     "title": "setSuitesPreferences",
     "name": "setSuitesPreferences",
-    "description": "<p>Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually <a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">Create a check suite</a>. You must have admin permissions in the repository to set preferences for check suites. <a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">REST API doc</a></p>",
+    "description": "<p>Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually <a href=\"https://developer.github.com/v3/checks/suites/#create-a-check-suite\">Create a check suite</a>. You must have admin permissions in the repository to set preferences for check suites.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3449,7 +3449,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/check-runs/:check_run_id",
     "title": "update",
     "name": "update",
-    "description": "<p>Updates a check run for a specific commit in a repository. Your GitHub App must have the <code>checks:write</code> permission to edit check runs. <a href=\"https://developer.github.com/v3/checks/runs/#update-a-check-run\">REST API doc</a></p>",
+    "description": "<p>Updates a check run for a specific commit in a repository. Your GitHub App must have the <code>checks:write</code> permission to edit check runs.</p> <p><a href=\"https://developer.github.com/v3/checks/runs/#update-a-check-run\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3756,7 +3756,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/community/code_of_conduct",
     "title": "getForRepo",
     "name": "getForRepo",
-    "description": "<p>This method returns the contents of the repository's code of conduct file, if one is detected. <a href=\"https://developer.github.com/v3/codes_of_conduct/#get-the-contents-of-a-repositorys-code-of-conduct\">REST API doc</a></p>",
+    "description": "<p>This method returns the contents of the repository's code of conduct file, if one is detected.</p> <p><a href=\"https://developer.github.com/v3/codes_of_conduct/#get-the-contents-of-a-repositorys-code-of-conduct\">REST API doc</a></p>",
     "group": "CodesOfConduct",
     "parameter": {
       "fields": {
@@ -3881,7 +3881,7 @@ define({ "api": [
     "url": "/gists",
     "title": "create",
     "name": "create",
-    "description": "<p>Allows you to add a new gist with one or more files. <em>Note:</em>* Don't name your files &quot;gistfile&quot; with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally. <a href=\"https://developer.github.com/v3/gists/#create-a-gist\">REST API doc</a></p>",
+    "description": "<p>Allows you to add a new gist with one or more files. <em>Note:</em>* Don't name your files &quot;gistfile&quot; with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.</p> <p><a href=\"https://developer.github.com/v3/gists/#create-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4061,7 +4061,7 @@ define({ "api": [
     "url": "/gists/:gist_id/forks",
     "title": "fork",
     "name": "fork",
-    "description": "<p><strong>Note</strong>: This was previously <code>/gists/:gist_id/fork</code>. <a href=\"https://developer.github.com/v3/gists/#fork-a-gist\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: This was previously <code>/gists/:gist_id/fork</code>.</p> <p><a href=\"https://developer.github.com/v3/gists/#fork-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4427,7 +4427,7 @@ define({ "api": [
     "url": "/gists/public",
     "title": "listPublic",
     "name": "listPublic",
-    "description": "<p>List all public gists sorted by most recently updated to least recently updated.</p> <p>Note: With <a href=\"https://developer.github.com/v3/#pagination\">pagination</a>, you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page. <a href=\"https://developer.github.com/v3/gists/#list-all-public-gists\">REST API doc</a></p>",
+    "description": "<p>List all public gists sorted by most recently updated to least recently updated.</p> <p>Note: With <a href=\"https://developer.github.com/v3/#pagination\">pagination</a>, you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.</p> <p><a href=\"https://developer.github.com/v3/gists/#list-all-public-gists\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4538,7 +4538,7 @@ define({ "api": [
     "url": "/gists/starred",
     "title": "listStarred",
     "name": "listStarred",
-    "description": "<p>List the authenticated user's starred gists: <a href=\"https://developer.github.com/v3/gists/#list-starred-gists\">REST API doc</a></p>",
+    "description": "<p>List the authenticated user's starred gists:</p> <p><a href=\"https://developer.github.com/v3/gists/#list-starred-gists\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4590,7 +4590,7 @@ define({ "api": [
     "url": "/gists/:gist_id/star",
     "title": "star",
     "name": "star",
-    "description": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot; <a href=\"https://developer.github.com/v3/gists/#star-a-gist\">REST API doc</a></p>",
+    "description": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p><a href=\"https://developer.github.com/v3/gists/#star-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4662,7 +4662,7 @@ define({ "api": [
     "url": "/gists/:gist_id",
     "title": "update",
     "name": "update",
-    "description": "<p>Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged. <a href=\"https://developer.github.com/v3/gists/#edit-a-gist\">REST API doc</a></p>",
+    "description": "<p>Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.</p> <p><a href=\"https://developer.github.com/v3/gists/#edit-a-gist\">REST API doc</a></p>",
     "group": "Gists",
     "parameter": {
       "fields": {
@@ -4911,7 +4911,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/refs",
     "title": "createRef",
     "name": "createRef",
-    "description": "<p>Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches. <a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">REST API doc</a></p>",
+    "description": "<p>Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.</p> <p><a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -4968,7 +4968,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/tags",
     "title": "createTag",
     "name": "createTag",
-    "description": "<p>Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then <a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">create</a> the <code>refs/tags/[tag]</code> reference. If you want to create a lightweight tag, you only have to <a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">create</a> the tag reference - this call would be unnecessary. <a href=\"https://developer.github.com/v3/git/tags/#create-a-tag-object\">REST API doc</a></p>",
+    "description": "<p>Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then <a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">create</a> the <code>refs/tags/[tag]</code> reference. If you want to create a lightweight tag, you only have to <a href=\"https://developer.github.com/v3/git/refs/#create-a-reference\">create</a> the tag reference - this call would be unnecessary.</p> <p><a href=\"https://developer.github.com/v3/git/tags/#create-a-tag-object\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5072,7 +5072,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/trees",
     "title": "createTree",
     "name": "createTree",
-    "description": "<p>The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out. <a href=\"https://developer.github.com/v3/git/trees/#create-a-tree\">REST API doc</a></p>",
+    "description": "<p>The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.</p> <p><a href=\"https://developer.github.com/v3/git/trees/#create-a-tree\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5176,7 +5176,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/refs/:ref",
     "title": "deleteRef",
     "name": "deleteRef",
-    "description": "<p>Example: Deleting a branch:</p> <pre><code>DELETE /repos/octocat/Hello-World/git/refs/heads/feature-a </code></pre> <p>Example: Deleting a tag:</p> <pre><code>DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0 ``` &lt;a href=&quot;https://developer.github.com/v3/git/refs/#delete-a-reference&quot;&gt;REST API doc&lt;/a&gt;</code></pre>",
+    "description": "<p>Example: Deleting a branch:</p> <pre><code>DELETE /repos/octocat/Hello-World/git/refs/heads/feature-a </code></pre> <p>Example: Deleting a tag:</p> <pre><code>DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0 </code></pre> <p><a href=\"https://developer.github.com/v3/git/refs/#delete-a-reference\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5226,7 +5226,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/blobs/:file_sha",
     "title": "getBlob",
     "name": "getBlob",
-    "description": "<p>The <code>content</code> in the response will always be Base64 encoded.</p> <p><em>Note</em>: This API supports blobs up to 100 megabytes in size. <a href=\"https://developer.github.com/v3/git/blobs/#get-a-blob\">REST API doc</a></p>",
+    "description": "<p>The <code>content</code> in the response will always be Base64 encoded.</p> <p><em>Note</em>: This API supports blobs up to 100 megabytes in size.</p> <p><a href=\"https://developer.github.com/v3/git/blobs/#get-a-blob\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5276,7 +5276,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/commits/:commit_sha",
     "title": "getCommit",
     "name": "getCommit",
-    "description": "<p>Gets a Git <a href=\"https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects\">commit object</a>. <a href=\"https://developer.github.com/v3/git/commits/#get-a-commit\">REST API doc</a></p>",
+    "description": "<p>Gets a Git <a href=\"https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects\">commit object</a>.</p> <p><a href=\"https://developer.github.com/v3/git/commits/#get-a-commit\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5326,7 +5326,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/refs/:ref",
     "title": "getRef",
     "name": "getRef",
-    "description": "<p>Returns a branch or tag reference. Other than the <a href=\"https://developer.github.com/v3/git/refs/#get-a-reference\">REST API</a> it always returns a single reference. If the REST API returns with an array then the method responds with an error. <a href=\"https://developer.github.com/v3/git/refs/#get-a-reference\">REST API doc</a></p>",
+    "description": "<p>Returns a branch or tag reference. Other than the <a href=\"https://developer.github.com/v3/git/refs/#get-a-reference\">REST API</a> it always returns a single reference. If the REST API returns with an array then the method responds with an error.</p> <p><a href=\"https://developer.github.com/v3/git/refs/#get-a-reference\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5426,7 +5426,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/trees/:tree_sha",
     "title": "getTree",
     "name": "getTree",
-    "description": "<p>If <code>truncated</code> in the response is <code>true</code>, the number of items in the <code>tree</code> array exceeded our maximum limit. If you need to fetch more items, omit the <code>recursive</code> parameter, and fetch one sub-tree at a time. If you need to fetch even more items, you can clone the repository and iterate over the Git data locally. <a href=\"https://developer.github.com/v3/git/trees/#get-a-tree\">REST API doc</a></p>",
+    "description": "<p>If <code>truncated</code> in the response is <code>true</code>, the number of items in the <code>tree</code> array exceeded our maximum limit. If you need to fetch more items, omit the <code>recursive</code> parameter, and fetch one sub-tree at a time. If you need to fetch even more items, you can clone the repository and iterate over the Git data locally.</p> <p><a href=\"https://developer.github.com/v3/git/trees/#get-a-tree\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5522,7 +5522,7 @@ define({ "api": [
     "url": "/gitignore/templates",
     "title": "listTemplates",
     "name": "listTemplates",
-    "description": "<p>List all templates available to pass as an option when <a href=\"https://developer.github.com/v3/repos/#create\">creating a repository</a>. <a href=\"https://developer.github.com/v3/gitignore/#listing-available-templates\">REST API doc</a></p>",
+    "description": "<p>List all templates available to pass as an option when <a href=\"https://developer.github.com/v3/repos/#create\">creating a repository</a>.</p> <p><a href=\"https://developer.github.com/v3/gitignore/#listing-available-templates\">REST API doc</a></p>",
     "group": "Gitignore",
     "examples": [
       {
@@ -5545,7 +5545,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/git/refs/:namespace",
     "title": "listRefs",
     "name": "listRefs",
-    "description": "<p>This will return an array of all the references on the system, including things like notes and stashes if they exist on the server <a href=\"https://developer.github.com/v3/git/refs/#get-all-references\">REST API doc</a></p>",
+    "description": "<p>This will return an array of all the references on the system, including things like notes and stashes if they exist on the server</p> <p><a href=\"https://developer.github.com/v3/git/refs/#get-all-references\">REST API doc</a></p>",
     "group": "Git",
     "parameter": {
       "fields": {
@@ -5676,7 +5676,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/assignees",
     "title": "addAssignees",
     "name": "addAssignees",
-    "description": "<p>Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.</p> <p>This example adds two assignees to the existing <code>octocat</code> assignee. <a href=\"https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue\">REST API doc</a></p>",
+    "description": "<p>Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.</p> <p>This example adds two assignees to the existing <code>octocat</code> assignee.</p> <p><a href=\"https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -5790,7 +5790,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/assignees/:assignee",
     "title": "checkAssignee",
     "name": "checkAssignee",
-    "description": "<p>Checks if a user has permission to be assigned to an issue in this repository.</p> <p>If the <code>assignee</code> can be assigned to issues in the repository, a <code>204</code> header with no content is returned.</p> <p>Otherwise a <code>404</code> status code is returned. <a href=\"https://developer.github.com/v3/issues/assignees/#check-assignee\">REST API doc</a></p>",
+    "description": "<p>Checks if a user has permission to be assigned to an issue in this repository.</p> <p>If the <code>assignee</code> can be assigned to issues in the repository, a <code>204</code> header with no content is returned.</p> <p>Otherwise a <code>404</code> status code is returned.</p> <p><a href=\"https://developer.github.com/v3/issues/assignees/#check-assignee\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -5840,7 +5840,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues",
     "title": "create",
     "name": "create",
-    "description": "<p>Any user with pull access to a repository can create an issue. <a href=\"https://developer.github.com/v3/issues/#create-an-issue\">REST API doc</a></p>",
+    "description": "<p>Any user with pull access to a repository can create an issue.</p> <p><a href=\"https://developer.github.com/v3/issues/#create-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -6650,7 +6650,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/assignees",
     "title": "listAssignees",
     "name": "listAssignees",
-    "description": "<p>Lists the <a href=\"https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/\">available assignees</a> for issues in a repository. <a href=\"https://developer.github.com/v3/issues/assignees/#list-assignees\">REST API doc</a></p>",
+    "description": "<p>Lists the <a href=\"https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/\">available assignees</a> for issues in a repository.</p> <p><a href=\"https://developer.github.com/v3/issues/assignees/#list-assignees\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7703,7 +7703,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/lock",
     "title": "lock",
     "name": "lock",
-    "description": "<p>Users with push access can lock an issue or pull request's conversation.</p> <p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot; <a href=\"https://developer.github.com/v3/issues/#lock-an-issue\">REST API doc</a></p>",
+    "description": "<p>Users with push access can lock an issue or pull request's conversation.</p> <p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p><a href=\"https://developer.github.com/v3/issues/#lock-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7767,7 +7767,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/assignees",
     "title": "removeAssignees",
     "name": "removeAssignees",
-    "description": "<p>Removes one or more assignees from an issue.</p> <p>This example removes two of three assignees, leaving the <code>octocat</code> assignee. <a href=\"https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue\">REST API doc</a></p>",
+    "description": "<p>Removes one or more assignees from an issue.</p> <p>This example removes two of three assignees, leaving the <code>octocat</code> assignee.</p> <p><a href=\"https://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7824,7 +7824,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/labels/:name",
     "title": "removeLabel",
     "name": "removeLabel",
-    "description": "<p>Removes the specified label from the issue, and returns the remaining labels on the issue. <a href=\"https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue\">REST API doc</a></p>",
+    "description": "<p>Removes the specified label from the issue, and returns the remaining labels on the issue.</p> <p><a href=\"https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -7988,7 +7988,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/lock",
     "title": "unlock",
     "name": "unlock",
-    "description": "<p>Users with push access can unlock an issue's conversation. <a href=\"https://developer.github.com/v3/issues/#unlock-an-issue\">REST API doc</a></p>",
+    "description": "<p>Users with push access can unlock an issue's conversation.</p> <p><a href=\"https://developer.github.com/v3/issues/#unlock-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8038,7 +8038,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number",
     "title": "update",
     "name": "update",
-    "description": "<p>Issue owners and users with push access can edit an issue. <a href=\"https://developer.github.com/v3/issues/#edit-an-issue\">REST API doc</a></p>",
+    "description": "<p>Issue owners and users with push access can edit an issue.</p> <p><a href=\"https://developer.github.com/v3/issues/#edit-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -8388,7 +8388,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/license",
     "title": "getForRepo",
     "name": "getForRepo",
-    "description": "<p>This method returns the contents of the repository's license file, if one is detected.</p> <p>Similar to <a href=\"https://developer.github.com/v3/repos/contents/#get-contents\">the repository contents API</a>, this method also supports <a href=\"https://developer.github.com/v3/repos/contents/#custom-media-types\">custom media types</a> for retrieving the raw license content or rendered license HTML. <a href=\"https://developer.github.com/v3/licenses/#get-the-contents-of-a-repositorys-license\">REST API doc</a></p>",
+    "description": "<p>This method returns the contents of the repository's license file, if one is detected.</p> <p>Similar to <a href=\"https://developer.github.com/v3/repos/contents/#get-contents\">the repository contents API</a>, this method also supports <a href=\"https://developer.github.com/v3/repos/contents/#custom-media-types\">custom media types</a> for retrieving the raw license content or rendered license HTML.</p> <p><a href=\"https://developer.github.com/v3/licenses/#get-the-contents-of-a-repositorys-license\">REST API doc</a></p>",
     "group": "Licenses",
     "parameter": {
       "fields": {
@@ -8545,7 +8545,7 @@ define({ "api": [
     "url": "/meta",
     "title": "get",
     "name": "get",
-    "description": "<p>This endpoint provides a list of GitHub's IP addresses. For more information, see &quot;<a href=\"https://help.github.com/articles/about-github-s-ip-addresses/\">About GitHub's IP addresses</a>.&quot; <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks. <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks. <a href=\"https://developer.github.com/v3/meta/#meta\">REST API doc</a></p>",
+    "description": "<p>This endpoint provides a list of GitHub's IP addresses. For more information, see &quot;<a href=\"https://help.github.com/articles/about-github-s-ip-addresses/\">About GitHub's IP addresses</a>.&quot; <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks. <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks.</p> <p><a href=\"https://developer.github.com/v3/meta/#meta\">REST API doc</a></p>",
     "group": "Meta",
     "examples": [
       {
@@ -8568,7 +8568,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "cancelImport",
     "name": "cancelImport",
-    "description": "<p>Stop an import for a repository. <a href=\"https://developer.github.com/v3/migrations/source_imports/#cancel-an-import\">REST API doc</a></p>",
+    "description": "<p>Stop an import for a repository.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#cancel-an-import\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8611,7 +8611,7 @@ define({ "api": [
     "url": "/user/migrations/:migration_id/archive",
     "title": "deleteArchiveForAuthenticatedUser",
     "name": "deleteArchiveForAuthenticatedUser",
-    "description": "<p>Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the <a href=\"#get-a-list-of-user-migrations\">Get a list of user migrations</a> and <a href=\"#get-the-status-of-a-user-migration\">Get the status of a user migration</a> endpoints, will continue to be available even after an archive is deleted. <a href=\"https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive\">REST API doc</a></p>",
+    "description": "<p>Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the <a href=\"#get-a-list-of-user-migrations\">Get a list of user migrations</a> and <a href=\"#get-the-status-of-a-user-migration\">Get the status of a user migration</a> endpoints, will continue to be available even after an archive is deleted.</p> <p><a href=\"https://developer.github.com/v3/migrations/users/#delete-a-user-migration-archive\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8647,7 +8647,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id/archive",
     "title": "deleteArchiveForOrg",
     "name": "deleteArchiveForOrg",
-    "description": "<p>Deletes a previous migration archive. Migration archives are automatically deleted after seven days. <a href=\"https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive\">REST API doc</a></p>",
+    "description": "<p>Deletes a previous migration archive. Migration archives are automatically deleted after seven days.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#delete-an-organization-migration-archive\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8769,7 +8769,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/authors",
     "title": "getCommitAuthors",
     "name": "getCommitAuthors",
-    "description": "<p>Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username <code>hubot</code> into something like <code>hubot &lt;hubot@12341234-abab-fefe-8787-fedcba987654&gt;</code>.</p> <p>This API method and the &quot;Map a commit author&quot; method allow you to provide correct Git author information. <a href=\"https://developer.github.com/v3/migrations/source_imports/#get-commit-authors\">REST API doc</a></p>",
+    "description": "<p>Each type of source control system represents authors in a different way. For example, a Git commit author has a display name and an email address, but a Subversion commit author just has a username. The GitHub Importer will make the author information valid, but the author might not be correct. For example, it will change the bare Subversion username <code>hubot</code> into something like <code>hubot &lt;hubot@12341234-abab-fefe-8787-fedcba987654&gt;</code>.</p> <p>This API method and the &quot;Map a commit author&quot; method allow you to provide correct Git author information.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#get-commit-authors\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8819,7 +8819,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "getImportProgress",
     "name": "getImportProgress",
-    "description": "<p>View the progress of an import. <em>Import status</em>*</p> <p>This section includes details about the possible values of the <code>status</code> field of the Import Progress response.</p> <p>An import that does not have errors will progress through these steps: <code>detecting</code> - the &quot;detection&quot; step of the import is in progress because the request did not include a <code>vcs</code> parameter. The import is identifying the type of source control present at the URL. <code>importing</code> - the &quot;raw&quot; step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include <code>commit_count</code> (the total number of raw commits that will be imported) and <code>percent</code> (0 - 100, the current progress through the import). <code>mapping</code> - the &quot;rewrite&quot; step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information. <code>pushing</code> - the &quot;push&quot; step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include <code>push_percent</code>, which is the percent value reported by <code>git push</code> when it is &quot;Writing objects&quot;. <code>complete</code> - the import is complete, and the repository is ready on GitHub.</p> <p>If there are problems, you will see one of these in the <code>status</code> field: <code>auth_failed</code> - the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>error</code> - the import encountered an error. The import progress response will include the <code>failed_step</code> and an error message. Contact <a href=\"https://github.com/contact\">GitHub Support</a> for more information. <code>detection_needs_auth</code> - the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>detection_found_nothing</code> - the importer didn't recognize any source control at the URL. To resolve, <a href=\"#cancel-an-import\">Cancel the import</a> and <a href=\"#start-an-import\">retry</a> with the correct URL. <code>detection_found_multiple</code> - the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a <code>project_choices</code> field with the possible project choices as values. To update project choice, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <em>The project_choices field</em>*</p> <p>When multiple projects are found at the provided URL, the response hash will include a <code>project_choices</code> field, the value of which is an array of hashes each representing a project choice. The exact key/value pairs of the project hashes will differ depending on the version control type. <em>Git LFS related fields</em>*</p> <p>This section includes details about Git LFS related fields that may be present in the Import Progress response. <code>use_lfs</code> - describes whether the import has been opted in or out of using Git LFS. The value can be <code>opt_in</code>, <code>opt_out</code>, or <code>undecided</code> if no action has been taken. <code>has_large_files</code> - the boolean value describing whether files larger than 100MB were found during the <code>importing</code> step. <code>large_files_size</code> - the total size in gigabytes of files larger than 100MB found in the originating repository. <code>large_files_count</code> - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a &quot;Get Large Files&quot; request. <a href=\"https://developer.github.com/v3/migrations/source_imports/#get-import-progress\">REST API doc</a></p>",
+    "description": "<p>View the progress of an import. <em>Import status</em>*</p> <p>This section includes details about the possible values of the <code>status</code> field of the Import Progress response.</p> <p>An import that does not have errors will progress through these steps: <code>detecting</code> - the &quot;detection&quot; step of the import is in progress because the request did not include a <code>vcs</code> parameter. The import is identifying the type of source control present at the URL. <code>importing</code> - the &quot;raw&quot; step of the import is in progress. This is where commit data is fetched from the original repository. The import progress response will include <code>commit_count</code> (the total number of raw commits that will be imported) and <code>percent</code> (0 - 100, the current progress through the import). <code>mapping</code> - the &quot;rewrite&quot; step of the import is in progress. This is where SVN branches are converted to Git branches, and where author updates are applied. The import progress response does not include progress information. <code>pushing</code> - the &quot;push&quot; step of the import is in progress. This is where the importer updates the repository on GitHub. The import progress response will include <code>push_percent</code>, which is the percent value reported by <code>git push</code> when it is &quot;Writing objects&quot;. <code>complete</code> - the import is complete, and the repository is ready on GitHub.</p> <p>If there are problems, you will see one of these in the <code>status</code> field: <code>auth_failed</code> - the import requires authentication in order to connect to the original repository. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>error</code> - the import encountered an error. The import progress response will include the <code>failed_step</code> and an error message. Contact <a href=\"https://github.com/contact\">GitHub Support</a> for more information. <code>detection_needs_auth</code> - the importer requires authentication for the originating repository to continue detection. To update authentication for the import, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <code>detection_found_nothing</code> - the importer didn't recognize any source control at the URL. To resolve, <a href=\"#cancel-an-import\">Cancel the import</a> and <a href=\"#start-an-import\">retry</a> with the correct URL. <code>detection_found_multiple</code> - the importer found several projects or repositories at the provided URL. When this is the case, the Import Progress response will also include a <code>project_choices</code> field with the possible project choices as values. To update project choice, please see the <a href=\"#update-existing-import\">Update Existing Import</a> section. <em>The project_choices field</em>*</p> <p>When multiple projects are found at the provided URL, the response hash will include a <code>project_choices</code> field, the value of which is an array of hashes each representing a project choice. The exact key/value pairs of the project hashes will differ depending on the version control type. <em>Git LFS related fields</em>*</p> <p>This section includes details about Git LFS related fields that may be present in the Import Progress response. <code>use_lfs</code> - describes whether the import has been opted in or out of using Git LFS. The value can be <code>opt_in</code>, <code>opt_out</code>, or <code>undecided</code> if no action has been taken. <code>has_large_files</code> - the boolean value describing whether files larger than 100MB were found during the <code>importing</code> step. <code>large_files_size</code> - the total size in gigabytes of files larger than 100MB found in the originating repository. <code>large_files_count</code> - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a &quot;Get Large Files&quot; request.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#get-import-progress\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8862,7 +8862,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/large_files",
     "title": "getLargeFiles",
     "name": "getLargeFiles",
-    "description": "<p>List files larger than 100MB found during the import <a href=\"https://developer.github.com/v3/migrations/source_imports/#get-large-files\">REST API doc</a></p>",
+    "description": "<p>List files larger than 100MB found during the import</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#get-large-files\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8905,7 +8905,7 @@ define({ "api": [
     "url": "/user/migrations/:migration_id",
     "title": "getStatusForAuthenticatedUser",
     "name": "getStatusForAuthenticatedUser",
-    "description": "<p>Fetches a single user migration. The response includes the <code>state</code> of the migration, which can be one of the following values: <code>pending</code> - the migration hasn't started yet. <code>exporting</code> - the migration is in progress. <code>exported</code> - the migration finished successfully. <code>failed</code> - the migration failed.</p> <p>Once the migration has been <code>exported</code> you can <a href=\"#download-a-user-migration-archive\">download the migration archive</a>. <a href=\"https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration\">REST API doc</a></p>",
+    "description": "<p>Fetches a single user migration. The response includes the <code>state</code> of the migration, which can be one of the following values: <code>pending</code> - the migration hasn't started yet. <code>exporting</code> - the migration is in progress. <code>exported</code> - the migration finished successfully. <code>failed</code> - the migration failed.</p> <p>Once the migration has been <code>exported</code> you can <a href=\"#download-a-user-migration-archive\">download the migration archive</a>.</p> <p><a href=\"https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8941,7 +8941,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id",
     "title": "getStatusForOrg",
     "name": "getStatusForOrg",
-    "description": "<p>Fetches the status of a migration.</p> <p>The <code>state</code> of a migration can be one of the following values: <code>pending</code>, which means the migration hasn't started yet. <code>exporting</code>, which means the migration is in progress. <code>exported</code>, which means the migration finished successfully. <code>failed</code>, which means the migration failed. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration\">REST API doc</a></p>",
+    "description": "<p>Fetches the status of a migration.</p> <p>The <code>state</code> of a migration can be one of the following values: <code>pending</code>, which means the migration hasn't started yet. <code>exporting</code>, which means the migration is in progress. <code>exported</code>, which means the migration finished successfully. <code>failed</code>, which means the migration failed.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#get-the-status-of-an-organization-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -8984,7 +8984,7 @@ define({ "api": [
     "url": "/user/migrations",
     "title": "listForAuthenticatedUser",
     "name": "listForAuthenticatedUser",
-    "description": "<p>Lists all migrations a user has started. <a href=\"https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations\">REST API doc</a></p>",
+    "description": "<p>Lists all migrations a user has started.</p> <p><a href=\"https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9029,7 +9029,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations",
     "title": "listForOrg",
     "name": "listForOrg",
-    "description": "<p>Lists the most recent migrations. <a href=\"https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations\">REST API doc</a></p>",
+    "description": "<p>Lists the most recent migrations.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#get-a-list-of-organization-migrations\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9081,7 +9081,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/authors/:author_id",
     "title": "mapCommitAuthor",
     "name": "mapCommitAuthor",
-    "description": "<p>Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository. <a href=\"https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author\">REST API doc</a></p>",
+    "description": "<p>Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#map-a-commit-author\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9145,7 +9145,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import/lfs",
     "title": "setLfsPreference",
     "name": "setLfsPreference",
-    "description": "<p>You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by <a href=\"https://git-lfs.github.com\">Git LFS</a>. You can learn more about our LFS feature and working with large files <a href=\"https://help.github.com/articles/versioning-large-files/\">on our help site</a>. <a href=\"https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference\">REST API doc</a></p>",
+    "description": "<p>You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by <a href=\"https://git-lfs.github.com\">Git LFS</a>. You can learn more about our LFS feature and working with large files <a href=\"https://help.github.com/articles/versioning-large-files/\">on our help site</a>.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#set-git-lfs-preference\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9199,7 +9199,7 @@ define({ "api": [
     "url": "/user/migrations",
     "title": "startForAuthenticatedUser",
     "name": "startForAuthenticatedUser",
-    "description": "<p>Initiates the generation of a user migration archive. <a href=\"https://developer.github.com/v3/migrations/users/#start-a-user-migration\">REST API doc</a></p>",
+    "description": "<p>Initiates the generation of a user migration archive.</p> <p><a href=\"https://developer.github.com/v3/migrations/users/#start-a-user-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9251,7 +9251,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations",
     "title": "startForOrg",
     "name": "startForOrg",
-    "description": "<p>Initiates the generation of a migration archive. <a href=\"https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration\">REST API doc</a></p>",
+    "description": "<p>Initiates the generation of a migration archive.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#start-an-organization-migration\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9310,7 +9310,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "startImport",
     "name": "startImport",
-    "description": "<p>Start a source import to a GitHub repository using GitHub Importer. <a href=\"https://developer.github.com/v3/migrations/source_imports/#start-an-import\">REST API doc</a></p>",
+    "description": "<p>Start a source import to a GitHub repository using GitHub Importer.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#start-an-import\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9394,7 +9394,7 @@ define({ "api": [
     "url": "/user/migrations/:migration_id/repos/:repo_name/lock",
     "title": "unlockRepoForAuthenticatedUser",
     "name": "unlockRepoForAuthenticatedUser",
-    "description": "<p>Unlocks a repository. You can lock repositories when you <a href=\"#start-a-user-migration\">start a user migration</a>. Once the migration is complete you can unlock each repository to begin using it again or <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete the repository</a> if you no longer need the source data. Returns a status of <code>404 Not Found</code> if the repository is not locked. <a href=\"https://developer.github.com/v3/migrations/users/#unlock-a-user-repository\">REST API doc</a></p>",
+    "description": "<p>Unlocks a repository. You can lock repositories when you <a href=\"#start-a-user-migration\">start a user migration</a>. Once the migration is complete you can unlock each repository to begin using it again or <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete the repository</a> if you no longer need the source data. Returns a status of <code>404 Not Found</code> if the repository is not locked.</p> <p><a href=\"https://developer.github.com/v3/migrations/users/#unlock-a-user-repository\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9437,7 +9437,7 @@ define({ "api": [
     "url": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock",
     "title": "unlockRepoForOrg",
     "name": "unlockRepoForOrg",
-    "description": "<p>Unlocks a repository that was locked for migration. You should unlock each migrated repository and <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete them</a> when the migration is complete and you no longer need the source data. <a href=\"https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository\">REST API doc</a></p>",
+    "description": "<p>Unlocks a repository that was locked for migration. You should unlock each migrated repository and <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">delete them</a> when the migration is complete and you no longer need the source data.</p> <p><a href=\"https://developer.github.com/v3/migrations/orgs/#unlock-an-organization-repository\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9487,7 +9487,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/import",
     "title": "updateImport",
     "name": "updateImport",
-    "description": "<p>An import can be updated with credentials or a project choice by passing in the appropriate parameters in this API request. If no parameters are provided, the import will be restarted.</p> <p>Some servers (e.g. TFS servers) can have several projects at a single URL. In those cases the import progress will have the status <code>detection_found_multiple</code> and the Import Progress response will include a <code>project_choices</code> array. You can select the project to import by providing one of the objects in the <code>project_choices</code> array in the update request.</p> <p>The following example demonstrates the workflow for updating an import with &quot;project1&quot; as the project choice. Given a <code>project_choices</code> array like such:</p> <p>To restart an import, no parameters are provided in the update request. <a href=\"https://developer.github.com/v3/migrations/source_imports/#update-existing-import\">REST API doc</a></p>",
+    "description": "<p>An import can be updated with credentials or a project choice by passing in the appropriate parameters in this API request. If no parameters are provided, the import will be restarted.</p> <p>Some servers (e.g. TFS servers) can have several projects at a single URL. In those cases the import progress will have the status <code>detection_found_multiple</code> and the Import Progress response will include a <code>project_choices</code> array. You can select the project to import by providing one of the objects in the <code>project_choices</code> array in the update request.</p> <p>The following example demonstrates the workflow for updating an import with &quot;project1&quot; as the project choice. Given a <code>project_choices</code> array like such:</p> <p>To restart an import, no parameters are provided in the update request.</p> <p><a href=\"https://developer.github.com/v3/migrations/source_imports/#update-existing-import\">REST API doc</a></p>",
     "group": "Migrations",
     "parameter": {
       "fields": {
@@ -9544,7 +9544,7 @@ define({ "api": [
     "url": "/applications/:client_id/tokens/:access_token",
     "title": "checkAuthorization",
     "name": "checkAuthorization",
-    "description": "<p>OAuth applications can use a special API method for checking OAuth token validity without running afoul of normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> when accessing it, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. Invalid tokens will return <code>404 NOT FOUND</code>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#check-an-authorization\">REST API doc</a></p>",
+    "description": "<p>OAuth applications can use a special API method for checking OAuth token validity without running afoul of normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> when accessing it, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. Invalid tokens will return <code>404 NOT FOUND</code>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#check-an-authorization\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -9587,7 +9587,7 @@ define({ "api": [
     "url": "/authorizations",
     "title": "createAuthorization",
     "name": "createAuthorization",
-    "description": "<p>If you need a small number of personal access tokens, implementing the <a href=\"https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/\">web flow</a> can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a>. To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your <a href=\"https://github.com/settings/developers\">OAuth applications listing on GitHub</a>.</p> <p>If your OAuth application intends to create multiple tokens for one user, use <code>fingerprint</code> to differentiate between them.</p> <p>You can also create OAuth tokens through the web UI via the <a href=\"https://github.com/settings/tokens\">personal access tokens settings</a>. Read more about these tokens on the <a href=\"https://help.github.com/articles/creating-an-access-token-for-command-line-use\">GitHub Help site</a>.</p> <p>Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the <a href=\"https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on\">GitHub Help site</a>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">REST API doc</a></p>",
+    "description": "<p>If you need a small number of personal access tokens, implementing the <a href=\"https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/\">web flow</a> can be cumbersome. Instead, tokens can be created using the OAuth Authorizations API using <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a>. To create personal access tokens for a particular OAuth application, you must provide its client ID and secret, found on the OAuth application settings page, linked from your <a href=\"https://github.com/settings/developers\">OAuth applications listing on GitHub</a>.</p> <p>If your OAuth application intends to create multiple tokens for one user, use <code>fingerprint</code> to differentiate between them.</p> <p>You can also create OAuth tokens through the web UI via the <a href=\"https://github.com/settings/tokens\">personal access tokens settings</a>. Read more about these tokens on the <a href=\"https://help.github.com/articles/creating-an-access-token-for-command-line-use\">GitHub Help site</a>.</p> <p>Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens on the <a href=\"https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on\">GitHub Help site</a>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -9694,7 +9694,7 @@ define({ "api": [
     "url": "/applications/grants/:grant_id",
     "title": "deleteGrant",
     "name": "deleteGrant",
-    "description": "<p>Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#delete-a-grant\">REST API doc</a></p>",
+    "description": "<p>Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#delete-a-grant\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -9802,7 +9802,7 @@ define({ "api": [
     "url": "/authorizations/clients/:client_id",
     "title": "getOrCreateAuthorizationForApp",
     "name": "getOrCreateAuthorizationForApp",
-    "description": "<p>This method will create a new authorization for the specified OAuth application, only if an authorization for that application doesn't already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one. <a href=\"https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app\">REST API doc</a></p>",
+    "description": "<p>This method will create a new authorization for the specified OAuth application, only if an authorization for that application doesn't already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -9873,7 +9873,7 @@ define({ "api": [
     "url": "/authorizations/clients/:client_id/:fingerprint",
     "title": "getOrCreateAuthorizationForAppFingerprint",
     "name": "getOrCreateAuthorizationForAppFingerprint",
-    "description": "<p>This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. <code>fingerprint</code> is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one. <a href=\"https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint\">REST API doc</a></p>",
+    "description": "<p>This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. <code>fingerprint</code> is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -9989,7 +9989,7 @@ define({ "api": [
     "url": "/applications/grants",
     "title": "listGrants",
     "name": "listGrants",
-    "description": "<p>You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the <a href=\"https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations\">list your authorizations</a> API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>. The <code>scopes</code> returned are the union of scopes authorized for the application. For example, if an application has one token with <code>repo</code> scope and another token with <code>user</code> scope, the grant will return <code>[&quot;repo&quot;, &quot;user&quot;]</code>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#list-your-grants\">REST API doc</a></p>",
+    "description": "<p>You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the <a href=\"https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations\">list your authorizations</a> API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>. The <code>scopes</code> returned are the union of scopes authorized for the application. For example, if an application has one token with <code>repo</code> scope and another token with <code>user</code> scope, the grant will return <code>[&quot;repo&quot;, &quot;user&quot;]</code>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#list-your-grants\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -10034,7 +10034,7 @@ define({ "api": [
     "url": "/applications/:client_id/tokens/:access_token",
     "title": "resetAuthorization",
     "name": "resetAuthorization",
-    "description": "<p>OAuth applications can use this API method to reset a valid OAuth token without end user involvement. Applications must save the &quot;token&quot; property in the response, because changes take effect immediately. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> when accessing it, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. Invalid tokens will return <code>404 NOT FOUND</code>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization\">REST API doc</a></p>",
+    "description": "<p>OAuth applications can use this API method to reset a valid OAuth token without end user involvement. Applications must save the &quot;token&quot; property in the response, because changes take effect immediately. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> when accessing it, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. Invalid tokens will return <code>404 NOT FOUND</code>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -10077,7 +10077,7 @@ define({ "api": [
     "url": "/applications/:client_id/tokens/:access_token",
     "title": "revokeAuthorizationForApplication",
     "name": "revokeAuthorizationForApplication",
-    "description": "<p>OAuth application owners can revoke a single token for an OAuth application. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> for this method, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application\">REST API doc</a></p>",
+    "description": "<p>OAuth application owners can revoke a single token for an OAuth application. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> for this method, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -10120,7 +10120,7 @@ define({ "api": [
     "url": "/applications/:client_id/grants/:access_token",
     "title": "revokeGrantForApplication",
     "name": "revokeGrantForApplication",
-    "description": "<p>OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> for this method, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. You must also provide a valid token as <code>:token</code> and the grant for the token's owner will be deleted.</p> <p>Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>. <a href=\"https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application\">REST API doc</a></p>",
+    "description": "<p>OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use <a href=\"https://developer.github.com/v3/auth#basic-authentication\">Basic Authentication</a> for this method, where the username is the OAuth application <code>client_id</code> and the password is its <code>client_secret</code>. You must also provide a valid token as <code>:token</code> and the grant for the token's owner will be deleted.</p> <p>Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on <a href=\"https://github.com/settings/applications#authorized\">the application authorizations settings screen within GitHub</a>.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -10163,7 +10163,7 @@ define({ "api": [
     "url": "/authorizations/:authorization_id",
     "title": "updateAuthorization",
     "name": "updateAuthorization",
-    "description": "<p>You can only send one of these scope keys at a time. <a href=\"https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization\">REST API doc</a></p>",
+    "description": "<p>You can only send one of these scope keys at a time.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization\">REST API doc</a></p>",
     "group": "OauthAuthorizations",
     "parameter": {
       "fields": {
@@ -10241,7 +10241,7 @@ define({ "api": [
     "url": "/orgs/:org/memberships/:username",
     "title": "addOrUpdateMembership",
     "name": "addOrUpdateMembership",
-    "description": "<p>Only authenticated organization owners can add a member to the organization or update the member's role. If the authenticated user is <em>adding</em> a member to the organization, the invited user will receive an email inviting them to the organization. The user's <a href=\"#get-organization-membership\">membership status</a> will be <code>pending</code> until they accept the invitation. Authenticated users can <em>update</em> a user's membership by passing the <code>role</code> parameter. If the authenticated user changes a member's role to <code>admin</code>, the affected user will receive an email notifying them that they've been made an organization owner. If the authenticated user changes an owner's role to <code>member</code>, no email will be sent. <em>Rate limits</em>*</p> <p>To prevent abuse, the authenticated user is limited to 50 organization invitations per 24 hour period. If the organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period. <a href=\"https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership\">REST API doc</a></p>",
+    "description": "<p>Only authenticated organization owners can add a member to the organization or update the member's role. If the authenticated user is <em>adding</em> a member to the organization, the invited user will receive an email inviting them to the organization. The user's <a href=\"#get-organization-membership\">membership status</a> will be <code>pending</code> until they accept the invitation. Authenticated users can <em>update</em> a user's membership by passing the <code>role</code> parameter. If the authenticated user changes a member's role to <code>admin</code>, the affected user will receive an email notifying them that they've been made an organization owner. If the authenticated user changes an owner's role to <code>member</code>, no email will be sent. <em>Rate limits</em>*</p> <p>To prevent abuse, the authenticated user is limited to 50 organization invitations per 24 hour period. If the organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#add-or-update-organization-membership\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10339,7 +10339,7 @@ define({ "api": [
     "url": "/orgs/:org/blocks/:username",
     "title": "checkBlockedUser",
     "name": "checkBlockedUser",
-    "description": "<p>If the user is blocked:</p> <p>If the user is not blocked: <a href=\"https://developer.github.com/v3/orgs/blocking/#check-whether-a-user-is-blocked-from-an-organization\">REST API doc</a></p>",
+    "description": "<p>If the user is blocked:</p> <p>If the user is not blocked:</p> <p><a href=\"https://developer.github.com/v3/orgs/blocking/#check-whether-a-user-is-blocked-from-an-organization\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10382,7 +10382,7 @@ define({ "api": [
     "url": "/orgs/:org/members/:username",
     "title": "checkMembership",
     "name": "checkMembership",
-    "description": "<p>Check if a user is, publicly or privately, a member of the organization. <a href=\"https://developer.github.com/v3/orgs/members/#check-membership\">REST API doc</a></p>",
+    "description": "<p>Check if a user is, publicly or privately, a member of the organization.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#check-membership\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10511,7 +10511,7 @@ define({ "api": [
     "url": "/orgs/:org/outside_collaborators/:username",
     "title": "convertMemberToOutsideCollaborator",
     "name": "convertMemberToOutsideCollaborator",
-    "description": "<p>When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see &quot;<a href=\"https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/\">Converting an organization member to an outside collaborator</a>&quot;. <a href=\"https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator\">REST API doc</a></p>",
+    "description": "<p>When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see &quot;<a href=\"https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/\">Converting an organization member to an outside collaborator</a>&quot;.</p> <p><a href=\"https://developer.github.com/v3/orgs/outside_collaborators/#convert-member-to-outside-collaborator\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10554,7 +10554,7 @@ define({ "api": [
     "url": "/orgs/:org/hooks",
     "title": "createHook",
     "name": "createHook",
-    "description": "<p>Here's how you can create a hook that posts payloads in JSON format: <a href=\"https://developer.github.com/v3/orgs/hooks/#create-a-hook\">REST API doc</a></p>",
+    "description": "<p>Here's how you can create a hook that posts payloads in JSON format:</p> <p><a href=\"https://developer.github.com/v3/orgs/hooks/#create-a-hook\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10648,7 +10648,7 @@ define({ "api": [
     "url": "/orgs/:org/invitations",
     "title": "createInvitation",
     "name": "createInvitation",
-    "description": "<p>Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner. <a href=\"https://developer.github.com/v3/orgs/members/#create-organization-invitation\">REST API doc</a></p>",
+    "description": "<p>Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#create-organization-invitation\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10761,7 +10761,7 @@ define({ "api": [
     "url": "/orgs/:org",
     "title": "get",
     "name": "get",
-    "description": "<p>To see many of the organization response values, you need to be an authenticated organization owner with the <code>admin:org</code> scope. When the value of <code>two_factor_requirement_enabled</code> is <code>true</code>, the organization requires all members, billing managers, and outside collaborators to enable <a href=\"https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/\">two-factor authentication</a>. <a href=\"https://developer.github.com/v3/orgs/#get-an-organization\">REST API doc</a></p>",
+    "description": "<p>To see many of the organization response values, you need to be an authenticated organization owner with the <code>admin:org</code> scope. When the value of <code>two_factor_requirement_enabled</code> is <code>true</code>, the organization requires all members, billing managers, and outside collaborators to enable <a href=\"https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/\">two-factor authentication</a>.</p> <p><a href=\"https://developer.github.com/v3/orgs/#get-an-organization\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10840,7 +10840,7 @@ define({ "api": [
     "url": "/orgs/:org/memberships/:username",
     "title": "getMembership",
     "name": "getMembership",
-    "description": "<p>In order to get a user's membership with an organization, the authenticated user must be an organization member. <a href=\"https://developer.github.com/v3/orgs/members/#get-organization-membership\">REST API doc</a></p>",
+    "description": "<p>In order to get a user's membership with an organization, the authenticated user must be an organization member.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#get-organization-membership\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10919,7 +10919,7 @@ define({ "api": [
     "url": "/organizations",
     "title": "list",
     "name": "list",
-    "description": "<p>Lists all organizations, in the order that they were created on GitHub. <em>Note:</em>* Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> to get the URL for the next page of organizations. <a href=\"https://developer.github.com/v3/orgs/#list-all-organizations\">REST API doc</a></p>",
+    "description": "<p>Lists all organizations, in the order that they were created on GitHub. <em>Note:</em>* Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> to get the URL for the next page of organizations.</p> <p><a href=\"https://developer.github.com/v3/orgs/#list-all-organizations\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -10971,7 +10971,7 @@ define({ "api": [
     "url": "/orgs/:org/blocks",
     "title": "listBlockedUsers",
     "name": "listBlockedUsers",
-    "description": "<p>List the users blocked by an organization. <a href=\"https://developer.github.com/v3/orgs/blocking/#list-blocked-users\">REST API doc</a></p>",
+    "description": "<p>List the users blocked by an organization.</p> <p><a href=\"https://developer.github.com/v3/orgs/blocking/#list-blocked-users\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11007,7 +11007,7 @@ define({ "api": [
     "url": "/user/orgs",
     "title": "listForAuthenticatedUser",
     "name": "listForAuthenticatedUser",
-    "description": "<p>List organizations for the authenticated user. <em>OAuth scope requirements</em>*</p> <p>This only lists organizations that your authorization allows you to operate on in some way (e.g., you can list teams with <code>read:org</code> scope, you can publicize your organization membership with <code>user</code> scope, etc.). Therefore, this API requires at least <code>user</code> or <code>read:org</code> scope. OAuth requests with insufficient scope receive a <code>403 Forbidden</code> response. <a href=\"https://developer.github.com/v3/orgs/#list-your-organizations\">REST API doc</a></p>",
+    "description": "<p>List organizations for the authenticated user. <em>OAuth scope requirements</em>*</p> <p>This only lists organizations that your authorization allows you to operate on in some way (e.g., you can list teams with <code>read:org</code> scope, you can publicize your organization membership with <code>user</code> scope, etc.). Therefore, this API requires at least <code>user</code> or <code>read:org</code> scope. OAuth requests with insufficient scope receive a <code>403 Forbidden</code> response.</p> <p><a href=\"https://developer.github.com/v3/orgs/#list-your-organizations\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11052,7 +11052,7 @@ define({ "api": [
     "url": "/users/:username/orgs",
     "title": "listForUser",
     "name": "listForUser",
-    "description": "<p>List <a href=\"https://help.github.com/articles/publicizing-or-concealing-organization-membership\">public organization memberships</a> for the specified user.</p> <p>This method only lists <em>public</em> memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the <a href=\"#list-your-organizations\">List your organizations</a> API instead. <a href=\"https://developer.github.com/v3/orgs/#list-user-organizations\">REST API doc</a></p>",
+    "description": "<p>List <a href=\"https://help.github.com/articles/publicizing-or-concealing-organization-membership\">public organization memberships</a> for the specified user.</p> <p>This method only lists <em>public</em> memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the <a href=\"#list-your-organizations\">List your organizations</a> API instead.</p> <p><a href=\"https://developer.github.com/v3/orgs/#list-user-organizations\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11156,7 +11156,7 @@ define({ "api": [
     "url": "/orgs/:org/invitations/:invitation_id/teams",
     "title": "listInvitationTeams",
     "name": "listInvitationTeams",
-    "description": "<p>List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner. <a href=\"https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams\">REST API doc</a></p>",
+    "description": "<p>List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#list-organization-invitation-teams\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11412,7 +11412,7 @@ define({ "api": [
     "url": "/orgs/:org/invitations",
     "title": "listPendingInvitations",
     "name": "listPendingInvitations",
-    "description": "<p>The return hash contains a <code>role</code> field which refers to the Organization Invitation role and will be one of the following values: <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>, <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not a GitHub member, the <code>login</code> field in the return hash will be <code>null</code>. <a href=\"https://developer.github.com/v3/orgs/members/#list-pending-organization-invitations\">REST API doc</a></p>",
+    "description": "<p>The return hash contains a <code>role</code> field which refers to the Organization Invitation role and will be one of the following values: <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>, <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not a GitHub member, the <code>login</code> field in the return hash will be <code>null</code>.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#list-pending-organization-invitations\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11464,7 +11464,7 @@ define({ "api": [
     "url": "/orgs/:org/public_members",
     "title": "listPublicMembers",
     "name": "listPublicMembers",
-    "description": "<p>Members of an organization can choose to have their membership publicized or not. <a href=\"https://developer.github.com/v3/orgs/members/#public-members-list\">REST API doc</a></p>",
+    "description": "<p>Members of an organization can choose to have their membership publicized or not.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#public-members-list\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11516,7 +11516,7 @@ define({ "api": [
     "url": "/orgs/:org/hooks/:hook_id/pings",
     "title": "pingHook",
     "name": "pingHook",
-    "description": "<p>This will trigger a <a href=\"https://developer.github.com/webhooks/#ping-event\">ping event</a> to be sent to the hook. <a href=\"https://developer.github.com/v3/orgs/hooks/#ping-a-hook\">REST API doc</a></p>",
+    "description": "<p>This will trigger a <a href=\"https://developer.github.com/webhooks/#ping-event\">ping event</a> to be sent to the hook.</p> <p><a href=\"https://developer.github.com/v3/orgs/hooks/#ping-a-hook\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11559,7 +11559,7 @@ define({ "api": [
     "url": "/orgs/:org/public_members/:username",
     "title": "publicizeMembership",
     "name": "publicizeMembership",
-    "description": "<p>The user can publicize their own membership. (A user cannot publicize the membership for another user.)</p> <p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot; <a href=\"https://developer.github.com/v3/orgs/members/#publicize-a-users-membership\">REST API doc</a></p>",
+    "description": "<p>The user can publicize their own membership. (A user cannot publicize the membership for another user.)</p> <p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#publicize-a-users-membership\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11602,7 +11602,7 @@ define({ "api": [
     "url": "/orgs/:org/members/:username",
     "title": "removeMember",
     "name": "removeMember",
-    "description": "<p>Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories. <a href=\"https://developer.github.com/v3/orgs/members/#remove-a-member\">REST API doc</a></p>",
+    "description": "<p>Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#remove-a-member\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11645,7 +11645,7 @@ define({ "api": [
     "url": "/orgs/:org/memberships/:username",
     "title": "removeMembership",
     "name": "removeMembership",
-    "description": "<p>In order to remove a user's membership with an organization, the authenticated user must be an organization owner.</p> <p>If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases. <a href=\"https://developer.github.com/v3/orgs/members/#remove-organization-membership\">REST API doc</a></p>",
+    "description": "<p>In order to remove a user's membership with an organization, the authenticated user must be an organization owner.</p> <p>If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#remove-organization-membership\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11688,7 +11688,7 @@ define({ "api": [
     "url": "/orgs/:org/outside_collaborators/:username",
     "title": "removeOutsideCollaborator",
     "name": "removeOutsideCollaborator",
-    "description": "<p>Removing a user from this list will remove them from all the organization's repositories. <a href=\"https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator\">REST API doc</a></p>",
+    "description": "<p>Removing a user from this list will remove them from all the organization's repositories.</p> <p><a href=\"https://developer.github.com/v3/orgs/outside_collaborators/#remove-outside-collaborator\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -12028,7 +12028,7 @@ define({ "api": [
     "url": "/projects/:project_id/collaborators/:username",
     "title": "addCollaborator",
     "name": "addCollaborator",
-    "description": "<p>Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project <code>admin</code> to add a collaborator. <a href=\"https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
+    "description": "<p>Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project <code>admin</code> to add a collaborator.</p> <p><a href=\"https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12084,7 +12084,7 @@ define({ "api": [
     "url": "/projects/columns/:column_id/cards",
     "title": "createCard",
     "name": "createCard",
-    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint. <a href=\"https://developer.github.com/v3/projects/cards/#create-a-project-card\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, &quot;Issues&quot; endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key.</p> <p>Be aware that the <code>id</code> of a pull request returned from &quot;Issues&quot; endpoints will be an <em>issue id</em>. To find out the pull request id, use the &quot;<a href=\"https://developer.github.com/v3/pulls/#list-pull-requests\">List pull requests</a>&quot; endpoint.</p> <p><a href=\"https://developer.github.com/v3/projects/cards/#create-a-project-card\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12184,7 +12184,7 @@ define({ "api": [
     "url": "/orgs/:org/projects",
     "title": "createForOrg",
     "name": "createForOrg",
-    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token. <a href=\"https://developer.github.com/v3/projects/#create-an-organization-project\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token.</p> <p><a href=\"https://developer.github.com/v3/projects/#create-an-organization-project\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12250,7 +12250,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/projects",
     "title": "createForRepo",
     "name": "createForRepo",
-    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token. <a href=\"https://developer.github.com/v3/projects/#create-a-repository-project\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token.</p> <p><a href=\"https://developer.github.com/v3/projects/#create-a-repository-project\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12431,7 +12431,7 @@ define({ "api": [
     "url": "/projects/:project_id",
     "title": "get",
     "name": "get",
-    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token. <a href=\"https://developer.github.com/v3/projects/#get-a-project\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token.</p> <p><a href=\"https://developer.github.com/v3/projects/#get-a-project\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12620,7 +12620,7 @@ define({ "api": [
     "url": "/projects/:project_id/collaborators",
     "title": "listCollaborators",
     "name": "listCollaborators",
-    "description": "<p>Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project <code>admin</code> to list collaborators. <a href=\"https://developer.github.com/v3/projects/collaborators/#list-collaborators\">REST API doc</a></p>",
+    "description": "<p>Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project <code>admin</code> to list collaborators.</p> <p><a href=\"https://developer.github.com/v3/projects/collaborators/#list-collaborators\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12737,7 +12737,7 @@ define({ "api": [
     "url": "/orgs/:org/projects",
     "title": "listForOrg",
     "name": "listForOrg",
-    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token. <a href=\"https://developer.github.com/v3/projects/#list-organization-projects\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token.</p> <p><a href=\"https://developer.github.com/v3/projects/#list-organization-projects\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12802,7 +12802,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/projects",
     "title": "listForRepo",
     "name": "listForRepo",
-    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token. <a href=\"https://developer.github.com/v3/projects/#list-repository-projects\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token.</p> <p><a href=\"https://developer.github.com/v3/projects/#list-repository-projects\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -12967,7 +12967,7 @@ define({ "api": [
     "url": "/projects/:project_id/collaborators/:username",
     "title": "removeCollaborator",
     "name": "removeCollaborator",
-    "description": "<p>Removes a collaborator from an organization project. You must be an organization owner or a project <code>admin</code> to remove a collaborator. <a href=\"https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator\">REST API doc</a></p>",
+    "description": "<p>Removes a collaborator from an organization project. You must be an organization owner or a project <code>admin</code> to remove a collaborator.</p> <p><a href=\"https://developer.github.com/v3/projects/collaborators/#remove-user-as-a-collaborator\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -13010,7 +13010,7 @@ define({ "api": [
     "url": "/projects/:project_id/collaborators/:username/permission",
     "title": "reviewUserPermissionLevel",
     "name": "reviewUserPermissionLevel",
-    "description": "<p>Returns the collaborator's permission level for an organization project. Possible values for the <code>permission</code> key: <code>admin</code>, <code>write</code>, <code>read</code>, <code>none</code>. You must be an organization owner or a project <code>admin</code> to review a user's permission level. <a href=\"https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level\">REST API doc</a></p>",
+    "description": "<p>Returns the collaborator's permission level for an organization project. Possible values for the <code>permission</code> key: <code>admin</code>, <code>write</code>, <code>read</code>, <code>none</code>. You must be an organization owner or a project <code>admin</code> to review a user's permission level.</p> <p><a href=\"https://developer.github.com/v3/projects/collaborators/#review-a-users-permission-level\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -13053,7 +13053,7 @@ define({ "api": [
     "url": "/projects/:project_id",
     "title": "update",
     "name": "update",
-    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token. <a href=\"https://developer.github.com/v3/projects/#update-a-project\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: The status code may also be <code>401</code> or <code>410</code>, depending on the scope of the authenticating token.</p> <p><a href=\"https://developer.github.com/v3/projects/#update-a-project\">REST API doc</a></p>",
     "group": "Projects",
     "parameter": {
       "fields": {
@@ -13287,7 +13287,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls",
     "title": "create",
     "name": "create",
-    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request. <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p><a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13365,7 +13365,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/comments",
     "title": "createComment",
     "name": "createComment",
-    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file. <a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13443,7 +13443,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/comments",
     "title": "createCommentReply",
     "name": "createCommentReply",
-    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file. <a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13507,7 +13507,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls",
     "title": "createFromIssue",
     "name": "createFromIssue",
-    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request. <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p><a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13578,7 +13578,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/reviews",
     "title": "createReview",
     "name": "createReview",
-    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file. <a href=\"https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13917,7 +13917,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals",
     "title": "dismissReview",
     "name": "dismissReview",
-    "description": "<p><strong>Note:</strong> To dismiss a pull request review on a <a href=\"https://developer.github.com/v3/repos/branches/\">protected branch</a>, you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews. <a href=\"https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To dismiss a pull request review on a <a href=\"https://developer.github.com/v3/repos/branches/\">protected branch</a>, you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews.</p> <p><a href=\"https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13981,7 +13981,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number",
     "title": "get",
     "name": "get",
-    "description": "<p>Lists details of a pull request by providing its number.</p> <p>When you get, <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">create</a>, or <a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">edit</a> a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the <code>mergeable</code> key. For more information, see &quot;<a href=\"https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>&quot;.</p> <p>The value of the <code>mergeable</code> attribute can be <code>true</code>, <code>false</code>, or <code>null</code>. If the value is <code>null</code>, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-<code>null</code> value for the <code>mergeable</code> attribute in the response. If <code>mergeable</code> is <code>true</code>, then <code>merge_commit_sha</code> will be the SHA of the <em>test</em> merge commit.</p> <p>The value of the <code>merge_commit_sha</code> attribute changes depending on the state of the pull request. Before merging a pull request, the <code>merge_commit_sha</code> attribute holds the SHA of the <em>test</em> merge commit. After merging a pull request, the <code>merge_commit_sha</code> attribute changes depending on how you merged the pull request: If merged as a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/\">merge commit</a>, <code>merge_commit_sha</code> represents the SHA of the merge commit. If merged via a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits\">squash</a>, <code>merge_commit_sha</code> represents the SHA of the squashed commit on the base branch. If <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits\">rebased</a>, <code>merge_commit_sha</code> represents the commit that the base branch was updated to.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">REST API doc</a></p>",
+    "description": "<p>Lists details of a pull request by providing its number.</p> <p>When you get, <a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">create</a>, or <a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">edit</a> a pull request, GitHub creates a merge commit to test whether the pull request can be automatically merged into the base branch. This test commit is not added to the base branch or the head branch. You can review the status of the test commit using the <code>mergeable</code> key. For more information, see &quot;<a href=\"https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>&quot;.</p> <p>The value of the <code>mergeable</code> attribute can be <code>true</code>, <code>false</code>, or <code>null</code>. If the value is <code>null</code>, then GitHub has started a background job to compute the mergeability. After giving the job time to complete, resubmit the request. When the job finishes, you will see a non-<code>null</code> value for the <code>mergeable</code> attribute in the response. If <code>mergeable</code> is <code>true</code>, then <code>merge_commit_sha</code> will be the SHA of the <em>test</em> merge commit.</p> <p>The value of the <code>merge_commit_sha</code> attribute changes depending on the state of the pull request. Before merging a pull request, the <code>merge_commit_sha</code> attribute holds the SHA of the <em>test</em> merge commit. After merging a pull request, the <code>merge_commit_sha</code> attribute changes depending on how you merged the pull request: If merged as a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/\">merge commit</a>, <code>merge_commit_sha</code> represents the SHA of the merge commit. If merged via a <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#squashing-your-merge-commits\">squash</a>, <code>merge_commit_sha</code> represents the SHA of the squashed commit on the base branch. If <a href=\"https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits\">rebased</a>, <code>merge_commit_sha</code> represents the commit that the base branch was updated to.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats.</p> <p><a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -14508,7 +14508,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/commits",
     "title": "listCommits",
     "name": "listCommits",
-    "description": "<p>Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the <a href=\"https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository\">Commit List API</a>. <a href=\"https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request\">REST API doc</a></p>",
+    "description": "<p>Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the <a href=\"https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository\">Commit List API</a>.</p> <p><a href=\"https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -14574,7 +14574,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/files",
     "title": "listFiles",
     "name": "listFiles",
-    "description": "<p><strong>Note:</strong> The response includes a maximum of 300 files. <a href=\"https://developer.github.com/v3/pulls/#list-pull-requests-files\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> The response includes a maximum of 300 files.</p> <p><a href=\"https://developer.github.com/v3/pulls/#list-pull-requests-files\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -14706,7 +14706,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/reviews",
     "title": "listReviews",
     "name": "listReviews",
-    "description": "<p>The list of reviews returns in chronological order. <a href=\"https://developer.github.com/v3/pulls/reviews/#list-reviews-on-a-pull-request\">REST API doc</a></p>",
+    "description": "<p>The list of reviews returns in chronological order.</p> <p><a href=\"https://developer.github.com/v3/pulls/reviews/#list-reviews-on-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -14931,7 +14931,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number",
     "title": "update",
     "name": "update",
-    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request. <a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p><a href=\"https://developer.github.com/v3/pulls/#update-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -15077,7 +15077,7 @@ define({ "api": [
     "url": "/rate_limit",
     "title": "get",
     "name": "get",
-    "description": "<p><strong>Note:</strong> Accessing this endpoint does not count against your REST API rate limit. <em>Understanding your rate limit status</em>*</p> <p>The Search API has a <a href=\"https://developer.github.com/v3/search/#rate-limit\">custom rate limit</a>, separate from the rate limit governing the rest of the REST API. The GraphQL API also has a <a href=\"/v4/guides/resource-limitations/#rate-limit\">custom rate limit</a> that is separate from and calculated differently than rate limits in the REST API.</p> <p>For these reasons, the Rate Limit API response categorizes your rate limit. Under <code>resources</code>, you'll see three objects: The <code>core</code> object provides your rate limit status for all non-search-related resources in the REST API. The <code>search</code> object provides your rate limit status for the <a href=\"https://developer.github.com/v3/search/\">Search API</a>. The <code>graphql</code> object provides your rate limit status for the <a href=\"/v4/\">GraphQL API</a>.</p> <p>For more information on the headers and values in the rate limit response, see &quot;<a href=\"https://developer.github.com/v3/#rate-limiting\">Rate limiting</a>.&quot;</p> <p>The <code>rate</code> object (shown at the bottom of the response above) is deprecated.</p> <p>If you're writing new API client code or updating existing code, you should use the <code>core</code> object instead of the <code>rate</code> object. The <code>core</code> object contains the same information that is present in the <code>rate</code> object. <a href=\"https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> Accessing this endpoint does not count against your REST API rate limit. <em>Understanding your rate limit status</em>*</p> <p>The Search API has a <a href=\"https://developer.github.com/v3/search/#rate-limit\">custom rate limit</a>, separate from the rate limit governing the rest of the REST API. The GraphQL API also has a <a href=\"/v4/guides/resource-limitations/#rate-limit\">custom rate limit</a> that is separate from and calculated differently than rate limits in the REST API.</p> <p>For these reasons, the Rate Limit API response categorizes your rate limit. Under <code>resources</code>, you'll see three objects: The <code>core</code> object provides your rate limit status for all non-search-related resources in the REST API. The <code>search</code> object provides your rate limit status for the <a href=\"https://developer.github.com/v3/search/\">Search API</a>. The <code>graphql</code> object provides your rate limit status for the <a href=\"/v4/\">GraphQL API</a>.</p> <p>For more information on the headers and values in the rate limit response, see &quot;<a href=\"https://developer.github.com/v3/#rate-limiting\">Rate limiting</a>.&quot;</p> <p>The <code>rate</code> object (shown at the bottom of the response above) is deprecated.</p> <p>If you're writing new API client code or updating existing code, you should use the <code>core</code> object instead of the <code>rate</code> object. The <code>core</code> object contains the same information that is present in the <code>rate</code> object.</p> <p><a href=\"https://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status\">REST API doc</a></p>",
     "group": "RateLimit",
     "examples": [
       {
@@ -15100,7 +15100,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/comments/:comment_id/reactions",
     "title": "createForCommitComment",
     "name": "createForCommitComment",
-    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/repos/comments/\">commit comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this commit comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment\">REST API doc</a></p>",
+    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/repos/comments/\">commit comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this commit comment.</p> <p><a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15165,7 +15165,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/reactions",
     "title": "createForIssue",
     "name": "createForIssue",
-    "description": "<p>Create a reaction to an <a href=\"https://developer.github.com/v3/issues/\">issue</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this issue. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-an-issue\">REST API doc</a></p>",
+    "description": "<p>Create a reaction to an <a href=\"https://developer.github.com/v3/issues/\">issue</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this issue.</p> <p><a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-an-issue\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15230,7 +15230,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/comments/:comment_id/reactions",
     "title": "createForIssueComment",
     "name": "createForIssueComment",
-    "description": "<p>Create a reaction to an <a href=\"https://developer.github.com/v3/issues/comments/\">issue comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this issue comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment\">REST API doc</a></p>",
+    "description": "<p>Create a reaction to an <a href=\"https://developer.github.com/v3/issues/comments/\">issue comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this issue comment.</p> <p><a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15295,7 +15295,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions",
     "title": "createForPullRequestReviewComment",
     "name": "createForPullRequestReviewComment",
-    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/pulls/comments/\">pull request review comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this pull request review comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment\">REST API doc</a></p>",
+    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/pulls/comments/\">pull request review comment</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this pull request review comment.</p> <p><a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15360,7 +15360,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/reactions",
     "title": "createForTeamDiscussion",
     "name": "createForTeamDiscussion",
-    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a>. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this team discussion. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion\">REST API doc</a></p>",
+    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a>. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this team discussion.</p> <p><a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15418,7 +15418,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
     "title": "createForTeamDiscussionComment",
     "name": "createForTeamDiscussionComment",
-    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this team discussion comment. <a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment\">REST API doc</a></p>",
+    "description": "<p>Create a reaction to a <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this team discussion comment.</p> <p><a href=\"https://developer.github.com/v3/reactions/#create-reaction-for-a-team-discussion-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15483,7 +15483,7 @@ define({ "api": [
     "url": "/reactions/:reaction_id",
     "title": "delete",
     "name": "delete",
-    "description": "<p>OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>, when deleting a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a> or <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. <a href=\"https://developer.github.com/v3/reactions/#delete-a-reaction\">REST API doc</a></p>",
+    "description": "<p>OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>, when deleting a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a> or <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#delete-a-reaction\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15519,7 +15519,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/comments/:comment_id/reactions",
     "title": "listForCommitComment",
     "name": "listForCommitComment",
-    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/repos/comments/\">commit comment</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment\">REST API doc</a></p>",
+    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/repos/comments/\">commit comment</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15600,7 +15600,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/reactions",
     "title": "listForIssue",
     "name": "listForIssue",
-    "description": "<p>List the reactions to an <a href=\"https://developer.github.com/v3/issues/\">issue</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-an-issue\">REST API doc</a></p>",
+    "description": "<p>List the reactions to an <a href=\"https://developer.github.com/v3/issues/\">issue</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-an-issue\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15681,7 +15681,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/comments/:comment_id/reactions",
     "title": "listForIssueComment",
     "name": "listForIssueComment",
-    "description": "<p>List the reactions to an <a href=\"https://developer.github.com/v3/issues/comments/\">issue comment</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-an-issue-comment\">REST API doc</a></p>",
+    "description": "<p>List the reactions to an <a href=\"https://developer.github.com/v3/issues/comments/\">issue comment</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-an-issue-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15762,7 +15762,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions",
     "title": "listForPullRequestReviewComment",
     "name": "listForPullRequestReviewComment",
-    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/pulls/comments/\">pull request review comment</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment\">REST API doc</a></p>",
+    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/pulls/comments/\">pull request review comment</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15843,7 +15843,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/reactions",
     "title": "listForTeamDiscussion",
     "name": "listForTeamDiscussion",
-    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a>. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion\">REST API doc</a></p>",
+    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/teams/discussions/\">team discussion</a>. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -15917,7 +15917,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
     "title": "listForTeamDiscussionComment",
     "name": "listForTeamDiscussionComment",
-    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment\">REST API doc</a></p>",
+    "description": "<p>List the reactions to a <a href=\"https://developer.github.com/v3/teams/discussion_comments/\">team discussion comment</a>. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/reactions/#list-reactions-for-a-team-discussion-comment\">REST API doc</a></p>",
     "group": "Reactions",
     "parameter": {
       "fields": {
@@ -16034,7 +16034,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/collaborators/:username",
     "title": "addCollaborator",
     "name": "addCollaborator",
-    "description": "<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>The invitee will receive a notification that they have been invited to the repository, which they must accept or decline. They may do this via the notifications page, the email they receive, or by using the <a href=\"https://developer.github.com/v3/repos/invitations/\">repository invitations API endpoints</a>. <em>Rate limits</em>*</p> <p>To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository. <a href=\"https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
+    "description": "<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>The invitee will receive a notification that they have been invited to the repository, which they must accept or decline. They may do this via the notifications page, the email they receive, or by using the <a href=\"https://developer.github.com/v3/repos/invitations/\">repository invitations API endpoints</a>. <em>Rate limits</em>*</p> <p>To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.</p> <p><a href=\"https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16161,7 +16161,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
     "title": "addProtectedBranchAdminEnforcement",
     "name": "addProtectedBranchAdminEnforcement",
-    "description": "<p>Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <a href=\"https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16211,7 +16211,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
     "title": "addProtectedBranchRequiredSignatures",
     "name": "addProtectedBranchRequiredSignatures",
-    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits. <a href=\"https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16318,7 +16318,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "addProtectedBranchTeamRestrictions",
     "name": "addProtectedBranchTeamRestrictions",
-    "description": "<p>Grants the specified teams push access for this branch. If you pass the <code>hellcat-preview</code> media type, you can also give push access to child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table>",
+    "description": "<p>Grants the specified teams push access for this branch. If you pass the <code>hellcat-preview</code> media type, you can also give push access to child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16375,7 +16375,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "addProtectedBranchUserRestrictions",
     "name": "addProtectedBranchUserRestrictions",
-    "description": "<p>Grants the specified people push access for this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table>",
+    "description": "<p>Grants the specified people push access for this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16432,7 +16432,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/collaborators/:username",
     "title": "checkCollaborator",
     "name": "checkCollaborator",
-    "description": "<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p> <p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams. <a href=\"https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator\">REST API doc</a></p>",
+    "description": "<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p> <p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p> <p><a href=\"https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16482,7 +16482,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/compare/:base...:head",
     "title": "compareCommits",
     "name": "compareCommits",
-    "description": "<p>Both <code>:base</code> and <code>:head</code> must be branch names in <code>:repo</code>. To compare branches across other repositories in the same network as <code>:repo</code>, use the format <code>&lt;USERNAME&gt;:branch</code>. For example:</p> <pre><code>GET /repos/:owner/:repo/compare/hubot:branchname...octocat:branchname </code></pre> <p>The response from the API is equivalent to running the <code>git log base..head</code> command; however, commits are returned in reverse chronological order.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <em>Working with large comparisons</em>*</p> <p>The response will include a comparison of up to 250 commits. If you are working with a larger commit range, you can use the <a href=\"https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository\">Commit List API</a> to enumerate all commits in the range.</p> <p>For comparisons with extremely large diffs, you may receive an error response indicating that the diff took too long to generate. You can typically resolve this error by using a smaller commit range. <a href=\"https://developer.github.com/v3/repos/commits/#compare-two-commits\">REST API doc</a></p>",
+    "description": "<p>Both <code>:base</code> and <code>:head</code> must be branch names in <code>:repo</code>. To compare branches across other repositories in the same network as <code>:repo</code>, use the format <code>&lt;USERNAME&gt;:branch</code>. For example:</p> <pre><code>GET /repos/:owner/:repo/compare/hubot:branchname...octocat:branchname </code></pre> <p>The response from the API is equivalent to running the <code>git log base..head</code> command; however, commits are returned in reverse chronological order.</p> <p>Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <em>Working with large comparisons</em>*</p> <p>The response will include a comparison of up to 250 commits. If you are working with a larger commit range, you can use the <a href=\"https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository\">Commit List API</a> to enumerate all commits in the range.</p> <p>For comparisons with extremely large diffs, you may receive an error response indicating that the diff took too long to generate. You can typically resolve this error by using a smaller commit range.</p> <p><a href=\"https://developer.github.com/v3/repos/commits/#compare-two-commits\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16617,7 +16617,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/deployments",
     "title": "createDeployment",
     "name": "createDeployment",
-    "description": "<p>Deployments offer a few configurable parameters with sane defaults.</p> <p>The <code>ref</code> parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.</p> <p>The <code>environment</code> parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as <code>production</code>, <code>staging</code>, and <code>qa</code>. This parameter makes it easier to track which environments have requested deployments. The default environment is <code>production</code>.</p> <p>The <code>auto_merge</code> parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref <em>is</em> behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.</p> <p>By default, <a href=\"https://developer.github.com/v3/repos/statuses\">commit statuses</a> for every submitted context must be in a <code>success</code> state. The <code>required_contexts</code> parameter allows you to specify a subset of contexts that must be <code>success</code>, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.</p> <p>The <code>payload</code> parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.</p> <p>The <code>task</code> parameter is used by the deployment system to allow different execution paths. In the web world this might be <code>deploy:migrations</code> to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.</p> <p>Users with <code>repo</code> or <code>repo_deployment</code> scopes can create a deployment for a given ref:</p> <p>A simple example putting the user and room into the payload to notify back to chat networks.</p> <p>A more advanced example specifying required commit statuses and bypassing auto-merging.</p> <p>This error happens when the <code>auto_merge</code> option is enabled and when the default branch (in this case <code>master</code>), can't be merged into the branch that's being deployed (in this case <code>topic-branch</code>), due to merge conflicts.</p> <p>This error happens when the <code>required_contexts</code> parameter indicates that one or more contexts need to have a <code>success</code> status for the commit to be deployed, but one or more of the required contexts do not have a state of <code>success</code>. <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment\">REST API doc</a></p>",
+    "description": "<p>Deployments offer a few configurable parameters with sane defaults.</p> <p>The <code>ref</code> parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.</p> <p>The <code>environment</code> parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as <code>production</code>, <code>staging</code>, and <code>qa</code>. This parameter makes it easier to track which environments have requested deployments. The default environment is <code>production</code>.</p> <p>The <code>auto_merge</code> parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref <em>is</em> behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.</p> <p>By default, <a href=\"https://developer.github.com/v3/repos/statuses\">commit statuses</a> for every submitted context must be in a <code>success</code> state. The <code>required_contexts</code> parameter allows you to specify a subset of contexts that must be <code>success</code>, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.</p> <p>The <code>payload</code> parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.</p> <p>The <code>task</code> parameter is used by the deployment system to allow different execution paths. In the web world this might be <code>deploy:migrations</code> to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.</p> <p>Users with <code>repo</code> or <code>repo_deployment</code> scopes can create a deployment for a given ref:</p> <p>A simple example putting the user and room into the payload to notify back to chat networks.</p> <p>A more advanced example specifying required commit statuses and bypassing auto-merging.</p> <p>This error happens when the <code>auto_merge</code> option is enabled and when the default branch (in this case <code>master</code>), can't be merged into the branch that's being deployed (in this case <code>topic-branch</code>), due to merge conflicts.</p> <p>This error happens when the <code>required_contexts</code> parameter indicates that one or more contexts need to have a <code>success</code> status for the commit to be deployed, but one or more of the required contexts do not have a state of <code>success</code>.</p> <p><a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16728,7 +16728,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
     "title": "createDeploymentStatus",
     "name": "createDeploymentStatus",
-    "description": "<p>Users with <code>push</code> access can create deployment statuses for a given deployment.</p> <p>GitHub Apps require <code>read &amp; write</code> access to &quot;Deployments&quot; and <code>read-only</code> access to &quot;Repo contents&quot; (for private repos). OAuth Apps require the <code>repo_deployment</code> scope. <a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment-status\">REST API doc</a></p>",
+    "description": "<p>Users with <code>push</code> access can create deployment statuses for a given deployment.</p> <p>GitHub Apps require <code>read &amp; write</code> access to &quot;Deployments&quot; and <code>read-only</code> access to &quot;Repo contents&quot; (for private repos). OAuth Apps require the <code>repo_deployment</code> scope.</p> <p><a href=\"https://developer.github.com/v3/repos/deployments/#create-a-deployment-status\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16842,7 +16842,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/contents/:path",
     "title": "createFile",
     "name": "createFile",
-    "description": "<p>Creates a new file in a repository. <a href=\"https://developer.github.com/v3/repos/contents/#create-a-file\">REST API doc</a></p>",
+    "description": "<p>Creates a new file in a repository.</p> <p><a href=\"https://developer.github.com/v3/repos/contents/#create-a-file\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16958,7 +16958,7 @@ define({ "api": [
     "url": "/user/repos",
     "title": "createForAuthenticatedUser",
     "name": "createForAuthenticatedUser",
-    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository <a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository</p> <p><a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17093,7 +17093,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/forks",
     "title": "createFork",
     "name": "createFork",
-    "description": "<p>Create a fork for the authenticated user. <em>Note</em>*: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact <a href=\"https://github.com/contact\">GitHub Support</a>. <a href=\"https://developer.github.com/v3/repos/forks/#create-a-fork\">REST API doc</a></p>",
+    "description": "<p>Create a fork for the authenticated user. <em>Note</em>*: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact <a href=\"https://github.com/contact\">GitHub Support</a>.</p> <p><a href=\"https://developer.github.com/v3/repos/forks/#create-a-fork\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17143,7 +17143,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/hooks",
     "title": "createHook",
     "name": "createHook",
-    "description": "<p>Repositories can have multiple webhooks installed. Each webhook should have a unique <code>config</code>. Multiple webhooks can share the same <code>config</code> as long as those webhooks do not have any <code>events</code> that overlap. <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks.</p> <p>Here's how you can create a hook that posts payloads in JSON format: <a href=\"https://developer.github.com/v3/repos/hooks/#create-a-hook\">REST API doc</a></p>",
+    "description": "<p>Repositories can have multiple webhooks installed. Each webhook should have a unique <code>config</code>. Multiple webhooks can share the same <code>config</code> as long as those webhooks do not have any <code>events</code> that overlap. <em>Note</em>*: We no longer support GitHub Services as of October 1, 2018, and GitHub Services will stop working on January 31, 2019. Please see the <a href=\"/changes/2018-10-01-denying-new-github-services\">blog post</a> for details. You can use the <a href=\"https://developer.github.com/v3/guides/replacing-github-services\">Replacing GitHub Services guide</a> to help you update your services to webhooks.</p> <p>Here's how you can create a hook that posts payloads in JSON format:</p> <p><a href=\"https://developer.github.com/v3/repos/hooks/#create-a-hook\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17244,7 +17244,7 @@ define({ "api": [
     "url": "/orgs/:org/repos",
     "title": "createInOrg",
     "name": "createInOrg",
-    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository <a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: There are two endpoints for creating a repository: one to create a repository on a user account, and one to create a repository in an organization. The organization endpoint is fully enabled for <a href=\"https://developer.github.com/v3/apps/available-endpoints/\">GitHub Apps</a>, whereas the user endpoint is enabled only for <a href=\"https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests\">user-to-server requests</a>. <em>OAuth scope requirements</em>*</p> <p>When using <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">OAuth</a>, authorizations must include: <code>public_repo</code> scope or <code>repo</code> scope to create a public repository <code>repo</code> scope to create a private repository</p> <p><a href=\"https://developer.github.com/v3/repos/#create\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17386,7 +17386,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases",
     "title": "createRelease",
     "name": "createRelease",
-    "description": "<p>Users with push access to the repository can create a release. <a href=\"https://developer.github.com/v3/repos/releases/#create-a-release\">REST API doc</a></p>",
+    "description": "<p>Users with push access to the repository can create a release.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#create-a-release\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17474,7 +17474,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/statuses/:sha",
     "title": "createStatus",
     "name": "createStatus",
-    "description": "<p>Users with push access in a repository can create commit statuses for a given SHA.</p> <p>Note: there is a limit of 1000 statuses per <code>sha</code> and <code>context</code> within a repository. Attempts to create more than 1000 statuses will result in a validation error. <a href=\"https://developer.github.com/v3/repos/statuses/#create-a-status\">REST API doc</a></p>",
+    "description": "<p>Users with push access in a repository can create commit statuses for a given SHA.</p> <p>Note: there is a limit of 1000 statuses per <code>sha</code> and <code>context</code> within a repository. Attempts to create more than 1000 statuses will result in a validation error.</p> <p><a href=\"https://developer.github.com/v3/repos/statuses/#create-a-status\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17595,7 +17595,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo",
     "title": "delete",
     "name": "delete",
-    "description": "<p>Deleting a repository requires admin access. If OAuth is used, the <code>delete_repo</code> scope is required.</p> <p>If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response: <a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">REST API doc</a></p>",
+    "description": "<p>Deleting a repository requires admin access. If OAuth is used, the <code>delete_repo</code> scope is required.</p> <p>If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response:</p> <p><a href=\"https://developer.github.com/v3/repos/#delete-a-repository\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17738,7 +17738,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/contents/:path",
     "title": "deleteFile",
     "name": "deleteFile",
-    "description": "<p>Deletes a file in a repository.</p> <p>The <code>author</code> section is optional and is filled in with the <code>committer</code> information if omitted. If the <code>committer</code> information is omitted, the authenticated user's information is used.</p> <p>You must provide values for both <code>name</code> and <code>email</code>, whether you choose to use <code>author</code> or <code>committer</code>. Otherwise, you'll receive a <code>422</code> status code.</p> <p>Both the <code>author</code> and <code>committer</code> parameters have the same keys:</p> <table> <thead> <tr> <th>name</th> <th>type</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>string</td> <td>The name of the author (or committer) of the commit</td> </tr> <tr> <td>email</td> <td>string</td> <td>The email of the author (or committer) of the commit</td> </tr> </tbody> </table>",
+    "description": "<p>Deletes a file in a repository.</p> <p>The <code>author</code> section is optional and is filled in with the <code>committer</code> information if omitted. If the <code>committer</code> information is omitted, the authenticated user's information is used.</p> <p>You must provide values for both <code>name</code> and <code>email</code>, whether you choose to use <code>author</code> or <code>committer</code>. Otherwise, you'll receive a <code>422</code> status code.</p> <p>Both the <code>author</code> and <code>committer</code> parameters have the same keys:</p> <table> <thead> <tr> <th>name</th> <th>type</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>name</td> <td>string</td> <td>The name of the author (or committer) of the commit</td> </tr> <tr> <td>email</td> <td>string</td> <td>The email of the author (or committer) of the commit</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/contents/#delete-a-file\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17924,7 +17924,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/:release_id",
     "title": "deleteRelease",
     "name": "deleteRelease",
-    "description": "<p>Users with push access to the repository can delete a release. <a href=\"https://developer.github.com/v3/repos/releases/#delete-a-release\">REST API doc</a></p>",
+    "description": "<p>Users with push access to the repository can delete a release.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#delete-a-release\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18024,7 +18024,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo",
     "title": "get",
     "name": "get",
-    "description": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network. <a href=\"https://developer.github.com/v3/repos/#get\">REST API doc</a></p>",
+    "description": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p> <p><a href=\"https://developer.github.com/v3/repos/#get\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18224,7 +18224,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/traffic/clones",
     "title": "getClones",
     "name": "getClones",
-    "description": "<p>Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday. <a href=\"https://developer.github.com/v3/repos/traffic/#clones\">REST API doc</a></p>",
+    "description": "<p>Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.</p> <p><a href=\"https://developer.github.com/v3/repos/traffic/#clones\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18322,7 +18322,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/collaborators/:username/permission",
     "title": "getCollaboratorPermissionLevel",
     "name": "getCollaboratorPermissionLevel",
-    "description": "<p>Possible values for the <code>permission</code> key: <code>admin</code>, <code>write</code>, <code>read</code>, <code>none</code>. <a href=\"https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level\">REST API doc</a></p>",
+    "description": "<p>Possible values for the <code>permission</code> key: <code>admin</code>, <code>write</code>, <code>read</code>, <code>none</code>.</p> <p><a href=\"https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18372,7 +18372,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:ref/status",
     "title": "getCombinedStatusForRef",
     "name": "getCombinedStatusForRef",
-    "description": "<p>Users with pull access in a repository can access a combined view of commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name.</p> <p>The most recent status for each context is returned, up to 100. This field <a href=\"https://developer.github.com/v3/#pagination\">paginates</a> if there are over 100 contexts.</p> <p>Additionally, a combined <code>state</code> is returned. The <code>state</code> is one of: <strong>failure</strong> if any of the contexts report as <code>error</code> or <code>failure</code> <strong>pending</strong> if there are no statuses or a context is <code>pending</code> <strong>success</strong> if the latest status for all contexts is <code>success</code> <a href=\"https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Users with pull access in a repository can access a combined view of commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name.</p> <p>The most recent status for each context is returned, up to 100. This field <a href=\"https://developer.github.com/v3/#pagination\">paginates</a> if there are over 100 contexts.</p> <p>Additionally, a combined <code>state</code> is returned. The <code>state</code> is one of: <strong>failure</strong> if any of the contexts report as <code>error</code> or <code>failure</code> <strong>pending</strong> if there are no statuses or a context is <code>pending</code> <strong>success</strong> if the latest status for all contexts is <code>success</code></p> <p><a href=\"https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18422,7 +18422,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:sha",
     "title": "getCommit",
     "name": "getCommit",
-    "description": "<p>Diffs with binary data will have no 'patch' property. Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats. <a href=\"https://developer.github.com/v3/repos/commits/#get-a-single-commit\">REST API doc</a></p>",
+    "description": "<p>Diffs with binary data will have no 'patch' property. Pass the appropriate <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a> to fetch diff and patch formats.</p> <p><a href=\"https://developer.github.com/v3/repos/commits/#get-a-single-commit\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18615,7 +18615,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/contents/:path",
     "title": "getContents",
     "name": "getContents",
-    "description": "<p>Gets the contents of a file or directory in a repository. Specify the file path or directory in <code>:path</code>. If you omit <code>:path</code>, you will receive the contents of all files in the repository.</p> <p>Files and symlinks support <a href=\"#custom-media-types\">a custom media type</a> for retrieving the raw content or rendered HTML (when supported). All content types support <a href=\"#custom-media-types\">a custom media type</a> to ensure the content is returned in a consistent object format. <em>Note</em>*: To get a repository's contents recursively, you can <a href=\"https://developer.github.com/v3/git/trees/\">recursively get the tree</a>. This API has an upper limit of 1,000 files for a directory. If you need to retrieve more files, use the <a href=\"https://developer.github.com/v3/git/trees/#get-a-tree\">Git Trees API</a>. This API supports files up to 1 megabyte in size.</p> <p>The response will be an array of objects, one object for each item in the directory.</p> <p>When listing the contents of a directory, submodules have their &quot;type&quot; specified as &quot;file&quot;. Logically, the value <em>should</em> be &quot;submodule&quot;. This behavior exists in API v3 <a href=\"https://git.io/v1YCW\">for backwards compatibility purposes</a>. In the next major version of the API, the type will be returned as &quot;submodule&quot;.</p> <p>If the requested <code>:path</code> points to a symlink, and the symlink's target is a normal file in the repository, then the API responds with the content of the file (in the <a href=\"#response-if-content-is-a-file\">format shown above</a>).</p> <p>Otherwise, the API responds with an object describing the symlink itself:</p> <p>The <code>submodule_git_url</code> identifies the location of the submodule repository, and the <code>sha</code> identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit.</p> <p>If the submodule repository is not hosted on github.com, the Git URLs (<code>git_url</code> and <code>_links[&quot;git&quot;]</code>) and the github.com URLs (<code>html_url</code> and <code>_links[&quot;html&quot;]</code>) will have null values. <a href=\"https://developer.github.com/v3/repos/contents/#get-contents\">REST API doc</a></p>",
+    "description": "<p>Gets the contents of a file or directory in a repository. Specify the file path or directory in <code>:path</code>. If you omit <code>:path</code>, you will receive the contents of all files in the repository.</p> <p>Files and symlinks support <a href=\"#custom-media-types\">a custom media type</a> for retrieving the raw content or rendered HTML (when supported). All content types support <a href=\"#custom-media-types\">a custom media type</a> to ensure the content is returned in a consistent object format. <em>Note</em>*: To get a repository's contents recursively, you can <a href=\"https://developer.github.com/v3/git/trees/\">recursively get the tree</a>. This API has an upper limit of 1,000 files for a directory. If you need to retrieve more files, use the <a href=\"https://developer.github.com/v3/git/trees/#get-a-tree\">Git Trees API</a>. This API supports files up to 1 megabyte in size.</p> <p>The response will be an array of objects, one object for each item in the directory.</p> <p>When listing the contents of a directory, submodules have their &quot;type&quot; specified as &quot;file&quot;. Logically, the value <em>should</em> be &quot;submodule&quot;. This behavior exists in API v3 <a href=\"https://git.io/v1YCW\">for backwards compatibility purposes</a>. In the next major version of the API, the type will be returned as &quot;submodule&quot;.</p> <p>If the requested <code>:path</code> points to a symlink, and the symlink's target is a normal file in the repository, then the API responds with the content of the file (in the <a href=\"#response-if-content-is-a-file\">format shown above</a>).</p> <p>Otherwise, the API responds with an object describing the symlink itself:</p> <p>The <code>submodule_git_url</code> identifies the location of the submodule repository, and the <code>sha</code> identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit.</p> <p>If the submodule repository is not hosted on github.com, the Git URLs (<code>git_url</code> and <code>_links[&quot;git&quot;]</code>) and the github.com URLs (<code>html_url</code> and <code>_links[&quot;html&quot;]</code>) will have null values.</p> <p><a href=\"https://developer.github.com/v3/repos/contents/#get-contents\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18816,7 +18816,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id",
     "title": "getDeploymentStatus",
     "name": "getDeploymentStatus",
-    "description": "<p>Users with pull access can view a deployment status for a deployment: <a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status\">REST API doc</a></p>",
+    "description": "<p>Users with pull access can view a deployment status for a deployment:</p> <p><a href=\"https://developer.github.com/v3/repos/deployments/#get-a-single-deployment-status\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19016,7 +19016,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/latest",
     "title": "getLatestRelease",
     "name": "getLatestRelease",
-    "description": "<p>View the latest published full release for the repository. Draft releases and prereleases are not returned by this endpoint. <a href=\"https://developer.github.com/v3/repos/releases/#get-the-latest-release\">REST API doc</a></p>",
+    "description": "<p>View the latest published full release for the repository. Draft releases and prereleases are not returned by this endpoint.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#get-the-latest-release\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19059,7 +19059,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pages",
     "title": "getPages",
     "name": "getPages",
-    "description": "<p>Responses during the preview period contain two additional fields: <code>html_url</code>: The absolute URL (with scheme) to the rendered site. For example, <code>https://username.github.io</code>. <code>source</code>: Information about the source branch and directory for the rendered site. The source field includes: <code>branch</code>: The repo branch for <a href=\"https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/\">site source files</a> For example, <em>master</em> or <em>gh-pages</em>. <code>path</code>: The repo directory from which the site publishes. Can be either <code>/</code> or <code>/docs</code>. <a href=\"https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site\">REST API doc</a></p>",
+    "description": "<p>Responses during the preview period contain two additional fields: <code>html_url</code>: The absolute URL (with scheme) to the rendered site. For example, <code>https://username.github.io</code>. <code>source</code>: Information about the source branch and directory for the rendered site. The source field includes: <code>branch</code>: The repo branch for <a href=\"https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/\">site source files</a> For example, <em>master</em> or <em>gh-pages</em>. <code>path</code>: The repo directory from which the site publishes. Can be either <code>/</code> or <code>/docs</code>.</p> <p><a href=\"https://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19295,7 +19295,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
     "title": "getProtectedBranchRequiredSignatures",
     "name": "getProtectedBranchRequiredSignatures",
-    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of <code>true</code> indicates you must sign commits on this branch. For more information, see <a href=\"https://help.github.com/articles/signing-commits-with-gpg\">Signing commits with GPG</a> in GitHub Help. <em>Note</em>*: You must enable branch protection to require signed commits. <a href=\"https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of <code>true</code> indicates you must sign commits on this branch. For more information, see <a href=\"https://help.github.com/articles/signing-commits-with-gpg\">Signing commits with GPG</a> in GitHub Help. <em>Note</em>*: You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19395,7 +19395,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
     "title": "getProtectedBranchRestrictions",
     "name": "getProtectedBranchRestrictions",
-    "description": "<p><strong>Note</strong>: Teams and users <code>restrictions</code> are only available for organization-owned repositories. <a href=\"https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: Teams and users <code>restrictions</code> are only available for organization-owned repositories.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19445,7 +19445,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/stats/punch_card",
     "title": "getPunchCardStats",
     "name": "getPunchCardStats",
-    "description": "<p>Each array contains the day number, hour number, and number of commits: <code>0-6</code>: Sunday - Saturday <code>0-23</code>: Hour of day Number of commits</p> <p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits. <a href=\"https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day\">REST API doc</a></p>",
+    "description": "<p>Each array contains the day number, hour number, and number of commits: <code>0-6</code>: Sunday - Saturday <code>0-23</code>: Hour of day Number of commits</p> <p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.</p> <p><a href=\"https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19488,7 +19488,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/readme",
     "title": "getReadme",
     "name": "getReadme",
-    "description": "<p>Gets the preferred README for a repository.</p> <p>READMEs support <a href=\"#custom-media-types\">custom media types</a> for retrieving the raw content or rendered HTML. <a href=\"https://developer.github.com/v3/repos/contents/#get-the-readme\">REST API doc</a></p>",
+    "description": "<p>Gets the preferred README for a repository.</p> <p>READMEs support <a href=\"#custom-media-types\">custom media types</a> for retrieving the raw content or rendered HTML.</p> <p><a href=\"https://developer.github.com/v3/repos/contents/#get-the-readme\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19539,7 +19539,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/:release_id",
     "title": "getRelease",
     "name": "getRelease",
-    "description": "<p><strong>Note:</strong> This returns an <code>upload_url</code> key corresponding to the endpoint for uploading release assets. This key is a <a href=\"https://developer.github.com/v3/#hypermedia\">hypermedia resource</a>. <a href=\"https://developer.github.com/v3/repos/releases/#get-a-single-release\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> This returns an <code>upload_url</code> key corresponding to the endpoint for uploading release assets. This key is a <a href=\"https://developer.github.com/v3/#hypermedia\">hypermedia resource</a>.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#get-a-single-release\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19589,7 +19589,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/assets/:asset_id",
     "title": "getReleaseAsset",
     "name": "getReleaseAsset",
-    "description": "<p>To download the asset's binary content, set the <code>Accept</code> header of the request to <a href=\"https://developer.github.com/v3/media/#media-types\"><code>application/octet-stream</code></a>. The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a <code>200</code> or <code>302</code> response. <a href=\"https://developer.github.com/v3/repos/releases/#get-a-single-release-asset\">REST API doc</a></p>",
+    "description": "<p>To download the asset's binary content, set the <code>Accept</code> header of the request to <a href=\"https://developer.github.com/v3/media/#media-types\"><code>application/octet-stream</code></a>. The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a <code>200</code> or <code>302</code> response.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#get-a-single-release-asset\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19639,7 +19639,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/tags/:tag",
     "title": "getReleaseByTag",
     "name": "getReleaseByTag",
-    "description": "<p>Get a published release with the specified tag. <a href=\"https://developer.github.com/v3/repos/releases/#get-a-release-by-tag-name\">REST API doc</a></p>",
+    "description": "<p>Get a published release with the specified tag.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#get-a-release-by-tag-name\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19689,7 +19689,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/traffic/popular/paths",
     "title": "getTopPaths",
     "name": "getTopPaths",
-    "description": "<p>Get the top 10 popular contents over the last 14 days. <a href=\"https://developer.github.com/v3/repos/traffic/#list-paths\">REST API doc</a></p>",
+    "description": "<p>Get the top 10 popular contents over the last 14 days.</p> <p><a href=\"https://developer.github.com/v3/repos/traffic/#list-paths\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19732,7 +19732,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/traffic/popular/referrers",
     "title": "getTopReferrers",
     "name": "getTopReferrers",
-    "description": "<p>Get the top 10 referrers over the last 14 days. <a href=\"https://developer.github.com/v3/repos/traffic/#list-referrers\">REST API doc</a></p>",
+    "description": "<p>Get the top 10 referrers over the last 14 days.</p> <p><a href=\"https://developer.github.com/v3/repos/traffic/#list-referrers\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19775,7 +19775,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/traffic/views",
     "title": "getViews",
     "name": "getViews",
-    "description": "<p>Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday. <a href=\"https://developer.github.com/v3/repos/traffic/#views\">REST API doc</a></p>",
+    "description": "<p>Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.</p> <p><a href=\"https://developer.github.com/v3/repos/traffic/#views\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19830,7 +19830,7 @@ define({ "api": [
     "url": "/user/repos",
     "title": "list",
     "name": "list",
-    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership. <a href=\"https://developer.github.com/v3/repos/#list-your-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories that the authenticated user has explicit permission (<code>:read</code>, <code>:write</code>, or <code>:admin</code>) to access.</p> <p>The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.</p> <p><a href=\"https://developer.github.com/v3/repos/#list-your-repositories\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20074,7 +20074,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/collaborators",
     "title": "listCollaborators",
     "name": "listCollaborators",
-    "description": "<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p> <p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams. <a href=\"https://developer.github.com/v3/repos/collaborators/#list-collaborators\">REST API doc</a></p>",
+    "description": "<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p> <p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p> <p><a href=\"https://developer.github.com/v3/repos/collaborators/#list-collaborators\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20366,7 +20366,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/contributors",
     "title": "listContributors",
     "name": "listContributors",
-    "description": "<p>Lists contributors to the specified repository and sorts them by the number of commits per contributor in descending order. This endpoint may return information that is a few hours old because the GitHub REST API v3 caches contributor data to improve performance.</p> <p>GitHub identifies contributors by author email address. This endpoint groups contribution counts by GitHub user, which includes all associated email addresses. To improve performance, only the first 500 author email addresses in the repository link to GitHub users. The rest will appear as anonymous contributors without associated GitHub user information. <a href=\"https://developer.github.com/v3/repos/#list-contributors\">REST API doc</a></p>",
+    "description": "<p>Lists contributors to the specified repository and sorts them by the number of commits per contributor in descending order. This endpoint may return information that is a few hours old because the GitHub REST API v3 caches contributor data to improve performance.</p> <p>GitHub identifies contributors by author email address. This endpoint groups contribution counts by GitHub user, which includes all associated email addresses. To improve performance, only the first 500 author email addresses in the repository link to GitHub users. The rest will appear as anonymous contributors without associated GitHub user information.</p> <p><a href=\"https://developer.github.com/v3/repos/#list-contributors\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20491,7 +20491,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
     "title": "listDeploymentStatuses",
     "name": "listDeploymentStatuses",
-    "description": "<p>Users with pull access can view deployment statuses for a deployment: <a href=\"https://developer.github.com/v3/repos/deployments/#list-deployment-statuses\">REST API doc</a></p>",
+    "description": "<p>Users with pull access can view deployment statuses for a deployment:</p> <p><a href=\"https://developer.github.com/v3/repos/deployments/#list-deployment-statuses\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20557,7 +20557,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/deployments",
     "title": "listDeployments",
     "name": "listDeployments",
-    "description": "<p>Simple filtering of deployments is available via query parameters: <a href=\"https://developer.github.com/v3/repos/deployments/#list-deployments\">REST API doc</a></p>",
+    "description": "<p>Simple filtering of deployments is available via query parameters:</p> <p><a href=\"https://developer.github.com/v3/repos/deployments/#list-deployments\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20707,7 +20707,7 @@ define({ "api": [
     "url": "/orgs/:org/repos",
     "title": "listForOrg",
     "name": "listForOrg",
-    "description": "<p>List repositories for the specified org. <a href=\"https://developer.github.com/v3/repos/#list-organization-repositories\">REST API doc</a></p>",
+    "description": "<p>List repositories for the specified org.</p> <p><a href=\"https://developer.github.com/v3/repos/#list-organization-repositories\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20775,7 +20775,7 @@ define({ "api": [
     "url": "/users/:username/repos",
     "title": "listForUser",
     "name": "listForUser",
-    "description": "<p>List public repositories for the specified user. <a href=\"https://developer.github.com/v3/repos/#list-user-repositories\">REST API doc</a></p>",
+    "description": "<p>List public repositories for the specified user.</p> <p><a href=\"https://developer.github.com/v3/repos/#list-user-repositories\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21101,7 +21101,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/languages",
     "title": "listLanguages",
     "name": "listLanguages",
-    "description": "<p>Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language. <a href=\"https://developer.github.com/v3/repos/#list-languages\">REST API doc</a></p>",
+    "description": "<p>Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language.</p> <p><a href=\"https://developer.github.com/v3/repos/#list-languages\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21253,7 +21253,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "listProtectedBranchTeamRestrictions",
     "name": "listProtectedBranchTeamRestrictions",
-    "description": "<p>Lists the teams who have push access to this branch. If you pass the <code>hellcat-preview</code> media type, the list includes child teams. <a href=\"https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Lists the teams who have push access to this branch. If you pass the <code>hellcat-preview</code> media type, the list includes child teams.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21319,7 +21319,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "listProtectedBranchUserRestrictions",
     "name": "listProtectedBranchUserRestrictions",
-    "description": "<p>Lists the people who have push access to this branch. <a href=\"https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Lists the people who have push access to this branch.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21369,7 +21369,7 @@ define({ "api": [
     "url": "/repositories",
     "title": "listPublic",
     "name": "listPublic",
-    "description": "<p>This provides a dump of every public repository, in the order that they were created.</p> <p>Note: Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> to get the URL for the next page of repositories. <a href=\"https://developer.github.com/v3/repos/#list-all-public-repositories\">REST API doc</a></p>",
+    "description": "<p>This provides a dump of every public repository, in the order that they were created.</p> <p>Note: Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> to get the URL for the next page of repositories.</p> <p><a href=\"https://developer.github.com/v3/repos/#list-all-public-repositories\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21421,7 +21421,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases",
     "title": "listReleases",
     "name": "listReleases",
-    "description": "<p>This returns a list of releases, which does not include regular Git tags that have not been associated with a release. To get a list of Git tags, use the <a href=\"https://developer.github.com/v3/repos/#list-tags\">Repository Tags API</a>.</p> <p>Information about published releases are available to everyone. Only users with push access will receive listings for draft releases. <a href=\"https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository\">REST API doc</a></p>",
+    "description": "<p>This returns a list of releases, which does not include regular Git tags that have not been associated with a release. To get a list of Git tags, use the <a href=\"https://developer.github.com/v3/repos/#list-tags\">Repository Tags API</a>.</p> <p>Information about published releases are available to everyone. Only users with push access will receive listings for draft releases.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21480,7 +21480,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:ref/statuses",
     "title": "listStatusesForRef",
     "name": "listStatusesForRef",
-    "description": "<p>Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.</p> <p>This resource is also available via a legacy route: <code>GET /repos/:owner/:repo/statuses/:ref</code>. <a href=\"https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref\">REST API doc</a></p>",
+    "description": "<p>Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.</p> <p>This resource is also available via a legacy route: <code>GET /repos/:owner/:repo/statuses/:ref</code>.</p> <p><a href=\"https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21771,7 +21771,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/hooks/:hook_id/pings",
     "title": "pingHook",
     "name": "pingHook",
-    "description": "<p>This will trigger a <a href=\"https://developer.github.com/webhooks/#ping-event\">ping event</a> to be sent to the hook. <a href=\"https://developer.github.com/v3/repos/hooks/#ping-a-hook\">REST API doc</a></p>",
+    "description": "<p>This will trigger a <a href=\"https://developer.github.com/webhooks/#ping-event\">ping event</a> to be sent to the hook.</p> <p><a href=\"https://developer.github.com/v3/repos/hooks/#ping-a-hook\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21971,7 +21971,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
     "title": "removeProtectedBranchAdminEnforcement",
     "name": "removeProtectedBranchAdminEnforcement",
-    "description": "<p>Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <a href=\"https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22071,7 +22071,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
     "title": "removeProtectedBranchRequiredSignatures",
     "name": "removeProtectedBranchRequiredSignatures",
-    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits. <a href=\"https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22228,7 +22228,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
     "title": "removeProtectedBranchRestrictions",
     "name": "removeProtectedBranchRestrictions",
-    "description": "<p>Disables the ability to restrict who can push to this branch. <a href=\"https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Disables the ability to restrict who can push to this branch.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22278,7 +22278,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "removeProtectedBranchTeamRestrictions",
     "name": "removeProtectedBranchTeamRestrictions",
-    "description": "<p>Removes the ability of a team to push to this branch. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Teams that should no longer have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table>",
+    "description": "<p>Removes the ability of a team to push to this branch. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Teams that should no longer have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22335,7 +22335,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "removeProtectedBranchUserRestrictions",
     "name": "removeProtectedBranchUserRestrictions",
-    "description": "<p>Removes the ability of a team to push to this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames of the people who should no longer have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table>",
+    "description": "<p>Removes the ability of a team to push to this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames of the people who should no longer have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22449,7 +22449,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "replaceProtectedBranchTeamRestrictions",
     "name": "replaceProtectedBranchTeamRestrictions",
-    "description": "<p>Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table>",
+    "description": "<p>Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22506,7 +22506,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "replaceProtectedBranchUserRestrictions",
     "name": "replaceProtectedBranchUserRestrictions",
-    "description": "<p>Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table>",
+    "description": "<p>Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22613,7 +22613,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pages/builds",
     "title": "requestPageBuild",
     "name": "requestPageBuild",
-    "description": "<p>You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.</p> <p>Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes. <a href=\"https://developer.github.com/v3/repos/pages/#request-a-page-build\">REST API doc</a></p>",
+    "description": "<p>You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.</p> <p>Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.</p> <p><a href=\"https://developer.github.com/v3/repos/pages/#request-a-page-build\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22656,7 +22656,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/community/profile",
     "title": "retrieveCommunityProfileMetrics",
     "name": "retrieveCommunityProfileMetrics",
-    "description": "<p>This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE_TEMPLATE, PULL_REQUEST_TEMPLATE, README, and CONTRIBUTING files. <a href=\"https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics\">REST API doc</a></p>",
+    "description": "<p>This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE_TEMPLATE, PULL_REQUEST_TEMPLATE, README, and CONTRIBUTING files.</p> <p><a href=\"https://developer.github.com/v3/repos/community/#retrieve-community-profile-metrics\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22699,7 +22699,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/hooks/:hook_id/tests",
     "title": "testPushHook",
     "name": "testPushHook",
-    "description": "<p>This will trigger the hook with the latest push to the current repository if the hook is subscribed to <code>push</code> events. If the hook is not subscribed to <code>push</code> events, the server will respond with 204 but no test POST will be generated. <em>Note</em>*: Previously <code>/repos/:owner/:repo/hooks/:hook_id/test</code> <a href=\"https://developer.github.com/v3/repos/hooks/#test-a-push-hook\">REST API doc</a></p>",
+    "description": "<p>This will trigger the hook with the latest push to the current repository if the hook is subscribed to <code>push</code> events. If the hook is not subscribed to <code>push</code> events, the server will respond with 204 but no test POST will be generated. <em>Note</em>*: Previously <code>/repos/:owner/:repo/hooks/:hook_id/test</code></p> <p><a href=\"https://developer.github.com/v3/repos/hooks/#test-a-push-hook\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22749,7 +22749,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/transfer",
     "title": "transfer",
     "name": "transfer",
-    "description": "<p>A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original <code>owner</code>, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see <a href=\"https://help.github.com/articles/about-repository-transfers/\">about repository transfers</a>. <a href=\"https://developer.github.com/v3/repos/#transfer-a-repository\">REST API doc</a></p>",
+    "description": "<p>A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original <code>owner</code>, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see <a href=\"https://help.github.com/articles/about-repository-transfers/\">about repository transfers</a>.</p> <p><a href=\"https://developer.github.com/v3/repos/#transfer-a-repository\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22806,7 +22806,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo",
     "title": "update",
     "name": "update",
-    "description": "<p><strong>Note</strong>: To edit a repository's topics, use the <a href=\"#replace-all-topics-for-a-repository\"><code>topics</code> endpoint</a>. <a href=\"https://developer.github.com/v3/repos/#edit\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: To edit a repository's topics, use the <a href=\"#replace-all-topics-for-a-repository\"><code>topics</code> endpoint</a>.</p> <p><a href=\"https://developer.github.com/v3/repos/#edit\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22941,7 +22941,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection",
     "title": "updateBranchProtection",
     "name": "updateBranchProtection",
-    "description": "<p>Protecting a branch requires admin or owner permissions to the repository. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values. <em>Note</em>*: The list of users and teams in total is limited to 100 items. <a href=\"https://developer.github.com/v3/repos/branches/#update-branch-protection\">REST API doc</a></p>",
+    "description": "<p>Protecting a branch requires admin or owner permissions to the repository. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values. <em>Note</em>*: The list of users and teams in total is limited to 100 items.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-branch-protection\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23146,7 +23146,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/contents/:path",
     "title": "updateFile",
     "name": "updateFile",
-    "description": "<p>Updates a file in a repository. <a href=\"https://developer.github.com/v3/repos/contents/#update-a-file\">REST API doc</a></p>",
+    "description": "<p>Updates a file in a repository.</p> <p><a href=\"https://developer.github.com/v3/repos/contents/#update-a-file\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23508,7 +23508,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
     "title": "updateProtectedBranchPullRequestReviewEnforcement",
     "name": "updateProtectedBranchPullRequestReviewEnforcement",
-    "description": "<p>Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values. <a href=\"https://developer.github.com/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23600,7 +23600,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
     "title": "updateProtectedBranchRequiredStatusChecks",
     "name": "updateProtectedBranchRequiredStatusChecks",
-    "description": "<p>Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled. <a href=\"https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23664,7 +23664,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/:release_id",
     "title": "updateRelease",
     "name": "updateRelease",
-    "description": "<p>Users with push access to the repository can edit a release. <a href=\"https://developer.github.com/v3/repos/releases/#edit-a-release\">REST API doc</a></p>",
+    "description": "<p>Users with push access to the repository can edit a release.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#edit-a-release\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23757,7 +23757,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases/assets/:asset_id",
     "title": "updateReleaseAsset",
     "name": "updateReleaseAsset",
-    "description": "<p>Users with push access to the repository can edit a release asset. <a href=\"https://developer.github.com/v3/repos/releases/#edit-a-release-asset\">REST API doc</a></p>",
+    "description": "<p>Users with push access to the repository can edit a release asset.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#edit-a-release-asset\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23821,7 +23821,7 @@ define({ "api": [
     "url": ":url",
     "title": "uploadReleaseAsset",
     "name": "uploadReleaseAsset",
-    "description": "<p>This endpoint makes use of <a href=\"https://developer.github.com/v3/#hypermedia\">a Hypermedia relation</a> to determine which URL to access. This endpoint is provided by a URI template in <a href=\"#get-a-single-release\">the release's API response</a>. You need to use an HTTP client which supports <a href=\"http://en.wikipedia.org/wiki/Server_Name_Indication\">SNI</a> to make calls to this endpoint.</p> <p>The asset data is expected in its raw binary form, rather than JSON. Everything else about the endpoint is the same as the rest of the API. For example, you'll still need to pass your authentication to be able to upload an asset.</p> <p>Send the raw binary content of the asset as the request body.</p> <p>This may leave an empty asset with a state of <code>&quot;new&quot;</code>. It can be safely deleted. <a href=\"https://developer.github.com/v3/repos/releases/#upload-a-release-asset\">REST API doc</a></p>",
+    "description": "<p>This endpoint makes use of <a href=\"https://developer.github.com/v3/#hypermedia\">a Hypermedia relation</a> to determine which URL to access. This endpoint is provided by a URI template in <a href=\"#get-a-single-release\">the release's API response</a>. You need to use an HTTP client which supports <a href=\"http://en.wikipedia.org/wiki/Server_Name_Indication\">SNI</a> to make calls to this endpoint.</p> <p>The asset data is expected in its raw binary form, rather than JSON. Everything else about the endpoint is the same as the rest of the API. For example, you'll still need to pass your authentication to be able to upload an asset.</p> <p>Send the raw binary content of the asset as the request body.</p> <p>This may leave an empty asset with a state of <code>&quot;new&quot;</code>. It can be safely deleted.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#upload-a-release-asset\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23899,7 +23899,7 @@ define({ "api": [
     "url": "/search/code",
     "title": "code",
     "name": "code",
-    "description": "<p>Find file contents via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>. <em>Note:</em>* You must <a href=\"https://developer.github.com/v3/#authentication\">authenticate</a> to search for code across all public repositories. <em>Considerations for code search</em>*</p> <p>Due to the complexity of searching code, there are a few restrictions on how searches are performed: Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch. Only files smaller than 384 KB are searchable. You must always include at least one search term when searching source code. For example, searching for <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=language%3Ago&amp;type=Code\"><code>language:go</code></a> is not valid, while <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=amazing+language%3Ago&amp;type=Code\"><code>amazing language:go</code></a> is.</p> <p>The <code>q</code> search term can also contain any combination of the supported code search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-code/\">code search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-code#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to the file contents (<code>file</code>), the file path (<code>path</code>), or both. <a href=\"https://help.github.com/articles/searching-code#search-by-language\"><code>language</code></a> Searches code based on the language it's written in. <a href=\"https://help.github.com/articles/searching-code#search-by-the-number-of-forks-the-parent-repository-has\"><code>fork</code></a> Specifies that code from forked repositories should be searched (<code>true</code>). Repository forks will not be searchable unless the fork has more stars than the parent repository. <a href=\"https://help.github.com/articles/searching-code#search-by-the-size-of-the-parent-repository\"><code>size</code></a> Finds files that match a certain size (in bytes). <a href=\"https://help.github.com/articles/searching-code#search-by-the-location-of-a-file-within-the-repository\"><code>path</code></a> Specifies the path prefix that the resulting file must be under. <a href=\"https://help.github.com/articles/searching-code#search-by-filename\"><code>filename</code></a> Matches files by a substring of the filename. <a href=\"https://help.github.com/articles/searching-code#search-by-the-file-extension\"><code>extension</code></a> Matches files with a certain extension after a dot. <a href=\"https://help.github.com/articles/searching-code#search-within-a-users-or-organizations-repositories\"><code>user</code> or <code>repo</code></a> Limits searches to a specific user or repository.</p> <p>Suppose you want to find the definition of the <code>addClass</code> function inside <a href=\"https://github.com/jquery/jquery\">jQuery</a>. Your query would look something like this:</p> <p>Here, we're searching for the keyword <code>addClass</code> within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the <code>repo:jquery/jquery</code> repository. <em>Highlighting code search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for code, you can get text match metadata for the file <strong>content</strong> and file <strong>path</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response: <a href=\"https://developer.github.com/v3/search/#search-code\">REST API doc</a></p>",
+    "description": "<p>Find file contents via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>. <em>Note:</em>* You must <a href=\"https://developer.github.com/v3/#authentication\">authenticate</a> to search for code across all public repositories. <em>Considerations for code search</em>*</p> <p>Due to the complexity of searching code, there are a few restrictions on how searches are performed: Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch. Only files smaller than 384 KB are searchable. You must always include at least one search term when searching source code. For example, searching for <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=language%3Ago&amp;type=Code\"><code>language:go</code></a> is not valid, while <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=amazing+language%3Ago&amp;type=Code\"><code>amazing language:go</code></a> is.</p> <p>The <code>q</code> search term can also contain any combination of the supported code search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-code/\">code search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-code#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to the file contents (<code>file</code>), the file path (<code>path</code>), or both. <a href=\"https://help.github.com/articles/searching-code#search-by-language\"><code>language</code></a> Searches code based on the language it's written in. <a href=\"https://help.github.com/articles/searching-code#search-by-the-number-of-forks-the-parent-repository-has\"><code>fork</code></a> Specifies that code from forked repositories should be searched (<code>true</code>). Repository forks will not be searchable unless the fork has more stars than the parent repository. <a href=\"https://help.github.com/articles/searching-code#search-by-the-size-of-the-parent-repository\"><code>size</code></a> Finds files that match a certain size (in bytes). <a href=\"https://help.github.com/articles/searching-code#search-by-the-location-of-a-file-within-the-repository\"><code>path</code></a> Specifies the path prefix that the resulting file must be under. <a href=\"https://help.github.com/articles/searching-code#search-by-filename\"><code>filename</code></a> Matches files by a substring of the filename. <a href=\"https://help.github.com/articles/searching-code#search-by-the-file-extension\"><code>extension</code></a> Matches files with a certain extension after a dot. <a href=\"https://help.github.com/articles/searching-code#search-within-a-users-or-organizations-repositories\"><code>user</code> or <code>repo</code></a> Limits searches to a specific user or repository.</p> <p>Suppose you want to find the definition of the <code>addClass</code> function inside <a href=\"https://github.com/jquery/jquery\">jQuery</a>. Your query would look something like this:</p> <p>Here, we're searching for the keyword <code>addClass</code> within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the <code>repo:jquery/jquery</code> repository. <em>Highlighting code search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for code, you can get text match metadata for the file <strong>content</strong> and file <strong>path</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response:</p> <p><a href=\"https://developer.github.com/v3/search/#search-code\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -23974,7 +23974,7 @@ define({ "api": [
     "url": "/search/commits",
     "title": "commits",
     "name": "commits",
-    "description": "<p>Find commits via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>. <em>Considerations for commit search</em>*</p> <p>Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch.</p> <p>The <code>q</code> search term can also contain any combination of the supported commit search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-commits/\">commit search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author</code></a> Matches commits authored by a user (based on email settings). <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer</code></a> Matches commits committed by a user (based on email settings). <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author-name</code></a> Matches commits by author name. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer-name</code></a> Matches commits by committer name. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author-email</code></a> Matches commits by author email. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer-email</code></a> Matches commits by committer email. <a href=\"https://help.github.com/articles/searching-commits#search-by-authored-or-committed-date\"><code>author-date</code></a> Matches commits by author date range. <a href=\"https://help.github.com/articles/searching-commits/#search-by-authored-or-committed-date\"><code>committer-date</code></a> Matches commits by committer date range. <a href=\"https://help.github.com/articles/searching-commits#filter-merge-commits\"><code>merge</code></a> <code>true</code> filters to merge commits, <code>false</code> filters out merge commits. <a href=\"https://help.github.com/articles/searching-commits#search-by-hash\"><code>hash</code></a> Matches commits by hash. <a href=\"https://help.github.com/articles/searching-commits#search-by-parent\"><code>parent</code></a> Matches commits that have a particular parent. <a href=\"https://help.github.com/articles/searching-commits#search-by-tree\"><code>tree</code></a> Matches commits by tree hash. <a href=\"https://help.github.com/articles/searching-commits#filter-to-public-or-private-repositories\"><code>is</code></a> Matches <code>public</code> or <code>private</code> repositories. <a href=\"https://help.github.com/articles/searching-commits#search-within-a-users-or-organizations-repositories\"><code>user</code>, <code>org</code>, or <code>repo</code></a> Limits searches to a specific user, organization, or repository.</p> <p>Suppose you want to find commits related to CSS in the <a href=\"https://github.com/octocat/Spoon-Knife\">octocat/Spoon-Knife</a> repository. Your query would look something like this: <em>Highlighting code search results</em>*</p> <p>When searching for commits, you can get text match metadata for the <strong>message</strong> field. See the section on <a href=\"#text-match-metadata\">text match metadata</a> for full details. <a href=\"https://developer.github.com/v3/search/#search-commits\">REST API doc</a></p>",
+    "description": "<p>Find commits via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>. <em>Considerations for commit search</em>*</p> <p>Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch.</p> <p>The <code>q</code> search term can also contain any combination of the supported commit search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-commits/\">commit search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author</code></a> Matches commits authored by a user (based on email settings). <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer</code></a> Matches commits committed by a user (based on email settings). <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author-name</code></a> Matches commits by author name. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer-name</code></a> Matches commits by committer name. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author-email</code></a> Matches commits by author email. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer-email</code></a> Matches commits by committer email. <a href=\"https://help.github.com/articles/searching-commits#search-by-authored-or-committed-date\"><code>author-date</code></a> Matches commits by author date range. <a href=\"https://help.github.com/articles/searching-commits/#search-by-authored-or-committed-date\"><code>committer-date</code></a> Matches commits by committer date range. <a href=\"https://help.github.com/articles/searching-commits#filter-merge-commits\"><code>merge</code></a> <code>true</code> filters to merge commits, <code>false</code> filters out merge commits. <a href=\"https://help.github.com/articles/searching-commits#search-by-hash\"><code>hash</code></a> Matches commits by hash. <a href=\"https://help.github.com/articles/searching-commits#search-by-parent\"><code>parent</code></a> Matches commits that have a particular parent. <a href=\"https://help.github.com/articles/searching-commits#search-by-tree\"><code>tree</code></a> Matches commits by tree hash. <a href=\"https://help.github.com/articles/searching-commits#filter-to-public-or-private-repositories\"><code>is</code></a> Matches <code>public</code> or <code>private</code> repositories. <a href=\"https://help.github.com/articles/searching-commits#search-within-a-users-or-organizations-repositories\"><code>user</code>, <code>org</code>, or <code>repo</code></a> Limits searches to a specific user, organization, or repository.</p> <p>Suppose you want to find commits related to CSS in the <a href=\"https://github.com/octocat/Spoon-Knife\">octocat/Spoon-Knife</a> repository. Your query would look something like this: <em>Highlighting code search results</em>*</p> <p>When searching for commits, you can get text match metadata for the <strong>message</strong> field. See the section on <a href=\"#text-match-metadata\">text match metadata</a> for full details.</p> <p><a href=\"https://developer.github.com/v3/search/#search-commits\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24050,7 +24050,7 @@ define({ "api": [
     "url": "/search/issues",
     "title": "issues",
     "name": "issues",
-    "description": "<p>Find issues by state and keyword. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported issue search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-issues/\">issue search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-issues#search-issues-or-pull-requests\"><code>type</code></a> With this qualifier you can restrict the search to issues (<code>issue</code>) or pull request (<code>pr</code>) only. <a href=\"https://help.github.com/articles/searching-issues#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the title (<code>title</code>), body (<code>body</code>), comments (<code>comments</code>), or any combination of these. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-author-of-an-issue-or-pull-request\"><code>author</code></a> Finds issues or pull requests created by a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-assignee-of-an-issue-or-pull-request\"><code>assignee</code></a> Finds issues or pull requests that are assigned to a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-mentioned-user-within-an-issue-or-pull-request\"><code>mentions</code></a> Finds issues or pull requests that mention a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-commenter-within-an-issue-or-pull-request\"><code>commenter</code></a> Finds issues or pull requests that a certain user commented on. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-user-thats-involved-within-an-issue-or-pull-request\"><code>involves</code></a> Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user. <a href=\"https://help.github.com/articles/searching-issues/#search-by-a-team-thats-mentioned-within-an-issue-or-pull-request\"><code>team</code></a> For organizations you're a member of, finds issues or pull requests that @mention a team within the organization. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-whether-an-issue-or-pull-request-is-open\"><code>state</code></a> Filter issues or pull requests based on whether they're open or closed. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-labels-on-an-issue\"><code>labels</code></a> Filters issues or pull requests based on their labels. <a href=\"https://help.github.com/articles/searching-issues#search-by-missing-metadata-on-an-issue-or-pull-request\"><code>no</code></a> Filters items missing certain metadata, such as <code>label</code>, <code>milestone</code>, or <code>assignee</code> <a href=\"https://help.github.com/articles/searching-issues#search-by-the-main-language-of-a-repository\"><code>language</code></a> Searches for issues or pull requests within repositories that match a certain language. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-the-state-of-an-issue-or-pull-request\"><code>is</code></a> Searches for items within repositories that match a certain state, such as <code>open</code>, <code>closed</code>, or <code>merged</code> <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-created-or-last-updated\"><code>created</code> or <code>updated</code></a> Filters issues or pull requests based on date of creation, or when they were last updated. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-a-pull-request-was-merged\"><code>merged</code></a> Filters pull requests based on the date when they were merged. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-commit-status\"><code>status</code></a> Filters pull requests based on the commit status. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-branch-names\"><code>head</code> or <code>base</code></a> Filters pull requests based on the branch that they came from or that they are modifying. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-closed\"><code>closed</code></a> Filters issues or pull requests based on the date when they were closed. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-number-of-comments-an-issue-or-pull-request-has\"><code>comments</code></a> Filters issues or pull requests based on the quantity of comments. <a href=\"https://help.github.com/articles/searching-issues#search-within-a-users-or-organizations-repositories\"><code>user</code> or <code>repo</code></a> Limits searches to a specific user or repository. <a href=\"https://help.github.com/articles/searching-issues/#search-by-project-board\"><code>project</code></a> Limits searches to a specific project board in a repository or organization. <a href=\"https://help.github.com/articles/searching-issues/#search-within-archived-repositories\"><code>archived</code></a> Filters issues or pull requests based on whether they are in an archived repository.</p> <p>If you know the specific SHA hash of a commit, you can use also <a href=\"https://help.github.com/articles/searching-issues#search-by-the-commit-shas-within-a-pull-request\">use it to search for pull requests</a> that contain that SHA. Note that the SHA syntax must be at least seven characters.</p> <p>Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.</p> <p>In this query, we're searching for the keyword <code>windows</code>, within any open issue that's labeled as <code>bug</code>. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results. <em>Highlighting issue search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for issues, you can get text match metadata for the issue <strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response: <a href=\"https://developer.github.com/v3/search/#search-issues\">REST API doc</a></p>",
+    "description": "<p>Find issues by state and keyword. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported issue search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-issues/\">issue search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-issues#search-issues-or-pull-requests\"><code>type</code></a> With this qualifier you can restrict the search to issues (<code>issue</code>) or pull request (<code>pr</code>) only. <a href=\"https://help.github.com/articles/searching-issues#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the title (<code>title</code>), body (<code>body</code>), comments (<code>comments</code>), or any combination of these. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-author-of-an-issue-or-pull-request\"><code>author</code></a> Finds issues or pull requests created by a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-assignee-of-an-issue-or-pull-request\"><code>assignee</code></a> Finds issues or pull requests that are assigned to a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-mentioned-user-within-an-issue-or-pull-request\"><code>mentions</code></a> Finds issues or pull requests that mention a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-commenter-within-an-issue-or-pull-request\"><code>commenter</code></a> Finds issues or pull requests that a certain user commented on. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-user-thats-involved-within-an-issue-or-pull-request\"><code>involves</code></a> Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user. <a href=\"https://help.github.com/articles/searching-issues/#search-by-a-team-thats-mentioned-within-an-issue-or-pull-request\"><code>team</code></a> For organizations you're a member of, finds issues or pull requests that @mention a team within the organization. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-whether-an-issue-or-pull-request-is-open\"><code>state</code></a> Filter issues or pull requests based on whether they're open or closed. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-labels-on-an-issue\"><code>labels</code></a> Filters issues or pull requests based on their labels. <a href=\"https://help.github.com/articles/searching-issues#search-by-missing-metadata-on-an-issue-or-pull-request\"><code>no</code></a> Filters items missing certain metadata, such as <code>label</code>, <code>milestone</code>, or <code>assignee</code> <a href=\"https://help.github.com/articles/searching-issues#search-by-the-main-language-of-a-repository\"><code>language</code></a> Searches for issues or pull requests within repositories that match a certain language. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-the-state-of-an-issue-or-pull-request\"><code>is</code></a> Searches for items within repositories that match a certain state, such as <code>open</code>, <code>closed</code>, or <code>merged</code> <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-created-or-last-updated\"><code>created</code> or <code>updated</code></a> Filters issues or pull requests based on date of creation, or when they were last updated. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-a-pull-request-was-merged\"><code>merged</code></a> Filters pull requests based on the date when they were merged. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-commit-status\"><code>status</code></a> Filters pull requests based on the commit status. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-branch-names\"><code>head</code> or <code>base</code></a> Filters pull requests based on the branch that they came from or that they are modifying. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-closed\"><code>closed</code></a> Filters issues or pull requests based on the date when they were closed. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-number-of-comments-an-issue-or-pull-request-has\"><code>comments</code></a> Filters issues or pull requests based on the quantity of comments. <a href=\"https://help.github.com/articles/searching-issues#search-within-a-users-or-organizations-repositories\"><code>user</code> or <code>repo</code></a> Limits searches to a specific user or repository. <a href=\"https://help.github.com/articles/searching-issues/#search-by-project-board\"><code>project</code></a> Limits searches to a specific project board in a repository or organization. <a href=\"https://help.github.com/articles/searching-issues/#search-within-archived-repositories\"><code>archived</code></a> Filters issues or pull requests based on whether they are in an archived repository.</p> <p>If you know the specific SHA hash of a commit, you can use also <a href=\"https://help.github.com/articles/searching-issues#search-by-the-commit-shas-within-a-pull-request\">use it to search for pull requests</a> that contain that SHA. Note that the SHA syntax must be at least seven characters.</p> <p>Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.</p> <p>In this query, we're searching for the keyword <code>windows</code>, within any open issue that's labeled as <code>bug</code>. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results. <em>Highlighting issue search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for issues, you can get text match metadata for the issue <strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response:</p> <p><a href=\"https://developer.github.com/v3/search/#search-issues\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24127,7 +24127,7 @@ define({ "api": [
     "url": "/search/labels",
     "title": "labels",
     "name": "labels",
-    "description": "<p>Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Suppose you want to find labels in the <code>linguist</code> repository that match <code>bug</code>, <code>defect</code>, or <code>enhancement</code>. Your query might look like this:</p> <p>The labels that best match for the query appear first in the search results. <em>Highlighting label search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for labels, you can get text match metadata for the label <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>. <a href=\"https://developer.github.com/v3/search/#search-labels\">REST API doc</a></p>",
+    "description": "<p>Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Suppose you want to find labels in the <code>linguist</code> repository that match <code>bug</code>, <code>defect</code>, or <code>enhancement</code>. Your query might look like this:</p> <p>The labels that best match for the query appear first in the search results. <em>Highlighting label search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for labels, you can get text match metadata for the label <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p><a href=\"https://developer.github.com/v3/search/#search-labels\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24194,7 +24194,7 @@ define({ "api": [
     "url": "/search/repositories",
     "title": "repos",
     "name": "repos",
-    "description": "<p>Find repositories via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported repository search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-for-repositories/\">repository search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-when-a-repository-was-created-or-last-updated\"><code>created</code> or <code>pushed</code></a> Filters repositories based on date of creation, or when they were last updated. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks\"><code>fork</code></a> Filters whether forked repositories should be included (<code>true</code>) or only forked repositories should be returned (<code>only</code>). <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks\"><code>forks</code></a> Filters repositories based on the number of forks. <a href=\"https://help.github.com/articles/searching-for-repositories\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the repository name, description, readme, or any combination of these. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-language\"><code>language</code></a> Searches repositories based on the language they're written in. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-license\"><code>license</code></a> Filters repositories by license or license family, using the <a href=\"https://help.github.com/articles/licensing-a-repository/#searching-github-by-license-type\">license keyword</a>. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-within-a-users-or-organizations-repositories\"><code>repo</code> or <code>user</code></a> Limits searches to a specific repository or user. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-repository-size\"><code>size</code></a> Finds repositories that match a certain size (in kilobytes). <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-stars\"><code>stars</code></a> Searches repositories based on the number of stars. <a href=\"https://help.github.com/articles/classifying-your-repository-with-topics/\"><code>topic</code></a> Filters repositories based on the specified topic. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived\"><code>archived</code></a> Filters whether archived repositories should be included (<code>true</code>) or not (<code>false</code>).</p> <p>Suppose you want to search for popular Tetris repositories written in Assembly. Your query might look like this.</p> <p>You can search for multiple topics by adding more <code>topic:</code> instances, and including the <code>mercy-preview</code> header. For example:</p> <p>In this request, we're searching for repositories with the word <code>tetris</code> in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results. <em>Highlighting repository search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for repositories, you can get text match metadata for the <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response: <a href=\"https://developer.github.com/v3/search/#search-repositories\">REST API doc</a></p>",
+    "description": "<p>Find repositories via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported repository search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-for-repositories/\">repository search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-when-a-repository-was-created-or-last-updated\"><code>created</code> or <code>pushed</code></a> Filters repositories based on date of creation, or when they were last updated. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks\"><code>fork</code></a> Filters whether forked repositories should be included (<code>true</code>) or only forked repositories should be returned (<code>only</code>). <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks\"><code>forks</code></a> Filters repositories based on the number of forks. <a href=\"https://help.github.com/articles/searching-for-repositories\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the repository name, description, readme, or any combination of these. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-language\"><code>language</code></a> Searches repositories based on the language they're written in. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-license\"><code>license</code></a> Filters repositories by license or license family, using the <a href=\"https://help.github.com/articles/licensing-a-repository/#searching-github-by-license-type\">license keyword</a>. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-within-a-users-or-organizations-repositories\"><code>repo</code> or <code>user</code></a> Limits searches to a specific repository or user. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-repository-size\"><code>size</code></a> Finds repositories that match a certain size (in kilobytes). <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-stars\"><code>stars</code></a> Searches repositories based on the number of stars. <a href=\"https://help.github.com/articles/classifying-your-repository-with-topics/\"><code>topic</code></a> Filters repositories based on the specified topic. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived\"><code>archived</code></a> Filters whether archived repositories should be included (<code>true</code>) or not (<code>false</code>).</p> <p>Suppose you want to search for popular Tetris repositories written in Assembly. Your query might look like this.</p> <p>You can search for multiple topics by adding more <code>topic:</code> instances, and including the <code>mercy-preview</code> header. For example:</p> <p>In this request, we're searching for repositories with the word <code>tetris</code> in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results. <em>Highlighting repository search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for repositories, you can get text match metadata for the <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response:</p> <p><a href=\"https://developer.github.com/v3/search/#search-repositories\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24271,7 +24271,7 @@ define({ "api": [
     "url": "/search/topics",
     "title": "topics",
     "name": "topics",
-    "description": "<p>Find topics via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Results are sorted by best match by default.</p> <p>The <code>q</code> search term can also contain any combination of the supported topic search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-topics/\">topic search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <code>is:curated</code> Finds topics that have extra information, e.g., a description, display name, or logo, because they have an entry in the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>is:featured</code> Finds topics listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Any featured topic will also be curated. <code>is:not-featured</code> Finds topics not listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. <code>is:not-curated</code> Finds topics that have no extra information because they haven't been added to the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>repositories:</code> Finds topics with some number of repositories using them, e.g., <code>repositories:&gt;1000</code>.</p> <p>Suppose you want to search for topics related to Ruby that are featured on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Your query might look like this:</p> <p>In this request, we're searching for topics with the keyword <code>ruby</code>, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results. <em>Note:</em>* A search for featured Ruby topics only has 6 total results, so a <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> indicating pagination is not included in the response. <em>Highlighting topic search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your Accept header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for topics, you can get text match metadata for the topic's <strong>short_description</strong>, <strong>description</strong>, <strong>name</strong>, or <strong>display_name</strong> field. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>. <a href=\"https://developer.github.com/v3/search/#search-topics\">REST API doc</a></p>",
+    "description": "<p>Find topics via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Results are sorted by best match by default.</p> <p>The <code>q</code> search term can also contain any combination of the supported topic search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-topics/\">topic search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <code>is:curated</code> Finds topics that have extra information, e.g., a description, display name, or logo, because they have an entry in the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>is:featured</code> Finds topics listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Any featured topic will also be curated. <code>is:not-featured</code> Finds topics not listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. <code>is:not-curated</code> Finds topics that have no extra information because they haven't been added to the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>repositories:</code> Finds topics with some number of repositories using them, e.g., <code>repositories:&gt;1000</code>.</p> <p>Suppose you want to search for topics related to Ruby that are featured on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Your query might look like this:</p> <p>In this request, we're searching for topics with the keyword <code>ruby</code>, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results. <em>Note:</em>* A search for featured Ruby topics only has 6 total results, so a <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> indicating pagination is not included in the response. <em>Highlighting topic search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your Accept header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for topics, you can get text match metadata for the topic's <strong>short_description</strong>, <strong>description</strong>, <strong>name</strong>, or <strong>display_name</strong> field. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p><a href=\"https://developer.github.com/v3/search/#search-topics\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24307,7 +24307,7 @@ define({ "api": [
     "url": "/search/users",
     "title": "users",
     "name": "users",
-    "description": "<p>Find users via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported user search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-users/\">user search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-users#search-for-users-or-organizations\"><code>type</code></a> With this qualifier you can restrict the search to just personal accounts (<code>user</code>) or just organization accounts (<code>org</code>). <a href=\"https://help.github.com/articles/searching-users#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the username (<code>login</code>), public email (<code>email</code>), full name (<code>fullname</code>), or any combination of these. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-number-of-repositories-a-user-has\"><code>repos</code></a> Filters users based on the number of repositories they have. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-location-where-a-user-resides\"><code>location</code></a> Filter users by the location indicated in their profile. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-languages-of-a-users-repositories\"><code>language</code></a> Search for users that have repositories that match a certain language. <a href=\"https://help.github.com/articles/searching-users#search-based-on-when-a-user-joined-github\"><code>created</code></a> Filter users based on when they joined. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-number-of-followers-a-user-has\"><code>followers</code></a> Filter users based on the number of followers they have.</p> <p>Imagine you're looking for a list of popular users. You might try out this query:</p> <p>Here, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers. <em>Highlighting user search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for users, you can get text match metadata for the issue <strong>login</strong>, <strong>email</strong>, and <strong>name</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>. <a href=\"https://developer.github.com/v3/search/#search-users\">REST API doc</a></p>",
+    "description": "<p>Find users via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported user search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-users/\">user search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-users#search-for-users-or-organizations\"><code>type</code></a> With this qualifier you can restrict the search to just personal accounts (<code>user</code>) or just organization accounts (<code>org</code>). <a href=\"https://help.github.com/articles/searching-users#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the username (<code>login</code>), public email (<code>email</code>), full name (<code>fullname</code>), or any combination of these. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-number-of-repositories-a-user-has\"><code>repos</code></a> Filters users based on the number of repositories they have. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-location-where-a-user-resides\"><code>location</code></a> Filter users by the location indicated in their profile. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-languages-of-a-users-repositories\"><code>language</code></a> Search for users that have repositories that match a certain language. <a href=\"https://help.github.com/articles/searching-users#search-based-on-when-a-user-joined-github\"><code>created</code></a> Filter users based on when they joined. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-number-of-followers-a-user-has\"><code>followers</code></a> Filter users based on the number of followers they have.</p> <p>Imagine you're looking for a list of popular users. You might try out this query:</p> <p>Here, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers. <em>Highlighting user search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for users, you can get text match metadata for the issue <strong>login</strong>, <strong>email</strong>, and <strong>name</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p><a href=\"https://developer.github.com/v3/search/#search-users\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24384,7 +24384,7 @@ define({ "api": [
     "url": "/teams/:team_id/members/:username",
     "title": "addMember",
     "name": "addMember",
-    "description": "<p>The &quot;Add team member&quot; API (described below) is deprecated.</p> <p>We recommend using the <a href=\"https://developer.github.com/v3/teams/members/#add-or-update-team-membership\">Add team membership API</a> instead. It allows you to invite new organization members to your teams.</p> <p>To add a user to a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with, and the user being added must already be a member of at least one other team on the same organization.</p> <p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>If you attempt to add an organization to a team, you will get this:</p> <p>If you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this: <a href=\"https://developer.github.com/v3/teams/members/#add-team-member\">REST API doc</a></p>",
+    "description": "<p>The &quot;Add team member&quot; API (described below) is deprecated.</p> <p>We recommend using the <a href=\"https://developer.github.com/v3/teams/members/#add-or-update-team-membership\">Add team membership API</a> instead. It allows you to invite new organization members to your teams.</p> <p>To add a user to a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with, and the user being added must already be a member of at least one other team on the same organization.</p> <p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>If you attempt to add an organization to a team, you will get this:</p> <p>If you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this:</p> <p><a href=\"https://developer.github.com/v3/teams/members/#add-team-member\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24427,7 +24427,7 @@ define({ "api": [
     "url": "/teams/:team_id/memberships/:username",
     "title": "addOrUpdateMembership",
     "name": "addOrUpdateMembership",
-    "description": "<p>If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.</p> <p>If the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the &quot;pending&quot; state until the user accepts the invitation, at which point the membership will transition to the &quot;active&quot; state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.</p> <p>If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.</p> <p>If you attempt to add an organization to a team, you will get this: <a href=\"https://developer.github.com/v3/teams/members/#add-or-update-team-membership\">REST API doc</a></p>",
+    "description": "<p>If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.</p> <p>If the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the &quot;pending&quot; state until the user accepts the invitation, at which point the membership will transition to the &quot;active&quot; state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.</p> <p>If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.</p> <p>If you attempt to add an organization to a team, you will get this:</p> <p><a href=\"https://developer.github.com/v3/teams/members/#add-or-update-team-membership\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24482,7 +24482,7 @@ define({ "api": [
     "url": "/teams/:team_id/projects/:project_id",
     "title": "addOrUpdateProject",
     "name": "addOrUpdateProject",
-    "description": "<p>Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have <code>admin</code> permissions for the project. The project and team must be part of the same organization. <a href=\"https://developer.github.com/v3/teams/#add-or-update-team-project\">REST API doc</a></p>",
+    "description": "<p>Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have <code>admin</code> permissions for the project. The project and team must be part of the same organization.</p> <p><a href=\"https://developer.github.com/v3/teams/#add-or-update-team-project\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24599,7 +24599,7 @@ define({ "api": [
     "url": "/teams/:team_id/repos/:owner/:repo",
     "title": "checkManagesRepo",
     "name": "checkManagesRepo",
-    "description": "<p><strong>Note</strong>: If you pass the <code>hellcat-preview</code> media type, repositories inherited through a parent team will be checked.</p> <p>You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header: <a href=\"https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: If you pass the <code>hellcat-preview</code> media type, repositories inherited through a parent team will be checked.</p> <p>You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom <a href=\"https://developer.github.com/v3/media/\">media type</a> via the <code>Accept</code> header:</p> <p><a href=\"https://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24649,7 +24649,7 @@ define({ "api": [
     "url": "/orgs/:org/teams",
     "title": "create",
     "name": "create",
-    "description": "<p>To create a team, the authenticated user must be a member of <code>:org</code>. <a href=\"https://developer.github.com/v3/teams/#create-team\">REST API doc</a></p>",
+    "description": "<p>To create a team, the authenticated user must be a member of <code>:org</code>.</p> <p><a href=\"https://developer.github.com/v3/teams/#create-team\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24745,7 +24745,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions",
     "title": "createDiscussion",
     "name": "createDiscussion",
-    "description": "<p>Creates a new discussion post on a team's page. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussions/#create-a-discussion\">REST API doc</a></p>",
+    "description": "<p>Creates a new discussion post on a team's page. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#create-a-discussion\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24803,7 +24803,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments",
     "title": "createDiscussionComment",
     "name": "createDiscussionComment",
-    "description": "<p>Creates a new comment on a team discussion. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussion_comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p>Creates a new comment on a team discussion. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24853,7 +24853,7 @@ define({ "api": [
     "url": "/teams/:team_id",
     "title": "delete",
     "name": "delete",
-    "description": "<p>To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.</p> <p>If you are an organization owner and you pass the <code>hellcat-preview</code> media type, deleting a parent team will delete all of its child teams as well. <a href=\"https://developer.github.com/v3/teams/#delete-team\">REST API doc</a></p>",
+    "description": "<p>To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.</p> <p>If you are an organization owner and you pass the <code>hellcat-preview</code> media type, deleting a parent team will delete all of its child teams as well.</p> <p><a href=\"https://developer.github.com/v3/teams/#delete-team\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24889,7 +24889,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number",
     "title": "deleteDiscussion",
     "name": "deleteDiscussion",
-    "description": "<p>Delete a discussion from a team's page. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussions/#delete-a-discussion\">REST API doc</a></p>",
+    "description": "<p>Delete a discussion from a team's page. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#delete-a-discussion\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24932,7 +24932,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
     "title": "deleteDiscussionComment",
     "name": "deleteDiscussionComment",
-    "description": "<p>Deletes a comment on a team discussion. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment\">REST API doc</a></p>",
+    "description": "<p>Deletes a comment on a team discussion. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#delete-a-comment\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25018,7 +25018,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number",
     "title": "getDiscussion",
     "name": "getDiscussion",
-    "description": "<p>Get a specific discussion on a team's page. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussions/#get-a-single-discussion\">REST API doc</a></p>",
+    "description": "<p>Get a specific discussion on a team's page. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#get-a-single-discussion\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25061,7 +25061,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
     "title": "getDiscussionComment",
     "name": "getDiscussionComment",
-    "description": "<p>Get a specific comment on a team discussion. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment\">REST API doc</a></p>",
+    "description": "<p>Get a specific comment on a team discussion. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25111,7 +25111,7 @@ define({ "api": [
     "url": "/teams/:team_id/members/:username",
     "title": "getMember",
     "name": "getMember",
-    "description": "<p>The &quot;Get team member&quot; API (described below) is deprecated.</p> <p>We recommend using the <a href=\"https://developer.github.com/v3/teams/members/#get-team-membership\">Get team membership API</a> instead. It allows you to get both active and pending memberships.</p> <p>To list members in a team, the team must be visible to the authenticated user. <a href=\"https://developer.github.com/v3/teams/members/#get-team-member\">REST API doc</a></p>",
+    "description": "<p>The &quot;Get team member&quot; API (described below) is deprecated.</p> <p>We recommend using the <a href=\"https://developer.github.com/v3/teams/members/#get-team-membership\">Get team membership API</a> instead. It allows you to get both active and pending memberships.</p> <p>To list members in a team, the team must be visible to the authenticated user.</p> <p><a href=\"https://developer.github.com/v3/teams/members/#get-team-member\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25154,7 +25154,7 @@ define({ "api": [
     "url": "/teams/:team_id/memberships/:username",
     "title": "getMembership",
     "name": "getMembership",
-    "description": "<p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p> <p>To get a user's membership with a team, the team must be visible to the authenticated user. <em>Note:</em>* The <code>role</code> for organization owners returns as <code>maintainer</code>. For more information about <code>maintainer</code> roles, see <a href=\"https://developer.github.com/v3/teams#create-team\">Create team</a>. <a href=\"https://developer.github.com/v3/teams/members/#get-team-membership\">REST API doc</a></p>",
+    "description": "<p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p> <p>To get a user's membership with a team, the team must be visible to the authenticated user. <em>Note:</em>* The <code>role</code> for organization owners returns as <code>maintainer</code>. For more information about <code>maintainer</code> roles, see <a href=\"https://developer.github.com/v3/teams#create-team\">Create team</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/members/#get-team-membership\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25301,7 +25301,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments",
     "title": "listDiscussionComments",
     "name": "listDiscussionComments",
-    "description": "<p>List all comments on a team discussion. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussion_comments/#list-comments\">REST API doc</a></p>",
+    "description": "<p>List all comments on a team discussion. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#list-comments\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25372,7 +25372,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions",
     "title": "listDiscussions",
     "name": "listDiscussions",
-    "description": "<p>List all discussions on a team's page. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussions/#list-discussions\">REST API doc</a></p>",
+    "description": "<p>List all discussions on a team's page. OAuth access tokens require the <code>read:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#list-discussions\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25436,7 +25436,7 @@ define({ "api": [
     "url": "/user/teams",
     "title": "listForAuthenticatedUser",
     "name": "listForAuthenticatedUser",
-    "description": "<p>List all of the teams across all of the organizations to which the authenticated user belongs. This method requires <code>user</code>, <code>repo</code>, or <code>read:org</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a> when authenticating via <a href=\"https://developer.github.com/apps/building-oauth-apps/\">OAuth</a>. <a href=\"https://developer.github.com/v3/teams/#list-user-teams\">REST API doc</a></p>",
+    "description": "<p>List all of the teams across all of the organizations to which the authenticated user belongs. This method requires <code>user</code>, <code>repo</code>, or <code>read:org</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a> when authenticating via <a href=\"https://developer.github.com/apps/building-oauth-apps/\">OAuth</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/#list-user-teams\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25481,7 +25481,7 @@ define({ "api": [
     "url": "/teams/:team_id/members",
     "title": "listMembers",
     "name": "listMembers",
-    "description": "<p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams. <a href=\"https://developer.github.com/v3/teams/members/#list-team-members\">REST API doc</a></p>",
+    "description": "<p>If you pass the <code>hellcat-preview</code> media type, team members will include the members of child teams.</p> <p><a href=\"https://developer.github.com/v3/teams/members/#list-team-members\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25546,7 +25546,7 @@ define({ "api": [
     "url": "/teams/:team_id/invitations",
     "title": "listPendingInvitations",
     "name": "listPendingInvitations",
-    "description": "<p>The return hash contains a <code>role</code> field which refers to the Organization Invitation role and will be one of the following values: <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>, <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not a GitHub member, the <code>login</code> field in the return hash will be <code>null</code>. <a href=\"https://developer.github.com/v3/teams/members/#list-pending-team-invitations\">REST API doc</a></p>",
+    "description": "<p>The return hash contains a <code>role</code> field which refers to the Organization Invitation role and will be one of the following values: <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>, <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not a GitHub member, the <code>login</code> field in the return hash will be <code>null</code>.</p> <p><a href=\"https://developer.github.com/v3/teams/members/#list-pending-team-invitations\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25598,7 +25598,7 @@ define({ "api": [
     "url": "/teams/:team_id/projects",
     "title": "listProjects",
     "name": "listProjects",
-    "description": "<p>Lists the organization projects for a team. If you pass the <code>hellcat-preview</code> media type, the response will include projects inherited from a parent team. <a href=\"https://developer.github.com/v3/teams/#list-team-projects\">REST API doc</a></p>",
+    "description": "<p>Lists the organization projects for a team. If you pass the <code>hellcat-preview</code> media type, the response will include projects inherited from a parent team.</p> <p><a href=\"https://developer.github.com/v3/teams/#list-team-projects\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25650,7 +25650,7 @@ define({ "api": [
     "url": "/teams/:team_id/repos",
     "title": "listRepos",
     "name": "listRepos",
-    "description": "<p><strong>Note</strong>: If you pass the <code>hellcat-preview</code> media type, the response will include any repositories inherited through a parent team. <a href=\"https://developer.github.com/v3/teams/#list-team-repos\">REST API doc</a></p>",
+    "description": "<p><strong>Note</strong>: If you pass the <code>hellcat-preview</code> media type, the response will include any repositories inherited through a parent team.</p> <p><a href=\"https://developer.github.com/v3/teams/#list-team-repos\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25702,7 +25702,7 @@ define({ "api": [
     "url": "/teams/:team_id/members/:username",
     "title": "removeMember",
     "name": "removeMember",
-    "description": "<p>The &quot;Remove team member&quot; API (described below) is deprecated.</p> <p>We recommend using the <a href=\"https://developer.github.com/v3/teams/members/#remove-team-membership\">Remove team membership API</a> instead. It allows you to remove both active and pending memberships.</p> <p>To remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team. <a href=\"https://developer.github.com/v3/teams/members/#remove-team-member\">REST API doc</a></p>",
+    "description": "<p>The &quot;Remove team member&quot; API (described below) is deprecated.</p> <p>We recommend using the <a href=\"https://developer.github.com/v3/teams/members/#remove-team-membership\">Remove team membership API</a> instead. It allows you to remove both active and pending memberships.</p> <p>To remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team.</p> <p><a href=\"https://developer.github.com/v3/teams/members/#remove-team-member\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25745,7 +25745,7 @@ define({ "api": [
     "url": "/teams/:team_id/memberships/:username",
     "title": "removeMembership",
     "name": "removeMembership",
-    "description": "<p>To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team. <a href=\"https://developer.github.com/v3/teams/members/#remove-team-membership\">REST API doc</a></p>",
+    "description": "<p>To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.</p> <p><a href=\"https://developer.github.com/v3/teams/members/#remove-team-membership\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25788,7 +25788,7 @@ define({ "api": [
     "url": "/teams/:team_id/projects/:project_id",
     "title": "removeProject",
     "name": "removeProject",
-    "description": "<p>Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have <code>read</code> access to both the team and project, or <code>admin</code> access to the team or project. <strong>Note:</strong> This endpoint removes the project from the team, but does not delete it. <a href=\"https://developer.github.com/v3/teams/#remove-team-project\">REST API doc</a></p>",
+    "description": "<p>Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have <code>read</code> access to both the team and project, or <code>admin</code> access to the team or project. <strong>Note:</strong> This endpoint removes the project from the team, but does not delete it.</p> <p><a href=\"https://developer.github.com/v3/teams/#remove-team-project\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25831,7 +25831,7 @@ define({ "api": [
     "url": "/teams/:team_id/repos/:owner/:repo",
     "title": "removeRepo",
     "name": "removeRepo",
-    "description": "<p>If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team. <a href=\"https://developer.github.com/v3/teams/#remove-team-repository\">REST API doc</a></p>",
+    "description": "<p>If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.</p> <p><a href=\"https://developer.github.com/v3/teams/#remove-team-repository\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25881,7 +25881,7 @@ define({ "api": [
     "url": "/teams/:team_id/projects/:project_id",
     "title": "reviewProject",
     "name": "reviewProject",
-    "description": "<p>Checks whether a team has <code>read</code>, <code>write</code>, or <code>admin</code> permissions for an organization project. If you pass the <code>hellcat-preview</code> media type, the response will include projects inherited from a parent team. <a href=\"https://developer.github.com/v3/teams/#review-a-team-project\">REST API doc</a></p>",
+    "description": "<p>Checks whether a team has <code>read</code>, <code>write</code>, or <code>admin</code> permissions for an organization project. If you pass the <code>hellcat-preview</code> media type, the response will include projects inherited from a parent team.</p> <p><a href=\"https://developer.github.com/v3/teams/#review-a-team-project\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -25924,7 +25924,7 @@ define({ "api": [
     "url": "/teams/:team_id",
     "title": "update",
     "name": "update",
-    "description": "<p>To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team. <em>Note:</em>* With nested teams, the <code>privacy</code> for parent teams cannot be <code>secret</code>. <a href=\"https://developer.github.com/v3/teams/#edit-team\">REST API doc</a></p>",
+    "description": "<p>To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team. <em>Note:</em>* With nested teams, the <code>privacy</code> for parent teams cannot be <code>secret</code>.</p> <p><a href=\"https://developer.github.com/v3/teams/#edit-team\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -26001,7 +26001,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number",
     "title": "updateDiscussion",
     "name": "updateDiscussion",
-    "description": "<p>Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussions/#edit-a-discussion\">REST API doc</a></p>",
+    "description": "<p>Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#edit-a-discussion\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -26058,7 +26058,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
     "title": "updateDiscussionComment",
     "name": "updateDiscussionComment",
-    "description": "<p>Edits the body text of a discussion comment. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment\">REST API doc</a></p>",
+    "description": "<p>Edits the body text of a discussion comment. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#edit-a-comment\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -26187,7 +26187,7 @@ define({ "api": [
     "url": "/user/blocks/:username",
     "title": "checkBlocked",
     "name": "checkBlocked",
-    "description": "<p>If the user is blocked:</p> <p>If the user is not blocked: <a href=\"https://developer.github.com/v3/users/blocking/#check-whether-youve-blocked-a-user\">REST API doc</a></p>",
+    "description": "<p>If the user is blocked:</p> <p>If the user is not blocked:</p> <p><a href=\"https://developer.github.com/v3/users/blocking/#check-whether-youve-blocked-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26302,7 +26302,7 @@ define({ "api": [
     "url": "/user/gpg_keys",
     "title": "createGpgKey",
     "name": "createGpgKey",
-    "description": "<p>Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key\">REST API doc</a></p>",
+    "description": "<p>Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26338,7 +26338,7 @@ define({ "api": [
     "url": "/user/keys",
     "title": "createPublicKey",
     "name": "createPublicKey",
-    "description": "<p>Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#create-a-public-key\">REST API doc</a></p>",
+    "description": "<p>Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least <code>write:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/keys/#create-a-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26417,7 +26417,7 @@ define({ "api": [
     "url": "/user/gpg_keys/:gpg_key_id",
     "title": "deleteGpgKey",
     "name": "deleteGpgKey",
-    "description": "<p>Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
+    "description": "<p>Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26453,7 +26453,7 @@ define({ "api": [
     "url": "/user/keys/:key_id",
     "title": "deletePublicKey",
     "name": "deletePublicKey",
-    "description": "<p>Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
+    "description": "<p>Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>admin:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/keys/#delete-a-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26489,7 +26489,7 @@ define({ "api": [
     "url": "/user/following/:username",
     "title": "follow",
     "name": "follow",
-    "description": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the <code>user:follow</code> scope. <a href=\"https://developer.github.com/v3/users/followers/#follow-a-user\">REST API doc</a></p>",
+    "description": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the <code>user:follow</code> scope.</p> <p><a href=\"https://developer.github.com/v3/users/followers/#follow-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26525,7 +26525,7 @@ define({ "api": [
     "url": "/user",
     "title": "getAuthenticated",
     "name": "getAuthenticated",
-    "description": "<p>Lists public and private profile information when authenticated through basic auth or OAuth with the <code>user</code> scope.</p> <p>Lists public profile information when authenticated through OAuth without the <code>user</code> scope. <a href=\"https://developer.github.com/v3/users/#get-the-authenticated-user\">REST API doc</a></p>",
+    "description": "<p>Lists public and private profile information when authenticated through basic auth or OAuth with the <code>user</code> scope.</p> <p>Lists public profile information when authenticated through OAuth without the <code>user</code> scope.</p> <p><a href=\"https://developer.github.com/v3/users/#get-the-authenticated-user\">REST API doc</a></p>",
     "group": "Users",
     "examples": [
       {
@@ -26548,7 +26548,7 @@ define({ "api": [
     "url": "/users/:username",
     "title": "getByUsername",
     "name": "getByUsername",
-    "description": "<p>Provides publicly available information about someone with a GitHub account.</p> <p>The <code>email</code> key in the following response is the publicly visible email address from your GitHub <a href=\"https://github.com/settings/profile\">profile page</a>. When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for <code>email</code>, then it will have a value of <code>null</code>. You only see publicly visible email addresses when authenticated with GitHub. For more information, see <a href=\"https://developer.github.com/v3/#authentication\">Authentication</a>.</p> <p>The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see &quot;<a href=\"https://developer.github.com/v3/users/emails/\">Emails API</a>&quot;. <a href=\"https://developer.github.com/v3/users/#get-a-single-user\">REST API doc</a></p>",
+    "description": "<p>Provides publicly available information about someone with a GitHub account.</p> <p>The <code>email</code> key in the following response is the publicly visible email address from your GitHub <a href=\"https://github.com/settings/profile\">profile page</a>. When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for <code>email</code>, then it will have a value of <code>null</code>. You only see publicly visible email addresses when authenticated with GitHub. For more information, see <a href=\"https://developer.github.com/v3/#authentication\">Authentication</a>.</p> <p>The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see &quot;<a href=\"https://developer.github.com/v3/users/emails/\">Emails API</a>&quot;.</p> <p><a href=\"https://developer.github.com/v3/users/#get-a-single-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26584,7 +26584,7 @@ define({ "api": [
     "url": "/users/:username/hovercard",
     "title": "getContextForUser",
     "name": "getContextForUser",
-    "description": "<p>Provides hovercard information when authenticated through basic auth or OAuth with the <code>repo</code> scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.</p> <p>The <code>subject_type</code> and <code>subject_id</code> parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about <code>octocat</code> who owns the <code>Spoon-Knife</code> repository via cURL, it would look like this: <a href=\"https://developer.github.com/v3/users/#get-contextual-information-about-a-user\">REST API doc</a></p>",
+    "description": "<p>Provides hovercard information when authenticated through basic auth or OAuth with the <code>repo</code> scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.</p> <p>The <code>subject_type</code> and <code>subject_id</code> parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about <code>octocat</code> who owns the <code>Spoon-Knife</code> repository via cURL, it would look like this:</p> <p><a href=\"https://developer.github.com/v3/users/#get-contextual-information-about-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26640,7 +26640,7 @@ define({ "api": [
     "url": "/user/gpg_keys/:gpg_key_id",
     "title": "getGpgKey",
     "name": "getGpgKey",
-    "description": "<p>View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key\">REST API doc</a></p>",
+    "description": "<p>View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26676,7 +26676,7 @@ define({ "api": [
     "url": "/user/keys/:key_id",
     "title": "getPublicKey",
     "name": "getPublicKey",
-    "description": "<p>View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
+    "description": "<p>View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/keys/#get-a-single-public-key\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26712,7 +26712,7 @@ define({ "api": [
     "url": "/users",
     "title": "list",
     "name": "list",
-    "description": "<p>Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.</p> <p>Note: Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> to get the URL for the next page of users. <a href=\"https://developer.github.com/v3/users/#get-all-users\">REST API doc</a></p>",
+    "description": "<p>Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.</p> <p>Note: Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> to get the URL for the next page of users.</p> <p><a href=\"https://developer.github.com/v3/users/#get-all-users\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -26764,7 +26764,7 @@ define({ "api": [
     "url": "/user/blocks",
     "title": "listBlocked",
     "name": "listBlocked",
-    "description": "<p>List the users you've blocked on your personal account. <a href=\"https://developer.github.com/v3/users/blocking/#list-blocked-users\">REST API doc</a></p>",
+    "description": "<p>List the users you've blocked on your personal account.</p> <p><a href=\"https://developer.github.com/v3/users/blocking/#list-blocked-users\">REST API doc</a></p>",
     "group": "Users",
     "examples": [
       {
@@ -26787,7 +26787,7 @@ define({ "api": [
     "url": "/user/emails",
     "title": "listEmails",
     "name": "listEmails",
-    "description": "<p>Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the <code>user:email</code> scope. <a href=\"https://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user\">REST API doc</a></p>",
+    "description": "<p>Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the <code>user:email</code> scope.</p> <p><a href=\"https://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27026,7 +27026,7 @@ define({ "api": [
     "url": "/user/gpg_keys",
     "title": "listGpgKeys",
     "name": "listGpgKeys",
-    "description": "<p>Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys\">REST API doc</a></p>",
+    "description": "<p>Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:gpg_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27071,7 +27071,7 @@ define({ "api": [
     "url": "/users/:username/gpg_keys",
     "title": "listGpgKeysForUser",
     "name": "listGpgKeysForUser",
-    "description": "<p>Lists the GPG keys for a user. This information is accessible by anyone. <a href=\"https://developer.github.com/v3/users/gpg_keys/#list-gpg-keys-for-a-user\">REST API doc</a></p>",
+    "description": "<p>Lists the GPG keys for a user. This information is accessible by anyone.</p> <p><a href=\"https://developer.github.com/v3/users/gpg_keys/#list-gpg-keys-for-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27123,7 +27123,7 @@ define({ "api": [
     "url": "/user/public_emails",
     "title": "listPublicEmails",
     "name": "listPublicEmails",
-    "description": "<p>Lists your publicly visible email address, which you can set with the <a href=\"#toggle-primary-email-visibility\">Toggle primary email visibility</a> endpoint. This endpoint is accessible with the <code>user:email</code> scope. <a href=\"https://developer.github.com/v3/users/emails/#list-public-email-addresses-for-a-user\">REST API doc</a></p>",
+    "description": "<p>Lists your publicly visible email address, which you can set with the <a href=\"#toggle-primary-email-visibility\">Toggle primary email visibility</a> endpoint. This endpoint is accessible with the <code>user:email</code> scope.</p> <p><a href=\"https://developer.github.com/v3/users/emails/#list-public-email-addresses-for-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27168,7 +27168,7 @@ define({ "api": [
     "url": "/user/keys",
     "title": "listPublicKeys",
     "name": "listPublicKeys",
-    "description": "<p>Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>. <a href=\"https://developer.github.com/v3/users/keys/#list-your-public-keys\">REST API doc</a></p>",
+    "description": "<p>Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least <code>read:public_key</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/users/keys/#list-your-public-keys\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27213,7 +27213,7 @@ define({ "api": [
     "url": "/users/:username/keys",
     "title": "listPublicKeysForUser",
     "name": "listPublicKeysForUser",
-    "description": "<p>Lists the <em>verified</em> public SSH keys for a user. This is accessible by anyone. <a href=\"https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user\">REST API doc</a></p>",
+    "description": "<p>Lists the <em>verified</em> public SSH keys for a user. This is accessible by anyone.</p> <p><a href=\"https://developer.github.com/v3/users/keys/#list-public-keys-for-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27265,7 +27265,7 @@ define({ "api": [
     "url": "/user/email/visibility",
     "title": "togglePrimaryEmailVisibility",
     "name": "togglePrimaryEmailVisibility",
-    "description": "<p>Sets the visibility for your primary email addresses. <a href=\"https://developer.github.com/v3/users/emails/#toggle-primary-email-visibility\">REST API doc</a></p>",
+    "description": "<p>Sets the visibility for your primary email addresses.</p> <p><a href=\"https://developer.github.com/v3/users/emails/#toggle-primary-email-visibility\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27344,7 +27344,7 @@ define({ "api": [
     "url": "/user/following/:username",
     "title": "unfollow",
     "name": "unfollow",
-    "description": "<p>Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the <code>user:follow</code> scope. <a href=\"https://developer.github.com/v3/users/followers/#unfollow-a-user\">REST API doc</a></p>",
+    "description": "<p>Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the <code>user:follow</code> scope.</p> <p><a href=\"https://developer.github.com/v3/users/followers/#unfollow-a-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
@@ -27380,7 +27380,7 @@ define({ "api": [
     "url": "/user",
     "title": "updateAuthenticated",
     "name": "updateAuthenticated",
-    "description": "<p><strong>Note:</strong> If your email is set to private and you send an <code>email</code> parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API. <a href=\"https://developer.github.com/v3/users/#update-the-authenticated-user\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> If your email is set to private and you send an <code>email</code> parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.</p> <p><a href=\"https://developer.github.com/v3/users/#update-the-authenticated-user\">REST API doc</a></p>",
     "group": "Users",
     "parameter": {
       "fields": {
