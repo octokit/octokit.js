@@ -1,0 +1,21 @@
+
+.container {
+  margin: 0 auto;
+  padding: 1.25rem 1rem;
+  display: grid;
+  grid-template-columns: 300px 2fr;
+}
+
+.container > header {
+  margin-bottom: 1.5rem;
+  grid-column: 1/-1;
+}
+
+.container > nav {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.container > main {
+  grid-column: 2/3;
+}

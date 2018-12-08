@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import layoutStyles from "./layout.module.css"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -8,8 +9,8 @@ const ListLink = props => (
 )
 
 export default ({ children }) => (
-  <div style={{ margin: `0 auto`, maxWidth: 650, padding: `1.25rem 1rem` }}>
-    <header style={{ marginBottom: `1.5rem` }}>
+  <div className={ layoutStyles.container }>
+    <header className={ layoutStyles.header }>
       <Link to='/' style={{ textShadow: `none`, backgroundImage: `none` }}>
         <h3 style={{ display: `inline` }}>octokit.js</h3>
       </Link>
