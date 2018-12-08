@@ -3,7 +3,8 @@
   margin: 0 auto;
   padding: 1.25rem 1rem;
   display: grid;
-  grid-template-columns: 300px 2fr;
+  grid-column-gap: 2.9em;
+  grid-template-columns: calc(1.45em * 11) 2fr;
 }
 
 .container > header {
