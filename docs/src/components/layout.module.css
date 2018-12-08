@@ -1,22 +1,28 @@
-
 .container {
-  margin: 0 auto;
   padding: 1.25rem 1rem;
-  display: grid;
-  grid-column-gap: 2.9em;
-  grid-template-columns: calc(1.45em * 11) 2fr;
 }
 
 .container > header {
   margin-bottom: 1.5rem;
-  grid-column: 1/-1;
 }
 
-.container > nav {
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
+@media (min-width: 40em) {
+  .container {
+    display: grid;
+    grid-column-gap: 2.9em;
+    grid-template-columns: calc(1.45em * 9) 2fr;
+  }
 
-.container > main {
-  grid-column: 2/3;
+  .container > header {
+    grid-column: 1/-1;
+  }
+
+  .container > nav {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .container > main {
+    grid-column: 2/3;
+  }
 }
