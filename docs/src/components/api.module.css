@@ -1,0 +1,25 @@
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2.9em;
+  --description-background-color: white;
+  --code-background-color: #0A0B09;
+  --code-foreground-color: white;
+  background-image: linear-gradient(90deg, 
+  	var(--description-background-color) 0%, 
+  	var(--description-background-color) 50%, 
+  	var(--code-background-color)        50%, 
+  	var(--code-background-color)        100%
+  	);
+}
+
+.container > * {
+  grid-column: 1/2;
+}
+
+.container > pre {
+  grid-column: 2/3;
+  background-color: var(--code-background-color);
+  color: var(--code-foreground-color);
+}
