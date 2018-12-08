@@ -9,6 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "@octokit/routes": "^15.3.0",
     "gatsby": "^2.0.33",
     "gatsby-plugin-typography": "^2.2.2",
     "gatsby-source-filesystem": "^2.0.11",
