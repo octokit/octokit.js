@@ -557,6 +557,27 @@
       },
       "url": "/marketplace_listing/stubbed/accounts/:account_id"
     },
+    "createContentAttachment": {
+      "headers": {
+        "accept": "application/vnd.github.corsair-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "content_reference_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "title": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/content_references/:content_reference_id/attachments"
+    },
     "createFromManifest": {
       "headers": {
         "accept": "application/vnd.github.fury-preview+json"
@@ -3219,6 +3240,9 @@
       "url": "/repos/:owner/:repo/import"
     },
     "deleteArchiveForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "migration_id": {
@@ -3229,6 +3253,9 @@
       "url": "/user/migrations/:migration_id/archive"
     },
     "deleteArchiveForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "migration_id": {
@@ -3243,6 +3270,9 @@
       "url": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getArchiveForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "migration_id": {
@@ -3253,6 +3283,9 @@
       "url": "/user/migrations/:migration_id/archive"
     },
     "getArchiveForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "migration_id": {
@@ -3321,6 +3354,9 @@
       "url": "/repos/:owner/:repo/import/large_files"
     },
     "getStatusForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "migration_id": {
@@ -3331,6 +3367,9 @@
       "url": "/user/migrations/:migration_id"
     },
     "getStatusForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "migration_id": {
@@ -3345,6 +3384,9 @@
       "url": "/orgs/:org/migrations/:migration_id"
     },
     "listForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "page": {
@@ -3357,6 +3399,9 @@
       "url": "/user/migrations"
     },
     "listForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "GET",
       "params": {
         "org": {
@@ -3500,6 +3545,9 @@
       "url": "/repos/:owner/:repo/import"
     },
     "unlockRepoForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "migration_id": {
@@ -3514,6 +3562,9 @@
       "url": "/user/migrations/:migration_id/repos/:repo_name/lock"
     },
     "unlockRepoForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.wyandotte-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "migration_id": {
@@ -4324,6 +4375,14 @@
           "type": "boolean"
         },
         "location": {
+          "type": "string"
+        },
+        "members_allowed_repository_creation_type": {
+          "enum": [
+            "all",
+            "private",
+            "none"
+          ],
           "type": "string"
         },
         "members_can_create_repositories": {
