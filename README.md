@@ -124,7 +124,7 @@ octokit.authenticate({
   token: 'secrettoken123'
 })
 
-// oauth key/secret (to get a token)
+// oauth key/secret (to get a token or increase higher rate limit for server-server requests)
 octokit.authenticate({
   type: 'oauth',
   key: 'client_id',
