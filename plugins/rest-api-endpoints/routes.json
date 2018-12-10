@@ -557,6 +557,24 @@
       },
       "url": "/marketplace_listing/stubbed/accounts/:account_id"
     },
+    "createContentAttachment": {
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "content_reference_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "title": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/content_references/:content_reference_id/attachments"
+    },
     "createFromManifest": {
       "headers": {
         "accept": "application/vnd.github.fury-preview+json"
@@ -3968,6 +3986,9 @@
       "url": "/orgs/:org/hooks/:hook_id"
     },
     "get": {
+      "headers": {
+        "accept": "application/vnd.github.surtur-preview+json"
+      },
       "method": "GET",
       "params": {
         "org": {
@@ -4294,6 +4315,9 @@
       "url": "/orgs/:org/blocks/:username"
     },
     "update": {
+      "headers": {
+        "accept": "application/vnd.github.surtur-preview+json"
+      },
       "method": "PATCH",
       "params": {
         "billing_email": {
@@ -4324,6 +4348,14 @@
           "type": "boolean"
         },
         "location": {
+          "type": "string"
+        },
+        "members_allowed_repository_creation_type": {
+          "enum": [
+            "all",
+            "private",
+            "none"
+          ],
           "type": "string"
         },
         "members_can_create_repositories": {
