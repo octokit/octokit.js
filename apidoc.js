@@ -1903,6 +1903,28 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 
 
 /**
+ * @api {POST} /content_references/:content_reference_id/attachments createContentAttachment
+ * @apiName createContentAttachment
+ * @apiDescription Creates an attachment under a content reference (URL) in the body or comment of an issue or pull request. Use the `id` of the content reference from the [`content_reference` event](https://developer.github.com/v3/activity/events/types/#contentreferenceevent) to create an attachment. See "[Using content attachments](https://developer.github.com/apps/using-content-attachments/)" for details about content attachments.
+
+You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+
+This example creates a content attachment for the domain `https://errors.ai/`.
+
+<a href="https://developer.github.com/v3/apps/#create-a-content-attachment">REST API doc</a>
+ * @apiGroup Apps
+ *
+ * @apiParam {integer} content_reference_id  
+ * @apiParam {string} title  The title of the content attachment displayed in the body or comment of an issue or pull request.
+ * @apiParam {string} body  The body text of the content attachment displayed in the body or comment of an issue or pull request. This parameter supports markdown.
+ * @apiExample {js} async/await
+ * const result = await octokit.apps.createContentAttachment({content_reference_id, title, body})
+ * @apiExample {js} Promise
+ * octokit.apps.createContentAttachment({content_reference_id, title, body}).then(result => {})
+ */
+
+
+/**
  * @api {GET} /installation/repositories listRepos
  * @apiName listRepos
  * @apiDescription List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.
@@ -3739,7 +3761,15 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 /**
  * @api {PATCH} /orgs/:org update
  * @apiName update
- * @apiDescription <a href="https://developer.github.com/v3/orgs/#edit-an-organization">REST API doc</a>
+ * @apiDescription **Note:** The new `members_allowed_repository_creation_type` replaces the functionality of `members_can_create_repositories`.
+
+Setting `members_allowed_repository_creation_type` will override the value of `members_can_create_repositories` in the following ways:
+
+*   Setting `members_allowed_repository_creation_type` to `all` or `private` sets `members_can_create_repositories` to `true`.
+*   Setting `members_allowed_repository_creation_type` to `none` sets `members_can_create_repositories` to `false`.
+*   If you omit `members_allowed_repository_creation_type`, `members_can_create_repositories` is not modified.
+
+<a href="https://developer.github.com/v3/orgs/#edit-an-organization">REST API doc</a>
  * @apiGroup Orgs
  *
  * @apiParam {string} org  
@@ -3756,13 +3786,20 @@ This method only lists _public_ memberships, regardless of authentication. If yo
 \* `write` - can pull and push, but not administer this repository.  
 \* `admin` - can pull, push, and administer this repository.  
 \* `none` - no permissions granted by default.
- * @apiParam {boolean} [members_can_create_repositories="true"]  Toggles ability of non-admin organization members to create repositories  
+ * @apiParam {boolean} [members_can_create_repositories="true"]  Toggles the ability of non-admin organization members to create repositories. Can be one of:  
 \* `true` - all organization members can create repositories.  
-\* `false` - only admin members can create repositories.
+\* `false` - only admin members can create repositories.  
+Default: `true`  
+**Note:** Another parameter can override the this parameter. See [this note](#members_can_create_repositories) for details. **Note:** Another parameter can override the this parameter. See [this note](#members_can_create_repositories) for details.
+ * @apiParam {string=all,private,none} [members_allowed_repository_creation_type]  Specifies which types of repositories non-admin organization members can create. Can be one of:  
+\* `all` - all organization members can create public and private repositories.  
+\* `private` - members can create private repositories. This option is only available to repositories that are part of an organization on [GitHub Business Cloud](https://github.com/pricing/business-cloud).  
+\* `none` - only admin members can create repositories.  
+**Note:** Using this parameter will override values set in `members_can_create_repositories`. See [this note](#members_can_create_repositories) for details.
  * @apiExample {js} async/await
- * const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories})
+ * const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories, members_allowed_repository_creation_type})
  * @apiExample {js} Promise
- * octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories}).then(result => {})
+ * octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories, members_allowed_repository_creation_type}).then(result => {})
  */
 
 

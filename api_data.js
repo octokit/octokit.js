@@ -1727,6 +1727,56 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/content_references/:content_reference_id/attachments",
+    "title": "createContentAttachment",
+    "name": "createContentAttachment",
+    "description": "<p>Creates an attachment under a content reference (URL) in the body or comment of an issue or pull request. Use the <code>id</code> of the content reference from the <a href=\"https://developer.github.com/v3/activity/events/types/#contentreferenceevent\"><code>content_reference</code> event</a> to create an attachment. See &quot;<a href=\"https://developer.github.com/apps/using-content-attachments/\">Using content attachments</a>&quot; for details about content attachments.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint.</p> <p>This example creates a content attachment for the domain <code>https://errors.ai/</code>.</p> <p><a href=\"https://developer.github.com/v3/apps/#create-a-content-attachment\">REST API doc</a></p>",
+    "group": "Apps",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "content_reference_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "title",
+            "description": "<p>The title of the content attachment displayed in the body or comment of an issue or pull request.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "body",
+            "description": "<p>The body text of the content attachment displayed in the body or comment of an issue or pull request. This parameter supports markdown.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.apps.createContentAttachment({content_reference_id, title, body})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.apps.createContentAttachment({content_reference_id, title, body}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Apps"
+  },
+  {
+    "type": "POST",
     "url": "/app-manifests/:code/conversions",
     "title": "createFromManifest",
     "name": "createFromManifest",
@@ -11774,7 +11824,7 @@ define({ "api": [
     "url": "/orgs/:org",
     "title": "update",
     "name": "update",
-    "description": "<p><a href=\"https://developer.github.com/v3/orgs/#edit-an-organization\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> The new <code>members_allowed_repository_creation_type</code> replaces the functionality of <code>members_can_create_repositories</code>.</p> <p>Setting <code>members_allowed_repository_creation_type</code> will override the value of <code>members_can_create_repositories</code> in the following ways: Setting <code>members_allowed_repository_creation_type</code> to <code>all</code> or <code>private</code> sets <code>members_can_create_repositories</code> to <code>true</code>. Setting <code>members_allowed_repository_creation_type</code> to <code>none</code> sets <code>members_can_create_repositories</code> to <code>false</code>. If you omit <code>members_allowed_repository_creation_type</code>, <code>members_can_create_repositories</code> is not modified.</p> <p><a href=\"https://developer.github.com/v3/orgs/#edit-an-organization\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -11862,7 +11912,19 @@ define({ "api": [
             "optional": true,
             "field": "members_can_create_repositories",
             "defaultValue": "true",
-            "description": "<p>Toggles ability of non-admin organization members to create repositories<br> * <code>true</code> - all organization members can create repositories.<br> * <code>false</code> - only admin members can create repositories.</p>"
+            "description": "<p>Toggles the ability of non-admin organization members to create repositories. Can be one of:<br> * <code>true</code> - all organization members can create repositories.<br> * <code>false</code> - only admin members can create repositories.<br> Default: <code>true</code><br> <em>Note:</em>* Another parameter can override the this parameter. See <a href=\"#members_can_create_repositories\">this note</a> for details. <strong>Note:</strong> Another parameter can override the this parameter. See <a href=\"#members_can_create_repositories\">this note</a> for details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "all",
+              "private",
+              "none"
+            ],
+            "optional": true,
+            "field": "members_allowed_repository_creation_type",
+            "description": "<p>Specifies which types of repositories non-admin organization members can create. Can be one of:<br> * <code>all</code> - all organization members can create public and private repositories.<br> * <code>private</code> - members can create private repositories. This option is only available to repositories that are part of an organization on <a href=\"https://github.com/pricing/business-cloud\">GitHub Business Cloud</a>.<br> * <code>none</code> - only admin members can create repositories.<br> <em>Note:</em>* Using this parameter will override values set in <code>members_can_create_repositories</code>. See <a href=\"#members_can_create_repositories\">this note</a> for details.</p>"
           }
         ]
       }
@@ -11870,12 +11932,12 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories})",
+        "content": "const result = await octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories, members_allowed_repository_creation_type})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories}).then(result => {})",
+        "content": "octokit.orgs.update({org, billing_email, company, email, location, name, description, has_organization_projects, has_repository_projects, default_repository_permission, members_can_create_repositories, members_allowed_repository_creation_type}).then(result => {})",
         "type": "js"
       }
     ],
