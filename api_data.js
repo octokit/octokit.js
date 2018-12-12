@@ -5890,7 +5890,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues",
     "title": "create",
     "name": "create",
-    "description": "<p>Any user with pull access to a repository can create an issue.</p> <p><a href=\"https://developer.github.com/v3/issues/#create-an-issue\">REST API doc</a></p>",
+    "description": "<p>Any user with pull access to a repository can create an issue.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/issues/#create-an-issue\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -5975,7 +5975,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/issues/:number/comments",
     "title": "createComment",
     "name": "createComment",
-    "description": "<p><a href=\"https://developer.github.com/v3/issues/comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/issues/comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Issues",
     "parameter": {
       "fields": {
@@ -10698,7 +10698,7 @@ define({ "api": [
     "url": "/orgs/:org/invitations",
     "title": "createInvitation",
     "name": "createInvitation",
-    "description": "<p>Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#create-organization-invitation\">REST API doc</a></p>",
+    "description": "<p>Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/orgs/members/#create-organization-invitation\">REST API doc</a></p>",
     "group": "Orgs",
     "parameter": {
       "fields": {
@@ -13349,7 +13349,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls",
     "title": "create",
     "name": "create",
-    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p><a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13427,7 +13427,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/comments",
     "title": "createComment",
     "name": "createComment",
-    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details. <em>Note:</em>* To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13505,7 +13505,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/comments",
     "title": "createCommentReply",
     "name": "createCommentReply",
-    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details. <em>Note:</em>* To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13569,7 +13569,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls",
     "title": "createFromIssue",
     "name": "createFromIssue",
-    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p><a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
+    "description": "<p><strong>Note:</strong> To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/pulls/#create-a-pull-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13640,7 +13640,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/reviews",
     "title": "createReview",
     "name": "createReview",
-    "description": "<p><strong>Note:</strong> To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details. <em>Note:</em>* To comment on a specific line in a file, you need to first determine the <em>position</em> of that line in the diff. The GitHub REST API v3 offers the <code>application/vnd.github.v3.diff</code> <a href=\"https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests\">media type</a>. To see a pull request diff, add this media type to the <code>Accept</code> header of a call to the <a href=\"https://developer.github.com/v3/pulls/#get-a-single-pull-request\">single pull request</a> endpoint.</p> <p>The <code>position</code> value equals the number of lines down from the first &quot;@@&quot; hunk header in the file you want to add a comment. The line just below the &quot;@@&quot; line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p> <p><a href=\"https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -13744,7 +13744,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
     "title": "createReviewRequest",
     "name": "createReviewRequest",
-    "description": "<p><a href=\"https://developer.github.com/v3/pulls/review_requests/#create-a-review-request\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/pulls/review_requests/#create-a-review-request\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -14834,7 +14834,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/pulls/:number/merge",
     "title": "merge",
     "name": "merge",
-    "description": "<p><a href=\"https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button\">REST API doc</a></p>",
     "group": "Pulls",
     "parameter": {
       "fields": {
@@ -16096,7 +16096,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/collaborators/:username",
     "title": "addCollaborator",
     "name": "addCollaborator",
-    "description": "<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>The invitee will receive a notification that they have been invited to the repository, which they must accept or decline. They may do this via the notifications page, the email they receive, or by using the <a href=\"https://developer.github.com/v3/repos/invitations/\">repository invitations API endpoints</a>. <em>Rate limits</em>*</p> <p>To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.</p> <p><a href=\"https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see &quot;<a href=\"https://developer.github.com/v3/#http-verbs\">HTTP verbs</a>.&quot;</p> <p>The invitee will receive a notification that they have been invited to the repository, which they must accept or decline. They may do this via the notifications page, the email they receive, or by using the <a href=\"https://developer.github.com/v3/repos/invitations/\">repository invitations API endpoints</a>. <em>Rate limits</em>*</p> <p>To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.</p> <p><a href=\"https://developer.github.com/v3/repos/collaborators/#add-user-as-a-collaborator\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16601,7 +16601,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/commits/:sha/comments",
     "title": "createCommitComment",
     "name": "createCommitComment",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/comments/#create-a-commit-comment\">REST API doc</a></p>",
+    "description": "<p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/repos/comments/#create-a-commit-comment\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -17448,7 +17448,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/releases",
     "title": "createRelease",
     "name": "createRelease",
-    "description": "<p>Users with push access to the repository can create a release.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#create-a-release\">REST API doc</a></p>",
+    "description": "<p>Users with push access to the repository can create a release.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/repos/releases/#create-a-release\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -20094,7 +20094,7 @@ define({ "api": [
             "type": "boolean",
             "optional": true,
             "field": "protected",
-            "description": "<p>Setting to <code>true</code> returns only protected branches.</p>"
+            "description": "<p>Setting to <code>true</code> returns only protected branches and each branch in the response includes the <code>protected</code> and <code>protection</code> keys. When you omit this parameter, all branches are returned and protected branches do not contain the <code>protected</code> and <code>protection</code> keys.</p>"
           },
           {
             "group": "Parameter",
@@ -24807,7 +24807,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions",
     "title": "createDiscussion",
     "name": "createDiscussion",
-    "description": "<p>Creates a new discussion post on a team's page. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#create-a-discussion\">REST API doc</a></p>",
+    "description": "<p>Creates a new discussion post on a team's page. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/teams/discussions/#create-a-discussion\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
@@ -24865,7 +24865,7 @@ define({ "api": [
     "url": "/teams/:team_id/discussions/:discussion_number/comments",
     "title": "createDiscussionComment",
     "name": "createDiscussionComment",
-    "description": "<p>Creates a new comment on a team discussion. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#create-a-comment\">REST API doc</a></p>",
+    "description": "<p>Creates a new comment on a team discussion. OAuth access tokens require the <code>write:discussion</code> <a href=\"https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/\">scope</a>.</p> <p>This endpoint triggers <a href=\"https://help.github.com/articles/about-notifications/\">notifications</a>. Creating content too quickly using this endpoint may result in abuse rate limiting. See &quot;<a href=\"https://developer.github.com/v3/#abuse-rate-limits\">Abuse rate limits</a>&quot; and &quot;<a href=\"https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits\">Dealing with abuse rate limits</a>&quot; for details.</p> <p><a href=\"https://developer.github.com/v3/teams/discussion_comments/#create-a-comment\">REST API doc</a></p>",
     "group": "Teams",
     "parameter": {
       "fields": {
