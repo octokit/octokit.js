@@ -42,6 +42,7 @@ jobs:
         - npm run coverage:upload
     - node_js: 4 # will be removed in v16
       env: Node 4, smoke test only
+      before_install: npm install -g npm@3
       script:
         - node index.js
     - node_js: lts/*
