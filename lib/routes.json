@@ -3048,7 +3048,8 @@
       "params": {
         "labels": {
           "required": true,
-          "type": "string[]"
+          "type": "string[]",
+          "mapTo": "data"
         },
         "number": {
           "required": true,
