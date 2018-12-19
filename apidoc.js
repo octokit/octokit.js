@@ -838,12 +838,12 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * @apiParam {string} output:title  The title of the check run.
  * @apiParam {string} output:summary  The summary of the check run. This parameter supports Markdown.
  * @apiParam {string} [output:text]  The details of the check run. This parameter supports Markdown.
- * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object) description for details about how to use this parameter.
+ * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the **Checks** and **Files changed** tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://developer.github.com/v3/checks/runs/#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about how you can view annotations on GitHub, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object) description for details about how to use this parameter.
  * @apiParam {string} output:annotations:path  The path of the file to add an annotation to. For example, `assets/css/main.css`.
  * @apiParam {integer} output:annotations:start_line  The start line of the annotation.
  * @apiParam {integer} output:annotations:end_line  The end line of the annotation.
- * @apiParam {integer} [output:annotations:start_column]  The start column of the annotation.
- * @apiParam {integer} [output:annotations:end_column]  The end column of the annotation.
+ * @apiParam {integer} [output:annotations:start_column]  The start column of the annotation. Annotations only support `start_column` and `end_column` on the same line. Omit this parameter if `start_line` and `end_line` have different values.
+ * @apiParam {integer} [output:annotations:end_column]  The end column of the annotation. Annotations only support `start_column` and `end_column` on the same line. Omit this parameter if `start_line` and `end_line` have different values.
  * @apiParam {string=notice,warning,failure} output:annotations:annotation_level  The level of the annotation. Can be one of `notice`, `warning`, or `failure`.
  * @apiParam {string} output:annotations:message  A short description of the feedback for these lines of code. The maximum size is 64 KB.
  * @apiParam {string} [output:annotations:title]  The title that represents the annotation. The maximum size is 255 characters.
@@ -886,12 +886,12 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
  * @apiParam {string} [output:title]  **Required**.
  * @apiParam {string} output:summary  Can contain Markdown.
  * @apiParam {string} [output:text]  Can contain Markdown.
- * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object-1) description for details.
+ * @apiParam {object[]} [output:annotations]  Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. Annotations are visible in GitHub's pull request UI. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://developer.github.com/v3/checks/runs/#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about annotations in the UI, see "[About status checks](https://help.github.com/articles/about-status-checks#checks)". See the [`annotations` object](#annotations-object-1) description for details.
  * @apiParam {string} output:annotations:path  The path of the file to add an annotation to. For example, `assets/css/main.css`.
  * @apiParam {integer} output:annotations:start_line  The start line of the annotation.
  * @apiParam {integer} output:annotations:end_line  The end line of the annotation.
- * @apiParam {integer} [output:annotations:start_column]  The start column of the annotation.
- * @apiParam {integer} [output:annotations:end_column]  The end column of the annotation.
+ * @apiParam {integer} [output:annotations:start_column]  The start column of the annotation. Annotations only support `start_column` and `end_column` on the same line. Omit this parameter if `start_line` and `end_line` have different values.
+ * @apiParam {integer} [output:annotations:end_column]  The end column of the annotation. Annotations only support `start_column` and `end_column` on the same line. Omit this parameter if `start_line` and `end_line` have different values.
  * @apiParam {string=notice,warning,failure} output:annotations:annotation_level  The level of the annotation. Can be one of `notice`, `warning`, or `failure`.
  * @apiParam {string} output:annotations:message  A short description of the feedback for these lines of code. The maximum size is 64 KB.
  * @apiParam {string} [output:annotations:title]  The title that represents the annotation. The maximum size is 255 characters.
@@ -1076,7 +1076,7 @@ Note that you'll need to set `Content-Length` to zero when calling out to this e
 /**
  * @api {POST} /repos/:owner/:repo/check-suites/:check_suite_id/rerequest rerequestSuite
  * @apiName rerequestSuite
- * @apiDescription Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the [`check_run` webhook](https://developer.github.com/v3/activity/events/types/#checkrunevent) event with the action `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the `conclusion` is cleared.
+ * @apiDescription Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the [`check_suite` webhook](https://developer.github.com/v3/activity/events/types/#checksuiteevent) event with the action `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the `conclusion` is cleared.
 
 To rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.
 
@@ -1905,7 +1905,9 @@ You must use a [JWT](https://developer.github.com/apps/building-github-apps/auth
 /**
  * @api {POST} /content_references/:content_reference_id/attachments createContentAttachment
  * @apiName createContentAttachment
- * @apiDescription Creates an attachment under a content reference (URL) in the body or comment of an issue or pull request. Use the `id` of the content reference from the [`content_reference` event](https://developer.github.com/v3/activity/events/types/#contentreferenceevent) to create an attachment. See "[Using content attachments](https://developer.github.com/apps/using-content-attachments/)" for details about content attachments.
+ * @apiDescription Creates an attachment under a content reference URL in the body or comment of an issue or pull request. Use the `id` of the content reference from the [`content_reference` event](https://developer.github.com/v3/activity/events/types/#contentreferenceevent) to create an attachment.
+
+The app must create a content attachment within six hours of the content reference URL being posted. See "[Using content attachments](https://developer.github.com/apps/using-content-attachments/)" for details about content attachments.
 
 You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
 
@@ -2156,6 +2158,114 @@ GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-a
  * const result = await octokit.apps.listMarketplacePurchasesForAuthenticatedUserStubbed({per_page, page})
  * @apiExample {js} Promise
  * octokit.apps.listMarketplacePurchasesForAuthenticatedUserStubbed({per_page, page}).then(result => {})
+ */
+
+
+
+/**,
+ * Interactions
+ * @namespace Interactions
+ */
+
+
+/**
+ * @api {GET} /orgs/:org/interaction-limits getRestrictionsForOrg
+ * @apiName getRestrictionsForOrg
+ * @apiDescription Shows which group of GitHub users can interact with this organization and when the restriction expires. If there are no restrictions, you will see an empty response.
+
+<a href="https://developer.github.com/v3/interactions/orgs/#get-interaction-restrictions-for-an-organization">REST API doc</a>
+ * @apiGroup Interactions
+ *
+ * @apiParam {string} org  
+ * @apiExample {js} async/await
+ * const result = await octokit.interactions.getRestrictionsForOrg({org})
+ * @apiExample {js} Promise
+ * octokit.interactions.getRestrictionsForOrg({org}).then(result => {})
+ */
+
+
+/**
+ * @api {PUT} /orgs/:org/interaction-limits addOrUpdateRestrictionsForOrg
+ * @apiName addOrUpdateRestrictionsForOrg
+ * @apiDescription Temporarily restricts interactions to certain GitHub users in any public repository in the given organization. You must be an organization owner to set these restrictions.
+
+<a href="https://developer.github.com/v3/interactions/orgs/#add-or-update-interaction-restrictions-for-an-organization">REST API doc</a>
+ * @apiGroup Interactions
+ *
+ * @apiParam {string} org  
+ * @apiParam {string=existing_users,contributors_only,collaborators_only} limit  Specifies the group of GitHub users who can comment, open issues, or create pull requests in public repositories for the given organization. Must be one of: `existing_users`, `contributors_only`, or `collaborators_only`.
+ * @apiExample {js} async/await
+ * const result = await octokit.interactions.addOrUpdateRestrictionsForOrg({org, limit})
+ * @apiExample {js} Promise
+ * octokit.interactions.addOrUpdateRestrictionsForOrg({org, limit}).then(result => {})
+ */
+
+
+/**
+ * @api {DELETE} /orgs/:org/interaction-limits removeRestrictionsForOrg
+ * @apiName removeRestrictionsForOrg
+ * @apiDescription Removes all interaction restrictions from public repositories in the given organization. You must be an organization owner to remove restrictions.
+
+<a href="https://developer.github.com/v3/interactions/orgs/#remove-interaction-restrictions-for-an-organization">REST API doc</a>
+ * @apiGroup Interactions
+ *
+ * @apiParam {string} org  
+ * @apiExample {js} async/await
+ * const result = await octokit.interactions.removeRestrictionsForOrg({org})
+ * @apiExample {js} Promise
+ * octokit.interactions.removeRestrictionsForOrg({org}).then(result => {})
+ */
+
+
+/**
+ * @api {GET} /repos/:owner/:repo/interaction-limits getRestrictionsForRepo
+ * @apiName getRestrictionsForRepo
+ * @apiDescription Shows which group of GitHub users can interact with this repository and when the restriction expires. If there are no restrictions, you will see an empty response.
+
+<a href="https://developer.github.com/v3/interactions/repos/#get-interaction-restrictions-for-a-repository">REST API doc</a>
+ * @apiGroup Interactions
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiExample {js} async/await
+ * const result = await octokit.interactions.getRestrictionsForRepo({owner, repo})
+ * @apiExample {js} Promise
+ * octokit.interactions.getRestrictionsForRepo({owner, repo}).then(result => {})
+ */
+
+
+/**
+ * @api {PUT} /repos/:owner/:repo/interaction-limits addOrUpdateRestrictionsForRepo
+ * @apiName addOrUpdateRestrictionsForRepo
+ * @apiDescription Temporarily restricts interactions to certain GitHub users within the given repository. You must have owner or admin access to set restrictions.
+
+<a href="https://developer.github.com/v3/interactions/repos/#add-or-update-interaction-restrictions-for-a-repository">REST API doc</a>
+ * @apiGroup Interactions
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {string=existing_users,contributors_only,collaborators_only} limit  Specifies the group of GitHub users who can comment, open issues, or create pull requests for the given repository. Must be one of: `existing_users`, `contributors_only`, or `collaborators_only`.
+ * @apiExample {js} async/await
+ * const result = await octokit.interactions.addOrUpdateRestrictionsForRepo({owner, repo, limit})
+ * @apiExample {js} Promise
+ * octokit.interactions.addOrUpdateRestrictionsForRepo({owner, repo, limit}).then(result => {})
+ */
+
+
+/**
+ * @api {DELETE} /repos/:owner/:repo/interaction-limits removeRestrictionsForRepo
+ * @apiName removeRestrictionsForRepo
+ * @apiDescription Removes all interaction restrictions from the given repository. You must have owner or admin access to remove restrictions.
+
+<a href="https://developer.github.com/v3/interactions/repos/#remove-interaction-restrictions-for-a-repository">REST API doc</a>
+ * @apiGroup Interactions
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiExample {js} async/await
+ * const result = await octokit.interactions.removeRestrictionsForRepo({owner, repo})
+ * @apiExample {js} Promise
+ * octokit.interactions.removeRestrictionsForRepo({owner, repo}).then(result => {})
  */
 
 

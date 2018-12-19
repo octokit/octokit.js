@@ -1730,7 +1730,7 @@
     "url": "/content_references/:content_reference_id/attachments",
     "title": "createContentAttachment",
     "name": "createContentAttachment",
-    "description": "<p>Creates an attachment under a content reference (URL) in the body or comment of an issue or pull request. Use the <code>id</code> of the content reference from the <a href=\"https://developer.github.com/v3/activity/events/types/#contentreferenceevent\"><code>content_reference</code> event</a> to create an attachment. See &quot;<a href=\"https://developer.github.com/apps/using-content-attachments/\">Using content attachments</a>&quot; for details about content attachments.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint.</p> <p>This example creates a content attachment for the domain <code>https://errors.ai/</code>.</p> <p><a href=\"https://developer.github.com/v3/apps/#create-a-content-attachment\">REST API doc</a></p>",
+    "description": "<p>Creates an attachment under a content reference URL in the body or comment of an issue or pull request. Use the <code>id</code> of the content reference from the <a href=\"https://developer.github.com/v3/activity/events/types/#contentreferenceevent\"><code>content_reference</code> event</a> to create an attachment.</p> <p>The app must create a content attachment within six hours of the content reference URL being posted. See &quot;<a href=\"https://developer.github.com/apps/using-content-attachments/\">Using content attachments</a>&quot; for details about content attachments.</p> <p>You must use an <a href=\"https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation\">installation access token</a> to access this endpoint.</p> <p>This example creates a content attachment for the domain <code>https://errors.ai/</code>.</p> <p><a href=\"https://developer.github.com/v3/apps/#create-a-content-attachment\">REST API doc</a></p>",
     "group": "Apps",
     "parameter": {
       "fields": {
@@ -2744,7 +2744,7 @@
             "type": "object[]",
             "optional": true,
             "field": "output:annotations",
-            "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see &quot;<a href=\"https://help.github.com/articles/about-status-checks#checks\">About status checks</a>&quot;. See the <a href=\"#annotations-object\"><code>annotations</code> object</a> description for details about how to use this parameter.</p>"
+            "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the <strong>Checks</strong> and <strong>Files changed</strong> tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the <a href=\"https://developer.github.com/v3/checks/runs/#update-a-check-run\">Update a check run</a> endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about how you can view annotations on GitHub, see &quot;<a href=\"https://help.github.com/articles/about-status-checks#checks\">About status checks</a>&quot;. See the <a href=\"#annotations-object\"><code>annotations</code> object</a> description for details about how to use this parameter.</p>"
           },
           {
             "group": "Parameter",
@@ -2772,14 +2772,14 @@
             "type": "integer",
             "optional": true,
             "field": "output:annotations:start_column",
-            "description": "<p>The start column of the annotation.</p>"
+            "description": "<p>The start column of the annotation. Annotations only support <code>start_column</code> and <code>end_column</code> on the same line. Omit this parameter if <code>start_line</code> and <code>end_line</code> have different values.</p>"
           },
           {
             "group": "Parameter",
             "type": "integer",
             "optional": true,
             "field": "output:annotations:end_column",
-            "description": "<p>The end column of the annotation.</p>"
+            "description": "<p>The end column of the annotation. Annotations only support <code>start_column</code> and <code>end_column</code> on the same line. Omit this parameter if <code>start_line</code> and <code>end_line</code> have different values.</p>"
           },
           {
             "group": "Parameter",
@@ -3384,7 +3384,7 @@
     "url": "/repos/:owner/:repo/check-suites/:check_suite_id/rerequest",
     "title": "rerequestSuite",
     "name": "rerequestSuite",
-    "description": "<p>Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://developer.github.com/v3/activity/events/types/#checkrunevent\"><code>check_run</code> webhook</a> event with the action <code>rerequested</code>. When a check suite is <code>rerequested</code>, its <code>status</code> is reset to <code>queued</code> and the <code>conclusion</code> is cleared.</p> <p>To rerequest a check suite, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#rerequest-check-suite\">REST API doc</a></p>",
+    "description": "<p>Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the <a href=\"https://developer.github.com/v3/activity/events/types/#checksuiteevent\"><code>check_suite</code> webhook</a> event with the action <code>rerequested</code>. When a check suite is <code>rerequested</code>, its <code>status</code> is reset to <code>queued</code> and the <code>conclusion</code> is cleared.</p> <p>To rerequest a check suite, your GitHub App must have the <code>checks:read</code> permission on a private repository or pull access to a public repository.</p> <p><a href=\"https://developer.github.com/v3/checks/suites/#rerequest-check-suite\">REST API doc</a></p>",
     "group": "Checks",
     "parameter": {
       "fields": {
@@ -3620,7 +3620,7 @@
             "type": "object[]",
             "optional": true,
             "field": "output:annotations",
-            "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. For details about annotations in the UI, see &quot;<a href=\"https://help.github.com/articles/about-status-checks#checks\">About status checks</a>&quot;. See the <a href=\"#annotations-object-1\"><code>annotations</code> object</a> description for details.</p>"
+            "description": "<p>Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. Annotations are visible in GitHub's pull request UI. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the <a href=\"https://developer.github.com/v3/checks/runs/#update-a-check-run\">Update a check run</a> endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about annotations in the UI, see &quot;<a href=\"https://help.github.com/articles/about-status-checks#checks\">About status checks</a>&quot;. See the <a href=\"#annotations-object-1\"><code>annotations</code> object</a> description for details.</p>"
           },
           {
             "group": "Parameter",
@@ -3648,14 +3648,14 @@
             "type": "integer",
             "optional": true,
             "field": "output:annotations:start_column",
-            "description": "<p>The start column of the annotation.</p>"
+            "description": "<p>The start column of the annotation. Annotations only support <code>start_column</code> and <code>end_column</code> on the same line. Omit this parameter if <code>start_line</code> and <code>end_line</code> have different values.</p>"
           },
           {
             "group": "Parameter",
             "type": "integer",
             "optional": true,
             "field": "output:annotations:end_column",
-            "description": "<p>The end column of the annotation.</p>"
+            "description": "<p>The end column of the annotation. Annotations only support <code>start_column</code> and <code>end_column</code> on the same line. Omit this parameter if <code>start_line</code> and <code>end_line</code> have different values.</p>"
           },
           {
             "group": "Parameter",
@@ -5720,6 +5720,267 @@
     "version": "0.0.0",
     "filename": "doc/apidoc.js",
     "groupTitle": "Git"
+  },
+  {
+    "type": "PUT",
+    "url": "/orgs/:org/interaction-limits",
+    "title": "addOrUpdateRestrictionsForOrg",
+    "name": "addOrUpdateRestrictionsForOrg",
+    "description": "<p>Temporarily restricts interactions to certain GitHub users in any public repository in the given organization. You must be an organization owner to set these restrictions.</p> <p><a href=\"https://developer.github.com/v3/interactions/orgs/#add-or-update-interaction-restrictions-for-an-organization\">REST API doc</a></p>",
+    "group": "Interactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "org",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "existing_users",
+              "contributors_only",
+              "collaborators_only"
+            ],
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Specifies the group of GitHub users who can comment, open issues, or create pull requests in public repositories for the given organization. Must be one of: <code>existing_users</code>, <code>contributors_only</code>, or <code>collaborators_only</code>.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.interactions.addOrUpdateRestrictionsForOrg({org, limit})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.interactions.addOrUpdateRestrictionsForOrg({org, limit}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Interactions"
+  },
+  {
+    "type": "PUT",
+    "url": "/repos/:owner/:repo/interaction-limits",
+    "title": "addOrUpdateRestrictionsForRepo",
+    "name": "addOrUpdateRestrictionsForRepo",
+    "description": "<p>Temporarily restricts interactions to certain GitHub users within the given repository. You must have owner or admin access to set restrictions.</p> <p><a href=\"https://developer.github.com/v3/interactions/repos/#add-or-update-interaction-restrictions-for-a-repository\">REST API doc</a></p>",
+    "group": "Interactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "existing_users",
+              "contributors_only",
+              "collaborators_only"
+            ],
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Specifies the group of GitHub users who can comment, open issues, or create pull requests for the given repository. Must be one of: <code>existing_users</code>, <code>contributors_only</code>, or <code>collaborators_only</code>.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.interactions.addOrUpdateRestrictionsForRepo({owner, repo, limit})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.interactions.addOrUpdateRestrictionsForRepo({owner, repo, limit}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Interactions"
+  },
+  {
+    "type": "GET",
+    "url": "/orgs/:org/interaction-limits",
+    "title": "getRestrictionsForOrg",
+    "name": "getRestrictionsForOrg",
+    "description": "<p>Shows which group of GitHub users can interact with this organization and when the restriction expires. If there are no restrictions, you will see an empty response.</p> <p><a href=\"https://developer.github.com/v3/interactions/orgs/#get-interaction-restrictions-for-an-organization\">REST API doc</a></p>",
+    "group": "Interactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "org",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.interactions.getRestrictionsForOrg({org})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.interactions.getRestrictionsForOrg({org}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Interactions"
+  },
+  {
+    "type": "GET",
+    "url": "/repos/:owner/:repo/interaction-limits",
+    "title": "getRestrictionsForRepo",
+    "name": "getRestrictionsForRepo",
+    "description": "<p>Shows which group of GitHub users can interact with this repository and when the restriction expires. If there are no restrictions, you will see an empty response.</p> <p><a href=\"https://developer.github.com/v3/interactions/repos/#get-interaction-restrictions-for-a-repository\">REST API doc</a></p>",
+    "group": "Interactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.interactions.getRestrictionsForRepo({owner, repo})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.interactions.getRestrictionsForRepo({owner, repo}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Interactions"
+  },
+  {
+    "type": "DELETE",
+    "url": "/orgs/:org/interaction-limits",
+    "title": "removeRestrictionsForOrg",
+    "name": "removeRestrictionsForOrg",
+    "description": "<p>Removes all interaction restrictions from public repositories in the given organization. You must be an organization owner to remove restrictions.</p> <p><a href=\"https://developer.github.com/v3/interactions/orgs/#remove-interaction-restrictions-for-an-organization\">REST API doc</a></p>",
+    "group": "Interactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "org",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.interactions.removeRestrictionsForOrg({org})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.interactions.removeRestrictionsForOrg({org}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Interactions"
+  },
+  {
+    "type": "DELETE",
+    "url": "/repos/:owner/:repo/interaction-limits",
+    "title": "removeRestrictionsForRepo",
+    "name": "removeRestrictionsForRepo",
+    "description": "<p>Removes all interaction restrictions from the given repository. You must have owner or admin access to remove restrictions.</p> <p><a href=\"https://developer.github.com/v3/interactions/repos/#remove-interaction-restrictions-for-a-repository\">REST API doc</a></p>",
+    "group": "Interactions",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.interactions.removeRestrictionsForRepo({owner, repo})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.interactions.removeRestrictionsForRepo({owner, repo}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Interactions"
   },
   {
     "type": "POST",
