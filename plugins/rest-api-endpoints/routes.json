@@ -2092,6 +2092,116 @@
       "url": "/gitignore/templates"
     }
   },
+  "interactions": {
+    "addOrUpdateRestrictionsForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.sombra-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "limit": {
+          "enum": [
+            "existing_users",
+            "contributors_only",
+            "collaborators_only"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "org": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/orgs/:org/interaction-limits"
+    },
+    "addOrUpdateRestrictionsForRepo": {
+      "headers": {
+        "accept": "application/vnd.github.sombra-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "limit": {
+          "enum": [
+            "existing_users",
+            "contributors_only",
+            "collaborators_only"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/interaction-limits"
+    },
+    "getRestrictionsForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.sombra-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/orgs/:org/interaction-limits"
+    },
+    "getRestrictionsForRepo": {
+      "headers": {
+        "accept": "application/vnd.github.sombra-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/interaction-limits"
+    },
+    "removeRestrictionsForOrg": {
+      "headers": {
+        "accept": "application/vnd.github.sombra-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/orgs/:org/interaction-limits"
+    },
+    "removeRestrictionsForRepo": {
+      "headers": {
+        "accept": "application/vnd.github.sombra-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/interaction-limits"
+    }
+  },
   "issues": {
     "addAssignees": {
       "method": "POST",
