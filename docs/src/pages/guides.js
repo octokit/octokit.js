@@ -22,7 +22,9 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      filter: { fields:{slug: { regex: "/^/guides/" } }}
+    ) {
       totalCount
       edges {
         node {
