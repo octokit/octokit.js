@@ -10,8 +10,9 @@ export default ({ children }) => (
             node {
               id
               name
-              fields {
-                slug
+              endpoints {
+                id
+                name
               }
             }
           }
@@ -24,7 +25,18 @@ export default ({ children }) => (
         <ol>
           {data.allOctokitScope.edges.map(({ node }) => {
             return <li key={node.id}>
-              <Link to={node.fields.slug}>{node.name}</Link>
+              <details>
+                <summary>
+                  <Link to={`/api#${node.id}`}>{node.name}</Link>
+                </summary>
+                <ol>
+                  {node.endpoints.map((endpoint) => {
+                    return <li key={endpoint.id}>
+                      <Link to={`/api#${endpoint.id}`}>{endpoint.name}</Link>
+                    </li>
+                  })}
+                </ol>
+              </details>
             </li>
           })}
         </ol>
