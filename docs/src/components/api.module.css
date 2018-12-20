@@ -5,11 +5,21 @@
   width: 100%;
 }
 
-.container > pre {
+.container pre {
   background-color: var(--code-background-color);
   color: var(--code-foreground-color);
   padding: calc(1.45em / 2) 1.45em;
+  overflow-x: auto;
 }
+
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/*
+
+Position the main navigation in the left column.
 
 @media (min-width: 80em) {
   .container {
@@ -33,3 +43,4 @@
     padding: 0;
   }
 }
+*/

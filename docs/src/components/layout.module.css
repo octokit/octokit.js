@@ -6,6 +6,10 @@
   margin-bottom: 1.5rem;
 }
 
+/*
+
+Position the code examples in the right column.
+
 @media (min-width: 40em) {
   .container {
     display: grid;
@@ -26,3 +30,4 @@
     grid-column: 2/3;
   }
 }
+*/
