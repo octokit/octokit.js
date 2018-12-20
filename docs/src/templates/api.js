@@ -1,15 +1,20 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import ApiList from '../components/api-list'
+import apiStyles from '../components/api.module.css'
+import marked from 'marked'
 
 export default ({ data }) => {
-  const post = data.markdownRemark
+  const route = data.octokitRoute
   return (
     <Layout>
-      <main>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <main className={apiStyles.container}>
+        <p><Link to='/api'>API</Link> / <Link to={route.fields.scopeSlug}>{route.scope}</Link></p>
+        <h1>{route.name}</h1>
+
+        <div dangerouslySetInnerHTML={{ __html: marked(route.description) }} />
+        <pre><code>{route.example}</code></pre>
       </main>
       <ApiList />
     </Layout>
@@ -17,11 +22,14 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
+  query($id: String!) {
+    octokitRoute(id:{eq:$id}) {
+      name
+      scope
+      description
+      example
+      fields {
+        scopeSlug
       }
     }
   }
