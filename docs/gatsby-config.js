@@ -3,6 +3,7 @@ module.exports = {
     title: `Octokit.js`
   },
   plugins: [
+    `gatsby-source-octokit-routes`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
