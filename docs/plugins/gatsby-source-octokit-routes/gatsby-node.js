@@ -1,5 +1,3 @@
-const crypto = require('crypto')
-
 const _ = require('lodash')
 const ROUTES = require('@octokit/routes')
 
@@ -29,26 +27,18 @@ exports.sourceNodes = async ({ actions }) => {
         example
       }
       endpoints.push(endpointNode)
-      createNode({
-        ...endpointNode,
-        internal: {
-          description: `octokit.${scope}.${endpoint.idName}()`,
-          contentDigest: crypto.createHash(`md5`).update(JSON.stringify(endpoint)).digest(`hex`),
-          type: 'OctokitRoute'
-        }
-      })
     })
 
     createNode({
       id: scopeId,
       parent: null,
-      children: endpoints.map(endpoint => endpoint.id),
+      children: [],
       name: scope,
-      endpoints: endpoints,
+      methods: endpoints,
       internal: {
         description: `${scope} Scope`,
         contentDigest: scope,
-        type: 'OctokitScope'
+        type: 'OctokitApiGroup'
       }
     })
   })

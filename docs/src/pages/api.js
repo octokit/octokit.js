@@ -2,21 +2,26 @@ import marked from 'marked'
 import React from 'react'
 
 import Layout from '../components/layout'
-import { graphql } from 'gatsby'
-import ApiList from '../components/api-list'
+import { graphql, Link } from 'gatsby'
 import apiStyles from '../components/api.module.css'
 
 export default ({ data }) => (
   <Layout>
     <main className={apiStyles.container}>
       <h1>API</h1>
-      {data.allOctokitScope.edges.map(({ node }) => {
+      {data.staticMethods.edges.map(({ node }) => {
+        return <>
+          <h2>{node.frontmatter.title}</h2>
+          <div dangerouslySetInnerHTML={{ __html: node.html }} />
+        </>
+      })}
+      {data.endpointScopes.edges.map(({ node }) => {
         return <>
           <h2>{node.name}</h2>
-          {node.endpoints.map(endpoint => {
+          {node.methods.map(method => {
             return <>
-              <h3>{endpoint.name}</h3>
-              <div dangerouslySetInnerHTML={{ __html: marked(endpoint.description) }} />
+              <h3>{method.name}</h3>
+              <div dangerouslySetInnerHTML={{ __html: marked(method.description) }} />
               <h4>Parameters</h4>
               <table>
                 <thead>
@@ -27,7 +32,7 @@ export default ({ data }) => (
                   </tr>
                 </thead>
                 <tbody>
-                  {endpoint.params.map(param => {
+                  {method.params.map(param => {
                     return <tr>
                       <td>{param.name}</td>
                       <td>{param.required ? 'yes' : 'no'}</td>
@@ -36,24 +41,65 @@ export default ({ data }) => (
                   })}
                 </tbody>
               </table>
-              <pre><code>{endpoint.example}</code></pre>
+              <pre><code>{method.example}</code></pre>
             </>
           })}
         </>
       })}
     </main>
-    <ApiList />
+    <nav>
+      <h1>API</h1>
+      <ol>
+        {data.staticMethods.edges.map(({ node }) => {
+          return <li key={node.id}>
+            <Link to={`/api#octokit-${node.fields.idName}`}>{node.frontmatter.title}</Link>
+          </li>
+        })}
+        {data.endpointScopes.edges.map(({ node }) => {
+          return <li key={node.id}>
+            <details>
+              <summary>
+                <Link to={`/api#${node.id}`}>{node.name}</Link>
+              </summary>
+              <ol>
+                {node.methods.map((method) => {
+                  return <li key={method.id}>
+                    <Link to={`/api#${method.id}`}>{method.name}</Link>
+                  </li>
+                })}
+              </ol>
+            </details>
+          </li>
+        })}
+      </ol>
+    </nav>
   </Layout>
 )
 
 export const query = graphql`
   query {
-    allOctokitScope {
+    staticMethods: allMarkdownRemark(
+      filter: { fields:{slug: { regex: "/^/api/" } }}
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          html
+          fields {
+            idName
+          }
+        }
+      }
+    }
+    endpointScopes: allOctokitApiGroup {
       edges {
         node {
           id
           name
-          endpoints {
+          methods {
             id
             name
             description

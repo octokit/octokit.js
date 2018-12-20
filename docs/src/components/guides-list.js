@@ -5,7 +5,9 @@ export default ({ children }) => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark {
+        allMarkdownRemark(
+          filter: { fields:{slug: { regex: "/^/guides/" } }}
+        ) {
           totalCount
           edges {
             node {
@@ -25,14 +27,13 @@ export default ({ children }) => (
       <nav>
         <h1>Guides</h1>
         <ol>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <li key={node.id}>
-            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-          </li>
-        ))}
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <li key={node.id}>
+              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            </li>
+          ))}
         </ol>
       </nav>
     )}
   />
 )
-
