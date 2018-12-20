@@ -32,11 +32,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === 'OctokitScope') {
     createNodeField({
       node,
-      name: `routeSlugs`,
-      value: node.routesIdNames.map(idName => `api/${_.kebabCase(node.name)}/${_.kebabCase(idName)}`)
-    })
-    createNodeField({
-      node,
       name: `slug`,
       value: `api/${_.kebabCase(node.name)}`
     })
@@ -65,52 +60,6 @@ exports.createPages = async ({ graphql, actions }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.fields.slug
-      }
-    })
-  })
-
-  const octokitScopesResult = await graphql(`{
-    allOctokitScope {
-      edges {
-        node {
-          id
-          name
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }`)
-  octokitScopesResult.data.allOctokitScope.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/api-scope.js`),
-      context: {
-        id: node.id,
-        scope: node.name
-      }
-    })
-  })
-
-  const octokitRoutesResult = await graphql(`{
-    allOctokitRoute {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }`)
-  octokitRoutesResult.data.allOctokitRoute.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/api.js`),
-      context: {
-        id: node.id
       }
     })
   })
