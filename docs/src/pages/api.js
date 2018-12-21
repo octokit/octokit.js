@@ -73,7 +73,7 @@ export default ({ data }) => (
                   </tbody>
                 </table>
               </div>
-              <pre><code>{method.example}</code></pre>
+              <pre><code class={'language-javascript'}>{method.example}</code></pre>
             </>
           })}
         </>
