@@ -17,30 +17,15 @@
   overflow-x: auto;
 }
 
-/*
+.nav {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
 
-Position the main navigation in the left column.
-
-@media (min-width: 80em) {
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2.9em;
-    background-image: linear-gradient(90deg, 
-      var(--description-background-color) 0%, 
-      var(--description-background-color) 50%, 
-      var(--code-background-color)        50%, 
-      var(--code-background-color)        100%
-      );
-  }
-
-  .container > * {
-    grid-column: 1/2;
-  }
-
-  .container > pre {
-    grid-column: 2/3;
-    padding: 0;
-  }
+  background: hsla(0, 0%, 100%, 0.95);
 }
-*/
+
+.nav h1 {
+  display: inline;
+}

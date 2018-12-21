@@ -10,6 +10,8 @@
 
 Position the code examples in the right column.
 
+*/
+
 @media (min-width: 40em) {
   .container {
     display: grid;
@@ -30,4 +32,4 @@ Position the code examples in the right column.
     grid-column: 2/3;
   }
 }
-*/
+/**/

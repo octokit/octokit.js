@@ -9,7 +9,7 @@ export default ({ data }) => (
   <Layout>
     <main className={apiStyles.container}>
       <h1>API</h1>
-      <nav>
+      <nav className={apiStyles.nav}>
         <details>
           <summary>
             <h1>Menu</h1>
