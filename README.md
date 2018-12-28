@@ -147,26 +147,6 @@ octokit.authenticate({
 Note: `authenticate` is synchronous because it only sets the credentials
 for the following requests.
 
-## Throttling
-
-Install [@octokit/plugin-throttling](https://github.com/octokit/plugin-throttling.js) to automatically throttle your requests according to the [Github API best practices](https://developer.github.com/v3/#rate-limiting). If you go over your request quota, the throttling plugin will wait for your quota to reset, then it will retry one time only. Setup [Authentication](#authentication) to make sure Github resets your quota more frequently than every 60 minutes.
-```bash
-npm install --save @octokit/plugin-throttling
-```
-```js
-const Octokit = require('@octokit/rest')
-  .plugin(require('@octokit/plugin-throttling'))
-
-const octokit = new Octokit()
-
-octokit.throttle.on('rate-limit', (retryAfter) => {
-  console.log(`Rate limit exceeded. Your request will be retried in ${retryAfter} seconds.`)
-})
-octokit.throttle.on('abuse-limit', (retryAfter) => {
-  console.log(`Abusive behavior detected. Your request will be retried in ${retryAfter} seconds.`)
-})
-```
-
 ## Custom requests
 
 To send custom requests you can use the lower-level `octokit.request()` method
@@ -342,6 +322,31 @@ octokit.foo.bar({
 
 This is useful when you participate in private beta features and prefer the
 convenience of methods for the new endpoints instead of using [`octokit.request()`]('#customrequests').
+
+## Throttling
+
+When you send to many requests in too little time you will likely hit errors due to quotas.
+
+In order to automatically throttle requests as recommended in the [best practises for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
+
+```js
+const Octokit = require('@octokit/rest')
+  .plugin(require('@octokit/plugin-throttling'))
+
+const octokit = new Octokit()
+
+octokit.authenticate({
+  type: 'token',
+  token: process.env.TOKEN
+})
+
+octokit.throttle.on('rate-limit', (retryAfter) => {
+  console.warn(`Rate limit exceeded. Your request will be retried in ${retryAfter} seconds.`)
+})
+octokit.throttle.on('abuse-limit', (retryAfter) => {
+  console.warn(`Abusive behavior detected. Your request will be retried in ${retryAfter} seconds.`)
+})
+```
 
 ## Debug
 
