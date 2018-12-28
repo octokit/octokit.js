@@ -9,6 +9,27 @@
 
 <!-- toc -->
 
+- [Usage](#usage)
+  * [Node](#node)
+  * [Browser](#browser)
+  * [Client options](#client-options)
+- [API docs](#api-docs)
+- [API Previews](#api-previews)
+- [Authentication](#authentication)
+- [Custom requests](#custom-requests)
+- [Pagination](#pagination)
+- [Hooks](#hooks)
+- [Plugins](#plugins)
+- [Register custom endpoint methods](#register-custom-endpoint-methods)
+- [Throttling](#throttling)
+- [Automatic retries](#automatic-retries)
+- [Debug](#debug)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [LICENSE](#license)
+
+<!-- tocstop -->
+
 ## Usage
 
 ### Node
@@ -352,7 +373,7 @@ octokit.throttle.on('abuse-limit', (retryAfter) => {
 
 ## Automatic retries
 
-Many common request errors can easilybe remediated by retrying the request. We recommend to install the [`@octokit/plugin-retry` plugin](https://github.com/octokit/plugin-retry.js) for automated retries in these caeses
+Many common request errors can easilybe remediated by retrying the request. We recommend to install the [`@octokit/plugin-retry` plugin](https://github.com/octokit/plugin-retry.js) for Automatic retries in these cases
 
 ```js
 const Octokit = require('@ocotkit/rest')
