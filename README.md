@@ -9,6 +9,27 @@
 
 <!-- toc -->
 
+- [Usage](#usage)
+  * [Node](#node)
+  * [Browser](#browser)
+  * [Client options](#client-options)
+- [API docs](#api-docs)
+- [API Previews](#api-previews)
+- [Authentication](#authentication)
+- [Custom requests](#custom-requests)
+- [Pagination](#pagination)
+- [Hooks](#hooks)
+- [Plugins](#plugins)
+- [Register custom endpoint methods](#register-custom-endpoint-methods)
+- [Throttling](#throttling)
+- [Automatic retries](#automatic-retries)
+- [Debug](#debug)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [LICENSE](#license)
+
+<!-- tocstop -->
+
 ## Usage
 
 ### Node
