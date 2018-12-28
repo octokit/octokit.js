@@ -323,6 +323,31 @@ octokit.foo.bar({
 This is useful when you participate in private beta features and prefer the
 convenience of methods for the new endpoints instead of using [`octokit.request()`]('#customrequests').
 
+## Throttling
+
+When you send to many requests in too little time you will likely hit errors due to quotas.
+
+In order to automatically throttle requests as recommended in the [best practises for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
+
+```js
+const Octokit = require('@octokit/rest')
+  .plugin(require('@octokit/plugin-throttling'))
+
+const octokit = new Octokit()
+
+octokit.authenticate({
+  type: 'token',
+  token: process.env.TOKEN
+})
+
+octokit.throttle.on('rate-limit', (retryAfter) => {
+  console.warn(`Rate limit exceeded. Your request will be retried in ${retryAfter} seconds.`)
+})
+octokit.throttle.on('abuse-limit', (retryAfter) => {
+  console.warn(`Abusive behavior detected. Your request will be retried in ${retryAfter} seconds.`)
+})
+```
+
 ## Debug
 
 Set `DEBUG=octokit:rest*` for additional debug logs.
