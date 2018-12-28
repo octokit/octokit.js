@@ -147,6 +147,26 @@ octokit.authenticate({
 Note: `authenticate` is synchronous because it only sets the credentials
 for the following requests.
 
+## Throttling
+
+Install [@octokit/plugin-throttling](https://github.com/octokit/plugin-throttling.js) to automatically throttle your requests according to the [Github API best practices](https://developer.github.com/v3/#rate-limiting). If you go over your request quota, the throttling plugin will wait for your quota to reset, then it will retry one time only. Setup [Authentication](#authentication) to make sure Github resets your quota more frequently than every 60 minutes.
+```bash
+npm install --save @octokit/plugin-throttling
+```
+```js
+const Octokit = require('@octokit/rest')
+  .plugin(require('@octokit/plugin-throttling'))
+
+const octokit = new Octokit()
+
+octokit.throttle.on('rate-limit', (retryAfter) => {
+  console.log(`Rate limit exceeded. Your request will be retried in ${retryAfter} seconds.`)
+})
+octokit.throttle.on('abuse-limit', (retryAfter) => {
+  console.log(`Abusive behavior detected. Your request will be retried in ${retryAfter} seconds.`)
+})
+```
+
 ## Custom requests
 
 To send custom requests you can use the lower-level `octokit.request()` method
