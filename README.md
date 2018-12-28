@@ -7,6 +7,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/octokit/rest.js/badge.svg)](https://coveralls.io/github/octokit/rest.js)
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
 
+<!-- toc -->
+
 ## Usage
 
 ### Node
