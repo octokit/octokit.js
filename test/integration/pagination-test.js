@@ -45,6 +45,31 @@ describe('pagination', () => {
     ])
   })
 
+  it('.paginate() with Link header pointing to different path', () => {
+    nock('https://other-pagination-test.com')
+      .get('/organizations')
+      .query({ page: 1, per_page: 1 })
+      .reply(200, [{ id: 1 }], {
+        'Link': '<https://other-pagination-test.com/foobar?page=2&per_page=1>; rel="next"',
+        'X-GitHub-Media-Type': 'github.v3; format=json'
+      })
+      .get('/foobar')
+      .query({ page: 2, per_page: 1 })
+      .reply(200, [{ id: 2 }])
+
+    const octokit = new Octokit({
+      baseUrl: 'https://other-pagination-test.com'
+    })
+
+    return octokit.paginate('GET /organizations', { per_page: 1 })
+      .then(organizations => {
+        expect(organizations).to.deep.equal([
+          { id: 1 },
+          { id: 2 }
+        ])
+      })
+  })
+
   it('autopagination', () => {
     nock('https://pagination-test.com')
       .get('/organizations')
