@@ -44,6 +44,11 @@ describe('client proxy', function () {
     })
 
       .then(octokit => {
+        octokit.authenticate({
+          type: 'token',
+          token: '0000000000000000000000000000000000000001'
+        })
+
         return octokit.orgs.get({ org: 'octokit-fixture-org' })
       })
 

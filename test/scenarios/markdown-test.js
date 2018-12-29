@@ -9,6 +9,11 @@ describe('api.github.com', () => {
     return getInstance('markdown')
 
       .then(instance => {
+        instance.authenticate({
+          type: 'token',
+          token: '0000000000000000000000000000000000000001'
+        })
+
         octokit = instance
       })
   })
