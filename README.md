@@ -386,7 +386,7 @@ octokit.authenticate({
 Many common request errors can easilybe remediated by retrying the request. We recommend to install the [`@octokit/plugin-retry` plugin](https://github.com/octokit/plugin-retry.js) for Automatic retries in these cases
 
 ```js
-const Octokit = require('@ocotkit/rest')
+const Octokit = require('@octokit/rest')
   .plugin(require('@octokit/plugin-retry'))
 
 const octokit = new Octokit()
