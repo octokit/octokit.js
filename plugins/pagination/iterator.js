@@ -1,44 +1,27 @@
 module.exports = iterator
 
 function iterator (octokit, options) {
-  const state = {
-    page: options.page
-  }
+  const headers = options.headers
+  let url = octokit.request.endpoint(options).url
 
   return {
     [Symbol.asyncIterator]: () => ({
       next () {
-        state.page = (state.page || 0) + 1
-
-        if (state.done) {
+        if (!url) {
           return Promise.resolve({ done: true })
         }
 
-        return octokit.request(Object.assign(options, { page: state.page }))
+        return octokit.request({ url, headers })
 
           .then((response) => {
-            if (!hasNextPage(response)) {
-              state.done = true
-            }
+            // `response.headers.link` format:
+            // '<https://api.github.com/users/aseemk/followers?page=2>; rel="next", <https://api.github.com/users/aseemk/followers?page=2>; rel="last"'
+            // sets `url` to undefined if "next" URL is not present or `link` header is not set
+            url = ((response.headers.link || '').match(/<([^>]+)>;\s*rel="next"/) || [])[1]
 
-            return {
-              value: response
-            }
+            return { value: response }
           })
       }
     })
   }
-}
-
-function hasNextPage (response) {
-  const link = response.headers.link || ''
-  const links = {}
-
-  // link format:
-  // '<https://api.github.com/users/aseemk/followers?page=2>; rel="next", <https://api.github.com/users/aseemk/followers?page=2>; rel="last"'
-  link.replace(/<([^>]*)>;\s*rel="([\w]*)"/g, (m, uri, type) => {
-    links[type] = uri
-  })
-
-  return !!links.next
 }
