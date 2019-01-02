@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@gimenete/type-writer": "^0.1.3",
-    "@octokit/fixtures-server": "^4.0.0",
+    "@octokit/fixtures-server": "^5.0.0",
     "@octokit/routes": "16.1.1",
     "@types/node": "^10.1.2",
     "apidoc": "^0.17.6",
