@@ -8,7 +8,7 @@ describe('pagination', () => {
   it('.paginate()', () => {
     nock('https://pagination-test.com')
       .get('/organizations')
-      .query({ page: 1, per_page: 1 })
+      .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
         'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
@@ -48,7 +48,7 @@ describe('pagination', () => {
   it('.paginate() with Link header pointing to different path', () => {
     nock('https://other-pagination-test.com')
       .get('/organizations')
-      .query({ page: 1, per_page: 1 })
+      .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
         'Link': '<https://other-pagination-test.com/foobar?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
@@ -73,7 +73,7 @@ describe('pagination', () => {
   it('autopagination', () => {
     nock('https://pagination-test.com')
       .get('/organizations')
-      .query({ page: 1, per_page: 1 })
+      .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
         'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
@@ -110,7 +110,6 @@ describe('pagination', () => {
   it('.paginate.iterator for end endpoints that don’t paginate', () => {
     nock('https://pagination-test.com')
       .get('/orgs/myorg')
-      .query({ page: 1 })
       .reply(200, {
         foo: 'bar'
       })
