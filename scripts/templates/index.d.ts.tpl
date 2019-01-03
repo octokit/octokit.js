@@ -214,7 +214,7 @@ declare class Github {
   {{namespace}}: {
     {{#methods}}
     {{&jsdoc}}
-    {{method}}({{#paramTypeName}}params?: Github.{{.}}): Promise<{{&responseType}}>;
+    {{method}}({{#paramTypeName}}params?: Github.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
     {{/methods}}
   };
   {{/namespaces}}
