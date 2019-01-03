@@ -183,7 +183,7 @@ on the `octokit.request()` API see [`@octokit/request`](https://github.com/octok
 
 All the endpoint methods such as `octokit.repos.get()` are aliases of `octokit.request()`
 with pre-bound default options. So you can use the `@octokit/request` API to
-get the default options or get generic request option to use with your prefered
+get the default options or get generic request option to use with your preferred
 request library.
 
 ```js
@@ -204,7 +204,7 @@ octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 're
   })
 ```
 
-`octokit.paginate()` accepts the same options as [`octokit.request()`](#customrequests). You can optionally pass an additional function to map the results from each response. The map mast return a new value, usually an array with mapped data.
+`octokit.paginate()` accepts the same options as [`octokit.request()`](#customrequests). You can optionally pass an additional function to map the results from each response. The map must return a new value, usually an array with mapped data.
 
 ```js
 octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' }, response => response.data.map(issue => issue.title))
@@ -227,7 +227,7 @@ If your runtime environment supports async iterators (such as Node 10+), you can
 
 ```js
 for await (const response of octokit.paginate.iterator(options)) {
-  // do whatever you want with each response, break out of loop, etc.
+  // do whatever you want with each response, break out of the loop, etc.
 }
 ```
 
@@ -289,7 +289,7 @@ module.exports = (octokit, options = { greeting: 'Hello' }) => {
 
 `.plugin` accepts a function or an array of functions.
 
-You can add new methods to the `octokit` instance passed as first argument to
+You can add new methods to the `octokit` instance passed as the first argument to
 the plugin function. The 2nd argument is the options object passed to the
 constructor when instantiating the `octokit` client.
 
@@ -348,9 +348,9 @@ convenience of methods for the new endpoints instead of using [`octokit.request(
 
 ## Throttling
 
-When you send to many requests in too little time you will likely hit errors due to quotas.
+When you send too many requests in too little time you will likely hit errors due to quotas.
 
-In order to automatically throttle requests as recommended in the [best practises for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
+In order to automatically throttle requests as recommended in the [best practices for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
 
 The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required. Return `true` to automatically retry the request after `retryAfter` seconds.
 
@@ -383,7 +383,7 @@ octokit.authenticate({
 
 ## Automatic retries
 
-Many common request errors can easilybe remediated by retrying the request. We recommend to install the [`@octokit/plugin-retry` plugin](https://github.com/octokit/plugin-retry.js) for Automatic retries in these cases
+Many common request errors can be easily remediated by retrying the request. We recommend installing the [`@octokit/plugin-retry` plugin](https://github.com/octokit/plugin-retry.js) for Automatic retries in these cases
 
 ```js
 const Octokit = require('@octokit/rest')
