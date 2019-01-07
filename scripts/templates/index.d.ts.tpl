@@ -42,40 +42,32 @@ declare namespace Github {
     timeout?: number;
     headers?: {[header: string]: any};
     agent?: http.Agent;
+  }
 
-    /**
-     * @deprecated in version 15.0.0
-     */
-    proxy?: string;
-    /**
-     * @deprecated in version 15.0.0
-     */
-    ca?: string;
-    /**
-     * @deprecated in version 15.0.0
-     */
-    rejectUnauthorized?: boolean;
-    /**
-     * @deprecated in version 15.0.0
-     */
-    family?: number;
+  export type RequestMethod =
+    | 'DELETE'
+    | 'GET'
+    | 'HEAD'
+    | 'PATCH'
+    | 'POST'
+    | 'PUT'
 
-    /**
-     * @deprecated in version 15.2.0
-     */
-    host?: string;
-    /**
-     * @deprecated in version 15.2.0
-     */
-    pathPrefix?: string;
-    /**
-     * @deprecated in version 15.2.0
-     */
-    protocol?: string;
-    /**
-     * @deprecated in version 15.2.0
-     */
-    port?: number;
+  export interface EndpointOptions {
+    baseUrl?: string
+    method?: RequestMethod
+    url?: string
+    headers?: { [header: string]: any }
+    data?:  any
+    request?: { [option: string]: any }
+    [parameter: string]: any
+  }
+
+  export interface RequestOptions {
+    method?: RequestMethod
+    url?: string
+    headers?: { [header: string]: any }
+    body?:  any
+    request?: { [option: string]: any }
   }
 
   export interface AuthBasic {
@@ -208,13 +200,35 @@ declare class Github {
 
   registerEndpoints(routes: any): void
 
-  request: any
+  request: {
+    (Route: string, EndpointOptions?: Github.EndpointOptions): Promise<
+      Github.AnyResponse
+    >;
+    (EndpointOptions: Github.EndpointOptions): Promise<Github.AnyResponse>;
+    endpoint(
+      Route: string,
+      EndpointOptions?: Github.EndpointOptions
+    ): Github.RequestOptions;
+    endpoint(EndpointOptions: Github.EndpointOptions): Github.RequestOptions;
+  };
+
+  paginate: {
+    (Route: string, EndpointOptions?: Github.EndpointOptions, callback?: (response: Github.AnyResponse) => any): Promise<
+      any[]
+    >;
+    (EndpointOptions: Github.EndpointOptions, callback?: (response: Github.AnyResponse) => any): Promise<any[]>;
+    iterator: (EndpointOptions: Github.EndpointOptions) => AsyncIterableIterator<Github.AnyResponse>;
+  };
 
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
     {{&jsdoc}}
-    {{method}}({{#paramTypeName}}params?: Github.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
+    {{method}}: {
+      ({{#paramTypeName}}params?: Github.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
+
+      endpoint: any
+    };
     {{/methods}}
   };
   {{/namespaces}}

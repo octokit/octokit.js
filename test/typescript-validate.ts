@@ -21,16 +21,7 @@ export default async function() {
       'user-agent': 'octokit/rest.js v1.2.3'
     },
     baseUrl: 'https://api.github.com',
-    agent: new Agent({ keepAlive: true }),
-
-    // deprecated options (see deprecations-test.js)
-    protocol: 'https',
-    port: 433,
-    pathPrefix: '',
-    proxy: '',
-    ca: '',
-    rejectUnauthorized: false,
-    family: 6
+    agent: new Agent({ keepAlive: true })
   })
 
   const repo = await octokit.repos.get({owner: 'octokit', repo: 'rest.js'})
@@ -85,4 +76,28 @@ export default async function() {
       return response
     })
   })
+
+  // test request & endpoint
+  octokit.request('/')
+  octokit.request('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
+  octokit.request({ method: 'GET', url: '/repos/:owner/:repo/issues', owner: 'octokit', repo: 'rest.js' })
+  octokit.request.endpoint('/')
+  octokit.request.endpoint('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
+  octokit.request.endpoint({ method: 'GET', url: '/repos/:owner/:repo/issues', owner: 'octokit', repo: 'rest.js' })
+
+  // test pagination
+  octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
+    .then(issues => {
+      // issues is an array of all issue objects
+    })
+
+  octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' }, response => response.data.map(issue => issue.title))
+    .then(issueTitles => {
+      // issueTitles is now an array with the titles only
+    })
+
+  const options = octokit.issues.listForRepo.endpoint.merge({ owner: 'octokit', repo: 'rest.js' })
+  for await (const response of octokit.paginate.iterator(options)) {
+    // do whatever you want with each response, break out of the loop, etc.
+  }
 }
