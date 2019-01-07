@@ -70,6 +70,18 @@ declare namespace Github {
     request?: { [option: string]: any }
   }
 
+  export interface Request {
+    (Route: string, EndpointOptions?: Github.EndpointOptions): Promise<
+      Github.AnyResponse
+    >;
+    (EndpointOptions: Github.EndpointOptions): Promise<Github.AnyResponse>;
+    endpoint(
+      Route: string,
+      EndpointOptions?: Github.EndpointOptions
+    ): Github.RequestOptions;
+    endpoint(EndpointOptions: Github.EndpointOptions): Github.RequestOptions;
+  };
+
   export interface AuthBasic {
     type: "basic";
     username: string;
@@ -137,6 +149,21 @@ declare namespace Github {
     }]
   }
 
+  export interface Paginate {
+    (
+      Route: string,
+      EndpointOptions?: Github.EndpointOptions,
+      callback?: (response: Github.AnyResponse) => any
+    ): Promise<any[]>;
+    (
+      EndpointOptions: Github.EndpointOptions,
+      callback?: (response: Github.AnyResponse) => any
+    ): Promise<any[]>;
+    iterator: (
+      EndpointOptions: Github.EndpointOptions
+    ) => AsyncIterableIterator<Github.AnyResponse>;
+  }
+
   {{&responseTypes}}
 
   {{#params}}
@@ -198,27 +225,11 @@ declare class Github {
 
   static plugin(plugin: Github.Plugin | [Github.Plugin]): Github
 
-  registerEndpoints(routes: any): void
+  registerEndpoints(routes: any): void;
 
-  request: {
-    (Route: string, EndpointOptions?: Github.EndpointOptions): Promise<
-      Github.AnyResponse
-    >;
-    (EndpointOptions: Github.EndpointOptions): Promise<Github.AnyResponse>;
-    endpoint(
-      Route: string,
-      EndpointOptions?: Github.EndpointOptions
-    ): Github.RequestOptions;
-    endpoint(EndpointOptions: Github.EndpointOptions): Github.RequestOptions;
-  };
+  request: Github.Request;
 
-  paginate: {
-    (Route: string, EndpointOptions?: Github.EndpointOptions, callback?: (response: Github.AnyResponse) => any): Promise<
-      any[]
-    >;
-    (EndpointOptions: Github.EndpointOptions, callback?: (response: Github.AnyResponse) => any): Promise<any[]>;
-    iterator: (EndpointOptions: Github.EndpointOptions) => AsyncIterableIterator<Github.AnyResponse>;
-  };
+  paginate: Github.Paginate;
 
   {{#namespaces}}
   {{namespace}}: {
