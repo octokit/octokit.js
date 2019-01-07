@@ -4,12 +4,12 @@
 
 import * as http from 'http'
 
-declare namespace Github {
+declare namespace Octokit {
   type json = any
   type date = string
 
   export interface Response<T> {
-    /** This is the data you would see in https://developer.github.com/v3/ */
+    /** This is the data you would see in https://developer.Octokit.com/v3/ */
     data: T
 
     /** Response status number */
@@ -21,8 +21,8 @@ declare namespace Github {
       'x-ratelimit-limit': string,
       'x-ratelimit-remaining': string,
       'x-ratelimit-reset': string,
-      'x-github-request-id': string,
-      'x-github-media-type': string,
+      'x-Octokit-request-id': string,
+      'x-Octokit-media-type': string,
       link: string,
       'last-modified': string,
       etag: string,
@@ -71,15 +71,15 @@ declare namespace Github {
   }
 
   export interface Request {
-    (Route: string, EndpointOptions?: Github.EndpointOptions): Promise<
-      Github.AnyResponse
+    (Route: string, EndpointOptions?: Octokit.EndpointOptions): Promise<
+      Octokit.AnyResponse
     >;
-    (EndpointOptions: Github.EndpointOptions): Promise<Github.AnyResponse>;
+    (EndpointOptions: Octokit.EndpointOptions): Promise<Octokit.AnyResponse>;
     endpoint(
       Route: string,
-      EndpointOptions?: Github.EndpointOptions
-    ): Github.RequestOptions;
-    endpoint(EndpointOptions: Github.EndpointOptions): Github.RequestOptions;
+      EndpointOptions?: Octokit.EndpointOptions
+    ): Octokit.RequestOptions;
+    endpoint(EndpointOptions: Octokit.EndpointOptions): Octokit.RequestOptions;
   };
 
   export interface AuthBasic {
@@ -118,16 +118,16 @@ declare namespace Github {
     (error: Error | null, result: T): any;
   }
 
-  export type Plugin = (octikit: Github, options: Github.Options) => void
+  export type Plugin = (octikit: Octokit, options: Octokit.Options) => void
 
-  // See https://github.com/octokit/request.js#octokitrequest
+  // See https://Octokit.com/octokit/request.js#octokitrequest
   export type HookOptions = {
     baseUrl: string
     headers: { [header: string]: string }
     method: string
     url: string
     data: any
-    // See https://github.com/bitinn/node-fetch#options
+    // See https://Octokit.com/bitinn/node-fetch#options
     request: {
       follow?: number
       timeout?: number
@@ -152,16 +152,16 @@ declare namespace Github {
   export interface Paginate {
     (
       Route: string,
-      EndpointOptions?: Github.EndpointOptions,
-      callback?: (response: Github.AnyResponse) => any
+      EndpointOptions?: Octokit.EndpointOptions,
+      callback?: (response: Octokit.AnyResponse) => any
     ): Promise<any[]>;
     (
-      EndpointOptions: Github.EndpointOptions,
-      callback?: (response: Github.AnyResponse) => any
+      EndpointOptions: Octokit.EndpointOptions,
+      callback?: (response: Octokit.AnyResponse) => any
     ): Promise<any[]>;
     iterator: (
-      EndpointOptions: Github.EndpointOptions
-    ) => AsyncIterableIterator<Github.AnyResponse>;
+      EndpointOptions: Octokit.EndpointOptions
+    ) => AsyncIterableIterator<Octokit.AnyResponse>;
   }
 
   {{&responseTypes}}
@@ -208,35 +208,35 @@ declare namespace Github {
   {{/childParams}}
 }
 
-declare class Github {
-  constructor(options?: Github.Options);
-  authenticate(auth: Github.AuthBasic): void;
-  authenticate(auth: Github.AuthOAuthToken): void;
-  authenticate(auth: Github.AuthOAuthSecret): void;
-  authenticate(auth: Github.AuthUserToken): void;
-  authenticate(auth: Github.AuthJWT): void;
+declare class Octokit {
+  constructor(options?: Octokit.Options);
+  authenticate(auth: Octokit.AuthBasic): void;
+  authenticate(auth: Octokit.AuthOAuthToken): void;
+  authenticate(auth: Octokit.AuthOAuthSecret): void;
+  authenticate(auth: Octokit.AuthUserToken): void;
+  authenticate(auth: Octokit.AuthJWT): void;
 
   hook: {
-    before(name: string, callback: (options: Github.HookOptions) => void): void
-    after(name: string, callback: (response: Github.Response<any>, options: Github.HookOptions) => void): void
-    error(name: string, callback: (error: Github.HookError, options: Github.HookOptions) => void): void
-    wrap(name: string, callback: (request: (options: Github.HookOptions) => Promise<Github.Response<any>>, options: Github.HookOptions) => void): void
+    before(name: string, callback: (options: Octokit.HookOptions) => void): void
+    after(name: string, callback: (response: Octokit.Response<any>, options: Octokit.HookOptions) => void): void
+    error(name: string, callback: (error: Octokit.HookError, options: Octokit.HookOptions) => void): void
+    wrap(name: string, callback: (request: (options: Octokit.HookOptions) => Promise<Octokit.Response<any>>, options: Octokit.HookOptions) => void): void
   }
 
-  static plugin(plugin: Github.Plugin | [Github.Plugin]): Github
+  static plugin(plugin: Octokit.Plugin | [Octokit.Plugin]): Octokit
 
   registerEndpoints(routes: any): void;
 
-  request: Github.Request;
+  request: Octokit.Request;
 
-  paginate: Github.Paginate;
+  paginate: Octokit.Paginate;
 
   {{#namespaces}}
   {{namespace}}: {
     {{#methods}}
     {{&jsdoc}}
     {{method}}: {
-      ({{#paramTypeName}}params?: Github.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
+      ({{#paramTypeName}}params?: Octokit.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
 
       endpoint: any
     };
@@ -245,4 +245,4 @@ declare class Github {
   {{/namespaces}}
 }
 
-export = Github;
+export = Octokit;
