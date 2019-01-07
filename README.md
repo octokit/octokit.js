@@ -146,7 +146,7 @@ client.rest.repos.getForOrg({org: 'octokit'})
 
 ### GraphQL API
 
-See https://github.com/octokit/grapqhl.js/
+See https://github.com/octokit/graphql.js/
 
 ```js
 client.graphql(`{
