@@ -123,12 +123,12 @@ function generateTypes (languageName, templateFile, outputFile) {
           ? namespacedParamsName
           : pascalcase('EmptyParams')
 
-        let responseType = 'Github.AnyResponse'
+        let responseType = 'Octokit.AnyResponse'
         if (entry.responses) {
-          const typeName = 'Github.' + typeWriter.add(entry.responses.map(response => response.body || {}), {
+          const typeName = 'Octokit.' + typeWriter.add(entry.responses.map(response => response.body || {}), {
             rootTypeName: pascalcase(`${namespace}-${entry.idName}Response`)
           })
-          responseType = 'Github.Response<' + typeName + '>'
+          responseType = 'Octokit.Response<' + typeName + '>'
         }
 
         return methods.concat({
