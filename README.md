@@ -158,7 +158,7 @@ client.graphql(`{
 
 ### Webhooks
 
-Node.js only. See https://octokit.github.io/webhooks.js/.
+Node.js only. See https://github.com/octokit/webhooks.js/.
 
 The difference to using `@octokit/webhooks` standalone is that the current
 `client` instance will be passed as additional context property passed to
@@ -175,7 +175,7 @@ require('http').createServer(webhooks.middleware).listen(3000)
 
 ### GitHub Apps
 
-Node.js only. See https://octokit.github.io/app.js/.
+Node.js only. See https://github.com/octokit/app.js/.
 
 The difference to using `@octokit/app` standalone is that the current
 `client` instance will be passed as additional context property passed to
