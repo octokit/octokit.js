@@ -23,7 +23,7 @@ function gather (results, iterator, mapFn) {
         earlyExit = true
       }
 
-      results.push.apply(results, mapFn ? mapFn(result.value, done) : result.value.data)
+      results = results.concat(mapFn ? mapFn(result.value, done) : result.value.data)
 
       if (earlyExit) {
         return results
