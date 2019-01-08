@@ -18,7 +18,17 @@ function gather (results, iterator, mapFn) {
         return results
       }
 
-      results.push.apply(results, mapFn ? mapFn(result.value) : result.value.data)
+      let earlyExit = false
+      function done () {
+        earlyExit = true
+      }
+
+      results.push.apply(results, mapFn ? mapFn(result.value, done) : result.value.data)
+
+      if (earlyExit) {
+        return results
+      }
+
       return gather(results, iterator, mapFn)
     })
 }
