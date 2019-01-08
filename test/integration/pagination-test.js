@@ -45,6 +45,32 @@ describe('pagination', () => {
     ])
   })
 
+  it('.paginate() with map function returning undefined', () => {
+    nock('https://pagination-test.com')
+      .get('/organizations')
+      .query({ per_page: 1 })
+      .reply(200, [{ id: 1 }], {
+        'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
+        'X-GitHub-Media-Type': 'github.v3; format=json'
+      })
+      .get('/organizations')
+      .query({ page: 2, per_page: 1 })
+      .reply(200, [{ id: 2 }])
+
+    const octokit = new Octokit({
+      baseUrl: 'https://pagination-test.com'
+    })
+
+    return octokit.paginate(
+      'GET /organizations',
+      { per_page: 1 },
+      response => undefined
+    )
+      .then(results => {
+        expect(results).to.deep.equal([undefined, undefined])
+      })
+  })
+
   it('.paginate() with early exit', () => {
     nock('https://pagination-test.com')
       .get('/organizations')
