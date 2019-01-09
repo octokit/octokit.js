@@ -47,6 +47,7 @@ declare namespace Octokit {
     timeout?: number;
     headers?: {[header: string]: any};
     agent?: http.Agent;
+    [option: string]: any;
   }
 
   export type RequestMethod =
