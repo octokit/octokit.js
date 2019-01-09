@@ -110,6 +110,17 @@ export default async function() {
     // do whatever you want with each response, break out of the loop, etc.
   }
 
+  // register endpoints
+  octokit.registerEndpoints({
+    funk: {
+      method: 'DELETE',
+      url: '/funk',
+      request: {
+        foo: 'bar'
+      }
+    }
+  })
+
   // Plugins
   const MyOctokit = Octokit.plugin((octokit, options) => {
     octokit.hook.wrap('request', async (request, options) => {
