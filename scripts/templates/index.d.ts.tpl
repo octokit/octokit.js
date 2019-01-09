@@ -8,6 +8,11 @@ declare namespace Octokit {
   type json = any
   type date = string
 
+  export interface Static {
+    plugin(plugin: Plugin): Static
+    new(options?: Octokit.Options): Octokit
+  }
+
   export interface Response<T> {
     /** This is the data you would see in https://developer.Octokit.com/v3/ */
     data: T
@@ -118,7 +123,7 @@ declare namespace Octokit {
     (error: Error | null, result: T): any;
   }
 
-  export type Plugin = (octikit: Octokit, options: Octokit.Options) => void
+  export type Plugin = (octokit: Octokit, options: Octokit.Options) => void
 
   // See https://Octokit.com/octokit/request.js#octokitrequest
   export type HookOptions = {
@@ -223,7 +228,7 @@ declare class Octokit {
     wrap(name: string, callback: (request: (options: Octokit.HookOptions) => Promise<Octokit.Response<any>>, options: Octokit.HookOptions) => void): void
   }
 
-  static plugin(plugin: Octokit.Plugin | [Octokit.Plugin]): Octokit
+  static plugin(plugin: Octokit.Plugin | [Octokit.Plugin]): Octokit.Static;
 
   registerEndpoints(routes: any): void;
 
