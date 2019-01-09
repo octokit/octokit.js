@@ -231,7 +231,9 @@ declare class Octokit {
 
   static plugin(plugin: Octokit.Plugin | [Octokit.Plugin]): Octokit.Static;
 
-  registerEndpoints(routes: any): void;
+  registerEndpoints(endpoints: {
+    [scope: string]: Octokit.EndpointOptions
+  }): void;
 
   request: Octokit.Request;
 
