@@ -24,23 +24,22 @@ export default async function() {
     agent: new Agent({ keepAlive: true })
   })
 
-  const repo = await octokit.repos.get({owner: 'octokit', repo: 'rest.js'})
-  // Check Response
-  repo.data
-  repo.status
-  repo.headers.link
-  repo.headers.etag
-  repo.headers.status
+  // check responses
+  const repoResponse = await octokit.repos.get({owner: 'octokit', repo: 'rest.js'})
+  repoResponse.data
+  repoResponse.status
+  repoResponse.headers.link
+  repoResponse.headers.etag
+  repoResponse.headers.status
 
-  const user = await octokit.users.getByUsername({username: 'octokit'})
-  // Check Response
-  user.data.login
-  user.data.type
+  const userResponse = await octokit.users.getByUsername({username: 'octokit'})
+  userResponse.data.login
+  userResponse.data.type
 
-  const userIssues = await octokit.issues.listForAuthenticatedUser({state: 'open'})
-  // Check Response
-  userIssues.data[0].locked
+  const userIssuesResponse = await octokit.issues.listForAuthenticatedUser({state: 'open'})
+  userIssuesResponse.data[0].locked
 
+  // endpoint method
   await octokit.issues.addLabels({
     owner: 'octokit',
     repo: 'rest.js',
@@ -48,7 +47,22 @@ export default async function() {
     labels: ['label'],
   });
 
-  // Testing static methods introduced in v16
+  const requestOptions = octokit.issues.addLabels.endpoint({
+    owner: 'octokit',
+    repo: 'rest.js',
+    number: 10,
+    labels: ['label'],
+    request: {
+      foo: 'bar'
+    }
+  })
+  requestOptions.method
+  requestOptions.url
+  requestOptions.headers
+  requestOptions.body
+  requestOptions.request.foo
+
+  // hooks
   octokit.hook.before('request', async (options) => {
     console.log('before hook', options.url);
   })
@@ -68,16 +82,8 @@ export default async function() {
     // add logic before, after, catch errors or replace the request altogether
     return request(options)
   })
-  Octokit.plugin((octokit, options) => {
-    octokit.hook.wrap('request', async (request, options) => {
-      const time = Date.now()
-      const response = await request(options)
-      console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - time}ms`)
-      return response
-    })
-  })
 
-  // test request & endpoint
+  // request & endpoint
   octokit.request('/')
   octokit.request('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
   octokit.request({ method: 'GET', url: '/repos/:owner/:repo/issues', owner: 'octokit', repo: 'rest.js' })
@@ -85,7 +91,7 @@ export default async function() {
   octokit.request.endpoint('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
   octokit.request.endpoint({ method: 'GET', url: '/repos/:owner/:repo/issues', owner: 'octokit', repo: 'rest.js' })
 
-  // test pagination
+  // pagination
   octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
     .then(issues => {
       // issues is an array of all issue objects
@@ -100,4 +106,17 @@ export default async function() {
   for await (const response of octokit.paginate.iterator(options)) {
     // do whatever you want with each response, break out of the loop, etc.
   }
+
+  // Plugins
+  const MyOctokit = Octokit.plugin((octokit, options) => {
+    octokit.hook.wrap('request', async (request, options) => {
+      const time = Date.now()
+      const response = await request(options)
+      console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - time}ms`)
+      return response
+    })
+  })
+
+  const myOctokit = new MyOctokit
+  myOctokit.request('/')
 }
