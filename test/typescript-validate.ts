@@ -21,7 +21,10 @@ export default async function() {
       'user-agent': 'octokit/rest.js v1.2.3'
     },
     baseUrl: 'https://api.github.com',
-    agent: new Agent({ keepAlive: true })
+    agent: new Agent({ keepAlive: true }),
+    custom: {
+      foo: 'bar'
+    }
   })
 
   // check responses
