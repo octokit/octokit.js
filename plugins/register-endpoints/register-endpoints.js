@@ -2,7 +2,9 @@ module.exports = registerEndpoints
 
 function registerEndpoints (octokit, routes) {
   Object.keys(routes).forEach(namespaceName => {
-    octokit[namespaceName] = {}
+    if (!octokit[namespaceName]) {
+      octokit[namespaceName] = {}
+    }
 
     Object.keys(routes[namespaceName]).forEach(apiName => {
       let apiOptions = routes[namespaceName][apiName]
