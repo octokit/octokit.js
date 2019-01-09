@@ -76,16 +76,37 @@ declare namespace Octokit {
     request?: { [option: string]: any }
   }
 
+  export interface Endpoint {
+    (
+      Route: string,
+      EndpointOptions?: Octokit.EndpointOptions
+    ): Octokit.RequestOptions;
+    (EndpointOptions: Octokit.EndpointOptions): Octokit.RequestOptions;
+    /**
+     * Current default options
+     */
+    DEFAULTS: Octokit.EndpointOptions;
+    /**
+     * Get the defaulted endpoint options, but without parsing them into request options:
+     */
+    merge(Route: string, EndpointOptions?: Octokit.EndpointOptions): Octokit.RequestOptions;
+    merge(EndpointOptions: Octokit.EndpointOptions): Octokit.RequestOptions;
+    /**
+     * Stateless method to turn endpoint options into request options. Calling endpoint(options) is the same as calling endpoint.parse(endpoint.merge(options)).
+     */
+    parse(EndpointOptions: Octokit.EndpointOptions): Octokit.RequestOptions;
+    /**
+     * Merges existing defaults with passed options and returns new endpoint() method with new defaults
+     */
+    defaults(EndpointOptions: Octokit.EndpointOptions): Octokit.Endpoint
+  }
+
   export interface Request {
     (Route: string, EndpointOptions?: Octokit.EndpointOptions): Promise<
       Octokit.AnyResponse
     >;
     (EndpointOptions: Octokit.EndpointOptions): Promise<Octokit.AnyResponse>;
-    endpoint(
-      Route: string,
-      EndpointOptions?: Octokit.EndpointOptions
-    ): Octokit.RequestOptions;
-    endpoint(EndpointOptions: Octokit.EndpointOptions): Octokit.RequestOptions;
+    endpoint: Octokit.Endpoint
   };
 
   export interface AuthBasic {
@@ -246,7 +267,7 @@ declare class Octokit {
     {{method}}: {
       ({{#paramTypeName}}params?: Octokit.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
 
-      endpoint: any
+      endpoint: Octokit.Endpoint
     };
     {{/methods}}
   };
