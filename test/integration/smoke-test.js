@@ -161,14 +161,17 @@ describe('smoke', () => {
     expect(octokit.registerEndpoints).to.be.a('function')
 
     octokit.registerEndpoints({
-      foo: {
-        bar: {
+      issues: {
+        fooBar: {
           method: 'GET',
           url: '/baz'
         }
       }
     })
 
-    return octokit.foo.bar()
+    // make sure .registerEndpoints does not remove other methods on the same scope
+    expect(octokit.issues.get).to.be.a('function')
+
+    return octokit.issues.fooBar()
   })
 })
