@@ -1,5 +1,6 @@
 import * as Octokit from '../index'
 import {Agent} from 'http'
+import { request } from 'https';
 const http = require('http');
 
 // ************************************************************
@@ -64,6 +65,9 @@ export default async function() {
   requestOptions.headers
   requestOptions.body
   requestOptions.request.foo
+  const endpointOptions = octokit.issues.addLabels.endpoint.merge({
+    foo: 'bar'
+  })
 
   // hooks
   octokit.hook.before('request', async (options) => {
@@ -93,6 +97,9 @@ export default async function() {
   octokit.request.endpoint('/')
   octokit.request.endpoint('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
   octokit.request.endpoint({ method: 'GET', url: '/repos/:owner/:repo/issues', owner: 'octokit', repo: 'rest.js' })
+  octokit.request.endpoint.merge({ foo: 'bar' })
+  octokit.request.endpoint.parse({ method: 'GET', url: '/repos/:owner/:repo/issues', owner: 'octokit', repo: 'rest.js' })
+  octokit.request.endpoint.defaults({ owner: 'octokit', repo: 'rest.js' }).merge({ method: 'GET', url: '/repos/:owner/:repo/issues' })
 
   // pagination
   octokit.paginate('GET /repos/:owner/:repo/issues', { owner: 'octokit', repo: 'rest.js' })
