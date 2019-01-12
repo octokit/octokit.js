@@ -11,7 +11,7 @@ describe('plugins', () => {
     expect(myClient.foo).to.equal('bar')
   })
 
-  it('it does not override plugins of original constructor', () => {
+  it('does not override plugins of original constructor', () => {
     const MyOctokit = Octokit.plugin((octokit) => {
       octokit.foo = 'bar'
     })
@@ -27,5 +27,17 @@ describe('plugins', () => {
       expect(options.foo).to.equal('bar')
     })
     MyOctokit({ foo: 'bar' })
+  })
+
+  it('does not load the same plugin more than once', () => {
+    const myPlugin = (octokit, options) => {
+      if (octokit.customKey) {
+        throw new Error('Boom!')
+      } else {
+        octokit.customKey = true
+      }
+    }
+    const MyOctokit = Octokit.plugin(myPlugin).plugin(myPlugin)
+    expect(MyOctokit).to.not.throw()
   })
 })
