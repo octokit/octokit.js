@@ -33,11 +33,12 @@ jobs:
         - sleep 3 # give server some time to start
         - npm run test
     - node_js: 10
-      env: Node 10, coverage upload
+      env: Node 10, memory test, coverage upload
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
+        - npm run test:memory
         - npm run coverage:upload
     - node_js: lts/*
       env: browser tests
