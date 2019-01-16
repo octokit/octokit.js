@@ -1,8 +1,5 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-    - node_modules/cypress/dist
+cache: npm
 
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
@@ -24,7 +21,9 @@ jobs:
   include:
     - stage: test
       # spead up build times by removing unneeded dev dependencies
-      before_install: npm uninstall --save leakage cypress semantic-release
+      before_install:
+        - npm install -g npm@6
+        - npm uninstall leakage cypress semantic-release
       node_js: 6
       script:
         - npm run start-fixtures-server &
