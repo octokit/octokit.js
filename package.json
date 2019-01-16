@@ -86,7 +86,7 @@
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "coverage:upload": "nyc report --reporter=text-lcov | coveralls",
     "pretest": "standard",
-    "test": "nyc mocha test/mocha-node-setup.js \"test/**/*-test.js\"",
+    "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
     "test:memory": "mocha test/memory-test",
     "build": "npm-run-all build:*",
