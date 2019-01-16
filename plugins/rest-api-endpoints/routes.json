@@ -9378,6 +9378,7 @@
           "enum": [
             "stars",
             "forks",
+            "help-wanted-issues",
             "updated"
           ],
           "type": "string"
