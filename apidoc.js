@@ -163,6 +163,7 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
  * @apiParam {string[]} [scopes]  A list of scopes that this authorization is in.
  * @apiParam {string} [note]  A note to remind you what the OAuth token is for.
  * @apiParam {string} [note_url]  A URL to remind you what app the OAuth token is for.
+ * @apiDeprecated octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint() has been renamed to octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint() (2018-12-27)
  * @apiExample {js} async/await
  * const result = await octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url})
  * @apiExample {js} Promise
@@ -8569,6 +8570,7 @@ In this query, we're searching for the keyword `windows`, within any open issue 
  * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiDeprecated octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)
  * @apiExample {js} async/await
  * const result = await octokit.search.issues({q, sort, order, per_page, page})
  * @apiExample {js} Promise

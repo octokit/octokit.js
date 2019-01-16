@@ -10305,6 +10305,9 @@
         ]
       }
     },
+    "deprecated": {
+      "content": "octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint() has been renamed to octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint() (2018-12-27)"
+    },
     "examples": [
       {
         "title": "async/await",
@@ -24571,6 +24574,9 @@
           }
         ]
       }
+    },
+    "deprecated": {
+      "content": "octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)"
     },
     "examples": [
       {
