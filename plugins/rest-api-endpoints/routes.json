@@ -4992,12 +4992,12 @@
         "per_page": {
           "type": "integer"
         },
+        "private": {
+          "type": "boolean"
+        },
         "project_id": {
           "required": true,
           "type": "integer"
-        },
-        "public": {
-          "type": "boolean"
         },
         "state": {
           "enum": [
