@@ -1,6 +1,7 @@
 const { writeFileSync } = require('fs')
 const { join } = require('path')
 
+const camelCase = require('lodash.camelcase')
 const sortKeys = require('sort-keys')
 
 const ROUTES = require('./lib/get-routes')()
@@ -66,6 +67,10 @@ endpoints.forEach(endpoint => {
     newRoutes[scope][idName].headers = {
       accept: previewHeaders
     }
+  }
+
+  if (endpoint.deprecated) {
+    newRoutes[scope][idName].deprecated = `octokit.${scope}.${camelCase(endpoint.deprecated.before.idName)}() has been renamed to octokit.${scope}.${camelCase(endpoint.deprecated.after.idName)}() (${endpoint.deprecated.date})`
   }
 })
 
