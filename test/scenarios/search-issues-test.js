@@ -18,8 +18,8 @@ describe('api.github.com', () => {
       })
   })
 
-  it('octokit.search.issues({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
-    return octokit.search.issues({ q: 'sesame repo:octokit-fixture-org/search-issues' })
+  it('octokit.search.issuesAndPullRequests({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
+    return octokit.search.issuesAndPullRequests({ q: 'sesame repo:octokit-fixture-org/search-issues' })
 
       .then((response) => {
         expect(response.data.total_count).to.equal(2)

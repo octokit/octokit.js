@@ -20,7 +20,7 @@ describe('https://github.com/octokit/rest.js/issues/826', () => {
         expect.fail('should throw error')
       })
       .catch(error => {
-        expect(error.code).to.equal(304)
+        expect(error.status).to.equal(304)
       })
   })
 })

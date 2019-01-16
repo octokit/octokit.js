@@ -40,7 +40,7 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
         })
 
           .catch((error) => {
-            expect(error.code).to.equal(404)
+            expect(error.status).to.equal(404)
           })
       })
   })

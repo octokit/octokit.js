@@ -22,8 +22,8 @@ describe('request 304s', () => {
       .then((response) => {
         expect.fail('should throw error')
       })
-      .catch(exception => {
-        expect(exception.code).to.equal(304)
+      .catch(error => {
+        expect(error.status).to.equal(304)
       })
   })
 
@@ -36,8 +36,8 @@ describe('request 304s', () => {
       .then((response) => {
         expect.fail('should throw error')
       })
-      .catch(exception => {
-        expect(exception.code).to.equal(304)
+      .catch(error => {
+        expect(error.status).to.equal(304)
       })
   })
 })

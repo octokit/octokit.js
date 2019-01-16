@@ -20,7 +20,7 @@ describe('request errors', () => {
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
-        expect(error.code).to.equal(504)
+        expect(error.status).to.equal(504)
         expect(error).to.have.property('stack')
       })
   })
@@ -38,7 +38,7 @@ describe('request errors', () => {
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
-        expect(error.code).to.equal(500)
+        expect(error.status).to.equal(500)
         expect(error).to.have.property('stack')
       })
   })
@@ -57,7 +57,7 @@ describe('request errors', () => {
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
-        expect(error.code).to.equal(404)
+        expect(error.status).to.equal(404)
         expect(error).to.have.property('stack')
       })
   })
@@ -76,7 +76,7 @@ describe('request errors', () => {
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
-        expect(error.code).to.equal(401)
+        expect(error.status).to.equal(401)
         expect(error).to.have.property('stack')
       })
   })
@@ -97,7 +97,7 @@ describe('request errors', () => {
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
-        expect(error.code).to.equal(401)
+        expect(error.status).to.equal(401)
         expect(error.headers).to.deep.equal({
           'content-type': 'application/json',
           'x-foo': 'bar'
