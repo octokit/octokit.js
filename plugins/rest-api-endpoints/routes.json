@@ -9266,8 +9266,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -9298,8 +9298,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -9324,12 +9324,13 @@
       "url": "/search/commits"
     },
     "issues": {
+      "deprecated": "octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)",
       "method": "GET",
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -9346,6 +9347,53 @@
         "sort": {
           "enum": [
             "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
+            "created",
+            "updated"
+          ],
+          "type": "string"
+        }
+      },
+      "url": "/search/issues"
+    },
+    "issuesAndPullRequests": {
+      "method": "GET",
+      "params": {
+        "order": {
+          "enum": [
+            "desc",
+            "asc"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "q": {
+          "required": true,
+          "type": "string"
+        },
+        "sort": {
+          "enum": [
+            "comments",
+            "reactions",
+            "reactions-+1",
+            "reactions--1",
+            "reactions-smile",
+            "reactions-thinking_face",
+            "reactions-heart",
+            "reactions-tada",
+            "interactions",
             "created",
             "updated"
           ],
@@ -9359,8 +9407,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -9387,8 +9435,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
@@ -9429,8 +9477,8 @@
       "params": {
         "order": {
           "enum": [
-            "asc",
-            "desc"
+            "desc",
+            "asc"
           ],
           "type": "string"
         },
