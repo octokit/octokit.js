@@ -10182,6 +10182,77 @@ define({ "api": [
   {
     "type": "PUT",
     "url": "/authorizations/clients/:client_id/:fingerprint",
+    "title": "getOrCreateAuthorizationForAppAndFingerprint",
+    "name": "getOrCreateAuthorizationForAppAndFingerprint",
+    "description": "<p>This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. <code>fingerprint</code> is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint\">REST API doc</a></p>",
+    "group": "OauthAuthorizations",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "client_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "fingerprint",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "client_secret",
+            "description": "<p>The 40 character OAuth app client secret associated with the client ID specified in the URL.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": true,
+            "field": "scopes",
+            "description": "<p>A list of scopes that this authorization is in.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "note",
+            "description": "<p>A note to remind you what the OAuth token is for.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "note_url",
+            "description": "<p>A URL to remind you what app the OAuth token is for.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "OauthAuthorizations"
+  },
+  {
+    "type": "PUT",
+    "url": "/authorizations/clients/:client_id/:fingerprint",
     "title": "getOrCreateAuthorizationForAppFingerprint",
     "name": "getOrCreateAuthorizationForAppFingerprint",
     "description": "<p>This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. <code>fingerprint</code> is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.</p> <p><a href=\"https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint\">REST API doc</a></p>",
@@ -13418,14 +13489,14 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "organization_permission",
-            "description": "<p>The permission level that all members of the project's organization will have on this project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by <code>organization_permission</code>. Updating a project's organization permission requires <code>admin</code> access to the project. Setting the organization permission is only available for organization projects.</p>"
+            "description": "<p>The permission level that determines whether all members of the project's organization can see and/or make changes to the project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by <code>organization_permission</code>. For information on changing access for a team or collaborator, see <a href=\"https://developer.github.com/v3/teams/#add-or-update-team-project\">Add or update team project</a> or <a href=\"https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator\">Add user as a collaborator</a>.<br> <em>Note:</em>* Updating a project's <code>organization_permission</code> requires <code>admin</code> access to the project. Setting this permission is only available for organization projects.</p> <p>Can be one of:<br> * <code>read</code> - Organization members can read, but not write to or administer this project.<br> * <code>write</code> - Organization members can read and write, but not administer this project.<br> * <code>admin</code> - Organization members can read, write and administer this project.<br> * <code>none</code> - Organization members can only see this project if it is public.</p>"
           },
           {
             "group": "Parameter",
             "type": "boolean",
             "optional": true,
-            "field": "public",
-            "description": "<p>Sets visibility of the project within the organization. Updating a project's visibility requires <code>admin</code> access to the project. Setting visibility is only available for organization projects. Can be one of:<br> * <code>true</code> - Anyone that can view the organization can see the project.<br> * <code>false</code> - The project must be an organization project to set project visibility.</p>"
+            "field": "private",
+            "description": "<p>Sets the visibility of the project within the organization. <strong>Note:</strong> Updating a project's visibility requires <code>admin</code> access to the project. Setting visibility is only available for organization projects.</p> <p>Can be one of:<br> * <code>false</code> - Anyone can see the project.<br> * <code>true</code> - Organization members with the appropriate <code>organization_permission</code> can see the project.</p>"
           },
           {
             "group": "Parameter",
@@ -13449,12 +13520,12 @@ define({ "api": [
     "examples": [
       {
         "title": "async/await",
-        "content": "const result = await octokit.projects.update({project_id, name, body, state, organization_permission, public, per_page, page})",
+        "content": "const result = await octokit.projects.update({project_id, name, body, state, organization_permission, private, per_page, page})",
         "type": "js"
       },
       {
         "title": "Promise",
-        "content": "octokit.projects.update({project_id, name, body, state, organization_permission, public, per_page, page}).then(result => {})",
+        "content": "octokit.projects.update({project_id, name, body, state, organization_permission, private, per_page, page}).then(result => {})",
         "type": "js"
       }
     ],
@@ -15396,6 +15467,70 @@ define({ "api": [
     "groupTitle": "Pulls"
   },
   {
+    "type": "PUT",
+    "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id",
+    "title": "updateReview",
+    "name": "updateReview",
+    "description": "<p>Update the review summary comment with new text.</p> <p><a href=\"https://developer.github.com/v3/pulls/reviews/#update-a-pull-request-review\">REST API doc</a></p>",
+    "group": "Pulls",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "owner",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "repo",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "number",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "review_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "body",
+            "description": "<p>The body text of the pull request review.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.pulls.updateReview({owner, repo, number, review_id, body})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.pulls.updateReview({owner, repo, number, review_id, body}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Pulls"
+  },
+  {
     "type": "GET",
     "url": "/rate_limit",
     "title": "get",
@@ -16484,7 +16619,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
     "title": "addProtectedBranchAdminEnforcement",
     "name": "addProtectedBranchAdminEnforcement",
-    "description": "<p>Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16534,7 +16669,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
     "title": "addProtectedBranchRequiredSignatures",
     "name": "addProtectedBranchRequiredSignatures",
-    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16584,7 +16719,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
     "title": "addProtectedBranchRequiredStatusChecksContexts",
     "name": "addProtectedBranchRequiredStatusChecksContexts",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#add-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16641,7 +16776,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "addProtectedBranchTeamRestrictions",
     "name": "addProtectedBranchTeamRestrictions",
-    "description": "<p>Grants the specified teams push access for this branch. If you pass the <code>hellcat-preview</code> media type, you can also give push access to child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Grants the specified teams push access for this branch. If you pass the <code>hellcat-preview</code> media type, you can also give push access to child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -16698,7 +16833,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "addProtectedBranchUserRestrictions",
     "name": "addProtectedBranchUserRestrictions",
-    "description": "<p>Grants the specified people push access for this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Grants the specified people push access for this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#add-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -18497,7 +18632,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection",
     "title": "getBranchProtection",
     "name": "getBranchProtection",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#get-branch-protection\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-branch-protection\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19518,7 +19653,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
     "title": "getProtectedBranchAdminEnforcement",
     "name": "getProtectedBranchAdminEnforcement",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#get-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19568,7 +19703,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
     "title": "getProtectedBranchPullRequestReviewEnforcement",
     "name": "getProtectedBranchPullRequestReviewEnforcement",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#get-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19618,7 +19753,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
     "title": "getProtectedBranchRequiredSignatures",
     "name": "getProtectedBranchRequiredSignatures",
-    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of <code>true</code> indicates you must sign commits on this branch. For more information, see <a href=\"https://help.github.com/articles/signing-commits-with-gpg\">Signing commits with GPG</a> in GitHub Help. <em>Note</em>*: You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of <code>true</code> indicates you must sign commits on this branch. For more information, see <a href=\"https://help.github.com/articles/signing-commits-with-gpg\">Signing commits with GPG</a> in GitHub Help. <em>Note</em>*: You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-required-signatures-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19668,7 +19803,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
     "title": "getProtectedBranchRequiredStatusChecks",
     "name": "getProtectedBranchRequiredStatusChecks",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#get-required-status-checks-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-required-status-checks-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -19718,7 +19853,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
     "title": "getProtectedBranchRestrictions",
     "name": "getProtectedBranchRestrictions",
-    "description": "<p><strong>Note</strong>: Teams and users <code>restrictions</code> are only available for organization-owned repositories.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation. <em>Note</em>*: Teams and users <code>restrictions</code> are only available for organization-owned repositories.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21526,7 +21661,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
     "title": "listProtectedBranchRequiredStatusChecksContexts",
     "name": "listProtectedBranchRequiredStatusChecksContexts",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#list-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21576,7 +21711,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "listProtectedBranchTeamRestrictions",
     "name": "listProtectedBranchTeamRestrictions",
-    "description": "<p>Lists the teams who have push access to this branch. If you pass the <code>hellcat-preview</code> media type, the list includes child teams.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Lists the teams who have push access to this branch. If you pass the <code>hellcat-preview</code> media type, the list includes child teams.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -21642,7 +21777,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "listProtectedBranchUserRestrictions",
     "name": "listProtectedBranchUserRestrictions",
-    "description": "<p>Lists the people who have push access to this branch.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Lists the people who have push access to this branch.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22144,7 +22279,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection",
     "title": "removeBranchProtection",
     "name": "removeBranchProtection",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#remove-branch-protection\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-branch-protection\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22294,7 +22429,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
     "title": "removeProtectedBranchAdminEnforcement",
     "name": "removeProtectedBranchAdminEnforcement",
-    "description": "<p>Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22344,7 +22479,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
     "title": "removeProtectedBranchPullRequestReviewEnforcement",
     "name": "removeProtectedBranchPullRequestReviewEnforcement",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#remove-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22394,7 +22529,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
     "title": "removeProtectedBranchRequiredSignatures",
     "name": "removeProtectedBranchRequiredSignatures",
-    "description": "<p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22444,7 +22579,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
     "title": "removeProtectedBranchRequiredStatusChecks",
     "name": "removeProtectedBranchRequiredStatusChecks",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-status-checks-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-status-checks-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22494,7 +22629,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
     "title": "removeProtectedBranchRequiredStatusChecksContexts",
     "name": "removeProtectedBranchRequiredStatusChecksContexts",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22551,7 +22686,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
     "title": "removeProtectedBranchRestrictions",
     "name": "removeProtectedBranchRestrictions",
-    "description": "<p>Disables the ability to restrict who can push to this branch.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Disables the ability to restrict who can push to this branch.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22601,7 +22736,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "removeProtectedBranchTeamRestrictions",
     "name": "removeProtectedBranchTeamRestrictions",
-    "description": "<p>Removes the ability of a team to push to this branch. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Teams that should no longer have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Removes the ability of a team to push to this branch. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Teams that should no longer have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22658,7 +22793,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "removeProtectedBranchUserRestrictions",
     "name": "removeProtectedBranchUserRestrictions",
-    "description": "<p>Removes the ability of a team to push to this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames of the people who should no longer have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Removes the ability of a team to push to this branch.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames of the people who should no longer have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#remove-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22715,7 +22850,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
     "title": "replaceProtectedBranchRequiredStatusChecksContexts",
     "name": "replaceProtectedBranchRequiredStatusChecksContexts",
-    "description": "<p><a href=\"https://developer.github.com/v3/repos/branches/#replace-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-required-status-checks-contexts-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22772,7 +22907,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
     "title": "replaceProtectedBranchTeamRestrictions",
     "name": "replaceProtectedBranchTeamRestrictions",
-    "description": "<p>Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the <code>hellcat-preview</code> media type, you can include child teams.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>The teams that can have push access. Use the team's <code>slug</code>. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -22829,7 +22964,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
     "title": "replaceProtectedBranchUserRestrictions",
     "name": "replaceProtectedBranchUserRestrictions",
-    "description": "<p>Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-user-restrictions-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.</p> <table> <thead> <tr> <th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><code>array</code></td> <td>Usernames for people who can have push access. <strong>Note</strong>: The list of users and teams in total is limited to 100 items.</td> </tr> </tbody> </table> <p><a href=\"https://developer.github.com/v3/repos/branches/#replace-user-restrictions-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23264,7 +23399,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection",
     "title": "updateBranchProtection",
     "name": "updateBranchProtection",
-    "description": "<p>Protecting a branch requires admin or owner permissions to the repository. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values. <em>Note</em>*: The list of users and teams in total is limited to 100 items.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-branch-protection\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Protecting a branch requires admin or owner permissions to the repository. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values. <em>Note</em>*: The list of users and teams in total is limited to 100 items.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-branch-protection\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23358,7 +23493,7 @@ define({ "api": [
             "type": "boolean",
             "optional": true,
             "field": "required_pull_request_reviews:require_code_owner_reviews",
-            "description": "<p>Blocks merging pull requests until code owners review them.</p>"
+            "description": "<p>Blocks merging pull requests until <a href=\"https://help.github.com/articles/about-code-owners/\">code owners</a> review them.</p>"
           },
           {
             "group": "Parameter",
@@ -23831,7 +23966,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
     "title": "updateProtectedBranchPullRequestReviewEnforcement",
     "name": "updateProtectedBranchPullRequestReviewEnforcement",
-    "description": "<p>Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled. <em>Note</em>*: Passing new arrays of <code>users</code> and <code>teams</code> replaces their previous values.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-pull-request-review-enforcement-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -23890,7 +24025,7 @@ define({ "api": [
             "type": "boolean",
             "optional": true,
             "field": "require_code_owner_reviews",
-            "description": "<p>Blocks merging pull requests until code owners have reviewed.</p>"
+            "description": "<p>Blocks merging pull requests until <a href=\"https://help.github.com/articles/about-code-owners/\">code owners</a> have reviewed.</p>"
           },
           {
             "group": "Parameter",
@@ -23923,7 +24058,7 @@ define({ "api": [
     "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
     "title": "updateProtectedBranchRequiredStatusChecks",
     "name": "updateProtectedBranchRequiredStatusChecks",
-    "description": "<p>Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch\">REST API doc</a></p>",
+    "description": "<p>Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see <a href=\"https://help.github.com/articles/github-s-billing-plans\">GitHub's billing plans</a> in the GitHub Help documentation.</p> <p>Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.</p> <p><a href=\"https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch\">REST API doc</a></p>",
     "group": "Repos",
     "parameter": {
       "fields": {
@@ -24222,7 +24357,7 @@ define({ "api": [
     "url": "/search/code",
     "title": "code",
     "name": "code",
-    "description": "<p>Find file contents via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>. <em>Note:</em>* You must <a href=\"https://developer.github.com/v3/#authentication\">authenticate</a> to search for code across all public repositories. <em>Considerations for code search</em>*</p> <p>Due to the complexity of searching code, there are a few restrictions on how searches are performed: Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch. Only files smaller than 384 KB are searchable. You must always include at least one search term when searching source code. For example, searching for <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=language%3Ago&amp;type=Code\"><code>language:go</code></a> is not valid, while <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=amazing+language%3Ago&amp;type=Code\"><code>amazing language:go</code></a> is.</p> <p>The <code>q</code> search term can also contain any combination of the supported code search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-code/\">code search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-code#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to the file contents (<code>file</code>), the file path (<code>path</code>), or both. <a href=\"https://help.github.com/articles/searching-code#search-by-language\"><code>language</code></a> Searches code based on the language it's written in. <a href=\"https://help.github.com/articles/searching-code#search-by-the-number-of-forks-the-parent-repository-has\"><code>fork</code></a> Specifies that code from forked repositories should be searched (<code>true</code>). Repository forks will not be searchable unless the fork has more stars than the parent repository. <a href=\"https://help.github.com/articles/searching-code#search-by-the-size-of-the-parent-repository\"><code>size</code></a> Finds files that match a certain size (in bytes). <a href=\"https://help.github.com/articles/searching-code#search-by-the-location-of-a-file-within-the-repository\"><code>path</code></a> Specifies the path prefix that the resulting file must be under. <a href=\"https://help.github.com/articles/searching-code#search-by-filename\"><code>filename</code></a> Matches files by a substring of the filename. <a href=\"https://help.github.com/articles/searching-code#search-by-the-file-extension\"><code>extension</code></a> Matches files with a certain extension after a dot. <a href=\"https://help.github.com/articles/searching-code#search-within-a-users-or-organizations-repositories\"><code>user</code> or <code>repo</code></a> Limits searches to a specific user or repository.</p> <p>Suppose you want to find the definition of the <code>addClass</code> function inside <a href=\"https://github.com/jquery/jquery\">jQuery</a>. Your query would look something like this:</p> <p>Here, we're searching for the keyword <code>addClass</code> within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the <code>repo:jquery/jquery</code> repository. <em>Highlighting code search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for code, you can get text match metadata for the file <strong>content</strong> and file <strong>path</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response:</p> <p><a href=\"https://developer.github.com/v3/search/#search-code\">REST API doc</a></p>",
+    "description": "<p>Find file contents via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for code, you can get text match metadata for the file <strong>content</strong> and file <strong>path</strong> fields when you pass the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>. <em>Note:</em>* You must <a href=\"https://developer.github.com/v3/#authentication\">authenticate</a> to search for code across all public repositories. <em>Considerations for code search</em>*</p> <p>Due to the complexity of searching code, there are a few restrictions on how searches are performed: Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch. Only files smaller than 384 KB are searchable. You must always include at least one search term when searching source code. For example, searching for <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=language%3Ago&amp;type=Code\"><code>language:go</code></a> is not valid, while <a href=\"https://github.com/search?utf8=%E2%9C%93&amp;q=amazing+language%3Ago&amp;type=Code\"><code>amazing language:go</code></a> is.</p> <p>Suppose you want to find the definition of the <code>addClass</code> function inside <a href=\"https://github.com/jquery/jquery\">jQuery</a>. Your query would look something like this:</p> <p>Here, we're searching for the keyword <code>addClass</code> within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the <code>repo:jquery/jquery</code> repository.</p> <p><a href=\"https://developer.github.com/v3/search/#search-code\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24232,7 +24367,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search terms.</p>"
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>. See &quot;<a href=\"https://help.github.com/articles/searching-code/\">Searching code</a>&quot; for a detailed list of qualifiers.</p>"
           },
           {
             "group": "Parameter",
@@ -24242,20 +24377,20 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match:",
-            "description": "<p>The sort field. Can only be <code>indexed</code>, which indicates how recently a file has been indexed by the GitHub search infrastructure.</p>"
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query. Can only be <code>indexed</code>, which indicates how recently a file has been indexed by the GitHub search infrastructure.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
-              "asc",
-              "desc"
+              "desc",
+              "asc"
             ],
             "optional": true,
             "field": "order",
             "defaultValue": "desc",
-            "description": "<p>The sort order if <code>sort</code> parameter is provided. One of <code>asc</code> or <code>desc</code>.</p>"
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -24297,7 +24432,7 @@ define({ "api": [
     "url": "/search/commits",
     "title": "commits",
     "name": "commits",
-    "description": "<p>Find commits via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>. <em>Considerations for commit search</em>*</p> <p>Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch.</p> <p>The <code>q</code> search term can also contain any combination of the supported commit search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-commits/\">commit search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author</code></a> Matches commits authored by a user (based on email settings). <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer</code></a> Matches commits committed by a user (based on email settings). <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author-name</code></a> Matches commits by author name. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer-name</code></a> Matches commits by committer name. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>author-email</code></a> Matches commits by author email. <a href=\"https://help.github.com/articles/searching-commits#search-by-author-or-committer\"><code>committer-email</code></a> Matches commits by committer email. <a href=\"https://help.github.com/articles/searching-commits#search-by-authored-or-committed-date\"><code>author-date</code></a> Matches commits by author date range. <a href=\"https://help.github.com/articles/searching-commits/#search-by-authored-or-committed-date\"><code>committer-date</code></a> Matches commits by committer date range. <a href=\"https://help.github.com/articles/searching-commits#filter-merge-commits\"><code>merge</code></a> <code>true</code> filters to merge commits, <code>false</code> filters out merge commits. <a href=\"https://help.github.com/articles/searching-commits#search-by-hash\"><code>hash</code></a> Matches commits by hash. <a href=\"https://help.github.com/articles/searching-commits#search-by-parent\"><code>parent</code></a> Matches commits that have a particular parent. <a href=\"https://help.github.com/articles/searching-commits#search-by-tree\"><code>tree</code></a> Matches commits by tree hash. <a href=\"https://help.github.com/articles/searching-commits#filter-to-public-or-private-repositories\"><code>is</code></a> Matches <code>public</code> or <code>private</code> repositories. <a href=\"https://help.github.com/articles/searching-commits#search-within-a-users-or-organizations-repositories\"><code>user</code>, <code>org</code>, or <code>repo</code></a> Limits searches to a specific user, organization, or repository.</p> <p>Suppose you want to find commits related to CSS in the <a href=\"https://github.com/octocat/Spoon-Knife\">octocat/Spoon-Knife</a> repository. Your query would look something like this: <em>Highlighting code search results</em>*</p> <p>When searching for commits, you can get text match metadata for the <strong>message</strong> field. See the section on <a href=\"#text-match-metadata\">text match metadata</a> for full details.</p> <p><a href=\"https://developer.github.com/v3/search/#search-commits\">REST API doc</a></p>",
+    "description": "<p>Find commits via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for commits, you can get text match metadata for the <strong>message</strong> field when you provide the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>. <em>Considerations for commit search</em>*</p> <p>Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch.</p> <p>Suppose you want to find commits related to CSS in the <a href=\"https://github.com/octocat/Spoon-Knife\">octocat/Spoon-Knife</a> repository. Your query would look something like this:</p> <p><a href=\"https://developer.github.com/v3/search/#search-commits\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24307,7 +24442,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search terms.</p>"
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>. See &quot;<a href=\"https://help.github.com/articles/searching-commits/\">Searching commits</a>&quot; for a detailed list of qualifiers.</p>"
           },
           {
             "group": "Parameter",
@@ -24318,20 +24453,20 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match:",
-            "description": "<p>The sort field. Can be <code>author-date</code> or <code>committer-date</code>.</p>"
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query by <code>author-date</code> or <code>committer-date</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
-              "asc",
-              "desc"
+              "desc",
+              "asc"
             ],
             "optional": true,
             "field": "order",
             "defaultValue": "desc",
-            "description": "<p>The sort order if <code>sort</code> parameter is provided. One of <code>asc</code> or <code>desc</code>.</p>"
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -24373,7 +24508,7 @@ define({ "api": [
     "url": "/search/issues",
     "title": "issues",
     "name": "issues",
-    "description": "<p>Find issues by state and keyword. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported issue search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-issues/\">issue search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-issues#search-issues-or-pull-requests\"><code>type</code></a> With this qualifier you can restrict the search to issues (<code>issue</code>) or pull request (<code>pr</code>) only. <a href=\"https://help.github.com/articles/searching-issues#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the title (<code>title</code>), body (<code>body</code>), comments (<code>comments</code>), or any combination of these. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-author-of-an-issue-or-pull-request\"><code>author</code></a> Finds issues or pull requests created by a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-assignee-of-an-issue-or-pull-request\"><code>assignee</code></a> Finds issues or pull requests that are assigned to a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-mentioned-user-within-an-issue-or-pull-request\"><code>mentions</code></a> Finds issues or pull requests that mention a certain user. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-commenter-within-an-issue-or-pull-request\"><code>commenter</code></a> Finds issues or pull requests that a certain user commented on. <a href=\"https://help.github.com/articles/searching-issues#search-by-a-user-thats-involved-within-an-issue-or-pull-request\"><code>involves</code></a> Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user. <a href=\"https://help.github.com/articles/searching-issues/#search-by-a-team-thats-mentioned-within-an-issue-or-pull-request\"><code>team</code></a> For organizations you're a member of, finds issues or pull requests that @mention a team within the organization. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-whether-an-issue-or-pull-request-is-open\"><code>state</code></a> Filter issues or pull requests based on whether they're open or closed. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-labels-on-an-issue\"><code>labels</code></a> Filters issues or pull requests based on their labels. <a href=\"https://help.github.com/articles/searching-issues#search-by-missing-metadata-on-an-issue-or-pull-request\"><code>no</code></a> Filters items missing certain metadata, such as <code>label</code>, <code>milestone</code>, or <code>assignee</code> <a href=\"https://help.github.com/articles/searching-issues#search-by-the-main-language-of-a-repository\"><code>language</code></a> Searches for issues or pull requests within repositories that match a certain language. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-the-state-of-an-issue-or-pull-request\"><code>is</code></a> Searches for items within repositories that match a certain state, such as <code>open</code>, <code>closed</code>, or <code>merged</code> <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-created-or-last-updated\"><code>created</code> or <code>updated</code></a> Filters issues or pull requests based on date of creation, or when they were last updated. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-a-pull-request-was-merged\"><code>merged</code></a> Filters pull requests based on the date when they were merged. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-commit-status\"><code>status</code></a> Filters pull requests based on the commit status. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-branch-names\"><code>head</code> or <code>base</code></a> Filters pull requests based on the branch that they came from or that they are modifying. <a href=\"https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-closed\"><code>closed</code></a> Filters issues or pull requests based on the date when they were closed. <a href=\"https://help.github.com/articles/searching-issues#search-by-the-number-of-comments-an-issue-or-pull-request-has\"><code>comments</code></a> Filters issues or pull requests based on the quantity of comments. <a href=\"https://help.github.com/articles/searching-issues#search-within-a-users-or-organizations-repositories\"><code>user</code> or <code>repo</code></a> Limits searches to a specific user or repository. <a href=\"https://help.github.com/articles/searching-issues/#search-by-project-board\"><code>project</code></a> Limits searches to a specific project board in a repository or organization. <a href=\"https://help.github.com/articles/searching-issues/#search-within-archived-repositories\"><code>archived</code></a> Filters issues or pull requests based on whether they are in an archived repository.</p> <p>If you know the specific SHA hash of a commit, you can use also <a href=\"https://help.github.com/articles/searching-issues#search-by-the-commit-shas-within-a-pull-request\">use it to search for pull requests</a> that contain that SHA. Note that the SHA syntax must be at least seven characters.</p> <p>Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.</p> <p>In this query, we're searching for the keyword <code>windows</code>, within any open issue that's labeled as <code>bug</code>. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results. <em>Highlighting issue search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for issues, you can get text match metadata for the issue <strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response:</p> <p><a href=\"https://developer.github.com/v3/search/#search-issues\">REST API doc</a></p>",
+    "description": "<p>Find issues by state and keyword. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for issues, you can get text match metadata for the issue <strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields when you pass the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>.</p> <p>Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.</p> <p>In this query, we're searching for the keyword <code>windows</code>, within any open issue that's labeled as <code>bug</code>. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.</p> <p><a href=\"https://developer.github.com/v3/search/#search-issues-and-pull-requests\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24383,32 +24518,40 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search terms.</p>"
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>. See &quot;<a href=\"https://help.github.com/articles/searching-issues-and-pull-requests/\">Searching issues and pull requests</a>&quot; for a detailed list of qualifiers.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
               "comments",
+              "reactions",
+              "reactions-+1",
+              "reactions--1",
+              "reactions-smile",
+              "reactions-thinking_face",
+              "reactions-heart",
+              "reactions-tada",
+              "interactions",
               "created",
               "updated"
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match:",
-            "description": "<p>The sort field. Can be <code>comments</code>, <code>created</code>, or <code>updated</code>.</p>"
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query by the number of <code>comments</code>, <code>reactions</code>, <code>reactions-+1</code>, <code>reactions--1</code>, <code>reactions-smile</code>, <code>reactions-thinking_face</code>, <code>reactions-heart</code>, <code>reactions-tada</code>, or <code>interactions</code>. You can also sort results by how recently the items were <code>created</code> or <code>updated</code>,</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
-              "asc",
-              "desc"
+              "desc",
+              "asc"
             ],
             "optional": true,
             "field": "order",
             "defaultValue": "desc",
-            "description": "<p>The sort order if <code>sort</code> parameter is provided. One of <code>asc</code> or <code>desc</code>.</p>"
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -24447,10 +24590,95 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/search/issues",
+    "title": "issuesAndPullRequests",
+    "name": "issuesAndPullRequests",
+    "description": "<p>Find issues by state and keyword. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for issues, you can get text match metadata for the issue <strong>title</strong>, issue <strong>body</strong>, and issue <strong>comment body</strong> fields when you pass the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>.</p> <p>Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.</p> <p>In this query, we're searching for the keyword <code>windows</code>, within any open issue that's labeled as <code>bug</code>. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.</p> <p><a href=\"https://developer.github.com/v3/search/#search-issues-and-pull-requests\">REST API doc</a></p>",
+    "group": "Search",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "q",
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>. See &quot;<a href=\"https://help.github.com/articles/searching-issues-and-pull-requests/\">Searching issues and pull requests</a>&quot; for a detailed list of qualifiers.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "comments",
+              "reactions",
+              "reactions-+1",
+              "reactions--1",
+              "reactions-smile",
+              "reactions-thinking_face",
+              "reactions-heart",
+              "reactions-tada",
+              "interactions",
+              "created",
+              "updated"
+            ],
+            "optional": true,
+            "field": "sort",
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query by the number of <code>comments</code>, <code>reactions</code>, <code>reactions-+1</code>, <code>reactions--1</code>, <code>reactions-smile</code>, <code>reactions-thinking_face</code>, <code>reactions-heart</code>, <code>reactions-tada</code>, or <code>interactions</code>. You can also sort results by how recently the items were <code>created</code> or <code>updated</code>,</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "desc",
+              "asc"
+            ],
+            "optional": true,
+            "field": "order",
+            "defaultValue": "desc",
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "per_page",
+            "defaultValue": "30",
+            "description": "<p>Results per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number of the results to fetch.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "async/await",
+        "content": "const result = await octokit.search.issuesAndPullRequests({q, sort, order, per_page, page})",
+        "type": "js"
+      },
+      {
+        "title": "Promise",
+        "content": "octokit.search.issuesAndPullRequests({q, sort, order, per_page, page}).then(result => {})",
+        "type": "js"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "doc/apidoc.js",
+    "groupTitle": "Search"
+  },
+  {
+    "type": "GET",
     "url": "/search/labels",
     "title": "labels",
     "name": "labels",
-    "description": "<p>Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Suppose you want to find labels in the <code>linguist</code> repository that match <code>bug</code>, <code>defect</code>, or <code>enhancement</code>. Your query might look like this:</p> <p>The labels that best match for the query appear first in the search results. <em>Highlighting label search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for labels, you can get text match metadata for the label <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p><a href=\"https://developer.github.com/v3/search/#search-labels\">REST API doc</a></p>",
+    "description": "<p>Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for labels, you can get text match metadata for the label <strong>name</strong> and <strong>description</strong> fields when you pass the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>.</p> <p>Suppose you want to find labels in the <code>linguist</code> repository that match <code>bug</code>, <code>defect</code>, or <code>enhancement</code>. Your query might look like this:</p> <p>The labels that best match for the query appear first in the search results.</p> <p><a href=\"https://developer.github.com/v3/search/#search-labels\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24467,7 +24695,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search keywords.</p>"
+            "description": "<p>The search keywords. This endpoint does not accept qualifiers in the query. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>.</p>"
           },
           {
             "group": "Parameter",
@@ -24478,20 +24706,20 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match:",
-            "description": "<p>The sort field. Can be one of <code>created</code> or <code>updated</code>.</p>"
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query by when the label was <code>created</code> or <code>updated</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
-              "asc",
-              "desc"
+              "desc",
+              "asc"
             ],
             "optional": true,
             "field": "order",
             "defaultValue": "desc",
-            "description": "<p>The sort order if the sort parameter is provided. Can be one of <code>asc</code> or <code>desc</code>.</p>"
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
           }
         ]
       }
@@ -24517,7 +24745,7 @@ define({ "api": [
     "url": "/search/repositories",
     "title": "repos",
     "name": "repos",
-    "description": "<p>Find repositories via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported repository search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-for-repositories/\">repository search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-when-a-repository-was-created-or-last-updated\"><code>created</code> or <code>pushed</code></a> Filters repositories based on date of creation, or when they were last updated. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks\"><code>fork</code></a> Filters whether forked repositories should be included (<code>true</code>) or only forked repositories should be returned (<code>only</code>). <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks\"><code>forks</code></a> Filters repositories based on the number of forks. <a href=\"https://help.github.com/articles/searching-for-repositories\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the repository name, description, readme, or any combination of these. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-language\"><code>language</code></a> Searches repositories based on the language they're written in. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-license\"><code>license</code></a> Filters repositories by license or license family, using the <a href=\"https://help.github.com/articles/licensing-a-repository/#searching-github-by-license-type\">license keyword</a>. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-within-a-users-or-organizations-repositories\"><code>repo</code> or <code>user</code></a> Limits searches to a specific repository or user. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-repository-size\"><code>size</code></a> Finds repositories that match a certain size (in kilobytes). <a href=\"https://help.github.com/articles/searching-for-repositories/#search-by-number-of-stars\"><code>stars</code></a> Searches repositories based on the number of stars. <a href=\"https://help.github.com/articles/classifying-your-repository-with-topics/\"><code>topic</code></a> Filters repositories based on the specified topic. <a href=\"https://help.github.com/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived\"><code>archived</code></a> Filters whether archived repositories should be included (<code>true</code>) or not (<code>false</code>).</p> <p>Suppose you want to search for popular Tetris repositories written in Assembly. Your query might look like this.</p> <p>You can search for multiple topics by adding more <code>topic:</code> instances, and including the <code>mercy-preview</code> header. For example:</p> <p>In this request, we're searching for repositories with the word <code>tetris</code> in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results. <em>Highlighting repository search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for repositories, you can get text match metadata for the <strong>name</strong> and <strong>description</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p>Here's an example response:</p> <p><a href=\"https://developer.github.com/v3/search/#search-repositories\">REST API doc</a></p>",
+    "description": "<p>Find repositories via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for repositories, you can get text match metadata for the <strong>name</strong> and <strong>description</strong> fields when you pass the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>.</p> <p>Suppose you want to search for popular Tetris repositories written in Assembly. Your query might look like this.</p> <p>You can search for multiple topics by adding more <code>topic:</code> instances, and including the <code>mercy-preview</code> header. For example:</p> <p>In this request, we're searching for repositories with the word <code>tetris</code> in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results.</p> <p><a href=\"https://developer.github.com/v3/search/#search-repositories\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24527,7 +24755,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search keywords, as well as any qualifiers.</p>"
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>. See &quot;<a href=\"https://help.github.com/articles/searching-for-repositories/\">Searching for repositories</a>&quot; for a detailed list of qualifiers.</p>"
           },
           {
             "group": "Parameter",
@@ -24535,24 +24763,25 @@ define({ "api": [
             "allowedValues": [
               "stars",
               "forks",
+              "help-wanted-issues",
               "updated"
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match:",
-            "description": "<p>The sort field. One of <code>stars</code>, <code>forks</code>, or <code>updated</code>.</p>"
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query by number of <code>stars</code>, <code>forks</code>, or <code>help-wanted-issues</code> or how recently the items were <code>updated</code>.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
-              "asc",
-              "desc"
+              "desc",
+              "asc"
             ],
             "optional": true,
             "field": "order",
             "defaultValue": "desc",
-            "description": "<p>The sort order if <code>sort</code> parameter is provided. One of <code>asc</code> or <code>desc</code>.</p>"
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
           },
           {
             "group": "Parameter",
@@ -24594,7 +24823,7 @@ define({ "api": [
     "url": "/search/topics",
     "title": "topics",
     "name": "topics",
-    "description": "<p>Find topics via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>Results are sorted by best match by default.</p> <p>The <code>q</code> search term can also contain any combination of the supported topic search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-topics/\">topic search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <code>is:curated</code> Finds topics that have extra information, e.g., a description, display name, or logo, because they have an entry in the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>is:featured</code> Finds topics listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Any featured topic will also be curated. <code>is:not-featured</code> Finds topics not listed on <a href=\"https://github.com/topics\">https://github.com/topics</a>. <code>is:not-curated</code> Finds topics that have no extra information because they haven't been added to the <a href=\"https://github.com/github/explore\"><code>github/explore</code> repository</a>. <code>repositories:</code> Finds topics with some number of repositories using them, e.g., <code>repositories:&gt;1000</code>.</p> <p>Suppose you want to search for topics related to Ruby that are featured on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Your query might look like this:</p> <p>In this request, we're searching for topics with the keyword <code>ruby</code>, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results. <em>Note:</em>* A search for featured Ruby topics only has 6 total results, so a <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> indicating pagination is not included in the response. <em>Highlighting topic search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your Accept header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for topics, you can get text match metadata for the topic's <strong>short_description</strong>, <strong>description</strong>, <strong>name</strong>, or <strong>display_name</strong> field. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p><a href=\"https://developer.github.com/v3/search/#search-topics\">REST API doc</a></p>",
+    "description": "<p>Find topics via various criteria. Results are sorted by best match. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for topics, you can get text match metadata for the topic's <strong>short_description</strong>, <strong>description</strong>, <strong>name</strong>, or <strong>display_name</strong> field when you pass the <code>text-match</code> media type. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>.</p> <p>See &quot;<a href=\"https://help.github.com/articles/searching-topics/\">Searching topics</a>&quot; for a detailed list of qualifiers.</p> <p>Suppose you want to search for topics related to Ruby that are featured on <a href=\"https://github.com/topics\">https://github.com/topics</a>. Your query might look like this:</p> <p>In this request, we're searching for topics with the keyword <code>ruby</code>, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results. <em>Note:</em>* A search for featured Ruby topics only has 6 total results, so a <a href=\"https://developer.github.com/v3/#link-header\">Link header</a> indicating pagination is not included in the response.</p> <p><a href=\"https://developer.github.com/v3/search/#search-topics\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24604,7 +24833,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search terms.</p>"
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>.</p>"
           }
         ]
       }
@@ -24630,7 +24859,7 @@ define({ "api": [
     "url": "/search/users",
     "title": "users",
     "name": "users",
-    "description": "<p>Find users via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>The <code>q</code> search term can also contain any combination of the supported user search qualifiers as described by the in-browser <a href=\"https://help.github.com/articles/searching-users/\">user search documentation</a> and <a href=\"https://help.github.com/articles/search-syntax/\">search syntax documentation</a>: <a href=\"https://help.github.com/articles/searching-users#search-for-users-or-organizations\"><code>type</code></a> With this qualifier you can restrict the search to just personal accounts (<code>user</code>) or just organization accounts (<code>org</code>). <a href=\"https://help.github.com/articles/searching-users#scope-the-search-fields\"><code>in</code></a> Qualifies which fields are searched. With this qualifier you can restrict the search to just the username (<code>login</code>), public email (<code>email</code>), full name (<code>fullname</code>), or any combination of these. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-number-of-repositories-a-user-has\"><code>repos</code></a> Filters users based on the number of repositories they have. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-location-where-a-user-resides\"><code>location</code></a> Filter users by the location indicated in their profile. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-languages-of-a-users-repositories\"><code>language</code></a> Search for users that have repositories that match a certain language. <a href=\"https://help.github.com/articles/searching-users#search-based-on-when-a-user-joined-github\"><code>created</code></a> Filter users based on when they joined. <a href=\"https://help.github.com/articles/searching-users#search-based-on-the-number-of-followers-a-user-has\"><code>followers</code></a> Filter users based on the number of followers they have.</p> <p>Imagine you're looking for a list of popular users. You might try out this query:</p> <p>Here, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers. <em>Highlighting user search results</em>*</p> <p>You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the <code>text-match</code> media type in your <code>Accept</code> header. For example, via cURL, the above query would look like this:</p> <p>This produces the same JSON payload as above, with an extra key called <code>text_matches</code>, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the <code>property</code> that included the search term.</p> <p>When searching for users, you can get text match metadata for the issue <strong>login</strong>, <strong>email</strong>, and <strong>name</strong> fields. For details on the attributes present in the <code>text_matches</code> array, see <a href=\"#text-match-metadata\">text match metadata</a>.</p> <p><a href=\"https://developer.github.com/v3/search/#search-users\">REST API doc</a></p>",
+    "description": "<p>Find users via various criteria. This method returns up to 100 results <a href=\"https://developer.github.com/v3/#pagination\">per page</a>.</p> <p>When searching for users, you can get text match metadata for the issue <strong>login</strong>, <strong>email</strong>, and <strong>name</strong> fields when you pass the <code>text-match</code> media type. For more details about highlighting search results, see <a href=\"#text-match-metadata\">Text match metadata</a>. For more details about how to receive highlighted search results, see <a href=\"#text-match-metadata\">Text match metadata</a>.</p> <p>Imagine you're looking for a list of popular users. You might try out this query:</p> <p>Here, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers.</p> <p><a href=\"https://developer.github.com/v3/search/#search-users\">REST API doc</a></p>",
     "group": "Search",
     "parameter": {
       "fields": {
@@ -24640,7 +24869,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "q",
-            "description": "<p>The search terms.</p>"
+            "description": "<p>The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see <a href=\"#constructing-a-search-query\">Constructing a search query</a>. See &quot;<a href=\"https://help.github.com/articles/searching-users/\">Searching users</a>&quot; for a detailed list of qualifiers.</p>"
           },
           {
             "group": "Parameter",
@@ -24652,20 +24881,20 @@ define({ "api": [
             ],
             "optional": true,
             "field": "sort",
-            "defaultValue": "results are sorted by best match:",
-            "description": "<p>The sort field. Can be <code>followers</code>, <code>repositories</code>, or <code>joined</code>.</p>"
+            "defaultValue": "[best match](#ranking-search-results)",
+            "description": "<p>Sorts the results of your query by number of <code>followers</code> or <code>repositories</code>, or when the person <code>joined</code> GitHub.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "allowedValues": [
-              "asc",
-              "desc"
+              "desc",
+              "asc"
             ],
             "optional": true,
             "field": "order",
             "defaultValue": "desc",
-            "description": "<p>The sort order if <code>sort</code> parameter is provided. One of <code>asc</code> or <code>desc</code>.</p>"
+            "description": "<p>Determines whether the first search result returned is the highest number of matches (<code>desc</code>) or lowest number of matches (<code>asc</code>). This parameter is ignored unless you provide <code>sort</code>.</p>"
           },
           {
             "group": "Parameter",

@@ -129,6 +129,27 @@ Organizations that enforce SAML SSO require personal access tokens to be whiteli
 
 
 /**
+ * @api {PUT} /authorizations/clients/:client_id/:fingerprint getOrCreateAuthorizationForAppAndFingerprint
+ * @apiName getOrCreateAuthorizationForAppAndFingerprint
+ * @apiDescription This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.
+
+<a href="https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint">REST API doc</a>
+ * @apiGroup OauthAuthorizations
+ *
+ * @apiParam {string} client_id  
+ * @apiParam {string} fingerprint  
+ * @apiParam {string} client_secret  The 40 character OAuth app client secret associated with the client ID specified in the URL.
+ * @apiParam {string[]} [scopes]  A list of scopes that this authorization is in.
+ * @apiParam {string} [note]  A note to remind you what the OAuth token is for.
+ * @apiParam {string} [note_url]  A URL to remind you what app the OAuth token is for.
+ * @apiExample {js} async/await
+ * const result = await octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url})
+ * @apiExample {js} Promise
+ * octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint({client_id, fingerprint, client_secret, scopes, note, note_url}).then(result => {})
+ */
+
+
+/**
  * @api {PUT} /authorizations/clients/:client_id/:fingerprint getOrCreateAuthorizationForAppFingerprint
  * @apiName getOrCreateAuthorizationForAppFingerprint
  * @apiDescription This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.
@@ -4564,16 +4585,26 @@ This endpoint triggers [notifications](https://help.github.com/articles/about-no
  * @apiParam {string} [name]  The name of the project.
  * @apiParam {string} [body]  The body of the project.
  * @apiParam {string=open,closed} [state]  State of the project. Either `open` or `closed`.
- * @apiParam {string} [organization_permission]  The permission level that all members of the project's organization will have on this project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by `organization_permission`. Updating a project's organization permission requires `admin` access to the project. Setting the organization permission is only available for organization projects.
- * @apiParam {boolean} [public]  Sets visibility of the project within the organization. Updating a project's visibility requires `admin` access to the project. Setting visibility is only available for organization projects. Can be one of:  
-\* `true` - Anyone that can view the organization can see the project.  
-\* `false` - The project must be an organization project to set project visibility.
+ * @apiParam {string} [organization_permission]  The permission level that determines whether all members of the project's organization can see and/or make changes to the project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by `organization_permission`. For information on changing access for a team or collaborator, see [Add or update team project](https://developer.github.com/v3/teams/#add-or-update-team-project) or [Add user as a collaborator](https://developer.github.com/v3/projects/collaborators/#add-user-as-a-collaborator).  
+  
+**Note:** Updating a project's `organization_permission` requires `admin` access to the project. Setting this permission is only available for organization projects.  
+  
+Can be one of:  
+\* `read` - Organization members can read, but not write to or administer this project.  
+\* `write` - Organization members can read and write, but not administer this project.  
+\* `admin` - Organization members can read, write and administer this project.  
+\* `none` - Organization members can only see this project if it is public.
+ * @apiParam {boolean} [private]  Sets the visibility of the project within the organization. **Note:** Updating a project's visibility requires `admin` access to the project. Setting visibility is only available for organization projects.  
+  
+Can be one of:  
+\* `false` - Anyone can see the project.  
+\* `true` - Organization members with the appropriate `organization_permission` can see the project.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
- * const result = await octokit.projects.update({project_id, name, body, state, organization_permission, public, per_page, page})
+ * const result = await octokit.projects.update({project_id, name, body, state, organization_permission, private, per_page, page})
  * @apiExample {js} Promise
- * octokit.projects.update({project_id, name, body, state, organization_permission, public, per_page, page}).then(result => {})
+ * octokit.projects.update({project_id, name, body, state, organization_permission, private, per_page, page}).then(result => {})
  */
 
 
@@ -5162,6 +5193,26 @@ The `position` value equals the number of lines down from the first "@@" hunk he
  * const result = await octokit.pulls.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body})
  * @apiExample {js} Promise
  * octokit.pulls.createReview({owner, repo, number, commit_id, body, event, comments, comments[].path, comments[].position, comments[].body}).then(result => {})
+ */
+
+
+/**
+ * @api {PUT} /repos/:owner/:repo/pulls/:number/reviews/:review_id updateReview
+ * @apiName updateReview
+ * @apiDescription Update the review summary comment with new text.
+
+<a href="https://developer.github.com/v3/pulls/reviews/#update-a-pull-request-review">REST API doc</a>
+ * @apiGroup Pulls
+ *
+ * @apiParam {string} owner  
+ * @apiParam {string} repo  
+ * @apiParam {integer} number  
+ * @apiParam {integer} review_id  
+ * @apiParam {string} body  The body text of the pull request review.
+ * @apiExample {js} async/await
+ * const result = await octokit.pulls.updateReview({owner, repo, number, review_id, body})
+ * @apiExample {js} Promise
+ * octokit.pulls.updateReview({owner, repo, number, review_id, body}).then(result => {})
  */
 
 
@@ -6064,7 +6115,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection getBranchProtection
  * @apiName getBranchProtection
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#get-branch-protection">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#get-branch-protection">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6080,7 +6133,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PUT} /repos/:owner/:repo/branches/:branch/protection updateBranchProtection
  * @apiName updateBranchProtection
- * @apiDescription Protecting a branch requires admin or owner permissions to the repository.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Protecting a branch requires admin or owner permissions to the repository.
 
 **Note**: Passing new arrays of `users` and `teams` replaces their previous values.
 
@@ -6101,7 +6156,7 @@ If an organization owner has configured the organization to prevent members from
  * @apiParam {string[]} [required_pull_request_reviews:dismissal_restrictions:users]  The list of user `login`s with dismissal access
  * @apiParam {string[]} [required_pull_request_reviews:dismissal_restrictions:teams]  The list of team `slug`s with dismissal access
  * @apiParam {boolean} [required_pull_request_reviews:dismiss_stale_reviews]  Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.
- * @apiParam {boolean} [required_pull_request_reviews:require_code_owner_reviews]  Blocks merging pull requests until code owners review them.
+ * @apiParam {boolean} [required_pull_request_reviews:require_code_owner_reviews]  Blocks merging pull requests until [code owners](https://help.github.com/articles/about-code-owners/) review them.
  * @apiParam {integer} [required_pull_request_reviews:required_approving_review_count]  Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.
  * @apiParam {object} restrictions  Restrict who can push to this branch. Team and user `restrictions` are only available for organization-owned repositories. Set to `null` to disable.
  * @apiParam {string[]} [restrictions:users]  The list of user `login`s with push access
@@ -6116,7 +6171,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection removeBranchProtection
  * @apiName removeBranchProtection
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#remove-branch-protection">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-branch-protection">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6132,7 +6189,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/required_status_checks getProtectedBranchRequiredStatusChecks
  * @apiName getProtectedBranchRequiredStatusChecks
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#get-required-status-checks-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#get-required-status-checks-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6148,7 +6207,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PATCH} /repos/:owner/:repo/branches/:branch/protection/required_status_checks updateProtectedBranchRequiredStatusChecks
  * @apiName updateProtectedBranchRequiredStatusChecks
- * @apiDescription Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.
 
 <a href="https://developer.github.com/v3/repos/branches/#update-required-status-checks-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6168,7 +6229,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_status_checks removeProtectedBranchRequiredStatusChecks
  * @apiName removeProtectedBranchRequiredStatusChecks
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#remove-required-status-checks-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-required-status-checks-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6184,7 +6247,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts listProtectedBranchRequiredStatusChecksContexts
  * @apiName listProtectedBranchRequiredStatusChecksContexts
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#list-required-status-checks-contexts-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#list-required-status-checks-contexts-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6200,7 +6265,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PUT} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts replaceProtectedBranchRequiredStatusChecksContexts
  * @apiName replaceProtectedBranchRequiredStatusChecksContexts
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#replace-required-status-checks-contexts-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#replace-required-status-checks-contexts-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6217,7 +6284,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts addProtectedBranchRequiredStatusChecksContexts
  * @apiName addProtectedBranchRequiredStatusChecksContexts
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#add-required-status-checks-contexts-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#add-required-status-checks-contexts-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6234,7 +6303,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts removeProtectedBranchRequiredStatusChecksContexts
  * @apiName removeProtectedBranchRequiredStatusChecksContexts
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#remove-required-status-checks-contexts-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-required-status-checks-contexts-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6251,7 +6322,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews getProtectedBranchPullRequestReviewEnforcement
  * @apiName getProtectedBranchPullRequestReviewEnforcement
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#get-pull-request-review-enforcement-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#get-pull-request-review-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6267,7 +6340,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PATCH} /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews updateProtectedBranchPullRequestReviewEnforcement
  * @apiName updateProtectedBranchPullRequestReviewEnforcement
- * @apiDescription Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
 
 **Note**: Passing new arrays of `users` and `teams` replaces their previous values.
 
@@ -6281,7 +6356,7 @@ If an organization owner has configured the organization to prevent members from
  * @apiParam {string[]} [dismissal_restrictions:users]  The list of user `login`s with dismissal access
  * @apiParam {string[]} [dismissal_restrictions:teams]  The list of team `slug`s with dismissal access
  * @apiParam {boolean} [dismiss_stale_reviews]  Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.
- * @apiParam {boolean} [require_code_owner_reviews]  Blocks merging pull requests until code owners have reviewed.
+ * @apiParam {boolean} [require_code_owner_reviews]  Blocks merging pull requests until [code owners](https://help.github.com/articles/about-code-owners/) have reviewed.
  * @apiParam {integer} [required_approving_review_count]  Specifies the number of reviewers required to approve pull requests. Use a number between 1 and 6.
  * @apiExample {js} async/await
  * const result = await octokit.repos.updateProtectedBranchPullRequestReviewEnforcement({owner, repo, branch, dismissal_restrictions, dismissal_restrictions.users, dismissal_restrictions.teams, dismiss_stale_reviews, require_code_owner_reviews, required_approving_review_count})
@@ -6293,7 +6368,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews removeProtectedBranchPullRequestReviewEnforcement
  * @apiName removeProtectedBranchPullRequestReviewEnforcement
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#remove-pull-request-review-enforcement-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#remove-pull-request-review-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6309,7 +6386,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/required_signatures getProtectedBranchRequiredSignatures
  * @apiName getProtectedBranchRequiredSignatures
- * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.
 
 **Note**: You must enable branch protection to require signed commits.
 
@@ -6329,7 +6408,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/required_signatures addProtectedBranchRequiredSignatures
  * @apiName addProtectedBranchRequiredSignatures
- * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.
 
 <a href="https://developer.github.com/v3/repos/branches/#add-required-signatures-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6347,7 +6428,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/required_signatures removeProtectedBranchRequiredSignatures
  * @apiName removeProtectedBranchRequiredSignatures
- * @apiDescription When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.
 
 <a href="https://developer.github.com/v3/repos/branches/#remove-required-signatures-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6365,7 +6448,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/enforce_admins getProtectedBranchAdminEnforcement
  * @apiName getProtectedBranchAdminEnforcement
- * @apiDescription <a href="https://developer.github.com/v3/repos/branches/#get-admin-enforcement-of-protected-branch">REST API doc</a>
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+<a href="https://developer.github.com/v3/repos/branches/#get-admin-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
  *
  * @apiParam {string} owner  
@@ -6381,7 +6466,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/enforce_admins addProtectedBranchAdminEnforcement
  * @apiName addProtectedBranchAdminEnforcement
- * @apiDescription Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
 
 <a href="https://developer.github.com/v3/repos/branches/#add-admin-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6399,7 +6486,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/enforce_admins removeProtectedBranchAdminEnforcement
  * @apiName removeProtectedBranchAdminEnforcement
- * @apiDescription Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
 
 <a href="https://developer.github.com/v3/repos/branches/#remove-admin-enforcement-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6417,7 +6506,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/restrictions getProtectedBranchRestrictions
  * @apiName getProtectedBranchRestrictions
- * @apiDescription **Note**: Teams and users `restrictions` are only available for organization-owned repositories.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+**Note**: Teams and users `restrictions` are only available for organization-owned repositories.
 
 <a href="https://developer.github.com/v3/repos/branches/#get-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6435,7 +6526,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/restrictions removeProtectedBranchRestrictions
  * @apiName removeProtectedBranchRestrictions
- * @apiDescription Disables the ability to restrict who can push to this branch.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Disables the ability to restrict who can push to this branch.
 
 <a href="https://developer.github.com/v3/repos/branches/#remove-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6453,7 +6546,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams listProtectedBranchTeamRestrictions
  * @apiName listProtectedBranchTeamRestrictions
- * @apiDescription Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
 
 <a href="https://developer.github.com/v3/repos/branches/#list-team-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6473,7 +6568,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PUT} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams replaceProtectedBranchTeamRestrictions
  * @apiName replaceProtectedBranchTeamRestrictions
- * @apiDescription Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, you can include child teams.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, you can include child teams.
 
 | Type    | Description                                                                                                                         |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -6496,7 +6593,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams addProtectedBranchTeamRestrictions
  * @apiName addProtectedBranchTeamRestrictions
- * @apiDescription Grants the specified teams push access for this branch. If you pass the `hellcat-preview` media type, you can also give push access to child teams.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Grants the specified teams push access for this branch. If you pass the `hellcat-preview` media type, you can also give push access to child teams.
 
 | Type    | Description                                                                                                                         |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -6519,7 +6618,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/restrictions/teams removeProtectedBranchTeamRestrictions
  * @apiName removeProtectedBranchTeamRestrictions
- * @apiDescription Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can include child teams.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can include child teams.
 
 | Type    | Description                                                                                                                                  |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -6542,7 +6643,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {GET} /repos/:owner/:repo/branches/:branch/protection/restrictions/users listProtectedBranchUserRestrictions
  * @apiName listProtectedBranchUserRestrictions
- * @apiDescription Lists the people who have push access to this branch.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Lists the people who have push access to this branch.
 
 <a href="https://developer.github.com/v3/repos/branches/#list-user-restrictions-of-protected-branch">REST API doc</a>
  * @apiGroup Repos
@@ -6560,7 +6663,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {PUT} /repos/:owner/:repo/branches/:branch/protection/restrictions/users replaceProtectedBranchUserRestrictions
  * @apiName replaceProtectedBranchUserRestrictions
- * @apiDescription Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.
 
 | Type    | Description                                                                                                            |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -6583,7 +6688,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {POST} /repos/:owner/:repo/branches/:branch/protection/restrictions/users addProtectedBranchUserRestrictions
  * @apiName addProtectedBranchUserRestrictions
- * @apiDescription Grants the specified people push access for this branch.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Grants the specified people push access for this branch.
 
 | Type    | Description                                                                                                            |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -6606,7 +6713,9 @@ If an organization owner has configured the organization to prevent members from
 /**
  * @api {DELETE} /repos/:owner/:repo/branches/:branch/protection/restrictions/users removeProtectedBranchUserRestrictions
  * @apiName removeProtectedBranchUserRestrictions
- * @apiDescription Removes the ability of a team to push to this branch.
+ * @apiDescription Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+
+Removes the ability of a team to push to this branch.
 
 | Type    | Description                                                                                                                            |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -8328,19 +8437,7 @@ Here's how you can create a hook that posts payloads in JSON format:
  * @apiName repos
  * @apiDescription Find repositories via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
-The `q` search term can also contain any combination of the supported repository search qualifiers as described by the in-browser [repository search documentation](https://help.github.com/articles/searching-for-repositories/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
-
-*   [`created` or `pushed`](https://help.github.com/articles/searching-for-repositories/#search-by-when-a-repository-was-created-or-last-updated) Filters repositories based on date of creation, or when they were last updated.
-*   [`fork`](https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks) Filters whether forked repositories should be included (`true`) or only forked repositories should be returned (`only`).
-*   [`forks`](https://help.github.com/articles/searching-for-repositories/#search-by-number-of-forks) Filters repositories based on the number of forks.
-*   [`in`](https://help.github.com/articles/searching-for-repositories) Qualifies which fields are searched. With this qualifier you can restrict the search to just the repository name, description, readme, or any combination of these.
-*   [`language`](https://help.github.com/articles/searching-for-repositories/#search-by-language) Searches repositories based on the language they're written in.
-*   [`license`](https://help.github.com/articles/searching-for-repositories/#search-by-license) Filters repositories by license or license family, using the [license keyword](https://help.github.com/articles/licensing-a-repository/#searching-github-by-license-type).
-*   [`repo` or `user`](https://help.github.com/articles/searching-for-repositories/#search-within-a-users-or-organizations-repositories) Limits searches to a specific repository or user.
-*   [`size`](https://help.github.com/articles/searching-for-repositories/#search-by-repository-size) Finds repositories that match a certain size (in kilobytes).
-*   [`stars`](https://help.github.com/articles/searching-for-repositories/#search-by-number-of-stars) Searches repositories based on the number of stars.
-*   [`topic`](https://help.github.com/articles/classifying-your-repository-with-topics/) Filters repositories based on the specified topic.
-*   [`archived`](https://help.github.com/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived) Filters whether archived repositories should be included (`true`) or not (`false`).
+When searching for repositories, you can get text match metadata for the **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
 
 Suppose you want to search for popular Tetris repositories written in Assembly. Your query might look like this.
 
@@ -8348,22 +8445,12 @@ You can search for multiple topics by adding more `topic:` instances, and includ
 
 In this request, we're searching for repositories with the word `tetris` in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results.
 
-**Highlighting repository search results**
-
-You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your `Accept` header. For example, via cURL, the above query would look like this:
-
-This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
-
-When searching for repositories, you can get text match metadata for the **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
-
-Here's an example response:
-
 <a href="https://developer.github.com/v3/search/#search-repositories">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {string} q  The search keywords, as well as any qualifiers.
- * @apiParam {string=stars,forks,updated} [sort="results are sorted by best match:"]  The sort field. One of `stars`, `forks`, or `updated`.
- * @apiParam {string=asc,desc} [order="desc"]  The sort order if `sort` parameter is provided. One of `asc` or `desc`.
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query). See "[Searching for repositories](https://help.github.com/articles/searching-for-repositories/)" for a detailed list of qualifiers.
+ * @apiParam {string=stars,forks,help-wanted-issues,updated} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query by number of `stars`, `forks`, or `help-wanted-issues` or how recently the items were `updated`.
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -8378,39 +8465,20 @@ Here's an example response:
  * @apiName commits
  * @apiDescription Find commits via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
+When searching for commits, you can get text match metadata for the **message** field when you provide the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
+
 **Considerations for commit search**
 
 Only the _default branch_ is considered. In most cases, this will be the `master` branch.
 
-The `q` search term can also contain any combination of the supported commit search qualifiers as described by the in-browser [commit search documentation](https://help.github.com/articles/searching-commits/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
-
-*   [`author`](https://help.github.com/articles/searching-commits#search-by-author-or-committer) Matches commits authored by a user (based on email settings).
-*   [`committer`](https://help.github.com/articles/searching-commits#search-by-author-or-committer) Matches commits committed by a user (based on email settings).
-*   [`author-name`](https://help.github.com/articles/searching-commits#search-by-author-or-committer) Matches commits by author name.
-*   [`committer-name`](https://help.github.com/articles/searching-commits#search-by-author-or-committer) Matches commits by committer name.
-*   [`author-email`](https://help.github.com/articles/searching-commits#search-by-author-or-committer) Matches commits by author email.
-*   [`committer-email`](https://help.github.com/articles/searching-commits#search-by-author-or-committer) Matches commits by committer email.
-*   [`author-date`](https://help.github.com/articles/searching-commits#search-by-authored-or-committed-date) Matches commits by author date range.
-*   [`committer-date`](https://help.github.com/articles/searching-commits/#search-by-authored-or-committed-date) Matches commits by committer date range.
-*   [`merge`](https://help.github.com/articles/searching-commits#filter-merge-commits) `true` filters to merge commits, `false` filters out merge commits.
-*   [`hash`](https://help.github.com/articles/searching-commits#search-by-hash) Matches commits by hash.
-*   [`parent`](https://help.github.com/articles/searching-commits#search-by-parent) Matches commits that have a particular parent.
-*   [`tree`](https://help.github.com/articles/searching-commits#search-by-tree) Matches commits by tree hash.
-*   [`is`](https://help.github.com/articles/searching-commits#filter-to-public-or-private-repositories) Matches `public` or `private` repositories.
-*   [`user`, `org`, or `repo`](https://help.github.com/articles/searching-commits#search-within-a-users-or-organizations-repositories) Limits searches to a specific user, organization, or repository.
-
 Suppose you want to find commits related to CSS in the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository. Your query would look something like this:
-
-**Highlighting code search results**
-
-When searching for commits, you can get text match metadata for the **message** field. See the section on [text match metadata](#text-match-metadata) for full details.
 
 <a href="https://developer.github.com/v3/search/#search-commits">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {string} q  The search terms.
- * @apiParam {string=author-date,committer-date} [sort="results are sorted by best match:"]  The sort field. Can be `author-date` or `committer-date`.
- * @apiParam {string=asc,desc} [order="desc"]  The sort order if `sort` parameter is provided. One of `asc` or `desc`.
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query). See "[Searching commits](https://help.github.com/articles/searching-commits/)" for a detailed list of qualifiers.
+ * @apiParam {string=author-date,committer-date} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query by `author-date` or `committer-date`.
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -8425,6 +8493,8 @@ When searching for commits, you can get text match metadata for the **message** 
  * @apiName code
  * @apiDescription Find file contents via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
+When searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
+
 **Note:** You must [authenticate](https://developer.github.com/v3/#authentication) to search for code across all public repositories.
 
 **Considerations for code search**
@@ -8435,37 +8505,16 @@ Due to the complexity of searching code, there are a few restrictions on how sea
 *   Only files smaller than 384 KB are searchable.
 *   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago&type=Code) is not valid, while [`amazing language:go`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ago&type=Code) is.
 
-The `q` search term can also contain any combination of the supported code search qualifiers as described by the in-browser [code search documentation](https://help.github.com/articles/searching-code/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
-
-*   [`in`](https://help.github.com/articles/searching-code#scope-the-search-fields) Qualifies which fields are searched. With this qualifier you can restrict the search to the file contents (`file`), the file path (`path`), or both.
-*   [`language`](https://help.github.com/articles/searching-code#search-by-language) Searches code based on the language it's written in.
-*   [`fork`](https://help.github.com/articles/searching-code#search-by-the-number-of-forks-the-parent-repository-has) Specifies that code from forked repositories should be searched (`true`). Repository forks will not be searchable unless the fork has more stars than the parent repository.
-*   [`size`](https://help.github.com/articles/searching-code#search-by-the-size-of-the-parent-repository) Finds files that match a certain size (in bytes).
-*   [`path`](https://help.github.com/articles/searching-code#search-by-the-location-of-a-file-within-the-repository) Specifies the path prefix that the resulting file must be under.
-*   [`filename`](https://help.github.com/articles/searching-code#search-by-filename) Matches files by a substring of the filename.
-*   [`extension`](https://help.github.com/articles/searching-code#search-by-the-file-extension) Matches files with a certain extension after a dot.
-*   [`user` or `repo`](https://help.github.com/articles/searching-code#search-within-a-users-or-organizations-repositories) Limits searches to a specific user or repository.
-
 Suppose you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery). Your query would look something like this:
 
 Here, we're searching for the keyword `addClass` within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the `repo:jquery/jquery` repository.
 
-**Highlighting code search results**
-
-You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your `Accept` header. For example, via cURL, the above query would look like this:
-
-This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
-
-When searching for code, you can get text match metadata for the file **content** and file **path** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
-
-Here's an example response:
-
 <a href="https://developer.github.com/v3/search/#search-code">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {string} q  The search terms.
- * @apiParam {string=indexed} [sort="results are sorted by best match:"]  The sort field. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub search infrastructure.
- * @apiParam {string=asc,desc} [order="desc"]  The sort order if `sort` parameter is provided. One of `asc` or `desc`.
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query). See "[Searching code](https://help.github.com/articles/searching-code/)" for a detailed list of qualifiers.
+ * @apiParam {string=indexed} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub search infrastructure.
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -8476,57 +8525,48 @@ Here's an example response:
 
 
 /**
- * @api {GET} /search/issues issues
- * @apiName issues
+ * @api {GET} /search/issues issuesAndPullRequests
+ * @apiName issuesAndPullRequests
  * @apiDescription Find issues by state and keyword. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
-The `q` search term can also contain any combination of the supported issue search qualifiers as described by the in-browser [issue search documentation](https://help.github.com/articles/searching-issues/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
-
-*   [`type`](https://help.github.com/articles/searching-issues#search-issues-or-pull-requests) With this qualifier you can restrict the search to issues (`issue`) or pull request (`pr`) only.
-*   [`in`](https://help.github.com/articles/searching-issues#scope-the-search-fields) Qualifies which fields are searched. With this qualifier you can restrict the search to just the title (`title`), body (`body`), comments (`comments`), or any combination of these.
-*   [`author`](https://help.github.com/articles/searching-issues#search-by-the-author-of-an-issue-or-pull-request) Finds issues or pull requests created by a certain user.
-*   [`assignee`](https://help.github.com/articles/searching-issues#search-by-the-assignee-of-an-issue-or-pull-request) Finds issues or pull requests that are assigned to a certain user.
-*   [`mentions`](https://help.github.com/articles/searching-issues#search-by-a-mentioned-user-within-an-issue-or-pull-request) Finds issues or pull requests that mention a certain user.
-*   [`commenter`](https://help.github.com/articles/searching-issues#search-by-a-commenter-within-an-issue-or-pull-request) Finds issues or pull requests that a certain user commented on.
-*   [`involves`](https://help.github.com/articles/searching-issues#search-by-a-user-thats-involved-within-an-issue-or-pull-request) Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
-*   [`team`](https://help.github.com/articles/searching-issues/#search-by-a-team-thats-mentioned-within-an-issue-or-pull-request) For organizations you're a member of, finds issues or pull requests that @mention a team within the organization.
-*   [`state`](https://help.github.com/articles/searching-issues#search-based-on-whether-an-issue-or-pull-request-is-open) Filter issues or pull requests based on whether they're open or closed.
-*   [`labels`](https://help.github.com/articles/searching-issues#search-by-the-labels-on-an-issue) Filters issues or pull requests based on their labels.
-*   [`no`](https://help.github.com/articles/searching-issues#search-by-missing-metadata-on-an-issue-or-pull-request) Filters items missing certain metadata, such as `label`, `milestone`, or `assignee`
-*   [`language`](https://help.github.com/articles/searching-issues#search-by-the-main-language-of-a-repository) Searches for issues or pull requests within repositories that match a certain language.
-*   [`is`](https://help.github.com/articles/searching-issues#search-based-on-the-state-of-an-issue-or-pull-request) Searches for items within repositories that match a certain state, such as `open`, `closed`, or `merged`
-*   [`created` or `updated`](https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-created-or-last-updated) Filters issues or pull requests based on date of creation, or when they were last updated.
-*   [`merged`](https://help.github.com/articles/searching-issues#search-based-on-when-a-pull-request-was-merged) Filters pull requests based on the date when they were merged.
-*   [`status`](https://help.github.com/articles/searching-issues#search-based-on-commit-status) Filters pull requests based on the commit status.
-*   [`head` or `base`](https://help.github.com/articles/searching-issues#search-based-on-branch-names) Filters pull requests based on the branch that they came from or that they are modifying.
-*   [`closed`](https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-closed) Filters issues or pull requests based on the date when they were closed.
-*   [`comments`](https://help.github.com/articles/searching-issues#search-by-the-number-of-comments-an-issue-or-pull-request-has) Filters issues or pull requests based on the quantity of comments.
-*   [`user` or `repo`](https://help.github.com/articles/searching-issues#search-within-a-users-or-organizations-repositories) Limits searches to a specific user or repository.
-*   [`project`](https://help.github.com/articles/searching-issues/#search-by-project-board) Limits searches to a specific project board in a repository or organization.
-*   [`archived`](https://help.github.com/articles/searching-issues/#search-within-archived-repositories) Filters issues or pull requests based on whether they are in an archived repository.
-
-If you know the specific SHA hash of a commit, you can use also [use it to search for pull requests](https://help.github.com/articles/searching-issues#search-by-the-commit-shas-within-a-pull-request) that contain that SHA. Note that the SHA syntax must be at least seven characters.
+When searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
 
 Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.
 
 In this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.
 
-**Highlighting issue search results**
-
-You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your `Accept` header. For example, via cURL, the above query would look like this:
-
-This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
-
-When searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
-
-Here's an example response:
-
-<a href="https://developer.github.com/v3/search/#search-issues">REST API doc</a>
+<a href="https://developer.github.com/v3/search/#search-issues-and-pull-requests">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {string} q  The search terms.
- * @apiParam {string=comments,created,updated} [sort="results are sorted by best match:"]  The sort field. Can be `comments`, `created`, or `updated`.
- * @apiParam {string=asc,desc} [order="desc"]  The sort order if `sort` parameter is provided. One of `asc` or `desc`.
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query). See "[Searching issues and pull requests](https://help.github.com/articles/searching-issues-and-pull-requests/)" for a detailed list of qualifiers.
+ * @apiParam {string=comments,reactions,reactions-+1,reactions--1,reactions-smile,reactions-thinking_face,reactions-heart,reactions-tada,interactions,created,updated} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`,
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
+ * @apiParam {integer} [per_page="30"]  Results per page (max 100)
+ * @apiParam {integer} [page="1"]  Page number of the results to fetch.
+ * @apiExample {js} async/await
+ * const result = await octokit.search.issuesAndPullRequests({q, sort, order, per_page, page})
+ * @apiExample {js} Promise
+ * octokit.search.issuesAndPullRequests({q, sort, order, per_page, page}).then(result => {})
+ */
+
+
+/**
+ * @api {GET} /search/issues issues
+ * @apiName issues
+ * @apiDescription Find issues by state and keyword. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
+
+When searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
+
+Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.
+
+In this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.
+
+<a href="https://developer.github.com/v3/search/#search-issues-and-pull-requests">REST API doc</a>
+ * @apiGroup Search
+ *
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query). See "[Searching issues and pull requests](https://help.github.com/articles/searching-issues-and-pull-requests/)" for a detailed list of qualifiers.
+ * @apiParam {string=comments,reactions,reactions-+1,reactions--1,reactions-smile,reactions-thinking_face,reactions-heart,reactions-tada,interactions,created,updated} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`,
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -8541,34 +8581,18 @@ Here's an example response:
  * @apiName users
  * @apiDescription Find users via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
-The `q` search term can also contain any combination of the supported user search qualifiers as described by the in-browser [user search documentation](https://help.github.com/articles/searching-users/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
-
-*   [`type`](https://help.github.com/articles/searching-users#search-for-users-or-organizations) With this qualifier you can restrict the search to just personal accounts (`user`) or just organization accounts (`org`).
-*   [`in`](https://help.github.com/articles/searching-users#scope-the-search-fields) Qualifies which fields are searched. With this qualifier you can restrict the search to just the username (`login`), public email (`email`), full name (`fullname`), or any combination of these.
-*   [`repos`](https://help.github.com/articles/searching-users#search-based-on-the-number-of-repositories-a-user-has) Filters users based on the number of repositories they have.
-*   [`location`](https://help.github.com/articles/searching-users#search-based-on-the-location-where-a-user-resides) Filter users by the location indicated in their profile.
-*   [`language`](https://help.github.com/articles/searching-users#search-based-on-the-languages-of-a-users-repositories) Search for users that have repositories that match a certain language.
-*   [`created`](https://help.github.com/articles/searching-users#search-based-on-when-a-user-joined-github) Filter users based on when they joined.
-*   [`followers`](https://help.github.com/articles/searching-users#search-based-on-the-number-of-followers-a-user-has) Filter users based on the number of followers they have.
+When searching for users, you can get text match metadata for the issue **login**, **email**, and **name** fields when you pass the `text-match` media type. For more details about highlighting search results, see [Text match metadata](#text-match-metadata). For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
 
 Imagine you're looking for a list of popular users. You might try out this query:
 
 Here, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers.
 
-**Highlighting user search results**
-
-You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your `Accept` header. For example, via cURL, the above query would look like this:
-
-This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
-
-When searching for users, you can get text match metadata for the issue **login**, **email**, and **name** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
-
 <a href="https://developer.github.com/v3/search/#search-users">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {string} q  The search terms.
- * @apiParam {string=followers,repositories,joined} [sort="results are sorted by best match:"]  The sort field. Can be `followers`, `repositories`, or `joined`.
- * @apiParam {string=asc,desc} [order="desc"]  The sort order if `sort` parameter is provided. One of `asc` or `desc`.
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query). See "[Searching users](https://help.github.com/articles/searching-users/)" for a detailed list of qualifiers.
+ * @apiParam {string=followers,repositories,joined} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query by number of `followers` or `repositories`, or when the person `joined` GitHub.
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiParam {integer} [per_page="30"]  Results per page (max 100)
  * @apiParam {integer} [page="1"]  Page number of the results to fetch.
  * @apiExample {js} async/await
@@ -8581,17 +8605,11 @@ When searching for users, you can get text match metadata for the issue **login*
 /**
  * @api {GET} /search/topics topics
  * @apiName topics
- * @apiDescription Find topics via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
+ * @apiDescription Find topics via various criteria. Results are sorted by best match. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
-Results are sorted by best match by default.
+When searching for topics, you can get text match metadata for the topic's **short\_description**, **description**, **name**, or **display\_name** field when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
 
-The `q` search term can also contain any combination of the supported topic search qualifiers as described by the in-browser [topic search documentation](https://help.github.com/articles/searching-topics/) and [search syntax documentation](https://help.github.com/articles/search-syntax/):
-
-*   `is:curated` Finds topics that have extra information, e.g., a description, display name, or logo, because they have an entry in the [`github/explore` repository](https://github.com/github/explore).
-*   `is:featured` Finds topics listed on [https://github.com/topics](https://github.com/topics). Any featured topic will also be curated.
-*   `is:not-featured` Finds topics not listed on [https://github.com/topics](https://github.com/topics).
-*   `is:not-curated` Finds topics that have no extra information because they haven't been added to the [`github/explore` repository](https://github.com/github/explore).
-*   `repositories:` Finds topics with some number of repositories using them, e.g., `repositories:>1000`.
+See "[Searching topics](https://help.github.com/articles/searching-topics/)" for a detailed list of qualifiers.
 
 Suppose you want to search for topics related to Ruby that are featured on [https://github.com/topics](https://github.com/topics). Your query might look like this:
 
@@ -8599,18 +8617,10 @@ In this request, we're searching for topics with the keyword `ruby`, and we're l
 
 **Note:** A search for featured Ruby topics only has 6 total results, so a [Link header](https://developer.github.com/v3/#link-header) indicating pagination is not included in the response.
 
-**Highlighting topic search results**
-
-You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your Accept header. For example, via cURL, the above query would look like this:
-
-This produces the same JSON payload as above, with an extra key called `text_matches`, which is an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
-
-When searching for topics, you can get text match metadata for the topic's **short\_description**, **description**, **name**, or **display\_name** field. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
-
 <a href="https://developer.github.com/v3/search/#search-topics">REST API doc</a>
  * @apiGroup Search
  *
- * @apiParam {string} q  The search terms.
+ * @apiParam {string} q  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query).
  * @apiExample {js} async/await
  * const result = await octokit.search.topics({q})
  * @apiExample {js} Promise
@@ -8623,25 +8633,19 @@ When searching for topics, you can get text match metadata for the topic's **sho
  * @apiName labels
  * @apiDescription Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results [per page](https://developer.github.com/v3/#pagination).
 
+When searching for labels, you can get text match metadata for the label **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
+
 Suppose you want to find labels in the `linguist` repository that match `bug`, `defect`, or `enhancement`. Your query might look like this:
 
 The labels that best match for the query appear first in the search results.
-
-**Highlighting label search results**
-
-You might want to highlight the matching search terms when displaying search results. The API offers additional metadata to support this use case. To get this metadata in your search results, specify the `text-match` media type in your `Accept` header. For example, via cURL, the above query would look like this:
-
-This produces the same JSON payload as above, with an extra key called `text_matches`, an array of objects. These objects provide information such as the position of your search terms within the text, as well as the `property` that included the search term.
-
-When searching for labels, you can get text match metadata for the label **name** and **description** fields. For details on the attributes present in the `text_matches` array, see [text match metadata](#text-match-metadata).
 
 <a href="https://developer.github.com/v3/search/#search-labels">REST API doc</a>
  * @apiGroup Search
  *
  * @apiParam {integer} repository_id  The id of the repository.
- * @apiParam {string} q  The search keywords.
- * @apiParam {string=created,updated} [sort="results are sorted by best match:"]  The sort field. Can be one of `created` or `updated`.
- * @apiParam {string=asc,desc} [order="desc"]  The sort order if the sort parameter is provided. Can be one of `asc` or `desc`.
+ * @apiParam {string} q  The search keywords. This endpoint does not accept qualifiers in the query. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query).
+ * @apiParam {string=created,updated} [sort="[best match](#ranking-search-results)"]  Sorts the results of your query by when the label was `created` or `updated`.
+ * @apiParam {string=desc,asc} [order="desc"]  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.
  * @apiExample {js} async/await
  * const result = await octokit.search.labels({repository_id, q, sort, order})
  * @apiExample {js} Promise
