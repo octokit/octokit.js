@@ -3,6 +3,7 @@
 const { writeFileSync } = require('fs')
 const { join: pathJoin } = require('path')
 
+const camelCase = require('lodash.camelcase')
 const upperFirst = require('lodash.upperfirst')
 
 const ROUTES = require('./lib/get-routes')()
@@ -57,6 +58,11 @@ function toApiComment (namespaceName, apiName, endpoint) {
   )
 
   const paramsString = params.map(param => param.name).join(', ')
+
+  if (endpoint.deprecated) {
+    const message = `octokit.${namespaceName}.${camelCase(endpoint.deprecated.before.idName)}() has been renamed to octokit.${namespaceName}.${camelCase(endpoint.deprecated.after.idName)}() (${endpoint.deprecated.date})`
+    commentLines.push(` * @apiDeprecated ${message}`)
+  }
 
   return commentLines.concat([
     ' * @apiExample {js} async/await',
