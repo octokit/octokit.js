@@ -1,14 +1,5 @@
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-    - node_modules/cypress/dist
+cache: npm
 
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
@@ -29,17 +20,33 @@ stages:
 jobs:
   include:
     - stage: test
+      # spead up build times by removing unneeded dev dependencies
+      before_install:
+        - npm install -g npm@6
+        - npm uninstall leakage cypress semantic-release
       node_js: 6
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
     - node_js: 8
+      # spead up build times by removing unneeded dev dependencies
+      before_install: npm uninstall leakage cypress semantic-release
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
     - node_js: 10
+      # g++-4.8 required for "leakage"
+      # see https://github.com/andywer/leakage/tree/a10c0f6da542b238c73fe485e0317c1f1bce77ee#travis-ci
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.8
+      # spead up build times by removing unneeded dev dependencies
+      before_install: npm uninstall cypress semantic-release
       env: Node 10, memory test, coverage upload
       script:
         - npm run start-fixtures-server &
@@ -48,6 +55,8 @@ jobs:
         - npm run test:memory
         - npm run coverage:upload
     - node_js: lts/*
+      # spead up build times by removing unneeded dev dependencies
+      before_install: npm uninstall leakage semantic-release
       env: browser tests
       script:
         - npm run start-fixtures-server &
@@ -57,6 +66,8 @@ jobs:
       sudo: required
       addons:
         chrome: stable
+      # spead up build times by removing unneeded dev dependencies
+      before_install: npm uninstall leakage cypress semantic-release
       env: bundle size, typescript validation
       script:
         # test bundle size
@@ -75,6 +86,8 @@ jobs:
     # new routes.json file to the pull request
     - stage: greenkeeper-routes-update
       node_js: lts/*
+      # spead up build times by removing unneeded dev dependencies
+      before_install: npm uninstall leakage cypress semantic-release
       script:
         - git checkout $TRAVIS_BRANCH
         - npm run generate-routes
@@ -84,6 +97,8 @@ jobs:
     # release stage: run semantic release & update the docs
     - stage: release
       node_js: lts/*
+      # spead up build times by removing unneeded dev dependencies
+      before_install: npm uninstall leakage cypress
       env: semantic-release
       script:
         - npm run build:ts
