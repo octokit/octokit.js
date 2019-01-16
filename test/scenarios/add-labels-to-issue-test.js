@@ -13,7 +13,7 @@ describe('api.github.com', () => {
       })
   })
 
-  it.skip('(#587) add-labels-to-issue-test (skipping due to https://github.com/octokit/routes/releases/tag/v14.7.0)', () => {
+  it('(#587) add-labels-to-issue-test', () => {
     octokit.authenticate({
       type: 'token',
       token: '0000000000000000000000000000000000000001'
