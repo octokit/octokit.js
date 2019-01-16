@@ -5784,6 +5784,32 @@
         }
       },
       "url": "/repos/:owner/:repo/pulls/comments/:comment_id"
+    },
+    "updateReview": {
+      "method": "PUT",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "number": {
+          "required": true,
+          "type": "integer"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "review_id": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "url": "/repos/:owner/:repo/pulls/:number/reviews/:review_id"
     }
   },
   "rateLimit": {
