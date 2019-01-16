@@ -1,6 +1,8 @@
 language: node_js
-cache: npm
-
+cache:
+  directories:
+    - ~/.npm
+    - node_modules/cypress/dist
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -11,11 +13,13 @@ branches:
     - /^greenkeeper.*$/
 
 stages:
-  - test
   - name: greenkeeper-routes-update
     if: branch =~ ^greenkeeper/@octokit/routes
+  - test
   - name: release
     if: branch = master AND type IN (push)
+
+install: npm ci
 
 jobs:
   include:
@@ -23,7 +27,7 @@ jobs:
       # spead up build times by removing unneeded dev dependencies
       before_install:
         - npm install -g npm@6
-        - npm uninstall leakage cypress semantic-release
+        - npm uninstall leakage semantic-release
       node_js: 6
       script:
         - npm run start-fixtures-server &
