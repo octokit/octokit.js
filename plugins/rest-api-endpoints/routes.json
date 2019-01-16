@@ -3822,7 +3822,35 @@
       },
       "url": "/authorizations/clients/:client_id"
     },
+    "getOrCreateAuthorizationForAppAndFingerprint": {
+      "method": "PUT",
+      "params": {
+        "client_id": {
+          "required": true,
+          "type": "string"
+        },
+        "client_secret": {
+          "required": true,
+          "type": "string"
+        },
+        "fingerprint": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "note_url": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string[]"
+        }
+      },
+      "url": "/authorizations/clients/:client_id/:fingerprint"
+    },
     "getOrCreateAuthorizationForAppFingerprint": {
+      "deprecated": "octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint() has been renamed to octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint() (2018-12-27)",
       "method": "PUT",
       "params": {
         "client_id": {

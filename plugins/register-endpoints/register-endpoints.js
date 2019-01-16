@@ -21,7 +21,19 @@ function registerEndpoints (octokit, routes) {
         validate: apiOptions.params
       }
 
-      octokit[namespaceName][apiName] = octokit.request.defaults(endpointDefaults)
+      const request = octokit.request.defaults(endpointDefaults)
+
+      if (apiOptions.deprecated) {
+        octokit[namespaceName][apiName] = function () {
+          console.warn(apiOptions.deprecated)
+          octokit[namespaceName][apiName] = request
+          return request.apply(null, arguments)
+        }
+
+        return
+      }
+
+      octokit[namespaceName][apiName] = request
     })
   })
 }
