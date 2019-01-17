@@ -141,6 +141,16 @@ octokit.authenticate({
   password: 'password'
 })
 
+// basic + two-factor
+octokit.authenticate({
+  type: 'basic',
+  username: 'yourusername',
+  password: 'password'
+  on2fa () {
+    // must return or resolve with a two-factor code
+  }
+})
+
 // oauth
 octokit.authenticate({
   type: 'oauth',
