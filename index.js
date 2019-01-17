@@ -5,6 +5,7 @@ const CORE_PLUGINS = [
   require('./plugins/pagination'),
   require('./plugins/register-endpoints'),
   require('./plugins/rest-api-endpoints'),
+  require('./plugins/parse-links'),
   require('./plugins/validate'),
 
   // deprecated: remove in v17
