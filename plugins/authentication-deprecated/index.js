@@ -7,7 +7,7 @@ const requestError = require('./request-error')
 function authenticationPlugin (octokit, options) {
   if (options.auth) {
     octokit.authenticate = () => {
-      console.warn(new Error('octokit.authenticate() is deprecated and has no effect when "auth" option is set on Octokit constructor'))
+      octokit.log.warn(new Error('octokit.authenticate() is deprecated and has no effect when "auth" option is set on Octokit constructor'))
     }
     return
   }
