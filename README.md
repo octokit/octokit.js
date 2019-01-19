@@ -24,6 +24,24 @@ This package will integrate several standalone packages for the all-batteries-in
 * [Typescript](https://www.typescriptlang.org/) definitions
 * Modular & extendable
 
+<!-- toc -->
+
+- [Usage](#usage)
+- [Options](#options)
+- [Authentication](#authentication)
+- [v3 REST API](#v3-rest-api)
+- [GraphQL API](#graphql-api)
+- [OAuth](#oauth)
+- [Webhooks](#webhooks)
+- [GitHub Apps](#github-apps)
+- [GitHub Actions](#github-actions)
+- [Sending custom requests](#sending-custom-requests)
+- [Hooks](#hooks)
+- [Plugins](#plugins)
+- [LICENSE](#license)
+
+<!-- tocstop -->
+
 ## Usage
 
 With Browsers
@@ -43,7 +61,7 @@ const Octokit = require('octokit')
 const client = new Octokit()
 ```
 
-### Options
+## Options
 
 ```js
 const client = new Octokit({
@@ -78,7 +96,7 @@ const MyOctokit = Octokit.defaults({
 const client = new MyOctokit()
 ```
 
-### Authentication
+## Authentication
 
 Pass an `auth` option to the `Octokit` constructor or call `.config({auth})`.
 
@@ -136,7 +154,7 @@ The `auth` option can be
    })
    ```
 
-### v3 REST API
+## v3 REST API
 
 See https://octokit.github.io/rest.js/
 
@@ -144,7 +162,7 @@ See https://octokit.github.io/rest.js/
 client.rest.repos.getForOrg({org: 'octokit'})
 ```
 
-### GraphQL API
+## GraphQL API
 
 See https://github.com/octokit/graphql.js/
 
@@ -156,7 +174,11 @@ client.graphql(`{
 }`)
 ```
 
-### Webhooks
+## OAuth
+
+_tbd_, see https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps
+
+## Webhooks
 
 Node.js only. See https://github.com/octokit/webhooks.js/.
 
@@ -173,7 +195,7 @@ webhooks.on('issue.opened', ({id, name, payload, client}) => {
 require('http').createServer(webhooks.middleware).listen(3000)
 ```
 
-### GitHub Apps
+## GitHub Apps
 
 Node.js only. See https://github.com/octokit/app.js/.
 
@@ -196,11 +218,11 @@ app.webhooks.on('issues.opened', {{id, name, payload, client}} => {
 require('http').createServer(app.webhooks.middleware).listen(3000)
 ```
 
-### GitHub Actions
+## GitHub Actions
 
 _tbd_, see https://developer.github.com/actions/
 
-### Sending custom requests
+## Sending custom requests
 
 Use `client.request` to send custom requests. It accepts a string, an object
 or a combination of the two. Here are several ways to [list organization repositories](https://developer.github.com/v3/repos/#list-organization-repositories)
@@ -264,7 +286,7 @@ const options = client.request.endpoint({
 
 You can use `client.request.endpoint` as standalone library, see [octokit/endpoint.js](https://github.com/octokit/endpoint.js).
 
-### Hooks
+## Hooks
 
 You can customize Octokit’s request lifecycle with hooks. Available methods are
 
@@ -291,7 +313,7 @@ github.hook.wrap('request', async (request, options) => {
 See [before-after-hook](https://github.com/gr2m/before-after-hook#readme) for more
 documentation on hooks.
 
-### Plugins
+## Plugins
 
 You can customize and extend Octokit’s functionality using plugins
 
