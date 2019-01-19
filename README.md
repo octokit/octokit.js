@@ -122,7 +122,7 @@ The `auth` option can be
    })
    ```
 
-2. As object with the properties `username`, `password`, `on2Fa`
+2. As object with the properties `username`, `password`, `on2Fa`.
 
    `on2Fa` is an asynchronous function that must resolve with two-factor
    authentication code sent to the user.
@@ -140,7 +140,26 @@ The `auth` option can be
    })
    ```
 
-3. A function
+   In some cases, OAuth applications need to set `username` to `client_id`
+   and `password` to  `client_secret` in order to use certain endpoitns, such as
+   "[Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)".
+
+   **TODO**: The only path where `client_id` and `client_secret` is expected to
+   be sent as Basic Authentication is `/applications/:client_id/tokens/:access_token`
+
+   1. [Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)
+   1. [Reset an authorization](https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization)
+   1. [Revoke an authorization for an application](https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application)
+
+   It might be simple enough to check for the path and if it matches, use the
+   `client_id` and `client_secret` properties from the `auth` option, see next.
+
+3. An object with the properties `client_id` and `client_secret`
+
+   OAuth applications can authenticate using their `client_id` and `client_secret`
+   in order to [increase the unauthenticated rate limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+
+4. A function
 
    Must resolve with a string which then will be passed as value for the
    `Authorization` header. The function will be called before each request and
