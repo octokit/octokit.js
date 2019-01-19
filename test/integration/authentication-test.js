@@ -63,6 +63,48 @@ describe('authentication', () => {
     return octokit.orgs.get({ org: 'myorg' })
   })
 
+  it('basic with 2fa and invalid one-time-password', () => {
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
+      }
+    })
+      .get('/orgs/myorg')
+      .reply(401, {}, {
+        'x-github-otp': 'required; app'
+      })
+
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
+        'x-github-otp': '123456'
+      }
+    })
+      .get('/orgs/myorg')
+      .reply(401, {}, {
+        'x-github-otp': 'required; app'
+      })
+
+    octokit.authenticate({
+      type: 'basic',
+      username: 'username',
+      password: 'password',
+      on2fa () {
+        return 123456
+      }
+    })
+
+    return octokit.orgs.get({ org: 'myorg' })
+
+      .then(() => {
+        throw new Error('should not resolve')
+      })
+
+      .catch(error => {
+        expect(error.message).to.match(/Invalid one-time password/i)
+      })
+  })
+
   it('basic without 2fa', () => {
     nock('https://authentication-test-host.com', {
       reqheaders: {
