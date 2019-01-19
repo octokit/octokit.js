@@ -24,6 +24,8 @@ This package will integrate several standalone packages for the all-batteries-in
 * [Typescript](https://www.typescriptlang.org/) definitions
 * Modular & extendable
 
+## Table of contents
+
 <!-- toc -->
 
 - [Usage](#usage)
