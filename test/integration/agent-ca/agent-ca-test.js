@@ -31,7 +31,7 @@ describe('custom client certificate', () => {
     })
     const octokit = new Octokit({
       baseUrl: 'https://localhost:' + server.address().port,
-      agent
+      request: { agent }
     })
 
     return octokit.repos.get({
@@ -47,7 +47,7 @@ describe('custom client certificate', () => {
     })
     const octokit = new Octokit({
       baseUrl: 'https://localhost:' + server.address().port,
-      agent
+      request: { agent }
     })
 
     return octokit.repos.get({

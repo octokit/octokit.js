@@ -40,7 +40,7 @@ describe('client proxy', function () {
     })
 
     return getInstance('get-organization', {
-      agent: new HttpProxyAgent(proxyUrl)
+      request: { agent: new HttpProxyAgent(proxyUrl) }
     })
 
       .then(octokit => {

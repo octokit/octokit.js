@@ -7,21 +7,27 @@ require('../mocha-node-setup')
 describe('request errors', () => {
   it('timeout', () => {
     nock('https://request-errors-test.com')
-      .get('/orgs/myorg')
-      .socketDelay(2000)
+      .get('/')
+      .delay(2000)
       .reply(200, {})
 
     const octokit = new Octokit({
       baseUrl: 'https://request-errors-test.com',
-      timeout: 1000
+      request: {
+        timeout: 100
+      }
     })
 
-    return octokit.orgs.get({ org: 'myorg' })
+    return octokit.request('/')
+
+      .then(() => {
+        throw new Error('should not resolve')
+      })
 
       .catch(error => {
         expect(error.name).to.equal('HttpError')
-        expect(error.status).to.equal(504)
-        expect(error).to.have.property('stack')
+        expect(error.status).to.equal(500)
+        expect(error.message).to.match(/timeout/)
       })
   })
 
@@ -49,8 +55,7 @@ describe('request errors', () => {
       .reply(404, 'not found')
 
     const octokit = new Octokit({
-      baseUrl: 'https://request-errors-test.com',
-      timeout: 1000
+      baseUrl: 'https://request-errors-test.com'
     })
 
     return octokit.orgs.get({ org: 'myorg' })
@@ -68,8 +73,7 @@ describe('request errors', () => {
       .reply(401)
 
     const octokit = new Octokit({
-      baseUrl: 'https://request-errors-test.com',
-      timeout: 1000
+      baseUrl: 'https://request-errors-test.com'
     })
 
     return octokit.orgs.get({ org: 'myorg' })
@@ -89,8 +93,7 @@ describe('request errors', () => {
       })
 
     const octokit = new Octokit({
-      baseUrl: 'https://request-errors-test.com',
-      timeout: 1000
+      baseUrl: 'https://request-errors-test.com'
     })
 
     return octokit.orgs.get({ org: 'myorg' })
