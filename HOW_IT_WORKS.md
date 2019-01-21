@@ -14,7 +14,7 @@
 <a name="endpoint-options"></a>
 ## Endpoint options (① - ④)
 
-`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `github.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [plugins/rest-api-endpoints/routes.json](plugins/rest-api-endpoints/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
+`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `octokit.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [plugins/rest-api-endpoints/routes.json](plugins/rest-api-endpoints/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
 
 **② endpoint default options** are merged with **① global defaults**, which are based on [lib/endpoint/defaults.js](lib/endpoint/defaults.js) and the options that were passed into the `require('@octokit/rest')(options)` client setup.
 
@@ -23,7 +23,7 @@ Both are merged with **③ user options** passed into the method. Altogether the
 **Example**: get all public repositories of the the [@octokit GitHub organization](https://github.com/octokit).
 
 ```js
-github.repos.getForOrg({ org: 'octokit', type: 'public' })
+octokit.repos.getForOrg({ org: 'octokit', type: 'public' })
 ```
 
 **④ endpoint options** will be
@@ -109,28 +109,28 @@ Requests are sent using [`@octokit/request`](https://github.com/octokit/request.
 
 <a name="hooks"></a>
 ## Hooks ⑤ & ⑨
-f
-Hooks are used TO inject functionality like authentication. For example, the internal [authentication plugin](lib/plugins/authentication) is registering a request hook in [lib/plugins/authentication/index.js](lib/plugins/authentication/index.js). The method sets the `authorization` header based on authentication previously set using `github.authenticate()` before the **⑧ request**.
 
-Hooks can be registered using `github.hook.{before|after|error|wrap}`:
+Hooks are used TO inject functionality like authentication. For example, the internal [authentication plugin](lib/plugins/authentication) is registering a request hook in [lib/plugins/authentication/index.js](lib/plugins/authentication/index.js). The method sets the `authorization` header based on the `auth` option passed to the Octokit constructor.
+
+Hooks can be registered using `octokit.hook.{before|after|error|wrap}`:
 
 ```js
-github.hook.before('request', async (options) => {
+octokit.hook.before('request', async (options) => {
   validate(options)
 })
-github.hook.after('request', async (response, options) => {
+octokit.hook.after('request', async (response, options) => {
   console.log(`${options.method} ${options.url}: ${response.status}`)
 })
-github.hook.error('request', async (error, options) => {
+octokit.hook.error('request', async (error, options) => {
   if (error.status === 304) {
     return findInCache(error.headers.etag)
   }
 
   throw error
 })
-github.hook.wrap('request', async (request, options) => {})
+octokit.hook.wrap('request', async (request, options) => {})
 ```
 
-The methods can return a Promise for asynchronous execution. `options` can be changed in the `github.hook.before` callback before they are transformed **⑥ transformed**. The **⑩ response** can be changed in the `github.hook.after` callback before it is returned to the user. `github.hook.wrap` allows to do both, or replace the original request method altogether with a custom request method.
+The methods can return a Promise for asynchronous execution. `options` can be changed in the `octokit.hook.before` callback before they are transformed **⑥ transformed**. The **⑩ response** can be changed in the `octokit.hook.after` callback before it is returned to the user. `octokit.hook.wrap` allows to do both, or replace the original request method altogether with a custom request method.
 
 See [before-after-hook](https://github.com/gr2m/before-after-hook) for more details.
