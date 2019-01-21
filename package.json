@@ -36,7 +36,6 @@
     "before-after-hook": "^1.2.0",
     "btoa-lite": "^1.0.0",
     "lodash.get": "^4.4.2",
-    "lodash.pick": "^4.4.0",
     "lodash.set": "^4.3.2",
     "lodash.uniq": "^4.5.0",
     "octokit-pagination-methods": "^1.1.0",
