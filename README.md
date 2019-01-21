@@ -37,13 +37,14 @@
 Install with `npm install @octokit/rest`.
 
 ```js
-const octokit = require('@octokit/rest')()
+const Octokit = require('@octokit/rest')
+const octokit = new Octokit ()
 
 // Compare: https://developer.github.com/v3/repos/#list-organization-repositories
 octokit.repos.listForOrg({
   org: 'octokit',
   type: 'public'
-}).then(({ data, headers, status }) => {
+}).then(({ data, status, headers }) => {
   // handle data
 })
 ```
@@ -76,21 +77,30 @@ octokit.repos.listForOrg({
 
 All available client options with default values
 
-<!-- HEADS UP: when changing the options for the constructor, make sure to also
-     update the type definition templates in scripts/templates/* -->
 ```js
-const octokit = require('@octokit/rest')({
-  timeout: 0, // 0 means no request timeout
-  headers: {
-    accept: 'application/vnd.github.v3+json',
-    'user-agent': 'octokit/rest.js v1.2.3' // v1.2.3 will be current version
-  },
+const Octokit = require('@octokit/rest')
+const octokit = new Octokit({
+  // setting a user agent is required: https://developer.github.com/v3/#user-agent-required
+  // v1.2.3 will be current @octokit/rest version
+  userAgent: 'octokit/rest.js v1.2.3',
 
-  // custom GitHub Enterprise URL
+  // add list of previews you’d like to enable globally,
+  // see https://developer.github.com/v3/previews/.
+  // Example: ['jean-grey-preview', 'symmetra-preview']
+  previews: []
+  
+  // set custom URL for on-premise GitHub Enterprise installations
   baseUrl: 'https://api.github.com',
 
-  // Node only: advanced request options can be passed as http(s) agent
-  agent: undefined
+  request: {
+    // Node.js only: advanced request options can be passed as http(s) agent,
+    // such as custom SSL certificate or proxy settings. 
+    // See https://nodejs.org/api/http.html#http_class_http_agent
+    agent: undefined,
+    
+    // request timeout in ms. 0 means no timeout
+    timeout: 0
+  }
 })
 ```
 
