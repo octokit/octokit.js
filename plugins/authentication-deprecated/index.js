@@ -1,21 +1,21 @@
 module.exports = authenticationPlugin
 
+const authenticate = require('./authenticate')
 const beforeRequest = require('./before-request')
 const requestError = require('./request-error')
-const validate = require('./validate')
 
 function authenticationPlugin (octokit, options) {
-  if (!options.auth) {
+  if (options.auth) {
+    octokit.authenticate = () => {
+      console.warn(new Error('octokit.authenticate() is deprecated and has no effect when "auth" option is set on Octokit constructor'))
+    }
     return
   }
-
-  validate(options.auth)
-
   const state = {
     octokit,
-    auth: options.auth
+    auth: false
   }
-
+  octokit.authenticate = authenticate.bind(null, state)
   octokit.hook.before('request', beforeRequest.bind(null, state))
   octokit.hook.error('request', requestError.bind(null, state))
 }

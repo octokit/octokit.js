@@ -1,6 +1,8 @@
 module.exports = authenticate
 
 function authenticate (state, options) {
+  console.warn(new Error('octokit.authenticate() is deprecated. Use "auth" constructor option instead.'))
+
   if (!options) {
     state.auth = false
     return

@@ -1,40 +1,56 @@
 module.exports = authenticationBeforeRequest
 
 const btoa = require('btoa-lite')
-const uniq = require('lodash.uniq')
 
 function authenticationBeforeRequest (state, options) {
-  if (!state.auth.type) {
+  if (typeof state.auth === 'string') {
+    options.headers['authorization'] = state.auth
+
+    // https://developer.github.com/v3/previews/#integrations
+    if (/^Bearer /.test(state.auth) && !/machine-man/.test(options.headers['accept'])) {
+      const acceptHeaders = options.headers['accept'].split(',')
+        .concat('application/vnd.github.machine-man-preview+json')
+      options.headers['accept'] = acceptHeaders.filter(Boolean).join(',')
+    }
+
     return
   }
 
-  if (state.auth.type === 'basic') {
+  if (state.auth.username) {
     const hash = btoa(`${state.auth.username}:${state.auth.password}`)
     options.headers['authorization'] = `Basic ${hash}`
     return
   }
 
-  if (state.auth.type === 'token') {
-    options.headers['authorization'] = `token ${state.auth.token}`
+  if (state.auth.clientId) {
+    // There is a special case for OAuth applications, when `clientId` and `clientSecret` is passed as
+    // Basic Authorization instead of query parameters. The only routes where that applies share the same
+    // URL though: `/applications/:client_id/tokens/:access_token`.
+    //
+    //  1. [Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)
+    //  2. [Reset an authorization](https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization)
+    //  3. [Revoke an authorization for an application](https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application)
+    //
+    // We identify by checking the URL. It must merge both "/applications/:client_id/tokens/:access_token"
+    // as well as "/applications/123/tokens/token456"
+    if (/\/applications\/:?[\w_]+\/tokens\/:?[\w_]+($|\?)/.test(options.url)) {
+      const hash = btoa(`${state.auth.clientId}:${state.auth.clientSecret}`)
+      options.headers['authorization'] = `Basic ${hash}`
+      return
+    }
+
+    options.url += options.url.indexOf('?') === -1 ? '?' : '&'
+    options.url += `client_id=${state.auth.clientId}&client_secret=${state.auth.clientSecret}`
     return
   }
 
-  if (state.auth.type === 'app') {
-    options.headers['authorization'] = `Bearer ${state.auth.token}`
-    const acceptHeaders = options.headers['accept'].split(',')
-      .concat('application/vnd.github.machine-man-preview+json')
-    options.headers['accept'] = uniq(acceptHeaders).filter(Boolean).join(',')
-    return
-  }
+  return Promise.resolve()
 
-  options.url += options.url.indexOf('?') === -1 ? '?' : '&'
+    .then(() => {
+      return state.auth()
+    })
 
-  if (state.auth.token) {
-    options.url += `access_token=${encodeURIComponent(state.auth.token)}`
-    return
-  }
-
-  const key = encodeURIComponent(state.auth.key)
-  const secret = encodeURIComponent(state.auth.secret)
-  options.url += `client_id=${key}&client_secret=${secret}`
+    .then((authorization) => {
+      options.headers['authorization'] = authorization
+    })
 }
