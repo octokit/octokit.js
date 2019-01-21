@@ -110,9 +110,18 @@ Find all APIs documented at https://octokit.github.io/rest.js/.
 
 ## API Previews
 
-To take advantage of [GitHub’s API Previews](https://developer.github.com/v3/previews/),
-pass a custom `accept` header, which you can do with any endpoint method documented
-in the [API docs](https://octokit.github.io/rest.js/), e.g.
+To enable any of [GitHub’s API Previews](https://developer.github.com/v3/previews/),
+passe the `previews` option to the GitHub constructor
+
+```js
+const octokit = new Octokit({
+  previews: [
+    'mercy-preview'
+  ]
+})
+```
+
+If you want to enable a preview for a single request, pass it as as the `accept` header
 
 ```js
 const { data: { topics } } = await octokit.repos.get({
