@@ -22,46 +22,59 @@ describe('smoke', () => {
     return octokit.orgs.get({ org: 'myorg' })
   })
 
-  it('headers["User-Agent"] option', () => {
+  it('userAgent option', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
         'user-agent': `blah octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       }
     })
-      .get('/orgs/octokit')
+      .get('/')
       .reply(200, {})
 
     const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com',
-      headers: {
-        'User-Agent': 'blah'
-      }
+      userAgent: 'blah'
     })
-
-    return octokit.orgs.get({
-      org: 'octokit'
-    })
+    return octokit.request('/')
   })
 
-  it('headers.accept option', () => {
+  it('previews option', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
-        'accept': 'foo'
+        'accept': 'application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json'
       }
     })
-      .get('/orgs/octokit')
+      .get('/')
       .reply(200, {})
 
     const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com',
-      headers: {
-        accept: 'foo'
+      previews: [
+        'jean-grey-preview',
+        'symmetra-preview'
+      ]
+    })
+
+    return octokit.request('/')
+  })
+
+  it('request option', () => {
+    const octokit = new Octokit({
+      request: {
+        foo: 'bar'
       }
     })
 
-    return octokit.orgs.get({
-      org: 'octokit'
+    octokit.hook.wrap('request', (request, options) => {
+      expect(options.request.foo).to.equal('bar')
+      return 'ok'
     })
+
+    return octokit.request('/')
+
+      .then(response => {
+        expect(response).to.equal('ok')
+      })
   })
 
   it('response.status & response.headers', () => {
