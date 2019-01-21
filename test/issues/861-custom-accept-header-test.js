@@ -16,12 +16,8 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
       .persist()
 
     const octokit = new Octokit({
-      baseUrl: 'https://issues-861-test.com'
-    })
-
-    octokit.authenticate({
-      type: 'app',
-      token: '123'
+      baseUrl: 'https://issues-861-test.com',
+      auth: 'Bearer 123'
     })
 
     return octokit.checks.create({

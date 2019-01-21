@@ -6,14 +6,11 @@ describe('api.github.com', () => {
   let octokit
 
   beforeEach(() => {
-    return getInstance('get-repository')
+    return getInstance('get-repository', {
+      auth: 'token 0000000000000000000000000000000000000001'
+    })
 
       .then(instance => {
-        instance.authenticate({
-          type: 'token',
-          token: '0000000000000000000000000000000000000001'
-        })
-
         octokit = instance
       })
   })

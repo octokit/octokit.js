@@ -14,15 +14,12 @@ describe('api.github.com', () => {
   }
 
   beforeEach(() => {
-    return getInstance('paginate-issues')
+    return getInstance('paginate-issues', {
+      auth: 'token 0000000000000000000000000000000000000001'
+    })
 
       .then(instance => {
         octokit = instance
-
-        octokit.authenticate({
-          type: 'token',
-          token: '0000000000000000000000000000000000000001'
-        })
       })
   })
 

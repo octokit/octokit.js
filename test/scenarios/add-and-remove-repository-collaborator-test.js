@@ -10,21 +10,11 @@ describe('api.github.com', () => {
     return loadFixture('add-and-remove-repository-collaborator')
 
       .then((fixture) => {
-        githubUserA = fixtureToInstace(fixture)
-        githubUserB = fixtureToInstace(fixture)
+        githubUserA = fixtureToInstace(fixture, { auth: 'token 0000000000000000000000000000000000000001' })
+        githubUserB = fixtureToInstace(fixture, { auth: 'token 0000000000000000000000000000000000000002' })
       })
   })
   it('add-and-remove-repository-collaborator-test', () => {
-    githubUserA.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
-    githubUserB.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000002'
-    })
-
     return githubUserA.repos.addCollaborator({
       owner: 'octokit-fixture-org',
       repo: 'add-and-remove-repository-collaborator',

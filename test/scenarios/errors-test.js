@@ -6,7 +6,9 @@ describe('api.github.com', () => {
   let octokit
 
   beforeEach(() => {
-    return getInstance('errors')
+    return getInstance('errors', {
+      auth: 'token 0000000000000000000000000000000000000001'
+    })
 
       .then(instance => {
         octokit = instance
@@ -14,11 +16,6 @@ describe('api.github.com', () => {
   })
 
   it('(#684) errors-test', () => {
-    octokit.authenticate({
-      type: 'token',
-      token: '0000000000000000000000000000000000000001'
-    })
-
     return octokit.issues.createLabel({
       owner: 'octokit-fixture-org',
       repo: 'errors',

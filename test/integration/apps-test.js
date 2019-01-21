@@ -9,7 +9,8 @@ describe('apps', () => {
 
   beforeEach(() => {
     octokit = new Octokit({
-      baseUrl: 'https://apps-test-host.com'
+      baseUrl: 'https://apps-test-host.com',
+      auth: 'Bearer 123'
     })
   })
 
@@ -23,11 +24,6 @@ describe('apps', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    octokit.authenticate({
-      type: 'app',
-      token: '123'
-    })
-
     return octokit.orgs.get({ org: 'myorg' })
   })
 
@@ -40,11 +36,6 @@ describe('apps', () => {
     })
       .get('/orgs/myorg')
       .reply(200, {})
-
-    octokit.authenticate({
-      type: 'app',
-      token: '123'
-    })
 
     return octokit.orgs.get({
       org: 'myorg',
@@ -63,11 +54,6 @@ describe('apps', () => {
     })
       .get('/orgs/myorg')
       .reply(200, {})
-
-    octokit.authenticate({
-      type: 'app',
-      token: '123'
-    })
 
     return octokit.orgs.get({
       org: 'myorg',

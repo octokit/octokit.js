@@ -40,15 +40,11 @@ describe('client proxy', function () {
     })
 
     return getInstance('get-organization', {
+      auth: 'token 0000000000000000000000000000000000000001',
       request: { agent: new HttpProxyAgent(proxyUrl) }
     })
 
       .then(octokit => {
-        octokit.authenticate({
-          type: 'token',
-          token: '0000000000000000000000000000000000000001'
-        })
-
         return octokit.orgs.get({ org: 'octokit-fixture-org' })
       })
 
