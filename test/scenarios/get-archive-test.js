@@ -16,7 +16,7 @@ describe('api.github.com', () => {
   })
 
   if ('cy' in global) {
-    return it.skip('github.repos.archive() (#758)')
+    return it.skip('octokit.repos.archive() (#758)')
   }
 
   it('octokit.repos.archive({owner: "octokit-fixture-org", repo: "get-archive"})', () => {

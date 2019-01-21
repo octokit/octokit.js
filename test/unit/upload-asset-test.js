@@ -7,7 +7,7 @@ const Octokit = require('../../')
 
 chai.should()
 
-describe('github.repos.uploadReleaseAsset', () => {
+describe('octokit.repos.uploadReleaseAsset', () => {
   it('accepts file stream (#675)', () => {
     const octokit = new Octokit()
     const size = fs.statSync(__filename).size
