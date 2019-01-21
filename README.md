@@ -67,20 +67,25 @@ const client = new Octokit()
 
 ```js
 const client = new Octokit({
+  // setting a user agent is required: https://developer.github.com/v3/#user-agent-required
+  // v1.2.3 will be current octokit version
+  userAgent: 'octokit/rest.js v1.2.3',
+  
   // set custom URL for on-premise GitHub Enterprise installations
   baseUrl: 'https://api.github.com',
+  
+  // see "Authentication" section below
+  auth: undefined,
+  
+  // add list of previews you’d like to enable globally, e.g. ['jean-grey-preview', 'symmetra-preview']
+  previews: []
 
-  // set custom headers, e.g. make set `headers['user-agent']` to a custom
-  // identifier for your library or app.
-  headers: {
-    accept: 'application/vnd.github.v3+json',
-    'user-agent': 'octokit/rest.js v1.2.3' // v1.2.3 will be current version
-  },
-
-  // Node.js only: advanced request options can be passed as http(s) agent,
-  // such as custom SSL certificate or proxy settings.
   request: {
+    // Node.js only: advanced request options can be passed as http(s) agent,
+    // such as custom SSL certificate or proxy settings.
     agent: undefined,
+    
+    // request timeout in ms. 0 means no timeout
     timeout: 0
   }
 })
