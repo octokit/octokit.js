@@ -319,20 +319,20 @@ for await (const response of octokit.paginate.iterator(options)) {
 You can customize Octokit’s request lifecycle with hooks. Available methods are
 
 ```js
-github.hook.before('request', async (options) => {
+octokit.hook.before('request', async (options) => {
   validate(options)
 })
-github.hook.after('request', async (response, options) => {
+octokit.hook.after('request', async (response, options) => {
   console.log(`${options.method} ${options.url}: ${response.status}`)
 })
-github.hook.error('request', async (error, options) => {
+octokit.hook.error('request', async (error, options) => {
   if (error.status === 304) {
     return findInCache(error.headers.etag)
   }
 
   throw error
 })
-github.hook.wrap('request', async (request, options) => {
+octokit.hook.wrap('request', async (request, options) => {
   // add logic before, after, catch errors or replace the request altogether
   return request(options)
 })
