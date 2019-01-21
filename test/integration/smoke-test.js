@@ -10,7 +10,7 @@ describe('smoke', () => {
     Octokit()
   })
 
-  it('host & pathPrefix options', () => {
+  it('baseUrl option', () => {
     nock('http://myhost.com')
       .get('/my/api/orgs/myorg')
       .reply(200, {})
@@ -22,24 +22,7 @@ describe('smoke', () => {
     return octokit.orgs.get({ org: 'myorg' })
   })
 
-  it('response.status & response.headers', () => {
-    nock('http://myhost.com')
-      .get('/my/api/orgs/myorg')
-      .reply(200, {}, { 'x-foo': 'bar' })
-
-    const octokit = new Octokit({
-      baseUrl: 'http://myhost.com/my/api'
-    })
-
-    return octokit.orgs.get({ org: 'myorg' })
-
-      .then(response => {
-        expect(response.headers['x-foo']).to.equal('bar')
-        expect(response.status).to.equal(200)
-      })
-  })
-
-  it('custom user agent header as client option', () => {
+  it('headers["User-Agent"] option', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
         'user-agent': `blah octokit.js/0.0.0-semantically-released ${getUserAgent()}`
@@ -60,28 +43,7 @@ describe('smoke', () => {
     })
   })
 
-  it('custom user agent header as request option', () => {
-    nock('https://smoke-test.com', {
-      reqheaders: {
-        'user-agent': `blah`
-      }
-    })
-      .get('/orgs/octokit')
-      .reply(200, {})
-
-    const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com'
-    })
-
-    return octokit.orgs.get({
-      org: 'octokit',
-      headers: {
-        'User-Agent': 'blah'
-      }
-    })
-  })
-
-  it('custom accept header', () => {
+  it('headers.accept option', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
         'accept': 'foo'
@@ -89,26 +51,34 @@ describe('smoke', () => {
     })
       .get('/orgs/octokit')
       .reply(200, {})
-      .persist()
 
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com'
+      baseUrl: 'https://smoke-test.com',
+      headers: {
+        accept: 'foo'
+      }
     })
 
-    return Promise.all([
-      octokit.orgs.get({
-        org: 'octokit',
-        headers: {
-          accept: 'foo'
-        }
-      }),
-      octokit.orgs.get({
-        org: 'octokit',
-        headers: {
-          Accept: 'foo'
-        }
+    return octokit.orgs.get({
+      org: 'octokit'
+    })
+  })
+
+  it('response.status & response.headers', () => {
+    nock('http://myhost.com')
+      .get('/my/api/orgs/myorg')
+      .reply(200, {}, { 'x-foo': 'bar' })
+
+    const octokit = new Octokit({
+      baseUrl: 'http://myhost.com/my/api'
+    })
+
+    return octokit.orgs.get({ org: 'myorg' })
+
+      .then(response => {
+        expect(response.headers['x-foo']).to.equal('bar')
+        expect(response.status).to.equal(200)
       })
-    ])
   })
 
   it('.request("GET /")', () => {
@@ -143,14 +113,7 @@ describe('smoke', () => {
     })
   })
 
-  it('global defaults', () => {
-    const github1 = new Octokit()
-    const github2 = new Octokit()
-
-    expect(github1.request.endpoint.DEFAULTS).to.deep.equal(github2.request.endpoint.DEFAULTS)
-  })
-
-  it('registerEndpoints', () => {
+  it('.registerEndpoints()', () => {
     nock('https://smoke-test.com')
       .get('/baz')
       .reply(200, {})
