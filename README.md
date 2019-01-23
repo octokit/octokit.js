@@ -90,7 +90,7 @@ const octokit = new Octokit({
   // add list of previews you’d like to enable globally,
   // see https://developer.github.com/v3/previews/.
   // Example: ['jean-grey-preview', 'symmetra-preview']
-  previews: []
+  previews: [],
 
   // set custom URL for on-premise GitHub Enterprise installations
   baseUrl: 'https://api.github.com',
