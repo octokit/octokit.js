@@ -91,16 +91,16 @@ const octokit = new Octokit({
   // see https://developer.github.com/v3/previews/.
   // Example: ['jean-grey-preview', 'symmetra-preview']
   previews: []
-  
+
   // set custom URL for on-premise GitHub Enterprise installations
   baseUrl: 'https://api.github.com',
 
   request: {
     // Node.js only: advanced request options can be passed as http(s) agent,
-    // such as custom SSL certificate or proxy settings. 
+    // such as custom SSL certificate or proxy settings.
     // See https://nodejs.org/api/http.html#http_class_http_agent
     agent: undefined,
-    
+
     // request timeout in ms. 0 means no timeout
     timeout: 0
   }
@@ -138,8 +138,8 @@ The `auth` option can be
    })
    ```
 
-   Use this for 
-   
+   Use this for
+
    - personal access tokens
    - OAuth access tokens
    - GitHub App bearer tokens
