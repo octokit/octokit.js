@@ -16,7 +16,7 @@
 
 `@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `octokit.repos.getForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated from the [plugins/rest-api-endpoints/routes.json](plugins/rest-api-endpoints/routes.json) file which defines the **② endpoint default options** `method`, `url` and in some cases `headers`.
 
-**② endpoint default options** are merged with **① global defaults**, which are based on [lib/endpoint/defaults.js](lib/endpoint/defaults.js) and the options that were passed into the `require('@octokit/rest')(options)` client setup.
+**② endpoint default options** are merged with **① global defaults**, which are based on [@octokit/endpoint/lib/defaults.js](https://github.com/octokit/endpoint.js/blob/master/lib/defaults.js) and the options that were passed into the `require('@octokit/rest')(options)` client setup.
 
 Both are merged with **③ user options** passed into the method. Altogether they result in **④ endpoint options**.
 
@@ -39,7 +39,7 @@ octokit.repos.getForOrg({ org: 'octokit', type: 'public' })
   <tr>
     <td><strong>baseUrl</strong></td>
     <td><code>'https://api.github.com'</code></td>
-    <td>① endpoint defaults</td>
+    <td>① global defaults</td>
   </tr>
   <tr>
     <td><strong>user-agent</strong> <em>(header)</em></td>
@@ -110,7 +110,7 @@ Requests are sent using [`@octokit/request`](https://github.com/octokit/request.
 <a name="hooks"></a>
 ## Hooks ⑤ & ⑨
 
-Hooks are used TO inject functionality like authentication. For example, the internal [authentication plugin](lib/plugins/authentication) is registering a request hook in [lib/plugins/authentication/index.js](lib/plugins/authentication/index.js). The method sets the `authorization` header based on the `auth` option passed to the Octokit constructor.
+Hooks are used to inject functionality like authentication. For example, the internal [authentication plugin](plugins/authentication) is registering a request hook in [plugins/authentication/index.js](plugins/authentication/index.js). The method sets the `authorization` header based on the `auth` option passed to the Octokit constructor.
 
 Hooks can be registered using `octokit.hook.{before|after|error|wrap}`:
 
