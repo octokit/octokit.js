@@ -120,9 +120,6 @@ To enable authenticated requests, pass an `auth` option to the Octokit construct
 const clientWithAuth = new Octokit({
   auth: 'token secret123'
 })
-const scopedClientWithAuth = client.config({
-  auth: 'token secret123'
-})
 ```
 
 The `auth` option can be
