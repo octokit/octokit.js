@@ -142,9 +142,9 @@ The `auth` option can be
    - GitHub App bearer tokens
    - GitHub App installation tokens
 
-2. As object with the properties `username`, `password`, `on2Fa`.
+2. As object with the properties `username`, `password`, `on2fa`.
 
-   `on2Fa` is an asynchronous function that must resolve with two-factor
+   `on2fa` is an asynchronous function that must resolve with two-factor
    authentication code sent to the user.
 
    ```js
@@ -152,7 +152,7 @@ The `auth` option can be
      auth: {
        username: 'octocat',
        password: 'secret',
-       async on2Fa () {
+       async on2fa () {
          // example: ask the user
          return prompt('Two-factor authentication Code:')
        }
