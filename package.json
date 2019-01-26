@@ -91,7 +91,7 @@
     "build": "npm-run-all build:*",
     "prebuild:docs": "mkdirp doc/",
     "build:docs": "node scripts/generate-api-docs",
-    "postbuild:docs": "apidoc -i doc/ -o doc/",
+    "postbuild:docs": "apidoc -i doc/ -o doc/ -t docs_template/",
     "build:ts": "node scripts/generate-types",
     "prebuild:browser": "mkdirp dist/",
     "build:browser": "npm-run-all build:browser:*",
