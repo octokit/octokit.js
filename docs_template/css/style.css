@@ -275,6 +275,10 @@ pre code.sample-request-response-json {
   font-size: 14px;
 }
 
+.sidenav > li > span {
+  display: none;
+}
+
 .sidenav > li.nav-header {
   margin-top: 8px;
   margin-bottom: 8px;
