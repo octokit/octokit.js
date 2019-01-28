@@ -160,9 +160,9 @@ The `auth` option can be
    })
    ```
 
-3. An object with the properties `client_id` and `client_secret`
+3. An object with the properties `clientId` and `clientSecret`
 
-   OAuth applications can authenticate using their `client_id` and `client_secret`
+   OAuth applications can authenticate using their `clientId` and `clientSecret`
    in order to [increase the unauthenticated rate limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
 
 4. A function
