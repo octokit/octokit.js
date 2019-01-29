@@ -6,7 +6,6 @@
 
 import * as http from 'http'
 
-
 declare namespace Octokit {
   type json = any
   type date = string
