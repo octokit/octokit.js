@@ -8376,6 +8376,9 @@
       "url": "/repos/:owner/:repo/teams"
     },
     "listTopics": {
+      "headers": {
+        "accept": "application/vnd.github.mercy-preview+json"
+      },
       "method": "GET",
       "params": {
         "owner": {
