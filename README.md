@@ -188,8 +188,9 @@ The `auth` option can be
 
    const app = new App({ id: process.env.APP_ID, privateKey: process.env.PRIVATE_KEY })
    const octokit = new Octokit({
-     auth () {
-       return app.getInstallationAccessToken({ process.env.INSTALLATION_ID })
+     async auth () {
+       const installationAccessToken = await app.getInstallationAccessToken({ process.env.INSTALLATION_ID });
+       return `token ${installationAccessToken}`;
      }
    })
    ```
