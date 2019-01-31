@@ -1,44 +1,62 @@
 import marked from 'marked'
-import React from 'react'
+import React, { Component } from 'react'
 
 import Layout from '../components/layout'
 import { graphql, Link } from 'gatsby'
 import apiStyles from '../components/api.module.css'
 
+class ApiMenu extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      menuActive: false
+    }
+    this.toggleMenu = this.toggleMenu.bind(this)
+  }
+
+  toggleMenu() {
+    this.setState({
+      menuActive: !this.state.menuActive
+    })
+  }
+
+  render() {
+    return (
+      <nav className={apiStyles.nav}>
+        <button type="button" onClick={this.toggleMenu}>Menu</button>
+        <h1 className={this.state.menuActive ? "" : apiStyles.hidden}>API</h1>
+        <ol className={this.state.menuActive ? "" : apiStyles.hidden}>
+          {this.props.data.staticMethods.edges.map(({ node }) => {
+            return <li key={node.id}>
+              <Link to={`/api#octokit-${node.fields.idName}`}>{node.frontmatter.title}</Link>
+            </li>
+          })}
+          {this.props.data.endpointScopes.edges.map(({ node }) => {
+            return <li key={node.id}>
+              <details>
+                <summary>
+                  <Link to={`/api#${node.id}`}>{node.name}</Link>
+                </summary>
+                <ol>
+                  {node.methods.map((method) => {
+                    return <li key={method.id}>
+                      <Link to={`/api#${method.id}`}>{method.name}</Link>
+                    </li>
+                  })}
+                </ol>
+              </details>
+            </li>
+          })}
+        </ol>
+      </nav>
+    )
+  }
+}
+
 export default ({ data }) => (
   <Layout>
+    <ApiMenu data={data}></ApiMenu>
     <main className={apiStyles.container}>
-      <h1>API</h1>
-      <nav className={apiStyles.nav}>
-        <details>
-          <summary>
-            <h1>Menu</h1>
-          </summary>
-          <ol>
-            {data.staticMethods.edges.map(({ node }) => {
-              return <li key={node.id}>
-                <Link to={`/api#octokit-${node.fields.idName}`}>{node.frontmatter.title}</Link>
-              </li>
-            })}
-            {data.endpointScopes.edges.map(({ node }) => {
-              return <li key={node.id}>
-                <details>
-                  <summary>
-                    <Link to={`/api#${node.id}`}>{node.name}</Link>
-                  </summary>
-                  <ol>
-                    {node.methods.map((method) => {
-                      return <li key={method.id}>
-                        <Link to={`/api#${method.id}`}>{method.name}</Link>
-                      </li>
-                    })}
-                  </ol>
-                </details>
-              </li>
-            })}
-          </ol>
-        </details>
-      </nav>
       {data.staticMethods.edges.map(({ node }) => {
         return <>
           <h2>{node.frontmatter.title}</h2>

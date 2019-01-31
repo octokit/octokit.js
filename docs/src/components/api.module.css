@@ -20,12 +20,29 @@
 .nav {
   position: sticky;
   top: 0;
-  height: 100%;
+  max-height: calc(100vh - 5.125em); /* header height / font size == 102.5px / 20px */
   overflow-y: auto;
-
   background: hsla(0, 0%, 100%, 0.95);
 }
 
 .nav h1 {
   display: inline;
 }
+
+.nav button {
+  display: block;
+  margin-bottom: 0.75em;
+}
+
+
+@media (max-width: 40em) {
+  .hidden {
+    display: none !important;
+  }
+}
+@media (min-width: 40em) {
+  .nav button {
+    display: none !important;
+  }
+}
+
