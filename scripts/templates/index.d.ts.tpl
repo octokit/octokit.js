@@ -1,6 +1,8 @@
 /**
- * This declaration file requires TypeScript 2.1 or above.
+ * This declaration file requires TypeScript 3.1 or above.
  */
+
+/// <reference lib="esnext.asynciterable" />
 
 import * as http from 'http'
 
