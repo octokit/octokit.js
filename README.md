@@ -23,6 +23,7 @@
 - [Register custom endpoint methods](#register-custom-endpoint-methods)
 - [Throttling](#throttling)
 - [Automatic retries](#automatic-retries)
+- [Logging](#logging)
 - [Debug](#debug)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -94,6 +95,14 @@ const octokit = new Octokit({
 
   // set custom URL for on-premise GitHub Enterprise installations
   baseUrl: 'https://api.github.com',
+  
+  // pass custom methods for debug, info, warn and error
+  log: {
+    debug: () => {},
+    info: () => {},
+    warn: console.warn,
+    error: console.error
+  },
 
   request: {
     // Node.js only: advanced request options can be passed as http(s) agent,
@@ -188,8 +197,9 @@ The `auth` option can be
 
    const app = new App({ id: process.env.APP_ID, privateKey: process.env.PRIVATE_KEY })
    const octokit = new Octokit({
-     auth () {
-       return app.getInstallationAccessToken({ process.env.INSTALLATION_ID })
+     async auth () {
+       const installationAccessToken = await app.getInstallationAccessToken({ process.env.INSTALLATION_ID });
+       return `token ${installationAccessToken}`;
      }
    })
    ```
@@ -359,13 +369,15 @@ module.exports = (octokit, options = { greeting: 'Hello' }) => {
   octokit.hook.wrap('request', async (request, options) => {
     const time = Date.now()
     const response = await request(options)
-    console.log(`${options.method} ${options.url} – ${response.status} in ${Date.now() - time}ms`)
+    octokit.log.info(`${options.method} ${options.url} – ${response.status} in ${Date.now() - time}ms`)
     return response
   })
 }
 ```
 
 `.plugin` accepts a function or an array of functions.
+
+We recommend using [Octokit’s log methods](#logging) to help users of your plugin with debugging.
 
 You can add new methods to the `octokit` instance passed as the first argument to
 the plugin function. The 2nd argument is the options object passed to the
@@ -440,7 +452,7 @@ const octokit = new Octokit({
   auth: 'token ' + process.env.TOKEN,
   throttle: {
     onRateLimit: (retryAfter, options) => {
-      console.warn(`Request quota exhausted for request ${options.method} ${options.url}`)
+      octokit.log.warn(`Request quota exhausted for request ${options.method} ${options.url}`)
 
       if (options.request.retryCount === 0) { // only retries once
         console.log(`Retrying after ${retryAfter} seconds!`)
@@ -449,7 +461,7 @@ const octokit = new Octokit({
     },
     onAbuseLimit: (retryAfter, options) => {
       // does not retry, only logs a warning
-      console.warn(`Abuse detected for request ${options.method} ${options.url}`)
+      octokit.log.warn(`Abuse detected for request ${options.method} ${options.url}`)
     }
   }
 })
@@ -468,9 +480,60 @@ const octokit = new Octokit()
 // all requests sent with the `octokit` instance are now retried up to 3 times for recoverable errors.
 ```
 
+## Logging
+
+`Octokit` has 4 built in log methods
+
+1. `octokit.log.debug(message[, additionalInfo])`
+1. `octokit.log.info(message[, additionalInfo])`
+1. `octokit.log.warn(message[, additionalInfo])`
+1. `octokit.log.error(message[, additionalInfo])`
+
+They can be configured using the [`log` client option](client-options). By default, `octokit.log.debug()` and `octokit.log.info()` are no-ops, while the other two call `console.warn()` and `console.error()` respectively.
+
+This is useful if you build reusable [plugins](#plugins).
+
 ## Debug
 
-Set `DEBUG=octokit:rest*` for additional debug logs.
+The simplest way to receive debug information is to set the [`log` client option](client-options) to `console`.
+
+```js
+const octokit = require('@octokit/rest')({
+  log: console
+})
+
+console.request('/')
+```
+
+This will log
+
+```
+request { method: 'GET',
+  baseUrl: 'https://api.github.com',
+  headers:
+   { accept: 'application/vnd.github.v3+json',
+     'user-agent':
+      'octokit.js/0.0.0-semantically-released Node.js/10.15.0 (macOS Mojave; x64)' },
+  request: {},
+  url: '/' }
+GET / - 200 in 514ms
+```
+
+If you like to support a configurable log level, we recommend using the [console-log-level](https://github.com/watson/console-log-level) module
+
+```js
+const octokit = require('@octokit/rest')({
+  log: require('console-log-level')({ level: 'info' })
+})
+
+console.request('/')
+```
+
+This will only log
+
+```
+GET / - 200 in 514ms
+```
 
 ## Contributing
 

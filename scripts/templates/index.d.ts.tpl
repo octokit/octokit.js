@@ -49,6 +49,12 @@ declare namespace Octokit {
     userAgent?: string;
     previews?: string[];
     baseUrl?: string;
+    log?: {
+      debug?: (message: string, info?: object) => void
+      info?: (message: string, info?: object) => void
+      warn?: (message: string, info?: object) => void
+      error?: (message: string, info?: object) => void
+    };
     request?: {
       agent?: http.Agent;
       timeout?: number
@@ -84,6 +90,13 @@ declare namespace Octokit {
     body?:  any
     request?: { [option: string]: any }
   }
+
+  export interface Log {
+    debug: (message: string, additionalInfo?: object) => void
+    info: (message: string, additionalInfo?: object) => void
+    warn: (message: string, additionalInfo?: object) => void
+    error: (message: string, additionalInfo?: object) => void
+  };
 
   export interface Endpoint {
     (
@@ -268,6 +281,8 @@ declare class Octokit {
   request: Octokit.Request;
 
   paginate: Octokit.Paginate;
+
+  log: Octokit.Log;
 
   {{#namespaces}}
   {{namespace}}: {

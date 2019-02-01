@@ -25,7 +25,7 @@ function registerEndpoints (octokit, routes) {
 
       if (apiOptions.deprecated) {
         octokit[namespaceName][apiName] = function () {
-          console.warn(apiOptions.deprecated)
+          octokit.log.warn(apiOptions.deprecated)
           octokit[namespaceName][apiName] = request
           return request.apply(null, arguments)
         }
