@@ -1,3 +1,5 @@
+import Prism  from 'prismjs'
+
 import marked from 'marked'
 import React, { Component } from 'react'
 
@@ -91,7 +93,9 @@ export default ({ data }) => (
                   </tbody>
                 </table>
               </div>
-              <pre><code class={'language-javascript'}>{method.example}</code></pre>
+              <div class="gatsby-highlight" data-language="js">
+                <pre class={'language-js'}><code class={'language-js'} dangerouslySetInnerHTML={{ __html: Prism.highlight(method.example, Prism.languages.javascript, 'javascript') }} ></code></pre>
+              </div>
             </>
           })}
         </>
