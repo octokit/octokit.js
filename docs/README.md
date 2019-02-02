@@ -1,6 +1,6 @@
-# gatsby-api-docs-playground
+# octokit-rest-documentation
 
-Just exploring [Gatsby](https://www.gatsbyjs.org/) to see if it’s a good fit to generate docs for [`octokit`](https://github.com/octokit/octokit.js)
+A work-in-progress exploration of [Gatsby](https://www.gatsbyjs.org/) to see if it is a good fit for a documentation setup for [`@octokit/rest`](https://github.com/octokit/rest.js/).
 
 ## License
 
