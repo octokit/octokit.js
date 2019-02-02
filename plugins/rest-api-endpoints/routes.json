@@ -8037,6 +8037,13 @@
     "listForOrg": {
       "method": "GET",
       "params": {
+        "direction": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
         "org": {
           "required": true,
           "type": "string"
@@ -8046,6 +8053,15 @@
         },
         "per_page": {
           "type": "integer"
+        },
+        "sort": {
+          "enum": [
+            "created",
+            "updated",
+            "pushed",
+            "full_name"
+          ],
+          "type": "string"
         },
         "type": {
           "enum": [
