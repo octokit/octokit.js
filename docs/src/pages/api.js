@@ -7,19 +7,63 @@ import Layout from '../components/layout'
 import { graphql, Link } from 'gatsby'
 import apiStyles from '../components/api.module.css'
 
+class ApiSubMenu extends Component {
+  constructor(props) {
+    super(props)
+    this.showMenu = this.showMenu.bind(this)
+    this.isActive = this.isActive.bind(this)
+  }
+
+  showMenu() {
+    this.props.onUserInteraction(this.props.node.id)
+  }
+
+  isActive() {
+    return this.props.isActive(this.props.node.id)
+  }
+
+  render() {
+    return (
+      <li key={this.props.node.id}>
+        <Link to={`/api#${this.props.node.id}`} onClick={this.showMenu} onFocus={this.showMenu} className={this.isActive() ? apiStyles.activelink : ""}>{this.props.node.name}</Link>
+        <ol className={this.isActive() ? "" : apiStyles.subhidden}>
+          {this.props.node.methods.map((method) => {
+            return <li key={method.id}>
+              <Link to={`/api#${method.id}`}>{method.name}</Link>
+            </li>
+          })}
+        </ol>
+      </li>
+    )
+  }
+}
+
 class ApiMenu extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuActive: false
+      menuActive: false,
+      activeSubMenu: null
     }
-    this.toggleMenu = this.toggleMenu.bind(this)
+    this.toggleMenu       = this.toggleMenu.bind(this)
+    this.setActiveSubMenu = this.setActiveSubMenu.bind(this)
+    this.isActiveSubMenu  = this.isActiveSubMenu.bind(this)
   }
 
   toggleMenu() {
     this.setState({
       menuActive: !this.state.menuActive
     })
+  }
+
+  setActiveSubMenu(subMenu) {
+    this.setState({
+      activeSubMenu: subMenu
+    })
+  }
+
+  isActiveSubMenu(subMenu) {
+    return this.state.activeSubMenu === subMenu
   }
 
   render() {
@@ -34,20 +78,7 @@ class ApiMenu extends Component {
             </li>
           })}
           {this.props.data.endpointScopes.edges.map(({ node }) => {
-            return <li key={node.id}>
-              <details>
-                <summary>
-                  <Link to={`/api#${node.id}`}>{node.name}</Link>
-                </summary>
-                <ol>
-                  {node.methods.map((method) => {
-                    return <li key={method.id}>
-                      <Link to={`/api#${method.id}`}>{method.name}</Link>
-                    </li>
-                  })}
-                </ol>
-              </details>
-            </li>
+            return <ApiSubMenu node={node} onUserInteraction={this.setActiveSubMenu} isActive={this.isActiveSubMenu}></ApiSubMenu>
           })}
         </ol>
       </nav>

@@ -44,12 +44,42 @@
   margin-bottom: 0.75em;
 }
 
+.nav a:not(:hover):not(:active):not(:focus) {
+  color: inherit;
+  text-decoration: none;
+  text-shadow: none;
+  background-image: none;
+}
 
+.nav ol,
+.nav li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.nav li li {
+  padding-left: 1.45rem;
+  font-size: 0.875em;
+}
+
+.subhidden {
+  display: none !important;
+}
+
+.activelink {
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+/* Hide the navigation on small screens, until the toggle button is pressed */
 @media (max-width: 40em) {
   .hidden {
     display: none !important;
   }
 }
+
+/* Hide the navigation toggle button on big screens, since it’s not needed */
 @media (min-width: 40em) {
   .nav button {
     display: none !important;
