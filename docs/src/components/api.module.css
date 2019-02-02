@@ -1,19 +1,29 @@
 .container {
+  /* width: 100%; */
+
   --description-background-color: white;
   --code-background-color: #191A18;
   --code-foreground-color: white;
-  width: 100%;
+  
+  /* SHIM: It feels like we should be able to set --main-column-width to 100%,
+           but this is causing scrollbars, perhaps due to the use of CSS grid.
+           In the mean time, this gets the job done… */
+  --nav-column-width: calc(1.45rem * 9);
+  --grid-gap: calc(1.45rem * 3);
+  --ol-margin-left: calc(1.45rem * 1);
+  --main-column-width: calc(100vw - var(--nav-column-width) - var(--grid-gap) - var(--ol-margin-left));
 }
 
 .container pre {
   background-color: var(--code-background-color);
   color: var(--code-foreground-color);
   padding: calc(1.45em / 2) 1.45em;
+  width: var(--main-column-width);
   overflow-x: auto;
 }
 
 .table {
-  width: 100%;
+  width: var(--main-column-width);
   overflow-x: auto;
 }
 
