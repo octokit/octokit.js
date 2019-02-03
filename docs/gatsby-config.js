@@ -1,4 +1,6 @@
 module.exports = {
+  // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
+  pathPrefix: "/octokit-rest-documentation",
   siteMetadata: {
     title: `Octokit.js`
   },
