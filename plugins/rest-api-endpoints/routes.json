@@ -4711,6 +4711,28 @@
       },
       "url": "/repos/:owner/:repo/projects"
     },
+    "createForUser": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "body": {
+          "type": "string"
+        },
+        "name": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        }
+      },
+      "url": "/user/projects"
+    },
     "delete": {
       "headers": {
         "accept": "application/vnd.github.inertia-preview+json"
@@ -4925,6 +4947,33 @@
         }
       },
       "url": "/repos/:owner/:repo/projects"
+    },
+    "listForUser": {
+      "headers": {
+        "accept": "application/vnd.github.inertia-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "state": {
+          "enum": [
+            "open",
+            "closed",
+            "all"
+          ],
+          "type": "string"
+        },
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/users/:username/projects"
     },
     "moveCard": {
       "headers": {
