@@ -6,7 +6,7 @@ This package will integrate several standalone packages for the all-batteries-in
 - [x] GraphQL API: `@octokit/graphql`
 - [ ] ~~OAuth~~ postponed.
 - [x] Webhooks: `@octokit/webhooks`
-- [x] Apps: `@octokit/apps`
+- [x] Apps: `@octokit/app`
 - [ ] Actions
 
 # octokit.js
