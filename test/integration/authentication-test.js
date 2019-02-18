@@ -272,6 +272,22 @@ describe('authentication', () => {
     return octokit.request('/')
   })
 
+  it.only('auth function throws error', () => {
+    const octokit = new Octokit({
+      auth () {
+        throw new Error('test')
+      }
+    })
+
+    return octokit.request('/')
+      .then(() => {
+        throw new Error('should not resolve')
+      })
+      .catch(error => {
+        expect(error.message).to.equal('test')
+      })
+  })
+
   /**
    * There is a special case for OAuth applications, when `clientId` and `clientSecret` is passed as
    * Basic Authorization instead of query parameters. The only routes where that applies share the same
