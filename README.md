@@ -193,7 +193,7 @@ The `auth` option can be
 
    ```js
    const App = require('@octokit/app')
-   const Octokit = require('octokit')
+   const Octokit = require('@octokit/rest')
 
    const app = new App({ id: process.env.APP_ID, privateKey: process.env.PRIVATE_KEY })
    const octokit = new Octokit({
