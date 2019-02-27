@@ -272,7 +272,7 @@ describe('authentication', () => {
     return octokit.request('/')
   })
 
-  it.only('auth function throws error', () => {
+  it('auth function throws error', () => {
     const octokit = new Octokit({
       auth () {
         throw new Error('test')
