@@ -23,6 +23,12 @@ function gather (results, iterator, mapFn) {
         earlyExit = true
       }
 
+      // normalize list responses with { total_count, incomplete_results, items } keys
+      // https://github.com/octokit/rest.js/issues/1161
+      if (result.value.data.items) {
+        result.value.data = result.value.data.items
+      }
+
       results = results.concat(mapFn ? mapFn(result.value, done) : result.value.data)
 
       if (earlyExit) {
