@@ -57,11 +57,11 @@ function validate (options) {
       }
 
       if (!parameter.allowNull && valueIsNull) {
-        throw new HttpError(`'${currentParameterName}' cannot be null`, 400)
+        throw new HttpError(`'${currentParameterName}' cannot be null`, 400, null, options)
       }
 
       if (parameter.required && !valueIsPresent) {
-        throw new HttpError(`Empty value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400)
+        throw new HttpError(`Empty value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
       }
 
       // parse to integer before checking for enum
@@ -70,18 +70,18 @@ function validate (options) {
         const unparsedValue = value
         value = parseInt(value, 10)
         if (isNaN(value)) {
-          throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(unparsedValue)} is NaN`, 400)
+          throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(unparsedValue)} is NaN`, 400, null, options)
         }
       }
 
       if (parameter.enum && parameter.enum.indexOf(value) === -1) {
-        throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400)
+        throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
       }
 
       if (parameter.validation) {
         const regex = new RegExp(parameter.validation)
         if (!regex.test(value)) {
-          throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400)
+          throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
         }
       }
 
@@ -89,7 +89,7 @@ function validate (options) {
         try {
           value = JSON.parse(value)
         } catch (exception) {
-          throw new HttpError(`JSON parse error of value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400)
+          throw new HttpError(`JSON parse error of value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
         }
       }
 
