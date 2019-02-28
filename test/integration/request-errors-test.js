@@ -107,4 +107,21 @@ describe('request errors', () => {
         })
       })
   })
+
+  it('error.request does not include token', () => {
+    nock('https://request-errors-test.com')
+      .get('/')
+      .reply(500)
+
+    const octokit = new Octokit({
+      baseUrl: 'https://request-errors-test.com',
+      auth: 'token abc4567'
+    })
+
+    return octokit.request('/')
+
+      .catch(error => {
+        expect(error.request.headers.authorization).to.equal('token [REDACTED]')
+      })
+  })
 })
