@@ -215,7 +215,7 @@ Find all APIs documented at https://octokit.github.io/rest.js/.
 ## API Previews
 
 To enable any of [GitHub’s API Previews](https://developer.github.com/v3/previews/),
-passe the `previews` option to the GitHub constructor
+pass the `previews` option to the GitHub constructor
 
 ```js
 const octokit = new Octokit({
