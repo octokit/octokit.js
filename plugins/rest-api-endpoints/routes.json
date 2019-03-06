@@ -3282,7 +3282,7 @@
       },
       "url": "/repos/:owner/:repo/license"
     },
-    "list": {
+    "listCommonlyUsed": {
       "method": "GET",
       "params": {},
       "url": "/licenses"
