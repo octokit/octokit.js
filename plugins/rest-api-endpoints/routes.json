@@ -3283,6 +3283,12 @@
       "url": "/repos/:owner/:repo/license"
     },
     "list": {
+      "deprecated": "octokit.licenses.list() has been renamed to octokit.licenses.listCommonlyUsed() (2019-03-05)",
+      "method": "GET",
+      "params": {},
+      "url": "/licenses"
+    },
+    "listCommonlyUsed": {
       "method": "GET",
       "params": {},
       "url": "/licenses"
