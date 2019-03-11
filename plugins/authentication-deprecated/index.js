@@ -1,5 +1,10 @@
 module.exports = authenticationPlugin
 
+const Deprecation = require('deprecation')
+const once = require('once')
+
+const deprecateAuthenticate = once((log, deprecation) => log.warn(deprecation))
+
 const authenticate = require('./authenticate')
 const beforeRequest = require('./before-request')
 const requestError = require('./request-error')
@@ -7,7 +12,7 @@ const requestError = require('./request-error')
 function authenticationPlugin (octokit, options) {
   if (options.auth) {
     octokit.authenticate = () => {
-      octokit.log.warn(new Error('octokit.authenticate() is deprecated and has no effect when "auth" option is set on Octokit constructor'))
+      deprecateAuthenticate(octokit.log, new Deprecation('[@octokit/rest] octokit.authenticate() is deprecated and has no effect when "auth" option is set on Octokit constructor'))
     }
     return
   }

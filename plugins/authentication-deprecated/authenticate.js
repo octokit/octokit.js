@@ -1,7 +1,12 @@
 module.exports = authenticate
 
+const Deprecation = require('deprecation')
+const once = require('once')
+
+const deprecateAuthenticate = once((log, deprecation) => log.warn(deprecation))
+
 function authenticate (state, options) {
-  state.octokit.log.warn(new Error('octokit.authenticate() is deprecated. Use "auth" constructor option instead.'))
+  deprecateAuthenticate(state.octokit.log, new Deprecation('[@octokit/rest] octokit.authenticate() is deprecated. Use "auth" constructor option instead.'))
 
   if (!options) {
     state.auth = false

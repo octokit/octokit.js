@@ -1,5 +1,7 @@
 module.exports = registerEndpoints
 
+const Deprecation = require('deprecation')
+
 function registerEndpoints (octokit, routes) {
   Object.keys(routes).forEach(namespaceName => {
     if (!octokit[namespaceName]) {
@@ -24,8 +26,8 @@ function registerEndpoints (octokit, routes) {
       const request = octokit.request.defaults(endpointDefaults)
 
       if (apiOptions.deprecated) {
-        octokit[namespaceName][apiName] = function () {
-          octokit.log.warn(apiOptions.deprecated)
+        octokit[namespaceName][apiName] = function deprecatedEndpointMethod () {
+          octokit.log.warn(new Deprecation(`[@octokit/rest] ${apiOptions.deprecated}`))
           octokit[namespaceName][apiName] = request
           return request.apply(null, arguments)
         }
