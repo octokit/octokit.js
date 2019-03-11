@@ -11,18 +11,21 @@ const Mocktokit = Octokit
 
 describe('deprecations', () => {
   it('octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)', () => {
-    let warnCalled = false
+    let warnCalledCount = 0
     const octokit = new Mocktokit({
       log: {
-        warn: () => {
-          warnCalled = true
+        warn: (deprecation) => {
+          warnCalledCount++
         }
       }
     })
 
-    return octokit.search.issues({ q: 'foo' })
+    return Promise.all([
+      octokit.search.issues({ q: 'foo' }),
+      octokit.search.issues({ q: 'foo' })
+    ])
       .then(() => {
-        expect(warnCalled).to.equal(true)
+        expect(warnCalledCount).to.equal(1)
       })
   })
 
@@ -35,12 +38,12 @@ describe('deprecations', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    let warnCalled = false
+    let warnCalledCount = 0
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
         warn: () => {
-          warnCalled = true
+          warnCalledCount++
         }
       }
     })
@@ -51,7 +54,13 @@ describe('deprecations', () => {
       password: 'password'
     })
 
-    expect(warnCalled).to.equal(true)
+    octokit.authenticate({
+      type: 'basic',
+      username: 'username',
+      password: 'password'
+    })
+
+    expect(warnCalledCount).to.equal(1)
 
     return octokit.orgs.get({ org: 'myorg' })
   })
@@ -76,13 +85,10 @@ describe('deprecations', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -94,8 +100,6 @@ describe('deprecations', () => {
         return 123456
       }
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
   })
@@ -120,13 +124,10 @@ describe('deprecations', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -138,8 +139,6 @@ describe('deprecations', () => {
         return Promise.resolve(123456)
       }
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
   })
@@ -166,13 +165,10 @@ describe('deprecations', () => {
         'x-github-otp': 'required; app'
       })
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -184,8 +180,6 @@ describe('deprecations', () => {
         return 123456
       }
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
 
@@ -209,13 +203,10 @@ describe('deprecations', () => {
         'x-github-otp': 'required; app'
       })
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -224,8 +215,6 @@ describe('deprecations', () => {
       username: 'username',
       password: 'password'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
       .then(() => {
@@ -248,13 +237,10 @@ describe('deprecations', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -262,8 +248,6 @@ describe('deprecations', () => {
       type: 'token',
       token: 'abc4567'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
   })
@@ -274,13 +258,10 @@ describe('deprecations', () => {
       .query({ access_token: 'abc4567' })
       .reply(200, {})
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -288,8 +269,6 @@ describe('deprecations', () => {
       type: 'oauth',
       token: 'abc4567'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
   })
@@ -300,13 +279,10 @@ describe('deprecations', () => {
       .query({ per_page: 1, access_token: 'abc4567' })
       .reply(200, [])
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -314,8 +290,6 @@ describe('deprecations', () => {
       type: 'oauth',
       token: 'abc4567'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.repos.listForOrg({ org: 'myorg', per_page: 1 })
   })
@@ -326,13 +300,10 @@ describe('deprecations', () => {
       .query({ client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, {})
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -341,8 +312,6 @@ describe('deprecations', () => {
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.orgs.get({ org: 'myorg' })
   })
@@ -353,13 +322,10 @@ describe('deprecations', () => {
       .query({ foo: 'bar', client_id: 'oauthkey', client_secret: 'oauthsecret' })
       .reply(200, [])
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -368,8 +334,6 @@ describe('deprecations', () => {
       key: 'oauthkey',
       secret: 'oauthsecret'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.request('/?foo=bar')
   })
@@ -383,13 +347,10 @@ describe('deprecations', () => {
       .get('/orgs/myorg')
       .reply(200, {})
 
-    let warnCalled = false
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -398,32 +359,23 @@ describe('deprecations', () => {
       token: 'abc4567'
     })
 
-    expect(warnCalled).to.equal(true)
-
     return octokit.orgs.get({ org: 'myorg' })
   })
 
   it('octokit.authenticate(): without options', () => {
-    let warnCalled = false
     const octokit = new Octokit({
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
     octokit.authenticate()
-    expect(warnCalled).to.equal(true)
   })
 
   it('octokit.authenticate(): errors', () => {
-    let warnCalledCount = 0
     const octokit = new Octokit({
       log: {
-        warn: () => {
-          warnCalledCount++
-        }
+        warn: () => {}
       }
     })
 
@@ -442,8 +394,6 @@ describe('deprecations', () => {
     expect(() => {
       octokit.authenticate({ type: 'token' })
     }).to.throw(Error)
-
-    expect(warnCalledCount).to.equal(4)
   })
 
   it('octokit.authenticate() when "auth" option is set', () => {
@@ -492,12 +442,20 @@ describe('deprecations', () => {
   })
 
   it('timeout option', () => {
-    let warnCalled = false
+    let warnCallCount = 0
     const octokit = new Octokit({
       timeout: 123,
       log: {
         warn: () => {
-          warnCalled = true
+          warnCallCount++
+        }
+      }
+    })
+    Octokit({
+      timeout: 456,
+      log: {
+        warn: () => {
+          warnCallCount++
         }
       }
     })
@@ -507,7 +465,7 @@ describe('deprecations', () => {
       return 'ok'
     })
 
-    expect(warnCalled).to.equal(true)
+    expect(warnCallCount).to.equal(1)
 
     return octokit.request('/')
 
@@ -544,15 +502,12 @@ describe('deprecations', () => {
   })
 
   it('headers.accept option', () => {
-    let warnCalled = false
     const octokit = new Octokit({
       headers: {
         accept: 'application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json'
       },
       log: {
-        warn: () => {
-          warnCalled = true
-        }
+        warn: () => {}
       }
     })
 
@@ -560,8 +515,6 @@ describe('deprecations', () => {
       expect(options.headers.accept).to.equal('application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json')
       return 'ok'
     })
-
-    expect(warnCalled).to.equal(true)
 
     return octokit.request('/')
 
