@@ -55,7 +55,6 @@
     "compression-webpack-plugin": "^2.0.0",
     "coveralls": "^3.0.0",
     "cypress": "^3.0.0",
-    "dotenv": "^6.0.0",
     "gh-pages-with-token": "^1.0.0",
     "glob": "^7.1.2",
     "http-proxy-agent": "^2.1.0",
