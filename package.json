@@ -32,7 +32,7 @@
   ],
   "repository": "https://github.com/octokit/rest.js",
   "dependencies": {
-    "@octokit/request": "2.4.1",
+    "@octokit/request": "2.4.2",
     "before-after-hook": "^1.4.0",
     "btoa-lite": "^1.0.0",
     "deprecation": "^1.0.1",
