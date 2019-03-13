@@ -15,7 +15,7 @@ describe('memory leaks (relax, tests run slow)', function () {
       const octokit = new TestOctokit()
 
       return octokit.request('/')
-    }, { iterations: 100 })
+    })
   })
 
   it('one instance, many requests', () => {
