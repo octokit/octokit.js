@@ -90,7 +90,7 @@ const octokit = new Octokit({
 
   // add list of previews you’d like to enable globally,
   // see https://developer.github.com/v3/previews/.
-  // Example: ['jean-grey-preview', 'symmetra-preview']
+  // Example: ['jean-grey', 'symmetra']
   previews: [],
 
   // set custom URL for on-premise GitHub Enterprise installations
@@ -225,26 +225,31 @@ const octokit = new Octokit({
 })
 ```
 
-If you want to enable a preview for a single request, pass it as as the `accept` header
+If you want to enable one or multiple previews for a single request, set the `mediaType.preview` option
 
 ```js
 const { data: { topics } } = await octokit.repos.get({
   owner: 'octokit',
   repo: 'rest.js',
-  headers: {
-    accept: 'application/vnd.github.mercy-preview+json'
+  mediaType: {
+    previews: ['symmetra']
   }
 })
 ```
 
-Multiple preview headers can be combined by separating them with commas
+## Request formats
+
+Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/).
+
+For example, to request a [pull request as diff format](https://developer.github.com/v3/media/#diff), set the `mediaType.format` option
 
 ```js
-const { data: { topics, codeOfConduct } } = await octokit.repos.get({
+const { data: prDiff } = await octokit.pulls.get({
   owner: 'octokit',
   repo: 'rest.js',
-  headers: {
-    accept: 'application/vnd.github.mercy-preview+json,application/vnd.github.scarlet-witch-preview+json'
+  number: 1278,
+  mediaType: {
+    format: 'diff'
   }
 })
 ```
