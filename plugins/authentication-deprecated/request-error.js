@@ -3,6 +3,9 @@ module.exports = authenticationRequestError
 const HttpError = require('@octokit/request/lib/http-error')
 
 function authenticationRequestError (state, error, options) {
+  /* istanbul ignore next */
+  if (!error.headers) throw error
+
   const otpRequired = /required/.test(error.headers['x-github-otp'] || '')
   // handle "2FA required" error only
   if (error.status !== 401 || !otpRequired) {
