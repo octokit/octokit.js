@@ -656,6 +656,9 @@
       "url": "/app"
     },
     "getBySlug": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "app_slug": {
@@ -836,6 +839,9 @@
       "url": "/marketplace_listing/stubbed/plans"
     },
     "listRepos": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "page": {
