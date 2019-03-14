@@ -27,6 +27,7 @@ function authenticationRequestError (state, error, options) {
       const newOptions = Object.assign(options, {
         headers: Object.assign({ 'x-github-otp': oneTimePassword }, options.headers)
       })
+      state.otp = oneTimePassword
       return state.octokit.request(newOptions)
     })
 }

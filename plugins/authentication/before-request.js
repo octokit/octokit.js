@@ -3,6 +3,10 @@ module.exports = authenticationBeforeRequest
 const btoa = require('btoa-lite')
 
 function authenticationBeforeRequest (state, options) {
+  if (state.otp) {
+    options.headers['x-github-otp'] = state.otp
+  }
+
   if (typeof state.auth === 'string') {
     options.headers['authorization'] = state.auth
 
