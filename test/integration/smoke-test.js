@@ -50,12 +50,41 @@ describe('smoke', () => {
     const octokit = new Octokit({
       baseUrl: 'https://smoke-test.com',
       previews: [
+        // test with & without -preview suffix
         'jean-grey-preview',
-        'symmetra-preview'
+        'symmetra'
       ]
     })
 
     return octokit.request('/')
+  })
+
+  it('mediaType request option', () => {
+    nock('https://smoke-test.com', {
+      reqheaders: {
+        'accept': 'application/vnd.github.foo-preview.raw,application/vnd.github.bar-preview.raw,application/vnd.github.baz-preview.raw'
+      }
+    })
+      .get('/')
+      .reply(200, {})
+
+    const octokit = new Octokit({
+      baseUrl: 'https://smoke-test.com',
+      previews: [
+        'foo',
+        'bar-preview'
+      ]
+    })
+
+    return octokit.request('/', {
+      mediaType: {
+        previews: [
+          'bar',
+          'baz-preview'
+        ],
+        format: 'raw'
+      }
+    })
   })
 
   it('request option', () => {
