@@ -24,9 +24,7 @@ function authenticationRequestError (state, error, options) {
       return state.auth.on2fa()
     })
     .then((oneTimePassword) => {
-      const newOptions = Object.assign(options, {
-        headers: Object.assign({ 'x-github-otp': oneTimePassword }, options.headers)
-      })
-      return state.octokit.request(newOptions)
+      state.otp = oneTimePassword
+      return state.octokit.request(options)
     })
 }

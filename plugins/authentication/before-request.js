@@ -19,6 +19,9 @@ function authenticationBeforeRequest (state, options) {
   if (state.auth.username) {
     const hash = btoa(`${state.auth.username}:${state.auth.password}`)
     options.headers['authorization'] = `Basic ${hash}`
+    if (state.otp) {
+      options.headers['x-github-otp'] = state.otp
+    }
     return
   }
 
