@@ -1,9 +1,31 @@
-workflow "New workflow" {
-  on = "pull_request"
-  resolves = ["wip/action@master"]
+workflow "Deploy to GitHub Pages on push" {
+  on = "push"
+  resolves = ["deploy"]
 }
 
-action "wip/action@master" {
-  uses = "wip/action@master"
-  secrets = ["GITHUB_TOKEN"]
+# Filter for master branch
+action "master branch only" {
+  uses = "actions/bin/filter@master"
+  args = "branch master"
+}
+
+action "npm ci" {
+  needs = "master branch only"
+  uses = "docker://node:alpine"
+  runs = "npm ci"
+}
+
+action "npm run build" {
+  needs = "npm ci"
+  uses = "docker://node:alpine"
+  runs = "npm run build"
+}
+
+action "deploy" {
+  needs = "npm run build"
+  uses = "maxheld83/ghpages@v0.2.1"
+  env = {
+    BUILD_DIR = "public/"
+  }
+  secrets = ["GH_PAT"]
 }
