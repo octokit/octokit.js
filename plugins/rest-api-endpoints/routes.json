@@ -7124,6 +7124,50 @@
       },
       "url": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
+    "disablePagesSite": {
+      "headers": {
+        "accept": "application/vnd.github.switcheroo-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pages"
+    },
+    "enablePagesSite": {
+      "headers": {
+        "accept": "application/vnd.github.switcheroo-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        },
+        "source[branch]": {
+          "enum": [
+            "master",
+            "gh-pages"
+          ],
+          "type": "string"
+        },
+        "source[path]": {
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pages"
+    },
     "get": {
       "method": "GET",
       "params": {
