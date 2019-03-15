@@ -7493,9 +7493,6 @@
       "url": "/repos/:owner/:repo/releases/latest"
     },
     "getPages": {
-      "headers": {
-        "accept": "application/vnd.github.mister-fantastic-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": {
@@ -9123,9 +9120,6 @@
       "url": "/repos/:owner/:repo/hooks/:hook_id"
     },
     "updateInformationAboutPagesSite": {
-      "headers": {
-        "accept": "application/vnd.github.mister-fantastic-preview+json"
-      },
       "method": "PUT",
       "params": {
         "cname": {
