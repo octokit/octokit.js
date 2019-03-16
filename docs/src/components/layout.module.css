@@ -6,13 +6,7 @@
   margin-bottom: 1.5rem;
 }
 
-/*
-
-Position the code examples in the right column.
-
-*/
-
-@media (min-width: 40em) {
+@media (min-width: 55em) { /* --wide-enough-for-two-columns */
   .container {
     display: grid;
     grid-column-gap: 2.9em;
@@ -32,4 +26,4 @@ Position the code examples in the right column.
     grid-column: 2/3;
   }
 }
-/**/
+
