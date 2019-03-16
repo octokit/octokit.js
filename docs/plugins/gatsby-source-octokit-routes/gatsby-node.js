@@ -6,7 +6,7 @@ exports.sourceNodes = async ({ actions }) => {
 
   Object.keys(ROUTES).map(scope => {
     const scopeId = `octokit-routes-${scope}`
-    const endpoints = []
+    const methods = []
 
     ROUTES[scope].forEach(endpoint => {
       const endpointId = `octokit-routes-${scope}-${_.kebabCase(endpoint.idName)}`
@@ -18,23 +18,34 @@ exports.sourceNodes = async ({ actions }) => {
   ${paramNames.join(',\n  ')}
 }` : ''
       const example = `octokit.${scope}.${_.camelCase(endpoint.idName)}(${paramsString})`
-      const endpointNode = {
+      const method = {
+        id: endpointId,
+        scope,
+        ...endpoint,
+        example
+      }
+      createNode({
         id: endpointId,
         parent: scopeId,
         children: [],
         scope,
         ...endpoint,
-        example
-      }
-      endpoints.push(endpointNode)
+        example,
+        internal: {
+          description: `${endpoint.name} Method`,
+          contentDigest: endpointId,
+          type: 'OctokitApiMethod'
+        }
+      })
+      methods.push(method)
     })
 
     createNode({
       id: scopeId,
       parent: null,
-      children: [],
+      children: methods.map(method => method.id),
+      methods: methods,
       name: scope,
-      methods: endpoints,
       internal: {
         description: `${scope} Scope`,
         contentDigest: scope,

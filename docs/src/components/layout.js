@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { StaticQuery, Link } from 'gatsby'
+
 import layoutStyles from './layout.module.css'
 import './layout.css'
+import Search from "./search"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -15,6 +17,20 @@ export default ({ children }) => (
       <Link to='/' style={{ textShadow: `none`, backgroundImage: `none` }}>
         <h3 style={{ display: `inline` }}>octokit.js</h3>
       </Link>
+
+      <StaticQuery
+        query={graphql`
+          query SearchIndexQuery {
+            siteSearchIndex {
+              index
+            }
+          }
+        `}
+        render={data => (
+          <Search searchIndex={data.siteSearchIndex.index} />
+        )}
+      />
+
       <ul style={{ listStyle: `none`, float: `right` }}>
         <ListLink to='/'>Home</ListLink>
         <ListLink to='/guides/'>Guides</ListLink>
