@@ -1,38 +1,57 @@
 .container {
-  /* width: 100%; */
-
   --description-background-color: white;
   --code-background-color: #191A18;
   --code-foreground-color: white;
-  
-  /* SHIM: It feels like we should be able to set --main-column-width to 100%,
-           but this is causing scrollbars, perhaps due to the use of CSS grid.
-           In the mean time, this gets the job done… */
-  --nav-column-width: calc(1.45rem * 9);
-  --grid-gap: calc(1.45rem * 3);
-  --ol-margin-left: calc(1.45rem * 1);
-  --main-column-width: calc(100vw - var(--nav-column-width) - var(--grid-gap) - var(--ol-margin-left));
 }
 
 .container pre {
   background-color: var(--code-background-color);
   color: var(--code-foreground-color);
   padding: calc(1.45em / 2) 1.45em;
-  width: var(--main-column-width);
+  width: 100%;
   overflow-x: auto;
 }
 
 .table {
-  width: var(--main-column-width);
+  width: 100%;
   overflow-x: auto;
+}
+
+@media (min-width: 55em) { /* --wide-enough-for-two-columns */
+  .container pre,
+  .table {
+
+    /* SHIM: Setting the width set to 100% seems to be causing scrollbars,
+             when using grid layout. */
+    width: var(--main-column-width);
+
+    --nav-column-width: calc(1.45rem * 9);
+    --grid-gap: calc(1.45rem * 3);
+    --ol-margin-left: calc(1.45rem * 1);
+    --main-column-width: calc(100vw - var(--nav-column-width) - var(--grid-gap) - var(--ol-margin-left));
+  }
 }
 
 .nav {
   position: sticky;
   top: 0;
-  max-height: calc(100vh - 5.125em); /* header height / font size == 102.5px / 20px */
-  overflow-y: auto;
   background: hsla(0, 0%, 100%, 0.95);
+  
+  /* Give the navigation a maximum height, so the “stickyness” will have an effect. */
+  max-height: 100vh;
+  overflow-y: auto;
+
+  /* TBD: Would it better to limit the navigation height so that all of the items
+          are visible when scrolled to the top of the page?
+  max-height: calc(100vh - var(--header-height-in-ems)); */
+
+  /* TBD: Is it useful to use em units here? (so that it will scale with the font size)
+          Are there other places where we’re using pixel values that make this moot?
+  --header-height-in-ems: calc(var(--header-height) / var(--font-size) * 1em); */
+
+  /* TBD: Should these value come from a custom property instead?
+  --header-height: 102.5;
+  --font-size: 20; */
 }
 
 .nav h1 {
@@ -46,9 +65,11 @@
 
 .nav a:not(:hover):not(:active):not(:focus) {
   color: inherit;
-  text-decoration: none;
+}
+.nav a {
   text-shadow: none;
   background-image: none;
+  text-decoration: none;
 }
 
 .nav ol,
@@ -69,18 +90,19 @@
 .activelink {
   position: sticky;
   top: 0;
-  background: white;
+  display: block;
+  background-color: white;
 }
 
 /* Hide the navigation on small screens, until the toggle button is pressed */
-@media (max-width: 40em) {
+@media (max-width: 55em) { /* --wide-enough-for-two-columns */
   .hidden {
     display: none !important;
   }
 }
 
 /* Hide the navigation toggle button on big screens, since it’s not needed */
-@media (min-width: 40em) {
+@media (min-width: 55em) { /* --wide-enough-for-two-columns */
   .nav button {
     display: none !important;
   }
