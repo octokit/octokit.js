@@ -92,6 +92,7 @@
   top: 0;
   display: block;
   background-color: white;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12); /* Copied from the table style in the main content area */
 }
 
 /* Hide the navigation on small screens, until the toggle button is pressed */

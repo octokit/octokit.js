@@ -10,11 +10,11 @@ import apiStyles from '../components/api.module.css'
 class ApiSubMenu extends Component {
   constructor(props) {
     super(props)
-    this.showMenu = this.showMenu.bind(this)
+    this.onUserInteraction = this.onUserInteraction.bind(this)
     this.isActive = this.isActive.bind(this)
   }
 
-  showMenu() {
+  onUserInteraction() {
     this.props.onUserInteraction(this.props.node.id)
   }
 
@@ -25,7 +25,7 @@ class ApiSubMenu extends Component {
   render() {
     return (
       <li key={this.props.node.id}>
-        <a href={`#${this.props.node.id}`} onClick={this.showMenu} onFocus={this.showMenu} className={this.isActive() ? apiStyles.activelink : ""}>{this.props.node.name}</a>
+        <a href={`#${this.props.node.id}`} onClick={this.onUserInteraction} className={this.isActive() ? apiStyles.activelink : ""}>{this.props.node.name}</a>
         <ol className={this.isActive() ? "" : apiStyles.subhidden}>
           {this.props.node.methods.map((method) => {
             return <li key={method.id}>
@@ -57,9 +57,15 @@ class ApiMenu extends Component {
   }
 
   setActiveSubMenu(subMenu) {
-    this.setState({
-      activeSubMenu: subMenu
-    })
+    if (this.state.activeSubMenu === subMenu) {
+      this.setState({
+        activeSubMenu: null
+      })
+    } else {
+      this.setState({
+        activeSubMenu: subMenu
+      })
+    }
   }
 
   isActiveSubMenu(subMenu) {
