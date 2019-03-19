@@ -24,9 +24,12 @@ function gather (results, iterator, mapFn) {
       }
 
       // normalize list responses with { total_count, incomplete_results, items } keys
-      // https://github.com/octokit/rest.js/issues/1161
-      if (result.value.data.items) {
-        result.value.data = result.value.data.items
+      // https://github.com/octokit/rest.js/issues/1283
+      if ('incomplete_results' in result.value.data) {
+        delete result.value.data.incomplete_results
+        delete result.value.data.total_count
+        const namespaceKey = Object.keys(result.value.data)[0]
+        result.value.data = result.value.data[namespaceKey]
       }
 
       results = results.concat(mapFn ? mapFn(result.value, done) : result.value.data)
