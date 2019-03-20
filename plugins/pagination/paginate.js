@@ -32,7 +32,7 @@ function gather (octokit, results, iterator, mapFn) {
 
       // normalize list responses with { total_count, incomplete_results, items } keys
       // https://github.com/octokit/rest.js/issues/1283
-      if ('total_count' in result.value.data) {
+      if ('total_count' in result.value.data && result.value.headers.link) {
         const incompleteResults = result.value.data.incomplete_results
         const totalCount = result.value.data.total_count
         delete result.value.data.incomplete_results
