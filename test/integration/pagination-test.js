@@ -218,6 +218,8 @@ describe('pagination', () => {
             id: '456'
           }
         ]
+      }, {
+        'Link': '<https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=1>; rel="prev", <https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=1>; rel="first"'
       })
 
     const octokit = new Octokit()
@@ -267,6 +269,8 @@ describe('pagination', () => {
             id: '456'
           }
         ]
+      }, {
+        'Link': '<https://api.github.com/installation/repositories?per_page=1&page=1>; rel="prev", <https://api.github.com/installation/repositories?per_page=1&page=1>; rel="first"'
       })
 
     const octokit = new Octokit()
@@ -280,6 +284,31 @@ describe('pagination', () => {
           { id: '123' },
           { id: '456' }
         ])
+      })
+  })
+
+  it('does not paginate non-paginated response with total_count property', () => {
+    nock('https://api.github.com')
+      .get('/repos/octokit/rest.js/commits/abc4567/status')
+      .reply(200, {
+        state: 'success',
+        total_count: 2,
+        statuses: [
+          { id: 1 },
+          { id: 2 }
+        ]
+      })
+
+    const octokit = new Octokit()
+    const options = octokit.repos.getCombinedStatusForRef.endpoint.merge({
+      owner: 'octokit',
+      repo: 'rest.js',
+      ref: 'abc4567'
+    })
+
+    return octokit.paginate(options)
+      .then(result => {
+        expect(result[0].state).to.equal('success')
       })
   })
 })
