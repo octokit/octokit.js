@@ -246,7 +246,6 @@ describe('pagination', () => {
       })
       .reply(200, {
         total_count: 2,
-        incomplete_results: false,
         repositories: [
           {
             id: '123'
@@ -263,7 +262,6 @@ describe('pagination', () => {
       })
       .reply(200, {
         total_count: 2,
-        incomplete_results: false,
         repositories: [
           {
             id: '456'

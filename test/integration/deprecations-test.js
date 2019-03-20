@@ -522,4 +522,106 @@ describe('deprecations', () => {
         expect(response).to.equal('ok')
       })
   })
+
+  it('.paginate() with results namespace', () => {
+    nock('https://api.github.com')
+      .get('/installation/repositories')
+      .query({
+        per_page: 1
+      })
+      .reply(200, {
+        total_count: 2,
+        repositories: [
+          {
+            id: '123'
+          }
+        ]
+      }, {
+        'Link': '<https://api.github.com/installation/repositories?per_page=1&page=2>; rel="next", <https://api.github.com/installation/repositories?per_page=1&page=2>; rel="last"'
+      })
+
+      .get('/installation/repositories')
+      .query({
+        per_page: 1,
+        page: 2
+      })
+      .reply(200, {
+        total_count: 2,
+        repositories: [
+          {
+            id: '456'
+          }
+        ]
+      })
+
+      .get('/search/issues')
+      .query({
+        q: 'repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26',
+        per_page: 1
+      })
+      .reply(200, {
+        total_count: 2,
+        incomplete_results: false,
+        items: [
+          {
+            id: '123'
+          }
+        ]
+      }, {
+        'Link': '<https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=2>; rel="next", <https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=2>; rel="last"'
+      })
+
+      .get('/search/issues')
+      .query({
+        q: 'repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26',
+        per_page: 1,
+        page: 2
+      })
+      .reply(200, {
+        total_count: 2,
+        incomplete_results: false,
+        items: [
+          {
+            id: '456'
+          }
+        ]
+      })
+
+    let warnCallCount = 0
+    const octokit = new Octokit({
+      log: {
+        warn: (msg) => {
+          warnCallCount++
+        }
+      }
+    })
+    const searchOptions = octokit.search.issuesAndPullRequests.endpoint.merge({
+      q: `repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26`,
+      per_page: 1,
+      headers: {
+        'accept-encoding': ''
+      }
+    })
+    const listReposOptions = octokit.apps.listRepos.endpoint.merge({
+      per_page: 1
+    })
+
+    return octokit.paginate(listReposOptions, (result) => {
+      expect(result.data.incomplete_results).to.equal(undefined)
+      expect(result.data.total_count).to.equal(2)
+      expect(result.data.repositories.length).to.equal(1)
+      return result
+    })
+
+      .then(() => octokit.paginate(searchOptions, (result) => {
+        expect(result.data.incomplete_results).to.equal(false)
+        expect(result.data.total_count).to.equal(2)
+        expect(result.data.items.length).to.equal(1)
+        return result
+      }))
+
+      .then(() => {
+        expect(warnCallCount).to.equal(3)
+      })
+  })
 })
