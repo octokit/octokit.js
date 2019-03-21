@@ -151,16 +151,20 @@ The `auth` option can be
    - GitHub App bearer tokens
    - GitHub App installation tokens
 
-2. As object with the properties `username`, `password`, `on2fa`.
+2. As object with the properties `username`, `password`, `on2fa`, `note`, `scopes`.
 
    `on2fa` is an asynchronous function that must resolve with two-factor
    authentication code sent to the user.
+
+   `note` and `scopes` are used in the [creation of a token](https://octokit.github.io/rest.js/#api-OauthAuthorizations-createAuthorization).
 
    ```js
    new Octokit({
      auth: {
        username: 'octocat',
        password: 'secret',
+       note: 'my-token',
+       scopes: ['repo'],
        async on2fa () {
          // example: ask the user
          return prompt('Two-factor authentication Code:')
