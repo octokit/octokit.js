@@ -6,6 +6,10 @@
   margin-bottom: 1.5rem;
 }
 
+.hidden {
+  opacity: 0;
+}
+
 @media (min-width: 55em) { /* --wide-enough-for-two-columns */
   .container {
     display: grid;
@@ -13,13 +17,8 @@
     grid-template-columns: calc(1.45em * 9) 2fr;
   }
 
-  .container > header {
-    grid-column: 1/-1;
-  }
-
   .container > nav {
     grid-column: 1/2;
-    grid-row: 2/3;
   }
 
   .container > main {

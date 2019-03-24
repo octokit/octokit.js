@@ -36,7 +36,7 @@
   position: sticky;
   top: 0;
   background: hsla(0, 0%, 100%, 0.95);
-  
+
   /* Give the navigation a maximum height, so the “stickyness” will have an effect. */
   max-height: 100vh;
   overflow-y: auto;
