@@ -78,7 +78,7 @@ class ApiMenu extends Component {
             </li>
           })}
           {this.props.data.endpointScopes.edges.map(({ node }) => {
-            return <ApiSubMenu node={node} onUserInteraction={this.setActiveSubMenu} isActive={this.isActiveSubMenu}></ApiSubMenu>
+            return <ApiSubMenu key={node.id} node={node} onUserInteraction={this.setActiveSubMenu} isActive={this.isActiveSubMenu}></ApiSubMenu>
           })}
         </ol>
       </nav>
@@ -91,16 +91,17 @@ export default ({ data }) => (
     <ApiMenu data={data}></ApiMenu>
     <main className={apiStyles.container}>
       {data.staticMethods.edges.map(({ node }) => {
-        return <>
+        return <React.Fragment key={node.id}>
           <h2>{node.frontmatter.title}</h2>
           <div dangerouslySetInnerHTML={{ __html: node.html }} />
-        </>
+        </React.Fragment>
       })}
-      {data.endpointScopes.edges.map(({ node }) => {
-        return <>
+
+{data.endpointScopes.edges.map(({ node }) => {
+        return <React.Fragment key={node.id}>
           <h2 id={node.id}>{node.name}</h2>
           {node.methods.map(method => {
-            return <>
+            return <React.Fragment key={method.id}>
               <h3 id={method.id}>{method.name}</h3>
               <div dangerouslySetInnerHTML={{ __html: marked(method.description) }} />
               <h4>Parameters</h4>
@@ -115,7 +116,7 @@ export default ({ data }) => (
                   </thead>
                   <tbody>
                     {method.params.map(param => {
-                      return <tr>
+                      return <tr key={param.name}>
                         <td>{param.name}</td>
                         <td>{param.required ? 'yes' : 'no'}</td>
                         <td>{param.description}</td>
@@ -124,12 +125,12 @@ export default ({ data }) => (
                   </tbody>
                 </table>
               </div>
-              <div class="gatsby-highlight" data-language="js">
-                <pre class={'language-js'}><code class={'language-js'} dangerouslySetInnerHTML={{ __html: Prism.highlight(method.example, Prism.languages.javascript, 'javascript') }} ></code></pre>
+              <div className="gatsby-highlight" data-language="js">
+                <pre className="language-js"><code className="language-js" dangerouslySetInnerHTML={{ __html: Prism.highlight(method.example, Prism.languages.javascript, 'javascript') }} ></code></pre>
               </div>
-            </>
+            </React.Fragment>
           })}
-        </>
+        </React.Fragment>
       })}
     </main>
   </Layout>

@@ -18,7 +18,7 @@ action "npm ci" {
 action "npm run build" {
   needs = "npm ci"
   uses = "docker://node:alpine"
-  runs = "npm run build"
+  runs = "npm run build -- --prefix-paths"
 }
 
 action "deploy" {

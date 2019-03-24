@@ -1,3 +1,6 @@
+const camelCase = require('lodash/camelCase')
+const upperFirst = require('lodash/upperFirst')
+
 module.exports = {
   // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
   pathPrefix: "/octokit-rest-documentation",
@@ -66,23 +69,27 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`, `scope`, `route`],
+        fields: [`title`, `name`, `scope`, `route`, `method`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
-            slug: node => `/api#octokit-${node.fields.idName}`
+            slug: node => `/api#octokit-${node.fields.idName}`,
+            type: node => /\/api\//.test(node.fileAbsolutePath) ? 'API' : 'Guide'
           },
           OctokitApiGroup: {
-            title: node => node.name,
-            slug: node => `/api#${node.id}`
+            title: node => upperFirst(node.name),
+            slug: node => `/api#${node.id}`,
+            type: node => 'API'
           },
           OctokitApiMethod: {
-            title: node => node.name,
+            name: node => node.name,
             scope: node => node.scope,
             route: node => `${node.method} ${node.path}`,
-            slug: node => `/api#${node.id}`
+            method: node => `${node.scope}.${camelCase(node.idName)}`,
+            slug: node => `/api#${node.id}`,
+            type: node => 'API method'
           }
         },
       },
