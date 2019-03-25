@@ -75,12 +75,12 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
-            slug: node => `/api#octokit-${node.fields.idName}`,
-            type: node => /\/api\//.test(node.fileAbsolutePath) ? 'API' : 'Guide'
+            slug: node => `#octokit-${node.fields.idName}`,
+            type: node => 'API'
           },
           OctokitApiGroup: {
             title: node => upperFirst(node.name),
-            slug: node => `/api#${node.id}`,
+            slug: node => `#${node.id}`,
             type: node => 'API'
           },
           OctokitApiMethod: {
@@ -88,7 +88,7 @@ module.exports = {
             scope: node => node.scope,
             route: node => `${node.method} ${node.path}`,
             method: node => `${node.scope}.${camelCase(node.idName)}`,
-            slug: node => `/api#${node.id}`,
+            slug: node => `#${node.id}`,
             type: node => 'API method'
           }
         },
