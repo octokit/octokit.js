@@ -160,7 +160,7 @@ class Api extends Component {
           <ol className={this.state.menuActive ? "" : apiStyles.hidden}>
             {this.props.data.staticMethods.edges.map(({ node }) => {
               return <li key={node.id}>
-                <Link to={`/api#octokit-${node.fields.idName}`}>{node.frontmatter.title}</Link>
+                <a href={`#octokit-${node.fields.idName}`}>{node.frontmatter.title}</a>
               </li>
             })}
             {this.props.data.endpointScopes.edges.map(({ node }) => {
