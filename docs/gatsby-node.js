@@ -44,29 +44,29 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+// exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
 
-  const guidesPagesResult = await graphql(`{
-    allMarkdownRemark {
-      edges {
-        node {
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }`)
-  guidesPagesResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/guide.js`),
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        slug: node.fields.slug
-      }
-    })
-  })
-}
+//   const guidesPagesResult = await graphql(`{
+//     allMarkdownRemark {
+//       edges {
+//         node {
+//           fields {
+//             slug
+//           }
+//         }
+//       }
+//     }
+//   }`)
+//   guidesPagesResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//     createPage({
+//       path: node.fields.slug,
+//       component: path.resolve(`./src/templates/guide.js`),
+//       context: {
+//         // Data passed to context is available
+//         // in page queries as GraphQL variables.
+//         slug: node.fields.slug
+//       }
+//     })
+//   })
+// }
