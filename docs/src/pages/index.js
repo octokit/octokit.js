@@ -132,15 +132,15 @@ class Api extends Component {
   }
 
   setActiveSubMenu(id) {
-    if (this.state.activeSubMenu === id) {
-      this.setState({
-        activeSubMenu: null
-      })
-    } else {
+    // if (this.state.activeSubMenu === id) {
+    //   this.setState({
+    //     activeSubMenu: null
+    //   })
+    // } else {
       this.setState({
         activeSubMenu: id
       })
-    }
+    // }
   }
 
   isActiveSubMenu(id) {
