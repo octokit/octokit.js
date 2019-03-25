@@ -23,14 +23,11 @@ class EndPoint extends Component {
     const target = this.headlineRef.current
 
     observer.observe(target)
-
-    // console.log({observer: observer, target: target})
   }
 
   onIntersection(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // console.log({intersecting: this.props.node.id})
         this.props.onVisible(this.props.node.id)
       }
     })
