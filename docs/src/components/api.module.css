@@ -95,6 +95,10 @@
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12); /* Copied from the table style in the main content area */
 }
 
+.activemenuitem {
+  font-weight: bold;
+}
+
 /* Hide the navigation on small screens, until the toggle button is pressed */
 @media (max-width: 55em) { /* --wide-enough-for-two-columns */
   .hidden {
