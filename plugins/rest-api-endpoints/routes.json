@@ -5185,6 +5185,9 @@
         "body": {
           "type": "string"
         },
+        "draft": {
+          "type": "boolean"
+        },
         "head": {
           "required": true,
           "type": "string"
@@ -5273,6 +5276,9 @@
         "base": {
           "required": true,
           "type": "string"
+        },
+        "draft": {
+          "type": "boolean"
         },
         "head": {
           "required": true,
