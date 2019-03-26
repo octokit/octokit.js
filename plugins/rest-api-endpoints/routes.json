@@ -1775,8 +1775,26 @@
         "author": {
           "type": "object"
         },
+        "author.date": {
+          "type": "string"
+        },
+        "author.email": {
+          "type": "string"
+        },
+        "author.name": {
+          "type": "string"
+        },
         "committer": {
           "type": "object"
+        },
+        "committer.date": {
+          "type": "string"
+        },
+        "committer.email": {
+          "type": "string"
+        },
+        "committer.name": {
+          "type": "string"
         },
         "message": {
           "required": true,
@@ -1792,6 +1810,9 @@
         },
         "repo": {
           "required": true,
+          "type": "string"
+        },
+        "signature": {
           "type": "string"
         },
         "tree": {
