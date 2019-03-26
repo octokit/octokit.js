@@ -12,7 +12,11 @@ function authenticationRequestError (state, error, options) {
   }
 
   if (error.status === 401 && otpRequired && error.request && error.request.headers['x-github-otp']) {
-    throw new HttpError('Invalid one-time password for two-factor authentication', 401, error.headers, options)
+    if (state.otp) {
+      delete state.otp // no longer valid, request again
+    } else {
+      throw new HttpError('Invalid one-time password for two-factor authentication', 401, error.headers, options)
+    }
   }
 
   if (typeof state.auth.on2fa !== 'function') {
@@ -24,7 +28,14 @@ function authenticationRequestError (state, error, options) {
       return state.auth.on2fa()
     })
     .then((oneTimePassword) => {
-      state.otp = oneTimePassword
-      return state.octokit.request(options)
+      const newOptions = Object.assign(options, {
+        headers: Object.assign({ 'x-github-otp': oneTimePassword }, options.headers)
+      })
+      return state.octokit.request(newOptions)
+        .then(response => {
+          // If OTP still valid, then persist it for following requests
+          state.otp = oneTimePassword
+          return response
+        })
     })
 }
