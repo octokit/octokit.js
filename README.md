@@ -16,6 +16,7 @@
 - [Authentication](#authentication)
 - [API docs](#api-docs)
 - [API Previews](#api-previews)
+- [Request formats](#request-formats)
 - [Custom requests](#custom-requests)
 - [Pagination](#pagination)
 - [Hooks](#hooks)
