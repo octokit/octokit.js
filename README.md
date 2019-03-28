@@ -118,12 +118,12 @@ const octokit = new Octokit({
 
 ## Authentication
 
-Most GitHub API calls don't require authentication. Rules of thumb:
+Most GitHub API calls don't require authentication. Generally:
 
 1. If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API.
 2. If you want to change data, you have to be authenticated.
 
-To enable authenticated requests, pass an `auth` option to the Octokit constructor:
+To enable authenticated requests, [get a token in your GitHub profile's Developer Settings](https://github.com/settings/developers). Then, pass an `auth` option to the Octokit constructor:
 
 ```js
 const clientWithAuth = new Octokit({
@@ -131,7 +131,7 @@ const clientWithAuth = new Octokit({
 })
 ```
 
-The `auth` option can be
+The `auth` option can be:
 
 1. A string
 
