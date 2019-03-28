@@ -39,7 +39,7 @@ Install with `npm install @octokit/rest`.
 
 ```js
 const Octokit = require('@octokit/rest')
-const octokit = new Octokit ()
+const octokit = new Octokit()
 
 // Compare: https://developer.github.com/v3/repos/#list-organization-repositories
 octokit.repos.listForOrg({
