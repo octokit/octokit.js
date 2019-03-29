@@ -2,12 +2,14 @@ module.exports = authenticationBeforeRequest
 
 const btoa = require('btoa-lite')
 
+const withAuthorizationPrefix = require('./with-authorization-prefix')
+
 function authenticationBeforeRequest (state, options) {
   if (typeof state.auth === 'string') {
-    options.headers['authorization'] = state.auth
+    options.headers['authorization'] = withAuthorizationPrefix(state.auth)
 
     // https://developer.github.com/v3/previews/#integrations
-    if (/^Bearer /.test(state.auth) && !/machine-man/.test(options.headers['accept'])) {
+    if (/^bearer /i.test(state.auth) && !/machine-man/.test(options.headers['accept'])) {
       const acceptHeaders = options.headers['accept'].split(',')
         .concat('application/vnd.github.machine-man-preview+json')
       options.headers['accept'] = acceptHeaders.filter(Boolean).join(',')
@@ -54,6 +56,6 @@ function authenticationBeforeRequest (state, options) {
     })
 
     .then((authorization) => {
-      options.headers['authorization'] = authorization
+      options.headers['authorization'] = withAuthorizationPrefix(authorization)
     })
 }
