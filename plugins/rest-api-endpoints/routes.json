@@ -9889,6 +9889,20 @@
       },
       "url": "/teams/:team_id"
     },
+    "getByName": {
+      "method": "GET",
+      "params": {
+        "org": {
+          "required": true,
+          "type": "string"
+        },
+        "team_slug": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/orgs/:org/teams/:team_slug"
+    },
     "getDiscussion": {
       "headers": {
         "accept": "application/vnd.github.echo-preview+json"
