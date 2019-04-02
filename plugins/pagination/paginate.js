@@ -34,9 +34,12 @@ function gather (octokit, results, iterator, mapFn) {
       // https://github.com/octokit/rest.js/issues/1283
       if ('total_count' in result.value.data && result.value.headers.link) {
         const incompleteResults = result.value.data.incomplete_results
+        const repositorySelection = result.value.data.repository_selection
         const totalCount = result.value.data.total_count
         delete result.value.data.incomplete_results
+        delete result.value.data.repository_selection
         delete result.value.data.total_count
+
         const namespaceKey = Object.keys(result.value.data)[0]
 
         result.value.data = result.value.data[namespaceKey]
@@ -56,6 +59,13 @@ function gather (octokit, results, iterator, mapFn) {
             }
           })
         }
+
+        Object.defineProperty(result.value.data, 'repository_selection', {
+          get () {
+            deprecateTotalCount(octokit.log, new Deprecation('[@octokit/rest] "result.data.repository_selection" is deprecated.'))
+            return repositorySelection
+          }
+        })
 
         Object.defineProperty(result.value.data, 'total_count', {
           get () {
