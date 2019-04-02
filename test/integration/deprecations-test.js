@@ -531,6 +531,7 @@ describe('deprecations', () => {
       })
       .reply(200, {
         total_count: 2,
+        repository_selection: 'all',
         repositories: [
           {
             id: '123'
@@ -547,6 +548,7 @@ describe('deprecations', () => {
       })
       .reply(200, {
         total_count: 2,
+        repository_selection: 'all',
         repositories: [
           {
             id: '456'
@@ -612,6 +614,7 @@ describe('deprecations', () => {
 
     return octokit.paginate(listReposOptions, (result) => {
       expect(result.data.incomplete_results).to.equal(undefined)
+      expect(result.data.repository_selection).to.equal('all')
       expect(result.data.total_count).to.equal(2)
       expect(result.data.repositories.length).to.equal(1)
       return result

@@ -264,6 +264,7 @@ describe('pagination', () => {
       })
       .reply(200, {
         total_count: 2,
+        repository_selection: 'all',
         repositories: [
           {
             id: '456'
