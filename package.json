@@ -34,6 +34,7 @@
   "dependencies": {
     "@octokit/request": "2.4.2",
     "atob": "^2.1.2",
+    "atob-lite": "^2.0.0",
     "before-after-hook": "^1.4.0",
     "btoa-lite": "^1.0.0",
     "deprecation": "^1.0.1",
