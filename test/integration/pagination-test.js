@@ -288,6 +288,34 @@ describe('pagination', () => {
       })
   })
 
+  it('.paginate() with results namespace (GET /installation/repositories, single page response)', () => {
+    nock('https://api.github.com')
+      .get('/installation/repositories')
+      .query({
+        per_page: 1
+      })
+      .reply(200, {
+        total_count: 1,
+        repositories: [
+          {
+            id: '123'
+          }
+        ]
+      })
+
+    const octokit = new Octokit()
+    const options = octokit.apps.listRepos.endpoint.merge({
+      per_page: 1
+    })
+
+    return octokit.paginate(options)
+      .then(results => {
+        expect(results).to.deep.equal([
+          { id: '123' }
+        ])
+      })
+  })
+
   it('does not paginate non-paginated response with total_count property', () => {
     nock('https://api.github.com')
       .get('/repos/octokit/rest.js/commits/abc4567/status')
