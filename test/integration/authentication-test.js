@@ -155,6 +155,66 @@ describe('authentication', () => {
       })
   })
 
+  it('basic with expiring 2fa', () => {
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
+      }
+    })
+      .get('/')
+      .reply(401, {}, {
+        'x-github-otp': 'required; app'
+      })
+
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
+        'x-github-otp': '1'
+      }
+    })
+      .get('/')
+      .reply(200, {})
+
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
+        'x-github-otp': '1'
+      }
+    })
+      .get('/')
+      .reply(401, {}, {
+        'x-github-otp': 'required; app'
+      })
+
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
+        'x-github-otp': '2'
+      }
+    })
+      .get('/')
+      .reply(200, {})
+
+    let callCount = 0
+    const octokit = new Octokit({
+      baseUrl: 'https://authentication-test-host.com',
+      auth: {
+        username: 'username',
+        password: 'password',
+        on2fa () {
+          callCount++
+          return callCount
+        }
+      }
+    })
+
+    return octokit.request('/')
+      .then(() => octokit.request('/'))
+      .then(() => {
+        expect(callCount).to.equal(2)
+      })
+  })
+
   it('basic with missing 2fa', () => {
     nock('https://authentication-test-host.com', {
       reqheaders: {
