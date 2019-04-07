@@ -27,7 +27,9 @@ export default class Search extends Component {
           <input type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
         </label>
         <ul onClick={this.reset} class="results">
-          {this.state.results.slice(0, 3).map(page => {
+          {this.state.results.length === 0 ? (<li>No results found.</li>) : ""}
+
+          {this.state.results.map(page => {
             if (page.type === 'API method') {
               return <li key={page.id}>
                 <Link to={page.slug} onClick={this.reset}>
