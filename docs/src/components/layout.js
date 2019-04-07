@@ -39,7 +39,7 @@ class Layout extends Component {
         />
       </header>
 
-      <div className={this.state.hasSearchQuery ? [layoutStyles.container, layoutStyles.hidden].join(' ') : layoutStyles.container}>
+      <div className={layoutStyles.container}>
         {this.props.children}
       </div>
     </div>
