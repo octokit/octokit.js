@@ -54,6 +54,8 @@ header .icon-search {
   height: 1em;
   font-size: .6em;
   color: #999;
+  position: relative;
+  z-index: 1;
 }
 
 header > .search .input input::placeholder {

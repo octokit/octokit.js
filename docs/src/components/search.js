@@ -22,10 +22,10 @@ export default class Search extends Component {
     ]
     return (
       <div class={classNames.join(" ")}>
-        <div class="input">
+        <label class="input">
+          <IconSearch label="Search" />
           <input type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
-          <IconSearch />
-        </div>
+        </label>
         <ul onClick={this.reset} class="results">
           {this.state.results.slice(0, 3).map(page => {
             if (page.type === 'API method') {
