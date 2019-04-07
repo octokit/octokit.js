@@ -23,7 +23,7 @@ class Layout extends Component {
   render() {
     return <div>
       <header className={layoutStyles.header}>
-        <h3 style={{ display: `inline` }}>octokit/rest.js</h3>
+        <h1>octokit/rest.js</h1>
 
         <StaticQuery
           query={graphql`

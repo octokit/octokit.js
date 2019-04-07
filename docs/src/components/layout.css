@@ -1,9 +1,75 @@
-.gatsby-highlight-code-line {
-  background-color: #3D443C;
+header {
+  display: grid;
+  grid-template-columns: calc(1.45em * 9) 2fr;
+}
+
+header h1 {
+  grid-column: 1/2;
+  background: #272822;
+  color: #fff;
+
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 3rem;
+  height: 3rem;
+  padding: 0 1rem;
+}
+
+header > .search {
+  grid-column: 2/3;
+}
+
+header > .search .input {
+  padding: .6rem 0 .5rem 3.9rem;
+  height: 3rem;
+  background: #272822;
+  color: #fff;
+}
+
+header > .search .input input {
   display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #e96;
+  box-sizing: border-box;
+  width: calc(100% - 1.9rem);
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  background: #555;
+  color: #fff
+}
+
+header > .search .input input::placeholder {
+  color: #999;
+}
+
+header > .search .input input:focus {
+  background: #eee;
+  color: #111;
+}
+
+header > .search .input input {
+  padding: 0 .5rem;
+}
+
+header > .search .results {
+  margin: 0;
+}
+
+header > .search .results {
+  list-style: none;
+  padding: 0 0 0 3.9rem;
+}
+
+header > .search .results li:first-child {
+  padding-top: 1rem;
+}
+
+header > .search a {
+  color: inherit;
+  background: none;
+  display: block;
+}
+
+header > .search a:hover,
+header > .search a:focus {
+  text-decoration: underline;
 }
