@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from 'gatsby'
+import IconSearch from "./icon-search"
 
 // Search component
 export default class Search extends Component {
@@ -23,6 +24,7 @@ export default class Search extends Component {
       <div class={classNames.join(" ")}>
         <div class="input">
           <input type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
+          <IconSearch />
         </div>
         <ul onClick={this.reset} class="results">
           {this.state.results.slice(0, 3).map(page => {
