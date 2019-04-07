@@ -1,9 +1,15 @@
 header {
   display: grid;
-  grid-template-columns: calc(1.45em * 9) 2fr;
-  grid-column-gap: 2.9em;
+  grid-column-gap: 2em;
   background: #272822;
   padding: 1rem 1rem;
+}
+
+@media (min-width: 55em) { /* The breakpoint when the navigation is in the left column */
+  header {
+    grid-template-columns: calc(1.45em * 9) auto; /* The width of the left column */
+    grid-column-gap: 2.9em;
+  }
 }
 
 header h1 {
@@ -12,13 +18,15 @@ header h1 {
   color: #fff;
 
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.125rem;
+  align-self: center;
 }
 
 header > .search {
   grid-column: 2/3;
   grid-row: 1/2;
   --whitespace: 1.25rem;
+  width: 100%;
 }
 
 header > .search.active {
@@ -67,6 +75,7 @@ header > .search .results {
   background: white;
   list-style: none;
   padding: 0 var(--whitespace);
+  width: 100%;
 }
 
 header > .search .results li:first-child {
