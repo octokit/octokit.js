@@ -9,15 +9,20 @@ export default class Search extends Component {
     this.state = {
       query: ``,
       results: [],
+      hasFocus: false,
     }
     this.reset = this.reset.bind(this)
   }
 
   render() {
+    const classNames = [
+      "search",
+      (this.state.hasFocus || this.state.query) ? "active" : "inactive"
+    ]
     return (
-      <div class="search">
+      <div class={classNames.join(" ")}>
         <div class="input">
-          <input type="search" value={this.state.query} onChange={this.search} placeholder="search" />
+          <input type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
         </div>
         <ul onClick={this.reset} class="results">
           {this.state.results.slice(0, 3).map(page => {
@@ -54,7 +59,13 @@ export default class Search extends Component {
       : // Create an elastic lunr index and hydrate with graphql query results
         Index.load(this.props.searchIndex)
 
+  onFocus = evt => {
+    this.setState({hasFocus: true})
+  }
 
+  onBlur = evt => {
+    this.setState({hasFocus: false})
+  }
 
   search = evt => {
     const query = evt.target.value
