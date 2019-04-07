@@ -102,9 +102,9 @@ class EndPointGroup extends Component {
         console.log(`isAbove ${isAbove}`)
         console.log(`entry.boundingClientRect.y ${entry.boundingClientRect.y}`)
         console.log(`entry.rootBounds.y ${entry.rootBounds.y}`)
-         
-         
-         
+
+
+
         if (entry.intersectionRatio >= 0.1) {
           console.log(`EndPointGroup.onIntersection ${this.props.node.id}`)
           this.props.onVisibleEndPointGroup(this.props.node.id)
@@ -174,7 +174,7 @@ class ApiSubMenu extends Component {
 }
 
 class Api extends Component {
-  
+
   constructor(props) {
     super(props)
 
@@ -235,7 +235,6 @@ class Api extends Component {
       <React.Fragment>
         <nav className={apiStyles.nav}>
           <button type="button" onClick={this.toggleMenu}>Menu</button>
-          <h1 className={this.state.menuActive ? "" : apiStyles.hidden}>API</h1>
           <ol className={this.state.menuActive ? "" : apiStyles.hidden}>
             {this.props.data.staticMethods.edges.map(({ node }) => {
               return <li key={node.id}>
@@ -258,12 +257,12 @@ class Api extends Component {
               <div dangerouslySetInnerHTML={{ __html: node.html }} />
             </React.Fragment>
           })}
-    
+
           {this.props.data.endpointScopes.edges.map(({ node }) => {
             return <EndPointGroup
                       key={node.id}
-                      node={node} 
-                      onVisibleEndPointGroup={this.onVisibleEndPointGroup} 
+                      node={node}
+                      onVisibleEndPointGroup={this.onVisibleEndPointGroup}
                       onVisibleEndPoint={this.onVisibleEndPoint}>
                    </EndPointGroup>
           })}

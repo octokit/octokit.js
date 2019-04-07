@@ -15,9 +15,11 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul onClick={this.reset}>
+      <div class="search">
+        <div class="input">
+          <input type="search" value={this.state.query} onChange={this.search} placeholder="search" />
+        </div>
+        <ul onClick={this.reset} class="results">
           {this.state.results.slice(0, 3).map(page => {
             if (page.type === 'API method') {
               return <li key={page.id}>
@@ -57,22 +59,24 @@ export default class Search extends Component {
   search = evt => {
     const query = evt.target.value
 
+    const searchOptions = {
+      expand: true,
+      fields: {
+        title: {boost: 3},
+        name: {boost: 2 },
+        scope: {boost: 2 },
+        route: {boost: 1 },
+        method: {boost: 1 }
+      }
+    }
+
     this.props.onSearch(query)
     this.index = this.getOrCreateIndex()
     this.setState({
       query,
       // Query the index with search string to get an [] of IDs
       results: this.index
-        .search(query, {
-          expand: true,
-          fields: {
-            title: {boost: 3},
-            name: {boost: 2 },
-            scope: {boost: 2 },
-            route: {boost: 1 },
-            method: {boost: 1 }
-          }
-        })
+        .search(query, searchOptions)
         // Map over each ID and return the full document
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })

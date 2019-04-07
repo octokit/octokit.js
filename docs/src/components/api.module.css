@@ -4,6 +4,10 @@
   --code-foreground-color: white;
 }
 
+main h2:first-child {
+  margin-top: 0;
+}
+
 .container pre {
   background-color: var(--code-background-color);
   color: var(--code-foreground-color);
