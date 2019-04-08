@@ -110,10 +110,3 @@ main h2:first-child {
   }
 }
 
-/* Hide the navigation toggle button on big screens, since it’s not needed */
-@media (min-width: 55em) { /* --wide-enough-for-two-columns */
-  .nav button {
-    display: none !important;
-  }
-}
-

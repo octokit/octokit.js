@@ -1,38 +1,46 @@
 header {
   display: grid;
-  grid-column-gap: 2em;
+  grid-template-columns: auto auto max-content;
+  grid-column-gap: 1em;
   background: #272822;
+  color: white;
   padding: 1rem 1rem;
   position: sticky;
   top: 0;
 }
 
-@media (min-width: 55em) { /* The breakpoint when the navigation is in the left column */
-  header {
-    grid-template-columns: calc(1.45em * 9) auto; /* The width of the left column */
-    grid-column-gap: 2.9em;
-  }
-}
-
 header h1 {
-  grid-column: 1/2;
+  grid-column: 2/3;
   grid-row: 1/2;
-  color: #fff;
+  color: inherit;
 
   margin: 0;
   font-size: 1.125rem;
   align-self: center;
+  text-align: right;
+}
+
+@media (min-width: 55em) { /* The breakpoint when the navigation is in the left column */
+  header {
+    grid-template-columns: calc(1.45em * 9) auto max-content; /* The width of the left column */
+    grid-column-gap: 2.9em;
+  }
+  header h1 {
+    text-align: left;
+  }
 }
 
 header > .search {
-  grid-column: 2/3;
+  grid-column: 1/2;
   grid-row: 1/2;
   --whitespace: 1.25rem;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 header > .search.active {
-  grid-column: 1/3;
+  grid-column: 1/-1;
 }
 
 header > .search .input {
@@ -97,4 +105,33 @@ header > .search a {
 header > .search a:hover,
 header > .search a:focus {
   text-decoration: underline;
+}
+
+header > button {
+  grid-row: 1/2;
+  grid-column: -2/-1;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 1rem;
+  margin: -1rem;
+  cursor: pointer;
+}
+
+header > button:hover,
+header > button:active,
+header > button:focus {
+  color: #1ca086;
+}
+
+/* Hide the navigation toggle button on big screens, since it’s not needed */
+@media (min-width: 55em) { /* --wide-enough-for-two-columns */
+  header button {
+    display: none !important;
+  }
+}
+
+header > button > svg {
+  fill: currentColor;
+  vertical-align: middle;
 }
