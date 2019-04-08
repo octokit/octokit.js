@@ -3,6 +3,8 @@ header {
   grid-column-gap: 2em;
   background: #272822;
   padding: 1rem 1rem;
+  position: sticky;
+  top: 0;
 }
 
 @media (min-width: 55em) { /* The breakpoint when the navigation is in the left column */
