@@ -21,12 +21,12 @@ export default class Search extends Component {
       (this.state.hasFocus || this.state.query) ? "active" : "inactive"
     ]
     return (
-      <div class={classNames.join(" ")}>
-        <label class="input">
+      <div className={classNames.join(" ")}>
+        <label className="input">
           <IconSearch label="Search" />
           <input type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
         </label>
-        <ul onClick={this.reset} class="results">
+        <ul onClick={this.reset} className="results">
           {this.state.query && this.state.results.length === 0 ? (<li>No results found.</li>) : ""}
 
           {this.state.results.map(page => {

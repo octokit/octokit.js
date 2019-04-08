@@ -56,7 +56,7 @@ export default class Api extends Component {
     return (
       <React.Fragment>
         <nav className={apiStyles.nav}>
-          <ol className={this.props.menuActive ? "" : apiStyles.hidden}>
+          <ol className={this.props.isMenuActive() ? "" : apiStyles.hidden}>
             {this.props.data.staticMethods.edges.map(({ node }) => {
               return <li key={node.id}>
                 <a href={`#octokit-${node.fields.idName}`}>{node.frontmatter.title}</a>
