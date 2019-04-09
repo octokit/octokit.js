@@ -202,8 +202,7 @@ describe('authentication', () => {
         username: 'username',
         password: 'password',
         on2fa () {
-          callCount++
-          return callCount
+          return ++callCount
         }
       }
     })
