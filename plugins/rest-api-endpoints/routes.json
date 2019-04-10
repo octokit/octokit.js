@@ -2241,6 +2241,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2266,6 +2268,8 @@
           "type": "string[]"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2342,6 +2346,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2455,6 +2461,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2476,6 +2484,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2557,6 +2567,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2649,6 +2661,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2710,6 +2724,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2760,6 +2776,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -2954,6 +2972,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3001,6 +3021,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3079,6 +3101,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3103,6 +3127,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3128,6 +3154,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3149,6 +3177,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3173,6 +3203,8 @@
           "type": "string[]"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3194,6 +3226,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3231,6 +3265,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -3317,6 +3353,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "milestone_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5242,6 +5280,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5306,6 +5346,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5343,6 +5385,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5425,6 +5469,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5446,6 +5492,8 @@
       "method": "POST",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5491,6 +5539,8 @@
       "method": "DELETE",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5516,6 +5566,8 @@
       "method": "DELETE",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5547,6 +5599,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5572,6 +5626,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5611,6 +5667,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5642,6 +5700,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5724,6 +5784,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5798,6 +5860,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5825,6 +5889,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5852,6 +5918,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5879,6 +5947,8 @@
       "method": "GET",
       "params": {
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5920,6 +5990,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5956,6 +6028,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -5990,6 +6064,8 @@
           "type": "boolean"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -6047,6 +6123,8 @@
           "type": "string"
         },
         "number": {
+          "alias": "pull_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -6133,6 +6211,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
@@ -6347,6 +6427,8 @@
           "type": "integer"
         },
         "number": {
+          "alias": "issue_number",
+          "deprecated": true,
           "type": "integer"
         },
         "owner": {
