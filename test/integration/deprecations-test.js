@@ -29,6 +29,56 @@ describe('deprecations', () => {
       })
   })
 
+  it('"number" parameter has been renamed to "issue_number" (2019-04-10)', () => {
+    nock('https://deprecation-host.com')
+      .get('/repos/octocat/hello-world/issues/123')
+      .twice()
+      .reply(200, {})
+
+    let warnCalledCount = 0
+    const octokit = new Octokit({
+      baseUrl: 'https://deprecation-host.com',
+      log: {
+        warn: (deprecation) => {
+          warnCalledCount++
+        }
+      }
+    })
+
+    return Promise.all([
+      octokit.issues.get({ owner: 'octocat', repo: 'hello-world', number: 123 }),
+      octokit.issues.get({ owner: 'octocat', repo: 'hello-world', number: 123 })
+    ])
+      .then(() => {
+        // Ideally it would only log once, but it’s unclear on how to implement that
+        // without adding significant complexity
+        expect(warnCalledCount).to.equal(2)
+      })
+  })
+
+  it('deprecated parameter: passing both new and deprecated parameter', () => {
+    nock('https://deprecation-host.com')
+      .get('/repos/octocat/hello-world/issues/123')
+      .twice()
+      .reply(200, {})
+
+    const octokit = new Octokit({
+      baseUrl: 'https://deprecation-host.com',
+      log: {
+        warn: () => {}
+      }
+    })
+
+    return octokit.issues.get({ owner: 'octocat', repo: 'hello-world', number: 123, issue_number: 123 })
+      .then(() => {
+        throw new Error('should not resolve')
+      })
+      .catch((error) => {
+        expect(error.status).to.equal(400)
+        expect(error.message).to.equal('Deprecated \'number\' and \'issue_number\' cannot both be set')
+      })
+  })
+
   it('octokit.authenticate(): basic', () => {
     nock('https://authentication-test-host.com', {
       reqheaders: {
