@@ -28,7 +28,11 @@ function parameterize (definition) {
     ? definition.enum.map(JSON.stringify).join('|')
     : null
 
-  const deprecated = definition.deprecated ? `\n@deprecated "${key}" has been renamed to "${definition.alias}"` : ''
+  const deprecated = definition.deprecated ? `@deprecated "${key}" has been renamed to "${definition.deprecated.after.name}"` : ''
+
+  if (definition.deprecated) {
+    debugger
+  }
 
   return {
     name: pascalcase(key),
