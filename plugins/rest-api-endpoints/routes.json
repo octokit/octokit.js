@@ -7570,6 +7570,10 @@
     "getCommit": {
       "method": "GET",
       "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
         "owner": {
           "required": true,
           "type": "string"
@@ -7579,11 +7583,12 @@
           "type": "string"
         },
         "sha": {
-          "required": true,
+          "alias": "commit_sha",
+          "deprecated": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/commits/:sha"
+      "url": "/repos/:owner/:repo/commits/:commit_sha"
     },
     "getCommitActivityStats": {
       "method": "GET",
