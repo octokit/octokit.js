@@ -8685,6 +8685,33 @@
       },
       "url": "/repositories"
     },
+    "listPullRequestsAssociatedWithCommit": {
+      "headers": {
+        "accept": "application/vnd.github.groot-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "per_page": {
+          "type": "integer"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/commits/:commit_sha/pulls"
+    },
     "listReleases": {
       "method": "GET",
       "params": {
