@@ -53,6 +53,10 @@ endpoints.forEach(endpoint => {
       if (param.regex) {
         result[param.name].validation = param.regex
       }
+      if (param.deprecated) {
+        result[param.name].deprecated = true
+        result[param.name].alias = param.deprecated.after.name
+      }
       return result
     }, {}),
     url: endpoint.path
