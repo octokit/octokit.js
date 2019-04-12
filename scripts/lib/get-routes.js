@@ -11,22 +11,23 @@ const camelCase = require('lodash.camelcase')
  * 3. Generate the routes.json file
  *
  * Here is what the script does
- * 1. Ignore the "scim" methods as they exist in a plugin:
- *    https://github.com/octokit/plugin-scim.js
+ * 1. Ignore entreprise cloud methods as these exist in a plugin:
+ *    https://github.com/octokit/plugin-enterprise-cloud.js
  * 2. Ignore all legacy endpoints
  * 3. Normalize idName
  *
  */
 function getRoutes () {
-  // ignore SCIM endpoints
-  delete ROUTES.scim
-
   Object.keys(ROUTES).forEach(scope => {
     const endpoints = ROUTES[scope]
 
-    // remove legacy endpoints
+    // remove legacy & enterprise-cloud endpoints
     const indexes = ROUTES[scope].reduce((result, endpoint, i) => {
       if (/-legacy$/.test(endpoint.idName)) {
+        result.unshift(i)
+      }
+
+      if (endpoint.githubCloudOnly) {
         result.unshift(i)
       }
 

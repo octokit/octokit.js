@@ -4357,16 +4357,6 @@
       },
       "url": "/orgs/:org/blocks"
     },
-    "listCredentialAuthorizations": {
-      "method": "GET",
-      "params": {
-        "org": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/orgs/:org/credential-authorizations"
-    },
     "listForAuthenticatedUser": {
       "method": "GET",
       "params": {
@@ -4563,20 +4553,6 @@
         }
       },
       "url": "/orgs/:org/public_members/:username"
-    },
-    "removeCredentialAuthorization": {
-      "method": "DELETE",
-      "params": {
-        "credential_id": {
-          "required": true,
-          "type": "integer"
-        },
-        "org": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/orgs/:org/credential-authorizations/:credential_id"
     },
     "removeMember": {
       "method": "DELETE",
