@@ -8166,6 +8166,27 @@
       },
       "url": "/repos/:owner/:repo/branches"
     },
+    "listBranchesForHeadCommit": {
+      "headers": {
+        "accept": "application/vnd.github.groot-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "commit_sha": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/commits/:commit_sha/branches-where-head"
+    },
     "listCollaborators": {
       "method": "GET",
       "params": {
