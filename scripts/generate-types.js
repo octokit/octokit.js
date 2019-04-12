@@ -30,10 +30,6 @@ function parameterize (definition) {
 
   const deprecated = definition.deprecated ? `@deprecated "${key}" has been renamed to "${definition.deprecated.after.name}"` : ''
 
-  if (definition.deprecated) {
-    debugger
-  }
-
   return {
     name: pascalcase(key),
     key: key,
