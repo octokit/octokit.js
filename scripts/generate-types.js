@@ -28,8 +28,6 @@ function parameterize (definition) {
     ? definition.enum.map(JSON.stringify).join('|')
     : null
 
-  const deprecated = definition.deprecated ? `@deprecated "${key}" has been renamed to "${definition.deprecated.after.name}"` : ''
-
   return {
     name: pascalcase(key),
     key: key,
@@ -38,7 +36,7 @@ function parameterize (definition) {
     alias: definition.alias,
     deprecated: definition.deprecated,
     allowNull: definition.allowNull,
-    jsdoc: jsdoc(definition.description + deprecated)
+    jsdoc: jsdoc(definition.description)
   }
 }
 
@@ -70,6 +68,19 @@ function normalize (methodName) {
   return camelCase(methodName.replace(/^edit/, 'update'))
 }
 
+function toDeprecated (params, deprecated) {
+  const newParam = params.find(param => param.key === deprecated.newParam.name)
+  const deprecatedParam = Object.assign({}, newParam, {
+    key: deprecated.name,
+    name: pascalcase(deprecated.name),
+    jsdoc: deprecated.jsdoc
+  })
+
+  return params
+    .filter(param => param.key !== deprecated.newParam.name)
+    .concat(deprecatedParam)
+}
+
 generateTypes(
   'TypeScript',
   'index.d.ts.tpl',
@@ -97,11 +108,34 @@ function generateTypes (languageName, templateFile, outputFile) {
           responseType = 'Octokit.Response<' + typeName + '>'
         }
 
+        // find aliased required parameters
+        const deprecatedParameters = entry.params.map(param => {
+          if (!param.deprecated) {
+            return
+          }
+
+          const newParam = entry.params.find(p => p.name === param.deprecated.after.name)
+          const description = [
+            param.description,
+            `@deprecated ${param.deprecated.message}`
+          ].filter(Boolean).join('\n')
+
+          return {
+            newParam,
+            name: param.name,
+            jsdoc: jsdoc(description)
+          }
+        }).filter(Boolean)
+
         const params = entry.params
           .reduce(toCombineParams, [])
           .map(toParamAlias)
           // handle "object" & "object[]" types
           .map(param => {
+            if (param.deprecated) {
+              return
+            }
+
             if (param.type === 'object' || param.type === 'object[]') {
               const childParamsName = pascalcase(`${namespacedParamsName}.${param.key}`)
               param.type = param.type.replace('object', childParamsName)
@@ -133,6 +167,14 @@ function generateTypes (languageName, templateFile, outputFile) {
           params,
           hasParams
         }]
+
+        deprecatedParameters.forEach(param => {
+          paramTypes.unshift({
+            type: pascalcase(`${namespacedParamsName}.deprecated.${param.name}`),
+            params: toDeprecated(params, param),
+            hasParams: true
+          })
+        })
 
         return methods.concat({
           method: methodName,
