@@ -69,6 +69,18 @@ export default async function() {
     foo: 'bar'
   })
 
+  // parameter deprecation
+  await octokit.issues.get({
+    owner: 'octokit',
+    repo: 'rest.js',
+    number: 10 // deprecated, renamed to "issue_number", see below
+  })
+  await octokit.issues.get({
+    owner: 'octokit',
+    repo: 'rest.js',
+    issue_number: 10
+  })
+
   // hooks
   octokit.hook.before('request', async (options) => {
     console.log('before hook', options.url);
