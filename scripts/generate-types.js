@@ -33,7 +33,7 @@ function parameterize (definition) {
   return {
     name: pascalcase(key),
     key: key,
-    required: !definition.deprecated && definition.required,
+    required: definition.required,
     type: enums || type,
     alias: definition.alias,
     deprecated: definition.deprecated,
