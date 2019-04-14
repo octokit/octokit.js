@@ -89,6 +89,14 @@ function generateTypes (languageName, templateFile, outputFile) {
       const methods = ROUTES[namespace].reduce((methods, entry) => {
         const methodName = normalize(entry.idName)
         const namespacedParamsName = pascalcase(`${namespace}.${methodName}.Params`)
+        let responseType = 'Octokit.AnyResponse'
+        if (entry.responses) {
+          const typeName = 'Octokit.' + typeWriter.add(entry.responses.map(response => response.body || {}), {
+            rootTypeName: pascalcase(`${namespace}.${entry.idName}.Response`)
+          })
+          responseType = 'Octokit.Response<' + typeName + '>'
+        }
+
         const params = entry.params
           .reduce(toCombineParams, [])
           .map(toParamAlias)
@@ -121,15 +129,7 @@ function generateTypes (languageName, templateFile, outputFile) {
 
         let paramTypeName = hasParams
           ? namespacedParamsName
-          : pascalcase('EmptyParams')
-
-        let responseType = 'Octokit.AnyResponse'
-        if (entry.responses) {
-          const typeName = 'Octokit.' + typeWriter.add(entry.responses.map(response => response.body || {}), {
-            rootTypeName: pascalcase(`${namespace}.${entry.idName}.Response`)
-          })
-          responseType = 'Octokit.Response<' + typeName + '>'
-        }
+          : 'EmptyParams'
 
         return methods.concat({
           method: methodName,
