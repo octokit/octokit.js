@@ -133,11 +133,11 @@ function generateTypes (languageName, templateFile, outputFile) {
 
         return methods.concat({
           method: methodName,
+          responseType,
+          jsdoc: jsdoc(entry.description),
           paramTypeName,
           ownParams: params.length > 0 && { params },
-          exclude: !hasParams,
-          responseType,
-          jsdoc: jsdoc(entry.description)
+          hasParams: hasParams
         })
       }, [])
 
