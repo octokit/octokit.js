@@ -11,7 +11,7 @@
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@octokit/routes": "^19.1.1",
-    "gatsby": "^2.3.4",
+    "gatsby": "^2.3.22",
     "gatsby-plugin-typography": "^2.2.6",
     "gatsby-remark-prismjs": "^3.2.6",
     "gatsby-source-filesystem": "^2.0.28",
