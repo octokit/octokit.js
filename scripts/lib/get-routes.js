@@ -8,7 +8,6 @@ const camelCase = require('lodash.camelcase')
  *
  * 1. Generate the routes.json file
  * 2. Generate the API docs
- * 3. Generate the routes.json file
  *
  * Here is what the script does
  * 1. Ignore entreprise cloud methods as these exist in a plugin:
@@ -20,20 +19,19 @@ const camelCase = require('lodash.camelcase')
 function getRoutes () {
   Object.keys(ROUTES).forEach(scope => {
     const endpoints = ROUTES[scope]
+    const count = endpoints.length
 
     // remove legacy & enterprise-cloud endpoints
-    const indexes = ROUTES[scope].reduce((result, endpoint, i) => {
+    endpoints.slice(0).reverse().forEach((endpoint, i) => {
       if (/-legacy$/.test(endpoint.idName)) {
-        result.unshift(i)
+        endpoints.splice(count - i - 1, 1)
+        return
       }
 
       if (endpoint.githubCloudOnly) {
-        result.unshift(i)
+        endpoints.splice(count - i - 1, 1)
       }
-
-      return result
-    }, [])
-    indexes.forEach(i => endpoints.splice(i, 1))
+    })
 
     // normalize idName
     endpoints.forEach(normalize)
