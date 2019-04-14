@@ -215,13 +215,8 @@ declare namespace Octokit {
 
   {{&responseTypes}}
 
-  {{#params}}
-  export interface {{name}} { {{key}}{{^required}}?{{/required}}: {{{type}}}; }
-  {{/params}}
-
   {{#namespaces}}
   {{#methods}}
-  {{#paramTypeName}}
   {{#hasParams}}
   export type {{paramTypeName}} =
     {{#unionTypeNames}}
@@ -239,18 +234,12 @@ declare namespace Octokit {
     ;
     {{/ownParams}}
   {{/hasParams}}
-  {{/paramTypeName}}
   {{/methods}}
   {{/namespaces}}
   {{#childParams}}
   export type {{paramTypeName}} =
     & {
     {{#params}}
-      {{#deprecated}}
-      /**
-       * @deprecated "{{key}}" has been renamed to "{{alias}}"
-       */
-       {{/deprecated}}
       "{{key}}"{{^required}}?{{/required}}: {{{type}}};
     {{/params}}
     };
