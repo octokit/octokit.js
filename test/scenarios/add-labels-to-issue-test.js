@@ -26,7 +26,7 @@ describe('api.github.com', () => {
         return octokit.issues.addLabels({
           owner: 'octokit-fixture-org',
           repo: 'add-labels-to-issue',
-          number: 1,
+          issue_number: 1,
           labels: [
             'Foo',
             'bAr',

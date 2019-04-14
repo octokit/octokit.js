@@ -17,7 +17,7 @@ describe('https://github.com/octokit/rest.js/issues/765', () => {
       owner: 'epmatsw',
       repo: 'example-repo',
       milestone: null,
-      number: 1
+      issue_number: 1
     })
   })
 })

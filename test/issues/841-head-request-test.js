@@ -28,7 +28,7 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
       method: 'head',
       owner: 'whatwg',
       repo: 'html',
-      number: 1
+      pull_number: 1
     })
 
       .then(() => {
@@ -36,7 +36,7 @@ describe('https://github.com/octokit/rest.js/issues/841', () => {
           method: 'head',
           owner: 'whatwg',
           repo: 'html',
-          number: 2
+          pull_number: 2
         })
 
           .catch((error) => {

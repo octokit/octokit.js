@@ -19,14 +19,14 @@ describe('api.github.com', () => {
     return octokit.issues.lock({
       owner: 'octokit-fixture-org',
       repo: 'lock-issue',
-      number: 1
+      issue_number: 1
     })
 
       .then(() => {
         return octokit.issues.unlock({
           owner: 'octokit-fixture-org',
           repo: 'lock-issue',
-          number: 1
+          issue_number: 1
         })
       })
   })
