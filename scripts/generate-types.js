@@ -127,17 +127,13 @@ function generateTypes (languageName, templateFile, outputFile) {
 
         const hasParams = params.length > 0
 
-        let paramTypeName = hasParams
-          ? namespacedParamsName
-          : 'EmptyParams'
-
         return methods.concat({
           method: methodName,
           responseType,
           jsdoc: jsdoc(entry.description),
-          paramTypeName,
-          ownParams: params.length > 0 && { params },
-          hasParams: hasParams
+          paramTypeName: hasParams ? namespacedParamsName : 'EmptyParams',
+          params,
+          hasParams
         })
       }, [])
 
