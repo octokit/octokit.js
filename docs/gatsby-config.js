@@ -3,7 +3,7 @@ const upperFirst = require('lodash/upperFirst')
 
 module.exports = {
   // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
-  pathPrefix: "/octokit-rest-documentation",
+  pathPrefix: '/rest.js',
   siteMetadata: {
     title: `Octokit.js`
   },
@@ -91,8 +91,8 @@ module.exports = {
             slug: node => `#${node.id}`,
             type: node => 'API method'
           }
-        },
-      },
-    },
+        }
+      }
+    }
   ]
 }
