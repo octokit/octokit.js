@@ -222,7 +222,7 @@ declare namespace Octokit {
   {{#namespaces}}
   {{#methods}}
   {{#paramTypeName}}
-  {{^exclude}}
+  {{#hasParams}}
   export type {{paramTypeName}} =
     {{#unionTypeNames}}
     & {{.}}
@@ -238,7 +238,7 @@ declare namespace Octokit {
     {{^ownParams}}
     ;
     {{/ownParams}}
-  {{/exclude}}
+  {{/hasParams}}
   {{/paramTypeName}}
   {{/methods}}
   {{/namespaces}}
