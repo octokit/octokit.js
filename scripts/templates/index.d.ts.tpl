@@ -217,8 +217,9 @@ declare namespace Octokit {
 
   {{#namespaces}}
   {{#methods}}
+  {{#paramTypes}}
   {{#hasParams}}
-  export type {{paramTypeName}} =
+  export type {{type}} =
     & {
     {{#params}}
       {{&jsdoc}}
@@ -226,6 +227,7 @@ declare namespace Octokit {
     {{/params}}
     };
   {{/hasParams}}
+  {{/paramTypes}}
   {{/methods}}
   {{/namespaces}}
   {{#childParams}}
@@ -270,7 +272,9 @@ declare class Octokit {
     {{#methods}}
     {{&jsdoc}}
     {{method}}: {
-      ({{#paramTypeName}}params?: Octokit.{{.}}{{/paramTypeName}}): Promise<{{&responseType}}>;
+      {{#paramTypes}}
+      (params?: Octokit.{{type}}): Promise<{{&responseType}}>;
+      {{/paramTypes}}
 
       endpoint: Octokit.Endpoint
     };

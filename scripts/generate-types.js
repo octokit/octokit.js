@@ -125,15 +125,20 @@ function generateTypes (languageName, templateFile, outputFile) {
           })
           .filter(Boolean)
 
+        // prepare functions to accept multiple parameter types in order to support deprecations
+        // https://github.com/octokit/rest.js/issues/1317
         const hasParams = params.length > 0
+        const paramTypes = [{
+          type: hasParams ? namespacedParamsName : 'EmptyParams',
+          params,
+          hasParams
+        }]
 
         return methods.concat({
           method: methodName,
           responseType,
           jsdoc: jsdoc(entry.description),
-          paramTypeName: hasParams ? namespacedParamsName : 'EmptyParams',
-          params,
-          hasParams
+          paramTypes
         })
       }, [])
 
