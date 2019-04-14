@@ -83,6 +83,7 @@ header > .search .input input::placeholder {
 header > .search .results {
   margin: 0;
   background: white;
+  color: black;
   list-style: none;
   padding: 0 var(--whitespace);
   width: 100%;
