@@ -219,20 +219,12 @@ declare namespace Octokit {
   {{#methods}}
   {{#hasParams}}
   export type {{paramTypeName}} =
-    {{#unionTypeNames}}
-    & {{.}}
-    {{/unionTypeNames}}
-    {{#ownParams}}
     & {
     {{#params}}
       {{&jsdoc}}
       "{{key}}"{{^required}}?{{/required}}: {{{type}}}{{#allowNull}} | null{{/allowNull}};
     {{/params}}
     };
-    {{/ownParams}}
-    {{^ownParams}}
-    ;
-    {{/ownParams}}
   {{/hasParams}}
   {{/methods}}
   {{/namespaces}}
