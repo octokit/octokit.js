@@ -61,7 +61,7 @@ function toParamAlias (param, i, params) {
 }
 
 function jsdoc (description) {
-  return description && '/**\n' + description.split('\n').map(str => '* ' + str) + '\n*/'
+  return description && '/**\n' + description.trim().split('\n').map(str => '* ' + str).join('\n') + '\n*/'
 }
 
 function normalize (methodName) {
