@@ -21,8 +21,12 @@ function validate (octokit, options) {
       return
     }
 
-    if (parameter.alias in options) {
+    if (parameter.alias in options && parameterName in options) {
       throw new HttpError(`Deprecated '${parameterName}' and '${parameter.alias}' cannot both be set`, 400, null, options)
+    }
+
+    if (parameter.alias in options) {
+      return
     }
 
     // There is currently no aliased parameter which is not deprecated at the same time
