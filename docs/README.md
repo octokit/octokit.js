@@ -1,7 +1,11 @@
-# octokit-rest-documentation
+# Documentation
 
-A work-in-progress exploration of [Gatsby](https://www.gatsbyjs.org/) to see if it is a good fit for a documentation setup for [`@octokit/rest`](https://github.com/octokit/rest.js/).
+Static documentation website, built with [Gatsby](https://www.gatsbyjs.org/) using [`@octokit/rest`](https://github.com/octokit/rest.js/) and deployed to GitHub Pages: [https://octokit.github.io/rest.js/](https://octokit.github.io/rest.js/)
 
-## License
+## Local Development
 
-[MIT](LICENSE)
+```
+cd /docs
+npm install
+npm start
+```
