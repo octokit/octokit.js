@@ -23,8 +23,5 @@
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
     "typography-theme-fairy-gates": "^0.15.11"
-  },
-  "devDependencies": {
-    "gh-pages": "^2.0.1"
   }
 }
