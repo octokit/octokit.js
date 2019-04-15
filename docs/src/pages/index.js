@@ -13,7 +13,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    staticMethods: allMarkdownRemark {
+    staticMethods: allMarkdownRemark(sort:{ fields: fields___slug }) {
       edges {
         node {
           id
