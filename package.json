@@ -146,6 +146,9 @@
       "it",
       "expect",
       "cy"
+    ],
+    "ignore": [
+      "/docs"
     ]
   },
   "bundlesize": [
