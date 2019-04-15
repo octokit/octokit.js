@@ -99,7 +99,7 @@ jobs:
         # commit changes and push back to branch on GitHub. If there are no changes then exit without error
         - 'git commit plugins/rest-api-endpoints/routes.json -m "build: routes" --author="Octokit Bot <octokitbot@martynus.net>" && git push "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" ${TRAVIS_BRANCH} || true'
 
-    # release stage: run semantic release & update the docs
+    # build assets and release new version with semantic-release
     - stage: release
       node_js: lts/*
       # spead up build times by removing unneeded dev dependencies
@@ -109,9 +109,4 @@ jobs:
         - npm run build:ts
         - npm run build:browser
         - npm run generate-bundle-report
-        - npm run semantic-release
-    - node_js: lts/*
-      env: docs update
-      script:
-        - npm run build:docs
-        - npm run deploy-docs
+        - npx semantic-release

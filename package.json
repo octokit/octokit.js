@@ -98,7 +98,6 @@
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 --noImplicitAny index.d.ts",
     "postvalidate:ts": "tsc --noEmit --target es6 test/typescript-validate.ts",
-    "semantic-release": "semantic-release",
     "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
