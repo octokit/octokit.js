@@ -6,6 +6,7 @@ header {
   color: white;
   padding: 1rem 1rem;
   position: sticky;
+  z-index: 1;
   top: 0;
 }
 
