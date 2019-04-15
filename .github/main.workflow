@@ -9,23 +9,16 @@ action "master branch only" {
   args = "branch master"
 }
 
-action "npm ci" {
+action "prepare" {
   needs = "master branch only"
-  uses = "docker://node:alpine"
-  runs = "npm ci && cd docs/ && npm ci"
-}
-
-action "npm run build" {
-  needs = "npm ci"
-  uses = "docker://node:alpine"
-  runs = "cd docs/ && npm run build -- --prefix-paths"
+  uses = "./docs/prepare-deploy-action"
 }
 
 action "deploy" {
-  needs = "npm run build"
+  needs = "prepare"
   uses = "maxheld83/ghpages@v0.2.1"
   env = {
-    BUILD_DIR = "public/"
+    BUILD_DIR = "docs/public/"
   }
   secrets = ["GH_PAT"]
 }
