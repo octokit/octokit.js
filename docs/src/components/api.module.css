@@ -38,11 +38,11 @@ main h2:first-child {
 
 .nav {
   position: sticky;
-  top: 0;
+  top: 5em;
   background: hsla(0, 0%, 100%, 0.95);
 
   /* Give the navigation a maximum height, so the “stickyness” will have an effect. */
-  max-height: 100vh;
+  max-height: calc(100vh - 5em);
   overflow-y: auto;
 
   /* TBD: Would it better to limit the navigation height so that all of the items
@@ -74,6 +74,7 @@ main h2:first-child {
   text-shadow: none;
   background-image: none;
   text-decoration: none;
+  display: block;
 }
 
 .nav ol,
