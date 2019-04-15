@@ -4,6 +4,14 @@
   --code-foreground-color: white;
 }
 
+main *[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -5rem;
+  height: 5rem;
+  visibility: hidden;
+}
+
 main h2:first-child {
   margin-top: 0;
 }
