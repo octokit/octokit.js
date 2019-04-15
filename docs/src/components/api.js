@@ -59,7 +59,7 @@ export default class Api extends Component {
           <ol className={this.props.isMenuActive() ? "" : apiStyles.hidden}>
             {this.props.data.staticMethods.edges.map(({ node }) => {
               return <li key={node.id}>
-                <a href={`#octokit-${node.fields.idName}`}>{node.frontmatter.title}</a>
+                <a href={`#${node.fields.idName}`}>{node.frontmatter.title}</a>
               </li>
             })}
             {this.props.data.endpointScopes.edges.map(({ node }) => {
@@ -74,7 +74,7 @@ export default class Api extends Component {
         <main className={apiStyles.container}>
           {this.props.data.staticMethods.edges.map(({ node }) => {
             return <React.Fragment key={node.id}>
-              <h2>{node.frontmatter.title}</h2>
+              <h2 id={node.fields.idName}>{node.frontmatter.title}</h2>
               <div dangerouslySetInnerHTML={{ __html: node.html }} />
             </React.Fragment>
           })}
