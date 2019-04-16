@@ -58,24 +58,92 @@ describe('deprecations', () => {
 
   it('deprecated parameter: passing both new and deprecated parameter', () => {
     nock('https://deprecation-host.com')
-      .get('/repos/octocat/hello-world/issues/123')
+      .get('/repos/octocat/hello-world/issues/456')
       .twice()
       .reply(200, {})
 
+    let warnCalledCount = 0
     const octokit = new Octokit({
       baseUrl: 'https://deprecation-host.com',
       log: {
-        warn: () => {}
+        warn: (deprecation) => {
+          warnCalledCount++
+        }
       }
     })
 
-    return octokit.issues.get({ owner: 'octocat', repo: 'hello-world', number: 123, issue_number: 123 })
+    return octokit.issues.get({ owner: 'octocat', repo: 'hello-world', number: 123, issue_number: 456 })
       .then(() => {
-        throw new Error('should not resolve')
+        expect(warnCalledCount).to.equal(1)
       })
-      .catch((error) => {
-        expect(error.status).to.equal(400)
-        expect(error.message).to.equal('Deprecated \'number\' and \'issue_number\' cannot both be set')
+  })
+
+  it('octokit.issues.get.endpoint({owner, repo, number}) returns correct URL and logs deprecation', () => {
+    let warnCalledCount = 0
+    const octokit = new Octokit({
+      log: {
+        warn () {
+          warnCalledCount++
+        }
+      }
+    })
+
+    const { url } = octokit.issues.get.endpoint({ owner: 'octocat', repo: 'hello-world', number: 123 })
+    const options = octokit.issues.get.endpoint.merge({ owner: 'octocat', repo: 'hello-world', number: 123 })
+
+    expect(url).to.equal('https://api.github.com/repos/octocat/hello-world/issues/123')
+    expect(options.url).to.equal(`/repos/:owner/:repo/issues/:issue_number`)
+    expect('number' in options).to.equal(false)
+    expect(options.issue_number).to.equal(123)
+    expect(warnCalledCount).to.equal(2)
+  })
+
+  it('octokit.paginate(octokit.pulls.listReviews.merge({owner, repo, number}))', () => {
+    nock('https://deprecation-host.com')
+      .get('/repos/octocat/hello-world/pulls/123/reviews')
+      .query({
+        per_page: 1
+      })
+      .reply(200, [
+        {
+          id: '123'
+        }
+      ], {
+        'Link': '<https://deprecation-host.com/repositories/1/pulls/123/reviews?per_page=1&page=2>; rel="next", <https://deprecation-host.com/repositories/1/pulls/123/reviews?per_page=1&page=2>; rel="last"'
+      })
+
+      .get('/repositories/1/pulls/123/reviews')
+      .query({
+        per_page: 1,
+        page: 2
+      })
+      .reply(200, {
+        total_count: 2,
+        repository_selection: 'all',
+        repositories: [
+          {
+            id: '456'
+          }
+        ]
+      }, {
+        'Link': '<https://deprecation-host.com/repositories/1/pulls/123/reviews?per_page=1&page=1>; rel="first", <https://deprecation-host.com/repositories/1/pulls/123/reviews?per_page=1&page=1>; rel="prev"'
+      })
+
+    let warnCalledCount = 0
+    const octokit = new Octokit({
+      baseUrl: 'https://deprecation-host.com',
+      log: {
+        warn () {
+          warnCalledCount++
+        }
+      }
+    })
+
+    const options = octokit.pulls.listReviews.endpoint.merge({ owner: 'octocat', repo: 'hello-world', number: 123, per_page: 1 })
+
+    return octokit.paginate(options)
+      .then(response => {
+        expect(warnCalledCount).to.equal(1)
       })
   })
 
