@@ -2,7 +2,6 @@
 
 module.exports = validate
 
-const Deprecation = require('deprecation')
 const HttpError = require('@octokit/request/lib/http-error')
 const get = require('lodash.get')
 const set = require('lodash.set')
@@ -12,30 +11,6 @@ function validate (octokit, options) {
     return
   }
   const { validate: params } = options.request
-
-  // find aliased parameters
-  Object.keys(params).forEach(parameterName => {
-    const parameter = get(params, parameterName)
-
-    if (!parameter.alias) {
-      return
-    }
-
-    if (parameter.alias in options && parameterName in options) {
-      throw new HttpError(`Deprecated '${parameterName}' and '${parameter.alias}' cannot both be set`, 400, null, options)
-    }
-
-    if (parameter.alias in options) {
-      return
-    }
-
-    // There is currently no aliased parameter which is not deprecated at the same time
-    // if (parameter.deprecated) { }
-    octokit.log.warn(new Deprecation(`[@octokit/rest] "${parameterName}" parameter is deprecated for "${options.method} ${options.url}", use "${parameter.alias}" instead`))
-
-    options[parameter.alias] = options[parameterName]
-    delete options[parameterName]
-  })
 
   Object.keys(params).forEach(parameterName => {
     let parameter = get(params, parameterName)
