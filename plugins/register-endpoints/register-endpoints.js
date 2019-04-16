@@ -23,7 +23,27 @@ function registerEndpoints (octokit, routes) {
         validate: apiOptions.params
       }
 
-      const request = octokit.request.defaults(endpointDefaults)
+      let request = octokit.request.defaults(endpointDefaults)
+
+      // patch request & endpoint methods to support deprecated parameters.
+      // Not the most elegant solution, but we don’t want to move deprecation
+      // logic into octokit/endpoint.js as it’s out of scope
+      const hasDeprecatedParam = Object.keys(apiOptions.params || {}).find(key => apiOptions.params[key].deprecated)
+      if (hasDeprecatedParam) {
+        const patch = patchForDeprecation.bind(null, octokit, apiOptions)
+        request = patch(
+          octokit.request.defaults(endpointDefaults),
+          `.${namespaceName}.${apiName}()`
+        )
+        request.endpoint = patch(
+          request.endpoint,
+          `.${namespaceName}.${apiName}.endpoint()`
+        )
+        request.endpoint.merge = patch(
+          request.endpoint.merge,
+          `.${namespaceName}.${apiName}.endpoint.merge()`
+        )
+      }
 
       if (apiOptions.deprecated) {
         octokit[namespaceName][apiName] = function deprecatedEndpointMethod () {
@@ -38,4 +58,28 @@ function registerEndpoints (octokit, routes) {
       octokit[namespaceName][apiName] = request
     })
   })
+}
+
+function patchForDeprecation (octokit, apiOptions, method, methodName) {
+  const patchedMethod = (options) => {
+    Object.keys(options).forEach(key => {
+      if (apiOptions.params[key] && apiOptions.params[key].deprecated) {
+        const aliasKey = apiOptions.params[key].alias
+
+        octokit.log.warn(new Deprecation(`[@octokit/rest] "${key}" parameter is deprecated for "${methodName}". Use "${aliasKey}" instead`))
+
+        if (!options.hasOwnProperty(aliasKey)) {
+          options[aliasKey] = options[key]
+        }
+        delete options[key]
+      }
+    })
+
+    return method(options)
+  }
+  Object.keys(method).forEach(key => {
+    patchedMethod[key] = method[key]
+  })
+
+  return patchedMethod
 }
