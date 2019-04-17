@@ -78,6 +78,15 @@ describe('deprecations', () => {
       })
   })
 
+  it('deprecated parameter: passing no options', () => {
+    const octokit = new Octokit()
+
+    return octokit.issues.get()
+      .catch((error) => {
+        expect(error.status).to.equal(400)
+      })
+  })
+
   it('octokit.issues.get.endpoint({owner, repo, number}) returns correct URL and logs deprecation', () => {
     let warnCalledCount = 0
     const octokit = new Octokit({
