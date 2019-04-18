@@ -105,80 +105,29 @@ const client = new MyOctokit()
 
 ## Authentication
 
-Pass an `auth` option to the `Octokit` constructor or call `.config({auth})`.
+Pass an `auth` option to the `Octokit` constructor, see [octokit/auth.js](https://github.com/octokit/auth.js) for supported options, e.g.
 
 ```js
 const clientWithAuth = new Octokit({
-  auth: 'token secret123'
-})
-const scopedClientWithAuth = client.config({
-  auth: 'token secret123'
+  auth: {
+    token: 'secret 123'
+  }
 })
 ```
 
-The `auth` option can be
+In addition, `auth`can be set to a synchronous or asynchronous function. The function must return a `headers` or a `query` object which will be merged with the passed requestOptions.
 
-1. A string
-
-   The value will be passed as value for the `Authorization` header,
-   see [authentication](https://developer.github.com/v3/#authentication).
-
-   ```js
-   client.config({
-     auth: 'token secret123'
-   })
-   ```
-
-2. As object with the properties `username`, `password`, `on2Fa`.
-
-   `on2Fa` is an asynchronous function that must resolve with two-factor
-   authentication code sent to the user.
-
-   ```js
-   client.config({
-     auth: {
-       username: 'octocat',
-       password: 'secret',
-       async on2Fa () {
-         // ask the user
-         return prompt('Two-factor authentication Code:')
-       }
-     }
-   })
-   ```
-
-   In some cases, OAuth applications need to set `username` to `client_id`
-   and `password` to  `client_secret` in order to use certain endpoitns, such as
-   "[Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)".
-
-   **TODO**: The only path where `client_id` and `client_secret` is expected to
-   be sent as Basic Authentication is `/applications/:client_id/tokens/:access_token`
-
-   1. [Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)
-   1. [Reset an authorization](https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization)
-   1. [Revoke an authorization for an application](https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application)
-
-   It might be simple enough to check for the path and if it matches, use the
-   `client_id` and `client_secret` properties from the `auth` option, see next.
-
-3. An object with the properties `client_id` and `client_secret`
-
-   OAuth applications can authenticate using their `client_id` and `client_secret`
-   in order to [increase the unauthenticated rate limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
-
-4. A function
-
-   Must resolve with a string which then will be passed as value for the
-   `Authorization` header. The function will be called before each request and
-   can be asynchronous.
-
-   ```js
-   client.config({
-     auth () {
-       return 'token secret123'
-     }
-   })
-   ```
+```js
+client.config({
+  auth (requestOptions}) {
+    return {
+      headers: {
+        authorization: 'token secret123'
+      }
+    }
+  }
+})
+```
 
 ## v3 REST API
 
@@ -203,6 +152,13 @@ client.graphql(`{
 ## OAuth
 
 _tbd_, see https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps
+
+See [octokit/oauth-login-url.js](https://github.com/octokit/oauth-login-url.js) to calculation authentication URL.
+
+TODOS
+
+- web client library to read out a passed `?code` query parameter and turn it into an OAuth access token
+- server library / middleware to implement an OAuth endpoint.
 
 ## Webhooks
 
