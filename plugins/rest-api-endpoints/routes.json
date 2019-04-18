@@ -649,6 +649,20 @@
       },
       "url": "/repos/:owner/:repo/installation"
     },
+    "findUserInstallation": {
+      "deprecated": "octokit.apps.findUserInstallation() has been renamed to octokit.apps.getUserInstallation() (2019-04-10)",
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "username": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/users/:username/installation"
+    },
     "getAuthenticated": {
       "headers": {
         "accept": "application/vnd.github.machine-man-preview+json"
