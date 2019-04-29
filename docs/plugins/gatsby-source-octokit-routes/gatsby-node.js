@@ -9,6 +9,10 @@ exports.sourceNodes = async ({ actions }) => {
     const methods = []
 
     ROUTES[scope].forEach(endpoint => {
+      if (/legacy/.test(endpoint.idName)) {
+        return
+      }
+
       const endpointId = `octokit-routes-${scope}-${_.kebabCase(endpoint.idName)}`
       const paramNames = endpoint.params
         .filter(param => param.required)
