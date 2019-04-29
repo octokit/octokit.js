@@ -505,7 +505,7 @@ const octokit = require('@octokit/rest')({
   log: console
 })
 
-console.request('/')
+octokit.request('/')
 ```
 
 This will log
@@ -529,7 +529,7 @@ const octokit = require('@octokit/rest')({
   log: require('console-log-level')({ level: 'info' })
 })
 
-console.request('/')
+octokit.request('/')
 ```
 
 This will only log
