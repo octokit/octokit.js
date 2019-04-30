@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import EndPoint from "../components/end-point"
+import EndPoint from "../components/endpoint"
 
 export default class EndPointGroup extends Component {
   constructor(props) {

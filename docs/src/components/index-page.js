@@ -41,8 +41,6 @@ export default class IndexPage extends Component {
     const data = this.props.data
     return <div>
       <header className={layoutStyles.header}>
-        <h1>octokit/rest.js</h1>
-
         <StaticQuery
           query={graphql`
             query SearchIndexQuery {

@@ -2,9 +2,7 @@
 title: "Introduction"
 ---
 
-### Usage
-
-#### Node
+### Node
 
 Install with `npm install @octokit/rest`.
 
@@ -20,7 +18,7 @@ octokit.repos.getForOrg({
 })
 ```
 
-#### Browser
+### Browser
 
 1. Download `octokit-rest.min.js` from the latest release: https://github.com/octokit/rest.js/releases
 
@@ -44,7 +42,7 @@ octokit.repos.getForOrg({
    })
    ```
 
-#### Client options
+### Client options
 
 All available client options with default values
 

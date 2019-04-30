@@ -44,7 +44,13 @@ export default class EndPoint extends Component {
     return (
       <React.Fragment>
         <h3 id={method.id} ref={this.headlineRef}>{method.name}</h3>
+
         <div dangerouslySetInnerHTML={{ __html: marked(method.description) }} />
+
+        <div className="gatsby-highlight" data-language="js">
+          <pre className="language-js"><code className="language-js" dangerouslySetInnerHTML={{ __html: Prism.highlight(method.example, Prism.languages.javascript, 'javascript') }} ></code></pre>
+        </div>
+
         <h4>Parameters</h4>
         <div className={apiStyles.table}>
           <table>
@@ -65,9 +71,6 @@ export default class EndPoint extends Component {
               })}
             </tbody>
           </table>
-        </div>
-        <div className="gatsby-highlight" data-language="js">
-          <pre className="language-js"><code className="language-js" dangerouslySetInnerHTML={{ __html: Prism.highlight(method.example, Prism.languages.javascript, 'javascript') }} ></code></pre>
         </div>
       </React.Fragment>
     )

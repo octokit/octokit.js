@@ -37,6 +37,7 @@ export const query = graphql`
             name
             description
             example
+            documentationUrl
             params {
               name
               required
