@@ -24,6 +24,6 @@
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
-    "typography-theme-fairy-gates": "^0.15.11"
+    "typography-theme-github": "^0.16.19"
   }
 }
