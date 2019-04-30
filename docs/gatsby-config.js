@@ -8,6 +8,7 @@ module.exports = {
     title: `Octokit.js`
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-source-octokit-routes`,
     {
       resolve: `gatsby-source-filesystem`,

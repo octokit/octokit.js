@@ -66,11 +66,13 @@ export default class EndPoint extends Component {
                 return <tr key={param.name}>
                   <td>{param.name}</td>
                   <td>{param.required ? 'yes' : 'no'}</td>
-                  <td>{param.description}</td>
+                  <td dangerouslySetInnerHTML={{ __html: marked(param.description) }} />
                 </tr>
               })}
             </tbody>
           </table>
+
+          See also: <a href={method.documentationUrl}>GitHub Developer Guide documentation</a>.
         </div>
       </React.Fragment>
     )
