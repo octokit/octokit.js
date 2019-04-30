@@ -41,14 +41,16 @@ export default class Api extends Component {
     return this.state.activeSubMenu === id
   }
 
+  hasActiveApiMenu() {
+    return this.state.activeMenuItem || this.state.activeSubMenu
+  }
+
   onVisibleEndPointGroup(id) {
-    // console.log(`Api.onVisibleEndPointGroup ${id}`)
     this.setActiveSubMenu(id)
     this.setActiveMenuItem(id)
   }
 
   onVisibleEndPoint(id) {
-    // console.log(`Api.onVisibleEndPoint ${id}`)
     this.setActiveMenuItem(id)
   }
 
@@ -62,6 +64,7 @@ export default class Api extends Component {
                 <a href={`#${node.fields.idName}`}>{node.frontmatter.title}</a>
               </li>
             })}
+
             {this.props.data.endpointScopes.edges.map(({ node }) => {
               return <ApiSubMenu
                         key={node.id} node={node}

@@ -2,10 +2,7 @@
 title: "Authentication"
 ---
 
-Most GitHub API calls don't require authentication. Rules of thumb:
-
-1. If you can see the information by visiting the site without being logged in, you don't have to be authenticated to retrieve the same information through the API.
-2. If you want to change data, you have to be authenticated.
+While authentication is not strictly required from some API endpoints, GitHub encourages to authenticated all requests to GitHub. Unauthenticated requests are subject to much more aggressive rate limiting.
 
 To enable authenticated requests, pass an `auth` option to the Octokit constructor:
 
@@ -24,16 +21,20 @@ The `auth` option can be
 
    ```js
    new Octokit({
-     auth: 'token secret123'
+     auth: 'secret123'
    })
    ```
 
-   Use this for
+   The string can be one of
 
-   - personal access tokens
-   - OAuth access tokens
-   - GitHub App bearer tokens
-   - GitHub App installation tokens
+   1. Personal access tokens  
+      You can [create personal access tokens](https://github.com/settings/tokens) in your account’s developer settings or use the "[Create a new authorization](#octokit-routes-oauthAuthorizations-create-authorization)" endpoint.
+   2. OAuth access tokens  
+      Retrieved using the [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). See also: [octokit/oauth-login-url.js](https://github.com/octokit/oauth-login-url.js).
+   3. GitHub App bearer tokens  
+      See [octokit/app.js](https://github.com/octokit/app.js) to retrieve a JSON Web Token (JWT) in order to authenticate as a GitHub App.
+   4. GitHub App installation tokens  
+      See [octokit/app.js](https://github.com/octokit/app.js) to retrieve an installation access token in order to authenticate as a GitHub App installation. Also see `4. A function` below for an example.
 
 2. As object with the properties `username`, `password`, `on2fa`.
 
@@ -55,8 +56,8 @@ The `auth` option can be
 
 3. An object with the properties `clientId` and `clientSecret`
 
-   OAuth applications can authenticate using their `clientId` and `clientSecret`
-   in order to [increase the unauthenticated rate limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+   OAuth applications can authenticate using their `client_id` and `client_secret`
+   in order to [increase the unauthenticated rate limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications). Find the id and secret in your GitHub account’s developer setting, or, if the OAuth app belongs to a GitHub organization, the organization’s developer settings.
 
 4. A function
 

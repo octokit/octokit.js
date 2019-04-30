@@ -92,7 +92,7 @@ main h2:first-child {
   padding-left: 0;
 }
 .nav li li {
-  padding-left: 1.45rem;
+  /* padding-left: 1.45rem; */
   font-size: 0.875em;
 }
 
