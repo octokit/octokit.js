@@ -11,6 +11,11 @@ export default class EndPoint extends Component {
   }
 
   componentDidMount() {
+    const supportsIntersectionObserver = 'IntersectionObserver' in window
+
+    if (!supportsIntersectionObserver) {
+      return
+    }
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
     const observer = new IntersectionObserver(this.onIntersection, {
