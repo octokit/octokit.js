@@ -10,7 +10,7 @@ For example, to request a [pull request as diff format](https://developer.github
 const { data: prDiff } = await octokit.pulls.get({
   owner: 'octokit',
   repo: 'rest.js',
-  number: 1278,
+  pull_number: 1278,
   mediaType: {
     format: 'diff'
   }
