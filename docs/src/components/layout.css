@@ -137,3 +137,14 @@ header > button > svg {
   fill: currentColor;
   vertical-align: middle;
 }
+
+/* override prism default css */
+main :not(pre) > code[class*="language-"] {
+  color: #000;
+  padding: .2em .4em;
+	border-radius: 3px;
+  white-space: normal;
+  background: #1b1f230d;
+  text-shadow: none;
+  font-size: 85%;
+}
