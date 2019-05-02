@@ -1,13 +1,15 @@
 header {
+  --header-background-color: #fff;
+  --input-background-color: #eee;
+
   display: grid;
   grid-template-columns: auto auto max-content;
-  grid-column-gap: 1em;
-  background: #272822;
+  background-color: var(--header-background-color);
   color: white;
-  padding: 1rem 1rem;
   position: sticky;
   z-index: 1;
   top: 0;
+  border-bottom: 3px solid #fff;
 }
 
 header h1 {
@@ -21,7 +23,8 @@ header h1 {
   text-align: right;
 }
 
-@media (min-width: 55em) { /* The breakpoint when the navigation is in the left column */
+@media (min-width: 55em) {
+  /* The breakpoint when the navigation is in the left column */
   header {
     grid-template-columns: calc(1.45em * 9) auto max-content; /* The width of the left column */
     grid-column-gap: 2.9em;
@@ -41,7 +44,7 @@ header > .search {
 }
 
 header > .search .input {
-  background: #272822;
+  background-color: var(--header-background-color);
   color: #fff;
   display: grid;
 }
@@ -52,9 +55,8 @@ header > .search .input input {
   width: 100%;
   border: 0;
   outline: none;
-  background: #555;
-  color: #fff;
-  padding: .1rem var(--whitespace);
+  background: var(--input-background-color);
+  padding: 0.1rem var(--whitespace);
   grid-row: 1/-1;
   grid-column: 1/-1;
 }
@@ -64,17 +66,17 @@ header .icon-search {
   grid-row: 1/-1;
   grid-column: 1/-1;
   align-self: center;
-  margin-left: .3rem;
+  margin-left: 0.3rem;
   width: 1em;
   height: 1em;
-  font-size: .6em;
-  color: #999;
+  font-size: 0.6em;
+  color: #000;
   position: relative;
   z-index: 1;
 }
 
 header > .search .input input::placeholder {
-  color: #999;
+  color: #000;
 }
 
 header > .search .results {
@@ -94,6 +96,10 @@ header > .search .results li:last-child {
   margin-bottom: 0;
 }
 
+header > .search .results li:last-child {
+  border-bottom: 3px solid #eee;
+}
+
 header > .search a {
   color: inherit;
   background: none;
@@ -109,11 +115,11 @@ header > button {
   grid-row: 1/2;
   grid-column: -2/-1;
   background: transparent;
-  color: inherit;
+  color: #ddd;
   border: 0;
-  padding: 1rem;
-  margin: -1rem;
+  padding: 0 1rem;
   cursor: pointer;
+  height: 2rem;
 }
 
 header > button:hover,
@@ -123,7 +129,8 @@ header > button:focus {
 }
 
 /* Hide the navigation toggle button on big screens, since it’s not needed */
-@media (min-width: 55em) { /* --wide-enough-for-two-columns */
+@media (min-width: 55em) {
+  /* --wide-enough-for-two-columns */
   header > .search {
     grid-column: 1/-1;
   }
@@ -141,8 +148,8 @@ header > button > svg {
 /* override prism default css */
 main :not(pre) > code[class*="language-"] {
   color: #000;
-  padding: .2em .4em;
-	border-radius: 3px;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
   white-space: normal;
   background: #1b1f230d;
   text-shadow: none;
