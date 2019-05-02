@@ -1,7 +1,14 @@
 .container {
   --description-background-color: white;
-  --code-background-color: #191A18;
+  --code-background-color: #191a18;
   --code-foreground-color: white;
+
+  padding: 1.25rem 1rem;
+}
+
+.table {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 main *[id]:before {
@@ -24,33 +31,56 @@ main h2:first-child {
   overflow-x: auto;
 }
 
-.table {
-  width: 100%;
-  overflow-x: auto;
-}
+@media (min-width: 55em) {
+  .container {
+    padding: 0;
+  }
 
-@media (min-width: 55em) { /* --wide-enough-for-two-columns */
-  .container pre,
-  .table {
+  main {
+    --description-background-color: white;
+    --code-background-color: #0a0b09;
+    --code-foreground-color: white;
+    background-image: linear-gradient(
+      90deg,
+      var(--description-background-color) 0%,
+      var(--description-background-color) 50%,
+      var(--code-background-color) 50%,
+      var(--code-background-color) 100%
+    );
+  }
 
-    /* SHIM: Setting the width set to 100% seems to be causing scrollbars,
-             when using grid layout. */
-    width: var(--main-column-width);
+  .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2.9em;
+  }
+  .section > :not([data-language]) {
+    max-width: 100%;
+    overflow-x: auto;
+    grid-column: 1/2;
+  }
 
-    --nav-column-width: calc(1.45rem * 9);
-    --grid-gap: calc(1.45rem * 3);
-    --ol-margin-left: calc(1.45rem * 1);
-    --main-column-width: calc(100vw - var(--nav-column-width) - var(--grid-gap) - var(--ol-margin-left));
+  .section > [data-language] {
+    overflow-x: auto;
+    grid-column: 2/3;
+    background-color: var(--code-background-color);
+    color: var(--code-foreground-color);
+  }
+
+  .section > [data-language] pre {
+    margin: 0;
+    padding: 0;
   }
 }
 
 .nav {
   position: sticky;
-  top: 5em;
-  background: hsla(0, 0%, 100%, 0.95);
+  top: 2rem;
+  background-color: #eee;
+  padding: 0;
 
   /* Give the navigation a maximum height, so the “stickyness” will have an effect. */
-  max-height: calc(100vh - 5em);
+  max-height: calc(100vh - 2rem);
   overflow-y: auto;
 
   /* TBD: Would it better to limit the navigation height so that all of the items
@@ -85,6 +115,10 @@ main h2:first-child {
   display: block;
 }
 
+.nav > ol {
+  padding: 1rem !important;
+}
+
 .nav ol,
 .nav li {
   list-style: none;
@@ -113,9 +147,9 @@ main h2:first-child {
 }
 
 /* Hide the navigation on small screens, until the toggle button is pressed */
-@media (max-width: 55em) { /* --wide-enough-for-two-columns */
+@media (max-width: 55em) {
+  /* --wide-enough-for-two-columns */
   .hidden {
     display: none !important;
   }
 }
-
