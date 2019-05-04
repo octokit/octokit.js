@@ -62,9 +62,7 @@ function registerEndpoints (octokit, routes) {
 
 function patchForDeprecation (octokit, apiOptions, method, methodName) {
   const patchedMethod = (options) => {
-    if (!options) {
-      return method(options)
-    }
+    options = Object.assign({}, options)
 
     Object.keys(options).forEach(key => {
       if (apiOptions.params[key] && apiOptions.params[key].deprecated) {
