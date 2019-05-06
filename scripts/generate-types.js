@@ -9,6 +9,7 @@ const camelCase = require('lodash.camelcase')
 const set = require('lodash.set')
 const TypeWriter = require('@gimenete/type-writer')
 const prettier = require('prettier')
+const { stringToJsdocComment } = require('string-to-jsdoc-comment')
 
 const ROUTES = require('./lib/get-routes')()
 
@@ -36,7 +37,7 @@ function parameterize (definition) {
     alias: definition.alias,
     deprecated: definition.deprecated,
     allowNull: definition.allowNull,
-    jsdoc: jsdoc(definition.description)
+    jsdoc: stringToJsdocComment(definition.description)
   }
 }
 
@@ -58,10 +59,6 @@ function toParamAlias (param, i, params) {
   param.required = !param.deprecated && actualParam.required
   param.type = actualParam.type
   return param
-}
-
-function jsdoc (description) {
-  return description && '/**\n' + description.trim().split('\n').map(str => '* ' + str).join('\n') + '\n*/'
 }
 
 function normalize (methodName) {
@@ -123,7 +120,7 @@ function generateTypes (languageName, templateFile, outputFile) {
           return {
             newParam,
             name: param.name,
-            jsdoc: jsdoc(description)
+            jsdoc: stringToJsdocComment(description)
           }
         }).filter(Boolean)
 
@@ -179,7 +176,7 @@ function generateTypes (languageName, templateFile, outputFile) {
         return methods.concat({
           method: methodName,
           responseType,
-          jsdoc: jsdoc(entry.description),
+          jsdoc: stringToJsdocComment(entry.description),
           paramTypes
         })
       }, [])
