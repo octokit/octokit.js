@@ -83,9 +83,7 @@ jobs:
     - node_js: lts/*
       env: folder size
       install: npm install --production
-      script:
-        - echo "node_modules is < 1mb"
-        - npx get-folder-size --folder=node_modules/ | grep "^0"
+      script: npx get-folder-size --folder=node_modules/ | grep "^[01]\."
 
     # when updating @octokit/routes, run "generate-routes" script and push
     # new routes.json file to the pull request
