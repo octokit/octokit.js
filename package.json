@@ -36,7 +36,7 @@
     "atob-lite": "^2.0.0",
     "before-after-hook": "^1.4.0",
     "btoa-lite": "^1.0.0",
-    "deprecation": "^1.0.1",
+    "deprecation": "^2.0.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.uniq": "^4.5.0",
