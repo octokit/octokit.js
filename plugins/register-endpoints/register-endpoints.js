@@ -1,6 +1,6 @@
 module.exports = registerEndpoints
 
-const Deprecation = require('deprecation')
+const { Deprecation } = require('deprecation')
 
 function registerEndpoints (octokit, routes) {
   Object.keys(routes).forEach(namespaceName => {

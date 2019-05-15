@@ -1,6 +1,6 @@
 module.exports = authenticationPlugin
 
-const Deprecation = require('deprecation')
+const { Deprecation } = require('deprecation')
 const once = require('once')
 
 const deprecateAuthenticate = once((log, deprecation) => log.warn(deprecation))
