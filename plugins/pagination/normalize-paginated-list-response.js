@@ -20,7 +20,7 @@
 
 module.exports = normalizePaginatedListResponse
 
-const Deprecation = require('deprecation')
+const { Deprecation } = require('deprecation')
 const once = require('once')
 
 const deprecateIncompleteResults = once((log, deprecation) => log.warn(deprecation))
