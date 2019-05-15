@@ -8,7 +8,9 @@
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
 
 ## Installation
-```$ npm install --save @octokit/rest```
+```shell
+npm install @octokit/rest
+```
 
 ## Usage
 
