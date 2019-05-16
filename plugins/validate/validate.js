@@ -2,7 +2,7 @@
 
 module.exports = validate
 
-const HttpError = require('@octokit/request/lib/http-error')
+const { RequestError } = require('@octokit/request-error')
 const get = require('lodash.get')
 const set = require('lodash.set')
 
@@ -57,11 +57,15 @@ function validate (octokit, options) {
       }
 
       if (!parameter.allowNull && valueIsNull) {
-        throw new HttpError(`'${currentParameterName}' cannot be null`, 400, null, options)
+        throw new RequestError(`'${currentParameterName}' cannot be null`, 400, {
+          request: options
+        })
       }
 
       if (parameter.required && !valueIsPresent) {
-        throw new HttpError(`Empty value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
+        throw new RequestError(`Empty value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, {
+          request: options
+        })
       }
 
       // parse to integer before checking for enum
@@ -70,18 +74,24 @@ function validate (octokit, options) {
         const unparsedValue = value
         value = parseInt(value, 10)
         if (isNaN(value)) {
-          throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(unparsedValue)} is NaN`, 400, null, options)
+          throw new RequestError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(unparsedValue)} is NaN`, 400, {
+            request: options
+          })
         }
       }
 
       if (parameter.enum && parameter.enum.indexOf(value) === -1) {
-        throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
+        throw new RequestError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, {
+          request: options
+        })
       }
 
       if (parameter.validation) {
         const regex = new RegExp(parameter.validation)
         if (!regex.test(value)) {
-          throw new HttpError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
+          throw new RequestError(`Invalid value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, {
+            request: options
+          })
         }
       }
 
@@ -89,7 +99,9 @@ function validate (octokit, options) {
         try {
           value = JSON.parse(value)
         } catch (exception) {
-          throw new HttpError(`JSON parse error of value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, null, options)
+          throw new RequestError(`JSON parse error of value for parameter '${currentParameterName}': ${JSON.stringify(value)}`, 400, {
+            request: options
+          })
         }
       }
 

@@ -1,6 +1,6 @@
 module.exports = authenticationRequestError
 
-const HttpError = require('@octokit/request/lib/http-error')
+const { RequestError } = require('@octokit/request-error')
 
 function authenticationRequestError (state, error, options) {
   if (!error.headers) throw error
@@ -15,12 +15,18 @@ function authenticationRequestError (state, error, options) {
     if (state.otp) {
       delete state.otp // no longer valid, request again
     } else {
-      throw new HttpError('Invalid one-time password for two-factor authentication', 401, error.headers, options)
+      throw new RequestError('Invalid one-time password for two-factor authentication', 401, {
+        headers: error.headers,
+        request: options
+      })
     }
   }
 
   if (typeof state.auth.on2fa !== 'function') {
-    throw new HttpError('2FA required, but options.on2fa is not a function. See https://github.com/octokit/rest.js#authentication', 401, error.headers, options)
+    throw new RequestError('2FA required, but options.on2fa is not a function. See https://github.com/octokit/rest.js#authentication', 401, {
+      headers: error.headers,
+      request: options
+    })
   }
 
   return Promise.resolve()

@@ -1,6 +1,6 @@
 module.exports = octokitRestNormalizeGitReferenceResponses
 
-const HttpError = require('@octokit/request/lib/http-error')
+const { RequestError } = require('@octokit/request-error')
 
 function octokitRestNormalizeGitReferenceResponses (octokit) {
   octokit.hook.wrap('request', (request, options) => {
@@ -17,7 +17,9 @@ function octokitRestNormalizeGitReferenceResponses (octokit) {
         // request single reference
         if (isGetRefRequest) {
           if (Array.isArray(response.data)) {
-            throw new HttpError(`More than one reference found for "${options.ref}"`, 404, {}, options)
+            throw new RequestError(`More than one reference found for "${options.ref}"`, 404, {
+              request: options
+            })
           }
 
           // ✅ received single reference
