@@ -28,7 +28,7 @@ describe('api.github.com', () => {
     })
 
       .then((response) => {
-        expect(response.data.length).to.equal(172)
+        expect(response.data.byteLength).to.equal(172)
       })
   })
 })

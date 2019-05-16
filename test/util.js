@@ -5,7 +5,7 @@ module.exports = {
 }
 
 const Octokit = require('../')
-const request = require('@octokit/request')
+const { request } = require('@octokit/request')
 
 function loadFixture (scenario) {
   return request('POST http://localhost:3000/fixtures', {

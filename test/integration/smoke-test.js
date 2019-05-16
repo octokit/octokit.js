@@ -144,6 +144,7 @@ describe('smoke', () => {
     })
 
     const requestOptions = octokit.request.endpoint('GET /')
+
     expect(requestOptions).to.deep.equal({
       method: 'GET',
       url: 'https://smoke-test.com/',
@@ -151,7 +152,10 @@ describe('smoke', () => {
         accept: 'application/vnd.github.v3+json',
         'user-agent': `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       },
-      request: {}
+      request: {
+        // ¯\_(ツ)_/¯
+        hook: requestOptions.request.hook
+      }
     })
   })
 
