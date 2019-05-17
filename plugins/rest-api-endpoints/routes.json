@@ -7432,6 +7432,23 @@
       },
       "url": "/repos/:owner/:repo/pages"
     },
+    "disableVulnerabilityAlerts": {
+      "headers": {
+        "accept": "application/vnd.github.dorian-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/vulnerability-alerts"
+    },
     "enablePagesSite": {
       "headers": {
         "accept": "application/vnd.github.switcheroo-preview+json"
@@ -7446,18 +7463,38 @@
           "required": true,
           "type": "string"
         },
-        "source[branch]": {
+        "source": {
+          "type": "object"
+        },
+        "source.branch": {
           "enum": [
             "master",
             "gh-pages"
           ],
           "type": "string"
         },
-        "source[path]": {
+        "source.path": {
           "type": "string"
         }
       },
       "url": "/repos/:owner/:repo/pages"
+    },
+    "enableVulnerabilityAlerts": {
+      "headers": {
+        "accept": "application/vnd.github.dorian-preview+json"
+      },
+      "method": "PUT",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/vulnerability-alerts"
     },
     "get": {
       "method": "GET",
