@@ -74,7 +74,11 @@ endpoints.forEach(endpoint => {
   }
 
   if (endpoint.deprecated) {
-    newRoutes[scope][idName].deprecated = `octokit.${scope}.${camelCase(endpoint.deprecated.before.idName)}() has been renamed to octokit.${scope}.${camelCase(endpoint.deprecated.after.idName)}() (${endpoint.deprecated.date})`
+    if (endpoint.deprecated.after) {
+      newRoutes[scope][idName].deprecated = `octokit.${scope}.${camelCase(endpoint.deprecated.before.idName)}() has been renamed to octokit.${scope}.${camelCase(endpoint.deprecated.after.idName)}() (${endpoint.deprecated.date})`
+    } else {
+      newRoutes[scope][idName].deprecated = endpoint.deprecated.message
+    }
   }
 })
 
