@@ -14,6 +14,15 @@ jsonSchemaRefParser.dereference(require.resolve('@octokit/routes'))
   .then(schema => {
     for (const [url, definitions] of Object.entries(schema.paths)) {
       for (const [method, definition] of Object.entries(definitions)) {
+        // ignore legacy endpoints
+        if (definition['x-github'].legacy) {
+          continue
+        }
+
+        if (definition['x-github'].githubCloudOnly) {
+          continue
+        }
+
         const scope = camelCase(definition.tags[0])
         const idName = camelCase(definition.operationId.substr(definition.tags[0].length + 1))
 
@@ -21,35 +30,55 @@ jsonSchemaRefParser.dereference(require.resolve('@octokit/routes'))
           ROUTES[scope] = {}
         }
 
-        const params = definition.parameters
-          .reduce((params, param) => {
+        const params = {}
+
+        // URL, headers and query params
+        definition.parameters
+          .forEach(param => {
+            if (param.in === 'header') {
+              return
+            }
+
             params[param.name] = {
-              type: param.schema.type
+              type: param.schema.type,
+              enum: param.schema.enum
             }
 
             if (param.required) {
               params[param.name].required = true
             }
-            return params
-          }, {})
+          })
 
+        // request body params
         if (definition.requestBody) {
+          const requiredParams = definition.requestBody.content['application/json'].schema.required
           Object.entries(definition.requestBody.content['application/json'].schema.properties)
             .forEach(([param, definition]) => {
               params[param] = {
-                type: definition.type
+                type: definition.type,
+                enum: definition.enum
               }
 
-              if (definition.required) {
-                params[param].required = definition.required
+              if (requiredParams && requiredParams.includes(param)) {
+                params[param].required = true
               }
             })
         }
+
+        const headerParameters = definition.parameters
+          .filter(param => param.in === 'header')
+        const acceptHeader = headerParameters.find(param => param.name === 'accept')
 
         ROUTES[scope][idName] = {
           method: method.toUpperCase(),
           url: url.replace(/\{([^}]+)\}/g, ':$1'),
           params
+        }
+
+        if (acceptHeader.required) {
+          ROUTES[scope][idName].headers = {
+            accept: acceptHeader.schema.default
+          }
         }
 
         // {
