@@ -21,10 +21,8 @@ jsonSchemaRefParser.dereference(require.resolve('@octokit/routes'))
           ROUTES[scope] = {}
         }
 
-        ROUTES[scope][idName] = {
-          method: method.toUpperCase(),
-          url: url.replace(/\{([^}]+)\}/g, ':$1'),
-          params: definition.parameters.reduce((params, param) => {
+        const params = definition.parameters
+          .reduce((params, param) => {
             params[param.name] = {
               type: param.schema.type
             }
@@ -34,6 +32,24 @@ jsonSchemaRefParser.dereference(require.resolve('@octokit/routes'))
             }
             return params
           }, {})
+
+        if (definition.requestBody) {
+          Object.entries(definition.requestBody.content['application/json'].schema.properties)
+            .forEach(([param, definition]) => {
+              params[param] = {
+                type: definition.type
+              }
+
+              if (definition.required) {
+                params[param].required = definition.required
+              }
+            })
+        }
+
+        ROUTES[scope][idName] = {
+          method: method.toUpperCase(),
+          url: url.replace(/\{([^}]+)\}/g, ':$1'),
+          params
         }
 
         // {
