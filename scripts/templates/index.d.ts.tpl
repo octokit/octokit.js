@@ -5,6 +5,7 @@
 /// <reference lib="esnext.asynciterable" />
 
 import * as http from 'http'
+import { OctokitRequestOptions } from "@octokit/request/dist-types/types";
 
 declare namespace Octokit {
   type json = any
@@ -37,6 +38,10 @@ declare namespace Octokit {
     }
 
     [Symbol.iterator](): Iterator<any>
+  }
+
+  export type Params<T> = T & {
+    request?: OctokitRequestOptions;
   }
 
   export type AnyResponse = Response<any>
@@ -273,7 +278,7 @@ declare class Octokit {
     {{&jsdoc}}
     {{method}}: {
       {{#paramTypes}}
-      (params?: Octokit.{{type}}): Promise<{{&responseType}}>;
+      (params?: Octokit.Params<Octokit.{{type}}>): Promise<{{&responseType}}>;
       {{/paramTypes}}
 
       endpoint: Octokit.Endpoint
