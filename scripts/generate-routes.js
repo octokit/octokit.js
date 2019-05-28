@@ -10,6 +10,41 @@ const ROUTES_PATH = join(__dirname, '..', 'plugins', 'rest-api-endpoints', 'rout
 
 const ROUTES = {}
 
+function schemaToParams (params, schema, prefix = '') {
+  Object.entries(schema.properties)
+    .forEach(([paramName, definition]) => {
+      const paramNameWithPrefix = prefix + paramName
+      params[paramNameWithPrefix] = {
+        type: definition.type,
+        enum: definition.enum
+      }
+
+      if (schema.required && schema.required.includes(paramName)) {
+        params[paramNameWithPrefix].required = true
+      }
+
+      // handle arrays
+      if (definition.type === 'array') {
+        params[paramNameWithPrefix].type = definition.items.type + '[]'
+
+        if (definition.items.type === 'object') {
+          schemaToParams(params, definition.items, `${paramNameWithPrefix}[].`)
+        }
+      }
+
+      // handle objects
+      if (definition.type === 'object') {
+        if (!definition.properties) {
+          // Workaround: `author.*` and `committer.*` properties are missing for "Delete file" endpoint.
+          // Remove once resolved: https://github.com/octokit/routes/issues/426
+          return
+        }
+
+        schemaToParams(params, definition, `${paramNameWithPrefix}.`)
+      }
+    })
+}
+
 function definitionToEndpoint ({ method, url }, definition) {
   const scope = camelCase(definition.tags[0])
   const idName = camelCase(definition.operationId.substr(definition.tags[0].length + 1))
@@ -39,18 +74,7 @@ function definitionToEndpoint ({ method, url }, definition) {
 
   // request body params
   if (definition.requestBody) {
-    const requiredParams = definition.requestBody.content['application/json'].schema.required
-    Object.entries(definition.requestBody.content['application/json'].schema.properties)
-      .forEach(([param, definition]) => {
-        params[param] = {
-          type: definition.type,
-          enum: definition.enum
-        }
-
-        if (requiredParams && requiredParams.includes(param)) {
-          params[param].required = true
-        }
-      })
+    schemaToParams(params, definition.requestBody.content['application/json'].schema)
   }
 
   const headerParameters = definition.parameters
@@ -88,6 +112,7 @@ jsonSchemaRefParser.dereference(require.resolve('@octokit/routes'))
 
         const endpoint = definitionToEndpoint({ method, url }, definition)
 
+        // apply deprecations to avoid breaking changes
         definition['x-changes'].forEach(change => {
           if (change.type === 'idName') {
             const scope = camelCase(definition.tags[0])
