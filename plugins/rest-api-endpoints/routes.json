@@ -7695,7 +7695,7 @@
       "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "getCommitRefSha": {
-      "deprecated": "\"Get the SHA-1 of a commit reference\" will be removed. Use \"Get a single commit\" instead with medaType format \"sha\" instead.",
+      "deprecated": "\"Get the SHA-1 of a commit reference\" will be removed. Use \"Get a single commit\" instead with media type format set to \"sha\" instead.",
       "method": "GET",
       "params": {
         "owner": {
