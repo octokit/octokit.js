@@ -74,7 +74,22 @@ function definitionToEndpoint ({ method, url }, definition) {
 
   // request body params
   if (definition.requestBody) {
-    schemaToParams(params, definition.requestBody.content['application/json'].schema)
+    if (definition['x-github'].requestBodyParameterName) {
+      const paramName = definition['x-github'].requestBodyParameterName
+      const contentType = Object.keys(definition.requestBody.content)[0]
+      const { schema } = definition.requestBody.content[contentType]
+      params[paramName] = {
+        type: schema.type,
+        mapTo: 'data'
+      }
+      if (schema.type === 'array') {
+        params[paramName].type = schema.items.type + '[]'
+      }
+
+      params[paramName].required = true
+    } else {
+      schemaToParams(params, definition.requestBody.content['application/json'].schema)
+    }
   }
 
   const headerParameters = definition.parameters
