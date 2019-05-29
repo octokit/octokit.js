@@ -95,6 +95,7 @@ function definitionToEndpoint ({ method, url }, definition) {
   const headerParameters = definition.parameters
     .filter(param => param.in === 'header')
   const acceptHeader = headerParameters.find(param => param.name === 'accept')
+  const headers = headerParameters.filter(param => param.name !== 'accept')
 
   ROUTES[scope][idName] = {
     method: method.toUpperCase(),
@@ -107,6 +108,13 @@ function definitionToEndpoint ({ method, url }, definition) {
     ROUTES[scope][idName].headers = {
       accept: acceptHeader.schema.default
     }
+  }
+
+  if (headers.length) {
+    ROUTES[scope][idName].headers = headers.reduce((headers, header) => {
+      headers[header.name] = header.schema.enum[0]
+      return headers
+    }, ROUTES[scope][idName].headers || {})
   }
 
   return ROUTES[scope][idName]
