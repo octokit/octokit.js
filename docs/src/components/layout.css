@@ -35,6 +35,9 @@ header h1 {
 }
 
 header > .search {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  max-height: 100vh;
   grid-column: 1/3;
   grid-row: 1/2;
   --whitespace: 1.25rem;
@@ -80,6 +83,7 @@ header > .search .input input::placeholder {
 }
 
 header > .search .results {
+  overflow-y: auto;
   margin: 0;
   background: white;
   color: black;
