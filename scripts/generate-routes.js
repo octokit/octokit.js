@@ -23,6 +23,14 @@ function schemaToParams (params, schema, prefix = '') {
         params[paramNameWithPrefix].required = true
       }
 
+      if (definition.nullable) {
+        params[paramNameWithPrefix].allowNull = true
+      }
+
+      if (definition.pattern) {
+        params[paramNameWithPrefix].validation = definition.pattern
+      }
+
       // handle arrays
       if (definition.type === 'array') {
         params[paramNameWithPrefix].type = definition.items.type + '[]'
@@ -69,6 +77,14 @@ function definitionToEndpoint ({ method, url }, definition) {
 
       if (param.required) {
         params[param.name].required = true
+      }
+
+      if (param.nullable) {
+        params[param.name].allowNull = true
+      }
+
+      if (param.pattern) {
+        params[param.name].validation = definition.pattern
       }
     })
 
