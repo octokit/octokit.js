@@ -2112,29 +2112,6 @@
       },
       "url": "/repos/:owner/:repo/git/trees/:tree_sha"
     },
-    "listRefs": {
-      "method": "GET",
-      "params": {
-        "namespace": {
-          "type": "string"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/git/refs/:namespace"
-    },
     "updateRef": {
       "method": "PATCH",
       "params": {
@@ -3370,33 +3347,6 @@
         }
       },
       "url": "/repos/:owner/:repo/issues/comments/:comment_id"
-    },
-    "updateLabel": {
-      "method": "PATCH",
-      "params": {
-        "color": {
-          "type": "string"
-        },
-        "current_name": {
-          "required": true,
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/labels/:current_name"
     },
     "updateMilestone": {
       "method": "PATCH",
@@ -5334,80 +5284,6 @@
       },
       "url": "/repos/:owner/:repo/pulls/:pull_number/merge"
     },
-    "create": {
-      "method": "POST",
-      "params": {
-        "base": {
-          "required": true,
-          "type": "string"
-        },
-        "body": {
-          "type": "string"
-        },
-        "draft": {
-          "type": "boolean"
-        },
-        "head": {
-          "required": true,
-          "type": "string"
-        },
-        "maintainer_can_modify": {
-          "type": "boolean"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        },
-        "title": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/pulls"
-    },
-    "createComment": {
-      "method": "POST",
-      "params": {
-        "body": {
-          "required": true,
-          "type": "string"
-        },
-        "commit_id": {
-          "required": true,
-          "type": "string"
-        },
-        "number": {
-          "alias": "pull_number",
-          "deprecated": true,
-          "type": "integer"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "path": {
-          "required": true,
-          "type": "string"
-        },
-        "position": {
-          "required": true,
-          "type": "integer"
-        },
-        "pull_number": {
-          "required": true,
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
-    },
     "createCommentReply": {
       "method": "POST",
       "params": {
@@ -6841,37 +6717,6 @@
       },
       "url": "/repos/:owner/:repo/compare/:base...:head"
     },
-    "createCommitComment": {
-      "method": "POST",
-      "params": {
-        "body": {
-          "required": true,
-          "type": "string"
-        },
-        "line": {
-          "type": "integer"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "path": {
-          "type": "string"
-        },
-        "position": {
-          "type": "integer"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        },
-        "sha": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/commits/:sha/comments"
-    },
     "createDeployment": {
       "method": "POST",
       "params": {
@@ -6967,57 +6812,6 @@
         }
       },
       "url": "/repos/:owner/:repo/deployments/:deployment_id/statuses"
-    },
-    "createFile": {
-      "method": "PUT",
-      "params": {
-        "author": {
-          "type": "object"
-        },
-        "author.email": {
-          "required": true,
-          "type": "string"
-        },
-        "author.name": {
-          "required": true,
-          "type": "string"
-        },
-        "branch": {
-          "type": "string"
-        },
-        "committer": {
-          "type": "object"
-        },
-        "committer.email": {
-          "required": true,
-          "type": "string"
-        },
-        "committer.name": {
-          "required": true,
-          "type": "string"
-        },
-        "content": {
-          "required": true,
-          "type": "string"
-        },
-        "message": {
-          "required": true,
-          "type": "string"
-        },
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "path": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/contents/:path"
     },
     "createForAuthenticatedUser": {
       "method": "POST",
@@ -7314,11 +7108,23 @@
         "author": {
           "type": "object"
         },
+        "author.email": {
+          "type": "string"
+        },
+        "author.name": {
+          "type": "string"
+        },
         "branch": {
           "type": "string"
         },
         "committer": {
           "type": "object"
+        },
+        "committer.email": {
+          "type": "string"
+        },
+        "committer.name": {
+          "type": "string"
         },
         "message": {
           "required": true,
@@ -7693,25 +7499,6 @@
         }
       },
       "url": "/repos/:owner/:repo/comments/:comment_id"
-    },
-    "getCommitRefSha": {
-      "deprecated": "\"Get the SHA-1 of a commit reference\" will be removed. Use \"Get a single commit\" instead with medaType format \"sha\" instead.",
-      "method": "GET",
-      "params": {
-        "owner": {
-          "required": true,
-          "type": "string"
-        },
-        "ref": {
-          "required": true,
-          "type": "string"
-        },
-        "repo": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": "/repos/:owner/:repo/commits/:ref"
     },
     "getContents": {
       "method": "GET",
@@ -9715,40 +9502,6 @@
         }
       },
       "url": "/repos/:owner/:repo/releases/assets/:asset_id"
-    },
-    "uploadReleaseAsset": {
-      "method": "POST",
-      "params": {
-        "file": {
-          "mapTo": "data",
-          "required": true,
-          "type": "string | object"
-        },
-        "headers": {
-          "required": true,
-          "type": "object"
-        },
-        "headers.content-length": {
-          "required": true,
-          "type": "integer"
-        },
-        "headers.content-type": {
-          "required": true,
-          "type": "string"
-        },
-        "label": {
-          "type": "string"
-        },
-        "name": {
-          "required": true,
-          "type": "string"
-        },
-        "url": {
-          "required": true,
-          "type": "string"
-        }
-      },
-      "url": ":url"
     }
   },
   "search": {
