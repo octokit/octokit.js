@@ -85,7 +85,6 @@ export default class Search extends Component {
       }
     }
 
-    this.props.onSearch(query)
     this.index = this.getOrCreateIndex()
     this.setState({
       query,
@@ -102,6 +101,5 @@ export default class Search extends Component {
       query: '',
       results: []
     })
-    this.props.onSearch('')
   }
 }
