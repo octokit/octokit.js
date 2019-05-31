@@ -42,12 +42,6 @@ function schemaToParams (params, schema, prefix = '') {
 
       // handle objects
       if (definition.type === 'object') {
-        if (!definition.properties) {
-          // Workaround: `author.*` and `committer.*` properties are missing for "Delete file" endpoint.
-          // Remove once resolved: https://github.com/octokit/routes/issues/426
-          return
-        }
-
         schemaToParams(params, definition, `${paramNameWithPrefix}.`)
       }
     })
