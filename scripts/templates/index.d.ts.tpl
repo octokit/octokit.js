@@ -255,7 +255,7 @@ declare class Octokit {
     wrap(name: string, callback: (request: (options: Octokit.HookOptions) => Promise<Octokit.Response<any>>, options: Octokit.HookOptions) => void): void
   }
 
-  static plugin(plugin: Octokit.Plugin | [Octokit.Plugin]): Octokit.Static;
+  static plugin(plugin: Octokit.Plugin | Octokit.Plugin[]): Octokit.Static;
 
   registerEndpoints(endpoints: {
     [scope: string]: Octokit.EndpointOptions
