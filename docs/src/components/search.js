@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
-import { Link } from 'gatsby'
 import IconSearch from "./icon-search"
 
 // Search component
@@ -32,25 +31,25 @@ export default class Search extends Component {
           {this.state.results.map(page => {
             if (page.type === 'API method') {
               return <li key={page.id}>
-                <Link to={page.slug} onClick={this.reset}>
+                <a href={page.slug}>
                   <strong>{page.name}</strong> <small>(<code>{page.route}</code>)</small><br />
                   <code>octokit.{page.method}</code>
-                </Link>
+                </a>
               </li>
             }
 
             if (page.type === 'API') {
               return <li key={page.id}>
-                <Link to={page.slug} onClick={this.reset}>
+                <a href={page.slug}>
                   <strong>{page.title}</strong> (API)
-                </Link>
+                </a>
               </li>
             }
 
             return <li key={page.id}>
-              <Link to={page.slug} onClick={this.reset}>
+              <a href={page.slug}>
                 <strong>{page.title}</strong> (Guide)
-              </Link>
+              </a>
             </li>
           })}
         </ul>
