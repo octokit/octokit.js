@@ -1,6 +1,8 @@
 import React, { Component } from "react"
+import debounce from "lodash.debounce"
 import { Index } from "elasticlunr"
 import IconSearch from "./icon-search"
+import SearchResults from "./search-results"
 
 // Search component
 export default class Search extends Component {
@@ -10,8 +12,19 @@ export default class Search extends Component {
       query: ``,
       results: [],
       hasFocus: false,
+      visibleResultsCount: 0,
+      maxHeight: 0,
     }
-    this.reset = this.reset.bind(this)
+    this.inputRef = React.createRef()
+    this.listRef = React.createRef()
+    this.onResize = debounce(this.onResize, 50)
+    this.onScroll = debounce(this.onScroll, 50)
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize)
+    const maxHeight = this.getSearchResultsHeight()
+    this.setState({ maxHeight })
   }
 
   render() {
@@ -23,39 +36,16 @@ export default class Search extends Component {
       <div className={classNames.join(" ")}>
         <label className="input">
           <IconSearch label="Search" />
-          <input type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
+          <input ref={this.inputRef} type="search" value={this.state.query} onFocus={this.onFocus} onBlur={this.onBlur} onChange={this.search} placeholder="search" />
         </label>
-        <ul onClick={this.reset} className="results">
+        <ul ref={this.listRef} onScroll={this.onScroll} onClick={this.reset} className="results">
           {this.state.query && this.state.results.length === 0 ? (<li>No results found.</li>) : ""}
-
-          {this.state.results.map(page => {
-            if (page.type === 'API method') {
-              return <li key={page.id}>
-                <a href={page.slug}>
-                  <strong>{page.name}</strong> <small>(<code>{page.route}</code>)</small><br />
-                  <code>octokit.{page.method}</code>
-                </a>
-              </li>
-            }
-
-            if (page.type === 'API') {
-              return <li key={page.id}>
-                <a href={page.slug}>
-                  <strong>{page.title}</strong> (API)
-                </a>
-              </li>
-            }
-
-            return <li key={page.id}>
-              <a href={page.slug}>
-                <strong>{page.title}</strong> (Guide)
-              </a>
-            </li>
-          })}
+          <SearchResults results={this.state.results.slice(0, this.state.visibleResultsCount)} />
         </ul>
       </div>
     )
   }
+
   getOrCreateIndex = () =>
     this.index
       ? this.index
@@ -68,6 +58,29 @@ export default class Search extends Component {
 
   onBlur = evt => {
     this.setState({hasFocus: false})
+  }
+
+  // Get maximum height of search results element
+  getSearchResultsHeight = () => {
+    return window.innerHeight - this.inputRef.current.offsetHeight
+  }
+
+  // Increase visible search results number when reaches the end of list
+  onScroll = evt => {
+    const { scrollTop, scrollHeight, offsetHeight } = this.listRef.current
+    const { visibleResultsCount, results } = this.state
+
+    if(scrollHeight <= scrollTop + offsetHeight + 50) {
+      this.setState({
+        visibleResultsCount:
+          visibleResultsCount >= results.length ? visibleResultsCount : visibleResultsCount + 20
+      })
+    }
+  }
+
+  onResize = evt => {
+    const maxHeight = this.getSearchResultsHeight()
+    this.setState({ maxHeight })
   }
 
   search = evt => {
@@ -85,13 +98,31 @@ export default class Search extends Component {
     }
 
     this.index = this.getOrCreateIndex()
+      // Query the index with search string to get an [] of IDs
+    const results = this.index
+      .search(query, searchOptions)
+      // Map over each ID and return the full document
+      .map(({ ref }) => this.index.documentStore.getDoc(ref))
+
+    let height = 0
+    let visibleResultsCount
+    // Calculate maximum count of results that fits in current viewport height
+    for(const [index, doc] of results.entries()) {
+      // 54, 26 are the height of search results item.
+      // They are unknonw until rendered. Is there a better way to set these values?
+      if(doc.type === 'API method') height += 54
+      else height += 26
+
+      if(height > this.state.maxHeight) {
+        visibleResultsCount = index
+        break
+      }
+    }
+
     this.setState({
       query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, searchOptions)
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+      results,
+      visibleResultsCount: visibleResultsCount || results.length,
     })
   }
 
