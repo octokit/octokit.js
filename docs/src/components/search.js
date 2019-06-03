@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import debounce from "lodash.debounce"
+import debounce from "lodash/debounce"
 import { Index } from "elasticlunr"
 import IconSearch from "./icon-search"
 import SearchResults from "./search-results"
