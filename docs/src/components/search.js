@@ -106,12 +106,17 @@ export default class Search extends Component {
 
     let height = 0
     let visibleResultsCount
+
+    // object key is document type and property is height of that type
+    const rowHeight = {
+      'API method': 54,
+      'API': 26,
+      'default': 26,
+    };
+
     // Calculate maximum count of results that fits in current viewport height
     for(const [index, doc] of results.entries()) {
-      // 54, 26 are the height of search results item.
-      // They are unknonw until rendered. Is there a better way to set these values?
-      if(doc.type === 'API method') height += 54
-      else height += 26
+      height += rowHeight[doc.type] || rowHeight.default
 
       if(height > this.state.maxHeight) {
         visibleResultsCount = index
