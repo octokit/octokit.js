@@ -38,7 +38,7 @@ Learn more about [API Previews](#previews).
   previews: ['jean-grey', 'symmetra'],
 ```
 
-In order to use Ocotkit with GitHub Enterprise, set the `baseUrl` option.
+In order to use Octokit with GitHub Enterprise, set the `baseUrl` option.
 
 ```js
   baseUrl: 'https://api.github.com',
