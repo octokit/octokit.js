@@ -16,7 +16,7 @@ declare namespace Octokit {
   }
 
   export interface Response<T> {
-    /** This is the data you would see in https://developer.Octokit.com/v3/ */
+    /** This is the data you would see in https://developer.github.com/v3/ */
     data: T
 
     /** Response status number */
@@ -169,14 +169,14 @@ declare namespace Octokit {
 
   export type Plugin = (octokit: Octokit, options: Octokit.Options) => void
 
-  // See https://Octokit.com/octokit/request.js#octokitrequest
+  // See https://github.com/octokit/request.js#octokitrequest
   export type HookOptions = {
     baseUrl: string
     headers: { [header: string]: string }
     method: string
     url: string
     data: any
-    // See https://Octokit.com/bitinn/node-fetch#options
+    // See https://github.com/bitinn/node-fetch#options
     request: {
       follow?: number
       timeout?: number
