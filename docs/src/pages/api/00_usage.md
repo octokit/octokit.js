@@ -92,7 +92,7 @@ Learn more about [request formats](#request-formats)
   const { data: diff } = await octokit.pulls.get({
     owner: 'octokit',
     repo: 'rest.js',
-    pull_number: 123
+    pull_number: 123,
     mediaType: {
       format: 'diff'
     }
