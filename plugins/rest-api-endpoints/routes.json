@@ -3411,7 +3411,8 @@
           "type": "string"
         },
         "due_on": {
-          "type": "string"
+          "type": "string",
+          "allowNull": true
         },
         "milestone_number": {
           "required": true,
