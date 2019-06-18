@@ -9029,6 +9029,9 @@
       "url": "/repos/:owner/:repo/teams"
     },
     "listTopics": {
+      "headers": {
+        "accept": "application/vnd.github.mercy-preview+json"
+      },
       "method": "GET",
       "params": {
         "owner": {
@@ -9371,6 +9374,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "replaceTopics": {
+      "headers": {
+        "accept": "application/vnd.github.mercy-preview+json"
+      },
       "method": "PUT",
       "params": {
         "names": {
