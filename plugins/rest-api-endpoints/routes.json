@@ -7572,6 +7572,23 @@
       },
       "url": "/repos/:owner/:repo/pages"
     },
+    "checkVulnerabilityAlerts": {
+      "headers": {
+        "accept": "application/vnd.github.dorian-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/vulnerability-alerts"
+    },
     "disableVulnerabilityAlerts": {
       "headers": {
         "accept": "application/vnd.github.dorian-preview+json"
