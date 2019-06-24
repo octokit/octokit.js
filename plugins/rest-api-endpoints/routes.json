@@ -6870,6 +6870,23 @@
       },
       "url": "/repos/:owner/:repo/collaborators/:username"
     },
+    "checkVulnerabilityAlerts": {
+      "headers": {
+        "accept": "application/vnd.github.dorian-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/vulnerability-alerts"
+    },
     "compareCommits": {
       "method": "GET",
       "params": {
@@ -7797,10 +7814,14 @@
       "method": "GET",
       "params": {
         "commit_sha": {
+          "alias": "ref",
+          "deprecated": true
+        },
+        "owner": {
           "required": true,
           "type": "string"
         },
-        "owner": {
+        "ref": {
           "required": true,
           "type": "string"
         },
@@ -7810,11 +7831,10 @@
         },
         "sha": {
           "alias": "commit_sha",
-          "deprecated": true,
-          "type": "string"
+          "deprecated": true
         }
       },
-      "url": "/repos/:owner/:repo/commits/:commit_sha"
+      "url": "/repos/:owner/:repo/commits/:ref"
     },
     "getCommitActivityStats": {
       "method": "GET",
