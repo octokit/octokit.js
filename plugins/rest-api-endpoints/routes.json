@@ -7815,7 +7815,8 @@
       "params": {
         "commit_sha": {
           "alias": "ref",
-          "deprecated": true
+          "deprecated": true,
+          "type": "string"
         },
         "owner": {
           "required": true,
@@ -7831,7 +7832,8 @@
         },
         "sha": {
           "alias": "commit_sha",
-          "deprecated": true
+          "deprecated": true,
+          "type": "string"
         }
       },
       "url": "/repos/:owner/:repo/commits/:ref"
