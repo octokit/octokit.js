@@ -77,7 +77,7 @@ The `auth` option can be
    Here is an example on how to implement authentication for GitHub Apps
 
    ```js
-   const App = require('@octokit/app')
+   const { App } = require('@octokit/app')
    const Octokit = require('@octokit/rest')
 
    const app = new App({ id: process.env.APP_ID, privateKey: process.env.PRIVATE_KEY })
