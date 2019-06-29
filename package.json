@@ -51,7 +51,7 @@
     "@octokit/fixtures-server": "^5.0.1",
     "@octokit/routes": "20.8.1",
     "@types/node": "^12.0.0",
-    "bundlesize": "^0.17.0",
+    "bundlesize": "^0.18.0",
     "chai": "^4.1.2",
     "compression-webpack-plugin": "^3.0.0",
     "coveralls": "^3.0.0",
