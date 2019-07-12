@@ -41,7 +41,7 @@ describe('smoke', () => {
   it('previews option', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
-        'accept': 'application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json'
+        accept: 'application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json'
       }
     })
       .get('/')
@@ -62,7 +62,7 @@ describe('smoke', () => {
   it('mediaType request option', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
-        'accept': 'application/vnd.github.foo-preview.raw,application/vnd.github.bar-preview.raw,application/vnd.github.baz-preview.raw'
+        accept: 'application/vnd.github.foo-preview.raw,application/vnd.github.bar-preview.raw,application/vnd.github.baz-preview.raw'
       }
     })
       .get('/')
@@ -126,7 +126,7 @@ describe('smoke', () => {
   it('.request("GET /")', () => {
     nock('https://smoke-test.com', {
       reqheaders: {
-        'accept': 'application/vnd.github.v3+json'
+        accept: 'application/vnd.github.v3+json'
       }
     })
       .get('/')

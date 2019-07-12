@@ -19,27 +19,27 @@ describe('registerEndpoints', () => {
     octokit.registerEndpoints({
       foo: {
         bar: {
-          'method': 'GET',
-          'params': {
-            'issue_number': {
-              'required': true,
-              'type': 'integer'
+          method: 'GET',
+          params: {
+            issue_number: {
+              required: true,
+              type: 'integer'
             },
-            'number': {
-              'alias': 'issue_number',
-              'deprecated': true,
-              'type': 'integer'
+            number: {
+              alias: 'issue_number',
+              deprecated: true,
+              type: 'integer'
             },
-            'owner': {
-              'required': true,
-              'type': 'string'
+            owner: {
+              required: true,
+              type: 'string'
             },
-            'repo': {
-              'required': true,
-              'type': 'string'
+            repo: {
+              required: true,
+              type: 'string'
             }
           },
-          'url': '/repos/:owner/:repo/issues/:issue_number'
+          url: '/repos/:owner/:repo/issues/:issue_number'
         }
       }
     })

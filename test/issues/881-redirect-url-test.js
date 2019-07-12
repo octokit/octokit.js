@@ -14,7 +14,7 @@ describe('https://github.com/octokit/rest.js/issues/881', () => {
 
     nock('https://issue-881-codeload.github.com:443')
       .head('/octocat/Hello-World/legacy.tar.gz/master')
-      .reply(200, '', [ 'Access-Control-Allow-Origin',
+      .reply(200, '', ['Access-Control-Allow-Origin',
         'https://render.githubusercontent.com',
         'Content-Security-Policy',
         'default-src \'none\'; style-src \'unsafe-inline\'; sandbox',
@@ -41,7 +41,7 @@ describe('https://github.com/octokit/rest.js/issues/881', () => {
         'X-GitHub-Request-Id',
         'E889:15B9:4A3FE:CED6E:5C449B59',
         'Connection',
-        'close' ])
+        'close'])
 
     const octokit = new Octokit({
       baseUrl: 'https://issue-881-api.github.com'
