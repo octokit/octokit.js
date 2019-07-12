@@ -10,7 +10,7 @@ describe('pagination', () => {
       .get('/organizations')
       .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
-        'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
+        Link: '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/organizations')
@@ -50,7 +50,7 @@ describe('pagination', () => {
       .get('/organizations')
       .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
-        'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
+        Link: '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/organizations')
@@ -76,7 +76,7 @@ describe('pagination', () => {
       .get('/organizations')
       .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
-        'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
+        Link: '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/organizations')
@@ -105,7 +105,7 @@ describe('pagination', () => {
       .get('/organizations')
       .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
-        'Link': '<https://other-pagination-test.com/foobar?page=2&per_page=1>; rel="next"',
+        Link: '<https://other-pagination-test.com/foobar?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/foobar')
@@ -130,7 +130,7 @@ describe('pagination', () => {
       .get('/organizations')
       .query({ per_page: 1 })
       .reply(200, [{ id: 1 }], {
-        'Link': '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
+        Link: '<https://pagination-test.com/organizations?page=2&per_page=1>; rel="next"',
         'X-GitHub-Media-Type': 'github.v3; format=json'
       })
       .get('/organizations')
@@ -201,7 +201,7 @@ describe('pagination', () => {
           }
         ]
       }, {
-        'Link': '<https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=2>; rel="next", <https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=2>; rel="last"'
+        Link: '<https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=2>; rel="next", <https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=2>; rel="last"'
       })
 
       .get('/search/issues')
@@ -219,7 +219,7 @@ describe('pagination', () => {
           }
         ]
       }, {
-        'Link': '<https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=1>; rel="prev", <https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=1>; rel="first"'
+        Link: '<https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=1>; rel="prev", <https://api.github.com/search/issues?q=repo%3Aweb-platform-tests%2Fwpt+is%3Apr+is%3Aopen+updated%3A%3E2019-02-26&per_page=1&page=1>; rel="first"'
       })
 
     const octokit = new Octokit()
@@ -254,7 +254,7 @@ describe('pagination', () => {
           }
         ]
       }, {
-        'Link': '<https://api.github.com/installation/repositories?per_page=1&page=2>; rel="next", <https://api.github.com/installation/repositories?per_page=1&page=2>; rel="last"'
+        Link: '<https://api.github.com/installation/repositories?per_page=1&page=2>; rel="next", <https://api.github.com/installation/repositories?per_page=1&page=2>; rel="last"'
       })
 
       .get('/installation/repositories')
@@ -271,7 +271,7 @@ describe('pagination', () => {
           }
         ]
       }, {
-        'Link': '<https://api.github.com/installation/repositories?per_page=1&page=1>; rel="prev", <https://api.github.com/installation/repositories?per_page=1&page=1>; rel="first"'
+        Link: '<https://api.github.com/installation/repositories?per_page=1&page=1>; rel="prev", <https://api.github.com/installation/repositories?per_page=1&page=1>; rel="first"'
       })
 
     const octokit = new Octokit()

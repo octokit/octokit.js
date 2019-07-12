@@ -9,7 +9,7 @@ function registerEndpoints (octokit, routes) {
     }
 
     Object.keys(routes[namespaceName]).forEach(apiName => {
-      let apiOptions = routes[namespaceName][apiName]
+      const apiOptions = routes[namespaceName][apiName]
 
       const endpointDefaults = ['method', 'url', 'headers'].reduce((map, key) => {
         if (typeof apiOptions[key] !== 'undefined') {
@@ -70,7 +70,7 @@ function patchForDeprecation (octokit, apiOptions, method, methodName) {
 
         octokit.log.warn(new Deprecation(`[@octokit/rest] "${key}" parameter is deprecated for "${methodName}". Use "${aliasKey}" instead`))
 
-        if (!options.hasOwnProperty(aliasKey)) {
+        if (!(aliasKey in options)) {
           options[aliasKey] = options[key]
         }
         delete options[key]

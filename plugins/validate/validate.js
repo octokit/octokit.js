@@ -13,7 +13,7 @@ function validate (octokit, options) {
   const { validate: params } = options.request
 
   Object.keys(params).forEach(parameterName => {
-    let parameter = get(params, parameterName)
+    const parameter = get(params, parameterName)
 
     const expectedType = parameter.type
     let parentParameterName
@@ -31,7 +31,7 @@ function validate (octokit, options) {
       parentParamIsPresent = parentParameterName === 'headers' || (typeof parentValue === 'object' && parentValue !== null)
     }
 
-    let values = parentParameterIsArray
+    const values = parentParameterIsArray
       ? (get(options, parentParameterName) || []).map(value => value[parameterName.split(/\./).pop()])
       : [get(options, parameterName)]
 

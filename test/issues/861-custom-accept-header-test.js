@@ -7,8 +7,8 @@ describe('https://github.com/octokit/rest.js/issues/861', () => {
   it('custom accept header', () => {
     nock('https://issues-861-test.com', {
       reqheaders: {
-        'accept': 'application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json',
-        'authorization': 'Bearer 123'
+        accept: 'application/vnd.github.antiope-preview+json,application/vnd.github.machine-man-preview+json',
+        authorization: 'Bearer 123'
       }
     })
       .post('/repos/swinton/example/check-runs')
