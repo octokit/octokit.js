@@ -6135,6 +6135,9 @@
       "url": "/repos/:owner/:repo/pulls/:pull_number"
     },
     "updateBranch": {
+      "headers": {
+        "accept": "application/vnd.github.lydian-preview+json"
+      },
       "method": "PUT",
       "params": {
         "expected_head_sha": {
@@ -7129,6 +7132,9 @@
         "homepage": {
           "type": "string"
         },
+        "is_template": {
+          "type": "boolean"
+        },
         "license_template": {
           "type": "string"
         },
@@ -7234,6 +7240,9 @@
         },
         "homepage": {
           "type": "string"
+        },
+        "is_template": {
+          "type": "boolean"
         },
         "license_template": {
           "type": "string"
@@ -7378,6 +7387,33 @@
         }
       },
       "url": "/repos/:owner/:repo/statuses/:sha"
+    },
+    "createUsingTemplate": {
+      "headers": {
+        "accept": "application/vnd.github.baptiste-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/generate"
     },
     "declineInvitation": {
       "method": "DELETE",
@@ -7559,6 +7595,9 @@
       "url": "/repos/:owner/:repo/releases/assets/:asset_id"
     },
     "disableAutomatedSecurityFixes": {
+      "headers": {
+        "accept": "application/vnd.github.london-preview+json"
+      },
       "method": "DELETE",
       "params": {
         "owner": {
@@ -7607,6 +7646,9 @@
       "url": "/repos/:owner/:repo/vulnerability-alerts"
     },
     "enableAutomatedSecurityFixes": {
+      "headers": {
+        "accept": "application/vnd.github.london-preview+json"
+      },
       "method": "PUT",
       "params": {
         "owner": {
@@ -9514,6 +9556,9 @@
         },
         "homepage": {
           "type": "string"
+        },
+        "is_template": {
+          "type": "boolean"
         },
         "name": {
           "required": true,
