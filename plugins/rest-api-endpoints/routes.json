@@ -7402,18 +7402,21 @@
           "type": "string"
         },
         "owner": {
-          "required": true,
           "type": "string"
         },
         "private": {
           "type": "boolean"
         },
-        "repo": {
+        "template_owner": {
+          "required": true,
+          "type": "string"
+        },
+        "template_repo": {
           "required": true,
           "type": "string"
         }
       },
-      "url": "/repos/:owner/:repo/generate"
+      "url": "/repos/:template_owner/:template_repo/generate"
     },
     "declineInvitation": {
       "method": "DELETE",
