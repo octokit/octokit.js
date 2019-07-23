@@ -9564,7 +9564,6 @@
           "type": "boolean"
         },
         "name": {
-          "required": true,
           "type": "string"
         },
         "owner": {
