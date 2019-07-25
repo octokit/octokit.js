@@ -288,6 +288,53 @@ describe('pagination', () => {
       })
   })
 
+  it('.paginate() with results namespace (GET /user/installations)', () => {
+    nock('https://api.github.com')
+      .get('/user/installations')
+      .query({
+        per_page: 1
+      })
+      .reply(200, {
+        total_count: 2,
+        installations: [
+          {
+            id: '123'
+          }
+        ]
+      }, {
+        Link: '<https://api.github.com/user/installations?per_page=1&page=2>; rel="next", <https://api.github.com/user/installations?per_page=1&page=2>; rel="last"'
+      })
+
+      .get('/user/installations')
+      .query({
+        per_page: 1,
+        page: 2
+      })
+      .reply(200, {
+        total_count: 2,
+        installations: [
+          {
+            id: '456'
+          }
+        ]
+      }, {
+        Link: '<https://api.github.com/user/installations?per_page=1&page=1>; rel="prev", <https://api.github.com/user/installations?per_page=1&page=1>; rel="first"'
+      })
+
+    const octokit = new Octokit()
+    const options = octokit.apps.listInstallationsForAuthenticatedUser.endpoint.merge({
+      per_page: 1
+    })
+
+    return octokit.paginate(options)
+      .then(results => {
+        expect(results).to.deep.equal([
+          { id: '123' },
+          { id: '456' }
+        ])
+      })
+  })
+
   it('.paginate() with results namespace (GET /installation/repositories, single page response)', () => {
     nock('https://api.github.com')
       .get('/installation/repositories')
