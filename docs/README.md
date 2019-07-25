@@ -5,6 +5,7 @@ Static documentation website, built with [Gatsby](https://www.gatsbyjs.org/) usi
 ## Local Development
 
 ```
+npm install
 cd /docs
 npm install
 npm start
