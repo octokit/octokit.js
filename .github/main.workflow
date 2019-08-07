@@ -39,3 +39,18 @@ action "deploy docs" {
   }
   secrets = ["GH_PAT"]
 }
+
+workflow "Update routes" {
+  on = "repository_dispatch"
+  resolves = ["update routes"]
+}
+
+action "update routes" {
+  uses = "actions/bin/curl@master"
+  args = [
+    "-XPOST",
+    "-H'Content-Type: application/json'",
+    "https://octokit-routes-graphql-server.now.sh/",
+    "-d '{\"operationName\":null,\"variables\":{},\"query\":\"{\n  endpoints {\n    scope\n    id\n    method\n    url\n  }\n}\n\"}'"
+  ]
+}
