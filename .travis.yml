@@ -63,6 +63,11 @@ jobs:
       # spead up build times by removing unneeded dev dependencies
       before_install: npm uninstall leakage semantic-release
       env: browser tests
+      addons:
+        apt:
+          packages:
+            # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+            - libgconf-2-4
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
