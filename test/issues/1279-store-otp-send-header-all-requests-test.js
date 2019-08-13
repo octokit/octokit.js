@@ -24,11 +24,14 @@ describe('https://github.com/octokit/rest.js/issues/1279', () => {
       .get('/')
       .reply(200, {})
 
-    nock('https://authentication-test-host.com')
+    nock('https://authentication-test-host.com', {
+      reqheaders: {
+        authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
+        'x-github-otp': '123456'
+      }
+    })
       .get('/authorizations?per_page=100')
-      .reply(function () {
-        expect(this.req.headers).to.have.property('x-github-otp')
-      })
+      .reply(200, [])
 
     const octokit = new Octokit({
       baseUrl: 'https://authentication-test-host.com',
