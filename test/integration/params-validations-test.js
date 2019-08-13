@@ -73,7 +73,7 @@ describe('params validations', () => {
     return octokit.repos.createCommitComment({
       owner: 'foo',
       repo: 'bar',
-      sha: 'lala',
+      commit_sha: 'lala',
       body: 'Sing with me!',
       position: 'Age Ain’t Nothing'
     })
