@@ -2,7 +2,7 @@ language: node_js
 cache:
   directories:
     - ~/.npm
-    - node_modules/cypress/dist
+    - /home/travis/.cache/Cypress
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
@@ -22,30 +22,30 @@ stages:
 
 jobs:
   include:
-    - stage: test
-      node_js: 6
-      script:
-        - npm run start-fixtures-server &
-        - sleep 3 # give server some time to start
-        - npm run test
     - node_js: 8
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
-    - node_js: 9
-      env: Node 9, coverage upload
+    - node_js: 10
+      env: Node 10, coverage upload
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
         - npm run coverage:upload
-    - node_js: 4 # will be removed in v16
-      env: Node 4, smoke test only
+    - node_js: 6 # no longer possible to run in Node 4
+      env: Node 6, smoke test only
       before_install: npm install -g npm@3
+      install: npm install --production
       script:
         - node index.js
     - node_js: lts/*
+      addons:
+        apt:
+          packages:
+            # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+            - libgconf-2-4
       env: browser tests
       script:
         - npm run start-fixtures-server &
@@ -83,9 +83,3 @@ jobs:
         - npm run build:browser
         - npm run generate-bundle-report
         - npm run semantic-release
-    # re-enable for v16. Disabled so the deprecated methods are still documented
-    # - node_js: lts/*
-    #   env: docs update
-    #   script:
-    #     - npm run build:docs
-    #     - npm run deploy-docs

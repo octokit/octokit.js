@@ -930,6 +930,9 @@
       "url": "/app/installations"
     },
     "listInstallationsForAuthenticatedUser": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
       "method": "GET",
       "params": {
         "page": {
