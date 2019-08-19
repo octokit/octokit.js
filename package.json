@@ -74,7 +74,7 @@
     "sinon": "^7.2.4",
     "sinon-chai": "^3.0.0",
     "sort-keys": "^4.0.0",
-    "standard": "^13.0.1",
+    "standard": "^14.0.0",
     "string-to-arraybuffer": "^1.0.0",
     "string-to-jsdoc-comment": "^1.0.0",
     "typescript": "^3.3.1",
