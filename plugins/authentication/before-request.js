@@ -6,13 +6,13 @@ const withAuthorizationPrefix = require('./with-authorization-prefix')
 
 function authenticationBeforeRequest (state, options) {
   if (typeof state.auth === 'string') {
-    options.headers['authorization'] = withAuthorizationPrefix(state.auth)
+    options.headers.authorization = withAuthorizationPrefix(state.auth)
 
     // https://developer.github.com/v3/previews/#integrations
-    if (/^bearer /i.test(state.auth) && !/machine-man/.test(options.headers['accept'])) {
-      const acceptHeaders = options.headers['accept'].split(',')
+    if (/^bearer /i.test(state.auth) && !/machine-man/.test(options.headers.accept)) {
+      const acceptHeaders = options.headers.accept.split(',')
         .concat('application/vnd.github.machine-man-preview+json')
-      options.headers['accept'] = acceptHeaders.filter(Boolean).join(',')
+      options.headers.accept = acceptHeaders.filter(Boolean).join(',')
     }
 
     return
@@ -20,7 +20,7 @@ function authenticationBeforeRequest (state, options) {
 
   if (state.auth.username) {
     const hash = btoa(`${state.auth.username}:${state.auth.password}`)
-    options.headers['authorization'] = `Basic ${hash}`
+    options.headers.authorization = `Basic ${hash}`
     if (state.otp) {
       options.headers['x-github-otp'] = state.otp
     }
@@ -40,7 +40,7 @@ function authenticationBeforeRequest (state, options) {
     // as well as "/applications/123/tokens/token456"
     if (/\/applications\/:?[\w_]+\/tokens\/:?[\w_]+($|\?)/.test(options.url)) {
       const hash = btoa(`${state.auth.clientId}:${state.auth.clientSecret}`)
-      options.headers['authorization'] = `Basic ${hash}`
+      options.headers.authorization = `Basic ${hash}`
       return
     }
 
@@ -56,6 +56,6 @@ function authenticationBeforeRequest (state, options) {
     })
 
     .then((authorization) => {
-      options.headers['authorization'] = withAuthorizationPrefix(authorization)
+      options.headers.authorization = withAuthorizationPrefix(authorization)
     })
 }

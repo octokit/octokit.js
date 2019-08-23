@@ -2,7 +2,7 @@ module.exports = octokitDebug
 
 function octokitDebug (octokit) {
   octokit.hook.wrap('request', (request, options) => {
-    octokit.log.debug(`request`, options)
+    octokit.log.debug('request', options)
     const start = Date.now()
     const requestOptions = octokit.request.endpoint.parse(options)
     const path = requestOptions.url.replace(options.baseUrl, '')

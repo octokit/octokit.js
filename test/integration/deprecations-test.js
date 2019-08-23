@@ -101,7 +101,7 @@ describe('deprecations', () => {
     const options = octokit.issues.get.endpoint.merge({ owner: 'octocat', repo: 'hello-world', number: 123 })
 
     expect(url).to.equal('https://api.github.com/repos/octocat/hello-world/issues/123')
-    expect(options.url).to.equal(`/repos/:owner/:repo/issues/:issue_number`)
+    expect(options.url).to.equal('/repos/:owner/:repo/issues/:issue_number')
     expect('number' in options).to.equal(false)
     expect(options.issue_number).to.equal(123)
     expect(warnCalledCount).to.equal(2)
@@ -729,7 +729,7 @@ describe('deprecations', () => {
       }
     })
     const searchOptions = octokit.search.issuesAndPullRequests.endpoint.merge({
-      q: `repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26`,
+      q: 'repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26',
       per_page: 1,
       headers: {
         'accept-encoding': ''
