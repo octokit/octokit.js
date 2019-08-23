@@ -224,7 +224,7 @@ describe('pagination', () => {
 
     const octokit = new Octokit()
     const options = octokit.search.issuesAndPullRequests.endpoint.merge({
-      q: `repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26`,
+      q: 'repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26',
       per_page: 1,
       headers: {
         'accept-encoding': ''

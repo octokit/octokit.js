@@ -10,20 +10,20 @@ function authenticationBeforeRequest (state, options) {
 
   if (state.auth.type === 'basic') {
     const hash = btoa(`${state.auth.username}:${state.auth.password}`)
-    options.headers['authorization'] = `Basic ${hash}`
+    options.headers.authorization = `Basic ${hash}`
     return
   }
 
   if (state.auth.type === 'token') {
-    options.headers['authorization'] = `token ${state.auth.token}`
+    options.headers.authorization = `token ${state.auth.token}`
     return
   }
 
   if (state.auth.type === 'app') {
-    options.headers['authorization'] = `Bearer ${state.auth.token}`
-    const acceptHeaders = options.headers['accept'].split(',')
+    options.headers.authorization = `Bearer ${state.auth.token}`
+    const acceptHeaders = options.headers.accept.split(',')
       .concat('application/vnd.github.machine-man-preview+json')
-    options.headers['accept'] = uniq(acceptHeaders).filter(Boolean).join(',')
+    options.headers.accept = uniq(acceptHeaders).filter(Boolean).join(',')
     return
   }
 
