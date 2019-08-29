@@ -7004,11 +7004,6 @@
           "type": "string"
         },
         "environment": {
-          "enum": [
-            "production",
-            "staging",
-            "qa"
-          ],
           "type": "string"
         },
         "environment_url": {
