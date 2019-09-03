@@ -1,5 +1,5 @@
 const nock = require('nock')
-const getUserAgent = require('universal-user-agent')
+const { getUserAgent } = require('universal-user-agent')
 
 const Octokit = require('../../')
 
