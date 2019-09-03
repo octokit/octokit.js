@@ -43,7 +43,7 @@
     "lodash.uniq": "^4.5.0",
     "octokit-pagination-methods": "^1.1.0",
     "once": "^1.4.0",
-    "universal-user-agent": "^3.0.0"
+    "universal-user-agent": "^4.0.0"
   },
   "devDependencies": {
     "@gimenete/type-writer": "^0.1.3",
