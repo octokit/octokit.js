@@ -2,9 +2,9 @@
 
 This package will integrate several standalone packages for the all-batteries-included JavaScript Octokit package :)
 
-- [x] REST API: `@octokit/rest`
-- [x] GraphQL API: `@octokit/graphql`
-- [ ] ~~OAuth~~ postponed.
+- [x] REST API: [`@octokit/rest`](https://github.com/octokit/rest.js/#readme)
+- [x] GraphQL API: [`@octokit/graphql`](https://github.com/octokit/graphql.js#readme)
+- [x] OAuth: [`@octokit/auth-oauth-app`](https://github.com/octokit/auth-oauth-app.js#readme) and [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js)
 - [x] Webhooks: `@octokit/webhooks`
 - [x] Apps: `@octokit/app`
 - [ ] Actions
@@ -151,14 +151,54 @@ client.graphql(`{
 
 ## OAuth
 
-_tbd_, see https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps
+Both OAuth Apps and GitHub Apps support authenticating GitHub users using OAUTH, see [Authorizing OAuth Apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps) and [Identifying and authorizing users for GitHub Apps](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 
-See [octokit/oauth-login-url.js](https://github.com/octokit/oauth-login-url.js) to calculation authentication URL.
+To authenticate, a user needs to confirm their identity on a URL hosted by GitHub. This URL can be retrieved using `app.oauthLoginUrl()`
 
-TODOS
+```js
+const app = client.app({clientId, clientSecret})
+const { url, state } = app.oauthLoginUrl()
+// url looks like this: https://github.com/login/oauth/authorize?client_id=...
+// state is a random string that you need to store for code verification later
+```
 
-- web client library to read out a passed `?code` query parameter and turn it into an OAuth access token
-- server library / middleware to implement an OAuth endpoint.
+**Tip:** The `oauthLoginUrl()` exists as standalone package, too: [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js).
+
+`app.middleware` is also exposing a special `GET /oauth-login` path which redirects to the same URL
+
+```js
+const app = client.app({clientId: "abc4567", clientSecret})
+require('http').createServer(app.webhooks.middleware).listen(3000)
+// `GET http://localhost:3000/oauth-login` redirects to https://github.com/login/oauth/authorize?client_id=abc4567
+```
+
+After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/oauth-login`, then an `"oauth-access-token"` event gets emitted which you can handle with
+
+```js
+app.on('oauth-access-token', ({token, client}) => {
+  // token is the OAuth access token itself
+  // client is a pre-authorized `octokit` instance
+})
+```
+
+If you set `(User) Authorization callback URL` to your own app, than you need to read out the `?code=...&state=...` query parameters, compare the `state` parameter to the value returned by `app.oauthLoginUrl()` earlier to protect against forgery attacks, then send the `code` parameter to `POST /oauth-login` which will respond with the OAuth Access Token if successful. It is also recommend to remove the `?code=...&state=...` query parameters from the browser's URL
+
+```js
+const code = new URL(location.href).searchParams.get("code");
+if (code) {
+  // remove ?code=... from URL
+  const path =
+    location.pathname +
+    location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
+  history.pushState({}, "", path);
+
+  // from your front-end app
+  const { token } = await client.request('POST <your apps domain>/oauth-login', { code })
+  // `token` is the OAuth Access Token that can be use
+}
+```
+
+**TODO:** create a `@octokit/auth-oauth-client` module which does the above automagically, somehow.
 
 ## Webhooks
 
@@ -197,7 +237,7 @@ app.webhooks.on('issues.opened', {{id, name, payload, client}} => {
   return client.rest.issues.createComment({body: 'Hello, World!'})
 })
 
-require('http').createServer(app.webhooks.middleware).listen(3000)
+require('http').createServer(app.middleware).listen(3000)
 ```
 
 ## GitHub Actions
