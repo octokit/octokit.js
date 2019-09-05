@@ -4,9 +4,9 @@ This package will integrate several standalone packages for the all-batteries-in
 
 - [x] REST API: [`@octokit/rest`](https://github.com/octokit/rest.js/#readme)
 - [x] GraphQL API: [`@octokit/graphql`](https://github.com/octokit/graphql.js#readme)
-- [x] OAuth: [`@octokit/auth-oauth-app`](https://github.com/octokit/auth-oauth-app.js#readme) and [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js)
+- [ ] OAuth: [`@octokit/auth-oauth-app`](https://github.com/octokit/auth-oauth-app.js#readme) and [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js) and TBD: [`@octokit/auth-oauth-client`](#todo-oauth-client)
 - [x] Webhooks: `@octokit/webhooks`
-- [x] Apps: `@octokit/app`
+- [ ] Apps
 - [ ] Actions
 
 # octokit.js
@@ -22,7 +22,7 @@ This package will integrate several standalone packages for the all-batteries-in
 * Support for all current browsers and Node.js versions
 * Implements GitHub’s [best practices for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/)
 * [Typescript](https://www.typescriptlang.org/) definitions
-* Modular & extendable
+* Decomposable & extendable
 
 ## Table of contents
 
@@ -105,27 +105,24 @@ const client = new MyOctokit()
 
 ## Authentication
 
-Pass an `auth` option to the `Octokit` constructor, see [octokit/auth.js](https://github.com/octokit/auth.js) for supported options, e.g.
+Pass an `auth` option to the `Octokit` constructor. It accepts a string which can be a token
 
 ```js
 const clientWithAuth = new Octokit({
-  auth: {
-    token: 'secret 123'
-  }
+  auth: 'secret123'
 })
 ```
 
-In addition, `auth`can be set to a synchronous or asynchronous function. The function must return a `headers` or a `query` object which will be merged with the passed requestOptions.
+Or an instance of one of [octokit/auth.js](https://github.com/octokit/auth.js) strategies for more complex scenarios such as GitHub Apps or Basic Authentication.\
 
 ```js
-client.config({
-  auth (requestOptions}) {
-    return {
-      headers: {
-        authorization: 'token secret123'
-      }
-    }
-  }
+const { createAppAuth } = require("@octokit/auth-app");
+
+const octokit = new Octokit({
+  auth: createAppAuth({
+    id: 123,
+    privateKey: process.env.PRIVATE_KEY
+  )}
 })
 ```
 
@@ -193,12 +190,51 @@ if (code) {
   history.pushState({}, "", path);
 
   // from your front-end app
-  const { token } = await client.request('POST <your apps domain>/oauth-login', { code })
+  const { token } = await client.request('GET <your apps domain>/oauth-login', { code })
   // `token` is the OAuth Access Token that can be use
 }
 ```
 
-**TODO:** create a `@octokit/auth-oauth-client` module which does the above automagically, somehow.
+When the `POST /oauth-login` was successful, the `oauth-access-token` event is emitted, too.
+
+<a name="todo-oauth-client"></a>
+
+**TODO:** create a `@octokit/auth-oauth-client` module which does the above automagically. Here is how it could work:
+
+```js
+import { createOAuthClientAuth} from 'https://cdn.pika.dev/@octokit/auth-oauth-client'
+const auth = createOAuthClientAuth({
+  clientId: 'abc4567'
+  getOAuthAccessToken: async code => {
+    const response = await fetch('https://my-oauth-app.test/oauth-login')
+    const { token } = await response.json()
+    return token
+  },
+  // optional: persist authentication in local store
+  store: {
+    async get() {
+      return localStorage.getItem('authentication')
+    },
+    async set(authentication) {
+      localStorage.setItem('authentication', JSON.stringify(authentication))
+    },
+    async del() {
+      localStorage.removeItem('authentication')
+    }
+  }
+})
+
+// retrieve token using `getOAuthAccessToken()`
+// if ?code=... parameter is not set and authentication cannot be retrievd from the local store,
+// then `token` is undefined and `isSignedIn` is set to false`
+await { token, isSignedIn } = await auth()
+
+// To sign out, pass {signOut: true}. If tokens are persisted they are removed from store
+// To sign in, pass {signIn: true}. If tokens are persisted they are removed from store
+```
+
+**TODO:** Add a new `/client.js` URL to `app.middleware` which will return a pre-authenticated `octokit` client. 
+You can use `octokit.auth()` to check if a user is signed in, trigger the oauth sign in or sign the user out.
 
 ## Webhooks
 
@@ -219,15 +255,10 @@ require('http').createServer(webhooks.middleware).listen(3000)
 
 ## GitHub Apps
 
-Node.js only. See https://github.com/octokit/app.js/.
-
-The difference to using `@octokit/app` standalone is that the current
-`client` instance will be passed as additional context property passed to
-the event handlers. The `client` instance will have default configuration set
-for the respective event
+**TODO** deprecated the current [`@octokit/app`](https://github.com/octokit/app.js#readme) package in favor of [`@octokit/auth-oauth-app](https://github.com/octokit/app.js#readme), then create an entirely new `@octokit/app` package which includes webhooks and oauth handling.
 
 ```js
-const app = client.app({id, privateKey, webhooks: {secret}})
+const app = client.app({id, privateKey, clientId, clientSecret, webhooks: {secret}})
 
 // authenticated using Json Web Token
 const installations = await app.paginate(app.rest.listInstallations.endpoint())
@@ -237,12 +268,24 @@ app.webhooks.on('issues.opened', {{id, name, payload, client}} => {
   return client.rest.issues.createComment({body: 'Hello, World!'})
 })
 
+app.oauth.on('token', {{token, client}} => {
+  // token is the OAuth access token itself
+  // client is a pre-authorized `octokit` instance
+})
+
 require('http').createServer(app.middleware).listen(3000)
+
+// `POST /webhooks` to receive webhook event requests
+// `GET /oauth-login` redirects to OAuth login website on github.com (or GHE counterpart)
+// `GET /oauth-login?code=...` exchanges OAuth code for OAuth Access Token and emits "token" event
+// `POST /oauth-login {"code": "..."}` exchanges OAuth code for OAuth Access Token and emits "token" event
 ```
 
 ## GitHub Actions
 
-_tbd_, see https://developer.github.com/actions/
+```js
+// to be done
+```
 
 ## Sending custom requests
 
