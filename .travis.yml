@@ -13,8 +13,6 @@ branches:
     - /^greenkeeper.*$/
 
 stages:
-  - name: greenkeeper-routes-update
-    if: branch =~ ^greenkeeper/@octokit/routes
   - test
   - name: release
     if: branch = master AND type IN (push)
@@ -87,18 +85,6 @@ jobs:
       env: folder size
       install: npm install --production
       script: npx get-folder-size --folder=node_modules/ | grep "^[01]\."
-
-    # when updating @octokit/routes, run "generate-routes" script and push
-    # new routes.json file to the pull request
-    - stage: greenkeeper-routes-update
-      node_js: lts/*
-      # spead up build times by removing unneeded dev dependencies
-      before_install: npm uninstall leakage cypress semantic-release
-      script:
-        - git checkout $TRAVIS_BRANCH
-        - npm run generate-routes
-        # commit changes and push back to branch on GitHub. If there are no changes then exit without error
-        - 'git commit plugins/rest-api-endpoints/routes.json -m "build: routes" --author="Octokit Bot <octokitbot@martynus.net>" && git push "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" ${TRAVIS_BRANCH} || true'
 
     # build assets and release new version with semantic-release
     - stage: release
