@@ -2034,7 +2034,7 @@
           "type": "string"
         },
         "recursive": {
-          "enum": [1],
+          "enum": ["1"],
           "type": "integer"
         },
         "repo": {
