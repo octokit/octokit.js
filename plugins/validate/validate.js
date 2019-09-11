@@ -100,7 +100,7 @@ function validate(octokit, options) {
         }
       }
 
-      if (parameter.enum && parameter.enum.indexOf(value) === -1) {
+      if (parameter.enum && parameter.enum.indexOf(String(value)) === -1) {
         throw new RequestError(
           `Invalid value for parameter '${currentParameterName}': ${JSON.stringify(
             value
