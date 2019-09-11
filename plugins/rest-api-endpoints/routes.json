@@ -7473,6 +7473,9 @@
       "url": "/repos/:owner/:repo/branches/:branch"
     },
     "getBranchProtection": {
+      "headers": {
+        "accept": "application/vnd.github.luke-cage-preview+json"
+      },
       "method": "GET",
       "params": {
         "branch": {
@@ -7859,6 +7862,9 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins"
     },
     "getProtectedBranchPullRequestReviewEnforcement": {
+      "headers": {
+        "accept": "application/vnd.github.luke-cage-preview+json"
+      },
       "method": "GET",
       "params": {
         "branch": {
@@ -9228,6 +9234,9 @@
       "url": "/repos/:owner/:repo"
     },
     "updateBranchProtection": {
+      "headers": {
+        "accept": "application/vnd.github.luke-cage-preview+json"
+      },
       "method": "PUT",
       "params": {
         "branch": {
@@ -9464,6 +9473,9 @@
       "url": "/repos/:owner/:repo/invitations/:invitation_id"
     },
     "updateProtectedBranchPullRequestReviewEnforcement": {
+      "headers": {
+        "accept": "application/vnd.github.luke-cage-preview+json"
+      },
       "method": "PATCH",
       "params": {
         "branch": {
