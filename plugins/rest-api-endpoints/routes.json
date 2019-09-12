@@ -5286,6 +5286,32 @@
       },
       "url": "/repos/:owner/:repo/pulls/:pull_number/reviews"
     },
+    "createReviewCommentReply": {
+      "method": "POST",
+      "params": {
+        "body": {
+          "required": true,
+          "type": "string"
+        },
+        "comment_id": {
+          "required": true,
+          "type": "integer"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "pull_number": {
+          "required": true,
+          "type": "integer"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/pulls/:pull_number/comments/:comment_id/replies"
+    },
     "createReviewRequest": {
       "method": "POST",
       "params": {
