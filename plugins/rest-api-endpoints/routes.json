@@ -9864,6 +9864,7 @@
   },
   "teams": {
     "addMember": {
+      "deprecated": "octokit.teams.addMember() is deprecated, see https://developer.github.com/v3/teams/members/#add-team-member",
       "method": "PUT",
       "params": {
         "team_id": {
@@ -10146,6 +10147,7 @@
       "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
     },
     "getMember": {
+      "deprecated": "octokit.teams.getMember() is deprecated, see https://developer.github.com/v3/teams/members/#get-team-member",
       "method": "GET",
       "params": {
         "team_id": {
@@ -10342,6 +10344,7 @@
       "url": "/teams/:team_id/repos"
     },
     "removeMember": {
+      "deprecated": "octokit.teams.removeMember() is deprecated, see https://developer.github.com/v3/teams/members/#remove-team-member",
       "method": "DELETE",
       "params": {
         "team_id": {
