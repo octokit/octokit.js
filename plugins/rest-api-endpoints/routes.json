@@ -10439,6 +10439,10 @@
           "type": "string"
         },
         "privacy": {
+          "enum": [
+            "secret",
+            "closed"
+          ],
           "type": "string"
         },
         "team_id": {
