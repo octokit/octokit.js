@@ -7628,7 +7628,7 @@
           "type": "string"
         },
         "sha": {
-          "alias": "commit_sha",
+          "alias": "ref",
           "deprecated": true,
           "type": "string"
         }
