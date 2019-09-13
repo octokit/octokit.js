@@ -6528,6 +6528,29 @@
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins"
     },
+    "addProtectedBranchAppRestrictions": {
+      "method": "POST",
+      "params": {
+        "apps": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string[]"
+        },
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/apps"
+    },
     "addProtectedBranchRequiredSignatures": {
       "headers": {
         "accept": "application/vnd.github.zzzax-preview+json"
@@ -9049,6 +9072,29 @@
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins"
     },
+    "removeProtectedBranchAppRestrictions": {
+      "method": "DELETE",
+      "params": {
+        "apps": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string[]"
+        },
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/apps"
+    },
     "removeProtectedBranchPullRequestReviewEnforcement": {
       "method": "DELETE",
       "params": {
@@ -9192,6 +9238,29 @@
         }
       },
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
+    },
+    "replaceProtectedBranchAppRestrictions": {
+      "method": "PUT",
+      "params": {
+        "apps": {
+          "mapTo": "data",
+          "required": true,
+          "type": "string[]"
+        },
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/apps"
     },
     "replaceProtectedBranchRequiredStatusChecksContexts": {
       "method": "PUT",
