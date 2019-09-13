@@ -9538,10 +9538,15 @@
           "required": true,
           "type": "object"
         },
+        "restrictions.apps": {
+          "type": "string[]"
+        },
         "restrictions.teams": {
+          "required": true,
           "type": "string[]"
         },
         "restrictions.users": {
+          "required": true,
           "type": "string[]"
         }
       },
