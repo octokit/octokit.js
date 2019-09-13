@@ -8107,6 +8107,24 @@
       },
       "url": "/repos/:owner/:repo/releases/tags/:tag"
     },
+    "getTeamsWithAccessToProtectedBranch": {
+      "method": "GET",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
+    },
     "getTopPaths": {
       "method": "GET",
       "params": {
@@ -8683,6 +8701,7 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts"
     },
     "listProtectedBranchTeamRestrictions": {
+      "deprecated": "octokit.repos.listProtectedBranchTeamRestrictions() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-09)",
       "method": "GET",
       "params": {
         "branch": {
@@ -8843,6 +8862,25 @@
         }
       },
       "url": "/repos/:owner/:repo/teams"
+    },
+    "listTeamsWithAccessToProtectedBranch": {
+      "deprecated": "octokit.repos.listTeamsWithAccessToProtectedBranch() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-13)",
+      "method": "GET",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
     },
     "listTopics": {
       "method": "GET",
