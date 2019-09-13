@@ -5176,14 +5176,20 @@
       "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "createCommentReply": {
+      "deprecated": "octokit.pulls.createCommentReply() has been renamed to octokit.pulls.createComment() (2019-09-09)",
       "method": "POST",
       "params": {
         "body": {
           "required": true,
           "type": "string"
         },
-        "in_reply_to": {
+        "commit_id": {
           "required": true,
+          "type": "string"
+        },
+        "in_reply_to": {
+          "deprecated": true,
+          "description": "The comment ID to reply to. **Note**: This must be the ID of a top-level comment, not a reply to that comment. Replies to replies are not supported.",
           "type": "integer"
         },
         "number": {
@@ -5422,6 +5428,11 @@
           "required": true,
           "type": "string"
         },
+        "in_reply_to": {
+          "deprecated": true,
+          "description": "The comment ID to reply to. **Note**: This must be the ID of a top-level comment, not a reply to that comment. Replies to replies are not supported.",
+          "type": "integer"
+        },
         "number": {
           "alias": "pull_number",
           "deprecated": true,
@@ -5430,6 +5441,14 @@
         "owner": {
           "required": true,
           "type": "string"
+        },
+        "path": {
+          "required": true,
+          "type": "string"
+        },
+        "position": {
+          "required": true,
+          "type": "integer"
         },
         "pull_number": {
           "required": true,
