@@ -7497,6 +7497,24 @@
       },
       "url": "/repos/:owner/:repo"
     },
+    "getAppsWithAccessToProtectedBranch": {
+      "method": "GET",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/apps"
+    },
     "getArchiveLink": {
       "method": "GET",
       "params": {
@@ -8165,6 +8183,25 @@
         }
       },
       "url": "/user/repos"
+    },
+    "listAppsWithAccessToProtectedBranch": {
+      "deprecated": "octokit.repos.listAppsWithAccessToProtectedBranch() has been renamed to octokit.repos.getAppsWithAccessToProtectedBranch() (2019-09-13)",
+      "method": "GET",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/apps"
     },
     "listAssetsForRelease": {
       "method": "GET",
