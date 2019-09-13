@@ -8153,6 +8153,24 @@
       },
       "url": "/repos/:owner/:repo/traffic/popular/referrers"
     },
+    "getUsersWithAccessToProtectedBranch": {
+      "method": "GET",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
+    },
     "getViews": {
       "method": "GET",
       "params": {
@@ -8726,6 +8744,7 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
     },
     "listProtectedBranchUserRestrictions": {
+      "deprecated": "octokit.repos.listProtectedBranchUserRestrictions() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-09)",
       "method": "GET",
       "params": {
         "branch": {
@@ -8895,6 +8914,25 @@
         }
       },
       "url": "/repos/:owner/:repo/topics"
+    },
+    "listUsersWithAccessToProtectedBranch": {
+      "deprecated": "octokit.repos.listUsersWithAccessToProtectedBranch() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-13)",
+      "method": "GET",
+      "params": {
+        "branch": {
+          "required": true,
+          "type": "string"
+        },
+        "owner": {
+          "required": true,
+          "type": "string"
+        },
+        "repo": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "merge": {
       "method": "POST",
