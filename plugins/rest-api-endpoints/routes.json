@@ -4644,12 +4644,6 @@
         "name": {
           "required": true,
           "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
         }
       },
       "url": "/user/projects"
@@ -4670,12 +4664,6 @@
         "org": {
           "required": true,
           "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
         }
       },
       "url": "/orgs/:org/projects"
@@ -4891,12 +4879,6 @@
         "owner": {
           "required": true,
           "type": "string"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
         },
         "repo": {
           "required": true,
