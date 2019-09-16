@@ -5002,12 +5002,6 @@
         "organization_permission": {
           "type": "string"
         },
-        "page": {
-          "type": "integer"
-        },
-        "per_page": {
-          "type": "integer"
-        },
         "private": {
           "type": "boolean"
         },
