@@ -10,8 +10,20 @@ const set = require("lodash.set");
 const TypeWriter = require("@gimenete/type-writer");
 const prettier = require("prettier");
 const { stringToJsdocComment } = require("string-to-jsdoc-comment");
+const sortKeys = require("sort-keys");
 
 const ROUTES = require("./lib/get-routes")();
+const MAP = {};
+Object.keys(ROUTES).forEach(namespace => {
+  MAP[namespace] = {};
+  ROUTES[namespace].forEach(method => {
+    MAP[namespace][method.idName] = method;
+  });
+});
+
+const MAP_SORTED = sortKeys(MAP, {
+  deep: true
+});
 
 const typeMap = {
   integer: "number",
@@ -87,109 +99,129 @@ function generateTypes(languageName, templateFile, outputFile) {
   console.log(`Generating ${languageName} types...`);
 
   const childParams = {};
-  const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
-    const methods = ROUTES[namespace].reduce((methods, entry) => {
-      const methodName = normalize(entry.idName);
-      const namespacedParamsName = pascalcase(
-        `${namespace}.${methodName}.Params`
-      );
-      let responseType = "Octokit.AnyResponse";
-      if (entry.responses) {
-        const typeName =
-          "Octokit." +
-          typeWriter.add(entry.responses.map(response => response.body || {}), {
-            rootTypeName: pascalcase(`${namespace}.${entry.idName}.Response`)
-          });
-        responseType = "Octokit.Response<" + typeName + ">";
-      }
-
-      // find aliased required parameters
-      const deprecatedParameters = entry.params
-        .map(param => {
-          if (!param.deprecated) {
-            return;
-          }
-
-          const newParam = entry.params.find(
-            p => p.name === param.deprecated.after.name
-          );
-          const description = [
-            param.description,
-            `@deprecated ${param.deprecated.message}`
-          ]
-            .filter(Boolean)
-            .join("\n");
-
-          return {
-            newParam,
-            name: param.name,
-            jsdoc: stringToJsdocComment(description)
-          };
-        })
-        .filter(Boolean);
-
-      const params = entry.params
-        .reduce(toCombineParams, [])
-        .map(toParamAlias)
-        // handle "object" & "object[]" types
-        .map(param => {
-          if (param.deprecated) {
-            return;
-          }
-
-          if (param.type === "object" || param.type === "object[]") {
-            const childParamsName = pascalcase(
-              `${namespacedParamsName}.${param.key}`
+  const namespaces = Object.keys(MAP_SORTED).reduce((namespaces, namespace) => {
+    const methods = Object.keys(MAP_SORTED[namespace]).reduce(
+      (methods, idName) => {
+        const entry = MAP_SORTED[namespace][idName];
+        const methodName = normalize(entry.idName);
+        const namespacedParamsName = pascalcase(
+          `${namespace}.${methodName}.Params`
+        );
+        let responseType = "Octokit.AnyResponse";
+        if (entry.responses) {
+          const typeName =
+            "Octokit." +
+            typeWriter.add(
+              entry.responses.map(response => response.body || {}),
+              {
+                rootTypeName: pascalcase(
+                  `${namespace}.${entry.idName}.Response`
+                )
+              }
             );
-            param.type = param.type.replace("object", childParamsName);
-
-            if (!childParams[childParamsName]) {
-              childParams[childParamsName] = {};
-            }
-          }
-
-          if (!/\./.test(param.key)) {
-            return param;
-          }
-
-          const childKey = param.key.split(".").pop();
-          const parentKey = param.key.replace(/\.[^.]+$/, "");
-
-          param.key = childKey;
-
-          const childParamsName = pascalcase(
-            `${namespacedParamsName}.${parentKey}`
-          );
-          set(childParams, `${childParamsName}.${childKey}`, param);
-        })
-        .filter(Boolean);
-
-      // prepare functions to accept multiple parameter types in order to support deprecations
-      // https://github.com/octokit/rest.js/issues/1317
-      const hasParams = params.length > 0;
-      const paramTypes = [
-        {
-          type: hasParams ? namespacedParamsName : "EmptyParams",
-          params,
-          hasParams
+          responseType = "Octokit.Response<" + typeName + ">";
         }
-      ];
 
-      deprecatedParameters.forEach(param => {
-        paramTypes.unshift({
-          type: pascalcase(`${namespacedParamsName}.deprecated.${param.name}`),
-          params: toDeprecated(params, param),
-          hasParams: true
+        // find aliased required parameters
+        const paramsSorted = entry.params.sort((a, b) => {
+          if (a.name < b.name) {
+            return 1;
+          }
+          if (a.name > b.name) {
+            return -1;
+          }
+          return 0;
         });
-      });
+        const deprecatedParameters = paramsSorted
+          .map(param => {
+            if (!param.deprecated) {
+              return;
+            }
 
-      return methods.concat({
-        method: methodName,
-        responseType,
-        jsdoc: stringToJsdocComment(entry.description),
-        paramTypes
-      });
-    }, []);
+            const newParam = paramsSorted.find(
+              p => p.name === param.deprecated.after.name
+            );
+            const description = [
+              param.description,
+              `@deprecated ${param.deprecated.message}`
+            ]
+              .filter(Boolean)
+              .join("\n");
+
+            return {
+              newParam,
+              name: param.name,
+              jsdoc: stringToJsdocComment(description)
+            };
+          })
+          .filter(Boolean);
+
+        const params = paramsSorted
+          .reduce(toCombineParams, [])
+          .map(toParamAlias)
+          // handle "object" & "object[]" types
+          .map(param => {
+            if (param.deprecated) {
+              return;
+            }
+
+            if (param.type === "object" || param.type === "object[]") {
+              const childParamsName = pascalcase(
+                `${namespacedParamsName}.${param.key}`
+              );
+              param.type = param.type.replace("object", childParamsName);
+
+              if (!childParams[childParamsName]) {
+                childParams[childParamsName] = {};
+              }
+            }
+
+            if (!/\./.test(param.key)) {
+              return param;
+            }
+
+            const childKey = param.key.split(".").pop();
+            const parentKey = param.key.replace(/\.[^.]+$/, "");
+
+            param.key = childKey;
+
+            const childParamsName = pascalcase(
+              `${namespacedParamsName}.${parentKey}`
+            );
+            set(childParams, `${childParamsName}.${childKey}`, param);
+          })
+          .filter(Boolean);
+
+        // prepare functions to accept multiple parameter types in order to support deprecations
+        // https://github.com/octokit/rest.js/issues/1317
+        const hasParams = params.length > 0;
+        const paramTypes = [
+          {
+            type: hasParams ? namespacedParamsName : "EmptyParams",
+            params,
+            hasParams
+          }
+        ];
+
+        deprecatedParameters.forEach(param => {
+          paramTypes.unshift({
+            type: pascalcase(
+              `${namespacedParamsName}.deprecated.${param.name}`
+            ),
+            params: toDeprecated(params, param),
+            hasParams: true
+          });
+        });
+
+        return methods.concat({
+          method: methodName,
+          responseType,
+          jsdoc: stringToJsdocComment(entry.description),
+          paramTypes
+        });
+      },
+      []
+    );
 
     return namespaces.concat({
       namespace: camelCase(namespace),
@@ -197,15 +229,48 @@ function generateTypes(languageName, templateFile, outputFile) {
     });
   }, []);
 
+  const paramTypes = [];
+  namespaces.forEach(namespace => {
+    namespace.methods.forEach(method => {
+      method.paramTypes
+        .filter(type => type.hasParams)
+        .forEach(({ type, params }) => {
+          paramTypes.push({
+            type,
+            params: params.sort((a, b) => {
+              if (a.key > b.key) {
+                return 1;
+              }
+              if (a.key < b.key) {
+                return -1;
+              }
+              return 0;
+            })
+          });
+        });
+    });
+  });
+
   const body = Mustache.render(template, {
     responseTypes: typeWriter.generate("typescript"),
     namespaces,
-    childParams: Object.keys(childParams).map(key => {
-      return {
-        paramTypeName: key,
-        params: Object.values(childParams[key])
-      };
-    })
+    paramTypes,
+    childParams: Object.keys(childParams)
+      .sort()
+      .map(key => {
+        return {
+          paramTypeName: key,
+          params: Object.values(childParams[key]).sort((a, b) => {
+            if (a.key > b.key) {
+              return 1;
+            }
+            if (a.key < b.key) {
+              return -1;
+            }
+            return 0;
+          })
+        };
+      })
   });
 
   const source = prettier.format(body, { parser: languageName.toLowerCase() });
