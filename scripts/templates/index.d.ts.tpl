@@ -217,6 +217,8 @@ declare namespace Octokit {
   {{&responseTypes}}
 
   // param types
+  {{#namespaces}}
+  {{#methods}}
   {{#paramTypes}}
   export type {{type}} =
     & {
@@ -226,6 +228,8 @@ declare namespace Octokit {
     {{/params}}
     };
   {{/paramTypes}}
+  {{/methods}}
+  {{/namespaces}}
 
   // child param types
   {{#childParams}}
