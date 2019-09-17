@@ -1,10 +1,10 @@
-import React from 'react'
-import { Helmet } from "react-helmet"
+import React from "react";
+import { Helmet } from "react-helmet";
 
-import Layout from '../components/layout'
-import { graphql } from 'gatsby'
+import Layout from "../components/layout";
+import { graphql } from "gatsby";
 
-import IndexPage from "../components/index-page"
+import IndexPage from "../components/index-page";
 
 export default ({ data }) => (
   <Layout>
@@ -14,11 +14,11 @@ export default ({ data }) => (
     </Helmet>
     <IndexPage data={data} />
   </Layout>
-)
+);
 
 export const query = graphql`
   query {
-    staticMethods: allMarkdownRemark(sort:{ fields: fields___slug }) {
+    staticMethods: allMarkdownRemark(sort: { fields: fields___slug }) {
       edges {
         node {
           id
@@ -53,4 +53,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
