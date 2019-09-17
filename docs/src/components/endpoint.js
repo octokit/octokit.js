@@ -75,14 +75,14 @@ export default class EndPoint extends Component {
               </tr>
             </thead>
             <tbody>
-              {method.params.map(param => {
+              {method.parameters.map(param => {
                 return (
                   <tr key={param.name}>
                     <td>{param.name}</td>
                     <td>{param.required ? "yes" : "no"}</td>
                     <td
                       dangerouslySetInnerHTML={{
-                        __html: marked(param.description)
+                        __html: marked(param.description || "")
                       }}
                     />
                   </tr>
