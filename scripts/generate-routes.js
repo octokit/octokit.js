@@ -1,6 +1,7 @@
 const { writeFileSync } = require("fs");
 const { join } = require("path");
 
+const prettier = require("prettier");
 const sortKeys = require("sort-keys");
 const { graphql } = require("@octokit/graphql");
 
@@ -286,7 +287,9 @@ async function generateRoutes() {
 
   writeFileSync(
     ROUTES_PATH,
-    JSON.stringify(sortKeys(newRoutes, { deep: true }), null, 2) + "\n"
+    prettier.format(JSON.stringify(sortKeys(newRoutes, { deep: true })), {
+      parser: "json"
+    })
   );
   console.log(`${ROUTES_PATH} written.`);
 }
