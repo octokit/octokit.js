@@ -1,21 +1,21 @@
-module.exports = validateAuth
+module.exports = validateAuth;
 
-function validateAuth (auth) {
-  if (typeof auth === 'string') {
-    return
+function validateAuth(auth) {
+  if (typeof auth === "string") {
+    return;
   }
 
-  if (typeof auth === 'function') {
-    return
+  if (typeof auth === "function") {
+    return;
   }
 
   if (auth.username && auth.password) {
-    return
+    return;
   }
 
   if (auth.clientId && auth.clientSecret) {
-    return
+    return;
   }
 
-  throw new Error(`Invalid "auth" option: ${JSON.stringify(auth)}`)
+  throw new Error(`Invalid "auth" option: ${JSON.stringify(auth)}`);
 }

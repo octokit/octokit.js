@@ -1,21 +1,21 @@
-module.exports = authenticationPlugin
+module.exports = authenticationPlugin;
 
-const beforeRequest = require('./before-request')
-const requestError = require('./request-error')
-const validate = require('./validate')
+const beforeRequest = require("./before-request");
+const requestError = require("./request-error");
+const validate = require("./validate");
 
-function authenticationPlugin (octokit, options) {
+function authenticationPlugin(octokit, options) {
   if (!options.auth) {
-    return
+    return;
   }
 
-  validate(options.auth)
+  validate(options.auth);
 
   const state = {
     octokit,
     auth: options.auth
-  }
+  };
 
-  octokit.hook.before('request', beforeRequest.bind(null, state))
-  octokit.hook.error('request', requestError.bind(null, state))
+  octokit.hook.before("request", beforeRequest.bind(null, state));
+  octokit.hook.error("request", requestError.bind(null, state));
 }

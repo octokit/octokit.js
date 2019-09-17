@@ -1,30 +1,34 @@
-module.exports = authenticationBeforeRequest
+module.exports = authenticationBeforeRequest;
 
-const btoa = require('btoa-lite')
+const btoa = require("btoa-lite");
 
-const withAuthorizationPrefix = require('./with-authorization-prefix')
+const withAuthorizationPrefix = require("./with-authorization-prefix");
 
-function authenticationBeforeRequest (state, options) {
-  if (typeof state.auth === 'string') {
-    options.headers.authorization = withAuthorizationPrefix(state.auth)
+function authenticationBeforeRequest(state, options) {
+  if (typeof state.auth === "string") {
+    options.headers.authorization = withAuthorizationPrefix(state.auth);
 
     // https://developer.github.com/v3/previews/#integrations
-    if (/^bearer /i.test(state.auth) && !/machine-man/.test(options.headers.accept)) {
-      const acceptHeaders = options.headers.accept.split(',')
-        .concat('application/vnd.github.machine-man-preview+json')
-      options.headers.accept = acceptHeaders.filter(Boolean).join(',')
+    if (
+      /^bearer /i.test(state.auth) &&
+      !/machine-man/.test(options.headers.accept)
+    ) {
+      const acceptHeaders = options.headers.accept
+        .split(",")
+        .concat("application/vnd.github.machine-man-preview+json");
+      options.headers.accept = acceptHeaders.filter(Boolean).join(",");
     }
 
-    return
+    return;
   }
 
   if (state.auth.username) {
-    const hash = btoa(`${state.auth.username}:${state.auth.password}`)
-    options.headers.authorization = `Basic ${hash}`
+    const hash = btoa(`${state.auth.username}:${state.auth.password}`);
+    options.headers.authorization = `Basic ${hash}`;
     if (state.otp) {
-      options.headers['x-github-otp'] = state.otp
+      options.headers["x-github-otp"] = state.otp;
     }
-    return
+    return;
   }
 
   if (state.auth.clientId) {
@@ -39,23 +43,23 @@ function authenticationBeforeRequest (state, options) {
     // We identify by checking the URL. It must merge both "/applications/:client_id/tokens/:access_token"
     // as well as "/applications/123/tokens/token456"
     if (/\/applications\/:?[\w_]+\/tokens\/:?[\w_]+($|\?)/.test(options.url)) {
-      const hash = btoa(`${state.auth.clientId}:${state.auth.clientSecret}`)
-      options.headers.authorization = `Basic ${hash}`
-      return
+      const hash = btoa(`${state.auth.clientId}:${state.auth.clientSecret}`);
+      options.headers.authorization = `Basic ${hash}`;
+      return;
     }
 
-    options.url += options.url.indexOf('?') === -1 ? '?' : '&'
-    options.url += `client_id=${state.auth.clientId}&client_secret=${state.auth.clientSecret}`
-    return
+    options.url += options.url.indexOf("?") === -1 ? "?" : "&";
+    options.url += `client_id=${state.auth.clientId}&client_secret=${state.auth.clientSecret}`;
+    return;
   }
 
   return Promise.resolve()
 
     .then(() => {
-      return state.auth()
+      return state.auth();
     })
 
-    .then((authorization) => {
-      options.headers.authorization = withAuthorizationPrefix(authorization)
-    })
+    .then(authorization => {
+      options.headers.authorization = withAuthorizationPrefix(authorization);
+    });
 }

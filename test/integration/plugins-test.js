@@ -1,43 +1,43 @@
-const Octokit = require('../../')
+const Octokit = require("../../");
 
-require('../mocha-node-setup')
+require("../mocha-node-setup");
 
-describe('plugins', () => {
-  it('gets called in constructor', () => {
-    const MyOctokit = Octokit.plugin((octokit) => {
-      octokit.foo = 'bar'
-    })
-    const myClient = new MyOctokit()
-    expect(myClient.foo).to.equal('bar')
-  })
+describe("plugins", () => {
+  it("gets called in constructor", () => {
+    const MyOctokit = Octokit.plugin(octokit => {
+      octokit.foo = "bar";
+    });
+    const myClient = new MyOctokit();
+    expect(myClient.foo).to.equal("bar");
+  });
 
-  it('does not override plugins of original constructor', () => {
-    const MyOctokit = Octokit.plugin((octokit) => {
-      octokit.foo = 'bar'
-    })
-    const myClient = new MyOctokit()
-    expect(myClient.foo).to.equal('bar')
+  it("does not override plugins of original constructor", () => {
+    const MyOctokit = Octokit.plugin(octokit => {
+      octokit.foo = "bar";
+    });
+    const myClient = new MyOctokit();
+    expect(myClient.foo).to.equal("bar");
 
-    const octokit = new Octokit()
-    expect(octokit.foo).to.equal(undefined)
-  })
+    const octokit = new Octokit();
+    expect(octokit.foo).to.equal(undefined);
+  });
 
-  it('receives client options', () => {
+  it("receives client options", () => {
     const MyOctokit = Octokit.plugin((octokit, options) => {
-      expect(options.foo).to.equal('bar')
-    })
-    MyOctokit({ foo: 'bar' })
-  })
+      expect(options.foo).to.equal("bar");
+    });
+    MyOctokit({ foo: "bar" });
+  });
 
-  it('does not load the same plugin more than once', () => {
+  it("does not load the same plugin more than once", () => {
     const myPlugin = (octokit, options) => {
       if (octokit.customKey) {
-        throw new Error('Boom!')
+        throw new Error("Boom!");
       } else {
-        octokit.customKey = true
+        octokit.customKey = true;
       }
-    }
-    const MyOctokit = Octokit.plugin(myPlugin).plugin(myPlugin)
-    expect(MyOctokit).to.not.throw()
-  })
-})
+    };
+    const MyOctokit = Octokit.plugin(myPlugin).plugin(myPlugin);
+    expect(MyOctokit).to.not.throw();
+  });
+});

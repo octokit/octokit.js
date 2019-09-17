@@ -1,65 +1,66 @@
-const nock = require('nock')
+const nock = require("nock");
 
-const Octokit = require('../../')
+const Octokit = require("../../");
 
-require('../mocha-node-setup')
+require("../mocha-node-setup");
 
-describe('apps', () => {
-  let octokit
+describe("apps", () => {
+  let octokit;
 
   beforeEach(() => {
     octokit = new Octokit({
-      baseUrl: 'https://apps-test-host.com',
-      auth: 'Bearer 123'
-    })
-  })
+      baseUrl: "https://apps-test-host.com",
+      auth: "Bearer 123"
+    });
+  });
 
   it('adds "machine-man" preview header', () => {
-    nock('https://apps-test-host.com', {
+    nock("https://apps-test-host.com", {
       reqheaders: {
-        authorization: 'Bearer 123',
-        accept: 'application/vnd.github.v3+json,application/vnd.github.machine-man-preview+json'
+        authorization: "Bearer 123",
+        accept:
+          "application/vnd.github.v3+json,application/vnd.github.machine-man-preview+json"
       }
     })
-      .get('/orgs/myorg')
-      .reply(200, {})
+      .get("/orgs/myorg")
+      .reply(200, {});
 
-    return octokit.orgs.get({ org: 'myorg' })
-  })
+    return octokit.orgs.get({ org: "myorg" });
+  });
 
   it('adds "machine-man" preview header to custom accept header', () => {
-    nock('https://apps-test-host.com', {
+    nock("https://apps-test-host.com", {
       reqheaders: {
-        authorization: 'Bearer 123',
-        accept: 'foo-bar,application/vnd.github.machine-man-preview+json'
+        authorization: "Bearer 123",
+        accept: "foo-bar,application/vnd.github.machine-man-preview+json"
       }
     })
-      .get('/orgs/myorg')
-      .reply(200, {})
+      .get("/orgs/myorg")
+      .reply(200, {});
 
     return octokit.orgs.get({
-      org: 'myorg',
+      org: "myorg",
       headers: {
-        accept: 'foo-bar'
+        accept: "foo-bar"
       }
-    })
-  })
+    });
+  });
 
   it('does not add "machine-man" preview header if it is already set', () => {
-    nock('https://apps-test-host.com', {
+    nock("https://apps-test-host.com", {
       reqheaders: {
-        authorization: 'Bearer 123',
-        accept: 'application/vnd.github.machine-man-preview+json'
+        authorization: "Bearer 123",
+        accept: "application/vnd.github.machine-man-preview+json"
       }
     })
-      .get('/orgs/myorg')
-      .reply(200, {})
+      .get("/orgs/myorg")
+      .reply(200, {});
 
     return octokit.orgs.get({
-      org: 'myorg',
+      org: "myorg",
       headers: {
-        accept: 'application/vnd.github.machine-man-preview+json'
+        accept: "application/vnd.github.machine-man-preview+json"
       }
-    })
-  })
-})
+    });
+  });
+});

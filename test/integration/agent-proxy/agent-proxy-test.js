@@ -5,52 +5,51 @@
  * Copyright (c) 2013 Nathan Rajlich <nathan@tootallnate.net>
  * Released under the MIT license
  */
-const Proxy = require('proxy')
-const HttpProxyAgent = require('http-proxy-agent')
+const Proxy = require("proxy");
+const HttpProxyAgent = require("http-proxy-agent");
 
-const { getInstance } = require('../../util')
+const { getInstance } = require("../../util");
 
-require('../../mocha-node-setup')
+require("../../mocha-node-setup");
 
-describe('client proxy', function () {
-  let proxy
-  let proxyUrl
+describe("client proxy", function() {
+  let proxy;
+  let proxyUrl;
 
   // start HTTP proxy server
-  before(function (done) {
-    proxy = Proxy()
-    proxy.listen(function () {
-      proxyUrl = 'http://localhost:' + proxy.address().port
-      done()
-    })
-  })
+  before(function(done) {
+    proxy = Proxy();
+    proxy.listen(function() {
+      proxyUrl = "http://localhost:" + proxy.address().port;
+      done();
+    });
+  });
 
   // stop proxy HTTP server
-  after(function (done) {
-    proxy.once('close', () => done())
-    proxy.close()
-  })
+  after(function(done) {
+    proxy.once("close", () => done());
+    proxy.close();
+  });
 
-  it('options.agent = new HttpProxyAgent(proxyUrl)', () => {
-    let proxyReceivedRequest
+  it("options.agent = new HttpProxyAgent(proxyUrl)", () => {
+    let proxyReceivedRequest;
 
-    proxy.once('request', function (request) {
-      expect(request.headers.accept, 'application/vnd.github.v3+json')
-      proxyReceivedRequest = true
-    })
+    proxy.once("request", function(request) {
+      expect(request.headers.accept, "application/vnd.github.v3+json");
+      proxyReceivedRequest = true;
+    });
 
-    return getInstance('get-organization', {
-      auth: 'token 0000000000000000000000000000000000000001',
+    return getInstance("get-organization", {
+      auth: "token 0000000000000000000000000000000000000001",
       request: { agent: new HttpProxyAgent(proxyUrl) }
     })
-
       .then(octokit => {
-        return octokit.orgs.get({ org: 'octokit-fixture-org' })
+        return octokit.orgs.get({ org: "octokit-fixture-org" });
       })
 
-      .then((response) => {
-        expect(response.data.login).to.equal('octokit-fixture-org')
-        expect(proxyReceivedRequest).to.equal(true)
-      })
-  })
-})
+      .then(response => {
+        expect(response.data.login).to.equal("octokit-fixture-org");
+        expect(proxyReceivedRequest).to.equal(true);
+      });
+  });
+});

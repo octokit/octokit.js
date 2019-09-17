@@ -1,42 +1,48 @@
-module.exports = octokitRestNormalizeGitReferenceResponses
+module.exports = octokitRestNormalizeGitReferenceResponses;
 
-const { RequestError } = require('@octokit/request-error')
+const { RequestError } = require("@octokit/request-error");
 
-function octokitRestNormalizeGitReferenceResponses (octokit) {
-  octokit.hook.wrap('request', (request, options) => {
-    const isGetOrListRefRequest = /\/repos\/:?\w+\/:?\w+\/git\/refs\/:?\w+/.test(options.url)
+function octokitRestNormalizeGitReferenceResponses(octokit) {
+  octokit.hook.wrap("request", (request, options) => {
+    const isGetOrListRefRequest = /\/repos\/:?\w+\/:?\w+\/git\/refs\/:?\w+/.test(
+      options.url
+    );
 
     if (!isGetOrListRefRequest) {
-      return request(options)
+      return request(options);
     }
 
-    const isGetRefRequest = 'ref' in options
+    const isGetRefRequest = "ref" in options;
 
     return request(options)
       .then(response => {
         // request single reference
         if (isGetRefRequest) {
           if (Array.isArray(response.data)) {
-            throw new RequestError(`More than one reference found for "${options.ref}"`, 404, {
-              request: options
-            })
+            throw new RequestError(
+              `More than one reference found for "${options.ref}"`,
+              404,
+              {
+                request: options
+              }
+            );
           }
 
           // ✅ received single reference
-          return response
+          return response;
         }
 
         // request list of references
         if (!Array.isArray(response.data)) {
-          response.data = [response.data]
+          response.data = [response.data];
         }
 
-        return response
+        return response;
       })
 
       .catch(error => {
         if (isGetRefRequest) {
-          throw error
+          throw error;
         }
 
         if (error.status === 404) {
@@ -44,10 +50,10 @@ function octokitRestNormalizeGitReferenceResponses (octokit) {
             status: 200,
             headers: error.headers,
             data: []
-          }
+          };
         }
 
-        throw error
-      })
-  })
+        throw error;
+      });
+  });
 }

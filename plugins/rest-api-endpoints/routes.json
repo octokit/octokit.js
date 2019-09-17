@@ -289,10 +289,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -302,10 +299,7 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -315,10 +309,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -328,10 +319,7 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         },
         "username": {
@@ -750,10 +738,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -767,10 +752,7 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -780,10 +762,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -797,10 +776,7 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -993,11 +969,7 @@
           "type": "object[]"
         },
         "output.annotations[].annotation_level": {
-          "enum": [
-            "notice",
-            "warning",
-            "failure"
-          ],
+          "enum": ["notice", "warning", "failure"],
           "required": true,
           "type": "string"
         },
@@ -1066,11 +1038,7 @@
           "type": "string"
         },
         "status": {
-          "enum": [
-            "queued",
-            "in_progress",
-            "completed"
-          ],
+          "enum": ["queued", "in_progress", "completed"],
           "type": "string"
         }
       },
@@ -1176,10 +1144,7 @@
           "type": "string"
         },
         "filter": {
-          "enum": [
-            "latest",
-            "all"
-          ],
+          "enum": ["latest", "all"],
           "type": "string"
         },
         "owner": {
@@ -1201,11 +1166,7 @@
           "type": "string"
         },
         "status": {
-          "enum": [
-            "queued",
-            "in_progress",
-            "completed"
-          ],
+          "enum": ["queued", "in_progress", "completed"],
           "type": "string"
         }
       },
@@ -1225,10 +1186,7 @@
           "type": "integer"
         },
         "filter": {
-          "enum": [
-            "latest",
-            "all"
-          ],
+          "enum": ["latest", "all"],
           "type": "string"
         },
         "owner": {
@@ -1246,11 +1204,7 @@
           "type": "string"
         },
         "status": {
-          "enum": [
-            "queued",
-            "in_progress",
-            "completed"
-          ],
+          "enum": ["queued", "in_progress", "completed"],
           "type": "string"
         }
       },
@@ -1393,11 +1347,7 @@
           "type": "object[]"
         },
         "output.annotations[].annotation_level": {
-          "enum": [
-            "notice",
-            "warning",
-            "failure"
-          ],
+          "enum": ["notice", "warning", "failure"],
           "required": true,
           "type": "string"
         },
@@ -1465,11 +1415,7 @@
           "type": "string"
         },
         "status": {
-          "enum": [
-            "queued",
-            "in_progress",
-            "completed"
-          ],
+          "enum": ["queued", "in_progress", "completed"],
           "type": "string"
         }
       },
@@ -1945,11 +1891,7 @@
           "type": "string"
         },
         "type": {
-          "enum": [
-            "commit",
-            "tree",
-            "blob"
-          ],
+          "enum": ["commit", "tree", "blob"],
           "required": true,
           "type": "string"
         }
@@ -1978,13 +1920,7 @@
           "type": "string"
         },
         "tree[].mode": {
-          "enum": [
-            "100644",
-            "100755",
-            "040000",
-            "160000",
-            "120000"
-          ],
+          "enum": ["100644", "100755", "040000", "160000", "120000"],
           "type": "string"
         },
         "tree[].path": {
@@ -1994,11 +1930,7 @@
           "type": "string"
         },
         "tree[].type": {
-          "enum": [
-            "blob",
-            "tree",
-            "commit"
-          ],
+          "enum": ["blob", "tree", "commit"],
           "type": "string"
         }
       },
@@ -2102,9 +2034,7 @@
           "type": "string"
         },
         "recursive": {
-          "enum": [
-            1
-          ],
+          "enum": [1],
           "type": "integer"
         },
         "repo": {
@@ -2192,11 +2122,7 @@
       "method": "PUT",
       "params": {
         "limit": {
-          "enum": [
-            "existing_users",
-            "contributors_only",
-            "collaborators_only"
-          ],
+          "enum": ["existing_users", "contributors_only", "collaborators_only"],
           "required": true,
           "type": "string"
         },
@@ -2214,11 +2140,7 @@
       "method": "PUT",
       "params": {
         "limit": {
-          "enum": [
-            "existing_users",
-            "contributors_only",
-            "collaborators_only"
-          ],
+          "enum": ["existing_users", "contributors_only", "collaborators_only"],
           "required": true,
           "type": "string"
         },
@@ -2469,10 +2391,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed"
-          ],
+          "enum": ["open", "closed"],
           "type": "string"
         },
         "title": {
@@ -2651,20 +2570,11 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "filter": {
-          "enum": [
-            "assigned",
-            "created",
-            "mentioned",
-            "subscribed",
-            "all"
-          ],
+          "enum": ["assigned", "created", "mentioned", "subscribed", "all"],
           "type": "string"
         },
         "labels": {
@@ -2680,19 +2590,11 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "comments"
-          ],
+          "enum": ["created", "updated", "comments"],
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -2754,10 +2656,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "owner": {
@@ -2772,10 +2671,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -2866,20 +2762,11 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "filter": {
-          "enum": [
-            "assigned",
-            "created",
-            "mentioned",
-            "subscribed",
-            "all"
-          ],
+          "enum": ["assigned", "created", "mentioned", "subscribed", "all"],
           "type": "string"
         },
         "labels": {
@@ -2895,19 +2782,11 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "comments"
-          ],
+          "enum": ["created", "updated", "comments"],
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -2917,20 +2796,11 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "filter": {
-          "enum": [
-            "assigned",
-            "created",
-            "mentioned",
-            "subscribed",
-            "all"
-          ],
+          "enum": ["assigned", "created", "mentioned", "subscribed", "all"],
           "type": "string"
         },
         "labels": {
@@ -2950,19 +2820,11 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "comments"
-          ],
+          "enum": ["created", "updated", "comments"],
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -2978,10 +2840,7 @@
           "type": "string"
         },
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "labels": {
@@ -3011,19 +2870,11 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "comments"
-          ],
+          "enum": ["created", "updated", "comments"],
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -3111,10 +2962,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "owner": {
@@ -3132,18 +2980,11 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "due_on",
-            "completeness"
-          ],
+          "enum": ["due_on", "completeness"],
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -3157,12 +2998,7 @@
           "type": "integer"
         },
         "lock_reason": {
-          "enum": [
-            "off-topic",
-            "too heated",
-            "resolved",
-            "spam"
-          ],
+          "enum": ["off-topic", "too heated", "resolved", "spam"],
           "type": "string"
         },
         "number": {
@@ -3343,10 +3179,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed"
-          ],
+          "enum": ["open", "closed"],
           "type": "string"
         },
         "title": {
@@ -3431,10 +3264,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed"
-          ],
+          "enum": ["open", "closed"],
           "type": "string"
         },
         "title": {
@@ -3489,10 +3319,7 @@
           "type": "string"
         },
         "mode": {
-          "enum": [
-            "markdown",
-            "gfm"
-          ],
+          "enum": ["markdown", "gfm"],
           "type": "string"
         },
         "text": {
@@ -3762,10 +3589,7 @@
           "type": "string"
         },
         "use_lfs": {
-          "enum": [
-            "opt_in",
-            "opt_out"
-          ],
+          "enum": ["opt_in", "opt_out"],
           "required": true,
           "type": "string"
         }
@@ -3826,12 +3650,7 @@
           "type": "string"
         },
         "vcs": {
-          "enum": [
-            "subversion",
-            "git",
-            "mercurial",
-            "tfvc"
-          ],
+          "enum": ["subversion", "git", "mercurial", "tfvc"],
           "type": "string"
         },
         "vcs_password": {
@@ -4174,10 +3993,7 @@
           "type": "string"
         },
         "role": {
-          "enum": [
-            "admin",
-            "member"
-          ],
+          "enum": ["admin", "member"],
           "type": "string"
         },
         "username": {
@@ -4322,11 +4138,7 @@
           "type": "string"
         },
         "role": {
-          "enum": [
-            "admin",
-            "direct_member",
-            "billing_manager"
-          ],
+          "enum": ["admin", "direct_member", "billing_manager"],
           "type": "string"
         },
         "team_ids": {
@@ -4490,10 +4302,7 @@
       "method": "GET",
       "params": {
         "filter": {
-          "enum": [
-            "2fa_disabled",
-            "all"
-          ],
+          "enum": ["2fa_disabled", "all"],
           "type": "string"
         },
         "org": {
@@ -4507,11 +4316,7 @@
           "type": "integer"
         },
         "role": {
-          "enum": [
-            "all",
-            "admin",
-            "member"
-          ],
+          "enum": ["all", "admin", "member"],
           "type": "string"
         }
       },
@@ -4527,10 +4332,7 @@
           "type": "integer"
         },
         "state": {
-          "enum": [
-            "active",
-            "pending"
-          ],
+          "enum": ["active", "pending"],
           "type": "string"
         }
       },
@@ -4540,10 +4342,7 @@
       "method": "GET",
       "params": {
         "filter": {
-          "enum": [
-            "2fa_disabled",
-            "all"
-          ],
+          "enum": ["2fa_disabled", "all"],
           "type": "string"
         },
         "org": {
@@ -4685,12 +4484,7 @@
           "type": "string"
         },
         "default_repository_permission": {
-          "enum": [
-            "read",
-            "write",
-            "admin",
-            "none"
-          ],
+          "enum": ["read", "write", "admin", "none"],
           "type": "string"
         },
         "description": {
@@ -4709,11 +4503,7 @@
           "type": "string"
         },
         "members_allowed_repository_creation_type": {
-          "enum": [
-            "all",
-            "private",
-            "none"
-          ],
+          "enum": ["all", "private", "none"],
           "type": "string"
         },
         "members_can_create_repositories": {
@@ -4773,9 +4563,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "active"
-          ],
+          "enum": ["active"],
           "required": true,
           "type": "string"
         }
@@ -4791,11 +4579,7 @@
       "method": "PUT",
       "params": {
         "permission": {
-          "enum": [
-            "read",
-            "write",
-            "admin"
-          ],
+          "enum": ["read", "write", "admin"],
           "type": "string"
         },
         "project_id": {
@@ -5017,11 +4801,7 @@
       "method": "GET",
       "params": {
         "archived_state": {
-          "enum": [
-            "all",
-            "archived",
-            "not_archived"
-          ],
+          "enum": ["all", "archived", "not_archived"],
           "type": "string"
         },
         "column_id": {
@@ -5044,11 +4824,7 @@
       "method": "GET",
       "params": {
         "affiliation": {
-          "enum": [
-            "outside",
-            "direct",
-            "all"
-          ],
+          "enum": ["outside", "direct", "all"],
           "type": "string"
         },
         "page": {
@@ -5100,11 +4876,7 @@
           "type": "integer"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -5131,11 +4903,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -5154,11 +4922,7 @@
           "type": "integer"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         },
         "username": {
@@ -5270,10 +5034,7 @@
           "type": "integer"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed"
-          ],
+          "enum": ["open", "closed"],
           "type": "string"
         }
       },
@@ -5502,11 +5263,7 @@
           "type": "string"
         },
         "event": {
-          "enum": [
-            "APPROVE",
-            "REQUEST_CHANGES",
-            "COMMENT"
-          ],
+          "enum": ["APPROVE", "REQUEST_CHANGES", "COMMENT"],
           "type": "string"
         },
         "number": {
@@ -5771,10 +5528,7 @@
           "type": "string"
         },
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "head": {
@@ -5795,20 +5549,11 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "popularity",
-            "long-running"
-          ],
+          "enum": ["created", "updated", "popularity", "long-running"],
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed",
-            "all"
-          ],
+          "enum": ["open", "closed", "all"],
           "type": "string"
         }
       },
@@ -5818,10 +5563,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "number": {
@@ -5851,10 +5593,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -5864,10 +5603,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "owner": {
@@ -5888,10 +5624,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -6023,11 +5756,7 @@
           "type": "string"
         },
         "merge_method": {
-          "enum": [
-            "merge",
-            "squash",
-            "rebase"
-          ],
+          "enum": ["merge", "squash", "rebase"],
           "type": "string"
         },
         "number": {
@@ -6060,11 +5789,7 @@
           "type": "string"
         },
         "event": {
-          "enum": [
-            "APPROVE",
-            "REQUEST_CHANGES",
-            "COMMENT"
-          ],
+          "enum": ["APPROVE", "REQUEST_CHANGES", "COMMENT"],
           "required": true,
           "type": "string"
         },
@@ -6122,10 +5847,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "open",
-            "closed"
-          ],
+          "enum": ["open", "closed"],
           "type": "string"
         },
         "title": {
@@ -6705,11 +6427,7 @@
           "type": "string"
         },
         "permission": {
-          "enum": [
-            "pull",
-            "push",
-            "admin"
-          ],
+          "enum": ["pull", "push", "admin"],
           "type": "string"
         },
         "repo": {
@@ -7004,11 +6722,7 @@
           "type": "string"
         },
         "environment": {
-          "enum": [
-            "production",
-            "staging",
-            "qa"
-          ],
+          "enum": ["production", "staging", "qa"],
           "type": "string"
         },
         "environment_url": {
@@ -7373,12 +7087,7 @@
           "type": "string"
         },
         "state": {
-          "enum": [
-            "error",
-            "failure",
-            "pending",
-            "success"
-          ],
+          "enum": ["error", "failure", "pending", "success"],
           "required": true,
           "type": "string"
         },
@@ -7683,10 +7392,7 @@
           "type": "object"
         },
         "source.branch": {
-          "enum": [
-            "master",
-            "gh-pages"
-          ],
+          "enum": ["master", "gh-pages"],
           "type": "string"
         },
         "source.path": {
@@ -7792,10 +7498,7 @@
           "type": "string"
         },
         "per": {
-          "enum": [
-            "day",
-            "week"
-          ],
+          "enum": ["day", "week"],
           "type": "string"
         },
         "repo": {
@@ -8351,10 +8054,7 @@
           "type": "string"
         },
         "per": {
-          "enum": [
-            "day",
-            "week"
-          ],
+          "enum": ["day", "week"],
           "type": "string"
         },
         "repo": {
@@ -8371,10 +8071,7 @@
           "type": "string"
         },
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -8384,30 +8081,15 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "pushed",
-            "full_name"
-          ],
+          "enum": ["created", "updated", "pushed", "full_name"],
           "type": "string"
         },
         "type": {
-          "enum": [
-            "all",
-            "owner",
-            "public",
-            "private",
-            "member"
-          ],
+          "enum": ["all", "owner", "public", "private", "member"],
           "type": "string"
         },
         "visibility": {
-          "enum": [
-            "all",
-            "public",
-            "private"
-          ],
+          "enum": ["all", "public", "private"],
           "type": "string"
         }
       },
@@ -8485,11 +8167,7 @@
       "method": "GET",
       "params": {
         "affiliation": {
-          "enum": [
-            "outside",
-            "direct",
-            "all"
-          ],
+          "enum": ["outside", "direct", "all"],
           "type": "string"
         },
         "owner": {
@@ -8716,10 +8394,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "org": {
@@ -8733,23 +8408,11 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "pushed",
-            "full_name"
-          ],
+          "enum": ["created", "updated", "pushed", "full_name"],
           "type": "string"
         },
         "type": {
-          "enum": [
-            "all",
-            "public",
-            "private",
-            "forks",
-            "sources",
-            "member"
-          ],
+          "enum": ["all", "public", "private", "forks", "sources", "member"],
           "type": "string"
         }
       },
@@ -8759,10 +8422,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -8772,20 +8432,11 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated",
-            "pushed",
-            "full_name"
-          ],
+          "enum": ["created", "updated", "pushed", "full_name"],
           "type": "string"
         },
         "type": {
-          "enum": [
-            "all",
-            "owner",
-            "member"
-          ],
+          "enum": ["all", "owner", "member"],
           "type": "string"
         },
         "username": {
@@ -8813,11 +8464,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "newest",
-            "oldest",
-            "stargazers"
-          ],
+          "enum": ["newest", "oldest", "stargazers"],
           "type": "string"
         }
       },
@@ -9788,11 +9435,7 @@
           "type": "string"
         },
         "source": {
-          "enum": [
-            "\"gh-pages\"",
-            "\"master\"",
-            "\"master /docs\""
-          ],
+          "enum": ["\"gh-pages\"", "\"master\"", "\"master /docs\""],
           "type": "string"
         }
       },
@@ -9810,11 +9453,7 @@
           "type": "string"
         },
         "permissions": {
-          "enum": [
-            "read",
-            "write",
-            "admin"
-          ],
+          "enum": ["read", "write", "admin"],
           "type": "string"
         },
         "repo": {
@@ -9984,10 +9623,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "page": {
@@ -10001,9 +9637,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "indexed"
-          ],
+          "enum": ["indexed"],
           "type": "string"
         }
       },
@@ -10016,10 +9650,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "page": {
@@ -10033,10 +9664,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "author-date",
-            "committer-date"
-          ],
+          "enum": ["author-date", "committer-date"],
           "type": "string"
         }
       },
@@ -10047,10 +9675,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "page": {
@@ -10086,10 +9711,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "page": {
@@ -10125,10 +9747,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "q": {
@@ -10140,10 +9759,7 @@
           "type": "integer"
         },
         "sort": {
-          "enum": [
-            "created",
-            "updated"
-          ],
+          "enum": ["created", "updated"],
           "type": "string"
         }
       },
@@ -10153,10 +9769,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "page": {
@@ -10170,12 +9783,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "stars",
-            "forks",
-            "help-wanted-issues",
-            "updated"
-          ],
+          "enum": ["stars", "forks", "help-wanted-issues", "updated"],
           "type": "string"
         }
       },
@@ -10195,10 +9803,7 @@
       "method": "GET",
       "params": {
         "order": {
-          "enum": [
-            "desc",
-            "asc"
-          ],
+          "enum": ["desc", "asc"],
           "type": "string"
         },
         "page": {
@@ -10212,11 +9817,7 @@
           "type": "string"
         },
         "sort": {
-          "enum": [
-            "followers",
-            "repositories",
-            "joined"
-          ],
+          "enum": ["followers", "repositories", "joined"],
           "type": "string"
         }
       },
@@ -10242,10 +9843,7 @@
       "method": "PUT",
       "params": {
         "role": {
-          "enum": [
-            "member",
-            "maintainer"
-          ],
+          "enum": ["member", "maintainer"],
           "type": "string"
         },
         "team_id": {
@@ -10266,11 +9864,7 @@
       "method": "PUT",
       "params": {
         "permission": {
-          "enum": [
-            "read",
-            "write",
-            "admin"
-          ],
+          "enum": ["read", "write", "admin"],
           "type": "string"
         },
         "project_id": {
@@ -10292,11 +9886,7 @@
           "type": "string"
         },
         "permission": {
-          "enum": [
-            "pull",
-            "push",
-            "admin"
-          ],
+          "enum": ["pull", "push", "admin"],
           "type": "string"
         },
         "repo": {
@@ -10349,18 +9939,11 @@
           "type": "integer"
         },
         "permission": {
-          "enum": [
-            "pull",
-            "push",
-            "admin"
-          ],
+          "enum": ["pull", "push", "admin"],
           "type": "string"
         },
         "privacy": {
-          "enum": [
-            "secret",
-            "closed"
-          ],
+          "enum": ["secret", "closed"],
           "type": "string"
         },
         "repo_names": {
@@ -10594,10 +10177,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "discussion_number": {
@@ -10624,10 +10204,7 @@
       "method": "GET",
       "params": {
         "direction": {
-          "enum": [
-            "asc",
-            "desc"
-          ],
+          "enum": ["asc", "desc"],
           "type": "string"
         },
         "page": {
@@ -10665,11 +10242,7 @@
           "type": "integer"
         },
         "role": {
-          "enum": [
-            "member",
-            "maintainer",
-            "all"
-          ],
+          "enum": ["member", "maintainer", "all"],
           "type": "string"
         },
         "team_id": {
@@ -10821,11 +10394,7 @@
           "type": "integer"
         },
         "permission": {
-          "enum": [
-            "pull",
-            "push",
-            "admin"
-          ],
+          "enum": ["pull", "push", "admin"],
           "type": "string"
         },
         "privacy": {
@@ -11028,12 +10597,7 @@
           "type": "string"
         },
         "subject_type": {
-          "enum": [
-            "organization",
-            "repository",
-            "issue",
-            "pull_request"
-          ],
+          "enum": ["organization", "repository", "issue", "pull_request"],
           "type": "string"
         },
         "username": {

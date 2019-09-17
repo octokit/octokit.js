@@ -19,73 +19,95 @@
  * property because it also exists in the response of Get the combined status for a specific ref.
  */
 
-module.exports = normalizePaginatedListResponse
+module.exports = normalizePaginatedListResponse;
 
-const { Deprecation } = require('deprecation')
-const once = require('once')
+const { Deprecation } = require("deprecation");
+const once = require("once");
 
-const deprecateIncompleteResults = once((log, deprecation) => log.warn(deprecation))
-const deprecateTotalCount = once((log, deprecation) => log.warn(deprecation))
-const deprecateNamespace = once((log, deprecation) => log.warn(deprecation))
+const deprecateIncompleteResults = once((log, deprecation) =>
+  log.warn(deprecation)
+);
+const deprecateTotalCount = once((log, deprecation) => log.warn(deprecation));
+const deprecateNamespace = once((log, deprecation) => log.warn(deprecation));
 
-const REGEX_IS_SEARCH_PATH = /^\/search\//
-const REGEX_IS_CHECKS_PATH = /^\/repos\/[^/]+\/[^/]+\/commits\/[^/]+\/(check-runs|check-suites)/
-const REGEX_IS_INSTALLATION_REPOSITORIES_PATH = /^\/installation\/repositories/
-const REGEX_IS_USER_INSTALLATIONS_PATH = /^\/user\/installations/
+const REGEX_IS_SEARCH_PATH = /^\/search\//;
+const REGEX_IS_CHECKS_PATH = /^\/repos\/[^/]+\/[^/]+\/commits\/[^/]+\/(check-runs|check-suites)/;
+const REGEX_IS_INSTALLATION_REPOSITORIES_PATH = /^\/installation\/repositories/;
+const REGEX_IS_USER_INSTALLATIONS_PATH = /^\/user\/installations/;
 
-function normalizePaginatedListResponse (octokit, url, response) {
-  const path = url.replace(octokit.request.endpoint.DEFAULTS.baseUrl, '')
+function normalizePaginatedListResponse(octokit, url, response) {
+  const path = url.replace(octokit.request.endpoint.DEFAULTS.baseUrl, "");
   if (
     !REGEX_IS_SEARCH_PATH.test(path) &&
     !REGEX_IS_CHECKS_PATH.test(path) &&
     !REGEX_IS_INSTALLATION_REPOSITORIES_PATH.test(path) &&
     !REGEX_IS_USER_INSTALLATIONS_PATH.test(path)
   ) {
-    return
+    return;
   }
 
   // keep the additional properties intact to avoid a breaking change,
   // but log a deprecation warning when accessed
-  const incompleteResults = response.data.incomplete_results
-  const repositorySelection = response.data.repository_selection
-  const totalCount = response.data.total_count
-  delete response.data.incomplete_results
-  delete response.data.repository_selection
-  delete response.data.total_count
+  const incompleteResults = response.data.incomplete_results;
+  const repositorySelection = response.data.repository_selection;
+  const totalCount = response.data.total_count;
+  delete response.data.incomplete_results;
+  delete response.data.repository_selection;
+  delete response.data.total_count;
 
-  const namespaceKey = Object.keys(response.data)[0]
+  const namespaceKey = Object.keys(response.data)[0];
 
-  response.data = response.data[namespaceKey]
+  response.data = response.data[namespaceKey];
 
   Object.defineProperty(response.data, namespaceKey, {
-    get () {
-      deprecateNamespace(octokit.log, new Deprecation(`[@octokit/rest] "result.data.${namespaceKey}" is deprecated. Use "result.data" instead`))
-      return response.data
+    get() {
+      deprecateNamespace(
+        octokit.log,
+        new Deprecation(
+          `[@octokit/rest] "result.data.${namespaceKey}" is deprecated. Use "result.data" instead`
+        )
+      );
+      return response.data;
     }
-  })
+  });
 
-  if (typeof incompleteResults !== 'undefined') {
-    Object.defineProperty(response.data, 'incomplete_results', {
-      get () {
-        deprecateIncompleteResults(octokit.log, new Deprecation('[@octokit/rest] "result.data.incomplete_results" is deprecated.'))
-        return incompleteResults
+  if (typeof incompleteResults !== "undefined") {
+    Object.defineProperty(response.data, "incomplete_results", {
+      get() {
+        deprecateIncompleteResults(
+          octokit.log,
+          new Deprecation(
+            '[@octokit/rest] "result.data.incomplete_results" is deprecated.'
+          )
+        );
+        return incompleteResults;
       }
-    })
+    });
   }
 
-  if (typeof repositorySelection !== 'undefined') {
-    Object.defineProperty(response.data, 'repository_selection', {
-      get () {
-        deprecateTotalCount(octokit.log, new Deprecation('[@octokit/rest] "result.data.repository_selection" is deprecated.'))
-        return repositorySelection
+  if (typeof repositorySelection !== "undefined") {
+    Object.defineProperty(response.data, "repository_selection", {
+      get() {
+        deprecateTotalCount(
+          octokit.log,
+          new Deprecation(
+            '[@octokit/rest] "result.data.repository_selection" is deprecated.'
+          )
+        );
+        return repositorySelection;
       }
-    })
+    });
   }
 
-  Object.defineProperty(response.data, 'total_count', {
-    get () {
-      deprecateTotalCount(octokit.log, new Deprecation('[@octokit/rest] "result.data.total_count" is deprecated.'))
-      return totalCount
+  Object.defineProperty(response.data, "total_count", {
+    get() {
+      deprecateTotalCount(
+        octokit.log,
+        new Deprecation(
+          '[@octokit/rest] "result.data.total_count" is deprecated.'
+        )
+      );
+      return totalCount;
     }
-  })
+  });
 }

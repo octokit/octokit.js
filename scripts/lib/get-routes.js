@@ -1,7 +1,7 @@
-module.exports = getRoutes
+module.exports = getRoutes;
 
-const ROUTES = require('@octokit/routes')
-const camelCase = require('lodash.camelcase')
+const ROUTES = require("@octokit/routes");
+const camelCase = require("lodash.camelcase");
 
 /**
  * We use @octokit/routes directly to
@@ -16,30 +16,33 @@ const camelCase = require('lodash.camelcase')
  * 3. Normalize idName
  *
  */
-function getRoutes () {
+function getRoutes() {
   Object.keys(ROUTES).forEach(scope => {
-    const endpoints = ROUTES[scope]
-    const count = endpoints.length
+    const endpoints = ROUTES[scope];
+    const count = endpoints.length;
 
     // remove legacy & enterprise-cloud endpoints
-    endpoints.slice(0).reverse().forEach((endpoint, i) => {
-      if (/-legacy$/.test(endpoint.idName)) {
-        endpoints.splice(count - i - 1, 1)
-        return
-      }
+    endpoints
+      .slice(0)
+      .reverse()
+      .forEach((endpoint, i) => {
+        if (/-legacy$/.test(endpoint.idName)) {
+          endpoints.splice(count - i - 1, 1);
+          return;
+        }
 
-      if (endpoint.githubCloudOnly) {
-        endpoints.splice(count - i - 1, 1)
-      }
-    })
+        if (endpoint.githubCloudOnly) {
+          endpoints.splice(count - i - 1, 1);
+        }
+      });
 
     // normalize idName
-    endpoints.forEach(normalize)
-  })
+    endpoints.forEach(normalize);
+  });
 
-  return ROUTES
+  return ROUTES;
 }
 
-function normalize (endpoint) {
-  endpoint.idName = camelCase(endpoint.idName)
+function normalize(endpoint) {
+  endpoint.idName = camelCase(endpoint.idName);
 }

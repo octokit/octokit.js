@@ -1,7 +1,7 @@
-module.exports = octokitRegisterEndpoints
+module.exports = octokitRegisterEndpoints;
 
-const registerEndpoints = require('./register-endpoints')
+const registerEndpoints = require("./register-endpoints");
 
-function octokitRegisterEndpoints (octokit) {
-  octokit.registerEndpoints = registerEndpoints.bind(null, octokit)
+function octokitRegisterEndpoints(octokit) {
+  octokit.registerEndpoints = registerEndpoints.bind(null, octokit);
 }

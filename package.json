@@ -73,7 +73,6 @@
     "sinon": "^7.2.4",
     "sinon-chai": "^3.0.0",
     "sort-keys": "^4.0.0",
-    "standard": "^14.0.2",
     "string-to-arraybuffer": "^1.0.0",
     "string-to-jsdoc-comment": "^1.0.0",
     "typescript": "^3.3.1",
@@ -84,7 +83,9 @@
   "types": "index.d.ts",
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
-    "pretest": "standard",
+    "lint": "prettier --check '{lib,plugins,scripts,test}/**/*.{js,json}' index.js README.md package.json",
+    "lint:fix": "prettier --write '{lib,plugins,scripts,test}/**/*.{js,json}' index.js README.md package.json",
+    "pretest": "npm run -s lint",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
     "test:memory": "mocha test/memory-test",
@@ -123,21 +124,6 @@
           "!dist/*.map.gz"
         ]
       }
-    ]
-  },
-  "standard": {
-    "globals": [
-      "describe",
-      "before",
-      "beforeEach",
-      "afterEach",
-      "after",
-      "it",
-      "expect",
-      "cy"
-    ],
-    "ignore": [
-      "/docs"
     ]
   },
   "bundlesize": [

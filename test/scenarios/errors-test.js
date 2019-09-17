@@ -1,36 +1,39 @@
-const { getInstance } = require('../util')
+const { getInstance } = require("../util");
 
-require('../mocha-node-setup')
+require("../mocha-node-setup");
 
-describe('api.github.com', () => {
-  let octokit
+describe("api.github.com", () => {
+  let octokit;
 
   beforeEach(() => {
-    return getInstance('errors', {
-      auth: 'token 0000000000000000000000000000000000000001'
-    })
+    return getInstance("errors", {
+      auth: "token 0000000000000000000000000000000000000001"
+    }).then(instance => {
+      octokit = instance;
+    });
+  });
 
-      .then(instance => {
-        octokit = instance
+  it("(#684) errors-test", () => {
+    return octokit.issues
+      .createLabel({
+        owner: "octokit-fixture-org",
+        repo: "errors",
+        name: "foo",
+        color: "invalid"
       })
-  })
-
-  it('(#684) errors-test', () => {
-    return octokit.issues.createLabel({
-      owner: 'octokit-fixture-org',
-      repo: 'errors',
-      name: 'foo',
-      color: 'invalid'
-    })
 
       .catch(error => {
-        expect(error.message).to.equal('Validation Failed')
-        expect(error.errors).to.deep.equal([{
-          resource: 'Label',
-          code: 'invalid',
-          field: 'color'
-        }])
-        expect(error.documentation_url).to.match(new RegExp('v3/issues/labels/#create-a-label'))
-      })
-  })
-})
+        expect(error.message).to.equal("Validation Failed");
+        expect(error.errors).to.deep.equal([
+          {
+            resource: "Label",
+            code: "invalid",
+            field: "color"
+          }
+        ]);
+        expect(error.documentation_url).to.match(
+          new RegExp("v3/issues/labels/#create-a-label")
+        );
+      });
+  });
+});

@@ -1,237 +1,235 @@
-const nock = require('nock')
-const { getUserAgent } = require('universal-user-agent')
+const nock = require("nock");
+const { getUserAgent } = require("universal-user-agent");
 
-const Octokit = require('../../')
+const Octokit = require("../../");
 
-require('../mocha-node-setup')
+require("../mocha-node-setup");
 
-describe('smoke', () => {
-  it('called as function', () => {
-    Octokit()
-  })
+describe("smoke", () => {
+  it("called as function", () => {
+    Octokit();
+  });
 
-  it('baseUrl option', () => {
-    nock('http://myhost.com')
-      .get('/my/api/orgs/myorg')
-      .reply(200, {})
+  it("baseUrl option", () => {
+    nock("http://myhost.com")
+      .get("/my/api/orgs/myorg")
+      .reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: 'http://myhost.com/my/api'
-    })
+      baseUrl: "http://myhost.com/my/api"
+    });
 
-    return octokit.orgs.get({ org: 'myorg' })
-  })
+    return octokit.orgs.get({ org: "myorg" });
+  });
 
-  it('userAgent option', () => {
-    nock('https://smoke-test.com', {
+  it("userAgent option", () => {
+    nock("https://smoke-test.com", {
       reqheaders: {
-        'user-agent': `blah octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+        "user-agent": `blah octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       }
     })
-      .get('/')
-      .reply(200, {})
+      .get("/")
+      .reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com',
-      userAgent: 'blah'
-    })
-    return octokit.request('/')
-  })
+      baseUrl: "https://smoke-test.com",
+      userAgent: "blah"
+    });
+    return octokit.request("/");
+  });
 
-  it('previews option', () => {
-    nock('https://smoke-test.com', {
+  it("previews option", () => {
+    nock("https://smoke-test.com", {
       reqheaders: {
-        accept: 'application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json'
+        accept:
+          "application/vnd.github.jean-grey-preview+json,application/vnd.github.symmetra-preview+json"
       }
     })
-      .get('/')
-      .reply(200, {})
+      .get("/")
+      .reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com',
+      baseUrl: "https://smoke-test.com",
       previews: [
         // test with & without -preview suffix
-        'jean-grey-preview',
-        'symmetra'
+        "jean-grey-preview",
+        "symmetra"
       ]
-    })
+    });
 
-    return octokit.request('/')
-  })
+    return octokit.request("/");
+  });
 
-  it('mediaType request option', () => {
-    nock('https://smoke-test.com', {
+  it("mediaType request option", () => {
+    nock("https://smoke-test.com", {
       reqheaders: {
-        accept: 'application/vnd.github.foo-preview.raw,application/vnd.github.bar-preview.raw,application/vnd.github.baz-preview.raw'
+        accept:
+          "application/vnd.github.foo-preview.raw,application/vnd.github.bar-preview.raw,application/vnd.github.baz-preview.raw"
       }
     })
-      .get('/')
-      .reply(200, {})
+      .get("/")
+      .reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com',
-      previews: [
-        'foo',
-        'bar-preview'
-      ]
-    })
+      baseUrl: "https://smoke-test.com",
+      previews: ["foo", "bar-preview"]
+    });
 
-    return octokit.request('/', {
+    return octokit.request("/", {
       mediaType: {
-        previews: [
-          'bar',
-          'baz-preview'
-        ],
-        format: 'raw'
+        previews: ["bar", "baz-preview"],
+        format: "raw"
       }
-    })
-  })
+    });
+  });
 
-  it('request option', () => {
+  it("request option", () => {
     const octokit = new Octokit({
       request: {
-        foo: 'bar'
+        foo: "bar"
       }
-    })
+    });
 
-    octokit.hook.wrap('request', (request, options) => {
-      expect(options.request.foo).to.equal('bar')
-      return 'ok'
-    })
+    octokit.hook.wrap("request", (request, options) => {
+      expect(options.request.foo).to.equal("bar");
+      return "ok";
+    });
 
-    return octokit.request('/')
+    return octokit
+      .request("/")
 
       .then(response => {
-        expect(response).to.equal('ok')
-      })
-  })
+        expect(response).to.equal("ok");
+      });
+  });
 
-  it('response.status & response.headers', () => {
-    nock('http://myhost.com')
-      .get('/my/api/orgs/myorg')
-      .reply(200, {}, { 'x-foo': 'bar' })
+  it("response.status & response.headers", () => {
+    nock("http://myhost.com")
+      .get("/my/api/orgs/myorg")
+      .reply(200, {}, { "x-foo": "bar" });
 
     const octokit = new Octokit({
-      baseUrl: 'http://myhost.com/my/api'
-    })
+      baseUrl: "http://myhost.com/my/api"
+    });
 
-    return octokit.orgs.get({ org: 'myorg' })
+    return octokit.orgs
+      .get({ org: "myorg" })
 
       .then(response => {
-        expect(response.headers['x-foo']).to.equal('bar')
-        expect(response.status).to.equal(200)
-      })
-  })
+        expect(response.headers["x-foo"]).to.equal("bar");
+        expect(response.status).to.equal(200);
+      });
+  });
 
   it('.request("GET /")', () => {
-    nock('https://smoke-test.com', {
+    nock("https://smoke-test.com", {
       reqheaders: {
-        accept: 'application/vnd.github.v3+json'
+        accept: "application/vnd.github.v3+json"
       }
     })
-      .get('/')
-      .reply(200, {})
+      .get("/")
+      .reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com'
-    })
-    return octokit.request('GET /')
-  })
+      baseUrl: "https://smoke-test.com"
+    });
+    return octokit.request("GET /");
+  });
 
   it('.request.endpoint("GET /")', () => {
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com'
-    })
+      baseUrl: "https://smoke-test.com"
+    });
 
-    const requestOptions = octokit.request.endpoint('GET /')
+    const requestOptions = octokit.request.endpoint("GET /");
 
     expect(requestOptions).to.deep.equal({
-      method: 'GET',
-      url: 'https://smoke-test.com/',
+      method: "GET",
+      url: "https://smoke-test.com/",
       headers: {
-        accept: 'application/vnd.github.v3+json',
-        'user-agent': `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+        accept: "application/vnd.github.v3+json",
+        "user-agent": `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       },
       request: {
         hook: requestOptions.request.hook
       }
-    })
-  })
+    });
+  });
 
-  it('.repos.get.endpoint()', () => {
+  it(".repos.get.endpoint()", () => {
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com'
-    })
+      baseUrl: "https://smoke-test.com"
+    });
 
-    const requestOptions = octokit.repos.get.endpoint('GET /')
+    const requestOptions = octokit.repos.get.endpoint("GET /");
 
     expect(requestOptions).to.deep.equal({
-      method: 'GET',
-      url: 'https://smoke-test.com/',
+      method: "GET",
+      url: "https://smoke-test.com/",
       headers: {
-        accept: 'application/vnd.github.v3+json',
-        'user-agent': `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+        accept: "application/vnd.github.v3+json",
+        "user-agent": `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
       },
       request: {
         hook: requestOptions.request.hook,
         validate: {
           owner: {
             required: true,
-            type: 'string'
+            type: "string"
           },
           repo: {
             required: true,
-            type: 'string'
+            type: "string"
           }
         }
       }
-    })
-  })
+    });
+  });
 
-  it('.registerEndpoints()', () => {
-    nock('https://smoke-test.com')
-      .get('/baz')
-      .reply(200, {})
+  it(".registerEndpoints()", () => {
+    nock("https://smoke-test.com")
+      .get("/baz")
+      .reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: 'https://smoke-test.com'
-    })
-    expect(octokit.registerEndpoints).to.be.a('function')
+      baseUrl: "https://smoke-test.com"
+    });
+    expect(octokit.registerEndpoints).to.be.a("function");
 
     octokit.registerEndpoints({
       issues: {
         fooBar: {
-          method: 'GET',
-          url: '/baz'
+          method: "GET",
+          url: "/baz"
         }
       }
-    })
+    });
 
     // make sure .registerEndpoints does not remove other methods on the same scope
-    expect(octokit.issues.get).to.be.a('function')
+    expect(octokit.issues.get).to.be.a("function");
 
-    return octokit.issues.fooBar()
-  })
+    return octokit.issues.fooBar();
+  });
 
-  it('options.log', () => {
+  it("options.log", () => {
     // console.debug not implemented in Node 6
     // cy.stub(console, 'debug')
-    cy.stub(console, 'info')
-    cy.stub(console, 'warn')
-    cy.stub(console, 'error')
-    const octokit1 = new Octokit()
+    cy.stub(console, "info");
+    cy.stub(console, "warn");
+    cy.stub(console, "error");
+    const octokit1 = new Octokit();
 
-    octokit1.log.debug('foo')
-    octokit1.log.info('bar')
-    octokit1.log.warn('baz')
-    octokit1.log.error('daz')
+    octokit1.log.debug("foo");
+    octokit1.log.info("bar");
+    octokit1.log.warn("baz");
+    octokit1.log.error("daz");
 
     // expect(console.debug.callCount).to.equal(0)
-    expect(console.info.callCount).to.equal(0)
-    expect(console.warn.callCount).to.equal(1)
-    expect(console.error.callCount).to.equal(1)
+    expect(console.info.callCount).to.equal(0);
+    expect(console.warn.callCount).to.equal(1);
+    expect(console.error.callCount).to.equal(1);
 
-    const calls2 = []
+    const calls2 = [];
     const octokit2 = new Octokit({
       log: {
         debug: calls2.push.bind(calls2),
@@ -239,18 +237,13 @@ describe('smoke', () => {
         warn: calls2.push.bind(calls2),
         error: calls2.push.bind(calls2)
       }
-    })
+    });
 
-    octokit2.log.debug('foo')
-    octokit2.log.info('bar')
-    octokit2.log.warn('baz')
-    octokit2.log.error('daz')
+    octokit2.log.debug("foo");
+    octokit2.log.info("bar");
+    octokit2.log.warn("baz");
+    octokit2.log.error("daz");
 
-    expect(calls2).to.deep.equal([
-      'foo',
-      'bar',
-      'baz',
-      'daz'
-    ])
-  })
-})
+    expect(calls2).to.deep.equal(["foo", "bar", "baz", "daz"]);
+  });
+});

@@ -8,6 +8,7 @@
 [![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
 
 ## Installation
+
 ```shell
 npm install @octokit/rest
 ```
@@ -15,16 +16,18 @@ npm install @octokit/rest
 ## Usage
 
 ```js
-const Octokit = require('@octokit/rest')
-const octokit = new Octokit()
+const Octokit = require("@octokit/rest");
+const octokit = new Octokit();
 
 // Compare: https://developer.github.com/v3/repos/#list-organization-repositories
-octokit.repos.listForOrg({
-  org: 'octokit',
-  type: 'public'
-}).then(({ data }) => {
-  // handle data
-})
+octokit.repos
+  .listForOrg({
+    org: "octokit",
+    type: "public"
+  })
+  .then(({ data }) => {
+    // handle data
+  });
 ```
 
 See https://octokit.github.io/rest.js/ for full documentation.
