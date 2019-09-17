@@ -57,8 +57,6 @@ jobs:
         - sleep 3 # give server some time to start
         - npm run test
         - npm run test:memory
-        # ignore error as coveralls is down frequently so we ignore errors
-        - npx nyc report --reporter=text-lcov | npx coveralls || true
     - node_js: lts/*
       # spead up build times by removing unneeded dev dependencies
       before_install: npm uninstall leakage semantic-release
