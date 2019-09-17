@@ -7,7 +7,7 @@ Import the Octokit constructor.
 For direct usage in browsers, download `octokit-rest.min.js` from the [latest release](https://github.com/octokit/rest.js/releases/latest) and import it using a `<script src="octokit-rest.min.js"></script>` tag.
 
 ```js
-const Octokit = require('@octokit/rest')
+const Octokit = require("@octokit/rest");
 ```
 
 Now instantiate your octokit API. All options are optional, but authentication is strongly encouraged.
@@ -21,7 +21,7 @@ You can set `auth` to a personal access token string.
 Learn more about [authentication](#authentication).
 
 ```js
-  auth: 'secret123'
+auth: "secret123";
 ```
 
 Setting a user agent [is required](https://developer.github.com/v3/#user-agent-required). It defaults to `octokit/rest.js v1.2.3` where `v1.2.3` is the current version of `@octokit/rest`, but you should set it to something that identifies your app or script.
@@ -77,11 +77,11 @@ Most of GitHub’s REST API endpoints have matching methods. All endpoint method
 For example to retrieve a pull request, use [`octokit.pulls.get()`](#octokit-routes-pulls-get). We recommend to use the search above to find the endpoint method you are looking for
 
 ```js
-  const { data: pullRequest } = await octokit.pulls.get({
-    owner: 'octokit',
-    repo: 'rest.js',
-    pull_number: 123
-  })
+const { data: pullRequest } = await octokit.pulls.get({
+  owner: "octokit",
+  repo: "rest.js",
+  pull_number: 123
+});
 ```
 
 Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/). For example, to [`request the above pull request in a diff format`](https://developer.github.com/v3/media/#diff), pass the `mediaType.format` option.
@@ -89,14 +89,14 @@ Some API endpoints support alternative response formats, see [Media types](https
 Learn more about [request formats](#request-formats)
 
 ```js
-  const { data: diff } = await octokit.pulls.get({
-    owner: 'octokit',
-    repo: 'rest.js',
-    pull_number: 123,
-    mediaType: {
-      format: 'diff'
-    }
-  })
+const { data: diff } = await octokit.pulls.get({
+  owner: "octokit",
+  repo: "rest.js",
+  pull_number: 123,
+  mediaType: {
+    format: "diff"
+  }
+});
 ```
 
 For the API endpoints that do not have a matching method, such as the [root endpoint](https://developer.github.com/v3/#root-endpoint) or legacy endpoints, you can send custom requests.
@@ -104,22 +104,22 @@ For the API endpoints that do not have a matching method, such as the [root endp
 Learn more about [custom requests](#custom-requests).
 
 ```js
-  const { data: root } = await octokit.request('GET /')
+const { data: root } = await octokit.request("GET /");
 ```
 
-You can also register custom endpoint methods, which is particularly useful if you participate in a private beta. 
+You can also register custom endpoint methods, which is particularly useful if you participate in a private beta.
 
 Learn more about [custom endpoint methods](#custom-endpoint-methods).
 
 ```js
-  await octokit.registerEndpoints({
-    misc: {
-      getRoot: {
-        method: 'GET',
-        url: '/'
-      }
+await octokit.registerEndpoints({
+  misc: {
+    getRoot: {
+      method: "GET",
+      url: "/"
     }
-  })
+  }
+});
 ```
 
 Some endpoints return a list which has to be paginated in order to retrieve the complete data set.
@@ -156,43 +156,42 @@ const MyOctokit = Octokit.plugin([
 
 ```js
 const myOctokit = new MyOctokit({
-  auth: 'secret123',
+  auth: "secret123",
   throttle: {
     onRateLimit: (retryAfter, options) => {
-      myOctokit.log.warn(`Request quota exhausted for request ${options.method} ${options.url}`)
+      myOctokit.log.warn(
+        `Request quota exhausted for request ${options.method} ${options.url}`
+      );
 
-      if (options.request.retryCount === 0) { // only retries once
-        myOctokit.log.info(`Retrying after ${retryAfter} seconds!`)
-        return true
+      if (options.request.retryCount === 0) {
+        // only retries once
+        myOctokit.log.info(`Retrying after ${retryAfter} seconds!`);
+        return true;
       }
     },
     onAbuseLimit: (retryAfter, options) => {
       // does not retry, only logs a warning
-      myOctokit.log.warn(`Abuse detected for request ${options.method} ${options.url}`)
+      myOctokit.log.warn(
+        `Abuse detected for request ${options.method} ${options.url}`
+      );
     }
   },
   retry: {
-    doNotRetry: ['429']
+    doNotRetry: ["429"]
   }
-})
+});
 ```
 
-
-
-
-
-
-
-
-
 ```js
-const octokit = require('@octokit/rest')
+const octokit = require("@octokit/rest");
 
 // Compare: https://developer.github.com/v3/repos/#list-organization-repositories
-octokit.repos.getForOrg({
-  org: 'octokit',
-  type: 'public'
-}).then(({ data, headers, status }) => {
-  // handle data
-})
+octokit.repos
+  .getForOrg({
+    org: "octokit",
+    type: "public"
+  })
+  .then(({ data, headers, status }) => {
+    // handle data
+  });
 ```

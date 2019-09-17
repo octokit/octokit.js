@@ -5,11 +5,11 @@ title: "Debug"
 The simplest way to receive debug information is to set the [`log` client option](client-options) to `console`.
 
 ```js
-const octokit = require('@octokit/rest')({
+const octokit = require("@octokit/rest")({
   log: console
-})
+});
 
-octokit.request('/')
+octokit.request("/");
 ```
 
 This will log
@@ -29,11 +29,11 @@ GET / - 200 in 514ms
 If you like to support a configurable log level, we recommend using the [console-log-level](https://github.com/watson/console-log-level) module
 
 ```js
-const octokit = require('@octokit/rest')({
-  log: require('console-log-level')({ level: 'info' })
-})
+const octokit = require("@octokit/rest")({
+  log: require("console-log-level")({ level: "info" })
+});
 
-octokit.request('/')
+octokit.request("/");
 ```
 
 This will only log

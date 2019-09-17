@@ -9,24 +9,30 @@ In order to automatically throttle requests as recommended in [GitHub’s best p
 The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required. Return `true` to automatically retry the request after `retryAfter` seconds.
 
 ```js
-const Octokit = require('@octokit/rest')
-  .plugin(require('@octokit/plugin-throttling'))
+const Octokit = require("@octokit/rest").plugin(
+  require("@octokit/plugin-throttling")
+);
 
 const octokit = new Octokit({
-  auth: 'token ' + process.env.TOKEN,
+  auth: "token " + process.env.TOKEN,
   throttle: {
     onRateLimit: (retryAfter, options) => {
-      octokit.log.warn(`Request quota exhausted for request ${options.method} ${options.url}`)
+      octokit.log.warn(
+        `Request quota exhausted for request ${options.method} ${options.url}`
+      );
 
-      if (options.request.retryCount === 0) { // only retries once
-        console.log(`Retrying after ${retryAfter} seconds!`)
-        return true
+      if (options.request.retryCount === 0) {
+        // only retries once
+        console.log(`Retrying after ${retryAfter} seconds!`);
+        return true;
       }
     },
     onAbuseLimit: (retryAfter, options) => {
       // does not retry, only logs a warning
-      octokit.log.warn(`Abuse detected for request ${options.method} ${options.url}`)
+      octokit.log.warn(
+        `Abuse detected for request ${options.method} ${options.url}`
+      );
     }
   }
-})
+});
 ```

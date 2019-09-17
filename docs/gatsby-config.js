@@ -1,9 +1,9 @@
-const camelCase = require('lodash/camelCase')
-const upperFirst = require('lodash/upperFirst')
+const camelCase = require("lodash/camelCase");
+const upperFirst = require("lodash/upperFirst");
 
 module.exports = {
   // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
-  pathPrefix: '/rest.js',
+  pathPrefix: "/rest.js",
   siteMetadata: {
     title: `Octokit.js`
   },
@@ -31,7 +31,7 @@ module.exports = {
               // you may use this to prevent Prism from re-processing syntax.
               // This is an uncommon use-case though;
               // If you're unsure, it's best to use the default value.
-              classPrefix: 'language-',
+              classPrefix: "language-",
               // This is used to allow setting a language for inline code
               // (i.e. single backticks) by creating a separator.
               // This separator is a string and will do no white-space
@@ -77,12 +77,12 @@ module.exports = {
           MarkdownRemark: {
             title: node => node.frontmatter.title,
             slug: node => `#octokit-${node.fields.idName}`,
-            type: node => 'API'
+            type: node => "API"
           },
           OctokitApiGroup: {
             title: node => upperFirst(node.name),
             slug: node => `#${node.id}`,
-            type: node => 'API'
+            type: node => "API"
           },
           OctokitApiMethod: {
             name: node => node.name,
@@ -90,10 +90,10 @@ module.exports = {
             route: node => `${node.method} ${node.path}`,
             method: node => `${node.scope}.${camelCase(node.idName)}`,
             slug: node => `#${node.id}`,
-            type: node => 'API method'
+            type: node => "API method"
           }
         }
       }
     }
   ]
-}
+};

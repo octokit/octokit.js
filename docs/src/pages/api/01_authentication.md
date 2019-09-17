@@ -8,8 +8,8 @@ To enable authenticated requests, pass an `auth` option to the Octokit construct
 
 ```js
 const clientWithAuth = new Octokit({
-  auth: 'token secret123'
-})
+  auth: "token secret123"
+});
 ```
 
 The `auth` option can be
@@ -21,8 +21,8 @@ The `auth` option can be
 
    ```js
    new Octokit({
-     auth: 'secret123'
-   })
+     auth: "secret123"
+   });
    ```
 
    The string can be one of
@@ -44,14 +44,14 @@ The `auth` option can be
    ```js
    new Octokit({
      auth: {
-       username: 'octocat',
-       password: 'secret',
-       async on2fa () {
+       username: "octocat",
+       password: "secret",
+       async on2fa() {
          // example: ask the user
-         return prompt('Two-factor authentication Code:')
+         return prompt("Two-factor authentication Code:");
        }
      }
-   })
+   });
    ```
 
 3. An object with the properties `clientId` and `clientSecret`
@@ -67,28 +67,31 @@ The `auth` option can be
 
    ```js
    new Octokit({
-     auth () {
-       return 'token secret123'
+     auth() {
+       return "token secret123";
      }
-   })
+   });
    ```
 
    This is useful for GitHub apps, as installations need to renew their tokens each hour.
    Here is an example on how to implement authentication for GitHub Apps
 
    ```js
-   const { App } = require('@octokit/app')
-   const Octokit = require('@octokit/rest')
+   const { App } = require("@octokit/app");
+   const Octokit = require("@octokit/rest");
 
-   const app = new App({ id: process.env.APP_ID, privateKey: process.env.PRIVATE_KEY })
+   const app = new App({
+     id: process.env.APP_ID,
+     privateKey: process.env.PRIVATE_KEY
+   });
    const octokit = new Octokit({
-     async auth () {
-       const installationAccessToken = await app.getInstallationAccessToken({ 
-         installationId: process.env.INSTALLATION_ID 
+     async auth() {
+       const installationAccessToken = await app.getInstallationAccessToken({
+         installationId: process.env.INSTALLATION_ID
        });
        return `token ${installationAccessToken}`;
      }
-   })
+   });
    ```
 
    See also: https://github.com/octokit/app.js#authenticating-as-an-installation.
