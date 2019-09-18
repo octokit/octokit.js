@@ -22,16 +22,9 @@ install: npm ci
 jobs:
   include:
     - stage: test
-      # spead up build times by removing unneeded dev dependencies
-      before_install:
-        - npm install -g npm@6
-        - npm uninstall leakage semantic-release
-      node_js: 6
-      script:
-        - npm run start-fixtures-server &
-        - sleep 3 # give server some time to start
-        - npm run test
-    - node_js: 8
+      # while code should be compatible with Node 6, we can no longer test as too many dependencies
+      # depend on Node 8+ syntax.
+      node_js: 8
       # spead up build times by removing unneeded dev dependencies
       before_install: npm uninstall leakage cypress semantic-release
       script:
