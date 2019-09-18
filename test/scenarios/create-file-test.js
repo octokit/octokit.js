@@ -15,9 +15,9 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.createFile()", () => {
+  it("octokit.repos.createOrUpdateFile()", () => {
     return octokit.repos
-      .createFile({
+      .createOrUpdateFile({
         owner: "octokit-fixture-org",
         repo: "create-file",
         path: "test.txt",
