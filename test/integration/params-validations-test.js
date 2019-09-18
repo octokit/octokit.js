@@ -86,7 +86,7 @@ describe("params validations", () => {
       .createCommitComment({
         owner: "foo",
         repo: "bar",
-        sha: "lala",
+        commit_sha: "lala",
         body: "Sing with me!",
         position: "Age Ain’t Nothing"
       })
