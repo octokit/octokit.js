@@ -82,8 +82,8 @@
   "types": "index.d.ts",
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
-    "lint": "prettier --check '{lib,plugins,scripts,test}/**/*.{js,json}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
-    "lint:fix": "prettier --write '{lib,plugins,scripts,test}/**/*.{js,json}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
+    "lint": "prettier --check '{lib,plugins,scripts,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
+    "lint:fix": "prettier --write '{lib,plugins,scripts,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
     "pretest": "npm run -s lint",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
