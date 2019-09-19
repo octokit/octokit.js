@@ -1,10 +1,10 @@
-name: Update the REST API endpoint methods when octokit/routes updates
+name: Update REST API endpoint methods
 on:
   repository_dispatch:
     types: [octokit-routes-release]
 
 jobs:
-  update_docs:
+  update_routes:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -13,16 +13,7 @@ jobs:
           node-version: "12.x"
       - run: npm ci
       - run: npm run generate-routes
-      - name: configure git user.email and user.name
-        run: |
-          git config --global user.email 'octokitbot@martynus.net'
-          git config --global user.name 'OctokitBot'
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v1.1.3
+        uses: peter-evans/create-pull-request@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_ACCESS_TOKEN: ${{ join('x-access-token:', secrets.GITHUB_TOKEN) }}
-          PULL_REQUEST_BRANCH: octokit-routes-update
-          COMMIT_MESSAGE: "build: routes.json updated"
-          PULL_REQUEST_TITLE: octokit/routes updated
-          PULL_REQUEST_BODY: "A new version of octokit/routes was released. The update includes changes that require and update for `@octokit/rest`"
