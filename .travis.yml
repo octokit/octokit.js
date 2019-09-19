@@ -42,12 +42,11 @@ jobs:
             - g++-4.8
       # spead up build times by removing unneeded dev dependencies
       before_install: npm uninstall cypress semantic-release
-      env: Node 10, memory test, coverage upload
+      env: Node 10, coverage upload
       script:
         - npm run start-fixtures-server &
         - sleep 3 # give server some time to start
         - npm run test
-        - npm run test:memory
     - node_js: lts/*
       # spead up build times by removing unneeded dev dependencies
       before_install: npm uninstall leakage semantic-release
