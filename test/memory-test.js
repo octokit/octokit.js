@@ -1,3 +1,6 @@
+// TODO: we don't currently run this test as part of our CI
+// as installing leakage broke for recent Node versions.
+// We are looking for an alternative.
 const { iterate } = require("leakage");
 const Octokit = require("../");
 
