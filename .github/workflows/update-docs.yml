@@ -1,0 +1,22 @@
+name: Update docs on pushes to master
+on:
+  push:
+    branches:
+      - actions-v2 # TODO: remove before merging
+      - master
+
+jobs:
+  update_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: npm ci
+      - run: npm --prefix ./docs ci ./docs
+      - run: npm run build --prefix ./docs -- --prefix-paths
+      - uses: maxheld83/ghpages@master
+        env:
+          BUILD_DIR: docs/public/
+          GH_PAT: ${{ secrets.GH_PAT }}
