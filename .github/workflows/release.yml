@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - master
+      - next
+      - beta
+      - "greenkeeper/*"
+      - 15.x
+      - 16.x # TODO: can we use a pattern for these?
+
+name: Release
+jobs:
+  build:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: npm ci
+      - run: npm run build:ts
+      - run: npm run build:browser
+      - run: npm run generate-bundle-report
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
