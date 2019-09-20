@@ -44,7 +44,7 @@ In order to use Octokit with GitHub Enterprise, set the `baseUrl` option.
   baseUrl: 'https://api.github.com',
 ```
 
-For custom loggin, pass an object with `debug`, `info`, `warn` and `error` methods as the `log` option.
+For custom logging, pass an object with `debug`, `info`, `warn` and `error` methods as the `log` option.
 
 Learn more about [logging](#logging) and [debugging](#debug).
 
