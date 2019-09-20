@@ -17,3 +17,7 @@ jobs:
         uses: peter-evans/create-pull-request@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: octokit-routes-update
+          COMMIT_MESSAGE: "build: routes.json updated"
+          PULL_REQUEST_TITLE: octokit/routes updated
+          PULL_REQUEST_BODY: "A new version of octokit/routes was released. The update includes changes that require and update for `@octokit/rest`"
