@@ -4,7 +4,6 @@ on:
       - master
       - next
       - beta
-      - "greenkeeper/*"
       - 15.x
       - 16.x # TODO: can we use a pattern for these?
 
