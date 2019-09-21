@@ -2761,6 +2761,7 @@
       "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "createFromIssue": {
+      "deprecated": "octokit.pulls.createFromIssue() has been deprecated. Use octokit.pulls.create() instead.",
       "method": "POST",
       "params": {
         "base": { "required": true, "type": "string" },

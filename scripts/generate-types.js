@@ -498,53 +498,21 @@ async function getRoutes() {
     ]
   };
 
-  newRoutes.pulls.create = {
+  newRoutes.pulls.createFromIssue = {
+    isDeprecated: true,
     method: "POST",
-    description: `To open or update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open or update a pull request.
-
-This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.`,
+    description: "",
     params: {
-      base: {
-        required: true,
-        type: "string",
-        description:
-          "The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository."
-      },
-      body: {
-        type: "string",
-        description: "The contents of the pull request."
-      },
-      draft: {
-        type: "boolean",
-        description: `Indicates whether the pull request is a draft. See "[Draft Pull Requests](https://help.github.com/en/articles/about-pull-requests#draft-pull-requests)" in the GitHub Help documentation to learn more.`
-      },
-      head: {
-        required: true,
-        type: "string",
-        description:
-          "The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`."
-      },
-      maintainer_can_modify: {
-        type: "boolean",
-        description:
-          "Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request."
-      },
-      owner: {
-        required: true,
-        type: "string"
-      },
-      repo: {
-        required: true,
-        type: "string"
-      },
-      title: {
-        required: true,
-        type: "string",
-        description: "The title of the pull request."
-      }
+      base: { required: true, type: "string" },
+      draft: { type: "boolean" },
+      head: { required: true, type: "string" },
+      issue: { required: true, type: "integer" },
+      maintainer_can_modify: { type: "boolean" },
+      owner: { required: true, type: "string" },
+      repo: { required: true, type: "string" }
     },
     url: "/repos/:owner/:repo/pulls",
-    responses: newRoutes.pulls.createFromIssue.responses
+    responses: newRoutes.pulls.create.responses
   };
 
   // workaround to bring back the simpler `octokit.repos.uploadReleaseAsset()` method
