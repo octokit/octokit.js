@@ -18,6 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: octokit-routes-update
-          COMMIT_MESSAGE: "build: routes.json updated"
+          COMMIT_MESSAGE: "WIP routes.json updated - edit changes and commit message as needed"
           PULL_REQUEST_TITLE: octokit/routes updated
           PULL_REQUEST_BODY: "A new version of octokit/routes was released. The update includes changes that require and update for `@octokit/rest`"
