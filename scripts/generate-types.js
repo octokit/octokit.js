@@ -239,7 +239,17 @@ async function generateTypes(languageName, templateFile, outputFile) {
     })
   });
 
-  const source = prettier.format(body, { parser: languageName.toLowerCase() });
+  const comment = `/**
+ * This file is generated based on https://github.com/octokit/routes/ & "npm run build:ts".
+ *
+ * DO NOT EDIT MANUALLY.
+ */
+
+`;
+
+  const source = prettier.format(comment + body, {
+    parser: languageName.toLowerCase()
+  });
 
   const definitionFilePath = pathJoin(__dirname, "..", outputFile);
 

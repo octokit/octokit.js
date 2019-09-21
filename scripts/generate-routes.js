@@ -213,38 +213,18 @@ async function generateRoutes() {
     },
     url: "/repos/:owner/:repo/labels/:current_name"
   };
-  newRoutes.pulls.create = {
+  newRoutes.pulls.createFromIssue = {
+    deprecated:
+      "octokit.pulls.createFromIssue() has been deprecated. Use octokit.pulls.create() instead.",
     method: "POST",
     params: {
-      base: {
-        required: true,
-        type: "string"
-      },
-      body: {
-        type: "string"
-      },
-      draft: {
-        type: "boolean"
-      },
-      head: {
-        required: true,
-        type: "string"
-      },
-      maintainer_can_modify: {
-        type: "boolean"
-      },
-      owner: {
-        required: true,
-        type: "string"
-      },
-      repo: {
-        required: true,
-        type: "string"
-      },
-      title: {
-        required: true,
-        type: "string"
-      }
+      base: { required: true, type: "string" },
+      draft: { type: "boolean" },
+      head: { required: true, type: "string" },
+      issue: { required: true, type: "integer" },
+      maintainer_can_modify: { type: "boolean" },
+      owner: { required: true, type: "string" },
+      repo: { required: true, type: "string" }
     },
     url: "/repos/:owner/:repo/pulls"
   };
