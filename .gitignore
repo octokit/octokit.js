@@ -3,9 +3,6 @@
 coverage
 node_modules
 
-# type definitions are generated before publish
-index.d.ts
-
 # API DOCs are generated before publish
 doc/
 
