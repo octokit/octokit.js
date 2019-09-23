@@ -197,4 +197,15 @@ export default async function() {
 
   const myOctokit = new MyOctokit();
   myOctokit.request("/");
+
+  // mediaType parameter
+  // https://github.com/probot/probot/issues/1024
+  await octokit.pulls.get({
+    owner: "owner",
+    repo: "repo",
+    pull_number: 123,
+    mediaType: {
+      format: "diff"
+    }
+  });
 }
